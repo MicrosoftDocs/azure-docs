@@ -12,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---

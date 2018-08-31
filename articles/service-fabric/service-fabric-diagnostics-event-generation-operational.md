@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
@@ -33,7 +33,7 @@ Here is a list of all the events available in the platform, sorted by the entity
 
 | EventId | Name | Source (Task) | Level | Version |
 | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStartOperational | CM | Informational | c1 |
+| 29627 | ClusterUpgradeStartOperational | CM | Informational | 1 |
 | 29628 | ClusterUpgradeCompleteOperational | CM | Informational | 1 |
 | 29629 | ClusterUpgradeRollbackStartOperational | CM | Informational | 1 |
 | 29630 | ClusterUpgradeRollbackCompleteOperational | CM | Informational | 1 |

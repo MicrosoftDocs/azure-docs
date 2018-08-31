@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 07/13/2018
 ms.author: kumud
 ---
 
@@ -34,11 +34,11 @@ There are multiple [outbound scenarios](#scenarios). You can combine these scena
 
 Azure provides three different methods to achieve outbound connectivity Classic deployments.  Not all Classic deployments have all three scenarios available to them:
 
-| Scenario | Method | Description | Web Worker Role | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1. VM with an Instance Level Public IP address](#ilpip) | SNAT, port masquerading not used |Azure uses the public IP assigned Virtual Machine. The instance has all ephemeral ports available. | No | Yes |
-| [2. public load-balanced endpoint](#publiclbendpoint) | SNAT with port masquerading (PAT) to the public endpoint |Azure shares the public IP address public endpoint with multiple private endpoints. Azure uses ephemeral ports of the public endpoint for PAT. | Yes | Yes |
-| [3. Standalone VM ](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with the entire deployment, and uses ephemeral ports of the public endpoint IP address for PAT. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. | Yes | Yes|
+| Scenario | Method | IP Protocols | Description | Web Worker Role | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1. VM with an Instance Level Public IP address](#ilpip) | SNAT, port masquerading not used | TCP, UDP, ICMP, ESP | Azure uses the public IP assigned Virtual Machine. The instance has all ephemeral ports available. | No | Yes |
+| [2. public load-balanced endpoint](#publiclbendpoint) | SNAT with port masquerading (PAT) to the public endpoint | TCP, UDP | Azure shares the public IP address public endpoint with multiple private endpoints. Azure uses ephemeral ports of the public endpoint for PAT. | Yes | Yes |
+| [3. Standalone VM ](#defaultsnat) | SNAT with port masquerading (PAT) | TCP, UDP | Azure automatically designates a public IP address for SNAT, shares this public IP address with the entire deployment, and uses ephemeral ports of the public endpoint IP address for PAT. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. | Yes | Yes |
 
 This is a subset of outbound connection functionality available for Resource Manager deployments in Azure.  
 
@@ -117,6 +117,8 @@ Remember that the number of SNAT ports available does not translate directly to 
 Changing the size of your deployment might affect some of your established flows. If the backend pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger backend pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
 
 If the deployment size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
+
+If a cloud service is redeployed or changed, the infrastructure may temporarily report the backend pool to be up to twice as large as actual and Azure will in turn preallocate less SNAT ports per instance than expected.  This can temporarily increase the probability of SNAT port exhaustion. Eventually the pool size will transition to actual size and Azure will automatically increase preallocated SNAT ports to the expected number as per the table above.  This behavior is by design and is not configurable.
 
 SNAT ports allocations are IP transport protocol specific (TCP and UDP are maintained separately) and are released under the following conditions:
 

@@ -1,18 +1,13 @@
 ---
-title: Install published application - H2O Sparkling Water - Azure HDInsight | Microsoft Docs
+title: Install published application - H2O Sparkling Water - Azure HDInsight 
 description: Install and use the H2O Sparkling Water third-party Hadoop application.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
 
@@ -34,7 +29,7 @@ H2O Sparkling Water provides:
 
 ### Resource links
 
-* [H2O.ai Engineering Roadmap](https://jira.h2o.ai/)
+* [H2O.ai Engineering Roadmap](http://jira.h2o.ai/)
 * [H2O.ai Home](http://www.h2o.ai/)
 * [H2O.ai Documentation](http://docs.h2o.ai/)
 * [H2O.ai Support](https://support.h2o.ai/)

@@ -2,18 +2,15 @@
 title: How to mount Azure Blob storage as a file system on Linux | Microsoft Docs
 description: Mount an Azure Blob storage container with FUSE on Linux
 services: storage
-documentationcenter: linux
 author: seguler
-manager: jahogg
 
 ms.service: storage
-ms.devlang: bash
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/10/2018
 ms.author: seguler
-
 ---
-# How to mount Blob storage as a file system with blobfuse (Preview)
+
+# How to mount Blob storage as a file system with blobfuse
 
 ## Overview
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter.  
@@ -75,7 +72,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
 ### Use an SSD for temporary path
-In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. In Ubuntu distributions, this ephemeral disk is mounted on '/mnt' whereas it is mounted on '/mnt/resource/' in RedHat and CentOS distributions.
+In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. In Ubuntu distributions, this ephemeral disk is mounted on '/mnt' whereas it is mounted on '/mnt/resource/' in Red Hat and CentOS distributions.
 
 Ensure your user has access to the temporary path:
 ```bash

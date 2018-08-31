@@ -3,7 +3,7 @@ title: Virtual machine sizes for Azure Cloud services | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Sizes for Cloud Services
@@ -78,11 +78,11 @@ The following tables show the sizes and the capacities they provide.
 * Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput increases accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
 
 ## A-series
-| Size            | CPU cores | Memory: GiB  | Local HDD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB  | Temporary Storage: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0.768        | 20                   | 1 / low |
 | Small           | 1         | 1.75         | 225                  | 1 / moderate |
-| Medium          | 2         | 3.5 GB       | 490                  | 1 / moderate |
+| Medium          | 2         | 3.5          | 490                  | 1 / moderate |
 | Large           | 4         | 7            | 1000                 | 2 / high |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / high |
 | A5              | 2         | 14           | 490                  | 1 / moderate |
@@ -92,7 +92,7 @@ The following tables show the sizes and the capacities they provide.
 ## A-series - compute-intensive instances
 For information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Size            | CPU cores | Memory: GiB  | Local HDD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB  | Temporary Storage: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2 / high |
 | A9*             |16         | 112          | 1817                 | 4 / very high |
@@ -103,7 +103,7 @@ For information and considerations about using these sizes, see [High performanc
 
 ## Av2-series
 
-| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB  | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1 / moderate                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2 / moderate                 |
@@ -115,7 +115,7 @@ For information and considerations about using these sizes, see [High performanc
 
 
 ## D-series
-| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB  | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3.5          | 50                   | 1 / moderate |
 | Standard_D2     | 2         | 7            | 100                  | 2 / high |
@@ -127,7 +127,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_D14    | 16        | 112          | 800                  | 8 / very high |
 
 ## Dv2-series
-| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB  | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3.5          | 50                   | 1 / moderate |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2 / high |
@@ -142,7 +142,7 @@ For information and considerations about using these sizes, see [High performanc
 
 ## Dv3-series
 
-| Size            | CPU cores | Memory: GiB   | Local SSD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB   | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2 / moderate |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2 / high |
@@ -153,7 +153,7 @@ For information and considerations about using these sizes, see [High performanc
 
 ## Ev3-series
 
-| Size            | CPU cores | Memory: GiB   | Local SSD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB   | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2 / moderate |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2 / high |
@@ -164,7 +164,7 @@ For information and considerations about using these sizes, see [High performanc
 
 
 ## G-series
-| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB  | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / high |
 | Standard_G2     | 4         | 56           | 768                  |2 / high |
@@ -177,7 +177,7 @@ Azure H-series virtual machines are the next generation high performance computi
 
 In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
 
-| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+| Size            | CPU cores | Memory: GiB  | Temporary Storage (SSD): GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1000                 | 8 / high |
 | Standard_H16    | 16        | 112          | 2000                 | 8 / very high |

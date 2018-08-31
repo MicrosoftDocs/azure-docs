@@ -2,8 +2,8 @@
 title: Quickstart - Direct web traffic with Azure Application Gateway - Azure portal | Microsoft Docs
 description: Learn how use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -11,7 +11,7 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
-ms.author: davidmu
+ms.author: victorh
 ms.custom: mvc
 ---
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal

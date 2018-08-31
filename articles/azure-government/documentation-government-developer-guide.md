@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/19/2017
+ms.date: 08/13/2018
 ms.author: stemi
 
 ---
@@ -81,11 +81,13 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Portal | https://portal.azure.us | https://portal.azure.com |
 | Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com |
 | Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
+| Microsoft Graph API | https://graph.microsoft.com/ | https://graph.microsoft.com/ |
 | Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
 | SQL Database DNS Suffix | *.database.usgovcloudapi.net | *.database.windows.net |
-| Storage Endpoint Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
+| Storage DNS Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
 | Traffic Manager DNS Suffix | *.usgovtrafficmanager.net | *.trafficmanager.net |
 | Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
+| Service Bus DNS Suffix | *.servicebus.usgovcloudapi.net | *.servicebus.windows.net |
 | Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
@@ -98,4 +100,4 @@ For more information about Azure Government, see the following resources:
 * [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
 * [Azure Government Overview](documentation-government-welcome.md)
 * [Azure Government Blog](http://blogs.msdn.microsoft.com/azuregov/)
-* [Azure Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+* [Azure Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)

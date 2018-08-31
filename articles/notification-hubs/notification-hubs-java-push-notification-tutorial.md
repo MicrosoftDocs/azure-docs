@@ -3,9 +3,9 @@ title: How to use Notification Hubs with Java
 description: Learn how to use Azure Notification Hubs from a Java back-end.
 services: notification-hubs
 documentationcenter: ''
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
@@ -13,15 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # How to use Notification Hubs from Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 This topic describes the key features of the new fully supported official Azure Notification Hub Java SDK. 
-This is an open source project and you can view the entire SDK code at [Java SDK]. 
+This project is an open-source project and you can view the entire SDK code at [Java SDK]. 
 
 In general, you can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx). This Java SDK provides a thin wrapper over these REST interfaces in Java. 
 
@@ -100,9 +100,9 @@ Similarly you can create registrations for Android (GCM), Windows Phone (MPNS), 
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
     hub.createRegistration(reg);
 
-**Create registrations using create registrationid + upsert pattern**
+**Create registrations using create registration ID + upsert pattern**
 
-Removes duplicates due to any lost responses if storing registration ids on the device:
+Removes duplicates due to any lost responses if storing registration IDs on the device:
 
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -120,25 +120,29 @@ Removes duplicates due to any lost responses if storing registration ids on the 
 
 * **Get single registration:**
   
-    hub.getRegistration(regid);
+        hub.getRegistration(regid);
+
 * **Get all registrations in hub:**
   
-    hub.getRegistrations();
+        hub.getRegistrations();
+
 * **Get registrations with tag:**
   
-    hub.getRegistrationsByTag("myTag");
+        hub.getRegistrationsByTag("myTag");
+
 * **Get registrations by channel:**
   
-    hub.getRegistrationsByChannel("devicetoken");
+        hub.getRegistrationsByChannel("devicetoken");
+
 
 All collection queries support $top and continuation tokens.
 
 ### Installation API usage
-Installation API is an alternative mechanism for registration management. Instead of maintaining multiple registrations which is not trivial and may be easily done wrongly or inefficiently, it is now possible to use a SINGLE Installation object. 
-Installation contains everything you need: push channel (device token), tags, templates, secondary tiles (for WNS and APNS). You don't need to call the service to get Id anymore - just generate GUID or any other identifier, keep it on device and send to your backend together with push channel (device token). 
-On the backend you should only do a single call: CreateOrUpdateInstallation, it is fully idempotent, so feel free to retry if needed.
+Installation API is an alternative mechanism for registration management. Instead of maintaining multiple registrations, which are not trivial and may be easily done wrongly or inefficiently, it is now possible to use a SINGLE Installation object. 
+Installation contains everything you need: push channel (device token), tags, templates, secondary tiles (for WNS and APNS). You don't need to call the service to get ID anymore - just generate GUID or any other identifier, keep it on device and send to your backend together with push channel (device token). 
+On the backend, you should only do a single call: CreateOrUpdateInstallation, it is fully idempotent, so feel free to retry if needed.
 
-As example for Amazon Kindle Fire it looks like this:
+As example for Amazon Kindle Fire:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
@@ -150,7 +154,7 @@ If you want to update it:
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-For advanced scenarios we have partial update capability which allows to modify only particular properties of the installation object. Basically partial update is subset of JSON Patch operations you can run against Installation object.
+For advanced scenarios, use the partial update capability, which allows to modify only particular properties of the installation object. Partial update is subset of JSON Patch operations you can run against Installation object.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +165,9 @@ Delete Installation:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, Patch and Delete are eventually consistent with Get. Your requested operation just goes to the system queue during the call and will be executed in background. Note that Get is not designed for main runtime scenario but just for debug and troubleshooting purposes, it is tightly throttled by the service.
+CreateOrUpdate, Patch, and Delete are eventually consistent with Get. Your requested operation just goes to the system queue during the call and is executed in background. Get is not designed for main runtime scenario but just for debug and troubleshooting purposes, it is tightly throttled by the service.
 
-Send flow for Installations is the same as for Registrations. We've just introduced an option to target notification to the particular Installation - just use tag "InstallationId:{desired-id}". For case above it would look like this:
+Send flow for Installations is the same as for Registrations. To target notification to the particular Installation - just use tag "InstallationId:{desired-id}". For this case, the code is:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -176,7 +180,7 @@ For one of several templates:
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
 
 ### Schedule Notifications (available for STANDARD Tier)
-The same as regular send but with one additional parameter - scheduledTime which says when notification should be delivered. Service accepts any point of time between now + 5 minutes and now + 7 days.
+The same as regular send but with one additional parameter - scheduledTime, which says when notification should be delivered. Service accepts any point of time between now + 5 minutes and now + 7 days.
 
 **Schedule a Windows native notification:**
 
@@ -186,7 +190,7 @@ The same as regular send but with one additional parameter - scheduledTime which
     hub.scheduleNotification(n, c.getTime());
 
 ### Import/Export (available for STANDARD Tier)
-Sometimes it is required to perform bulk operation against registrations. Usually it is for integration with another system or just a massive fix to say update the tags. It is strongly not recommended to use Get/Update flow if we are talking about thousands of registrations. Import/Export capability is designed to cover the scenario. Basically you provide an access to some blob container under your storage account as a source of incoming data and location for output.
+Sometimes it is required to perform bulk operation against registrations. Usually it is for integration with another system or just a massive fix to say update the tags. It is not recommended to use Get/Update flow if thousands of registrations are involved. Import/Export capability is designed to cover the scenario. Basically you provide an access to some blob container under your storage account as a source of incoming data and location for output.
 
 **Submit export job:**
 
@@ -218,7 +222,7 @@ Sometimes it is required to perform bulk operation against registrations. Usuall
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
 **URI with SAS signature:**
-This is the URL of some blob file or blob container plus set of parameters like permissions and expiration time plus signature of all these things made using account's SAS key. Azure Storage Java SDK has rich capabilities including creation of such kind of URIs. As simple alternative you can take a look at ImportExportE2E test class (from the github location) which has very basic and compact implementation of signing algorithm.
+ This URL is the URL of some blob file or blob container plus set of parameters like permissions and expiration time plus signature of all these things made using account's SAS key. Azure Storage Java SDK has rich capabilities including creation of such kind of URIs. As simple alternative you can take a look at ImportExportE2E test class (from the github location) which has basic and compact implementation of signing algorithm.
 
 ### Send Notifications
 The Notification object is simply a body with headers, some utility methods help in building the native and template notifications objects.
@@ -273,7 +277,7 @@ The Notification object is simply a body with headers, some utility methods help
 Running your Java code should now produce a notification appearing on your target device.
 
 ## <a name="next-steps"></a>Next Steps
-In this topic we showed how to create a simple Java REST client for Notification Hubs. From here you can:
+This topic showed you how to create a simple Java REST client for Notification Hubs. From here you can:
 
 * Download the full [Java SDK], which contains the entire SDK code. 
 * Play with the samples:
@@ -284,11 +288,11 @@ In this topic we showed how to create a simple Java REST client for Notification
   * [Send cross-platform notifications to authenticated users]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Get Started with Notification Hubs]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Send breaking news]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Send localized breaking news]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Send notifications to authenticated users]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Send cross-platform notifications to authenticated users]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get Started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Send localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Send notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Send cross-platform notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Maven]: http://maven.apache.org/
 

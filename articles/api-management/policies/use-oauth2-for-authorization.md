@@ -3,7 +3,7 @@ title: Azure API managment policy sample - Use OAuth2 for authorization between 
 description: Azure API managment policy sample - Demonstrates how to use OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from AAD and forward it to the backend.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -28,8 +28,8 @@ The following script uses properties that appear in {{property}}. To learn about
 
 Paste the code into the **inbound** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Get OAuth2 access token from AAD and forward it to the backend.xml)]
-
+[!code-xml[Main](../../../api-management-policy-samples/examples/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
+  
 ## Next steps
 
 Learn more about APIM policies:

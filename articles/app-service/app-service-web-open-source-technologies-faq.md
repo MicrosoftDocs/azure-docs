@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -25,20 +25,6 @@ ms.author: genli
 This article has answers to frequently asked questions (FAQs) about issues with open-source technologies for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
-
-## My ClearDB database is down. How do I resolve this?
-
-For database-related issues, contact [ClearDB support](https://www.cleardb.com/developers/help/support). 
-
-For answers to common questions about ClearDB, see [ClearDB FAQs](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## Why wasn't my ClearDB database migrated during my subscription migration?
-
-When you perform resource migration across subscriptions, some limitations apply. A ClearDB MySQL database is a third-party service and is not migrated during an Azure subscription migration.
-
-If you don't manage the migration of your MySQL database before you migrate your Azure resources, your ClearDB MySQL database might be unavailable. To avoid this, first, manually migrate your ClearDB database, and then migrate the Azure subscription for your web app.
-
-For more information, see [FAQs for ClearDB MySQL databases with Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## How do I turn on PHP logging to troubleshoot PHP issues?
 
@@ -64,16 +50,7 @@ To turn on PHP logging:
 For more information, see [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 ## How do I log Python application errors in apps that are hosted in App Service?
-
-To capture Python application errors:
-
-1. In the Azure portal, in your web app, select **Settings**.
-2. On the **Settings** tab, select **Application settings**.
-3. Under **App settings**, enter the following key/value pair:
-    * Key : WSGI_LOG
-    * Value : D:\home\site\wwwroot\logs.txt (enter your choice of file name)
-
-You should now see errors in the logs.txt file in the wwwroot folder.
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## How do I change the version of the Node.js application that is hosted in App Service?
 

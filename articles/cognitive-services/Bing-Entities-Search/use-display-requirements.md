@@ -8,10 +8,8 @@ ms.assetid: C3B53282-9A6F-4482-AE53-03D7FA8F3D70
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 05/15/2018
 ms.author: scottwhi
 ---
-
-# Bing Search API use and display requirements
 
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

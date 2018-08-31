@@ -4,7 +4,7 @@ description: Architectural overview of how to deploy SAP HANA on Azure (Large In
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/02/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ## What is SAP HANA on Azure (Large Instances)?
 
-SAP HANA on Azure (Large Instances) is a unique solution to Azure. In addition to providing virtual machines for deploying and running SAP HANA, Azure offers you the possibility to run and deploy SAP HANA on bare-metal servers that are dedicated to you. The SAP HANA on Azure (Large Instances) solution builds on non-shared host/server bare-metal hardware that is assigned to you. The server hardware is embedded in larger stamps that contain compute/server, networking, and storage infrastructure. As a combination, it's HANA tailored data center integration (TDI) certified. SAP HANA on Azure (Large Instances) offers different server SKUs or sizes. Units can have 72 CPUs and 768 GB of memory and go up to units that have 960 CPUs and 20 TB of memory.
+SAP HANA on Azure (Large Instances) is a unique solution to Azure. In addition to providing virtual machines for deploying and running SAP HANA, Azure offers you the possibility to run and deploy SAP HANA on bare-metal servers that are dedicated to you. The SAP HANA on Azure (Large Instances) solution builds on non-shared host/server bare-metal hardware that is assigned to you. The server hardware is embedded in larger stamps that contain compute/server, networking, and storage infrastructure. As a combination, it's HANA tailored data center integration (TDI) certified. SAP HANA on Azure (Large Instances) offers different server SKUs or sizes. Units can have 36 Intel CPU cores and 768 GB of memory and go up to units that have up to 480 Intel CPU cores and up to 24 TB of memory.
 
 The customer isolation within the infrastructure stamp is performed in tenants, which looks like:
 
@@ -64,8 +64,8 @@ Several common definitions are widely used in the Architecture and Technical Dep
    Domain users of the on-premises domain can access the servers and run services on those VMs (such as DBMS services). Communication and name resolution between VMs deployed on-premises and Azure-deployed VMs is possible. This scenario is typical of the way in which most SAP assets are deployed. For more information, see [Plan and design for Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual network with a site-to-site connection by using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant**: A customer deployed in HANA Large Instance stamp gets isolated into a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the HANA Large Instance stamp level. A customer can choose to have deployments into different tenants. Even then, there is no communication between tenants on the HANA Large Instance stamp level.
 - **SKU category**: For HANA Large Instance, the following two categories of SKUs are offered:
-    - **Type I class**: S72, S72m, S144, S144m, S192, and S192m
-    - **Type II class**: S384, S384m, S384xm, S576, S768, and S960
+    - **Type I class**: S72, S72m, S144, S144m, S192, S192m, and S192xm
+    - **Type II class**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, and S960m
 
 
 A variety of additional resources are available on how to deploy an SAP workload in the cloud. If you plan to execute a deployment of SAP HANA in Azure, you need to be experienced with and aware of the principles of Azure IaaS and the deployment of SAP workloads on Azure IaaS. Before you continue, see [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information. 
@@ -76,9 +76,9 @@ Besides the NetWeaver certification, SAP requires a special certification for SA
 
 The core SAP Note on NetWeaver, and to a degree SAP HANA certification, is [SAP Note #1928533 – SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533).
 
-The [SAP Note #2316233 - SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E) is also significant. It covers the solution described in this guide. Additionally, you are supported to run SAP HANA in the GS5 VM type of Azure. Information for this case is published on [the SAP website](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+The certification records for SAP HANA on Azure (Large Instances) units can be found in the [SAP HANA certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
 
-The SAP HANA on Azure (Large Instances) solution referred to in SAP Note #2316233 provides Microsoft and SAP customers the ability to deploy large SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA, or other SAP HANA workloads in Azure. The solution is based on the SAP-HANA certified dedicated hardware stamp ([SAP HANA tailored data center integration – TDI](https://scn.sap.com/docs/DOC-63140)). If you run an SAP HANA TDI-configured solution, all SAP HANA-based applications (such as SAP Business Suite on SAP HANA, SAP BW on SAP HANA, S4/HANA, and BW4/HANA) works on the hardware infrastructure.
+The SAP HANA on Azure (Large Instances) types, referred to in SAP HANA certified IaaS Platforms site, provides Microsoft and SAP customers the ability to deploy large SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA, or other SAP HANA workloads in Azure. The solution is based on the SAP-HANA certified dedicated hardware stamp ([SAP HANA tailored data center integration – TDI](https://scn.sap.com/docs/DOC-63140)). If you run an SAP HANA TDI-configured solution, all SAP HANA-based applications (such as SAP Business Suite on SAP HANA, SAP BW on SAP HANA, S4/HANA, and BW4/HANA) works on the hardware infrastructure.
 
 Compared to running SAP HANA in VMs, this solution has a benefit. It provides for much larger memory volumes. To enable this solution, you need to understand the following key aspects:
 
@@ -128,7 +128,9 @@ As with VMs, SAP HANA on Azure (Large Instances) is offered in multiple Azure re
 
 Just as you can choose between different VM types with Azure Virtual Machines, you can choose from different SKUs of HANA Large Instance that are tailored for different workload types of SAP HANA. SAP applies memory-to-processor-socket ratios for varying workloads based on the Intel processor generations. The following table shows the SKU types offered.
 
-As of July 2017, SAP HANA on Azure (Large Instances) is available in several configurations in the Azure regions of US West and US East, Australia East, Australia Southeast, West Europe, and North Europe.
+SAP HANA on Azure (Large Instances) service is available in several configurations in the Azure regions of US West and US East, Australia East, Australia Southeast, West Europe, North Europe, Japan East, and Japan West.
+
+[SAP HANA certified SKUs of HANA large Instances](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) list like:
 
 | SAP solution | CPU | Memory | Storage | Availability |
 | --- | --- | --- | --- | --- |
@@ -141,20 +143,37 @@ As of July 2017, SAP HANA on Azure (Large Instances) is available in several con
 |---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU cores and 192 CPU threads  |  4.0 TB |  16 TB | Available |
 |---| SAP HANA on Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  6.0 TB |  18 TB | Available |
 |---| SAP HANA on Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  8.0 TB |  22 TB |  Available |
-|---| SAP HANA on Azure S576<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  12.0 TB |  28 TB | Available |
-|---| SAP HANA on Azure S768<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU cores and 768 CPU threads |  16.0 TB |  36 TB | Available |
-|---| SAP HANA on Azure S960<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU cores and 960 CPU threads |  20.0 TB |  46 TB | Available |
+|---| SAP HANA on Azure S576m<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  12.0 TB |  28 TB | Available |
+|---| SAP HANA on Azure S768m<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU cores and 768 CPU threads |  16.0 TB |  36 TB | Available |
+|---| SAP HANA on Azure S960m<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU cores and 960 CPU threads |  20.0 TB |  46 TB | Available |
+
+
+Under SAP HANA TDIv5, SAP allows customer-specific sizing and customer-specific projects which might lead to server configurations which are not listed as certified in:
+
+- [SAP HANA Certified Appliances](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
+- [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+
+In a lot of cases, these customer-specific server configurations carry more memory than the server units certified with SAP. In working with SAP, customers do have the possibility to get SAP support and certify for their customer-specific sized server configurations. In Azure the following HANA Large Instance standard SKUs are available and in the Microsoft price list for such TDIv5 customer-specific sizing projects.
+
+
+| Original SKU that can be <br /> extended in memory | CPU | Memory | Storage | Availability |
+| --- | --- | --- | --- | --- |
+| S192m can be extended to | SAP HANA on Azure S192xm<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU cores and 192 CPU threads |  6.0 TB |  16 TB | Available |
+| S384xm can be extended to | SAP HANA on Azure S384xxm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU cores and 384 CPU threads |  12.0 TB |  28 TB | Available |
+| S576m can be extended to | SAP HANA on Azure S576xm<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU cores and 576 CPU threads |  18.0 TB |  41 TB | Available |
+| S768m can be extended to | SAP HANA on Azure S768xm<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU cores and 768 CPU threads |  24.0 TB |  56 TB | Available |
 
 - CPU cores = sum of non-hyper-threaded CPU cores of the sum of the processors of the server unit.
-- CPU threads = sum of compute threads provided by hyper-threaded CPU cores of the sum of the processors of the server unit. All units are configured by default to use Hyper-Threading Technology.
+- CPU threads = sum of compute threads provided by hyper-threaded CPU cores of the sum of the processors of the server unit. Most units are configured by default to use Hyper-Threading Technology.
+- Based on supplier recommendations S768m, S768xm, and S960m are not configured to use Hyper-Threading for running SAP HANA.
 
 
 The specific configurations chosen are dependent on workload, CPU resources, and desired memory. It's possible for the OLTP workload to use the SKUs that are optimized for the OLAP workload. 
 
-The hardware base for all the offers are SAP HANA TDI-certified. Two different classes of hardware divide the SKUs into:
+The hardware base for the offers, except units for customer-specific sizing projects, are SAP HANA TDI-certified. Two different classes of hardware divide the SKUs into:
 
-- S72, S72m, S144, S144m, S192, and S192m, which are referred to as the "Type I class" of SKUs.
-- S384, S384m, S384xm, S576, S768, and S960, which are referred to as the "Type II class" of SKUs.
+- S72, S72m, S144, S144m, S192, S192m, and S192xm, which are referred to as the "Type I class" of SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm and S960m, which are referred to as the "Type II class" of SKUs.
 
 A complete HANA Large Instance stamp isn't exclusively allocated for a single customer&#39;s use. This fact applies to the racks of compute and storage resources connected through a network fabric deployed in Azure as well. HANA Large Instance infrastructure, like Azure, deploys different customer &quot;tenants&quot; that are isolated from one another in the following three levels:
 
@@ -290,7 +309,7 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
    > The operating system delivered by Microsoft isn't registered with SUSE. It isn't connected to a Subscription Management Tool instance.
 
 - SUSE Linux Subscription Management Tool deployed in Azure on a VM. This tool provides the capability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by SUSE. (There is no internet access within the HANA Large Instance data center.) 
-- Licenses for Red Hat Enterprise Linux 6.7 or 7.2 for SAP HANA.
+- Licenses for Red Hat Enterprise Linux 6.7 or 7.x for SAP HANA.
 
    > [!NOTE]
    > The operating system delivered by Microsoft isn't registered with Red Hat. It isn't connected to a Red Hat Subscription Manager instance.
@@ -301,6 +320,12 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
    - For Red Hat Linux, you need to have the correct subscription levels that include support and service updates to the operating systems of HANA Large Instance. Red Hat recommends the Red Hat Enterprise Linux for [SAP Solutions](https://access.redhat.com/solutions/3082481 subscription. 
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
+For the compatibility matrix of the operating system and HLI firmware/driver versions, refer [OS Upgrade for HLI](os-upgrade-hana-large-instance.md).
+
+
+> [!IMPORTANT] 
+> For Type II units only the SLES 12 SP2 OS version is supported at this point. 
 
 
 **Database**
@@ -333,18 +358,22 @@ The HANA Large Instance of the Type I class comes with four times the memory vol
 
 See the following table in terms of storage allocation. The table lists the rough capacity for the different volumes provided with the different HANA Large Instance units.
 
-| HANA Large Instance SKU | hana/data | hana/log | hana/shared | hana/log/backup |
+| HANA Large Instance SKU | hana/data | hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
 | S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
+| S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
-| S576 | 20,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S768 | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S960 | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
+| S384xxm |  20,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S576m | 20,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S576xm | 31,744 GB | 4,096 GB | 2,048 GB | 4,096 GB |
+| S768m | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S768xm | 40,960 GB | 6,144 GB | 4,096 GB | 6,144 GB |
+| S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
 
 
 Actual deployed volumes might vary based on deployment and the tool that is used to show the volume sizes.
@@ -365,6 +394,8 @@ These sizes are rough volume numbers that can vary slightly based on deployment 
 You might need more storage. You can add storage by purchasing additional storage in 1-TB units. This additional storage can be added as additional volume. It also can be used to extend one or more of the existing volumes. It isn't possible to decrease the sizes of the volumes as originally deployed and mostly documented by the previous tables. It also isn't possible to change the names of the volumes or mount names. The storage volumes previously described are attached to the HANA Large Instance units as NFS4 volumes.
 
 You can use storage snapshots for backup and restore and disaster recovery purposes. For more information, see [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Refer [HLI supported scenarios](hana-supported-scenario.md) for storage layout details for your scenario.
 
 ### Encryption of data at rest
 The storage used for HANA Large Instance allows a transparent encryption of the data as it's stored on the disks. When a HANA Large Instance unit is deployed, you can enable this kind of encryption. You also can change to encrypted volumes after the deployment takes place. The move from non-encrypted to encrypted volumes is transparent and doesn't require downtime. 
@@ -468,9 +499,7 @@ For a more scalable network architecture:
 
 ![Deploy SAP application layer over multiple virtual networks](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-The figure shows the SAP application layer, or components, deployed over multiple virtual networks. This configuration introduced unavoidable latency overhead that occurred during communication between the applications hosted in those virtual networks. By default, the network traffic between VMs located in different virtual networks route through the enterprise edge routers in this configuration. Since September 2016, this routing can be optimized. 
-
-The way to optimize and cut down the latency in communication between two virtual networks is by peering virtual networks within the same region. This method works even if those virtual networks are in different subscriptions. With virtual network peering, the communication between VMs in two different virtual networks can use the Azure network backbone to directly communicate with each other. Latency shows as if the VMs are in the same virtual network. Traffic that addresses IP address ranges that are connected through the Azure virtual network gateway is routed through the individual virtual network gateway of the virtual network. 
+The figure shows the SAP application layer, or components, deployed over multiple virtual networks. This configuration introduced unavoidable latency overhead that occurred during communication between the applications hosted in those virtual networks. By default, the network traffic between VMs located in different virtual networks route through the enterprise edge routers in this configuration. The way to optimize and cut down the latency in communication between two virtual networks is by peering virtual networks within the same region. This method works even if those virtual networks are in different subscriptions. With virtual network peering, the communication between VMs in two different virtual networks can use the Azure network backbone to directly communicate with each other. Latency shows as if the VMs are in the same virtual network. Traffic that addresses IP address ranges that are connected through the Azure virtual network gateway is routed through the individual virtual network gateway of the virtual network. 
 
 For more information about virtual network peering, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 

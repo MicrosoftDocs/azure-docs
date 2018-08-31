@@ -1,23 +1,21 @@
 ---
 title: Two-step verification and AD FS - Azure MFA | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS.
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-
-ms.assetid: 44fbba68-6cf9-46c1-a9df-736580b68ae3
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/25/2017
-ms.author: joflore
+ms.reviewer: michmcla
 
 ---
 # Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services
+
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 If your organization has federated your on-premises Active Directory with Azure Active Directory using AD FS, there are two options for using Azure Multi-Factor Authentication.

@@ -2,19 +2,16 @@
 title: 'Azure Cosmos DB: Build a console app with Java and the MongoDB API | Microsoft Docs'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: slyons
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
-ms.author: sngun
+ms.author: sclyon
 
 ---
 # Azure Cosmos DB: Build a MongoDB API console app with Java and the Azure portal

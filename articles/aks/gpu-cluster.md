@@ -1,6 +1,6 @@
 ---
-title: GPUs on Azure Container Service (AKS)
-description: Use GPUs on Azure Container Service (AKS)
+title: GPUs on Azure Kubernetes Service (AKS)
+description: Use GPUs on Azure Kubernetes Service (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -19,7 +19,7 @@ AKS supports the creation of GPU enabled node pools. Azure currently provides si
 ## Create an AKS cluster
 
 GPUs are typically needed for compute-intensive workloads such as graphics-intensive, and visualization workloads. Refer to the following [document](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) to determine the right VM size for your workload.
-We recommend a minimum size of `Standard_NC6` for your Azure Container Service (AKS) nodes.
+We recommend a minimum size of `Standard_NC6` for your Azure Kubernetes Service (AKS) nodes.
 
 > [!NOTE]
 > GPU enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing](https://azure.microsoft.com/pricing/) tool and [region availability](https://azure.microsoft.com/global-infrastructure/services/) site for more information.
@@ -47,7 +47,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## Confirm GPUs are schedulable
 
-Run the following commands to confirm the GPUs are schedulable via Kubernetes. 
+Run the following commands to confirm the GPUs are schedulable via Kubernetes.
 
 Get the current list of nodes.
 
@@ -162,12 +162,12 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
-Use the [kubectl create][kubectl-create] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
+Use the [kubectl apply][kubectl-apply] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -268,14 +268,72 @@ $ kubectl delete jobs samples-tf-mnist-demo
 job "samples-tf-mnist-demo" deleted
 ```
 
+## Troubleshoot
+
+In some scenarios, you might not see GPU resources under Capacity. For example: After upgrading a cluster to Kubernetes version 1.10 or creating a new Kubernetes version 1.10 cluster, the expected `nvidia.com/gpu` resource is missing from `Capacity` when running `kubectl describe node <node-name>`. 
+
+To resolve this, apply the following daemonset post provision or upgrade, then you will see `nvidia.com/gpu` as a schedulable resource. 
+
+Copy the manifest and save as **nvidia-device-plugin-ds.yaml**. For the image tag of `image: nvidia/k8s-device-plugin:1.10` below, update the tag to match your Kubernetes version. For example, use tag `1.11` for Kubernetes version 1.11.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      containers:
+      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+        accelerator: nvidia
+```
+
+Use the [kubectl apply][kubectl-apply] command to create the daemonset.
+
+```
+$ kubectl apply -f nvidia-device-plugin-ds.yaml
+daemonset "nvidia-device-plugin" created
+```
+
 ## Next steps
 
-Interested in running Machine Learning workloads on Kubernetes? Refer to the Kubeflow documentation for more detail.
+Interested in running Machine Learning workloads on Kubernetes? Refer to the Kubeflow labs for more detail.
 
 > [!div class="nextstepaction"]
-> [Kubeflow User Guide][kubeflow-docs]
+> [Kubeflow Labs][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
+[kubeflow-labs]: https://github.com/Azure/kubeflow-labs

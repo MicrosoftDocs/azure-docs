@@ -1,5 +1,5 @@
 ---
-title: Get started with the Microsoft Speech Recognition API by using client libraries | Microsoft Docs
+title: Get started with the Microsoft Speech Recognition API by using Bing Speech client libraries | Microsoft Docs
 description: Use the Microsoft Speech Service client libraries in Microsoft Cognitive Services to develop applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
@@ -10,21 +10,24 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# Get started with Speech Service client libraries
+# Get started with Bing Speech Service client libraries
 
-Besides making direct HTTP requests via a REST API, Speech Service provides developers with Speech client libraries in different languages. The Speech client libraries:
+Besides making direct HTTP requests via a REST API, Bing Speech Service provides developers with Speech client libraries in different languages. The Speech client libraries:
 
 - Support more advanced capabilities in speech recognition, such as intermediate results in real time, long audio stream (up to 10 minutes), and continuous recognition.
 - Provide a simple and idiomatic API in the language of your preference.
 - Hide low-level communication details.
 
-Currently, the following Speech client libraries are available:
+Currently, the following Bing Speech client libraries are available:
 
 - [C# desktop library](GetStartedCSharpDesktop.md)
 - [C# service library](GetStartedCSharpServiceLibrary.md)
 - [JavaScript library](GetStartedJSWebsockets.md)
 - [Java library for Android](GetStartedJavaAndroid.md)
 - [Objective-C library for iOS](Get-Started-ObjectiveC-iOS.md)
+
+> [!NOTE] 
+In May 2018, we also released the new [Speech Service](../../speech-service/index.yml) in public preview. We encourage you to [try it out for free](../../speech-service/get-started.md). 
 
 ## Additional resources
 

@@ -1,52 +1,17 @@
 ---
-title: Troubleshoot Azure Data Lake Analytics jobs using Azure Portal | Microsoft Docs
-description: 'Learn how to use the Azure Portal to troubleshoot Data Lake Analytics jobs. '
+title: Monitor jobs in Azure Data Lake Analytics using the Azure portal
+description: This article describes how to use the Azure portal to troubleshoot Azure Data Lake Analytics jobs.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
+ms.topic: conceptual
+ms.date: 12/05/2016
 ---
-# Troubleshoot Azure Data Lake Analytics jobs using Azure portal
-Learn how to use the Azure portal to troubleshoot Data Lake Analytics jobs.
-
-In this tutorial, you will set up a missing source file problem, and use the Azure portal to troubleshoot the problem.
-
-## Submit a Data Lake Analytics job
-
-Submit the following U-SQL job:
-
-```
-@searchlog =
-   EXTRACT UserId          int,
-           Start           DateTime,
-           Region          string,
-           Query           string,
-           Duration        int?,
-           Urls            string,
-           ClickedUrls     string
-   FROM "/Samples/Data/SearchLog.tsv1"
-   USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-   TO "/output/SearchLog-from-adls.csv"
-   USING Outputters.Csv();
-```
-    
-The source file defined in the script is **/Samples/Data/SearchLog.tsv1**, where it should be **/Samples/Data/SearchLog.tsv**.
-
-
-## Troubleshoot the job
+# Monitor jobs in Azure Data Lake Analytics using the Azure Portal
 
 **To see all the jobs**
 
@@ -78,5 +43,4 @@ The source file defined in the script is **/Samples/Data/SearchLog.tsv1**, where
 ## See also
 * [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 * [Get started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)

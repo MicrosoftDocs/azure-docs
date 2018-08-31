@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure App Service diagnostics overview | Microsoft Docs
 description: Learn how you can troubleshoot issues with your web app with App Service diagnostics. 
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
@@ -23,11 +23,13 @@ When you’re running a web application, you want to be prepared for any issues 
  
 Although this experience is most helpful when you’re having issues with your web app within the last 24 hours, all the diagnostic graphs will be available for you to analyze at all times. Additional troubleshooting tools and links to helpful documentation and forums are located on the right-hand column.
 
+App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro), and [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). 
+
 ## Open App Service diagnostics
 
-To access App Service diagnostics, navigate to your App Service web app in the [Azure portal](https://portal.azure.com). 
+To access App Service diagnostics, navigate to your App Service app or App Service Environment in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**. 
 
-In the left navigation, click on **Diagnose and solve problems**.
+For Azure Functions, navigate to your function app, and in the top navigation, click on **Platform features** and select **Diagnose and solve problems** from the **Monitoring** section. 
 
 ![Homepage](./media/app-service-diagnostics/Homepage1.png)
 
@@ -43,13 +45,22 @@ If an issue is detected with a specific problem category within the last 24 hour
 
 ## Tile shortcuts
 
-If you know exactly what kind of troubleshooting information you’re looking for, the tile shortcuts will take you directly to the full diagnostic report of the problem category that you’re interested in. Compared to the health checkup, the tile shortcuts are the more direct, but less guided way of accessing your diagnostic metrics.  
+If you know exactly what kind of troubleshooting information you’re looking for, the tile shortcuts will take you directly to the full diagnostic report of the problem category that you’re interested in. Compared to the health checkup, the tile shortcuts are the more direct, but less guided way of accessing your diagnostic metrics. As a part of tile shortcuts, this is also where you will find **Diagnostic Tools**  which are more advanced tools that will help you investigate issues related to application code issues, slowness, connection strings, and more. 
 
 ![Tile shortcuts](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## Diagnostic report
 
-Whether you want more information after running a [health checkup](#health-checkup) or you clicked on one of the [tile shortcuts](#tile-shortcuts), the full diagnostic report will show you relevant graphed metrics from the last 24 hours. If your app experiences any downtime, it's represented by an orange bar underneath the timeline. You can select one of the downtimes to get analyzed observations about the downtime and the suggested solutions. 
+Whether you want more information after running a [health checkup](#health-checkup) or you clicked on one of the [tile shortcuts](#tile-shortcuts), the full diagnostic report will show you relevant graphed metrics from the last 24 hours. If your app experiences any downtime, it's represented by an orange bar underneath the timeline. You can select one of the orange bars to select the downtime to see observations about that downtime and the suggested troubleshooting steps. 
 
 ![Diagnostic report](./media/app-service-diagnostics/DiagnosticReport5.png)
+
+
+## Investigating application code issues
+
+Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://azure.microsoft.com/services/application-insights/) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights does have to be enabled separately. 
+
+To view Application Insights exceptions and dependencies, select the **Web App Down** or **Web App Slow** tile shortcuts. 
+
+![Application insights](./media/app-service-diagnostics/AppInsights6.png)
 

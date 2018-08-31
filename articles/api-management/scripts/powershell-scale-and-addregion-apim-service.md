@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Scale the service instance | Microsoft D
 description: Azure PowerShell Script Sample - Scale the service instance
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

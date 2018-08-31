@@ -22,7 +22,7 @@ ms.author: gsacavdm
 
 Azure IoT Hub is generally available in Azure Government.
 
-For more information, see [Azure IoT Hub commercial documentation](../iot-hub/index.md).
+For more information, see [Azure IoT Hub commercial documentation](../iot-hub/index.yml).
 
 ### Variations
 
@@ -48,7 +48,7 @@ The following URL for Azure Event Hubs is different in Azure Government:
 ## Azure Notification Hubs
  Azure Notification Hubs is generally available in Azure Government.
  
- For details on this service and how to use it, see [Azure Notification Hubs documentation](../notification-hubs/index.md).
+ For details on this service and how to use it, see [Azure Notification Hubs documentation](../notification-hubs/index.yml).
 
 ### Variations
 

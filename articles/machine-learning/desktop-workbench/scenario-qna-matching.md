@@ -3,18 +3,15 @@ title: Q & A Matching using Azure Machine Learning Workbench | Microsoft Docs
 description: How to use various effective machine learning methods to match open ended queries to pre-existing FAQ question/answers pairs.
 services: machine-learning
 documentationcenter: ''
-author: mezmicrosoft
-editor: mezmicrosoft
-ms.assetid: 
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: rastala
+ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: mez
-manager: tihazen
 
 ---
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
 ---
@@ -22,9 +22,8 @@ ms.reviewer: JeffGoldner
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 ## Windows
-Azure Stack supports the Windows guest operating systems that are listed in the following table: Images in the Marketplace are available for download to Azure Stack. Windows client images are not available in the Marketplace.
 
-During deployment, Azure Stack injects a suitable version of the guest agent into the image.
+Azure Stack supports the Windows guest operating systems listed in the following table:
 
 | Operating system | Description | Available in Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -36,33 +35,36 @@ During deployment, Azure Stack injects a suitable version of the guest agent int
 | Windows Server 2008 SP2 | 64-bit |  Bring your own image |
 | Windows 10 *(see note 1)* | 64-bit, Pro, and Enterprise | Bring your own image |
 
-***Note 1:***  *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+***Note 1:*** *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
-Marketplace images are available for Pay-as-you-use or BYOL (EA/SPLA) licensing. Use of both on a single Azure Stack instance is not supported. 
+Marketplace images are available for Pay-as-you-use or BYOL (EA/SPLA) licensing. Use of both on a single Azure Stack instance isn't supported. During deployment, Azure Stack injects a suitable version of the guest agent into the image.
 
-Only Datacenter editions are available in the marketplace; customers can bring their own server images including other editions.
+ Datacenter editions are available in the marketplace for downloading; customers can bring their own server images including other editions. Windows client images aren't available in the Marketplace.
 
 ## Linux
 
-Linux distributions listed here include the necessary Windows Azure Linux Agent (WALA).
+Linux distributions listed as available in the Marketplace include the necessary Windows Azure Linux Agent (WALA). If you bring your own image to Azure Stack, follow the guidelines in [Add Linux images to Azure Stack](azure-stack-linux.md).
 
-> [!NOTE]   
-> Custom images should be built with the latest public WALA version. Versions older than 2.2.18 may not function properly on Azure Stack.  
+> [!NOTE]
+> Custom images should be built with the latest public WALA version. Versions older than 2.2.18 may not function properly on Azure Stack.
 >
 > [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
 
 | Distribution | Description | Publisher | Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Container Linux |  64-bit | CoreOS | Stable |
 | CentOS-based 6.9 | 64-bit | Rogue Wave | Yes |
 | CentOS-based 7.4 | 64-bit | Rogue Wave | Yes |
 | ClearLinux | 64-bit | ClearLinux.org | Yes |
+| Container Linux |  64-bit | CoreOS | Stable |
 | Debian 8 "Jessie" | 64-bit | credativ |  Yes |
 | Debian 9 "Stretch" | 64-bit | credativ | Yes |
-| Red Hat Enterprise Linux 7.x (pending) | 64-bit | Red Hat |Bring your own image |
+| Red Hat Enterprise Linux 7.x | 64-bit | Red Hat |Bring your own image |
 | SLES 11SP4 | 64-bit | SUSE | Yes |
 | SLES 12SP3 | 64-bit | SUSE | Yes |
 | Ubuntu 14.04-LTS | 64-bit | Canonical | Yes |
 | Ubuntu 16.04-LTS | 64-bit | Canonical | Yes |
+| Ubuntu 18.04-LTS | 64-bit | Canonical | Yes |
 
 Other Linux distributions may be supported in the future.
+
+For Red Hat Enterprise Linux support information , please refer to [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).

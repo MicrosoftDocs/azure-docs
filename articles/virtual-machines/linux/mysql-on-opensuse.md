@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
 
 ---
@@ -29,13 +29,13 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Create a virtual machine running OpenSUSE Linux
 
-First, create a resource group. In this example, we are naming the resource group *mySQSUSEResourceGroup* and creating it in the *East US* region.
+First, create a resource group. In this example, the resource group is named *mySQSUSEResourceGroup* and it is created in the *East US* region.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Create the VM. In this example, we are naming the VM *myVM*. We are also going to use a VM size *Standard_D2s_v3*, but you should choose the [VM size](sizes.md) you think is most appropriate for your workload.
+Create the VM. In this example, the VM is named *myVM* and the VM size is *Standard_D2s_v3*, but you should choose the [VM size](sizes.md) you think is most appropriate for your workload.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -92,19 +92,32 @@ systemctl is-enabled mysql
 
 This should return: enabled.
 
+Restart the server.
+
+```bash
+sudo reboot
+```
+
 
 ## MySQL password
 
-After installation, the MySQL root password is empty by default. Run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. 
+After installation, the MySQL root password is empty by default. Run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root sign in, remove test databases, and reload the privileges table. 
+
+Once the server reboots, ssh to the VM again.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## Log in to MySQL
+## Sign in to MySQL
 
-You can now log in and enter the MySQL prompt.
+You can now sign in and enter the MySQL prompt.
 
 ```bash  
 mysql -u root -p
@@ -132,7 +145,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
 
-Enable log in from another computer. In this example, the IP address of the computer that we want to log in from is *10.112.113.114*.
+Enable sign in from another computer. In this example, the IP address of the computer to allow sign in from is *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

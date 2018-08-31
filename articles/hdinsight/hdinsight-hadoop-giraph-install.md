@@ -1,19 +1,14 @@
 ---
-title: Install and use Giraph on Hadoop clusters in HDInsight - Azure | Microsoft Docs
+title: Install and use Giraph on Hadoop clusters in HDInsight - Azure 
 description: Learn how to customize HDInsight cluster with Giraph, and how to use Giraph.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 77a1d0e0-55de-4e61-98a0-060914fb7ca0
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---
@@ -166,7 +161,6 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 * [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]: Script Action sample about installing Spark.
-* [Install R on HDInsight clusters][hdinsight-install-r]: Script Action sample about installing R.
 * [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): Script Action sample about installing Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
@@ -174,6 +168,5 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

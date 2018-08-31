@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
 
 ---
@@ -74,8 +74,8 @@ In unidirectional authentication, the target authenticates the initiator. This a
 4. In the **Advanced Settings** dialog box:
    
    1. Select the **Enable CHAP log on** check box.
-   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
-   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the Azure portal.
+   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the Azure portal.
    4. Click **OK**.
       
        ![Advanced settings general](./media/storsimple-configure-chap/IC740946.png)
@@ -128,8 +128,8 @@ In bidirectional authentication, the target authenticates the initiator and then
 8. In the **Advanced Properties** dialog box:
    
    1. Select the **Enable CHAP log on** check box.
-   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
-   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+   2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the Azure portal.
+   3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the Azure portal.
    4. Select the **Perform mutual authentication** check box.
       
        ![Advanced settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)

@@ -3,16 +3,17 @@ title: Track custom operations with Azure Application Insights .NET SDK | Micros
 description: Tracking custom operations with Azure Application Insights .NET SDK
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: sergkanz
+ms.reviewer: sergkanz 
+ms.author: mbullwin
 
 ---
 

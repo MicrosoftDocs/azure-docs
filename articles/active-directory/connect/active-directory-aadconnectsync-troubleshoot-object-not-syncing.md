@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/10/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
@@ -21,7 +22,7 @@ ms.author: billmath
 If an object is not synchronizing as expected to Azure AD, then it can be because of several reasons. If you have received an error email from Azure AD or you see the error in Azure AD Connect Health, then read [troubleshoot export errors](active-directory-aadconnect-troubleshoot-sync-errors.md) instead. But if you are troubleshooting a problem where the object is not in Azure AD, then this topic is for you. It describes how to find errors in the on-premises component Azure AD Connect sync.
 
 >[!IMPORTANT]
->For Azure Active Directory (AAD) Connect deployment with version <verison> or higher, use the [troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md) in the wizard to troubleshoot object synchronization issues. 
+>For Azure Active Directory (AAD) Connect deployment with version 1.1.749.0 or higher, use the [troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md) in the wizard to troubleshoot object synchronization issues. 
 
 To find the errors, you are going to look at a few different places in the following order:
 
@@ -135,7 +136,7 @@ You should have a connector to:
 - Each Active Directory forest the user is represented in. This representation can include foreignSecurityPrincipals and Contact objects.
 - A connector in Azure AD.
 
-If you are missing the connector to Azure AD, then read [MV attributes](#MV-attributes) to verify the criteria for being provisioned to Azure AD.
+If you are missing the connector to Azure AD, then read [MV attributes](#mv-attributes) to verify the criteria for being provisioned to Azure AD.
 
 This tab also allows you to navigate to the [connector space object](#connector-space-object-properties). Select a row and click **Properties**.
 

@@ -14,6 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -239,7 +240,7 @@ do 
 	{
 		Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
 
-		#export the collection of users as as CSV
+		#export the collection of users as a CSV
 		Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 		$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 

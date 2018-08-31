@@ -1,18 +1,13 @@
 ---
 title: IoT Hub Device Provisioning Service - Auto-provisioning concepts
 description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service, IoT Hub, and client SDKs.
-services: iot-dps 
-keywords: 
-author: BryanLa
-ms.author: bryanla
-ms.date: 03/27/2018
+author: wesmc7777
+ms.author: wesmc
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
-ms.custom: 
 ---
 
 # Auto-provisioning concepts
@@ -30,7 +25,7 @@ Azure IoT auto-provisioning can be broken into three phases:
 
 2. **Device enrollment** - the process of making the Device Provisioning Service instance aware of the devices that will attempt to register in the future. [Enrollment](concepts-service.md#enrollment) is accomplished by configuring device identity information in the provisioning service, as either an "individual enrollment" for a single device, or a "group enrollment" for multiple devices. Identity is based on the [attestation mechanism](concepts-security.md#attestation-mechanism) the device is designed to use, which allows the provisioning service to attest to the device's authenticity during registration:
 
-   - **TPM**: configured as an "individual enrollment", the device identity is based on the TPM registration ID and the public endorsement key. Given that TPM is a [specification]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), the service only expects to attest per the specification, regardless of TPM implementation (hardware or software). See [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) for details on TPM-based attestation. 
+   - **TPM**: configured as an "individual enrollment", the device identity is based on the TPM registration ID and the public endorsement key. Given that TPM is a [specification](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), the service only expects to attest per the specification, regardless of TPM implementation (hardware or software). See [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) for details on TPM-based attestation. 
 
    - **X509**: configured as either an "individual enrollment" or "group enrollment", the device identity is based on an X.509 digital certificate, which is uploaded to the enrollment as a .pem or .cer file.
 
@@ -59,10 +54,10 @@ A series of Quickstarts are provided in the table of contents to the left, to he
 
 The following diagram summarizes the roles and sequencing of operations during device auto-provisioning:
 <br><br>
-![Auto-provisioning sequence for a device](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Auto-provisioning sequence for a device](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> Optionally, the manufacturer can also perform the "Enroll device identity" operation using Device Provisioning Service APIs (instead of via the Operator). For a detailed discussion of this sequencing and more, see the [Zero touch device registration with Azure IoT video](https://myignite.microsoft.com/sessions/55087) (starting at marker 41:00)
+> Optionally, the manufacturer can also perform the "Enroll device identity" operation using Device Provisioning Service APIs (instead of via the Operator). For a detailed discussion of this sequencing and more, see the [Zero touch device registration with Azure IoT video](https://youtu.be/cSbDRNg72cU?t=2460) (starting at marker 41:00)
 
 ## Next steps
 

@@ -8,12 +8,14 @@
     href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobs
   href: ./blobs/storage-blobs-introduction.md
+- name: Data Lake Storage Gen2
+  href: ./data-lake-storage/introduction.md
 - name: Files 
   href: ./files/storage-files-introduction.md
 - name: Queues
   href: ./queues/storage-queues-introduction.md 
 - name: Tables
-  href: ../cosmos-db/table-storage-overview.md
+  href: ./tables/table-storage-overview.md
 - name: Disks
   items:
   - name: Windows

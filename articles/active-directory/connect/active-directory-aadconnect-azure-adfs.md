@@ -4,7 +4,7 @@ description: In this document you will learn how to deploy AD FS in Azure for hi
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: anandy; billmath
+ms.component: hybrid
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
 # Deploying Active Directory Federation Services in Azure
@@ -225,7 +226,7 @@ In order to ensure that Web Application Proxy servers are able to reach the AD F
 **7.2. Installing the Web Application Proxy role**
 
 After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers. 
-Web Application Proxy servers do not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
+Web Application Proxy servers need not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
 For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/library/dn383662.aspx).
 
 ### 8.  Deploying the Internet Facing (Public) Load Balancer
@@ -314,7 +315,7 @@ The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. I
 
 1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. From any external machine access https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. From any external machine, access https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. You should see the AD FS page like below:
 
 ![Test login page](./media/active-directory-aadconnect-azure-adfs/test1.png)

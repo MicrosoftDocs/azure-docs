@@ -6,7 +6,7 @@ author: douglaslMS
 manager: craigg
 ms.custom: reference
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: douglasl
 

@@ -4,7 +4,7 @@ description: Create an OpenAPI definition that enables other apps and services t
 services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
-ms.author: mblythe; glenga
+ms.author: glenga
+ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ---
 

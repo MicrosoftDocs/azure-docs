@@ -1,44 +1,42 @@
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-create-hub](iot-hub-create-hub.md)]
 
 Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub. 
 
-1. After your IoT hub is created, click it on the dashboard. Make a note of the **Hostname**, and then click **Shared access policies**.
+In your IoT hub navigation menu, open **Shared access policies**. Select the **iothubowner** policy, and then copy the **Connection string---primary key** of your IoT hub. For more information, see [Control access to IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
 
-   ![Get the hostname of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
+   > [!NOTE] 
+   > You do not need the iothubowner connection string for this set-up tutorial. However, you may need it for some of the tutorials or different IoT scenarios after you complete this set-up.
 
-1. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT hub. For more information, see [Control access to IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
+   ![Get your IoT hub connection string](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
-> [!NOTE] 
-You will not need this iothubowner connection string for this set-up tutorial. However, you may need it for some of the tutorials on different IoT scenarios after you complete this set-up.
+## Register your device in the IoT hub
 
-   ![Get your IoT hub connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
+1. In your IoT hub navigation menu, open **IoT devices**, then click **Add** to register a device in your IoT hub.
 
-## Register a device in the IoT hub for your device
+   ![Add a device in the IoT Devices of your IoT hub](./media/iot-hub-get-started-create-hub-and-device/create-identity-portal.png)
 
-1. In the [Azure portal](https://portal.azure.com/), open your IoT hub.
-
-2. Click **IoT Devices**.
-3. In the IoT Devices pane, click **Add** to add a device to your IoT hub. Then do the following:
-
-   **Device ID**: Enter the ID of the new device. Device IDs are case sensitive.
-
-   **Authentication Type**: Select **Symmetric Key**.
-
-   **Auto Generate Keys**: Select this check box.
-
-   **Connect device to IoT Hub**: Click **Enable**.
-
-   ![Add a device in the IoT Devices of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
+2. Enter a **Device ID** for the new device. Device IDs are case sensitive.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Click **Save**.
-5. After the device is created, open the device in the **IoT Devices** pane.
+3. Click **Save**.
 
-   ![IoT Device List in IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+4. After the device is created, open the device from the list in the **IoT devices** pane.
 
-6. Make a note of the primary key of the connection string.
+5. Copy the **Connection string---primary key** to use later.
 
-   ![Get the device connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)
+   ![Get the device connection string](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)

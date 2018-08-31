@@ -5,7 +5,7 @@ services: virtual-machines-linux
 author: rothja 
 ms.author: jroth 
 manager: jhubbard
-ms.date: 10/25/2017
+ms.date: 05/11/2018
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
@@ -67,7 +67,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Click **OK**.
 
-1. In the **Size** window, choose a machine size. To see other sizes, select **View all**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+1. In the **Size** window, choose a machine size. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
     ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -76,9 +76,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Click **Select**.
 
-1. In the **Settings** window, you can make changes to the settings or keep the default settings.
+1. In the **Settings** window, select the **SSH (22)** port in the **Select public inbound ports** list. This is necessary in this quickstart to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, also select **MS SQL (1433)** to open port 1433 for connections over the Internet.
 
-1. Click **OK**.
+   ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+
+1. You can make changes to other settings or keep the default settings. Then click **OK**.
 
 1. On the **Summary** page, click **Purchase** to create the VM.
 
@@ -141,7 +143,10 @@ Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#pack
 
 ## <a id="remote"></a> Configure for remote connections
 
-If you need to remotely connect to SQL Server on the Azure VM, you must configure an inbound rule on the network security group. The rule allows traffic on the port on which SQL Server listens (default of 1433). The following steps show how to use the Azure portal for this step. 
+If you need to remotely connect to SQL Server on the Azure VM, you must configure an inbound rule on the network security group. The rule allows traffic on the port on which SQL Server listens (default of 1433). The following steps show how to use the Azure portal for this step.
+
+> [!TIP]
+> If you selected the inbound port **MS SQL (1433)** in the settings during provisioning, these changes have been made for you. You can go to the next section on how to configure the firewall.
 
 1. In the portal, select **Virtual machines**, and then select your SQL Server VM.
 

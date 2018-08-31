@@ -1,20 +1,18 @@
 ---
 title: Secure cloud resources with Azure MFA and AD FS | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud.
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
-ms.assetid: 0927fc67-8090-4fdd-913a-b3cfed3fbe77
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/29/2017
-ms.author: joflore
 ---
 
 # Securing cloud resources with Azure Multi-Factor Authentication and AD FS
@@ -80,7 +78,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 ### Configure Azure Multi-Factor Authentication Trusted IPs with Federated Users
 Now that the claims are in place, we can configure trusted IPs.
 
-1. Sign in to the [Azure portal](https://portal.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **Conditional access** > **Named locations**.
 3. From the **Conditional access - Named locations** blade, select **Configure MFA trusted IPs**
 

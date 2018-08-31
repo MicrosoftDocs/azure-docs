@@ -7,7 +7,7 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
@@ -162,10 +162,9 @@ Observe the following items in the *OnlineReindex.sql* script:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-.
 > * Create a job agent to run T-SQL jobs across multiple databases
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial] (saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
+Next, try the [Ad-hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
 

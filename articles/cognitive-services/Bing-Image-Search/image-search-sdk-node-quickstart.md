@@ -1,6 +1,6 @@
 ---
-title: Image search SDK Node quickstart | Microsoft Docs
-description: Setup for Image search SDK console application.
+title: "Quickstart: Request and filter images using the SDK in Node.js"
+description:  In this quickstart, you request and filter the images returned by Bing Image Search, using Node.js.
 titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
@@ -12,9 +12,11 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Image Search SDK Node quickstart
+# Quickstart: Request and filter images using the SDK and Node.js
 
 The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
+
+The [source code for Node Bing Image Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) is available on Git Hub.
 
 ## Application dependencies
 
@@ -39,10 +41,12 @@ client.imagesOperations.search('El Capitan', function (err, result, request, res
 });
 
 ```
+<!-- Need to sanitize result
 The code prints `result.value` items to the console without parsing any text. The results will be:
 - _type: 'ImageObjectElementType'
 
 ![Imageresults](media/node-sdk-quickstart-image-results.png)
+-->
 
 ## Next steps
 

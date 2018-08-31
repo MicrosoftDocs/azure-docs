@@ -20,7 +20,7 @@ ms.author: corywink
 ---
 # Frequently asked questions for IoT Suite
 
-See also, the connected factory specific [FAQ](iot-suite-faq-cf.md).
+See also, the connected factory specific [FAQ](../iot-accelerators/iot-accelerators-faq-cf.md).
 
 ### Where can I find the source code for the preconfigured solutions?
 
@@ -101,11 +101,11 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-dele
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-* [Connected factory preconfigured solution overview](iot-suite-connected-factory-overview.md)
+* [Connected factory preconfigured solution overview](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [IoT security from the ground up][lnk-security-groundup]
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

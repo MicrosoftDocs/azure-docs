@@ -1,20 +1,14 @@
 ---
-title: Optimize Spark jobs for performance - Azure HDInsight | Microsoft Docs
+title: Optimize Spark jobs for performance - Azure HDInsight 
 description: Shows common strategies for the best performance of Spark clusters.
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
 ms.service: hdinsight
+author: maxluk
+ms.author: maxluk
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: maxluk
-
 ---
 # Optimize Spark jobs
 

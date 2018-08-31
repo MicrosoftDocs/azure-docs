@@ -9,7 +9,7 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 04/05/2018
+ms.date: 08/06/2018
 ms.author: tomfitz
 ---
 # Azure PowerShell samples for Event Grid
@@ -23,6 +23,7 @@ The following table includes links to Azure PowerShell samples for Event Grid.
 | [Subscribe to Blob storage](scripts/event-grid-powershell-blob.md)| Subscribes to events for a Blob storage account. |
 | [Subscribe to custom topic](scripts/event-grid-powershell-subscribe-custom-topic.md)| Subscribes to events for a custom topic. |
 | [Subscribe to resource group](scripts/event-grid-powershell-resource-group.md)| Subscribes to events for a resource group. |
+| [Subscribe to resource group and filter for a resource](scripts/event-grid-powershell-resource-group-filter.md)| Subscribes to events for a resource group and filters events for a resource. |
 |**Event Grid topics**||
-| [Create custom topic](scripts/event-grid-powershell-create-custom-topic.md) | Creates a managed disk from a specialized VHD as a OS disk or from a data VHD as data disk.  |
+| [Create custom topic](scripts/event-grid-powershell-create-custom-topic.md) | Creates an Event Grid custom topic, and returns the endpoint and key.  |
 | | |

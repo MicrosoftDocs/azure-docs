@@ -71,8 +71,8 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     }
 }
 ```
-:
-The following section creates a subnet named *mySubnet* in the *myVnet* virtual network
+
+The following section creates a subnet named *mySubnet* in the *myVnet* virtual network:
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -105,11 +105,11 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 Network Security Groups control the flow of network traffic in and out of your VM. The following section creates a network security group named *myNetworkSecurityGroup* and defines a rule to allow SSH traffic on TCP port 22:
 
 ```tf
-resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
+resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    ;
+    
     security_rule {
         name                       = "SSH"
         priority                   = 1001

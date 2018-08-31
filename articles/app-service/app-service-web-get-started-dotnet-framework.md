@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Framework web app in Azure | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default ASP.NET web app.
+title: Create a C# ASP.NET Framework web app in Azure | Microsoft Docs
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
@@ -21,9 +21,7 @@ ms.custom: mvc, devcenter
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
-Watch the video to see this quickstart in action and then follow the steps yourself to publish your first .NET app on Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,11 +29,7 @@ Watch the video to see this quickstart in action and then follow the steps yours
 
 To complete this tutorial:
 
-* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
-    - **ASP.NET and web development**
-    - **Azure development**
-
-    ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
 
 If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
@@ -47,7 +41,7 @@ In the **New Project** dialog, select **Visual C# > Web > ASP.NET Web Applicatio
 
 Name the application _myFirstAzureWebApp_, and then select **OK**.
    
-![New Project dialog box](./media/app-service-web-get-started-dotnet/new-project.png)
+![New Project dialog box](./media/app-service-web-get-started-dotnet-framework/new-project.png)
 
 You can deploy any type of ASP.NET web app to Azure. For this quickstart, select the **MVC** template, and make sure authentication is set to **No Authentication**.
       
@@ -139,7 +133,8 @@ Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire
 
 To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 
-In the publish page, select **Publish**.
+On the publish page, select **Publish**.
+![Visual Studio publish summary page](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
@@ -158,6 +153,12 @@ You see your web app's Overview page. Here, you can perform basic management tas
 ![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 The left menu provides different pages for configuring your app. 
+
+## Video
+
+Watch the video to see this quickstart in action and then follow the steps yourself to publish your first .NET app on Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

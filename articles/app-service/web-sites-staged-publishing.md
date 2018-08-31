@@ -27,11 +27,7 @@ When you deploy your web app, web app on Linux, mobile back end, and API app to 
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#Auto-Swap) when pre-swap validation is not needed.
 * After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan tier supports a different number of deployment slots. To find out the number of slots your app's tier supports, see [App Service Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
-
-* When your app has multiple slots, you cannot change the tier.
-* Scaling is not available for non-production slots.
-* Linked resource management is not supported for non-production slots. In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan tier. Note that the non-production slot must once again share the same tier with the production slot before you can swap the two slots.
+Each App Service plan tier supports a different number of deployment slots. To find out the number of slots your app's tier supports, see [App Service Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). To scale your app to a different tier, the target tier must support the number of slots your app already uses. For example, if your app has more than 5 slots, you cannot scale it down to **Standard** tier, because **Standard** tier only supports 5 deployment slots.
 
 <a name="Add"></a>
 

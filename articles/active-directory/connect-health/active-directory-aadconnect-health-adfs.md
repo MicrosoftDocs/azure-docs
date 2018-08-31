@@ -3,7 +3,7 @@ title: Using Azure AD Connect Health with AD FS | Microsoft Docs
 description: This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
@@ -148,8 +148,10 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 > - This alert report does not show Exchange IP addresses or private IP addresses. They are still included in the export list. 
 >
 
-
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4c.png)
+
+### Load Balancer IP addresses in the list
+Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
 
 ### Download Risky IP report 
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
@@ -195,12 +197,14 @@ If you are seeing load balancer IP addresses, it is highly likely that your exte
 
 3. What do I do to block the IP address?  <br />
 You should add identified malicious IP address to the firewall or block in Exchange.   <br />
-For AD FS 2016 + 1803.C+ QFE, you can block the IP address directly at AD FS. 
 
 4. Why am I not seeing any items in this report? <br />
    - Failed sign-in activities are not exceeding the threshold settings. 
    - Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](active-directory-aadconnect-health-data-freshness.md).
    - Audits is not enabled in AD FS farms.
+ 
+5. Why am I seeing no access to the report?  <br />
+Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required. Please contact your global admin to get access.
 
 
 ## Related links

@@ -2,11 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Bing Spell Check API?
+  - name: What is the Bing Spell Check API?
     href: proof-text.md
-  - name: Supported languages
-    href: bing-spell-check-supported-languages.md
-- name: Quickstarts
+- name: REST API Quickstarts
+  expanded: true
   items:
   - name: C#
     href: quickstarts/csharp.md
@@ -14,17 +13,23 @@
     href: quickstarts/java.md
   - name: Node.js
     href: quickstarts/nodejs.md
-  - name: Python
-    href: quickstarts/python.md
   - name: PHP
     href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK C# quickstart
+    href: sdk-quickstart-spell-check.md
+  - name: SDK samples overview
+    href: sdk.md
 - name: Tutorials
   items:
-  - name: Single-page Web app
+  - name: Build a spell check web app
     href: tutorials/spellcheck.md
-  - name: Single-page Web app (source code)
+  - name: 'Source code: spell check web app'
     href: tutorials/spellcheck-source.md
 - name: How-to guides
   items:
@@ -40,17 +45,21 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
 - name: Resources
   items:
+  - name: Analytics for Bing Spell Check API
+    href: bing-spell-check-stats.md
   - name: FAQ
     href: bing-spell-check-resource-faq.md
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/spellcheck-api/
-  - name: User Voice
-    href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-api
-  - name: SDK samples overview
-    href: sdk.md
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
+  - name: Supported languages
+    href: bing-spell-check-supported-languages.md
   - name: Try it!
-    href: https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/
+    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598195-bing-spell-check

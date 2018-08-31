@@ -13,23 +13,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 
 # Azure Stack certificates signing request generation
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
+The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment.
 
 The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the following certificate requests:
 
  - **Standard Certificate Requests**  
-    Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md). 
- - **Request Type**  
-    Request multiple wildcard SAN, multiple domain certificates, single wildcard certificate requests.
+    Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
  - **Platform-as-a-Service**  
     Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
+
+
 
 ## Prerequisites
 
@@ -41,6 +41,9 @@ Your system should meet the following prerequisites before generating the CSR(s)
     - External fully qualified domain name (FQDN)
     - Subject
  - Windows 10 or Windows Server 2016
+ 
+  > [!NOTE]
+  > When you receive your certificates back from your certificate authority the steps in [Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md) will need to be completed on the same system!
 
 ## Generate certificate signing request(s)
 
@@ -60,35 +63,52 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     > [!note]  
     > If a common name (CN) is supplied this will be overwritten by the first DNS name of the certificate request.
 
-3.  Declare an output directory that already exists:
+3.  Declare an output directory that already exists. For example:
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
+    ````
+4.  Declare identify system
+
+    Azure Active Directory
+
+    ```PowerShell
+    $IdentitySystem = "AAD"
     ````
 
-4. Declare **region name** and an **external FQDN** intended for the Azure Stack deployment.
+    Active Directory Federation Services
 
-    ```PowerShell  
+    ```PowerShell
+    $IdentitySystem = "ADFS"
+    ````
+
+5. Declare **region name** and an **external FQDN** intended for the Azure Stack deployment.
+
+    ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ````
 
     > [!note]  
-    > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.
+    > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.  
 
-5. To generate a single certificate request with multiple Subject Alternative Names including those needed for PaaS services:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
-    ````
-
-6. To generate individual certificate signing requests for each DNS name without PaaS services:
+6. To generate certificate signing requests for each DNS name:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-7. Review the output:
+    To include PaaS Services specify the switch ```-IncludePaaS```
+
+7. Alternatively, for Dev/Test environments. To generate a single certificate request with multiple Subject Alternative Names add **-RequestType SingleCSR** parameter and value (**not** recommended for production environments):
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    To include PaaS Services specify the switch ```-IncludePaaS```
+    
+8. Review the output:
 
     ````PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
@@ -106,9 +126,8 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     AzsReadinessChecker Completed
     ````
 
-8.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
+9.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
 
 ## Next steps
 
 [Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md)
-

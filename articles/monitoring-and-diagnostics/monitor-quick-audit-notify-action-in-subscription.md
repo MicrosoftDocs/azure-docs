@@ -1,16 +1,14 @@
 ---
-title: Audit and receive notifications about important actions in your Azure subscription | Microsoft Docs
+title: Audit and receive notifications about important actions in your Azure subscription
 description: Understand the history of resource management, service health, and other subscription activity in the Activity Log, then use an Activity Log alert to receive an email notification when a highly-privileged operation is performed in your subscription.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
+ms.component: alerts
 ---
 
 # Audit and receive notifications about important actions in your Azure subscription

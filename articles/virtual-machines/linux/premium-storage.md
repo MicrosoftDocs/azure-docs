@@ -1,21 +1,14 @@
 ---
 title: High-performance Premium Storage and Azure managed disks for Linux VMs | Microsoft Docs
 description: Learn about high-performance Premium Storage and managed disks for Azure VMs. Azure DS-series, DSv2-series, GS-series, and Fs-series VMs support Premium Storage.
-services: virtual-machines-linux
-documentationcenter: ''
+services: "virtual-machines-linux,storage"
 author: ramankumarlive
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-
+ms.component: disks
 ---
 
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]

@@ -7,6 +7,7 @@ ms.author: serinak
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
@@ -43,7 +44,15 @@ az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNA
 
 ## Set up an SSL certificate on an existing ACS cluster
 
-If you are targeting a cluster that was created without SSL, you can add a certificate using Azure PowerShell cmdlets: 
+If you are targeting a cluster that was created without SSL, you can add a certificate using Azure PowerShell cmdlets.
+
+You need to provide the key and certificate in raw PEM format. These can be read into PowerShell variables:
+
+```
+$keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')
+$certValueInPemFormat = [IO.File]::ReadAllText('<path to cert.pem file>')
+```
+Add the certificate to the cluster: 
 
 ```
 Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enabled -SslCertificate $certValueInPemFormat -SslKey $keyValueInPemFormat -SslCName foo.mycompany.com

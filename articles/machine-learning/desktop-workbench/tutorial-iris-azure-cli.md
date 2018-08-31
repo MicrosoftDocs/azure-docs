@@ -2,11 +2,10 @@
 title: Tutorial article for Azure Machine Learning preview features - Command Line Interface  | Microsoft Docs
 description: This tutorial walk through all the steps required to complete an Iris classification end-to-end from the command line interface.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
@@ -248,7 +247,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 Using the web service ID from the output of the previous step, call the web service and test it. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

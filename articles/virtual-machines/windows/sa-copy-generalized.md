@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an unmanaged image of a generalized VM in Azure | Microsoft Docs
 description: Create an unmanged image of a generalized Windows VM to use to create multiple copies of a VM in Azure.
 services: virtual-machines-windows
@@ -76,6 +76,11 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
     ```
 
 ## Deallocate the VM and set the state to generalized
+
+> [!IMPORTANT] 
+> You cannot add, edit or remove tags from a VM once it is marked as generalized. If you want to add a tag to the VM, make sure you add the tags before marking it as generalized.
+> 
+
 1. Deallocate the VM resources.
    
     ```powershell
