@@ -116,10 +116,10 @@ To display the results in CSV:
 
     Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
 
-- A server with a minimum of 2GB of memory
+- A server with a minimum of 2 GiB of memory
 
     > [!Important]  
-    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048MB of memory.
+    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
     
 - A locally attached volume formatted with the NTFS file system
 
