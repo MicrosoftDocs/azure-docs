@@ -21,7 +21,7 @@ ms.author: ryansoc
 ## Introduction to Azure Government Documentation
 This site describes the capabilities of [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) services, and provides general guidance applicable to all customers. Before including regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
-Refer to the [Microsoft Azure Trust Center Compliance Page](http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx) for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding compliance.
+Refer to the [Microsoft Azure Trust Center Compliance Page](http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx) for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, so that they meet your needs regarding compliance.
 
 Azure Government is available to entities that handle data that is subject to certain government regulations and requirements (such as NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS) where use of Azure Government is required to comply with regulations. Azure Government customers are subject to validation of eligibility.
 
@@ -35,7 +35,7 @@ The following diagram shows the Azure defense-in-depth model. For example, Micro
 
 ![alt text](./media/azure-government-Defenseindepth.png)
 
-This page outlines the foundational principles for securing your Services and applications, providing guidance and best practices on how to apply these principles. In other words, how customers should make smart use of Azure Government to meet the obligations and responsibilities that are required for a solution that handles ITAR information.
+This page outlines the foundational principles for securing your Services and applications, with guidance and best practices on how to apply these principles. In other words, how customers should make smart use of Azure Government to meet the obligations and responsibilities that are required for a solution that handles ITAR information.
 
 The overarching principles for securing customer data are:
 
@@ -44,7 +44,7 @@ The overarching principles for securing customer data are:
 * Isolation to restrict data access
 
 ## Protecting Customer Data Using Encryption
-Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures—and decrease the overall risk of your cloud environment.
+Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures—and lower the overall risk of your cloud environment.
 
 ### <a name="Overview"></a>Encryption at rest
 The encryption of data at rest applies to the protection of customer content held in disk storage. There are several ways this might happen:
@@ -56,14 +56,14 @@ Azure Storage Service Encryption is enabled at the storage account level, result
 Use Azure Disk Encryption to encrypt the OS disks and data disks used by an Azure Virtual Machine. Integration with Azure Key Vault gives you control and helps you manage disk encryption keys.
 
 ### <a name="Overview"></a>Client-Side Encryption
-Client-Side Encryption is built into the Java and the .NET storage client libraries, which can utilize Azure Key Vault APIs, making this straightforward to implement. Use Azure Key Vault to obtain access to the secrets in Azure Key Vault for specific individuals using Azure Active Directory.
+Client-Side Encryption is built into the Java and the .NET storage client libraries, which can utilize Azure Key Vault APIs, making this straightforward to implement. Use Azure Key Vault to gain access to the secrets in Azure Key Vault for specific individuals using Azure Active Directory.
 
 ### <a name="Overview"></a>Encryption in transit
-The basic encryption available for connectivity to Azure Government supports Transport Level Security (TLS) 1.2 protocol, and X.509 certificates. Federal Information Processing Standard (FIPS) 140-2 Level 1 cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters.  Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, and Azure File shares can use SMB 3.0 for encryption between the VM and the file share. Use Client-Side Encryption to encrypt the data before it is transferred into storage in a client application, and to decrypt the data after it is transferred out of storage.
+The basic encryption available for connectivity to Azure Government supports Transport Level Security (TLS) 1.2 protocol, and X.509 certificates. Federal Information Processing Standard (FIPS) 140-2 Level 1 cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters.  Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, and Azure File shares can use SMB 3.0 for encryption between the VM and the file share. Use Client-Side Encryption to encrypt the data before it's transferred into storage in a client application, and to decrypt the data after it's transferred out of storage.
 
 ### <a name="Overview"></a>Best practices for Encryption
 * IaaS VMs: Use Azure Disk Encryption. Turn on Storage Service Encryption to encrypt the VHD files that are used to back up those disks in Azure Storage, but this only encrypts newly written data. This means that, if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
-* Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring large amounts of data.
+* Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you're encrypting and transferring large amounts of data.
 
 For more information on the encryption options in Azure, see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
 
