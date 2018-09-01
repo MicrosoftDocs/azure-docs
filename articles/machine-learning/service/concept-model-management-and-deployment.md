@@ -17,7 +17,7 @@ ms.date: 08/28/2018
 
 The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can use models you create with Azure Machine Learning, or from other sources. For example, you might deploy a model that you trained on your local computer.
 
-Models are registered ?????????????????
+<!-- Models are registered ??? -->
 
 ## Deployment pipeline
 
@@ -88,9 +88,8 @@ Images can be deployed to the following targets:
 * Azure Kubernetes Service
 * Project Brainwave
 
-
-
 ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png)
+
 <!--
 ### Cloud deployments
 
