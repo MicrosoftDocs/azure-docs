@@ -10,7 +10,7 @@ The availability group listener is an IP address and network name that the SQL S
 
    ![Cluster Network Name](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-2. <a name="addcap"></a>Add the client access point.  
+1. <a name="addcap"></a>Add the client access point.  
     The client access point is the network name that applications use to connect to the databases in an availability group. Create the client access point in Failover Cluster Manager.
 
     a. Expand the cluster name, and then click **Roles**.
@@ -24,9 +24,9 @@ The availability group listener is an IP address and network name that the SQL S
 
     d. To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
 
-3. Take the availability group cluster resource offline. Click the **Resources** tab. Under **Other Resources** take the availability group resource offline. 
+1. Take the availability group cluster role offline. In **Failover Cluster Manager** under **Roles**, right clickthe role, and select **Stop Role**.
 
-4. <a name="congroup"></a>Configure the IP resource for the availability group.
+1. <a name="congroup"></a>Configure the IP resource for the availability group.
 
     a. Click the **Resources** tab, and then expand the client access point you created.  
     The client access point is offline.
@@ -43,7 +43,7 @@ The availability group listener is an IP address and network name that the SQL S
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-5. <a name = "dependencyGroup"></a>Make the SQL Server availability group resource dependent on the client access point.
+1. <a name = "dependencyGroup"></a>Make the SQL Server availability group resource dependent on the client access point.
 
     a. In Failover Cluster Manager, click **Roles**, and then click your availability group.
 
@@ -55,7 +55,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     d. Click **OK**.
 
-6. <a name="listname"></a>Make the client access point resource dependent on the IP address.
+1. <a name="listname"></a>Make the client access point resource dependent on the IP address.
 
     a. In Failover Cluster Manager, click **Roles**, and then click your availability group. 
 
@@ -73,7 +73,7 @@ The availability group listener is an IP address and network name that the SQL S
     >You can validate that the dependencies are correctly configured. In Failover Cluster Manager, go to Roles, right-click the availability group, click **More Actions**, and then click  **Show Dependency Report**. When the dependencies are correctly configured, the availability group is dependent on the network name, and the network name is dependent on the IP address. 
 
 
-7. <a name="setparam"></a>Set the cluster parameters in PowerShell.
+1. <a name="setparam"></a>Set the cluster parameters in PowerShell.
 
   a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.
 
@@ -97,7 +97,9 @@ The availability group listener is an IP address and network name that the SQL S
   > [!NOTE]
   > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ListenerILBIP` and `$ListenerProbePort` from the first region. The second time, use the `$ListenerILBIP` and `$ListenerProbePort` from the second region. The cluster network name and the cluster IP resource name are the same.
 
-Repeat the steps above to set the cluster parameters for the WSFC cluster IP address.
+1. Bring the availability group cluster role online. In **Failover Cluster Manager** under **Roles**, right click the role, and select **Start Role**.
+
+If necessary, repeat the steps above to set the cluster parameters for the WSFC cluster IP address.
 
 1. Get the IP address name of the WSFC Cluster IP address. In **Failover Cluster Manager** under **Cluster Core Resources**, locate **Server Name**.
 
@@ -109,21 +111,22 @@ Repeat the steps above to set the cluster parameters for the WSFC cluster IP add
   
   a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.
 
-  - `$ClusterILBIP` is the IP address that you created on the Azure load balancer for the WSFC core cluster resource. It is different from the IP address for the availability group listener.
+  - `$ClusterCoreIP` is the IP address that you created on the Azure load balancer for the WSFC core cluster resource. It is different from the IP address for the availability group listener.
 
   - `$ClusterProbePort` is the port you configured on the Azure load balancer for the WSFC health probe. It is different from the probe for the availability group listener.
 
   ```PowerShell
   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
   $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
-  $ClusterILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+  $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
   [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability grouop listener probe port.
   
   Import-Module FailoverClusters
   
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterILBIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
   ```
 
   b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
-
+>[!WARNING]
+>The availability group listener health probe port has to be different from the cluster core IP address health probe port.
