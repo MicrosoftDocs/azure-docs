@@ -31,11 +31,11 @@ dataflow.head(5)
 ```
 ||Line|
 |----|-----|
-|0|Date ```||``` Minimum temperature ```||``` Maximum temperature|
-|1|2015-07-1 ```||``` -4.1 ```||``` 10.0|
-|2|2015-07-2 ```||``` -0.8 ```||``` 10.8|
-|3|2015-07-3 ```||``` -7.0 ```||``` 10.5|
-|4|2015-07-4 ```||``` -5.5 ```||``` 9.3|
+|0|Date \|\|  Minimum temperature \|\|  Maximum temperature|
+|1|2015-07-1 \|\|  -4.1 \|\|  10.0|
+|2|2015-07-2 \|\|  -0.8 \|\|  10.8|
+|3|2015-07-3 \|\|  -7.0 \|\|  10.5|
+|4|2015-07-4 \|\|  -5.5 \|\|  9.3|
 
 With our ingestion done, we can go ahead and retrieve a Pandas DataFrame for the full dataset.
 
@@ -46,11 +46,11 @@ df
 
 ||Line|
 |----|-----|
-|0|Date```||```Minimum temperature```||```Maximum temperature|
-|1|2015-07-1```||```-4.1```||```10.0|
-|2|2015-07-2```||```-0.8```||```10.8|
-|3|2015-07-3```||```-7.0```||```10.5|
-|4|2015-07-4```||```-5.5```||```9.3|
+|0|Date\|\| Minimum temperature\|\| Maximum temperature|
+|1|2015-07-1\|\| 4.1\|\| 10.0|
+|2|2015-07-2\|\| 0.8\|\| 10.8|
+|3|2015-07-3\|\| 7.0\|\| 10.5|
+|4|2015-07-4\|\| 5.5\|\| 9.3|
 
 ## Read CSV
 When reading delimited files, we can let the underlying runtime infer the parsing parameters (e.g. separator, encoding, whether to use headers, etc.) simply by not providing them. In this case, we will attempt to read a file by specifying only its location. 

@@ -302,7 +302,7 @@ examples
 |0|1/1/2015 1:00|Jan 1, 2015 12AM-2AM|-1|
 |1|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|-2|
 |2|1/29/2015 20:54|Jan 29, 2015 8PM-10PM|-3|
-|3|11/11/2015 0:54|Nov 11, 2015 ```|``` 12AM-2AM|-4|
+|3|11/11/2015 0:54|Nov 11, 2015 \| 12AM-2AM|-4|
 
 Here we can see that we have provided inconsistent examples. To fix the issue, we need to replace the first three examples with correct ones (including '|' between date and time).
 
@@ -320,16 +320,16 @@ builder.preview()
 
 | | DATE | date_timerange |
 | -------- | -------- | -------- |
-| 0 | 1/1/2015 0:54 | Jan 1, 2015 ```|``` 12AM-2AM |
-| 1 | 1/1/2015 1:00 | Jan 1, 2015 ```|``` 12AM-2AM |
-| 2 | 1/1/2015 1:54 | Jan 1, 2015 ```|``` 12AM-2AM |
-| 3 | 1/1/2015 2:54 | Jan 1, 2015 ```|``` 2AM-4AM |
-| 4 | 1/1/2015 3:54 | Jan 1, 2015 ```|``` 2AM-4AM |
-| 5 | 1/1/2015 4:00 | Jan 1, 2015 ```|``` 4AM-6AM|
-| 6 | 1/1/2015 4:54 | Jan 1, 2015 ```|``` 4AM-6AM|
-| 7 | 1/1/2015 5:54 | Jan 1, 2015 ```|``` 4AM-6AM|
-| 8 | 1/1/2015 6:54 | Jan 1, 2015 ```|``` 6AM-8AM|
-| 9 | 1/1/2015 7:00 | Jan 1, 2015 ```|``` 6AM-8AM|
+| 0 | 1/1/2015 0:54 | Jan 1, 2015 \| 12AM-2AM |
+| 1 | 1/1/2015 1:00 | Jan 1, 2015 \| 12AM-2AM |
+| 2 | 1/1/2015 1:54 | Jan 1, 2015 \| 12AM-2AM |
+| 3 | 1/1/2015 2:54 | Jan 1, 2015 \| 2AM-4AM |
+| 4 | 1/1/2015 3:54 | Jan 1, 2015 \| 2AM-4AM |
+| 5 | 1/1/2015 4:00 | Jan 1, 2015 \| 4AM-6AM|
+| 6 | 1/1/2015 4:54 | Jan 1, 2015 \| 4AM-6AM|
+| 7 | 1/1/2015 5:54 | Jan 1, 2015 \| 4AM-6AM|
+| 8 | 1/1/2015 6:54 | Jan 1, 2015 \| 6AM-8AM|
+| 9 | 1/1/2015 7:00 | Jan 1, 2015 \| 6AM-8AM|
 
 Now the data looks correct and we can finally call to_dataflow() on the builder, which would return a dataflow with the desired derived columns added.
 
