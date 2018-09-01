@@ -34,11 +34,13 @@ import azureml.dataprep as dprep
 dataflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dataflow.head(3)
 ```
+
 ||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 |12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
 |2|10140270|HY329253|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
+
 
 ```
 substring(start, length)
@@ -72,6 +74,7 @@ case_id = dataflow.add_column(new_column_name='Case Id',
 case_id = case_id.to_number('Case Id')
 case_id.head(3)
 ```
+
 ||ID|Case Number|Case Id|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|329907.0|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 |12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
@@ -119,7 +122,8 @@ df_mean.head(1)
 The MEAN value of Latitude looks good. So we'll impute Latitude with it. As for Longitude, we'll impute it using 42 based on external knowledge.
 
 
-```# impute with MEAN
+```
+# impute with MEAN
 impute_mean = dprep.ImputeColumnArguments(column_id='Latitude',
                                           impute_function=dprep.ReplaceValueFunction.MEAN)
 # impute with custom value 42
@@ -135,8 +139,8 @@ df_imputed = impute_builder.to_dataflow()
 
 # check impute result
 df_imputed.head(5)
-
 ```
+
 ||ID|Arrest|Latitude|Longitude|
 |-----|------|-----|------|-----|
 |0|10140490|false|41.973309|-87.800175|
@@ -147,7 +151,6 @@ df_imputed.head(5)
 
 As the result above, the missing Latitude has been imputed with the MEAN value of Arrest=='false' group. Also, the missing Longitude has been imputed with 42.
 ```
-# TEST CELL: impute CUSTOM returns correct result
 imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```

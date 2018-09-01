@@ -14,9 +14,8 @@ ms.date: 08/30/2018
  
 As part of the AML Workbench, we provided a Data Prep experience via a GUI. But with the focus of AML Services switching to an API/SDK model, a GUI solution was out of sync. Hence, the team has exposed the underlying API that the GUI uses.  GOOD NEWS: as of today, you can now use this API. 
  
-While 100% of the GUI functionality is not yet exposed, it will be eventually. As of today, you can use much of the capability including PROSE technology, Smart File Readers, and many other transforms.
-  
-# Why would you use this API? 
+While 100% of the GUI functionality is not yet exposed, it will be eventually. As of today, you can use much of the capability including PROSE technology, Smart File Readers, and many other transforms.  
+## Why would you use this API? 
 The data prep API provides (and will provide even more) value through:
 -	Intelligent Transforms. This includes Derived Column By Example and Autosplit
 -	Smart File Reading. Point the file reader at any one of the supported file types. So, no need to remember how to use a csv reader, a flat file reader, or an excel reader etc.

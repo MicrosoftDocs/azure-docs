@@ -14,7 +14,7 @@ It is possible to write out the data at any point in a Dataflow. These writes ar
 
 It is important to note that the execution of each write results in a full pull of the data in the Dataflow. A Dataflow with three write steps will, for example, read and process every record in the dataset three times.
 
-# Writing to Files
+## Writing to Files
 Data can be written to files in any of our supported locations (Local File System, Azure Blob Storage, and Azure Data Lake Storage). In order to parallelize the write, the data is written to multiple partition files. A sentinel file named SUCCESS is also output once the write has completed. This makes it possible to identify when an intermediate write has completed without having to wait for the whole pipeline to complete.
 
 When running a Dataflow in Spark, attempting to execute a write to an existing folder will fail. It is important to ensure the folder is empty or use a different target location per execution.
@@ -26,14 +26,10 @@ The following file formats are currently supported:
 We'll start by loading data into a Dataflow. We will re-use this with different formats.
 
 ```
+
 import azureml.dataprep as dprep
-
-t = dprep.smart_read_file
-
-('./data/fixed_width_file.txt')
-
+t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
-
 t.head(10)
 ```   
 
@@ -81,8 +77,8 @@ The data we wrote out contains several errors in the numeric columns due to numb
 
 ```
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
-error='BadData',
-na='NA')
+                         error='BadData',
+                         na='NA')
 write_t.run_local()
 written_files = dprep.read_csv('./test_out/part-*')
 written_files.head(10)
