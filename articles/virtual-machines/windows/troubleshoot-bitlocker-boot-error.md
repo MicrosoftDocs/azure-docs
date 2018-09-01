@@ -117,7 +117,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.	To unlock the attached disk by using the BEK file, run the following script:
+7.	To unlock the attached disk by using the BEK file, run the following command:
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
@@ -126,10 +126,16 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
 
-    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running `manage-bde -protectors -disable F: -rc 0`.
-          
-    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, use `manage-bde -off F:`.
+    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
+    
+        ```powershell
+        manage-bde -protectors -disable F: -rc 0
+        ```      
+    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, run the following command:
 
+        ```powershell
+        manage-bde -off F:
+        ```
 8.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
 
 ### Key Encryption Key scenario
@@ -238,7 +244,7 @@ For a Key Encryption Key scenario, follow these steps:
         VERBOSE: received 360-byte response of content type application/json; charset=utf-8
 
 
-5. To unlock the attached disk by using the BEK file, run the following script:
+5. To unlock the attached disk by using the BEK file, run the following command:
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
@@ -247,8 +253,15 @@ For a Key Encryption Key scenario, follow these steps:
 
     - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
 
-    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running `manage-bde -protectors -disable F: -rc 0`.
-          
-    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, use `manage-bde -off F:`.
+    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
+    
+        ```powershell
+        manage-bde -protectors -disable F: -rc 0
+        ```      
+    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, run the following command:
+
+        ```powershell
+        manage-bde -off F:
+        ```
 
 6. Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
