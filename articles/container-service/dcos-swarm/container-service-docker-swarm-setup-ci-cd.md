@@ -42,7 +42,7 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Create a Swarm cluster in Azure Container Service](container-service-deployment.md)
 - [Connect with the Swarm cluster in Azure Container Service](../container-service-connect.md)
 - [Create an Azure container registry](../../container-registry/container-registry-get-started-portal.md)
-- [Have an Azure DevOps Services organization and project created](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
+- [Have an Azure DevOps Services organization and project created](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Fork the GitHub repository to your GitHub account](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
