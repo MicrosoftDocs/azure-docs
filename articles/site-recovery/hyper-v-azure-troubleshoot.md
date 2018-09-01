@@ -13,13 +13,13 @@ ms.author: rayne
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
 
-This article describes common issues that you might encounter when replicating on-premises Hyper-V VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
+This article describes common issues that you might come across when replicating on-premises Hyper-V VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
 
 ## Enable protection issues
 
-If you encounter issues when you enable protection for Hyper-V VMs, check the following recommendations:
+If you experience issues when you enable protection for Hyper-V VMs, check the following recommendations:
 
-1. Check that your Hyper-V hosts and VMs comply with all [requirements and prerequisites](hyper-v-azure-support-matrix.md).
+1. Check that your Hyper-V hosts and VMs meet all [requirements and prerequisites](hyper-v-azure-support-matrix.md).
 2. If Hyper-V servers are located in System Center Virtual Machine Manager (VMM) clouds, verify that you've prepared the [VMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
 3. Check that the Hyper-V Virtual Machine Management service is running on Hyper-V hosts.
 4. Check for issues that appear in the Hyper-V-VMMS\Admin sign in to the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
