@@ -31,11 +31,11 @@ dataflow.head(5)
 ```
 ||Line|
 |----|-----|
-|0|Date```||```Minimum temperature```||```Maximum temperature|
-|1|2015-07-1```||```-4.1```||```10.0|
-|2|2015-07-2```||```-0.8```||```10.8|
-|3|2015-07-3```||```-7.0```||```10.5|
-|4|2015-07-4```||```-5.5```||```9.3|
+|0|Date ```||``` Minimum temperature ```||``` Maximum temperature|
+|1|2015-07-1 ```||``` -4.1 ```||``` 10.0|
+|2|2015-07-2 ```||``` -0.8 ```||``` 10.8|
+|3|2015-07-3 ```||``` -7.0 ```||``` 10.5|
+|4|2015-07-4 ```||``` -5.5 ```||``` 9.3|
 
 With our ingestion done, we can go ahead and retrieve a Pandas DataFrame for the full dataset.
 
@@ -165,12 +165,12 @@ df
 ```
 
 ||Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
-|1|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997^|6|
-|2|Marvel's The Avengers|BV|1518.6|623.4|0.41|895.2|0.59|2012|7|
-|3|Harry Potter and the Deathly Hallows Part 2|WB|1341.5|381|0.284||960.5|0.716|2011|8|
-|4|Frozen|BV|1274.2|400.7|0.314|873.5|0.686|2013|9|
+|------|------|------|-----|------|-----|-------|----|-----|-----|
+|0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
+|1|2|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997^|
+|2|3|Marvel's The Avengers|BV|1518.6|623.4|0.41|895.2|0.59|2012|
+|3|4|Harry Potter and the Deathly Hallows Part 2|WB|1341.5|381|0.284|960.5|0.716|2011|
+|4|5|Frozen|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
 ## Read Fixed Width Files
 For fixed-width files, we can specify a list of offsets. The first column is always assumed to start at offset 0.

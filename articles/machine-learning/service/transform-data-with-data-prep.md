@@ -320,16 +320,16 @@ builder.preview()
 
 | | DATE | date_timerange |
 | -------- | -------- | -------- |
-| 0 | 1/1/2015 0:54 | Jan 1, 2015```|```12AM-2AM |
-| 1 | 1/1/2015 1:00 | Jan 1, 2015```|```12AM-2AM |
-| 2 | 1/1/2015 1:54 | Jan 1, 2015```|```12AM-2AM |
-| 3 | 1/1/2015 2:54 | Jan 1, 2015```|```2AM-4AM |
-| 4 | 1/1/2015 3:54 | Jan 1, 2015```|```2AM-4AM |
-| 5 | 1/1/2015 4:00 | Jan 1, 2015```|```4AM-6AM|
-| 6 | 1/1/2015 4:54 | Jan 1, 2015```|```4AM-6AM|
-| 7 | 1/1/2015 5:54 | Jan 1, 2015```|```4AM-6AM|
-| 8 | 1/1/2015 6:54 | Jan 1, 2015```|```6AM-8AM|
-| 9 | 1/1/2015 7:00 | Jan 1, 2015```|```6AM-8AM|
+| 0 | 1/1/2015 0:54 | Jan 1, 2015 ```|``` 12AM-2AM |
+| 1 | 1/1/2015 1:00 | Jan 1, 2015 ```|``` 12AM-2AM |
+| 2 | 1/1/2015 1:54 | Jan 1, 2015 ```|``` 12AM-2AM |
+| 3 | 1/1/2015 2:54 | Jan 1, 2015 ```|``` 2AM-4AM |
+| 4 | 1/1/2015 3:54 | Jan 1, 2015 ```|``` 2AM-4AM |
+| 5 | 1/1/2015 4:00 | Jan 1, 2015 ```|``` 4AM-6AM|
+| 6 | 1/1/2015 4:54 | Jan 1, 2015 ```|``` 4AM-6AM|
+| 7 | 1/1/2015 5:54 | Jan 1, 2015 ```|``` 4AM-6AM|
+| 8 | 1/1/2015 6:54 | Jan 1, 2015 ```|``` 6AM-8AM|
+| 9 | 1/1/2015 7:00 | Jan 1, 2015 ```|``` 6AM-8AM|
 
 Now the data looks correct and we can finally call to_dataflow() on the builder, which would return a dataflow with the desired derived columns added.
 
@@ -366,7 +366,8 @@ To filter columns, use Dataflow.drop_columns. This method takes a list of column
 
 In this example, drop_columns takes a list of strings. Each string should exactly match the desired column to drop.
 
-``` dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
+``` 
+dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
 dataflow.head(5)
 ```
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
