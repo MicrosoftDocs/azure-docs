@@ -73,17 +73,8 @@ The function editor built into the Azure portal lets you update the *function.js
 
 Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/app-service-deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
 
-#### To use App Service Editor
-1. In the Azure Functions portal, click **Platform features**.
-2. In the **DEVELOPMENT TOOLS** section, click **App Service Editor**.   
-   After App Service Editor loads, you'll see the *host.json* file and function folders under *wwwroot*. 
-5. Open files to edit them, or drag and drop from your development machine to upload files.
-
-#### To use the function app's SCM (Kudu) endpoint
-1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
-2. Click **Debug Console > CMD**.
-3. Navigate to `D:\home\site\wwwroot\` to update *host.json* or `D:\home\site\wwwroot\<function_name>` to update a function's files.
-4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid. There are two areas in the file grid where you can drop a file. For *.zip* files, a box appears with the label "Drag here to upload and unzip." For other file types, drop in the file grid but outside the "unzip" box.
+#### Use local tools and publishing
+Function apps can be authored and published using many tools including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and the [local core tools](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
@@ -95,7 +86,7 @@ When multiple triggering events occur faster than a single-threaded function run
 
 ## Functions runtime versioning
 
-You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~1" indicates that your Function App will use 1 as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~2" indicates that your Function App will use 2.x as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## Repositories
 The code for Azure Functions is open source and stored in GitHub repositories:
