@@ -74,8 +74,10 @@ The function editor built into the Azure portal lets you update the *function.js
 
 Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/app-service-deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
 
-#### Tools for local development and publishing
-Function apps can be created and published using popular development environments, including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and [local command line tools](./functions-develop-local.md). For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
+#### Use local tools and publishing
+Function apps can be authored and published using various tools, including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and the [Azure Functions Core Tools](./functions-develop-local.md). For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
+
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
 #### Continuous deployment
 Follow the instructions in the topic [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
