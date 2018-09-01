@@ -50,7 +50,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 ## Deny requests
 
-1. Find and click the request that you want to approve. An approval pane appears.
+1. Find and click the request that you want to deny. An approval pane appears.
 
     ![Approve requests pane](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
@@ -58,7 +58,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Click **Deny**.
 
-    The Status symbol will be updated with your denial.
+    A notification appears with your denial.
 
 ## Workflow notifications
 
