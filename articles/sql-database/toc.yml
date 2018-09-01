@@ -11,17 +11,17 @@
   items:
   - name: Create
     items: 
-    - name: Single database - Portal
+    - name: Single database
       href: sql-database-get-started-portal.md
     - name: Managed Instance
       href: sql-database-managed-instance-get-started.md
   - name: Configure
     items:
-    - name: Logical server firewall rule - Portal
+    - name: Logical server firewall rule
       href: sql-database-get-started-portal.md#create-a-server-level-firewall-rule
-    - name: Cient VM connection - Managed Instance
+    - name: Cient VM connection to a Managed Instance
       href: sql-database-managed-instance-configure-vm.md
-    - name: Point-to-site connection - Managed Instance
+    - name: Point-to-site connection to a Managed Instance
       href: sql-database-managed-instance-configure-vm.md  
   - name: Load data
     items:
