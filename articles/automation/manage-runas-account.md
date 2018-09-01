@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/16/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -15,7 +15,7 @@ manager: carmonm
 
 Run As accounts in Azure Automation are used to provide authentication for managing resources in Azure with the Azure cmdlets.
 
-When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to this user at the subscription level.
+When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to this user at the subscription level. For runbooks that use Hybrid Runbook Workers on Azure virtual machines, you can use [Managed Service Identities](automation-hrw-run-runbooks.md#managed-service-identity) instead of Run As accounts to authenticate to your Azure resources.
 
 There are two types of Run As Accounts:
 
