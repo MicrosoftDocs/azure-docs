@@ -70,5 +70,5 @@ As a delegated approver, you'll receive an email notification when an Azure AD d
 
 ## Next steps
 
-- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
 - [Email notifications in PIM](pim-email-notifications.md)
+- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)

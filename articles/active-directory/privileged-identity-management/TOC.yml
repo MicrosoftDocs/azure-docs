@@ -44,28 +44,28 @@
     items:
     - name: Assign roles
       href: pim-how-to-add-role-to-user.md
+    - name: Approve requests
+      href: azure-ad-pim-approval-workflow.md
     - name: Configure role settings
       href: pim-how-to-change-default-settings.md
     - name: Configure alerts
       href: pim-how-to-configure-security-alerts.md
-    - name: Approve requests
-      href: azure-ad-pim-approval-workflow.md
     - name: View audit history
       href: pim-how-to-use-audit-log.md
   - name: Manage resource roles
     items:
-    - name: View who has access
-      href: azure-pim-resource-rbac.md
     - name: Assign roles
       href: pim-resource-roles-assign-roles.md
-    - name: Configure role settings
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Configure alerts
-      href: pim-resource-roles-configure-alerts.md
     - name: Approve requests
       href: pim-resource-roles-approval-workflow.md
     - name: Extend or renew roles
       href: pim-resource-roles-renew-extend.md
+    - name: Configure role settings
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Configure alerts
+      href: pim-resource-roles-configure-alerts.md
+    - name: View who has access
+      href: azure-pim-resource-rbac.md
     - name: View audit history
       href: pim-resource-roles-use-the-audit-log.md
     - name: Use custom roles

@@ -108,4 +108,5 @@ If you do not require activation of a role that requires approval, you can cance
 
 ## Next steps
 
+- [Extend or renew Azure resource roles in PIM](pim-resource-roles-renew-extend.md)
 - [Activate my Azure AD directory roles in PIM](pim-how-to-activate-role.md)

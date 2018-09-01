@@ -74,5 +74,6 @@ Here's some information about workflow notifications:
 
 ## Next steps
 
-- [Approve or deny requests for Azure AD directory roles in PIM](azure-ad-pim-approval-workflow.md)
+- [Extend or renew Azure resource roles in PIM](pim-resource-roles-renew-extend.md)
 - [Email notifications in PIM](pim-email-notifications.md)
+- [Approve or deny requests for Azure AD directory roles in PIM](azure-ad-pim-approval-workflow.md)
