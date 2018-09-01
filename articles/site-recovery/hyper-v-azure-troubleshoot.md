@@ -22,12 +22,12 @@ If you encounter issues when you enable protection for Hyper-V VMs, check the fo
 1. Check that your Hyper-V hosts and VMs comply with all [requirements and prerequisites](hyper-v-azure-support-matrix.md).
 2. If Hyper-V servers are located in System Center Virtual Machine Manager (VMM) clouds, verify that you've prepared the [VMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
 3. Check that the Hyper-V Virtual Machine Management service is running on Hyper-V hosts.
-4. Check for issues that appear in the Hyper-V-VMMS\Admin log on the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
+4. Check for issues that appear in the Hyper-V-VMMS\Admin sign in to the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
 5. On the guest VM, verify that WMI is enabled and accessible.
   - [Learn about](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) basic WMI testing.
   - [Troubleshoot](https://aka.ms/WMiTshooting) WMI.
   - [Troubleshoot ](https://technet.microsoft.com/library/ff406382.aspx#H22) problems with WMI scripts and services.
-5. On the guest VM, ensure that the latest version of Integration Services is running.
+6. On the guest VM, ensure that the latest version of Integration Services is running.
     - [Check](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
     - [Keep](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
     
@@ -87,7 +87,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 
 1. Check that the latest version of Integration services is installed and running.  Check if an update is available by running the following command from an elevated PowerShell prompt on the Hyper-V host: **get-vm  | select Name, State, IntegrationServicesState**.
 2. Check that VSS services are running and healthy:
-    - To do this, log onto the guest VM. Then open an admin command prompt, and run the following commands to check whether all the VSS writers are healthy.
+    - To do this, sign in to the guest VM. Then open an admin command prompt, and run the following commands to check whether all the VSS writers are healthy.
         - **Vssadmin list writers**
         - **Vssadmin list shadows**
         - **Vssadmin list providers**
@@ -103,7 +103,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
     ![Dynamic disk](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. Check that you don't have an iSCSI disk attached to the VM. This isn't supported.
-5. Check that the Backup service is enabled. Verify this in **Hyper-V settings** > **Integration Services**.
+5. Check that the Backup service is enabled. Verify that it is enabled in **Hyper-V settings** > **Integration Services**.
 6. Make sure there are no conflicts with apps taking VSS snapshots. If multiple apps are trying to take VSS snapshots at the same time conflicts can occur. For example, if a Backup app is taking VSS snapshots when Site Recovery is scheduled by your replication policy to take a snapshot.   
 7. Check if the VM is experiencing a high churn rate:
     - You can measure the daily data change rate for the guest VMs, using performance counters on Hyper-V host. To do this, enable the following counter. Aggregrate a sample of this value across the VM disks for 5-15 minutes, to get the VM churn.
