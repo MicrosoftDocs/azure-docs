@@ -20,7 +20,7 @@ DataPrep has the ability to load different types of input data. While it is poss
 - [Read Excel](#read-excel)
 - [Read Fixed Width Files](#read-fixed-width-files)
 - [Read SQL](#read-sql)
-- [Read From ADLS](@read-from-adls)
+- [Read From ADLS](#read-from-adls)
 
 ## Read Lines
 One of the simplest ways to read a file into a dataframe is to just read it as text lines.
