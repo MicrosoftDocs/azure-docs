@@ -132,14 +132,21 @@
         href: ~/cluster-references/parameter-reference.md
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
+  - name: CycleCloud Application
+    items: 
+    - name: Performance Tuning
+      href: ~/cyclecloud-references/performance-tuning.md
+    - name: Backup and Restore
+      href: ~/cyclecloud-references/backup-and-restore.md
+    - name: HTTP Proxy Configuration
+      href: ~/cyclecloud-references/running-behind-proxy.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
     href: cookbook-reference.md
   - name: Node Configuration
     href: node-configuration-reference.md
-  - name: Performance Tuning
-    href: performance-tuning.md
+
   - name: pogo
     items:
     - name: Overview

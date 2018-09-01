@@ -109,7 +109,7 @@ Here is a sample template using the three alternate image constructs for the nod
   [[node cycle-image]]
     ImageName = cycle.image.ubuntu16
 
-  [[node marketplace-vm-image]]
+  [[node my-custom-vm-image]]
     ImageId = /subscriptions/9B16BFF1-879F-4DB3-A55E-8F8AC1E6D461/resourceGroups/my-rg/providers/Microsoft.Compute/images/jetpack-rhel7-1b1e3e93
 
     # Jetpack already installed on image
