@@ -18,14 +18,18 @@
   - name: Configure
     items:
     - name: Logical server firewall rule - Portal
+      href: sql-database-get-started-portal.md#create-a-server-level-firewall-rule
     - name: Cient VM connection - Managed Instance
-    - name: Point-to-site connection - Managed Instance  
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Point-to-site connection - Managed Instance
+      href: sql-database-managed-instance-configure-vm.md  
   - name: Load data
     items:
-    - name: Restore database - Managed Instance
-      href: sql-database-managed-instance-restore-from-backup-tutorial.md
-    - name: Import BACPAC - Portal
-  - name: Connect and query
+    - name: Import BACPAC into a single database
+      href: sql-database-import.md
+    - name: Restore a database backup to a Managed Instance
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md#restore-the-wide-world-importers-database-from-a-backup-file
+  - name: Query
     href: sql-database-connect-query.md
     items:
     - name: SSMS
