@@ -49,8 +49,8 @@ Troubleshoot issues with initial and ongoing replication as follows:
     - If you're replicating with VMM in the environment, check that these services are running:
         - On the Hyper-V host, check that the Virtual Machine Management service, the Microsoft Azure Recovery Services Agent, and the WMI Provider Host service are running.
         - On the VMM server, ensure that the System Center Virtual Machine Manager Service is running.
-4. Check connectivity between the Hyper-V server and Azure. To do this, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab > **Process with Network Activity**, check whether cbengine.exe is actively sending large volumes (Mbs) of data.
-5. Check if the Hyper-V hosts can connect to the Azure storage blob URL. To do this, select and check **cbengine.exe**. View **TCP Connections** to verify connectivity from the host to the Azure storage blob.
+4. Check connectivity between the Hyper-V server and Azure. To check connectivity, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab > **Process with Network Activity**, check whether cbengine.exe is actively sending large volumes (Mbs) of data.
+5. Check if the Hyper-V hosts can connect to the Azure storage blob URL. To check if the hosts can connect, select and check **cbengine.exe**. View **TCP Connections** to verify connectivity from the host to the Azure storage blob.
 6. Check performance issues, as described below.
     
 ### Performance issues
@@ -87,7 +87,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 
 1. Check that the latest version of Integration services is installed and running.  Check if an update is available by running the following command from an elevated PowerShell prompt on the Hyper-V host: **get-vm  | select Name, State, IntegrationServicesState**.
 2. Check that VSS services are running and healthy:
-    - To do this, sign in to the guest VM. Then open an admin command prompt, and run the following commands to check whether all the VSS writers are healthy.
+    - To check the services, sign in to the guest VM. Then open an admin command prompt, and run the following commands to check whether all the VSS writers are healthy.
         - **Vssadmin list writers**
         - **Vssadmin list shadows**
         - **Vssadmin list providers**
@@ -106,7 +106,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 5. Check that the Backup service is enabled. Verify that it is enabled in **Hyper-V settings** > **Integration Services**.
 6. Make sure there are no conflicts with apps taking VSS snapshots. If multiple apps are trying to take VSS snapshots at the same time conflicts can occur. For example, if a Backup app is taking VSS snapshots when Site Recovery is scheduled by your replication policy to take a snapshot.   
 7. Check if the VM is experiencing a high churn rate:
-    - You can measure the daily data change rate for the guest VMs, using performance counters on Hyper-V host. To do this, enable the following counter. Aggregrate a sample of this value across the VM disks for 5-15 minutes, to get the VM churn.
+    - You can measure the daily data change rate for the guest VMs, using performance counters on Hyper-V host. To measure the data change rate, enable the following counter. Aggregrate a sample of this value across the VM disks for 5-15 minutes, to get the VM churn.
         - Category: “Hyper-V Virtual Storage Device”
         - Counter: “Write Bytes / Sec”</br>
         - This data churn rate will increase or remain at a high level, depending on how busy the VM or its apps are.
@@ -141,7 +141,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 
 All Hyper-V replication event are logged in the Hyper-V-VMMS\Admin log, located in **Applications and Services Logs** > **Microsoft** > **Windows**. In addition, you can enable an Analytic log for the Hyper-V Virtual Machine Management Service, as follows:
 
-1. Make the Analytic and Debug logs viewable in the Event Viewer. To do this, in the Event Viewer, click **View** > **Show Analytic and Debug Logs.**. The Analytic log appears under **Hyper-V-VMMS**.
+1. Make the Analytic and Debug logs viewable in the Event Viewer. To make the logs available, in the Event Viewer, click **View** > **Show Analytic and Debug Logs.**. The Analytic log appears under **Hyper-V-VMMS**.
 2. In the **Actions** pane, click **Enable Log**. 
 
     ![Enable log](media/hyper-v-azure-troubleshoot/enable-log.png)
