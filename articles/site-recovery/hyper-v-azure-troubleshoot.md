@@ -17,7 +17,7 @@ This article describes common issues that you might encounter when replicating o
 
 ## Enable protection issues
 
-If you encounter issues when you enable protection for Hyper-V VMs, check the following:
+If you encounter issues when you enable protection for Hyper-V VMs, check the following recommendations:
 
 1. Check that your Hyper-V hosts and VMs comply with all [requirements and prerequisites](hyper-v-azure-support-matrix.md).
 2. If Hyper-V servers are located in System Center Virtual Machine Manager (VMM) clouds, verify that you've prepared the [VMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
@@ -49,7 +49,7 @@ Troubleshoot issues with initial and ongoing replication as follows:
     - If you're replicating with VMM in the environment, check that these services are running:
         - On the Hyper-V host, check that the Virtual Machine Management service, the Microsoft Azure Recovery Services Agent, and the WMI Provider Host service are running.
         - On the VMM server, ensure that the System Center Virtual Machine Manager Service is running.
-4. Check connectivity between the Hyper-V server and Azure. To do this, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab > **Processess with Network Activity**, check whether cbengine.exe is actively sending large volumes (Mbs) of data.
+4. Check connectivity between the Hyper-V server and Azure. To do this, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab > **Process with Network Activity**, check whether cbengine.exe is actively sending large volumes (Mbs) of data.
 5. Check if the Hyper-V hosts can connect to the Azure storage blob URL. To do this, select and check **cbengine.exe**. View **TCP Connections** to verify connectivity from the host to the Azure storage blob.
 6. Check performance issues, as described below.
     
