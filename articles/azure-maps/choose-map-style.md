@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 
 # Choose a map style in Azure Maps
-Azure Maps has four different maps styles to choose from. For more about map styles, see [supported map styles in Azure Maps](./supported-map-styles.md). This article shows how to use the style-related functionalities to set a style on map load, set a new style and use the style [picker control](https://docs.microsoft.com/azure/azure-maps/choose-map-style#adding-the-style-picker).
+Azure Maps has four different maps styles to choose from. For more about map styles, see [supported map styles in Azure Maps](./supported-map-styles.md). This article shows how to use the style-related functionalities to set a style on map load, set a new style and use the style picker control.
 
 ## Setting style on map load
 
