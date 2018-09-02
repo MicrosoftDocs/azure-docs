@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/2/2018
 ms.author: rkarlin
 
 ---
@@ -49,20 +49,18 @@ To take full advantage of Security Center, you need to complete the steps below 
 ## Upgrade to the Standard tier
 For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. Your first 60 days are free, and you can return to the Free tier any time.
 
-1. Under the Security Center main menu, select **Onboarding to advanced security**.
+1. Under the Security Center main menu, select **Getting started**.
+ 
+  ![Get started][4]
 
-2. Under **Onboarding to advanced security**, Security Center lists subscriptions and workspaces eligible for onboarding. Select a subscription from the list.
+2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
+   - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
+   -	You can upgrade subscriptions and workspaces that are not eligible for trial.
+   -	You can select eligible workspaces and subscriptions to start your trial.
+3.	Click **Start trial** to start your trial on the selected subscriptions.
 
-  ![Select a subscription][4]
 
-3. **Security policy** provides information on the resource groups contained in the subscription. **Pricing** also opens.
-4. Under **Pricing**, select **Standard** to upgrade from Free to Standard and click **Save**.
-
-  ![Select Standard][5]
-
-Now that you’ve upgraded to the Standard tier, you have access to additional Security Center features, including **adaptive application controls**, **just in time VM access**, **security alerts**, **threat intelligence**, **automation playbooks**, and more. Note that security alerts will only appear when Security Center detects malicious activity.
-
-  ![Security alerts][7]
+  ![Security alerts][9]
 
 ## Automate data collection
 Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
@@ -109,8 +107,9 @@ In this quickstart you upgraded to Standard tier and provisioned the Microsoft M
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
-[4]: ./media/security-center-get-started/onboarding.png
+[4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

@@ -3,7 +3,7 @@ title: Azure Security Center Quickstart - Onboard your Linux computers to Securi
 description: This quickstart shows you how to onboard your Linux computers to Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
+ms.date: 09/02/2018
+ms.author: rkarlin
 
 ---
 # Quickstart: Onboard Linux computers to Azure Security Center
@@ -35,11 +35,11 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
  ![Security Center overview][2]
 
-3. Under the Security Center main menu, select **Onboarding to advanced security**.
-4. Select **Do you want to add non-Azure computers**.
+3. Under the Security Center main menu, select **Getting started**.
+4. Select the **Get started** tab.
    ![Onboard to advanced security][3]
 
-5. On **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
+5. Click **Configure** under **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
     ![Add non-Azure computer][4]
 
@@ -88,7 +88,7 @@ In this quick start, you provisioned the agent on a Linux computer. To learn mor
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png
 [2]: ./media/quick-onboard-linux-computer/overview.png
-[3]: ./media/quick-onboard-linux-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-linux-computer/get-started.png
 [4]: ./media/quick-onboard-linux-computer/add-computer.png
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png
