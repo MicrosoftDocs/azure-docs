@@ -48,21 +48,6 @@ To upgrade all subscriptions to Standard:
   ![Select subscription](./media/security-center-onboarding/select-subscription.png)
 
 
-To upgrade an individual subscription to Standard:
-You can upgrade a subscription from **Onboarding** by selecting **Apply Standard Tier**. To upgrade a resource group under the subscription to Standard, select the subscription:
-1. Select a subscription.  **Security policy** provides information on the resource group contained in the subscription.
-2. Select the subscription or a resource group.
-
-  ![Upgrade all subscriptions][2]
-
-3. Select **Standard** to upgrade from Free to Standard.
-4. Select **Save**.
-
-> [!NOTE]
-> Upgrading a subscription to Standard will turn on [automatic provisioning](security-center-enable-data-collection.md) if it was previously disabled. We recommend automatic provisioning of monitoring agents.
->
->
-
 ## Upgrade a workspace
 Applying Standard to the workspace applies to all resources reporting to the workspace.
 
