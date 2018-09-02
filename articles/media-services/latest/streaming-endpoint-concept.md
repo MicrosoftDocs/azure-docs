@@ -11,13 +11,13 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/02/2018
 ms.author: juliako
 ---
 
 # Streaming Endpoints
 
-In Microsoft Azure Media Services (AMS), the [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) entity represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a Streaming Endpoint service can be a live stream, or a video on-demand Asset in your Media Services account. When you create a Media Services account a **Default** Streaming Endpoint is created for you in a stopped state. You cannot delete the default Streaming Endpoint. Additional Streaming Endpoints can be created under the account. To start streaming videos, you need to start the Streaming Endpoint. 
+In Microsoft Azure Media Services (AMS), the [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) entity represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a Streaming Endpoint service can be a live stream, or a video on-demand Asset in your Media Services account. When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You cannot delete the default Streaming Endpoint. Additional Streaming Endpoints can be created under the account. To start streaming videos, you need to start the Streaming Endpoint. 
 
 ## StreamingEndpoint types  
 
@@ -27,7 +27,7 @@ The table describes the types:
 
 |Type|Scale units|Description|
 |--------|--------|--------|  
-|**Standard Streaming Endpoint** (recommended)|0|The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. <br/>For customers with extremely demanding requirements Media Services offers **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, please contact us at amsstreaming@microsoft.com for guidance on whether you need to move to the **Premium** type. |
+|**Standard Streaming Endpoint** (recommended)|0|The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. <br/>For customers with extremely demanding requirements Media Services offers **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming@microsoft.com for guidance on whether you need to move to the **Premium** type. |
 |**Premium Streaming Endpoint**|>0|**Premium** streaming endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits`. `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
 
 ## Working with CDN
@@ -36,9 +36,7 @@ In most cases, you should have CDN enabled. However, if you are anticipating max
 
 ### Detailed explanation of how caching works
 
-There is no specific bandwidth value when adding the CDN because the amount of bandwidth that is needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, bitrates, and the protocols.  
-
-From a customer's perspective the CDN effectively has unlimited bandwidth. It does not mean that you never have to worry about the streaming endpoint bandwidth. The CDN is only caching what is being requested. That means that popular content will be served directly from the CDN – as long as the video fragment is cached. This means that live content is likely to be cached because you typically have many people watching the exact same thing. On demand can be a bit trickier because you could have some content that is popular and some that is not. If you have millions of video assets where none of them are popular (only 1 or 2 viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
+There is no specific bandwidth value when adding the CDN because the amount of bandwidth that is needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, bitrates, and the protocols. The CDN is only caching what is being requested. That means that popular content will be served directly from the CDN – as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that is popular and some that is not. If you have millions of video assets where none of them are popular (only 1 or 2 viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
  
 You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched, the person skips around watching only a few seconds here and there only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they are each cached separately in the CDN. Even if two people are watching the same bitrate they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
  
