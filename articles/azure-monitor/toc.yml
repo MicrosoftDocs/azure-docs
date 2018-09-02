@@ -132,6 +132,8 @@
       href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
     - name: Action groups
       href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
+  - name: Visualize data
+    href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Partner integrations
     href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
 - name: How-to guides

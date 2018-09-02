@@ -125,7 +125,7 @@ You can access data in Azure metrics and Log Analytics through their API using a
 
 
 ## Next steps
-- Learn about the [data collected by Azure Monitor](..../monitoring/monitoring-data-collection.md).
+- Learn about the [data collected by Azure Monitor](../monitoring/monitoring-data-collection.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md).
 - Learn about [Workbooks in Application Insights](../application-insights/app-insights-usage-workbooks.md).
