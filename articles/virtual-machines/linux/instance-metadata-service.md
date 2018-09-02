@@ -46,7 +46,7 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 ## Usage
 
 ### Versioning
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2017-04-02`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02)
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-04-02`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02)
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
@@ -435,7 +435,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
-4. I am not seeing all data populated for new version of 2017-08-01
+4. I am not seeing all data populated for new version
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 5. Why am I getting the error `500 Internal Server Error`?
    * Retry your request based on exponential back off system. If the issue persists contact  Azure support.
