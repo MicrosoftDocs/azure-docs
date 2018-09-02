@@ -20,7 +20,7 @@ ms.author: bwren
 # Visualizing data from Azure Monitor
 This article provides a summary of the available methods to visualize data stored in Azure Monitor. This includes [metrics in the Azure metrics store](../monitoring/monitoring-data-collection.md#metrics) and [log data in Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
 
-Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
+Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
@@ -33,10 +33,10 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Parametrized metrics dashboards with timestamp and custom parameters.
 - Flexible layout options.
 - Full screen mode.
-- Limited contextual drill down.
+- Limited contextual drill-down.
 
 ### Limitations
-- Limited control over Log Analytics visualizations with no support for data tables. Total number of data series is limited to ten with further data series grouped under an _other_ bucket.
+- Limited control over Log Analytics visualizations with no support for data tables. Total number of data series is limited to 10 with further data series grouped under an _other_ bucket.
 - No custom parameters support for Log Analytics charts.
 - Log Analytics charts are limited to last 30 days.
 - Log Analytics charts can only be pinned to shared dashboards.
@@ -77,7 +77,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 ### Limitations
 - No automatic refresh.
-- No dense layout like dashboards which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
+- No dense layout like dashboards, which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
 
 
 ## Power BI
@@ -93,8 +93,8 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 ### Limitations
 - Only import data from Log Analytics. No support for metrics.
-- No Azure integration. Can't manage dashboards and models through ARM.
-- Query results needs to be imported into PowerBI model to configure. Limitation on result size and refresh.
+- No Azure integration. Can't manage dashboards and models through Azure Resource Manager.
+- Query results need to be imported into Power BI model to configure. Limitation on result size and refresh.
 - Limited data refresh of eight times per day.
 
 
@@ -109,12 +109,12 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 ### Limitations
 - Only includes data from metrics. Currently, no support for logs.
-- No Azure integration. Can't manage dashboards and models through ARM.
+- No Azure integration. Can't manage dashboards and models through Azure Resource Manager.
 - Cost to support additional Grafana infrastructure or additional cost for Grafana Cloud.
 
 
 ## Build your own custom application
-You can access data in Azure metrics and Log Analytics through their API using any REST client which allows you to build your own custom websites and applications.
+You can access data in Azure metrics and Log Analytics through their API using any REST client, which allows you to build your own custom websites and applications.
 
 ### Advantages
 - Complete flexibility in UI, visualization, interactivity, and features.
