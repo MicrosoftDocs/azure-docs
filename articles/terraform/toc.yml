@@ -5,7 +5,7 @@
   - name: About Terraform on Azure
     href: terraform-overview.md
 - name: Quickstarts
-  expanded: trueß
+  expanded: true
   items:
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
