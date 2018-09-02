@@ -24,7 +24,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     d. To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
 
-1. Take the availability group cluster role offline. In **Failover Cluster Manager** under **Roles**, right clickthe role, and select **Stop Role**.
+1. Take the availability group cluster role offline. In **Failover Cluster Manager** under **Roles**, right-click the role, and select **Stop Role**.
 
 1. <a name="congroup"></a>Configure the IP resource for the availability group.
 
@@ -67,8 +67,6 @@ The availability group listener is an IP address and network name that the SQL S
 
    ![IP Resource](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
-    d. Right-click the listener name, and then click **Bring Online**. 
-
     >[!TIP]
     >You can validate that the dependencies are correctly configured. In Failover Cluster Manager, go to Roles, right-click the availability group, click **More Actions**, and then click  **Show Dependency Report**. When the dependencies are correctly configured, the availability group is dependent on the network name, and the network name is dependent on the IP address. 
 
@@ -95,7 +93,7 @@ The availability group listener is an IP address and network name that the SQL S
   b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
   > [!NOTE]
-  > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ListenerILBIP` and `$ListenerProbePort` from the first region. The second time, use the `$ListenerILBIP` and `$ListenerProbePort` from the second region. The cluster network name and the cluster IP resource name are the same.
+  > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ListenerILBIP` and `$ListenerProbePort` from the first region. The second time, use the `$ListenerILBIP` and `$ListenerProbePort` from the second region. The cluster network name and the cluster IP resource name are also different for each region.
 
 1. Bring the availability group cluster role online. In **Failover Cluster Manager** under **Roles**, right click the role, and select **Start Role**.
 
@@ -129,4 +127,4 @@ If necessary, repeat the steps above to set the cluster parameters for the WSFC 
   b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
 >[!WARNING]
->The availability group listener health probe port has to be different from the cluster core IP address health probe port.
+>The availability group listener health probe port has to be different from the cluster core IP address health probe port. In these examples, the listener port is 59999 and the cluster core IP address is 58888. Both ports require an allow inbound firewall rule.

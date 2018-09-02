@@ -42,7 +42,7 @@ The following table lists the prerequisites that you need to complete before sta
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | File share for cluster witness |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server service account | Domain account |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent service account | Domain account |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall ports open | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Azure load balancer probe: **59999** or any available port |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall ports open | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Availability group load balancer IP address health probe: **59999** or any available port <br/> - Cluster core load balancer IP address health probe: **58888** or any available port |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Add Failover Clustering Feature | Both SQL Servers require this feature |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Installation domain account | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
@@ -377,6 +377,8 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
 1. Click the load balancer, click **Backend pools**, and click **+Add**.
 
+1. Type a name for the backend pool.
+
 1. Associate the backend pool with the availability set that contains the VMs.
 
 1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose both of the virtual machines that will host availability group replicas. Do not include the file share witness server.
@@ -428,9 +430,9 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
 The WSFC IP address also needs to be on the load balancer.
 
-1. In the portal, add a new Frontend IP configuration for the WSFC. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static.
+1. In the portal, on the same Azure load balancer, click **Frontend IP configuration** and click **+Add**. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static.
 
-1. Click the load balancer, click **Health probes**, and click **+Add**.
+1. On the load balancer, click **Health probes**, and click **+Add**.
 
 1. Set the WSFC cluster core IP address health probe as follows:
 
@@ -449,7 +451,7 @@ The WSFC IP address also needs to be on the load balancer.
 1. Set the cluster core IP address load balancing rules as follows.
    | Setting | Description | Example
    | --- | --- |---
-   | **Name** | Text | WSFCEndPointListener |
+   | **Name** | Text | WSFCEndPoint |
    | **Frontend IP address** | Choose an address |Use the address that you created when you configured the WSFC IP address. This is different from the listener IP address |
    | **Protocol** | Choose TCP |TCP |
    | **Port** | Use the port for the cluster IP address. This is an available port that is not used for the listener probe port. | 58888 |
@@ -485,7 +487,7 @@ In SQL Server Management Studio, set the listener port.
 
 1. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
 
-1. In the **Port** box, specify the port number for the Availability Group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
+1. In the **Port** box, specify the port number for the Availability Group listener. 1433 is the default, then click **OK**.
 
 You now have a SQL Server Availability Group in Azure virtual machines running in Resource Manager mode.
 
