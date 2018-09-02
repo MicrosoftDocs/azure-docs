@@ -42,7 +42,7 @@ The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redh
 
 ## Ansible module and version matrix for Azure
 Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
-The [Ansible module and version matrix](./ansible-matrix) lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. 
+The [Ansible module and version matrix](./ansible-matrix.md) lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. 
 
 ## Next steps
 - [Configure Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
