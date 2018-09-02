@@ -37,11 +37,11 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
 3. Under the Security Center main menu, select **Getting started**.
 4. Select the **Get started** tab.
-   ![Onboard to advanced security][3]
+   ![Get started][3]
 
 5. Click **Configure** under **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
-    ![Add non-Azure computer][4]
+    ![Add non-Azure computer](./media/quick-onboard-linux-computer/non-azure.png)
 
 6.	On the **Direct Agent** page, under **DOWNLOAD AND ONBOARD AGENT FOR LINUX**, select the **copy** button to copy the *wget* command.
 

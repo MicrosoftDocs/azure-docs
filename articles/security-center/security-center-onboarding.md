@@ -36,8 +36,8 @@ You can upgrade an entire Azure subscription to the Standard tier, which is inhe
 >
 >
 
-## Upgrade an Azure subscription
-To upgrade all subscriptions to Standard:
+## Upgrade an Azure subscription or workspace
+To upgrade a subscription or workspace to Standard:
 1. Under the Security Center main menu, select **Getting started**.
   ![Getting started](./media/security-center-onboarding/get-started.png)
 2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
@@ -48,19 +48,8 @@ To upgrade all subscriptions to Standard:
   ![Select subscription](./media/security-center-onboarding/select-subscription.png)
 
 
-## Upgrade a workspace
-Applying Standard to the workspace applies to all resources reporting to the workspace.
-
-1. Return to the **Onboarding** blade.
-2. Select a workspace.
-
-  ![Upgrade a workspace][8]
-
-3. Select **Standard** to upgrade.  
-4. Select **Save**.
-
    > [!NOTE]
-   > There is a scenario where you may not have Free or Standard applied to your workspace. If you select Free, then Security Center’s Free capabilities are applied to your Azure VMs only. The Free capabilities are not applied to your non-Azure computers. If you select Standard, the Standard capabilities are applied to all Azure VMs and non-Azure computers reporting to the workspace. We recommend that you apply Standard to provide advanced security for your Azure and non-Azure resources.
+   > Security Center’s Free capabilities are applied to your Azure VMs only. The Free capabilities are not applied to your non-Azure computers. If you select Standard, the Standard capabilities are applied to all Azure VMs and non-Azure computers reporting to the workspace. We recommend that you apply Standard to provide advanced security for your Azure and non-Azure resources.
    >
    >
 
@@ -72,7 +61,7 @@ Security Center can monitor the security posture of your non-Azure computers but
 1. Return to **Getting started**.   
 2. Select the **Get started** tab.
 
-  ![Get started][3]
+  ![Non-Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
