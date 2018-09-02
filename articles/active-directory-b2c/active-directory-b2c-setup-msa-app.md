@@ -24,7 +24,7 @@ To use a Microsoft account as an identity provider in Azure Active Directory (Az
 3. Provide a **Name** for your application and click **Create**.
 4. On the registration page, copy the value of **Application Id**. You use it to configure your Microsoft account as an identity provider in your tenant.
 5. Select **Add platform**, and then and choose **Web**.
-6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Redirect URLs**. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
+6. Enter `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **Redirect URLs**. Replace **{tenant}** with your tenant's name (for example, contosob2c).
 7. Select **Generate New Password** under **Application Secrets**. Copy the new password displayed on screen. You need it to configure a Microsoft account as an identity provider in your tenant. This password is an important security credential.
 
 ## Configure a Microsoft account as an identity provider

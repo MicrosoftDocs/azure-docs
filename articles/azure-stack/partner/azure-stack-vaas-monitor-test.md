@@ -1,6 +1,6 @@
 ---
 title: Monitor a test with Azure Stack validation as a service | Microsoft Docs
-description: Monitor a test Azure Stack validation as a service known issues.
+description: Monitor a test with Azure Stack validation as a service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -80,6 +80,10 @@ Follow these steps to verify that the ASDK registration with Azure was successfu
 3. If you see a list of items available from Azure, your activation was successful.
 
     ![](media/asdk-register/3.PNG)
+
+## Move a registration resource
+Moving a registration resource between resource groups under the same subscription **is** supported. For more information about moving resources to a new resource group, see [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+
 
 ## Next steps
 [Add an Azure Stack marketplace item](.\.\azure-stack-marketplace.md)

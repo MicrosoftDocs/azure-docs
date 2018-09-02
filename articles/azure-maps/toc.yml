@@ -54,6 +54,10 @@
       href: how-to-use-map-control.md
     - name: Create a map
       href: map-create.md
+    - name: Choose a map style
+      href: choose-map-style.md
+    - name: Add map controls
+      href: map-add-controls.md
     - name: Add a pin
       href: map-add-pin.md
     - name: Add a popup
