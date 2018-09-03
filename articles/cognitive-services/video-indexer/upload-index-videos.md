@@ -14,7 +14,10 @@ ms.author: juliako
 ---
 # Upload and index your videos  
 
-This articles shows how to upload a video with Azure Video Indexer. There are two upload options: specifying the video URL (preferred), or sending the file as a byte array in the request body.
+This articles shows how to upload a video with Azure Video Indexer. The Video Indexer API provides two uploading options: 
+
+* upload your video from a URL (preferred)
+* send the video file as a byte array in the request body.
 
 The article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on the URL. The sample in the article includes the commented out code that shows how to upload the byte array.  
 
