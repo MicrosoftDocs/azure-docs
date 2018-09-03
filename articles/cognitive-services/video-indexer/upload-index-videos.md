@@ -14,7 +14,11 @@ ms.author: juliako
 ---
 # Upload and index your videos  
 
-This article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos with Azure Video Indexer. It also discusses some of the parameters that you can set on the API to change the process and output of the API.
+This articles shows how to upload a video with Azure Video Indexer. There are two upload options: specifying the video URL (preferred), or sending the file as a byte array in the request body.
+
+The article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on the URL. The sample in the article includes the commented out code that shows how to upload the byte array.  
+
+The articles also discusses some of the parameters that you can set on the API to change the process and output of the API.
 
 > [!Note]
 > When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). <br/>With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. <br/>With paid option, you create a Video Indexer account that is [connected to your Azure subscription and a Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
@@ -52,6 +56,16 @@ When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/o
 In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
 If you only want to index your video but not encode it, set `streamingPreset`to `NoStreaming`.
+
+## Upload considerations
+
+- The byte array option is limited to 4GB
+
+    > [!Note]
+    > Upoading based on the video URL is the recommended option.
+    
+- When uploading your video based on the URL (preffered) the endpoint must be secured with TLS 1.2
+- The url provided in the `videoURL` param needs to be encoded
 
 ## Code sample
 
