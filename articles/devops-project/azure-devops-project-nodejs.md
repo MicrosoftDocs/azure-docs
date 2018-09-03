@@ -22,13 +22,13 @@ monikerRange: 'vsts'
 
 # Create a CI/CD pipeline for Node.js with the Azure DevOps Project
 
-The Azure DevOps Project presents a simplified experience which creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure DevOps.  
+The Azure DevOps Project presents a simplified experience which creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure DevOps Services.  
 
 If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## Sign in to the Azure portal
 
-The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a free **new Azure DevOps** organization or use an **existing organization**.  The DevOps Project also creates **Azure resources** in the **Azure subscription** of your choice.
+The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a free **new Azure DevOps Services** organization or use an **existing organization**.  The DevOps Project also creates **Azure resources** in the **Azure subscription** of your choice.
 
 1. Sign into the [Microsoft Azure portal](https://portal.azure.com).
 
@@ -44,13 +44,13 @@ The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a fr
 
 1. **Web App on Windows** is the default deployment target.  The application framework, which you chose on the previous steps, dictates the type of Azure service deployment target available here.  Leave the default service, and then choose **Next**.
  
-## Configure Azure DevOps and an Azure subscription 
+## Configure Azure DevOps Services and an Azure subscription 
 
-1. Create a **new** Azure DevOps organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  Select your **Azure subscription**, **location**, and choose a **name** for your application.  When you're done, choose **Done**.
+1. Create a **new** Azure DevOps Services organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  Select your **Azure subscription**, **location**, and choose a **name** for your application.  When you're done, choose **Done**.
 
    	![Enter Azure DevOps info](_img/azure-devops-project-nodejs/vstsazureinfo.png)
 
-1. In a few minutes, the **Azure DevOps Project dashboard** loads in the Azure portal.  A sample application is set up in a repository in your Azure DevOps organization, a build executes, and your application deploys to Azure.  This dashboard provides visibility into your **code repository**, **Azure CI/CD pipeline**, and your **application in Azure**.  On the right side of the dashboard, select **Browse** to view your running application.
+1. In a few minutes, the **Azure DevOps Project dashboard** loads in the Azure portal.  A sample application is set up in a repository in your Azure DevOps Services organization, a build executes, and your application deploys to Azure.  This dashboard provides visibility into your **code repository**, **Azure CI/CD pipeline**, and your **application in Azure**.  On the right side of the dashboard, select **Browse** to view your running application.
 
    	![Dashboard view](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
 	
@@ -58,7 +58,7 @@ The Azure DevOps Project automatically configures a CI build and release trigger
 
 ## Commit code changes and execute CI/CD
 
-The Azure DevOps Project created a Git repository in your Azure DevOps organization or GitHub account.  Follow the steps below to view the repository and make code changes to your application.
+The Azure DevOps Project created a Git repository in your Azure DevOps Services organization or GitHub account.  Follow the steps below to view the repository and make code changes to your application.
 
 1. On the left-hand side of the DevOps Project dashboard, select the link for your **master** branch.  This link opens a view to the newly created Git repository.
 
@@ -74,9 +74,9 @@ The Azure DevOps Project created a Git repository in your Azure DevOps organizat
 
 ## Examine the Azure CI/CD pipeline
 
-The Azure DevOps Project automatically configured a full Azure CI/CD pipeline in your Azure DevOps organization.  Explore and customize the pipeline as needed.  Follow the steps below to familiarize yourself with the Azure DevOps build and release pipelines.
+The Azure DevOps Project automatically configured a full Azure CI/CD pipeline in your Azure DevOps Services organization.  Explore and customize the pipeline as needed.  Follow the steps below to familiarize yourself with the Azure DevOps Services build and release pipelines.
 
-1. Select **Build Pipelines** from the **top** of the Azure DevOps Project dashboard.  This link opens a browser tab and opens the Azure DevOps build pipeline for your new project.
+1. Select **Build Pipelines** from the **top** of the Azure DevOps Project dashboard.  This link opens a browser tab and opens the Azure DevOps Services build pipeline for your new project.
 
 1. Move the mouse cursor to the right of the build pipeline next to the **Status** field. Select the **ellipsis** that appears.  This action opens a menu where you can start several activities such as queue a new build, pause a build, and edit the build pipeline.
 
@@ -88,13 +88,13 @@ The Azure DevOps Project automatically configured a full Azure CI/CD pipeline in
 
 1. Change the **name** of your build pipeline to something more descriptive.  Select **Save & queue**, then select **Save**.
 
-1. Under your build pipeline name, select **History**.  You see an audit trail of your recent changes for the build.  Azure DevOps keeps track of any changes made to the build pipeline, and allows you to compare versions.
+1. Under your build pipeline name, select **History**.  You see an audit trail of your recent changes for the build.  Azure DevOps Services keeps track of any changes made to the build pipeline, and allows you to compare versions.
 
 1. Select **Triggers**.  The Azure DevOps Project automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps Project created an Azure DevOps release pipeline to manage deployments to Azure.
+1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps Project created an Azure DevOps Services release pipeline to manage deployments to Azure.
 
 1. On the left-hand side of the browser, select the **ellipsis** next to your release pipeline, then choose **Edit**.
 

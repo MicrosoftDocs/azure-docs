@@ -1,5 +1,5 @@
 ---
-title: Deploy your ASP.NET App and Azure SQL Database with the Azure DevOps Project | DevOps Tutorial
+title: Deploy your ASP.NET App and Azure SQL Database with the Azure DevOps Project | Azure DevOps Services Tutorial
 description: The DevOps Project makes it easy to get started on Azure. The Azure DevOps Project makes it easy to deploy your ASP.NET with Azure SQL Database in a few quick steps.
 ms.author: mlearned
 ms.manager: douge
@@ -20,10 +20,10 @@ You will:
 
 > [!div class="checklist"]
 > * Create an Azure DevOps Project for an ASP.NET App and Azure SQL Database
-> * Configure Azure DevOps and an Azure subscription 
-> * Examine the Azure DevOps CI pipeline
-> * Examine the Azure DevOps CD pipeline
-> * Commit changes to Azure DevOps and automatically deploy to Azure
+> * Configure Azure DevOps Services and an Azure subscription 
+> * Examine the Azure DevOps Services CI pipeline
+> * Examine the Azure DevOps Services CD pipeline
+> * Commit changes to Azure DevOps Services and automatically deploy to Azure
 > * Connect to the Azure SQL Server Database 
 > * Clean up resources
 
@@ -33,7 +33,7 @@ You will:
 
 ## Create an Azure DevOps Project for an ASP.NET App and Azure SQL Database
 
-The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a **new Azure DevOps** organization or use an **existing organization**.  The Azure DevOps Project also creates **Azure resources** such as an Azure SQL Database in the **Azure subscription** of your choice.
+The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a **new Azure DevOps Services** organization or use an **existing organization**.  The Azure DevOps Project also creates **Azure resources** such as an Azure SQL Database in the **Azure subscription** of your choice.
 
 1. Sign into the [Microsoft Azure portal](https://portal.azure.com).
 
@@ -49,9 +49,9 @@ The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a **
 
 1. The application framework, which you chose on the previous steps, dictates the type of Azure service deployment target available here.  Select **Next**.
 
-## Configure Azure DevOps and an Azure subscription
+## Configure Azure DevOps Services and an Azure subscription
 
-1. Create a **new** Azure DevOps organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  
+1. Create a **new** Azure DevOps Services organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  
 
 1. Select your **Azure subscription**.
 
@@ -61,35 +61,35 @@ The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a **
 
 1. It will take several minutes for the process to complete.  Once complete, the Azure DevOps **Project dashboard** loads in the Azure portal.  You can also navigate to the **Azure DevOps Project Dashboard** directly from **All resources** in the **Azure portal**.  On the right side of the dashboard, select **Browse** to view your running application.
 	
-## Examine the Azure DevOps CI pipeline
+## Examine the Azure DevOps Services CI pipeline
 
-The Azure DevOps Project automatically configures a full Azure CI/CD pipeline in your Azure DevOps organization.  You can explore and customize the pipeline.  Follow the steps below to familiarize yourself with the Azure DevOps build pipeline.
+The Azure DevOps Project automatically configures a full Azure CI/CD pipeline in your Azure DevOps Services organization.  You can explore and customize the pipeline.  Follow the steps below to familiarize yourself with the Azure DevOps Services build pipeline.
 
 1. Navigate to the **Azure DevOps Project dashboard**.
 
-1. Select **Build Pipelines** from the **top** of the **Azure DevOps Project dashboard**.  This link opens a browser tab and opens the Azure DevOps build pipeline for your new project.
+1. Select **Build Pipelines** from the **top** of the **Azure DevOps Project dashboard**.  This link opens a browser tab and opens the Azure DevOps Services build pipeline for your new project.
 
 1. Move the mouse cursor to the right of the build pipeline next to the **Status** field. Select the **ellipsis** that appears.  This action opens a menu where you can perform several activities such as **queue a new build**, **pause a build**, and **edit the build pipeline**.
 
 1. Select **Edit**.
 
-1. From this view, **examine the various tasks** for your build pipeline.  The build executes various tasks such as fetching sources from the Azure DevOps Git repository, restoring dependencies, and publishing outputs used for deployments.
+1. From this view, **examine the various tasks** for your build pipeline.  The build executes various tasks such as fetching sources from the Azure DevOps Services Git repository, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build pipeline, select the **build pipeline name**.
 
 1. Change the **name** of your build pipeline to something more descriptive.  Select **Save & queue**, then select **Save**.
 
-1. Under your build pipeline name, select **History**.  You see an audit trail of your recent changes for the build.  Azure DevOps keeps track of any changes made to the build pipeline and allows you to compare versions.
+1. Under your build pipeline name, select **History**.  You see an audit trail of your recent changes for the build.  Azure DevOps Services keeps track of any changes made to the build pipeline and allows you to compare versions.
 
 1. Select **Triggers**.  The Azure DevOps Project automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-## Examine the Azure DevOps CD pipeline
+## Examine the Azure DevOps Services CD pipeline
 
-The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription.  These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription.  The automation also creates an Azure DevOps Release Definition, and the release provides the CD to the Azure.  Follow the steps below to examine more about the Azure DevOps Release Definition.
+The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your Azure DevOps Services organization to your Azure subscription.  These steps include configuring an Azure service connection to authenticate Azure DevOps Services to your Azure subscription.  The automation also creates an Azure DevOps Services Release Definition, and the release provides the CD to the Azure.  Follow the steps below to examine more about the Azure DevOps Services Release Definition.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps Project created an Azure DevOps release pipeline to manage deployments to Azure.
+1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps Project created an Azure DevOps Services release pipeline to manage deployments to Azure.
 
 1. On the left-hand side of the browser, select the **ellipsis** next to your release pipeline, then choose **Edit**.
 
@@ -115,20 +115,20 @@ The Azure DevOps Project automatically creates and configures the necessary step
 
 1. Select **Logs**.  The logs contain useful information about the deployment process.  They can be viewed both during and after deployments.
 
-## Commit changes to Azure DevOps and automatically deploy to Azure 
+## Commit changes to Azure DevOps Services and automatically deploy to Azure 
 
  > [!NOTE]
  > The steps below test the CI/CD pipeline with a simple text change.  You may optionally make a SQL Server Schema change to the table to test the SQL deploy process.
 
-You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the Azure DevOps git repo starts a build in Azure DevOps, and an Azure DevOps CD pipeline executes a deployment to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  The code changes start the CI/CD process and automatically deploys your new changes to Azure.
+You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the Azure DevOps Services Git repo starts a build in Azure DevOps Services, and an Azure DevOps Services CD pipeline executes a deployment to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  The code changes start the CI/CD process and automatically deploys your new changes to Azure.
 
-1. Select **Code** from the Azure DevOps menu, and navigate to your repository.
+1. Select **Code** from the Azure DevOps Services menu, and navigate to your repository.
 
 1. Navigate to the **SampleWebApplication\Views\Home** directory, then select the **ellipsis** next to the **Index.cshtml** file, and then choose **Edit**.
 
 1. Make a change to the file such as some text inside one of the **div tags**.  At the top right, select **Commit**.  Select **Commit** again to push your change. 
 
-1. In a few moments, a **build starts in Azure DevOps**, and then a release executes to deploy the changes.  You can monitor the **build status** with the DevOps Project dashboard or in the browser with your Azure DevOps organization.
+1. In a few moments, a **build starts in Azure DevOps Services**, and then a release executes to deploy the changes.  You can monitor the **build status** with the DevOps Project dashboard or in the browser with your Azure DevOps Services organization.
 
 1. Once the release completes, **refresh your application** in the browser to verify you see your changes.
 
@@ -153,14 +153,14 @@ You need appropriate permissions to connect to the Azure SQL Database.
    If you did not change the DB username while initially configuring the DevOps Project, your username is the local-part of your email address.  For example, if your email address is johndoe@microsoft.com, your username is johndoe.
 
  > [!NOTE]
- > If you change your password for the SQL login, you need to change the password in the Azure DevOps release pipeline variable as described in the section **Examine the Azure DevOps CD pipeline**
+ > If you change your password for the SQL login, you need to change the password in the Azure DevOps Services release pipeline variable as described in the section **Examine the Azure DevOps Services CD pipeline**
 
 ## Clean up resources
 
  > [!NOTE]
  > The steps below will permanently delete resources.  Only use this functionality after carefully reading the prompts.
 
-If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure SQL Database and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and Azure DevOps, and you will not be able to retrieve it once it's gone.
+If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure SQL Database and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and Azure DevOps Services, and you will not be able to retrieve it once it's gone.
 
 1. From the **Azure portal**, navigate to the **Azure DevOps Project**.
 2. On the **top right** side of the dashboard, select **Delete**.  After reading the prompt, select **Yes** to **permanently delete** the resources.
@@ -171,10 +171,10 @@ You can optionally modify these build and release pipelines to meet the needs of
 
 > [!div class="checklist"]
 > * Create an Azure DevOps Project for an ASP.NET App and Azure SQL Database
-> * Configure Azure DevOps and an Azure subscription 
-> * Examine the Azure DevOps CI pipeline
-> * Examine the Azure DevOps CD pipeline
-> * Commit changes to Azure DevOps and automatically deploy to Azure
+> * Configure Azure DevOps Services and an Azure subscription 
+> * Examine the Azure DevOps Services CI pipeline
+> * Examine the Azure DevOps Services CD pipeline
+> * Commit changes to Azure DevOps Services and automatically deploy to Azure
 > * Connect to the Azure SQL Server Database 
 > * Clean up resources
 
