@@ -203,9 +203,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-	![Create an Azure AD test user][100]
-
+	
+![Create an Azure AD test user][100]
+	
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
@@ -224,13 +224,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![The User dialog box](./media/metanetworksconnector-tutorial/create_aaduser_04.png)
 	
-    	1. In the **Name** box, type **BrittaSimon**.
+    1. In the **Name** box, type **BrittaSimon**.
 
-    	1. In the **User name** box, type the email address of user Britta Simon.
+    1. In the **User name** box, type the email address of user Britta Simon.
 	
-    	1. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    1. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 	
-    	1. Click **Create**.
+    1. Click **Create**.
 	
 ### Create a Meta Networks Connector test user
 
