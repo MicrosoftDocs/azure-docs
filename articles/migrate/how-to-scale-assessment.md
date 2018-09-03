@@ -123,6 +123,14 @@ Check that the OVA file is secure before you deploy it:
 
 3. Make sure that the generated hash matches the following settings.
 
+    For OVA version 1.0.9.14
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    
     For OVA version 1.0.9.12
 
     **Algorithm** | **Hash value**
