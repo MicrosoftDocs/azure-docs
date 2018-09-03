@@ -28,8 +28,8 @@ If you are using Azure DevOps, you are able to build dashboards to track the act
 
 For more information on how to create and customize dashboards and widgets on Azure DevOps, see the following sets of instructions:
 
-- [Add and manage dashboards](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
-- [Add widgets to a dashboard](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard).
+- [Add and manage dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
+- [Add widgets to a dashboard](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
 
 ## Example dashboard
 
@@ -47,7 +47,7 @@ The remaining panels show the cumulative flow diagram (CFD), burndown, and burnu
 
 ![dashboard](./media/track-progress/dashboard.png)
 
-For a description of how to build these charts, see  the quickstarts and tutorials at [Dashboards](https://docs.microsoft.com/vsts/report/dashboards/).
+For a description of how to build these charts, see  the quickstarts and tutorials at [Dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/).
  
 ## Next steps
 

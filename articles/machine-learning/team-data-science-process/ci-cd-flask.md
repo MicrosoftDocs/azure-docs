@@ -30,7 +30,7 @@ You can download the source code from [GitHub](https://github.com/Azure/DevOps-F
 
 ## Pre-requisites
 The following are the pre-requisites for following the CI/CD pipeline described below:
-* [Azure DevOps Organization](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure DevOps Organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Container Service (AKS) cluster running Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Azure Container Registy (ACR) account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
