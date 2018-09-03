@@ -1,5 +1,5 @@
 ---
-title: "Data science code testing on Azure with the UCI adult income prediction dataset - Team Data Science Process and Visual Studio Team Services"
+title: "Data science code testing on Azure with the UCI adult income prediction dataset - Team Data Science Process and Azure DevOps Services"
 description: Data science code testing with UCI adult income prediction data
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -123,7 +123,7 @@ Use the following steps to set up and run code testing and an automated build by
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
 	
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
