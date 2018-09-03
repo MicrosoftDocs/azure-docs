@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch-ai
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
 #Customer intent: As a data scientist or AI researcher with a compute-intensive deep learning model and large amounts of training data, I want to distribute training across multiple GPUs in the cloud so that I train my model faster.
@@ -75,10 +75,8 @@ Next, set up a GPU cluster to run the experiment. Batch AI provides a flexible r
 The following `az batchai cluster create` command creates a 4-node cluster called `nc6cluster` under your workspace and resource group. By default, the VMs in the cluster run an Ubuntu Server image designed to host container-based applications. The cluster nodes in this example use the `Standard_NC6` size, which contains one NVIDIA Tesla K80 GPU.
 
 ```azurecli-interactive
-az batchai cluster create --resource-group batchai.horovod --workspace batchaidev --name nc6cluster --vm-priority dedicated  --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
+az batchai cluster create --resource-group batchai.horovod --workspace batchaidev --name nc6cluster --vm-priority dedicated  --vm-size Standard_NC6 --target 4 --generate-ssh-keys
 ```
-
-The `--use-auto-storage` parameter creates an associated storage account in a new or existing resource group named `batchaiautostorage`. It also creates an Azure file share and blob storage container in the account, and mounts these resources on each cluster node. 
 
 Run the `az batchai cluster show` command to view the cluster status. It usually takes a few minutes to fully provision the cluster.
 
@@ -94,28 +92,24 @@ Name        Resource Group    Workspace    VM Size       State      Idle    Runn
 nc6cluster  batchai.horovod  batchaidev   STANDARD_NC6  steady        4          0            0          0           0
 ```
 
-## Access the auto-storage
+## Set up storage
 
-During cluster creation, a unique storage account name was generated which must be retrieved in order to access and modify the storage. Run the following `az batchai cluster show` command to query the storage account name from the cluster.
-
-```azurecli-interactive
-az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --query "nodeSetup.mountVolumes.azureFileShares[0].{storageAccountName:accountName}"
-```
-
-The output should be similar to the following.
-
-```json
-{
-  "storageAccountName": "baixxxxxxxxx"
-}
-```
-
-Substitute the storage account name for `<STORAGE ACCOUNT NAME>` in later commands in this tutorial. 
-
-The storage account name can be used to access the file share named `batchaishare`, which was automatically created as mentioned earlier. In practice, this same storage can be used across multiple jobs and experiments. To keep things organized, create a directory within the file share to store files related to this specific experiment. The following `az storage directory create` command creates a directory called `cifar`.
+Use the `az storage account create` command to create a storage account to store your training script and training output.
 
 ```azurecli-interactive
-az storage directory create --name cifar --share-name batchaishare --account-name <STORAGE ACCOUNT NAME>
+az storage account create --resource-group batchai.horovod --name mystorageaccount --location eastus --sku Standard_LRS
+```
+
+Create an Azure file share called `myshare` in the account, using the `az storage share create` command:
+
+```azurecli-interactibve
+az storage share create --name myshare --account-name mystorageaccount
+```
+
+In practice, this same storage can be used across multiple jobs and experiments. To keep things organized, create a directory within the file share to store files related to this specific experiment. The following `az storage directory create` command creates a directory called `cifar`.
+
+```azurecli-interactive
+az storage directory create --name cifar --share-name myshare --account-name mystorageaccount
 ```
 
 The next step is to prepare the actual training script, which you then upload to the newly created directory.
@@ -289,7 +283,7 @@ Keep in mind that this script uses a relatively small model and dataset for demo
 Once the script is ready, the next step is to upload it to the file share directory that you created earlier. The following `az storage file upload` command uploads it from the local working directory to the proper location. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
 
 ```azurecli-interactive
-az storage file upload --path cifar --share-name batchaishare --source cifar_cnn_distributed.py --account-name <STORAGE ACCOUNT NAME>
+az storage file upload --path cifar --share-name myshare --source cifar_cnn_distributed.py --account-name mystorageaccount
 ```
 
 ## Submit the training job
@@ -302,10 +296,18 @@ After completing the previous steps, create a training job. In Batch AI, you use
     "properties": {
         "nodeCount": 4,
         "horovodSettings": {
-            "pythonScriptFilePath": "$AZ_BATCHAI_MOUNT_ROOT/autoafs/cifar/cifar_cnn_distributed.py",
-            "commandLineArgs": "--dir=$AZ_BATCHAI_MOUNT_ROOT/autoafs/cifar"
+            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/myshare/cifar/cifar_cnn_distributed.py",
+            "commandLineArgs": "--dir=$AZ_BATCHAI_JOB_MOUNT_ROOT/myshare/cifar"
         },
-        "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/autoafs/cifar",
+        "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/myshare/cifar",
+        "mountVolumes": {
+            "azureFileShares": [
+                {
+                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/myshare",
+                    "relativeMountPath": "myshare"
+                }
+            ]
+        },
         "jobPreparation": {
             "commandLine": "apt update; apt install mpi-default-dev mpi-default-bin -y; pip install keras horovod"
         },
@@ -323,15 +325,15 @@ Explanation of properties:
 | Property | Description |
 | --------- | --------- |
 | `nodeCount` | The number of nodes to dedicate for the job. Here, the job will run in parallel on `4` nodes. |
-| `horovodSettings` | The `pythonScriptFilePath` field defines the path to the Horovod script, located in the `cifar` directory created previously. The `commandLineArgs` field is the command-line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path where the auto-storage file share was mounted. | 
+| `horovodSettings` | The `pythonScriptFilePath` field defines the path to the Horovod script, located in the `cifar` directory created previously. The `commandLineArgs` field is the command-line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_JOB_MOUNT_ROOT/myshare` is the path where the file share was mounted. | 
 | `stdOutErrPathPrefix` | The path to store the job outputs and logs, which for this example is the same `cifar` directory. |
 | `jobPreparation` | Any special instructions for preparing the environment for running the job. This script requires installation of the indicated MPI and Horovod packages. |
 | `containerSettings` | Settings for the container that the job runs on. This job uses a Docker container built with `tensorflow`.
 
-Using the configuration, create the job using the `az batchai job create` command. The following command queues a new job called `cifar_distributed` using all the resources that have been set up to this point. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
+Using the configuration, create the job using the `az batchai job create` command. The following command queues a new job called `cifar_distributed` using all the resources that have been set up to this point. 
 
 ```azurecli-interactive
-az batchai job create --cluster nc6cluster --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --experiment cifar --config-file job.json --storage-account-name <STORAGE ACCOUNT NAME>
+az batchai job create --cluster nc6cluster --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --experiment cifar --config-file job.json --storage-account-name mystorageaccount
 ```
 
 If the nodes are currently busy, the job may take a while before to start running. Use the `az batchai job show` command to view the execution state of the job.
@@ -448,10 +450,10 @@ The script trains over 25 epochs, or passes through the training dataset. This p
 
 When the script completes, if everything went well, the validation accuracy should be about 70-75% and the trained model is saved to the file share at `cifar/saved_models/keras_cifar10_trained_model.h5`. 
 
-Model training is usually a part of a larger workflow. For example, you might expose the trained model in another application. To download the trained model locally, use the `az storage file download` command. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
+Model training is usually a part of a larger workflow. For example, you might expose the trained model in another application. To download the trained model locally, use the `az storage file download` command. 
 
 ```azurecli-interactive
-az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
+az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name myshare --account-name mystorageaccount
 ```
 
 ## Clean up resources
@@ -464,17 +466,10 @@ az batchai cluster resize --name nc6cluster --resource-group batchai.horovod --t
 
 Later, resize it to 1 or more nodes to run your jobs. 
 
-If you don't plan to use the workspace in the future, delete the resource group using the `az group delete` command. Deleting a resource group deletes all resources that are part of that group.
+If you don't plan to use the workspace and storage account in the future, delete the resource group using the `az group delete` command. Deleting a resource group deletes all resources that are part of that group.
 
 ```azurecli-interactive
 az group delete --name batchai.horovod
-
-```
-
-To delete the auto-storage resources, use the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto-storage options will use the storage account in this group instead of creating a new one.
-
-```azurecli-interactive
-az group delete --name batchaiautostorage
 ```
 
 ## Next steps
