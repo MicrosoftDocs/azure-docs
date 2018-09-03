@@ -453,8 +453,6 @@
       href: query-cheat-sheet.md
     - name: SQL playground
       href: https://aka.ms/cosmos-db-playground          
-    - name: 20 days of tips
-      href: 20-days-of-tips.md
     - name: FAQ
       href: faq.md
     - name: Whitepapers
