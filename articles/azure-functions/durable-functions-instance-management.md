@@ -114,7 +114,7 @@ public static async Task Run(
     };
 }
 ```
-## Querying instances with parameters
+## Querying instances with filters
 
 You can use the `GetStatusAsync` method to query the statuses of all orchestration instances that match the parameters. The method returns objects with the same properties as the `GetStatusAsync` method with parameters, except it doesn't return history. You can use `createTimeFrom`, `createdTimeTo`, `runtimeStatus`. The `createdTimeTo` is optional.
 
