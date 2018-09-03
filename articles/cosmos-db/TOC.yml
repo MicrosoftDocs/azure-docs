@@ -103,9 +103,9 @@
           href: secure-access-to-data.md
         - name: Firewall support
           href: firewall-support.md
-        - name: Setup virtual network service endpoint
+        - name: Setup VNet endpoint
           href: vnet-service-endpoint.md
-        - name: Key vault to store secrets
+        - name: Key vault support
           href: access-secrets-from-keyvault.md
   - name: Multi-model APIs
     expanded: true
@@ -172,10 +172,6 @@
           href: powershell-samples.md
         - name: Azure CLI
           href: cli-samples.md
-      - name: Concepts
-        items:
-        - name: Model document data
-          href: modeling-data.md
       - name: How-to guides
         items:
         - name: Use bulk executor - .NET library
@@ -220,10 +216,6 @@
           href: /rest/api/cosmos-db-resource-provider/
         - name: SQL language syntax
           href: sql-api-sql-query-reference.md
-      - name: Resources
-        items:
-        - name: SQL playground
-          href: https://aka.ms/cosmos-db-playground          
     - name: MongoDB API Docs
       items: 
       - name: Overview
@@ -276,10 +268,6 @@
           href: mongodb-time-to-live.md
         - name: Manage data indexing
           href: mongodb-indexing.md
-      - name: Resources
-        items:
-        - name: Visual Studio Code extension
-          href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Gremlin API Docs
       items: 
       - name: Overview
@@ -406,6 +394,10 @@
         href: performance-tips-async-java.md
       - name: Performance test - sample app
         href: performance-testing.md
+    - name: Best practices
+      items:
+      - name: Model document data
+        href: modeling-data.md
     - name: Big data & analytics
       items:
       - name: Lambda architecture
@@ -458,6 +450,8 @@
     items:
     - name: Query cheat sheet
       href: query-cheat-sheet.md
+    - name: SQL playground
+      href: https://aka.ms/cosmos-db-playground          
     - name: 20 days of tips
       href: 20-days-of-tips.md
     - name: FAQ
