@@ -125,7 +125,6 @@ public static async Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     TraceWriter log)
 {
-
     IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
         OrchestrationRuntimeStatus.Completed,
         OrchestrationRuntimeStatus.Running
