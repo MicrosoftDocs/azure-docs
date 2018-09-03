@@ -212,7 +212,7 @@ The Functions 2.0 format has all the same parameters but a slightly different UR
 GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-#### Request with filter
+#### Request with filters
 
 You can filter the request.
 
