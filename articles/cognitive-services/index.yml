@@ -17,15 +17,6 @@ metadata:
 
 abstract:
   description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: media/index/hub-page-video.png
-      width: 250  
-    title: Build smart apps using Cognitive Services (16:57)
-    href: https://azure.microsoft.com/en-us/resources/videos/building-smart-apps-with-visual-studio-xamarin-and-cognitive-services/
-    width: 250
 sections:
 - items:
     - type: list
