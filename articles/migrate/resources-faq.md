@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/03/2018
 ms.author: snehaa
 ---
 
@@ -118,6 +118,12 @@ If you have an environment that is shared across tenants and you do not want to 
 ### How many virtual machines can be discovered in a single migration project?
 
 You can discover 1500 virtual machines in a single migration project. If you have more machines in your on-premises environment, [learn more](how-to-scale-assessment.md) about how you can discover a large environment in Azure Migrate.
+
+### Does Azure Migrate support Enterprise Agreement (EA) based cost estimation?
+
+Azure Migrate currently does not support cost estimation for Enterprise Agreement offers. The workaround is to use Pay-As-You-Go as the offer and manually specify the discount percentage (if applicable) in the 'Discount' field of assessment properties.
+
+  ![Discount](./media/resources-faq/discount.png)
 
 ## Dependency visualization
 
