@@ -1,29 +1,57 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service and SDK (Preview)
+title: Speech Service and SDK
 metadata:
   title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: |
     The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
     Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
   ms.component: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/16/2018
-  ms.author: nolachar
+  ms.date: 09/24/2018
+  ms.author: nitinme
 
 abstract:
-  description: |
-    Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.
+  description: Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.
     Features include&#58; <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS).
-
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/speech-landing-page-video.png
+      width: 250  
+    title: Overview of Speech capabilities (10:34)
+    href: https://azure.microsoft.com/en-us/resources/videos/building-smart-apps-with-visual-studio-xamarin-and-cognitive-services/
+    width: 250
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/speech-service/overview
+          html: <p>Learn about Azure Speech Service.</p>
+          image:
+            src: media/index/i_overview.svg
+          title: What is Speech Service?
+        - href: /azure/cognitive-services/speech-service/get-started
+          html: <p>Learn how to sign up for the Speech service for free.</p>
+          image:
+            src: media/index/i_get-started.svg
+          title: Sign up for the Speech Service
+        - href: /azure/cognitive-services/speech-service/speech-devices-sdk
+          html: <p>Learn about the speech-enabled hardware reference</p>
+          image:
+            src: media/index/i_guidelines.svg
+          title: Speech-enabled hardware reference
 - title: 5-minute SDK download and quickstart
   items:
   - type: paragraph
