@@ -1,21 +1,15 @@
 ---
-title: How to test your Azure Data Lake Analytics code | Microsoft Docs
+title: How to test your Azure Data Lake Analytics code
 description: 'Learn how to add test cases for U-SQL and extended C# code for Azure Data Lake Analytics.'
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager:  
-editor: 
-
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-
 ---
 # Test your Azure Data Lake Analytics code
 
@@ -113,7 +107,7 @@ After you build the test project, you can run all test cases though **Test Explo
 
 ## Run test cases in Azure DevOps
 
-Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure DevOps can run these test cases. 
+Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure DevOps can run these test cases. 
 
 ### Run U-SQL test cases in Azure DevOps
 

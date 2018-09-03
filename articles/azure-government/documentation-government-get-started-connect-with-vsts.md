@@ -19,9 +19,9 @@ ms.author: yujhong
 
 This article demonstrates how to set up continuous deployment to your web app running in Azure Government using Azure DevOps. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. Azure DevOps is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions. Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Azure DevOps.
 
-[Release Management in Azure DevOps](https://docs.microsoft.com/vsts/build-release/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints) for Azure Government. 
+[Release Management in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) for Azure Government. 
 
-Azure DevOps itself is not available in Azure Government Clouds. When CD is configured using Azure DevOps to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Azure DevOps, click [here](https://docs.microsoft.com/vsts/index). 
+Azure DevOps itself is not available in Azure Government Clouds. When CD is configured using Azure DevOps to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Azure DevOps, click [here](https://docs.microsoft.com/azure/devops/index). 
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
@@ -29,7 +29,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 * Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
 * Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
-+ Have an [Azure DevOps organization](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) and [Azure DevOps Project](https://docs.microsoft.com/vsts/accounts/create-team-project?tabs=vsts)
++ Have an [Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) and [Azure DevOps Project](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?tabs=vsts)
 + Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
 
 ## Create Azure Government app service 
@@ -40,9 +40,9 @@ The following steps will set up a CD process to deploy to this Web App.
 ## Set up Build and Source control integration
 Follow through one of the quickstarts below to set up a Build for your specific type of app: 
 
-- [ASP.NET Core app](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-core?tabs=github%2Cweb%2Cdeploy-windows)
-- [ASP.NET 4 app](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-4?tabs=vsts)
-- [Node.js app with Gulp](https://docs.microsoft.com/vsts/build-release/archive/apps/nodejs/nodejs-to-azure)
+- [ASP.NET Core app](https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core?tabs=github%2Cweb%2Cdeploy-windows)
+- [ASP.NET 4 app](https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4?tabs=vsts)
+- [Node.js app with Gulp](https://docs.microsoft.com/azure/devops/pipelines/archive/apps/nodejs/nodejs-to-azure)
 
 ## Generate a service principal 
 
@@ -121,7 +121,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 	
 6. Edit the name of the release pipeline, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
 	
-Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/vsts/build-release/) to your applications in Azure Government. 
+Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/azure/devops/pipelines/) to your applications in Azure Government. 
 
 ## Q&A
 * Do I need a build agent?

@@ -1,21 +1,15 @@
 ---
-title: Use a U-SQL database project to develop a U-SQL database for Azure Data Lake | Microsoft Docs
-description: 'Learn how to develop a U-SQL database using Azure Data Lake Tools for Visual Studio.'
+title: Use a U-SQL database project to develop a U-SQL database for Azure Data Lake
+description: Learn how to develop a U-SQL database using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager:  
-editor: 
-
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-
 ---
 # Use a U-SQL database project to develop a U-SQL database for Azure Data Lake
 

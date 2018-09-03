@@ -72,8 +72,8 @@ Once you've installed the tool, it's time to import your data. What kind of data
 * [Blob](#BlobImport)
 * [Azure Cosmos DB collections](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB bulk import](#SQLBulkImport)
-* [Azure Cosmos DB sequential record import](#DocumentDSeqTarget)
+* [Azure Cosmos DB bulk import](#SQLBulkTarget)
+* [Azure Cosmos DB sequential record import](#SQLSeqTarget)
 
 
 ## <a id="JSON"></a>Import JSON files

@@ -85,4 +85,4 @@ To observe this behavior, Select **Releases** > Right-click Release name **open*
 
 ## Next steps
 
-To learn more about Azure Pipelines try these [quickstarts.](https://docs.microsoft.com/vsts/build-release/)
+To learn more about Azure Pipelines try these [quickstarts.](https://docs.microsoft.com/azure/devops/pipelines)

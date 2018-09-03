@@ -30,10 +30,10 @@ Sync-VSTSGit | Import runbooks or configurations from Azure DevOps under Git sou
 
 Variable | Description|
 -----------|------------|
-VSToken | Secure variable asset you create that contains the Azure DevOps personal access token. You can learn how to create an Azure DevOps personal access token on the [Azure DevOps authentication page](/vsts/accounts/use-personal-access-tokens-to-authenticate).
+VSToken | Secure variable asset you create that contains the Azure DevOps personal access token. You can learn how to create an Azure DevOps personal access token on the [Azure DevOps authentication page](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 ## Installing and configuring this scenario
 
-Create a [personal access token](/vsts/accounts/use-personal-access-tokens-to-authenticate) in Azure DevOps that you use to sync the runbooks or configurations into your automation account.
+Create a [personal access token](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) in Azure DevOps that you use to sync the runbooks or configurations into your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 

@@ -86,15 +86,22 @@ operation_url = response.headers["Operation-Location"]
 
 # The recognized text isn't immediately available, so poll to wait for completion.
 analysis = {}
-while "recognitionResult" not in analysis:
+poll = True
+while (poll):
     response_final = requests.get(
         response.headers["Operation-Location"], headers=headers)
     analysis = response_final.json()
     time.sleep(1)
+    if ("recognitionResult" in analysis):
+        poll= False 
+    if ("status" in analysis and analysis['status'] == 'Failed'):
+        poll= False
 
-# Extract the recognized text, with bounding boxes.
-polygons = [(line["boundingBox"], line["text"])
-    for line in analysis["recognitionResult"]["lines"]]
+polygons=[]
+if ("recognitionResult" in analysis):
+    # Extract the recognized text, with bounding boxes.
+    polygons = [(line["boundingBox"], line["text"])
+        for line in analysis["recognitionResult"]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
