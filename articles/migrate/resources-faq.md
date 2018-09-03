@@ -121,7 +121,7 @@ You can discover 1500 virtual machines in a single migration project. If you hav
 
 ### Does Azure Migrate support Enterprise Agreement (EA) based cost estimation?
 
-Azure Migrate currently does not support cost estimation for Enterprise Agreement offers. The workaround is to use Pay-As-You-Go as the offer and manually specify the discount percentage (if applicable) in the 'Discount' field of assessment properties.
+Azure Migrate currently does not support cost estimation for [Enterprise Agreement offer](https://azure.microsoft.com/offers/enterprise-agreement-support/). The workaround is to specify Pay-As-You-Go as the offer and manually specifying the discount percentage (applicable to the subscription) in the 'Discount' field of the assessment properties.
 
   ![Discount](./media/resources-faq/discount.png)
 
