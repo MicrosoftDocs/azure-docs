@@ -16,7 +16,6 @@ To create your voice font, you make a studio recording and upload the associated
 
 You can get started with a small amount of data for a proof of concept. But the more data you provide, the more natural and professional your voice sounds.
 
-Voice customization is available for US English (en-US) and mainland Chinese (zh-CN).
 
 ## Prerequisites
 
@@ -39,6 +38,9 @@ You also need an Azure account and a subscription to the Speech service. [Create
      ![Add Subscription](media/custom-voice/add-subscription.png)
 
 You're ready to go!
+
+> [!IMPORTANT]
+> During the private preview stage, subscriptions must be whitelisted to use the Custom Voice feature. Follow the steps on the page to get your subscription whitelisted.
 
 ## Prepare recordings and transcripts
 
@@ -63,8 +65,6 @@ Audio files should be prepared as follows. Other formats are unsupported and wil
 | Archive Format| Zip      |
 | Maximum Archive Size|200 MB|
 
-Place the set of audio files into a single folder without subdirectories and package the entire set as a single ZIP file archive.
-
 > [!NOTE]
 > Wave files with a sampling rate lower than 16,000 Hz will be rejected. In the cases where a zip file contains waves with different sampling rates, only those equal to or higher than 16,000 Hz will be imported.
 > The portal currently imports ZIP archives up to 200 MB. However, multiple archives may be uploaded. The maximum number of datasets allowed is 10 ZIP files for free subscription users, and 50 for standard subscription users.
@@ -84,7 +84,7 @@ For example:
 The custom voice system normalizes transcripts by converting the text to lower-case and removing extraneous punctuation. It’s important that the transcripts are 100% accurate to the corresponding audio recordings.
 
 > [!TIP]
-> When building production Text-to-Speech voices, select utterances (or write scripts) considering both phonetic coverage and efficiency.
+> When building production Text-to-Speech voices, select utterances (or write scripts) considering both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice team](mailto:tts@microsoft.com) to find out more about having us consult.
 
 ## Upload your datasets
 
@@ -96,8 +96,6 @@ After preparing your audio file archive and transcripts, upload them via the [Cu
 1. Sign in to the portal.
 
 2. Choose **Data** under Custom Voice on the main page. 
-
-    ![My Projects](media/custom-voice/my-projects.png)
 
     The My Voice Data table appears. It is empty if you have not yet uploaded any voice datasets.
 
@@ -218,13 +216,20 @@ When the deployment status is Succeeded, the endpoint of your deployed voice fon
 Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Endpoints testing** from the Custom Voice drop-down menu. The endpoint testing page appears. Choose a deployed custom voice and enter the text to be spoken (in either plain text or SSML format) in the text box.
 
 > [!NOTE] 
-> When using SSML, the `<voice>` tag must specify the name you gave your custom voice when you created it.
+> When using SSML, the `<voice>` tag must specify the name you gave your custom voice when you created it. If you submit plain text, the custom voice is always used.
 
 Click **Play** to hear the text spoken in your custom voice font.
 
 ![Endpoint Testing](media/custom-voice/endpoint-testing.png)
 
 The custom endpoint is functionally identical to the standard endpoint used for Text-to-Speech requests. See [REST API](rest-apis.md) for more information.
+
+## Language support
+
+Voice customization is available for US English (en-US), mainland Chinese (zh-CN) and Italian (it-IT).
+
+> [!NOTE]
+> Italian voice training starts with a dataset of 2,000+ utterances. Chinese-English bilingual models are also supported with a dataset of 2,000+ utterances.
 
 ## Next steps
 
