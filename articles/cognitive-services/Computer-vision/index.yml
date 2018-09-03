@@ -21,7 +21,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/index/computer-vision-landing-page-video.png
+      src: ../media/index/computer-vision-landing-page-video.png
       width: 250  
     title: Infuse intelligence in your apps with Vision APIs (05:41)
     href: https://azure.microsoft.com/en-us/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
@@ -36,17 +36,17 @@ sections:
         - href: /azure/cognitive-services/computer-vision/home
           html: <p>Learn about the Computer Vision API</p>
           image:
-            src: media/index/i_overview.svg
+            src: ../media/index/i_overview.svg
           title: What is Computer Vision?
         - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
           html: <p>Learn how to obtain subscription keys for Computer Vision API</p>
           image:
-            src: media/index/i_tasks.svg
+            src: ../media/index/i_tasks.svg
           title: Obtain subscription keys for Computer Vision
         - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
           html: <p>Learn the basics of calling a Computer Vision API</p>
           image:
-            src: media/index/i_tasks.svg
+            src: ../media/index/i_tasks.svg
           title: Calling the Computer Vision API
 - title: 5-Minute Quickstarts
   items:
