@@ -116,7 +116,7 @@ public static async Task Run(
 ```
 ## Querying instances with filters
 
-You can use the `GetStatusAsync` method to query the statuses of all orchestration instances that match the parameters. The method returns objects with the same properties as the `GetStatusAsync` method with parameters, except it doesn't return history. You can use `createTimeFrom`, `createdTimeTo`, `runtimeStatus`. The `createdTimeTo` is optional.
+You can also use the `GetStatusAsync` method to get a list of orchestration instances that match a set of predefined filters. Possible filter options include the orchestration creation time and the orchestration runtime status.
 
 ```csharp
 [FunctionName("QueryStatus")]
