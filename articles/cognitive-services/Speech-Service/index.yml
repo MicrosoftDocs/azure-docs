@@ -25,7 +25,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/index/speech-landing-page-video.png
+      src: ../media/index/speech-landing-page-video.png
       width: 250  
     title: Overview of Speech capabilities (10:34)
     href: https://azure.microsoft.com/en-us/resources/videos/building-smart-apps-with-visual-studio-xamarin-and-cognitive-services/
@@ -40,17 +40,17 @@ sections:
         - href: /azure/cognitive-services/speech-service/overview
           html: <p>Learn about Azure Speech Service.</p>
           image:
-            src: media/index/i_overview.svg
+            src: ../media/index/i_overview.svg
           title: What is Speech Service?
         - href: /azure/cognitive-services/speech-service/get-started
           html: <p>Learn how to sign up for the Speech service for free.</p>
           image:
-            src: media/index/i_get-started.svg
+            src: ../media/index/i_get-started.svg
           title: Sign up for the Speech Service
         - href: /azure/cognitive-services/speech-service/speech-devices-sdk
           html: <p>Learn about the speech-enabled hardware reference</p>
           image:
-            src: media/index/i_guidelines.svg
+            src: ../media/index/i_guidelines.svg
           title: Speech-enabled hardware reference
 - title: 5-minute SDK download and quickstart
   items:
@@ -137,8 +137,7 @@ sections:
         - href:
         - href: rest-apis
         - href: rest-apis
-
-- title: Speech SDK samples and reference
+- title: Samples
   items:
   - type: list
     style: cards
@@ -149,31 +148,15 @@ sections:
         &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
         &nbsp;&#8226; <a href="intent.md">Intent Recognition</a><br/>
         &nbsp;&#8226; <a href="translation.md">Translation</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
     - title: API Reference
       html: |
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
-    - title: FAQs
-      html: |
-        &nbsp;&#8226; <a href="faq-stt">Speech-to-text</a><br/>
-        &nbsp;&#8226; <a href="faq-text-to-speech">Text-to-speech</a><br/>
-        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Translation</a>
-  - type: paragraph
-    text: Use the samples and API above with your subscription key (see <a href="get-started.md">Try the speech service for free</a>).
-
-- title: Customizing speech with your own data
-  items:
-  - type: paragraph
-    text: |
-      Our Speech Service also lets you customize models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.<br/>
-      &nbsp;&#8226; <a href="how-to-customize-speech-models">Customized speech-to-text</a><br/>
-      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Customized speech-translation</a><br/>
-      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Customized text-to-speech</a>
-- title: Speech enabled HW reference design
-  items:
-  - type: paragraph
-    text: |
-      For those wishing to build new speech-enabled device HW, see our reference device at
-      <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
 
