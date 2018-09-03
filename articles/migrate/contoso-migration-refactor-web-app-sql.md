@@ -337,7 +337,7 @@ Contoso admins now configure VSTS to perform build and release process to action
 
 17. Now, they click to **Deploy Azure App Service**.
 
-    ![Deploy app service](./media/contoso-migration-refactor-web-app/pipeline15.png)
+    ![Deploy app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
 18. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and clilck **Save**.-sql
 
