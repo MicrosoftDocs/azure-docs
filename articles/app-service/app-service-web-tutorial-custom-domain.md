@@ -298,7 +298,7 @@ If you receive an HTTP 404 (Not Found) error when browsing to the URL of your cu
 
 <a name="virtualdir"></a>
 
-## Migrate an active custom domain
+## Migrate an active domain
 
 To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
 
