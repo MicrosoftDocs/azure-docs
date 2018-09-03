@@ -176,7 +176,7 @@ to start with the public IP model first.
 
 Each consortium member deployment includes:
 
--   Virtual M Scale Sets (VMSS) for running the PoA validators
+-   Virtual Machine Scale Sets (VMSS) for running the PoA validators
 
 -   Azure Load Balancer for distributing RPC, peering, and Governance
     DApp requests
