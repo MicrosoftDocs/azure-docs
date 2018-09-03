@@ -34,7 +34,7 @@ This Azure Network Security Best Practices article is based on a consensus opini
 
 Azure Network security best practices discussed in this article include:
 
-* Logically segment subnets
+* Security Segmentation
 * Control routing behavior
 * Enable Forced Tunneling
 * Use Virtual network appliances
@@ -46,22 +46,28 @@ Azure Network security best practices discussed in this article include:
 * Enable Azure Security Center
 * Extend your datacenter into Azure
 
-## Logically segment subnets
-[Azure Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/) are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12), and Class C (192.168.0.0/16) ranges.
+## Security Segmentation
+Regardless of the size of your deployments into [Azure Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/), the best security measure to prevent attackers from gaining access to any of your workloads is to apply security segmentation.
 
-Similar to what you do on-premises, you should segment the larger address space into subnets. You can use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) based subnetting principles to create your subnets.
+Security segmentation will give attackers additional layers of complexity to access workloads with lateral exploration, It will also keep different applications isolated eliminating the risk of compromised environments when deploying different applications into the same Virtual Network or subnet.
 
-Routing between subnets will happen automatically and you don't need to manually configure routing tables. However, the default setting is that there are no network access controls between the subnets you create on the Azure Virtual Network. In order to create network access controls between subnets, you’ll need to put something between the subnets.
+The best security practice is to implement a Zero Trust security policy, by filtering traffic to only trust sources on each application, inside or outside perimeters must follow the same technique without any trusted zone or large network.
 
-One of the things you can use to accomplish this task is a [Network Security Group](../virtual-network/security-overview.md) (NSG). NSGs are simple stateful packet inspection devices that use the 5-tuple (the source IP, source port, destination IP, destination port, and layer 4 protocol) approach to create allow/deny rules for network traffic. You can allow or deny traffic to and from single IP address, to and from multiple IP addresses or even to and from entire subnets.
+To accomplish this task, you can use [Application Security Group](../virtual-network/security-overview.md) (ASG) to define your segmentation and [Network Security Group](../virtual-network/security-overview.md) (NSG) to define the security policy for each workload. 
 
-Using NSGs for network access control between subnets enables you to put resources that belong to the same security zone or role in their own subnets. For example, think of a simple 3-tier application that has a web tier, an application logic tier and a database tier. You put virtual machines that belong to each of these tiers into their own subnets. Then you use NSGs to control traffic between the subnets:
+Using NSGs you can control the traffic between applications, NSGs gives packet filtering to allow or deny the traffic based on source, destination, protocol and ports. You can allow traffic from another ASG, single IP address, Service Tag, multiple IP addresses or even from entire [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) based subnets.
 
-* Web tier virtual machines can only initiate connections to the application logic machines and can only accept connections from the Internet
-* Application logic virtual machines can only initiate connections with database tier and can only accept connections from the web tier
-* Database tier virtual machines cannot initiate connection with anything outside of their own subnet and can only accept connections from the application logic tier
+Using ASGs you can create groups of VMs based on your own architecture. For example, think of a simple 3-tier application that has a web tier, an application tier and a database tier. You simply put virtual machines that belong to each of these tiers into their own ASGs and the explicit security rules will only allow traffic from the corresponding trusted sources:
 
-To learn more about Network Security Groups and how you can use them to logically segment your Azure Virtual Networks, see [What is a Network Security Group](../virtual-network/security-overview.md) (NSG).
+* Web tier virtual machines only accept connections from the Internet
+* Application tier virtual machines only accept connections from the web tier
+* Database tier virtual machines only accept connections from the application tier
+
+No other traffic will be accepted unless explicitly allowed, for example, database tier does not accept connections from web tier, in case of compromise virtual machine, web tier cannot access any database virtual machine.
+
+When scaling this security model, other applications will be isolated preventing any lateral exploration on the network.
+
+To learn more about Application Security Groups and Network Security Groups and how you can use them to logically segment your Azure Virtual Networks, see [Security Groups Overview](../virtual-network/security-overview.md) (NSG).
 
 ## Control routing behavior
 When you put a virtual machine on an Azure Virtual Network, you’ll notice that the virtual machine can connect to any other virtual machine on the same Azure Virtual Network, even if the other virtual machines are on different subnets. This is possible because there is a collection of system routes that are enabled by default that allow this type of communication. These default routes allow virtual machines on the same Azure Virtual Network to initiate connections with each other, and with the Internet (for outbound communications to the Internet only).
