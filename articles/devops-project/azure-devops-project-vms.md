@@ -179,4 +179,4 @@ You can optionally modify these build and release pipelines to meet the needs of
 To learn more about the Azure CI/CD pipeline see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

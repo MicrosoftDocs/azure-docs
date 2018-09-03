@@ -119,4 +119,4 @@ When no longer needed, you can delete the Azure App service and related resource
 To learn more about modifying the build and release pipelines to meet the needs of your team, see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
