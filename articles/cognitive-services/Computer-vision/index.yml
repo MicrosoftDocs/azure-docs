@@ -75,14 +75,14 @@ sections:
         src: media/index/logo_go.svg
       text: Go
       href: QuickStarts/go-analyze
-#- title: Step-by-Step Tutorials
-#  items:
-#  - type: paragraph
-#    text: 'Learn how to develop applications using Computer Vision:'
-#  - type: list
-#    style: unordered
-#    items: 
-#    - html: <a href="Tutorials/CSharpTutorial.md">C&#35; Tutorial</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using Computer Vision:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="Tutorials/CSharpTutorial.md">Create a Computer Vision app using C#</a>
 #    - html: <a href="Tutorials/java-tutorial.md">Java Tutorial</a>
 #    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript Tutorial</a>
 #    - html: <a href="Tutorials/PythonTutorial-source.md">Python Tutorial</a>
