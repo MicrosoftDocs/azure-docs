@@ -212,6 +212,22 @@ The Functions 2.0 format has all the same parameters but a slightly different UR
 GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
+#### Request with filter
+
+You can filter the request.
+
+For Functions 1.0, the request format is as follows:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
+The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
+
+```http
+GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
 #### Response
 
 Here is an example of response payloads including the orchestration status (formatted for readability):
@@ -269,27 +285,6 @@ Here is an example of response payloads including the orchestration status (form
 > This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentation.
 > 
 
-### Querying instances status with parameters
-
-Gets the status of all orchestration instances that match the specified conditions.
-
-#### Request
-
-For Functions 1.0, the request format is as follows:
-
-```http
-GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
-```
-
-The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
-
-```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
-```
-
-#### Response
-
-The response is the same as `Get All instances status`. 
 
 ### Raise event
 
