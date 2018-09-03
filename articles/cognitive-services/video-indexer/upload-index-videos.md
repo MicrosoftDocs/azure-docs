@@ -28,8 +28,8 @@ The article also discusses some of the parameters that you can set on the API to
 
 ## Uploading considerations
     
-- When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2
-- The byte array option is limited to 4GB
+- When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
+- The byte array option is limited to 4GB and times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 
 ## Configurations and params
@@ -56,6 +56,9 @@ A POST URL to notify when indexing is completed. Video Indexer adds two query st
 
 You can also add more parameters to the URL before POSTing the call to Video Indexer and these parameters will be included in the callback. Later, in your code you can parse the query string and get back all of the specified parameters in the query string (data that you had originally appended to the URL plus the Video Indexer supplied info.) 
 
+> [!Note]
+> The URL needs to be encoded.
+
 ### streamingPreset
 
 Once your video has been uploaded, Video Indexer, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Indexer is done analyzing, you will get a notification with the video ID.  
@@ -65,6 +68,12 @@ When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/o
 In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
 If you only want to index your video but not encode it, set `streamingPreset`to `NoStreaming`.
+
+### videoUrl
+
+A URL of the video/audio file to be indexed. The URL must point at a media file (HTML pages are not supported). The file can be protected by an access token provided as part of the URI and the endpoint serving the file must be secured with TLS 1.2 or higher. The URL needs to be encoded. 
+
+If the `videoUrl` is not specified, the Video Indexer expects you to pass the file as a multipart/form body content.
 
 ## Code sample
 
