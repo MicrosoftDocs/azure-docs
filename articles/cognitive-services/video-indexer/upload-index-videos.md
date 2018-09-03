@@ -54,10 +54,7 @@ Price depends on the selected indexing option.
 
 A POST URL to notify when indexing is completed. Video Indexer adds two query string parameters to it: id and state. For example, if the callback url is 'https://test.com/notifyme?projectName=MyProject', the notification will be sent with additional parameters to 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
 
-You can also add more parameters to the URL before POSTing the call to Video Indexer and these parameters will be included in the callback. Later, in your code you can parse the query string and get back all of the specified parameters in the query string (data that you had originally appended to the URL plus the Video Indexer supplied info.) 
-
-> [!Note]
-> The URL needs to be encoded.
+You can also add more parameters to the URL before POSTing the call to Video Indexer and these parameters will be included in the callback. Later, in your code you can parse the query string and get back all of the specified parameters in the query string (data that you had originally appended to the URL plus the Video Indexer supplied info.) The URL needs to be encoded.
 
 ### streamingPreset
 
