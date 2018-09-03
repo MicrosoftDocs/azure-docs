@@ -89,7 +89,7 @@ All HTTP APIs implemented by the extension take the following parameters. The da
 | systemKey  | Query string    | The authorization key required to invoke the API. |
 | showHistory| Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.| 
 | showHistoryOutput| Query string    | Optional parameter. If set to `true`, the activity outputs will be included in the orchestration execution history.| 
-| createdTimeFrom  | Query string    | Optional parameter. If set this parameter without instanceId, it queries that match. ISO8601 format. |
+| createdTimeFrom  | Query string    | Optional parameter. When specified, filters the list of returned instances which were created at or after the given ISO8601 timestamp.|
 | createdTimeTo    | Query string    | Optional parameter. If set this parameter without instanceId, it queries that match. ISO8601 format. |
 | runtimeStatus    | Query string    | Optional parameter. If set this parameter without isntanceId, it queries that match.  for more detail, please refer [Querying instances](durable-functions-instance-management.md) section. |
 
