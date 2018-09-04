@@ -116,9 +116,7 @@
     - name: SQL API Docs
       items:
       - name: Overview
-        items:
-        - name: About SQL API
-          href: sql-api-introduction.md
+        href: sql-api-introduction.md
       - name: Tutorials
         items:
         - name: 1 - Create account
@@ -220,9 +218,7 @@
     - name: MongoDB API Docs
       items: 
       - name: Overview
-        items:
-        - name: About MongoDB API
-          href: mongodb-introduction.md
+        href: mongodb-introduction.md
         - name: MongoDB support
           href: mongodb-feature-support.md
       - name: Tutorials
@@ -272,9 +268,7 @@
     - name: Gremlin API Docs
       items: 
       - name: Overview
-        items:
-        - name: About Gremlin API
-          href: graph-introduction.md
+        href: graph-introduction.md
         - name: Gremlin support
           href: gremlin-support.md
       - name: Tutorials
@@ -288,9 +282,7 @@
     - name: Cassandra API Docs
       items: 
       - name: Overview
-        items:
-        - name: About Cassandra API
-          href: cassandra-introduction.md
+        href: cassandra-introduction.md
       - name: Tutorials
         items:
         - name: 1 - Create account
@@ -300,9 +292,7 @@
     - name: Table API Docs
       items:
       - name: Overview
-        items:
-        - name: About Table API
-          href: table-introduction.md
+        href: table-introduction.md
       - name: Tutorials
         items:
         - name: 1 - Create account
