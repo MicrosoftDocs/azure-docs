@@ -6,7 +6,7 @@
   expanded: true
   items:
   - name: Create a cluster - Azure portal
-  - href: create-cluster-database-portal.md
+    href: create-cluster-database-portal.md
 - name: Tutorials
 - name: Concepts
 - name: How-to guides

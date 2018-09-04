@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Create a Kusto cluster and database
-description: In this quickstart, you learn how to create a cluster and database, and ingest (load) data.
+title: 'Quickstart: Create a Kusto cluster and database'
+description: 'In this quickstart, you learn how to create a cluster and database, and ingest (load) data.'
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
