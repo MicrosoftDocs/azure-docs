@@ -13,15 +13,23 @@ ms.date: 09/04/2018
 
 # Introduction to Stream Analytics geospatial functions
 
-Geospatial functions in Azure Stream Analytics enable real-time analytics on streaming geospatial data. With just a few lines of code, you can develop a production grade solution for scenarios such as ride-sharing, fleet management, asset tracking, geo-fencing, and phone tracking across cell sites. The ability to join multiple streams of data with geospatial data can be used to answer complex questions on streaming data. Stream Analytics has adopted the GeoJSON standard for geospatial data. 
+Geospatial functions in Azure Stream Analytics enable real-time analytics on streaming geospatial data. With just a few lines of code, you can develop a production grade solution for complex scenarios. 
 
-Stream Analytics Query Language has seven built-in geospatial functions: `CreateLineString`, `CreatePoint`, `CreatePolygon`, `ST_DISTANCE`, `ST_OVERLAPS`, `ST_INTERSECTS`, and `ST_WITHIN`.
+Examples of scenarios that can benefit from geospatial functions include:
+
+* Ride-sharing
+* Fleet management
+* Asset tracking
+* Geo-fencing
+* Phone tracking across cell sites
+
+Stream Analytics Query Language has seven built-in geospatial functions: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**, and **ST_WITHIN**.
 
 ## CreateLineString
 
 The `CreateLineString` function accepts points and returns a GeoJSON LineString, which can be plotted as a line on a map. You must have at least two points to create a LineString. The LineString points will be connected in order.
 
-The following query uses `CreateLineString` to create a LinString using three points, one of which is created from streaming input data, while the other two are created manually.
+The following query uses `CreateLineString` to create a LineString using three points. The first point is created from streaming input data, while the other two are created manually.
 
 ```SQL 
 SELECT  
@@ -48,7 +56,7 @@ To learn more, visit the [CreateLineString](https://msdn.microsoft.com/en-us/azu
 
 The `CreatePoint` function accepts a latitude and longitude and returns a GeoJSON point, which can be plotted on a map. Your latitudes and longitudes must be a **float** datatype.
 
-The following example query uses `CreatePoint` to create a point using latitudes and longitudes from streaming input data: 
+The following example query uses `CreatePoint` to create a point using latitudes and longitudes from streaming input data.
 
 ```SQL 
 SELECT  
@@ -73,9 +81,9 @@ To learn more, visit the [CreatePoint](https://msdn.microsoft.com/en-us/azure/st
 
 ## CreatePolygon
 
-The `CreatePolygon` function accepts points and returns a GeoJSON polygon record. The order of points must follow right-hand ring orientation. If you imagine yourself walking from one point to another in the order they were declared, the inside of the polygon would be to your left the entire time.
+The `CreatePolygon` function accepts points and returns a GeoJSON polygon record. The order of points must follow right-hand ring orientation, or counter-clockwise. Imagine walking from one point to another in the order they were declared. The center of the polygon would be to your left the entire time.
 
-The following example query uses `CreatePolygon` to create a polygon from three points, two of which are created manually, while the final point is created from input data:
+The following example query uses `CreatePolygon` to create a polygon from three points. The first two points are created manually, and the last point is created from input data.
 
 ```SQL 
 SELECT  
@@ -102,7 +110,7 @@ To learn more, visit the [CreatePolygon](https://msdn.microsoft.com/en-us/azure/
 ## ST_DISTANCE
 The `ST_DISTANCE` function returns the distance between two points in meters. 
 
-The following query uses `ST_DISTANCE` to generate an event when a gas station is less than 10 km from the car:
+The following query uses `ST_DISTANCE` to generate an event when a gas station is less than 10 km from the car.
 
 ```SQL
 SELECT Cars.Location, Station.Location 
@@ -113,9 +121,9 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 To learn more, visit the [ST_DISTANCE](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/st-distance) reference.
 
 ## ST_OVERLAPS
-The `ST_OVERLAPS` function compares two polygons. If the polygons overlap, the function returns a 1. If the polygons do not overlap, the function returns a 0. 
+The `ST_OVERLAPS` function compares two polygons. If the polygons overlap, the function returns a 1. The function returns 0 if the polygons don't overlap. 
 
-The following query uses `ST_OVERLAPS` to generate an event when a building is within a possible flooding zone:
+The following query uses `ST_OVERLAPS` to generate an event when a building is within a possible flooding zone.
 
 ```SQL
 SELECT Building.Polygon, Building.Polygon 
@@ -123,7 +131,7 @@ FROM Building b
 JOIN Flooding f ON ST_OVERLAPS(b.Polygon, b.Polygon) 
 ```
 
-The following example query generates an event when a storm is heading towards a car:
+The following example query generates an event when a storm is heading towards a car.
 
 ```SQL
 SELECT Cars.Location, Storm.Course
@@ -134,9 +142,9 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 To learn more, visit the [ST_OVERLAPS](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/st-overlaps) reference.
 
 ## ST_INTERSECTS
-The `ST_INTERSECTS` function compares two LineString. If the LineString intersect, then the function returns 1. If the LineString do not intersect, the function returns 0.
+The `ST_INTERSECTS` function compares two LineString. If the LineString intersect, then the function returns 1. The function returns 0 if the LineString don't intersect.
 
-The following example query uses `ST_INTERSECTS` to determine whether or not a paved road intersects a dirt road:
+The following example query uses `ST_INTERSECTS` to determine if a paved road intersects a dirt road.
 
 ```SQL 
 SELECT  
@@ -160,9 +168,9 @@ FROM input
 To learn more, visit the [ST_INTERSECTS](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/st-intersects) reference.
 
 ## ST_WITHIN
-The `ST_WITHIN` function determines whether a point or polygon is contained within a polygon. If the polygon contains the point or polygon, the function will return 1. If the point or polygon is not located within the declared polygon, then the function will return 0.
+The `ST_WITHIN` function determines whether a point or polygon is within a polygon. If the polygon contains the point or polygon, the function will return 1. The function will return 0 if the point or polygon isn't located within the declared polygon.
 
-The following example query uses `ST_WITHIN` to determine whether the delivery destination point is within the given warehouse polygon:
+The following example query uses `ST_WITHIN` to determine whether the delivery destination point is within the given warehouse polygon.
 
 ```SQL 
 SELECT  
