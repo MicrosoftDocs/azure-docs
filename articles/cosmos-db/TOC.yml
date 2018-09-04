@@ -214,6 +214,8 @@ items:
             href: performance-tips.md
           - name: Performance tips for Java
             href: performance-tips-java.md
+        - name: Set up VSTS CI/CD pipeline
+            href: tutorial-setup-ci-cd.md
         - name: Integrate with other Azure services
           items: 
           - name: Implement a lambda architecture with HDInsight

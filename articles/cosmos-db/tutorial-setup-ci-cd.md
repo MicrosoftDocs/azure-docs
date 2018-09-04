@@ -1,6 +1,6 @@
 ---
-title: 'Set up CI/CD with the Cosmos DB Emulator build task'
-description: Presents a tutorial on how to use the Cosmos DB Emulator build task as part of a build and release workflow in Visual Studio Team Services (VSTS)
+title: Set up CI/CD pipeline with the Cosmos DB emulator build task
+description: Tutorial on how to set up build and release workflow in Visual Studio Team Services (VSTS) using the Cosmos DB emulator build task
 services: cosmos-db
 keywords: Azure Cosmos DB Emulator
 author: deborahc
@@ -13,27 +13,17 @@ ms.date: 8/28/2018
 ms.author: dech
 
 ---
-# Set up CI/CD with the Azure Cosmos DB Emulator build task in Visual Studio Team Services
+# Set up a CI/CD pipeline with the Azure Cosmos DB emulator build task in Visual Studio Team Services
 
-The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. The emulator allows you to develop and test your application locally, without creating an Azure subscription or incurring any costs. 
+The Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. The emulator allows you to develop and test your application locally, without creating an Azure subscription or incurring any costs. 
 
-The Azure Cosmos DB Emulator build task for Visual Studio Team Services (VSTS) allows you to do the same in a CI environment. With the build task, you can run tests against the Emulator as part of your build and release workflows. The task spins up a Docker container with the emulator already running and provides an endpoint that can be used by the rest of the build definition. You can create and start as many instances of the emulator as you need, each running in a separate container. 
+The Azure Cosmos DB emulator build task for Visual Studio Team Services (VSTS) allows you to do the same in a CI environment. With the build task, you can run tests against the emulator as part of your build and release workflows. The task spins up a Docker container with the emulator already running and provides an endpoint that can be used by the rest of the build definition. You can create and start as many instances of the emulator as you need, each running in a separate container. 
 
-This article demonstrates how to set up a CI pipeline in VSTS for an ASP.NET application that makes use of the Cosmos DB Emulator build task to run tests. 
+This article demonstrates how to set up a CI pipeline in VSTS for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. 
 
-This article covers the following tasks:
+## Install the emulator build task
 
-> [!div class="checklist"]
-> * Installing the Emulator build task
-> * Creating a new build definition
-> * Adding the Emulator build task to a build definition
-> * Configuring tests to use the Emulator
-> * Running the build
-
-
-## Install the Emulator build task to a VSTS organization
-
-To use the build task, we first need to install it onto our VSTS organization. Find the extension "Azure Cosmos DB Emulator" in the [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) and click “Get it free.”
+To use the build task, we first need to install it onto our VSTS organization. Find the extension **Azure Cosmos DB Emulator** in the [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) and click **Get it free.**
 
 ![Find and install the Azure Cosmos DB Emulator build task in the VSTS Marketplace](./media/tutorial-setup-ci-cd/addExtension_1.png)
 
@@ -47,24 +37,24 @@ Next, choose the organization in which to install the extension.
 
 Now that the extension is installed, we need to add it to a [build definition.](https://docs.microsoft.com/vsts/pipelines/get-started-designer?view=vsts&tabs=new-nav) You may modify an existing build definition, or create a new one. If you already have an existing build definition, you may skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
 
-To create a new build definition, navigate to the Build and Release tab in VSTS. Press +New. 
+To create a new build definition, navigate to the **Build and Release** tab in VSTS. Select **+New.**
 
 ![Create a new build definition](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 Select the desired team project, repository, and branch to enable builds. 
 
-![Selet the team project, repository, and branch for the build definition ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+![Select the team project, repository, and branch for the build definition ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-Finally, select the desired template for the build definition. We will select the ASP.NET template in this tutorial. 
+Finally, select the desired template for the build definition. We will select the **ASP.NET** template in this tutorial. 
 
-![Selet the desired build definition template ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
+![Select the desired build definition template ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
 
 Now we have a build definition that we can set up to use the Azure Cosmos DB Emulator build task that looks like the one below. 
 
 ![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_4.png)
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the Emulator build task to a build definition
+## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the emulator build task to a build definition
 
-To add the Emulator build task, search for "cosmos" in the search box and click Add. The build task will start up a container with an instance of the Cosmos DB Emulator already running, so the task needs to be placed before any other tasks that expect the Emulator to be running.
+To add the emulator build task, search for **cosmos** in the search box and select **Add.** The build task will start up a container with an instance of the Cosmos DB emulator already running, so the task needs to be placed before any other tasks that expect the emulator to be running.
 
 ![Add the Emulator build task to the build definition](./media/tutorial-setup-ci-cd/addExtension_3.png)
 In this tutorial, we will add the task to the beginning of Phase 1 to ensure the Emulator is available before our tests execute.
@@ -72,12 +62,12 @@ The completed build definition now looks like this.
 
 ![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_5.png)
 
-## Configure tests to use the Emulator
-Now, we will configure our tests to use the Emulator. The Emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
+## Configure tests to use the emulator
+Now, we will configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
 
 In this tutorial, we will use the [Visual Studio Test task](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a .runsettings file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
 
-Below is an example of a .runsettings file that defines parameters to be passed into an application's unit tests. Note the authKey variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the Emulator. This is the key expected by the the Emulator build task and should be defined in your .runsettings file.
+Below is an example of a .runsettings file that defines parameters to be passed into an application's unit tests. Note the authKey variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the emulator. This is the key expected by the emulator build task and should be defined in your .runsettings file.
 
 ```csharp
 <RunSettings>
@@ -137,7 +127,7 @@ namespace todo.Tests
 }
 ```
 
-Naviate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the .runsettings file. In the **Override test run parameters** option, add in ` -endpoint $(CosmosDbEmulator.Endpoint)`. This will configure the Test task to refer to the endpoint of the Emulator build task, instead of the one defined in the **.runsettings** file.  
+Navigate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the .runsettings file. In the **Override test run parameters** option, add in ` -endpoint $(CosmosDbEmulator.Endpoint)`. This will configure the Test task to refer to the endpoint of the emulator build task, instead of the one defined in the **.runsettings** file.  
 
 ![Override endpoint variable with Emulator build task endpoint](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
@@ -150,15 +140,12 @@ Once the build has started, observe the Cosmos DB Emulator task has begun pullin
 
 ![Save and run the build](./media/tutorial-setup-ci-cd/runBuild_4.png)
 
-After the build completes, observe that your tests pass, all running against the Cosmos DB Emulator from the build task!
+After the build completes, observe that your tests pass, all running against the Cosmos DB emulator from the build task!
 
 ![Save and run the build](./media/tutorial-setup-ci-cd/buildComplete_1.png)
 
 ## Next steps
 
-In this tutorial, you've learned how to setup a CI/CD build pipeline in VSTS to run tests against the emulator using the Azure Cosmos DB Emulator build task. 
+To learn more about using the Emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
 
-> [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB](import-data.md)
-
-
+To export Emulator SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)
