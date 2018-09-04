@@ -3,7 +3,7 @@ title: Azure Service Bus messaging exceptions | Microsoft Docs
 description: List of Service Bus messaging exceptions and suggested actions.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Service Bus messaging exceptions

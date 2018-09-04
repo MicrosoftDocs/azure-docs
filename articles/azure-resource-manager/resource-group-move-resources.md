@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
 
 ---
@@ -118,7 +118,6 @@ The services that enable moving to both a new resource group and subscription ar
 * Azure Maps
 * Azure Relay
 * Azure Stack - registrations
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Bot Service
@@ -184,6 +183,7 @@ The services that currently don't enable moving a resource are:
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Instances
@@ -233,8 +233,6 @@ When moving a virtual network, you must also move its dependent resources. For V
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
 You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
-
-You can't move a virtual network to a different subscription if the virtual network contains a custom DNS server. To move the virtual network, set it to Default (Azure-provided) DNS server. After the move, reconfigure the custom DNS server.
 
 ## App Service limitations
 

@@ -3,7 +3,7 @@ title: How to use Azure Service Bus topics and subscriptions with Node.js | Micr
 description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # How to Use Service Bus topics and subscriptions with Node.js
