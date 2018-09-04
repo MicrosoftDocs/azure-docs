@@ -4,7 +4,7 @@ description: A Node.js tutorial that demonstrates how to connect to and query Az
 keywords: node.js tutorial, node database
 services: cosmos-db
 author: deborahc
-manager: andrl
+manager: kfile
 editor: monicar
 
 ms.service: cosmos-db

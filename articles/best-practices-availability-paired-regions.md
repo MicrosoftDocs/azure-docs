@@ -14,7 +14,7 @@ ms.author: raynew
 
 Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more datacenters.
 
-Each Azure region is paired with another region within the same geography, together making a regional pair. The exception is Brazil South, which is paired with a region outside its geography. Across the region pairs Azure will serialize platform updates (planned maintenance) so that only one paired region will be updated at a time. In addition, it the event of an outage affecting multiple regions at least one region in each pair will be prioritized for recovery.
+Each Azure region is paired with another region within the same geography, together making a regional pair. The exception is Brazil South, which is paired with a region outside its geography. Across the region pairs Azure will serialize platform updates (planned maintenance) so that only one paired region will be updated at a time. In addition, in the event of an outage affecting multiple regions at least one region in each pair will be prioritized for recovery.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 

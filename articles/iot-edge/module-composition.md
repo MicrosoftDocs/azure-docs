@@ -148,7 +148,7 @@ For examples about how to create queries for message properties, see [Device-to-
 An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device. Messages that come from modules contain a system property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:
 
 ```sql
-FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### Sink
