@@ -56,7 +56,7 @@
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
 
-- name: Monitoring
+  - name: Monitoring
     items:
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
