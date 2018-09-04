@@ -37,9 +37,9 @@ Create an alias record that points to a resource record in the zone.
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
 3. In the **Name** text box **note**.
-4. For the Type,** select **TXT**.
-5. Type **This is an alias record test** for the TXT record data.
-7. Need UI for the next step.
+4. For the **Type**,** select **TXT**.
+5. In the **VALUE** text box, type **This is an alias record test** for the TXT record data.
+7. Click **OK**.
 
 ### Create the alias record
 1. Click your Azure DNS zone to open the zone.
