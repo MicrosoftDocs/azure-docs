@@ -135,7 +135,7 @@ They upgrade as follows:
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade5.png) 
 
 > [!NOTE]
-> Some TFS upgrades need to run the Configure Features Wizard after the upgrade completes. [Learn more](https://docs.microsoft.com/vsts/work/customize/configure-features-after-upgrade?utm_source=ms&utm_medium=guide&utm_campaign=vstsdataimportguide&view=vsts).
+> Some TFS upgrades need to run the Configure Features Wizard after the upgrade completes. [Learn more](https://docs.microsoft.com/azure/devops/reference/configure-features-after-upgrade?utm_source=ms&utm_medium=guide&utm_campaign=vstsdataimportguide&view=vsts).
 
 **Need more help?**
 
@@ -484,13 +484,13 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
 **Need more help?**
 
-[Learn more](https://docs.microsoft.com/vsts/git/import-from-tfvc?view=vsts) about importing from TFVC.
+[Learn more](https://docs.microsoft.com/azure/devops/repos/git/import-from-TFVC?view=vsts) about importing from TFVC.
 
 ##  Clean up after migration
 
 With migration complete, Contoso needs to do the following:
 
-- Review the [post-import](https://docs.microsoft.com/vsts/articles/migration-post-import?view=vsts) article for information about additional import activities.
+- Review the [post-import](https://docs.microsoft.com/azure/devops/articles/migration-post-import?view=vsts) article for information about additional import activities.
 - Either delete the TFVC repos, or place them in read-only mode. The code bases mustn't used, but can be referenced for their history.
 
 ## Next steps
