@@ -9,7 +9,7 @@
 - name: Quickstarts
   items:
   - name: View space occupancy
-    href: quickstart-view-occupancy.md
+    href: quickstart-view-occupancy-dotnet.md
 - name: Tutorials
   items:
   - name: Create app to manage facilities
