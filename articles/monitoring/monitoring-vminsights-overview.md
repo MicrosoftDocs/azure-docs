@@ -63,4 +63,5 @@ Based on our testing with the default configuration of the solution, the followi
 
 The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters.  If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied.  If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Log Analytics.​
 
-
+## Next steps
+[Onboard VM Insights](monitoring-vminsights-onboard.md) to begin monitoring your Azure virtual machines.

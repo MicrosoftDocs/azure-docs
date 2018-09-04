@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/30/2018
+ms.date: 09/04/2018
 ms.author: magoedte
 ---
 
@@ -49,13 +49,13 @@ The information presented under **Top health issues** and on the **Health Criter
 
 The list view would look like below. Results can be filtered further from the drop-down lists **Category** and **Type**.  By default the *Unit* type and categories are selected.
 
-![Top health issues example](./media/monitoring-vminsights-health-monitoring/top-health-issues-vm-01.png)
+![Top health issues example](./media/monitoring-vminsights-health/top-health-issues-vm-01.png)
 
 ## Aggregate virtual machine perspective
 
 To view health collection for all of your virtual machines, from the navigation list in the portal, select **Azure Monitor** and then select **Virtual Machines (preview)**.  
 
-![VM Insights monitoring view from Azure Monitor](./media/monitoring-vminsights-health-monitoring/vminsights-aggregate-monitoring-view-01.png)
+![VM Insights monitoring view from Azure Monitor](./media/monitoring-vminsights-health/vminsights-aggregate-view-01.png)
 
 On the **Health** tab, you are able to learn the following:
 
@@ -68,7 +68,7 @@ Here you can quickly identify the top critical issues detected by the health cri
 ### VM Distribution
 This section provides the distribution of VMs based on operating system or basic components of a VM. 
 
-![VM Insights virtual machine distribution perspective](./media/monitoring-vminsights-health-monitoring/vminsights-vmdistribution-perspective-01.png)
+![VM Insights virtual machine distribution perspective](./media/monitoring-vminsights-health/vminsights-vmdistribution-perspective-01.png)
 
 On the Operating Systems tab, the table shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM. The health states defined for a VM are: 
 
@@ -79,13 +79,13 @@ On the Operating Systems tab, the table shows VMs listed by Windows edition or L
 
 You can click on any column item - **VM count**, **Critical**, **Warning**, **Healthy** or **Unknown** to drill down into that specific VM view to get more details. Based on the column cell selected, the results are filtered on the list view page. For example, if we want to check all VMs running **Ubuntu 16.04 (x86_64)**, click on the VM count value for that OS and it will open the following page, listing the two virtual machines that are in a critical health state.  
 
-![Example rollup of Ubuntu VMs in critical health state](./media/monitoring-vminsights-health-monitoring/vminsights-rollup-vms-criticalstate.png)
+![Example rollup of Ubuntu VMs in critical health state](./media/monitoring-vminsights-health/vminsights-rollup-vms-criticalstate.png)
  
 On the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you are directed to the VM instance page with more details of the alerts and health criteria issues identified that are affecting the selected VM.  From here you can filter the health state details by clicking on **Health State** icon in the upper left-hand corner of the page to see which components are unhealthy or you can view alerts raised by an unhealthy component categorized by alert severity.    
 
 From the VM list view, clicking on the name of a VM opens the **VM instance** page.
 
-![Example of selected virtual machine health state overview page](./media/monitoring-vminsights-health-monitoring/vminsights-vminstance-overview-01.png)
+![Example of selected virtual machine health state overview page](./media/monitoring-vminsights-health/vminsights-vminstance-overview-01.png)
 
 On this page, it shows a rollup **Health Status** for the virtual machine and **Fired alerts**, categorized by severity.  Selecting **Health State** will show the **Health Diagnostics** view of the VM, and here you can find out which health criteria is reflecting a health state issue. When the **Health Diagnostics** page opens, it shows all the components of the VM and their associated health criteria with current health state.  Refer to the [Health Diagnostic](#health-diagnostics) section for more details.  
 
@@ -115,11 +115,11 @@ You can drill further down to see which instances are unhealthy by clicking on a
 Navigating back to the **VM Distribution** page, selecting the **Components** tab shows the health state of the four major components of a VM in the table - CPU, disk, memory, and network. The data is presented from the perspective of out of all the VMs monitored, one or more have exceeded a threshold for that component.  You can drill down to the list view of the VM and analyze the results.  
 
 ## Health diagnostics
-Health diagnostics view gives the user the ability to view all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. 
+Health diagnostics page allows you to view all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring objects related to the VM. 
 
 You can launch Health diagnostics in the following ways.
 
-1. By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor.  On the VM Insights health page, clicking on the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health** and drill-down to the page that lists all the VMs matching that filtered category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
+1. By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor.  On the VM Insights health page, click on the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health** and drill down to the page that lists all the VMs matching that filtered category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
 
     <Show image> 
 
@@ -127,7 +127,7 @@ You can launch Health diagnostics in the following ways.
 
     <Show image>
  
-4. From the guest VM on the VM Insights health tab, by selecting **View health diagnostics** 
+4. From the guest VM on the VM Insights Health tab, by selecting **View health diagnostics** 
 
     <Show image>
 
@@ -163,7 +163,7 @@ The left-most column in a Health diagnostics page is the component model. All th
 In the following example, the discovered components are disk, logical disk, processor, memory, and operating system. Multiple instances of these components are discovered and displayed in this column, with two instances of logical disk **/** and **/mnt**, one instance of network adapter **eth0**, two instances of disk **sda** and **sdb**, two instances of processor **0 and 1**, and an **Ubuntu Operating System**). 
 
 ### Health criteria
-The center column in the Health Diagnostics page is the **Health Criteria** column. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consist of unit, dependency and aggregate health criteria.  
+The center column in the Health diagnostics page is the **Health Criteria** column. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consist of unit, dependency and aggregate health criteria.  
 
 A health criterion measures the health of the monitored instance with some criteria, which could be a threshold value or a state of an entity, etc. A health criterion has either two or three health states as described in the above section. At any given point, the health criterion can be in only one of its potential states. 
 
@@ -174,18 +174,21 @@ In the example below, the aggregate health criterion **Core Windows Services Rol
 The health of the **Core Windows Services Rollup** rolls into the health of **Operating System availability**, which eventually rolls up to the **Availability** of the VM. 
 
 ### State changes
-The right-most column in the Health Diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table. 
+The right-most column in the Health diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table. 
 
 This section consists of the health criteria state and the associated time sorted by the latest state on top.   
 
 ### Association of Component Model, Health Criteria and State change columns 
 The three columns are interlinked with each other. When a user selects a discovered instance in the Component Model, the **Health Criteria** section is filtered to that component view and correspondingly the **State Change** is updated based on the selected health criteria. 
 
-In the above example, when one selects **/mnt (Logical Disk)**, the Health Criteria tree is filtered to **/mnt(Logical Disk)**. The **Availability** and **Performance** tabs are filtered accordingly too. The **State Change** column shows the state change based on the availability of **/mnt(Logical Disk)**. 
+In the above example, when one selects **/mnt (Logical Disk)**, the Health Criteria tree is filtered to **/mnt (Logical Disk)**. The **Availability** and **Performance** tabs are filtered accordingly too. The **State Change** column shows the state change based on the availability of **/mnt (Logical Disk)**. 
 
-### Health Diagnostics page tasks 
+### Health diagnostics tasks 
 
-Health Diagnostics screen has two task options – 
+From Health diagnostics page you can run two user-initiated actions to 
+
+
+ has two task options – 
 1) Refresh – This refreshes the entire health diagnostics page. If there is an update to the health criterion’s health state based on the predefined polling interval, this task would update the health criteria to the latest. 2) Health Criteria State – This is a filter. User can filter the whole health diagnostics screen based on the health criteria state – Healthy, Warning, Critical, Unknown and All. 
  
 The Last Updated time to the top right corner, represents the latest time when the health diagnostic page was refreshed. 

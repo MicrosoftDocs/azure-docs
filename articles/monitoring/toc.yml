@@ -73,7 +73,7 @@
        - name: Onboard
          href: monitoring-vminsights-onboard.md
        - name: Monitor health
-         href: monitoring-vminsights-health-monitoring.md
+         href: monitoring-vminsights-health.md
        - name: Map dependencies
          href: monitoring-vminsights-maps.md
     - name: Agent Health

@@ -30,17 +30,12 @@ VM Insights Map gets its data from the Microsoft Dependency agent. The Dependenc
 |:--|:--|:--|
 | Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| System Center Operations Manager management group | Yes | VM Insights Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |  
+| System Center Operations Manager management group | No | |  
 
 On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send monitoring data. System Center Operations Manager and Log Analytics provide different out-of-the box versions of the agent. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.  
 
 On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics. You can use Map on servers with Log Analytics agents connected directly to the service, or that are reporting to an Operations Manager management group integrated with Log Analytics.  
 
-If you are a System Center Operations Manager customer with a management group connected to Log Analytics:
-
-- If your System Center Operations Manager agents can access the Internet to connect to Log Analytics, no additional configuration is required.  
-- If your System Center Operations Manager agents cannot access Log Analytics over the Internet, you need to configure the OMS Gateway to work with System Center Operations Manager.
-  
 If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For further information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### Dependency agent
@@ -255,11 +250,19 @@ Not running - start VM to configure: (0)
 Failed: (0)
 ```
 ## Enable for Hybrid environment
-This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment.  
+This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment for monitoring by VM Insights.  
 
 The VM Insights Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Map is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
 
 Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).
+
+Summaized steps:
+
+1. Install Log Analytics Agent for Windows or Linux
+2. Install VM Insights Dependency agent
+3. Enable collection of performance counters
+4. Onboard VM Insights solution
+
 
 ### Install the Dependency agent on Windows 
 The Dependency agent can be installed manually on Windows computers by running  `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install interactively.  
@@ -309,3 +312,5 @@ Files for the Dependency agent are placed in the following directories:
 
 
 ## Next steps
+
+With monitoring enabled for your virtual machine, this information is available for analysis with VM Insights.  To learn how to use the health feature, see [View Azure VM health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-map.md).  
