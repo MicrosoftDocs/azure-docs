@@ -149,15 +149,14 @@ sections:
 #    - html: <a href="Tutorials/PythonTutorial-source.md">Python Tutorial</a>
 - title: Samples
   items:
+  - type: paragraph
+    text: 'Find samples for Speech Service'
   - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 
-      html: |
-        &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
-        &nbsp;&#8226; <a href="intent.md">Intent Recognition</a><br/>
-        &nbsp;&#8226; <a href="translation.md">Translation</a>
+    style: unordered
+    items: 
+    - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
+    - html: <a href="intent.md">Intent Recognition</a><br/>
+    - html: <a href="translation.md">Translation</a>
 - title: Reference
   items:
   - type: list
