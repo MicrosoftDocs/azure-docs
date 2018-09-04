@@ -37,7 +37,7 @@
         href: create-mongodb-golang.md
     - name: Gremlin
       items:
-      - name: Use Gremlin console
+      - name: Gremlin console
         href: create-graph-gremlin-console.md
       - name: .NET
         href: create-graph-dotnet.md
