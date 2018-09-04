@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.author: jovanpop-msft
 
 ---
@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Prerequisites
+## Prerequisite - whitelist your subscription
 
 This quickstart requires preview approval and whitelisting. Managed Instance is being released initially as a gated public preview that requires your subscription to be whitelisted. If your subscription is not already whitelisted, use the following steps to be offered and accept preview terms and send a request for whitelisting.
 
@@ -47,8 +47,8 @@ This quickstart requires preview approval and whitelisting. Managed Instance is 
 
 SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create the Managed Instance, this quickstart creates the following network resources:
     - A Managed Instance subnet for the Managed Instance itself.
+    - A user-defined route in the Managed Instance subnet that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
     - A default subnet for client connectivity to the Managed Instance
-- A user-defined route that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
 
 The Managed Instance subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. Use the default subnet for client resources, such as a virtual machine for SQL Server Management Studio or for a web app.
 
@@ -111,7 +111,6 @@ While deployment occurs, continue to the next procedure.
 
 ## Next steps
 
- - [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
- - [Migrate your databases from on-premises to Managed Instance](sql-database-managed-instance-migrate.md).
-
-
+- [Create a client VM to connect to your Managed Instance](sql-database-managed-instance-configure-vm.md)
+- [Create a point-to-site connection to connect to your Managed Instance](sql-database-managed-instance-configure-p2s.md)
+- [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).

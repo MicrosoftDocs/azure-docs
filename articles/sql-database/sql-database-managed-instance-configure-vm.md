@@ -48,11 +48,11 @@ The easiest way to create a client virtual machine with all nesseccary tools is 
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Resource Group**|The resource group that you created earlier||
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
-   |**Virtual network**|The virtual network that you created earlier| Choose **MyNewVNet/ManagedInstances** item if you have not changed the names in the previous step. Otherwise, choose the VNet name and managed instance subnet that you have entered in the previous section. **Do not use default subnet because it is not configured to host Managed Instances**. |
+   |**Virtual network**|The virtual network for your managed instance| Existing VNET that you created while [creating your Managed Instance](sql-database-managed-instance-getting-started.md). |
 
     ![create client VM](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
-    If you have not changed VNet name and the default subnet, you don't need to change last two parameters, otherwise you should change these values to the values that you entered when you set up the network environment.
+    If you used the suggested VNet name and the default subnet in [creating your Managed Instance](sql-database-managed-instance-getting-started.md), you don't need to change last two parameters. Otherwise you should change these values to the values that you entered when you set up the network environment.
 
 3. Select the **I agree to terms and conditions stated above** checkbox.
 4. Click **Purchase** to deploy the Azure VM in your network.
@@ -107,5 +107,5 @@ After you connect, you can view your system and user databases in the Databases 
 ## Next steps
 
 - To learn how to connect from an on-premises client computer, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
-- To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file, the [T-SQL RESTORE command](sql-database-managed-instance-restore-from-backup-tutorial.md) to restore from a database backup file, or a [Import from a BACPAC file](sql-database-import.md).
+- To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-restore-from-backup-tutorial.md) to restore from a database backup file.
 
