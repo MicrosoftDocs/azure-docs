@@ -23,7 +23,7 @@ Unit testing Service Fabric stateful services uncovers common mistakes that woul
 
 1. Each replica executes application code but under different context. If the service uses three replicas, the service code is executing on three nodes in parallel under different context/role.
 2. State stored within the stateful service should be consistent amongst all replicas. The state manager and reliable collections will provide this consistency out-of-the-box. However, in-memory state will need to be managed by the application code.
-3. Each replica will change roles at some point while running on the cluster. A secondary replica will become a primary, in the event that the node hosting the primary becomes unavailable or overloaded. This is natural behavior for service fabric therefore services must plan for eventually executing under a different role.
+3. Each replica will change roles at some point while running on the cluster. A secondary replica will become a primary, in the event that the node hosting the primary becomes unavailable or overloaded. This is natural behavior for Service Fabric therefore services must plan for eventually executing under a different role.
 
 This article assumes that [Unit testing stateful services in Service Fabric](service-fabric-concepts-unit-testing.md) has been read.
 
@@ -38,7 +38,7 @@ As of version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/Servic
 ## Set up the mock orchestration and state
 As part of the arrange portion of a test, a mock replica set and state manager will be created. The replica set will then own creating an instance of the tested service for each replica. It will also own executing lifecycle events such as `OnChangeRole` and `RunAsync`. The mock state manager will ensure any operations performed against the state manager are run and kept as the actual state manager would.
 
-1. Create a service factory delegate that will instantiate the service being tested. This should be similar or same as the service factory callback typically found in `Program.cs` for a service fabric service or actor. This should follow the following signature:
+1. Create a service factory delegate that will instantiate the service being tested. This should be similar or same as the service factory callback typically found in `Program.cs` for a Service Fabric service or actor. This should follow the following signature:
 ```csharp
 MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
 ```

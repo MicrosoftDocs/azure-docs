@@ -98,7 +98,7 @@ There should exist unit tests where the cancellation token provided to RunAsync 
 If the stateful services make use of any cache or in-memory state that should only exist on the primary, it should be disposed at this time. This is to ensure that this state is consistent if the node becomes a primary again later. Cancellation testing will allow the test to verify this state is disposed properly.
 
 #### Execute requests against multiple replicas
-There should be assert tests that execute the same request against different replica's. When paired with role changes, consistency issues can be uncovered. An example test may perform the following steps:
+Assert tests should execute the same request against different replica's. When paired with role changes, consistency issues can be uncovered. An example test may perform the following steps:
 1. Execute a write request against the current primary
 2. Execute a read request that returns the data written in step 1 against current primary
 3. Promote a secondary to primary. This should also demote the current primary to secondary
