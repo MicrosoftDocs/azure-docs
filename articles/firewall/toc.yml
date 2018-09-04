@@ -11,6 +11,8 @@
     href: tutorial-firewall-deploy-portal.md
   - name: Deploy in hybrid network
     href: tutorial-hybrid-ps.md
+  - name: Deploy DNAT
+    href: tutorial-firewall-dnat.md
   - name: Monitor diagnostic logs
     href: tutorial-diagnostics.md
 - name: Samples
