@@ -223,10 +223,9 @@ public static CreateMessageOptions Run(
 {
     log.Info($"C# Queue trigger function processed: {order}");
 
-    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
+    var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
     {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
+        Body = $"Hello {order["name"]}, thanks for your order!"
     };
 
     return message;
