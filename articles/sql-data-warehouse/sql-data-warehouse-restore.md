@@ -208,9 +208,9 @@ $GeoRestoredDatabase.status
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
-# Restore through the Azure Portal
+# Restore through the Azure portal
 
-## Create a user-defined restore point using the Azure Portal
+## Create a user-defined restore point using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
 
 2. Navigate to the SQL data warehouse that you want to create a restore point for.
@@ -223,7 +223,7 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 
     ![Name of Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## Restore an active or paused database using the Azure Portal
+## Restore an active or paused database using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
 2. Navigate to the SQL data warehouse that you want to restore from.
 3. At the top of the Overview blade, select **Restore**.
@@ -238,7 +238,7 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 
     ![User-defined Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
-## Restore a deleted database using the Azure Portal
+## Restore a deleted database using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
 2. Navigate to the SQL server your deleted database was hosted on.
 3. Select the Deleted databases icon in the table of contents.
