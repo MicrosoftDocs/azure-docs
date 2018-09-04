@@ -71,13 +71,36 @@ Access to the Azure portal requires the user be a service administrator or co-ad
 Access to Microsoft Online Services may require the user also be assigned a license before they can open the service's portal or perform administrative tasks.
 
 ## Assign a license to a user in Azure AD
-1. Sign in to the [Azure portal](http://portal.azure.com) with a global administrator account or a co-administrator account.
-3. Select Azure AD and the directory you want to work with and that has licenses associated with it.
-4. Select **Licenses** on the left. The list of available licenses will appear.
-5. Select the license plan that contains the licenses you want to distribute.
-6. Select **Assign Users**.
-7. Select the user that you want to assign a license to.
-8. Click the **Assign** button.  The user can now sign in to Azure.
+
+1. Sign in to the [Azure portal](http://portal.azure.com) with a Global Administrator account or a Co-Administrator account.
+
+1. Select the Azure AD directory you want to work with and that has licenses associated with it.
+
+1. In the left navigation, click **Azure Active Directory**.
+
+1. Click **Licenses**. The list of available licenses will appear.
+
+    ![Azure Active Directory Licenses](./media/pim-roles/licenses-overview.png)
+
+1. Click your **Product**.
+
+1. Click the license plan that contains the licenses you want to distribute.
+
+    ![Licenses Products](./media/pim-roles/licenses-products.png)
+
+1. Click **Assign** to open the Assign license pane.
+
+    ![Licensed users](./media/pim-roles/licenses-licensed-users.png)
+
+1. Select the user or group that you want to assign a license to.
+
+    ![Assign license](./media/pim-roles/licenses-assign-license.png)
+
+1. Click **Assignment options** to configure your assignment options.
+
+    ![Assignment options](./media/pim-roles/licenses-assignment-options.png)
+
+1. Click **Assign** to assign the license. The user now has the license.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
