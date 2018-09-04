@@ -4,7 +4,7 @@ description: Learn how to use Ansible to manage your Azure dynamic inventories
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
@@ -131,20 +131,21 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Insert the following code into the newly created `nginx.yml` file:
 
-    ```yml
-    - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+```yml
+---
+- name: Install and start Nginx on an Azure virtual machine
+  hosts: azure
+  become: yes
+  tasks:
+  - name: install nginx
+    apt: pkg=nginx state=installed
+    notify:
+    - start nginx
 
-    handlers:
-    - name: start nginx
-        service: name=nginx state=started
-    ```
+  handlers:
+  - name: start nginx
+    service: name=nginx state=started
+```
 
 1. Run the `nginx.yml` playbook:
 

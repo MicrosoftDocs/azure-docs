@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
 
@@ -49,10 +49,10 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v10``. This image comes with Service Fabric Jenkins plugin pre-installed.
 
-1. Run the container image with the location where your certificates are on your local machine mounted
+1. Run the container image with the location where your Azure certificates are stored on your mounted local machine.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
@@ -82,7 +82,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 1. First, if you do not have a repository that you can use to host the Voting project on Github, create one. The repository is called **dev_test** for the remaining of this tutorial.
 
-1. Create a **new item** on your Jenkins dashboard.
+1. Create a **new item** on your Jenkins dashboard at ``http://<HOST-IP>:8080``.
 
 1. Enter an item name (for example, **MyJob**). Select **free-style project**, and click **OK**.
 
@@ -119,6 +119,8 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     > [!NOTE]
     > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
     >
+
+1. Click **Save**.
 
 ## Update your existing application
 
