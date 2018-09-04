@@ -20,11 +20,11 @@ An alias set is supported for the following record types in an Azure DNS zone: A
 
 ## Capabilities
 
-- Point to a Public IP resource from a DNS A/AAAA record set. You can create an A/AAAA record set, and make it an alias record set to point to a Public IP resource.
-- Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set. In addition to being able to point to the CNAME of a Traffic Manager profile (for example: contoso.trafficmanager.net) from a DNS CNAME recordset, you can now also point to a Traffic Manager profile that has external endpoints, from an A or AAAA recordset in your DNS zone.
+- **Point to a Public IP resource from a DNS A/AAAA record set**. You can create an A/AAAA record set, and make it an alias record set to point to a Public IP resource.
+- **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set**. In addition to being able to point to the CNAME of a Traffic Manager profile (for example: contoso.trafficmanager.net) from a DNS CNAME recordset, you can now also point to a Traffic Manager profile that has external endpoints, from an A or AAAA recordset in your DNS zone.
    > [!NOTE]
    > Alias records for the A or AAAA record types for Traffic Manager are only supported for External Endpoint types. You must provide the IPv4 or IPv6 address (ideally static IPs) as appropriate for external endpoints in Traffic Manager.
-- Point to another DNS record set within the same zone. Alias records can be referenced to other record sets of the same type. For example, you can have a DNS CNAME recordset be an alias to another CNAME recordset of the same type. This is useful if you want to have some recordsets be aliases and some as non-aliases in terms of behavior.
+- **Point to another DNS record set within the same zone**. Alias records can be referenced to other record sets of the same type. For example, you can have a DNS CNAME recordset be an alias to another CNAME recordset of the same type. This is useful if you want to have some recordsets be aliases and some as non-aliases in terms of behavior.
 
 ## Scenarios
 There are a few common scenarios for Alias records:
