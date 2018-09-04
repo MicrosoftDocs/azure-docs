@@ -87,3 +87,5 @@ If Container Insights was successfully enabled and configured but you cannot vie
 	omsagent 1.6.0.23
 	docker-cimprov 1.0.0.31
     ```
+## Next steps
+With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Container Insights, see [View Azure Kubernetes Service health](monitoring-container-insights-analyze.md).
