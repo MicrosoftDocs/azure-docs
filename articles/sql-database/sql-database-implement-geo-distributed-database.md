@@ -389,5 +389,5 @@ In this tutorial, you learned to configure an Azure SQL database and application
 Advance to the next tutorial to learn how to create a Managed Instance.
 
 > [!div class="nextstepaction"]
->[Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
+>[Create a Managed Instance](sql-database-managed-instance-get-started.md)
 
