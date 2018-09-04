@@ -154,18 +154,18 @@ When you create an AKS cluster, the following namespaces are available:
 
 This article covers some of the core Kubernetes components and how they apply to AKS clusters. For additional information on core Kubernetes and AKS concepts, see the following articles:
 
-- [Kubernetes management][aks-concepts-management]
-- [Kubernetes security and identity][aks-concepts-security]
+- Kubernetes management
+- Kubernetes security and identity
 - [Kubernetes scale][aks-concepts-scale]
-- [Kubernetes storage][aks-concepts-storage]
-- [Kubernetes virtual networks][aks-concepts-network]
+- Kubernetes storage
+- Kubernetes virtual networks
 
 <!-- EXTERNAL LINKS -->
 [acs-engine]: https://github.com/Azure/acs-engine
 
 <!-- INTERNAL LINKS -->
-[aks-concepts-management]:
-[aks-concepts-security]:
+[aks-concepts-management]: concepts-scale.md
+[aks-concepts-security]: concepts-scale.md
 [aks-concepts-scale]: concepts-scale.md
-[aks-concepts-storage]:
-[aks-concepts-network]:
+[aks-concepts-storage]: concepts-scale.md
+[aks-concepts-network]: concepts-scale.md
