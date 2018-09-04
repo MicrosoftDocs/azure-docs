@@ -27,26 +27,12 @@ When you're ready to use your models and web services for high-scale, production
 
 - A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  
 
-While [this tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over the steps for model registration and Docker image creation. The end result, however, is the same web service API.
+While the [deploy a model tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over the steps. The resulting deployment is the same web service API.
 
-## Import libraries and initialize your workspace
+## Start with a model
+The model to deploy must be registered in your workspace.  If you use Azure Machine Learning to train your model, it might already be registered in your workspace, as is the case with the deployment tutorial.  
 
-```python
-import azureml.core
-# Check core SDK version number
-print("SDK version:", azureml.core.VERSION)
-```
-
-```python
-from azureml.core import Workspace
-
-ws = Workspace.from_config()
-print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
-```
-
-## Register a model
-To register the model, you need the file `mnist_model.pkl` to be in the current working directory. This call registers that file as a model called `mnist_model` in the workspace.
-
+If your model was built elsewhere, you can still deploy it after you register it into your workspace.  To register a model, you need the model file (`mnist_model.pkl` in this example) to be in the current working directory. Then register that file as a model called `mnist_model` in the workspace with `Model.register`.
 
 ```python
 import getpass
@@ -61,63 +47,42 @@ model = Model.register(model_path = "mnist_model.pkl",
                        workspace = ws)
 ```    
 
-## Create Docker image
+## Deploy registered model in one step
 
-At a minimum, you must include a model file and an execution script to load and call the model for inferencing. Include any additional dependencies in a .yml file.
+Once you have a registered model, you can deploy it in one step.  
 
-The parameter in the `get_model_path` call is referring to a model registered under the workspace. It is NOT referencing the local file.
+The deployment tutorial shows deployment in one step using the `Webservice.deploy_from_model()` method.  This method:
 
+- Builds a Docker image
+- Registers the image under the workspace
+- Sends the image to the ACI container
+- Starts up a container in ACI using the image
+- Gets the web service HTTP endpoint
 
-
-```python
-score_file = '''import pickle
-import json
-import numpy
-from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-from azureml.core.model import Model
-
-def init():
-    global model
-    model_path = Model.get_model_path("'''+model_name+'''")
-    model = joblib.load(model_path)
-
-# note you can pass in multiple rows for scoring
-def run(raw_data):
-    try:
-        data = json.loads(raw_data)['data']
-        data = numpy.array(data)
-        result = model.predict(data)
-    except Exception as e:
-        result = str(e)
-    return json.dumps({'result': result.tolist()})'''
-
-%store score_file > ./mnist_score.py
 ```
-
-```python
-!cat ./mnist_score.py
+service = Webservice.deploy_from_model(workspace = ws,
+                                       name = 'sklearn-mnist-model',
+                                       deployment_config = aciconfig,
+                                       models = [model],
+                                       image_config = image_config)
 ```
-    
+This method is a convenient way to deploy models you have ready now, but it's harder to reuse the Docker image for more models later.  
 
-```python
-%%writefile ./myenv.yml
-name: myenv
-channels:
-  - defaults
-dependencies:
-  - pip:
-    - numpy
-    - scikit-learn
-    # Required packages for AzureML execution, history, and data preparation.
-    - --extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
-    - azureml-core
-```    
 
-You can add optional tags and a description to your image. An image can contain one or more models.
+## Deploy in two steps
+This article shows how to break up the deployment by creating the Docker image separately and then deploying from that image.  You then have more flexibility to reuse the Docker image for new models in the future.  
 
-The following command could take a few minutes. 
+The two steps are:
+- Build and register the Docker image under the workspace using `ContainerImage.create`
+- Deploy the Docker image as a service using `Webservice.deploy_from_image`
 
+### Build image
+
+In the first step, `ContainerImage.create` is used to:
+- Build a Docker image
+- Register the image under the workspace
+
+The configuration for the image is identical to what is shown in the deployment tutorial. Create the [scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script) and [the environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) and use them to configure the image.
 
 ```python
 from azureml.core.image import ContainerImage
@@ -128,7 +93,11 @@ image_config = ContainerImage.image_configuration(execution_script = "mnist_scor
                                                   description = "Image with mnist model",
                                                   tags = ["mnist","classification"]
                                                  )
-                                                 
+```
+
+In the tutorial using the one-step approach, a Docker container is created on the fly using this configuration.  For the two-step approach, use this configuration to create the Docker image yourself.  
+
+```python                                                 
 image = ContainerImage.create(name = "myimage1",
                               # this is the model object
                               models = [model],
@@ -138,10 +107,11 @@ image = ContainerImage.create(name = "myimage1",
 image.wait_for_creation(show_output = True)
 ```    
 
-## Deploy image on ACI
+### Deploy from image
 
-Now you can deploy the image as a service. The service creation can take a few minutes.
+Now use the image to deploy to ACI.  
 
+First create a configuration file, identical to the one shown in tutorial.  Specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of one core and one gigabyte of RAM is sufficient for typical models. If you feel you need more later, you will have to recreate the image and redeploy the service.  
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -152,22 +122,28 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Handwriting recognition')
 ```
 
+Now use this configuration file to deploy from the image. This step:
+- Gets the Docker image
+- Starts up a container in ACI using the image
+- Gets the web service HTTP endpoint
+
 
 ```python
 from azureml.core.webservice import Webservice
 
-aci_service_name = 'aci-mnist-1'
-aci_service = Webservice.deploy_from_image(deployment_config = aciconfig,
+service_name = 'aci-mnist-1'
+service = Webservice.deploy_from_image(deployment_config = aciconfig,
                                            image = image,
-                                           name = aci_service_name,
+                                           name = service_name,
                                            workspace = ws)
-aci_service.wait_for_deployment(True)
-print(aci_service.state)
+service.wait_for_deployment(True)
+print(service.state)
 ```    
+
 
 ## Test web service
 
-Call the web service with test input data to get a prediction.
+The webservice works exactly the same regardless of which method you use.  To get predictions, use the `run` method of the service.  
 
 ```python
 from sklearn import datasets
@@ -181,21 +157,23 @@ features = features.reshape(features.shape[0],-1)
 
 # Pick the data row that corresponds to number 8
 test_samples = json.dumps({"data": features[8:9, :].tolist()})
-prediction = aci_service.run(input_data = test_samples)
+prediction = service.run(input_data = test_samples)
 print(prediction)
 ```
 
-    {"result": [8]}
-    
+The returned result is:
+
+`{"result": [8]}`
+
 
 ## Delete the service to clean up
 
 If you're not going to use this web service, delete it so you don't incur any charges.
 
 ```python
-aci_service.delete()
+service.delete()
 ```
 
 ## Next steps
 
-You can try to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) when you are ready for a larger scale deployment. 
+Learn how to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) for a larger scale deployment. 
