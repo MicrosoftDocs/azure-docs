@@ -25,7 +25,7 @@ You also need an Azure account and a subscription to the Speech service. [Create
 
 1. Log on to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account you used to apply for access.
 
-2. Go to ‘Subscriptions’ under your account name on the top right.
+2. Go to ‘All Subscriptions’ under your account name on the top right.
 
     ![Subscriptions](media/custom-voice/subscriptions.png)
 
