@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM Insights page, the **Health** tab to switch to the health view of the VM.  
 
-![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health-monitoring/vminsights-health-page-01.png)
+![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health/vminsights-health-page-01.png)
 
 On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](#alerting-and-alert-management) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](#health-diagnostics) for more details. 
 
