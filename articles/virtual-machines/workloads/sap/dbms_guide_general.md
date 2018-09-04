@@ -260,7 +260,7 @@ The way to set up Azure Availability Sets is demonstrated in this [tutorial](htt
 
 
 ## Azure Network considerations 
-In large-scale SAP deployments, recommendation is that you are using the blueprint of [Azure Virtual Datacenter](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) for their VNet configuration and permissions and role assignments to different parts of their organization.
+In large-scale SAP deployments, recommendation is that you are using the blueprint of [Azure Virtual Datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) for their VNet configuration and permissions and role assignments to different parts of their organization.
 
 There are several best practices, which resulted out of hundreds of customer deployments:
 

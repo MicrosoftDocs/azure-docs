@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM Managed Identity to access Azure Storage
-description: A tutorial that walks you through the process of using a Windows VM Managed Identity to access Azure Storage.
+title: Use a Windows VM system-assigned managed identity to access Azure Storage
+description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,17 +17,15 @@ ms.date: 04/12/2018
 ms.author: daveba
 ---
 
-# Tutorial: Use a Windows VM Managed Identity to access Azure Storage
+# Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Identity for a Windows Virtual Machine, and use that identity to access Azure Storage.  You learn how to:
+This tutorial shows you how to use a system-assigned managed identity for a Windows virtual machine (VM) to access Azure Storage. You learn how to:
 
 > [!div class="checklist"]
-> * Create a Windows virtual machine in a new resource group 
-> * Enable Managed Identity on a Windows Virtual Machine (VM)
 > * Create a blob container in a storage account
-> * Grant your Windows VM's Managed Identity access to a storage account 
+> * Grant your Windows VM's system-assigned managed identity access to a storage account 
 > * Get an access and use it to call Azure Storage 
 
 > [!NOTE]
@@ -39,31 +37,11 @@ This tutorial shows you how to enable Managed Identity for a Windows Virtual Mac
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Sign in to Azure
+- [Sign in to Azure portal](https://portal.azure.com)
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
 
-## Create a Windows virtual machine in a new resource group
-
-In this section, you create a Windows VM that is later granted a Managed Identity.
-
-1.	Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
-3.	Enter the virtual machine information. The **Username** and **Password** created here is the credentials you use to login to the virtual machine.
-4.  Choose the proper **Subscription** for the virtual machine in the dropdown.
-5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
-6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
-
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## Enable Managed Identity on your VM
-
-A Virtual Machine Managed Identity enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling Managed Identity on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM. 
-
-1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
-2. Under the **Settings** category, click **Configuration**.
-3. To enable the Managed Identity, select **Yes**.
-4. Click **Save** to apply the configuration. 
+- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a storage account 
 
@@ -96,7 +74,7 @@ Files require blob storage so you need to create a blob container in which to st
 
 ## Grant your VM access to an Azure Storage container 
 
-You can use the VM's managed identity to retrieve the data in the Azure storage blob.   
+You can use the VM's system-assigned managed identity to retrieve the data in the Azure storage blob.   
 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
@@ -110,9 +88,9 @@ You can use the VM's managed identity to retrieve the data in the Azure storage 
 
 ## Get an access token and use it to call Azure Storage 
 
-Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a Managed Identity. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
+Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a managed identity. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
 
-Here's a .Net code example of opening a connection to Azure Storage using an access token and then reading the contents of the file you created earlier. This code must run on the VM to be able to access the VM's Managed Identity endpoint. .Net Framework 4.6 or higher is required to use the access token method. Replace the value of `<URI to blob file>` accordingly. You can obtain this value by navigating to file you created and uploaded to blob storage and copying the **URL** under **Properties** the **Overview** page.
+Here's a .Net code example of opening a connection to Azure Storage using an access token and then reading the contents of the file you created earlier. This code must run on the VM to be able to access the VM's managed identity endpoint. .Net Framework 4.6 or higher is required to use the access token method. Replace the value of `<URI to blob file>` accordingly. You can obtain this value by navigating to file you created and uploaded to blob storage and copying the **URL** under **Properties** the **Overview** page.
 
 ```csharp
 using System;
@@ -188,7 +166,7 @@ The response contains the contents of the file:
 
 ## Next steps
 
-In this tutorial, you learned how enable a Windows virtual machine Managed Identity to access Azure Storage.  To learn more about Azure Storage see:
+In this tutorial, you learned how enable a Windows VM's system-assigned identity to access Azure Storage.  To learn more about Azure Storage see:
 
 > [!div class="nextstepaction"]
 > [Azure Storage](/azure/storage/common/storage-introduction)

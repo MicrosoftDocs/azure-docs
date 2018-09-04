@@ -20,10 +20,8 @@ The storage emulator currently runs only on Windows. For those considering a sto
 
 > [!NOTE]
 > Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
-> <p/>
+> 
 > The storage emulator depends on specific versions of the OData libraries. Replacing the OData DLLs used by the storage emulator with other versions is unsupported, and may cause unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
->
->
 
 ## How the storage emulator works
 The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate Azure storage services. By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB. You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance. For more information, see the [Start and initialize the storage emulator](#start-and-initialize-the-storage-emulator) section later in this article.
@@ -182,6 +180,7 @@ Because the storage emulator is an emulated environment running in a local SQL i
 The following differences apply to Blob storage in the emulator:
 
 * The storage emulator only supports blob sizes up to 2 GB.
+* The maximum length of a blob name in the storage emulator is 256 characters, while the maximum length of a blob name in Azure Storage is 1024 characters.
 * Incremental copy allows snapshots from overwritten blobs to be copied, which returns a failure on the service.
 * Get Page Ranges Diff does not work between snapshots copied using Incremental Copy Blob.
 * A Put Blob operation may succeed against a blob that exists in the storage emulator with an active lease, even if the lease ID has not been specified in the request.

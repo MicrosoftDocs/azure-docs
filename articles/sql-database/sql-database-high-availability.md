@@ -6,13 +6,13 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 ---
 # High-availability and Azure SQL Database
 
-Azure SQL Database is highly available database Platform as a Service that guarantees that your database is up and running 99.99% of time, without worrying about maintenance and downtimes. This is a fully managed SQL Server Database Engine process hosted in the Azure cloud that ensures that your SQL Server database is always upgraded/patched without affecting your workload. Azure SQL Database can quickly recover even in the most critical circumstances ensuring that your data is always available.
+Azure SQL Database is highly available database Platform as a Service that guarantees that your database is up and running 99.99% of time, without worrying about maintenance and downtimes. This is a fully managed SQL Server Database Engine process hosted in the Azure cloud that ensures that your SQL Server database is always upgraded/patched without affecting your workload. When an instance is patched or fails over, the downtime is generally not noticable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app. If the time to complete a failover is longer than 60 seconds, you should open a support case. Azure SQL Database can quickly recover even in the most critical circumstances ensuring that your data is always available.
 
 Azure platform fully manages every Azure SQL Database and guarantees no data loss and a high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades, and other maintenance tasks. SQL Server engineers have implemented the best-known practices, ensuring that all the maintenance operations are completed in less than 0.01% time of your database life. This architecture is designed to ensure that committed data is never lost and that maintenance operations are performed without affecting workload. There are no maintenance windows or downtimes that should require you to stop the workload while the database is upgraded or maintained. Built-in high availability in Azure SQL Database guarantees that database will never be single point of failure in your software architecture.
 
@@ -24,26 +24,28 @@ Azure upgrades and patches underlying operating system, drivers, and SQL Server 
 
 ## Standard/General Purpose availability
 
-Standard availability refers to 99.99% SLA that is applied in Standard/Basic/General Purpose tiers. High availability in this architectural model is achieved by separation of compute and storage layers. The following figure shows four nodes in standard architectural model with the separated compute and storage layers.
+Standard availability refers to 99.99% SLA that is applied in Standard/Basic/General Purpose tiers. High availability in this architectural model is achieved by separation of compute and storage layers and the replication of data in the storage tier.
+
+The following figure shows four nodes in standard architectural model with the separated compute and storage layers.
 
 ![Separation of compute and storage](media/sql-database-managed-instance/general-purpose-service-tier.png)
 
 In the standard availability model there are two layers:
 
 - A stateless compute layer that is running the sqlserver.exe process and contains only transient and cached data (for example – plan cache, buffer pool, column store pool). This stateless SQL Server node is operated by Azure Service Fabric that initializes process, controls health of the node, and performs failover to another place if necessary.
-- A stateful data layer with database files (.mdf/.ldf) that are stored in Azure Premium Storage Disks. Azure Storage guarantees that there will be no data loss of any record that is placed in any database file. Azure Storage has built-in data availability/redundancy that ensures that every record in log file or page in data file will be preserved even if SQL Server process crashes.
+- A stateful data layer with database files (.mdf/.ldf) that are stored in Azure Premium Storage. Azure Storage guarantees that there will be no data loss of any record that is placed in any database file. Azure Storage has built-in data availability/redundancy that ensures that every record in log file or page in data file will be preserved even if SQL Server process crashes.
 
-Whenever database engine or operating system is upgraded, some part of underlying infrastructure fails, or if some critical issue is detected in Sql Server process, Azure Service Fabric will move the stateless SQL Server process to another stateless compute node. There is a set of spare nodes that is waiting to run new compute service in case of failover in order to minimize failover time. Data in Azure Storage layer is not affected, and data/log files are attached to newly initialized SQL Server process. Expected failover time can be measured in seconds. This process guarantees 99.99% availability, but it might have some performance impacts on heavy workload that is running due to transition time and the fact the new SQL Server node starts with cold cache.
+Whenever database engine or operating system is upgraded, some part of underlying infrastructure fails, or if some critical issue is detected in Sql Server process, Azure Service Fabric will move the stateless SQL Server process to another stateless compute node. There is a set of spare nodes that is waiting to run new compute service in case of failover in order to minimize failover time. Data in Azure Storage layer is not affected, and data/log files are attached to newly initialized SQL Server process. This process guarantees 99.99% availability, but it might have some performance impacts on heavy workload that is running due to transition time and the fact the new SQL Server node starts with cold cache.
 
 ## Premium/Business Critical availability
 
 Premium availability is enabled in Premium tier of Azure SQL Database and it is designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations.
 
-In the premium model, Azure SQL database integrates compute and storage on the single node. Both the SQL Server Database Engine process and underlying mdf/ldf files are placed on the same node with locally attached SSD storage providing low latency to your workload.
+In the premium model, Azure SQL database integrates compute and storage on the single node. High availability in this architectural model is achieved by replication of compute (SQL Server Database Engine process) and storage (locally attached SSD) deployed in 4-node [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)  cluster.
 
 ![Cluster of database engine nodes](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-High availability is implemented using standard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workload, and a three secondary processes containing copies of data. The primary node constantly pushes the changes to secondary nodes in order to ensure that the data is available on secondary replicas if the primary node crashes for any reason. Failover is handled by the SQL Server Database Engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure enough nodes in the cluster. The workload is automatically redirected to the new primary node. Failover time is measured in milliseconds and the new primary instance is immediately ready to continue serving requests.
+Both the SQL Server Database Engine process and underlying mdf/ldf files are placed on the same node with locally attached SSD storage providing low latency to your workload. High availability is implemented using standard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workload, and a three secondary processes containing copies of data. The primary node constantly pushes the changes to secondary nodes in order to ensure that the data is available on secondary replicas if the primary node crashes for any reason. Failover is handled by the SQL Server Database Engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure enough nodes in the cluster. The workload is automatically redirected to the new primary node.
 
 In addition, Business Critical cluster provides built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload. 
 

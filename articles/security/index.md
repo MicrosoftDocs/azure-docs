@@ -172,7 +172,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                             	<a class="barLink" href="/azure/security/azure-threat-detection">Azure advanced threat detection</a>
                             </li>
 			                <li style="list-style: none;">
-                            	<a class="barLink" href="/azure/security/azure-network-security">Azure network security</a>
+                            	<a class="barLink" href="/azure/security/abstract-azure-network-security">Azure network security</a>
                             </li>
                         </ul>
                     </div>

@@ -90,7 +90,7 @@ Download a sample JSON data file and save it into Azure blob storage.
    - Select **Account Kind**: **Blob Storage**
    - Select a **Resource Group** name. Use the same resource group you created the Databricks workspace.
    
-   For more information, see [Create an Azure Blob storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+   For more information, see [Create an Azure Blob storage account](../storage/common/storage-quickstart-create-account.md). 
 
 3. Create a storage Container in the Blob Storage account and upload the sample json file into the container. You can use the Azure portal or the  [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload the file.
 
