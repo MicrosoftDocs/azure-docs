@@ -111,6 +111,7 @@ While deployment occurs, continue to the next procedure.
 
 ## Next steps
 
-- [Create a client VM to connect to your Managed Instance](sql-database-managed-instance-configure-vm.md)
-- [Create a point-to-site connection to connect to your Managed Instance](sql-database-managed-instance-configure-p2s.md)
-- [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
+- To learn how to connect from an Azure virtual machine, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
+- To learn how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
+- For an overview of the connection options for applications, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
+- To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-restore-from-backup-tutorial.md) to restore from a database backup file.
