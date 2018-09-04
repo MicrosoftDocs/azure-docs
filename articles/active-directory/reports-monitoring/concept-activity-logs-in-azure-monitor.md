@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor

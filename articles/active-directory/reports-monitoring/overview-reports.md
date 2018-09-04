@@ -1,7 +1,7 @@
 ---
 
-title: Azure Active Directory reporting | Microsoft Docs
-description: Provides a general overview of Azure Active Directory reporting.
+title: What are Azure Active Directory reports? | Microsoft Docs
+description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
@@ -19,9 +19,10 @@ ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
 ---
-# Azure Active Directory reporting
 
-With Azure Active Directory reporting, you can gain insights into how your environment is doing.  
+# What are Azure Active Directory reports?
+
+With Azure Active Directory reports, you can gain insights into how your environment is doing.  
 The provided data enables you to:
 
 - Determine how your apps and services are utilized by your users
