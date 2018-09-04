@@ -37,15 +37,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4338818] |July Non-Security rollup |2.77 | July 10, 2018 |
 | N/A | [4019990] |D3D Compiler update for .NET |2.77 | July 10, 2018 |
 | N/A | [4338830] |July Non-Security rollup |3.64 | July 10, 2018 |
-| N/A | [4338421] |July Non-Security NET 3.5 rollup |3.64 | July 10, 2018 |
-| N/A | [4338416] |July Non-Security NET 4x rollup |3.64 | July 10, 2018 |
+| N/A | [4338421] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338416] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
 | N/A | [4338815] |July Non-Security rollup |4.57 | July 10, 2018 |
-| N/A | [4338424] |July Non-Security NET 3.5 rollup |3.64 | July 10, 2018 |
-| N/A | [4338415] |July Non-Security NET 4x rollup |3.64 | July 10, 2018 |
-| N/A | |NET 4.7.2 added to WS16 DB | 5.22 | July 10, 2018 |
-| N/A | |No longer check WU for device drivers | | July 10, 2018 |
-| N/A | |Microsoft-Hyper-V-Management-PowerShell feature added to Native SKUs | | July 10, 2018 |
-| N/A | |TenantConfigId 6 added to native SKUs (Same as TCI 1 except NetworkDirect enabled, SmbDirect disabled) | | July 10, 2018 |
+| N/A | [4338424] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338415] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
 
 
 ## July Guest OS
