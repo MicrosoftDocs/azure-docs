@@ -1,5 +1,5 @@
 ---
-title: How to add or remove members from a group using the Azure AD portal | Microsoft Docs
+title: How to add or remove group members using the Azure AD portal | Microsoft Docs
 description: How to add or remove users and devices from a group using the Azure Active Directory portal.
 services: active-directory
 author: eross-msft
@@ -15,10 +15,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ---
 
-# How to: Add or remove members from a group using the Azure AD portal
-Using the Azure AD portal, you can continue to add and remove members from groups.
+# How to: Add or remove group members using the Azure AD portal
+Using the Azure AD portal, you can continue to add and remove group members.
 
-## To add members to a group
+## To add group members
 
 1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
 
@@ -38,10 +38,9 @@ Using the Azure AD portal, you can continue to add and remove members from group
 
     ![Add members blade, with searched for member shown](media/active-directory-groups-members-azure-portal/update-members.png)
 
-
 6. Refresh the screen to see all of the member names assigned to the group.
 
-## To remove members from a group
+## To remove group members
 
 1. From the **Groups - All groups** blade, search for and select the group you want to remove the member from. Again we'll use, **MDM policy - West**.
 
@@ -52,7 +51,11 @@ Using the Azure AD portal, you can continue to add and remove members from group
 ## Next steps
 
 - [Search for and view your groups and associated members from the Azure AD portal](active-directory-groups-view-azure-portal.md)
-- Modify or delete a group - New, need to create
+
 - [Edit your group settings](active-directory-groups-settings-azure-portal.md)
+
 - [Manage access to resources using groups](active-directory-manage-groups.md)
+
+- [Manage dynamic rules for users in a group](../users-groups-roles/groups-create-rule.md)
+
 - [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

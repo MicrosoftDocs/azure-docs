@@ -73,16 +73,16 @@ Now that you've added a group and at least one user, you can:
 
 - [View your groups and assigned members](active-directory-groups-view-azure-portal.md)
 
-- [How to add or remove members from a group](active-directory-groups-members-azure-portal.md)
+- [Manage group membership](active-directory-groups-membership-azure-portal.md)
 
-- Modify or delete a group - New, need to create
-
-- [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-
-- [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
+- [Manage dynamic rules for users in a group](../users-groups-roles/groups-create-rule.md)
 
 - [Edit your group settings](active-directory-groups-settings-azure-portal.md)
 
 - [Manage access to resources using groups](active-directory-manage-groups.md)
+
+- [Manage access to SaaS apps using groups](../users-groups-roles/groups-saasapps.md)
+
+- [Manage groups using PowerShell commands](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
 - [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

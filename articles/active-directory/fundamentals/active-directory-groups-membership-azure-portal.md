@@ -76,3 +76,5 @@ These articles provide additional information on Azure Active Directory.
 - [Add or remove members from a group](active-directory-groups-members-azure-portal.md)
 
 - [Edit your group settings](active-directory-groups-settings-azure-portal.md)
+
+- [Assign licenses to users by group](../users-groups-roles/licensing-groups-assign.md)

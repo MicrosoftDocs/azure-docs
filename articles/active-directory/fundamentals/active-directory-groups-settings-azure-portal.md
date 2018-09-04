@@ -48,7 +48,7 @@ Using the Azure AD portal, you can edit a group's settings, including updating i
     
     - **Membership type.** Change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md)
     
-    - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md).
+    - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.
@@ -59,9 +59,7 @@ These articles provide additional information on Azure Active Directory.
 
 - [How to add or remove members from a group](active-directory-groups-members-azure-portal.md)
 
-- [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
-
-- Modify or delete a group - New, need to create
+- [Manage dynamic rules for users in a group](../users-groups-roles/groups-create-rule.md)
 
 - [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
 
