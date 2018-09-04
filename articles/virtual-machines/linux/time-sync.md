@@ -30,13 +30,13 @@ Azure is backed by infrastructure running Windows Server 2016. Windows Server 20
 
 ## Overview
 
-Accuracy for a computer clock is gauged how close the computer clock is to UTC, the present time standard. The UTC itself is defined by multinational sample of very precise atomic clocks that can only be off by one second in 300 years, but reading UTC directly requires specialized hardware. Instead, time servers are synced to UTC and are accessed from other computers to provide scalability and robustness. Every computer has time synchronization service running that knows what time servers to use and periodically checks if computer clock needs to be corrected and adjusts time if needed. 
+Accuracy for a computer clock is gauged on how close the computer clock is to the Coordinated Universal Time (UTC) time standard. UTC is defined by a multinational sample of very precise atomic clocks that can only be off by one second in 300 years. But, reading UTC directly requires specialized hardware. Instead, time servers are synced to UTC and are accessed from other computers to provide scalability and robustness. Every computer has time synchronization service running that knows what time servers to use and periodically checks if computer clock needs to be corrected and adjusts time if needed. 
 
-In Azure, virtual machines can either depend on their host to synchronize with time.windows.com and pass the accurate time (*host time*) on to the VM or the VM can directly get time from a time server, or a combination of both. By default, the Linux OS only reads the host hardware clock on boot. After that, the clock is maintained using the interrupt timer in the Linux kernel. In this configuration, the clock can drift over time. In newer Linux distributions on Azure, VMs can use the VMICTimeProvider query to get clock updates more frequently.
+In Azure, virtual machines can either depend on their host to synchronize with time.windows.com and pass the accurate time (*host time*) on to the VM or the VM can directly get time from a time server, or a combination of both. On stand alone hardware, the Linux OS only reads the host hardware clock on boot. After that, the clock is maintained using the interrupt timer in the Linux kernel. In this configuration, the clock can drift over time. In newer Linux distributions on Azure, VMs can use the VMICTimeSync provider, included in the Linux integration services (LIS), to query for clock updates from the host more frequently.
 
-Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](maintenance-and-updates.md#memory-preserving-maintenance), VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the VMICTimeSync service monitors what is happening on the host and prompt changes to happen on the VMs to compensate.
+Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](maintenance-and-updates.md#memory-preserving-maintenance), VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the VMICTimeSync service monitors what is happening on the host and prompts for changes to happen on the VMs to compensate.
 
-Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant unless the workload required highly accurate timekeeping. But in most cases we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following affects:
+Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant unless the workload requires highly accurate timekeeping. But in most cases, we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following affects:
 
 - Authentication problems. Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. Systems stop to trust each other if their time differs significantly. Login and access attempts can fail because of unsynchronized time.
 - Distributed event correlation problems. It's very hard or practically impossible to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would be shown to occur on different times making event correlation a new problem.
@@ -44,24 +44,12 @@ Without time synchronization working, the clock on the VM would accumulate error
 - Billing intrinsically depends on the time sync. If clock is off the billing cycles would be calculated incorrectly.
 - Financial operations require precise time sync to resolve when each sell or buy did actually happen and consequently on what price.
 
-----------------------------
-
-
-
-
-
-
-
-
-
-
-
 
 ## Configuration options
 
 There are generally three ways to configure time sync for your Linux VMs hosted in Azure:
 
-- The deafult congfiguration for Azure Marketplace images uses both NTP time and VMICTimeProvider host-time. 
+- The deafult congfiguration for Azure Marketplace images uses both NTP time and VMICTimeSync host-time. 
 - Host-only using VMICTimeSync.
 - Use another, external time server with or without using VMICTimeSync host-time.
 
@@ -73,7 +61,7 @@ By default, most Azure Marketplace images for Linux are are configured to sync f
 - NTP as primary, which gets time from an NTP server. For example, Ubuntu 16.04 LTS Marketplace images use **ntp.ubuntu.com**.
 - The VMICTimeSync service as secondary, used to communicate the host time to the VMs and make corrections after the VM is paused for maintenance. Azure hosts use time.microsoft.com to keep accurate time.
 
-In newer Linux distributions, the VMICTimeSync service uses precision time protocol (PTP), but earlier distributions may not support PTP and will fall-back to NTP for getting time from the host.
+In newer Linux distributions, the VMICTimeSync service uses the precision time protocol (PTP), but earlier distributions may not support PTP and will fall-back to NTP for getting time from the host.
 
 
 ### Host-only 
@@ -155,10 +143,12 @@ If both chrony and TimeSync sources are enabled simultaneously, you can mark one
 
 ### systemd 
 
-On Ubuntu and SUSE the timesync service is configured using [systemd](https://www.freedesktop.org/wiki/Software/systemd/). For more information on Ubuntu, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html). For more information on SUSE, see Section 4.5.8 in [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
+On Ubuntu and SUSE time sync is configured using [systemd](https://www.freedesktop.org/wiki/Software/systemd/). For more information on Ubuntu, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html). For more information on SUSE, see Section 4.5.8 in [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
 
 
+## Next steps
 
+For more details about time sync in Windows Server 2016, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time).
 
 
