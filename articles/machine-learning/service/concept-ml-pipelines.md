@@ -23,11 +23,11 @@ The following diagram shows an example pipeline:
 
 ## Why build pipelines?
 
-With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on what they know best &mdash; machine learning &mdash; rather than infrastructure.
+With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on what you know best &mdash; machine learning &mdash; rather than infrastructure.
 
-Each step in the pipeline has an input and output &mdash; beginning with data preparation through deployment and the training inner loop. The data that gets output by a step is often referred to as intermediate data since it becomes input for the next step. 
+Steps in the pipeline often have an input and output throughout the data preparation, training, and   deployment phases. The data that is output by a prior step is often referred to as intermediate data since it becomes input for the next step. 
 
-Using distinct steps makes it possible to rerun only the steps you need as you tweak and test. Once the pipeline is designed, there is often more tweaking done around training loop of the pipeline. When you rerun a pipeline, Azure might not run the pipeline from end-to-end.  Instead, the execution jumps to the steps that need to be rerun, such as an updated training script, skipping what hasn't changed. The same paradigm applies to module reuse as well so that unchanged scripts and metadata are not reloaded. 
+Using distinct steps makes it possible to rerun only the steps you need as you tweak and test. Once the pipeline is designed, there is often more tweaking done around training loop of the pipeline. When you rerun a pipeline, Azure might not run the pipeline from end-to-end.  Instead, the execution jumps to the steps that need to be rerun, such as an updated training script, skipping what hasn't changed. The same paradigm applies to unchanged scripts and metadata which are not reloaded unless necessary. 
 
 With Azure Machine Learning, you can use different toolkits and frameworks for each step in your pipeline. Azure coordinates between the various compute targets you use so that your intermediate data can be shared with the downstream compute targets easily. 
 
@@ -46,7 +46,7 @@ The key advantages to building pipelines for your machine learning workflows is:
 
 Create your ML pipelines in Python using the Azure Machine Learning SDK. This SDK offers imperative constructs for sequencing and parallelizing the steps in your pipelines. You can interact with it in Jupyter notebooks or in another preferred IDE. 
 
-Using declarative data dependencies, you can optimize your ML tasks. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended to model your own conventions.
+Using declarative data dependencies, you can optimize your ML tasks. The SDK includes a framework of pre-built modules for common tasks such as data transfer, compute target creation, and model publishing. The framework can be extended to model your own conventions.
 
 Pipelines can be saved as templates so you can schedule batch-scoring or retraining jobs.
 
