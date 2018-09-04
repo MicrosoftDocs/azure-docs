@@ -27,12 +27,12 @@ ms.custom: aaddev
 
 If you’re building an application that provides access to protected resources, you need to know how to prevent unwarranted access to those resources. Azure Active Directory (Azure AD) makes it simple and straightforward to help protect a web API by using OAuth 2.0 bearer access tokens with only a few lines of code.
 
-In ASP.NET web apps, you can accomplish this protection by using the Microsoft implementation of the community-driven OWIN middleware included in .NET Framework 4.5. Here we’ll use OWIN to build a "To Do List" web API that:
+In ASP.NET web apps, you can accomplish this protection by using the Microsoft implementation of the community-driven OWIN middleware included in .NET Framework 4.5. Here you'll use OWIN to build a "To Do List" web API that:
 
 * Designates which APIs are protected.
 * Validates that the web API calls contain a valid access token.
 
-In this quickstart, we'll build the To Do List API and show you how to:
+In this quickstart, you'll build the To Do List API and learn how to:
 
 1. Register an application with Azure AD.
 2. Set up the app to use the OWIN authentication pipeline.
@@ -73,7 +73,7 @@ To validate incoming requests and tokens, you need to set up your application to
     PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
     ```
 
-2. Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right-click the project, select **Add** > **New Item**, and then search for **OWIN**. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
+2. Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right-click the project, select **Add > New Item**, and then search for **OWIN**. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
 
 3. Change the class declaration to `public partial class Startup`. We’ve already implemented part of this class for you in another file. In the `Configuration(…)` method, make a call to `ConfgureAuth(…)` to set up authentication for your web app.
 
@@ -137,23 +137,22 @@ To validate incoming requests and tokens, you need to set up your application to
 Before you can see the To Do List Service in action, you need to configure the To Do List client so it can get tokens from Azure AD and make calls to the service.
 
 1. Go back to the [Azure portal](https://portal.azure.com).
-2. Create a new application in your Azure AD tenant, and select **Native Client Application** in the resulting prompt.
+1. Create a new application in your Azure AD tenant, and select **Native Client Application** in the resulting prompt.
     * **Name** describes your application to users.
     * Enter `http://TodoListClient/` for the **Redirect URI** value.
 
-3. After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next steps, so copy it from the application page.
+1. After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next steps, so copy it from the application page.
+1. From the **Settings** page, select **Required Permissions**, and then select **Add**. Locate and select the To Do List Service, add the **Access TodoListService** permission under **Delegated Permissions**, and then select **Done**.
+1. In Visual Studio, open `App.config` in the TodoListClient project, and then enter your configuration values in the `<appSettings>` section.
 
-4. From the **Settings** page, select **Required Permissions**, and then select **Add**. Locate and select the To Do List Service, add the **Access TodoListService** permission under **Delegated Permissions**, and then select **Done**.
-
-5. In Visual Studio, open `App.config` in the TodoListClient project, and then enter your configuration values in the `<appSettings>` section.
     * `ida:Tenant` is the name of your Azure AD tenant, for example, contoso.onmicrosoft.com.
     * `ida:ClientId` is the app ID that you copied from the Azure portal.
     * `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure portal.
 
-Finally, clean, build, and run each project. If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain. Sign in to the To Do List client with that user, and add some tasks to the user's to-do list.
+1. Clean, build, and run each project.
+1. If you haven’t done so already, create a new user in your tenant with a *.onmicrosoft.com domain.
+1. Sign in to the To Do List client with that user, and add some tasks to the user's to-do list.
 
 ## Next steps
 
 * For reference, download the completed sample (without your configuration values) from [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). You can now move on to other identity scenarios.
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

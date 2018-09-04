@@ -73,5 +73,6 @@ To remove a multi-tenant application’s access to your directory (after having 
 ## Next steps
 
 Learn about these other related app management quickstarts for apps using the Azure AD v1.0 endpoint:
+
 - [Add an application to Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md)
 - [Update an application in Azure AD](quickstart-v1-update-azure-ad-app.md)

@@ -25,13 +25,15 @@ ms.custom: aaddev
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-For .NET native clients that need to access protected resources, Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL). ADAL makes it easy for your app to get access tokens. To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List application that:
+For .NET native clients that need to access protected resources, Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL). ADAL makes it easy for your app to get access tokens. 
+
+In this quickstart, you'll learn how to build a .NET WPF To-Do List application that:
 
 * Gets access tokens for calling the Azure AD Graph API using the OAuth 2.0 authentication protocol.
 * Searches a directory for users with a given alias.
 * Signs users out.
 
-In this quickstart, we'll show you how to:
+To build the complete, working application, you'll need to:
 
 1. Register your application with Azure AD.
 2. Install and configure ADAL.
@@ -187,5 +189,3 @@ For reference, see the completed sample (without your configuration values) [on 
 Learn how to protect a web API by using OAuth 2.0 bearer access tokens.
 > [!div class="nextstepaction"]
 > [Secure a .NET Web API with Azure AD >>](quickstart-v1-dotnet-webapi.md)
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

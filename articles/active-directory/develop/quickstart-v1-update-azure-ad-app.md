@@ -17,7 +17,7 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-#Customer intent: As an application developer, I need to know how to update my application in Azure Active Directory.
+#Customer intent: As an application developer, I need to know how to update my applications in Azure Active Directory.
 ---
 
 # Quickstart: Update an application in Azure Active Directory
@@ -190,9 +190,9 @@ For more information on the application changes required to support multi-tenant
 - The list of [Multi-tenant code samples](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant).
 - [Quickstart: Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md)
 
-## Enabling OAuth 2.0 implicit grant for single page applications
+## Enabling OAuth 2.0 implicit grant for single-page applications
 
-Single page applications (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back-end to perform its business logic. For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back-end web API.
+Single-page applications (SPAs) are typically structured with a JavaScript-heavy front end that runs in the browser, which calls the application’s web API back-end to perform its business logic. For SPAs hosted in Azure AD, you use OAuth 2.0 Implicit Grant to authenticate the user with Azure AD and obtain a token that you can use to secure calls from the application's JavaScript client to its back-end web API.
 
 After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 

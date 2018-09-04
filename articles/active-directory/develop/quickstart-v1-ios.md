@@ -25,12 +25,14 @@ ms.reviewer: brandwe
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL) for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to get access tokens. To demonstrate how easy it is, we'll show you how to build an Objective C To-Do List application that:
+Azure Active Directory (Azure AD) provides the Active Directory Authentication Library (ADAL) for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to get access tokens. 
+
+In this quickstart, you'll build an Objective C To-Do List application that:
 
 * Gets access tokens for calling the Azure AD Graph API by using the OAuth 2.0 authentication protocol
 * Searches a directory for users with a given alias
 
-In this quickstart, we'll show you how to:
+To build the complete, working application, you'll need to:
 
 1. Register your application with Azure AD.
 1. Install and configure ADAL.
@@ -237,7 +239,13 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 ## Step 5: Build and run the application
 
-Congratulations! You now have a working iOS application that can authenticate users, securely call Web APIs by using OAuth 2.0, and get basic information about the user. If you haven't already, now is the time to populate your tenant with some users. Start your QuickStart app, and then sign in with one of those users. Search for other users based on their UPN. Close the app, and then start it again. Notice that the user's session remains intact.
+Congratulations! You now have a working iOS application that can authenticate users, securely call Web APIs by using OAuth 2.0, and get basic information about the user.
+
+If you haven't already, now is the time to populate your tenant with some users.
+
+1. Start your QuickStart app, and then sign in with one of those users.
+1. Search for other users based on their UPN.
+1. Close the app, and then start it again. Notice that the user's session remains intact.
 
 ADAL makes it easy to incorporate all of these common identity features into your application. It takes care of all the dirty work for you, like cache management, OAuth protocol support, presenting the user with a UI to sign in, and refreshing expired tokens. All you really need to know is a single API call, `getToken`.
 
@@ -249,5 +257,3 @@ You can now move on to additional scenarios. We suggest trying these next:
 
 * [Secure a Node.JS Web API with Azure AD](quickstart-v1-nodejs-webapi.md)
 * Learn [how to enable cross-app SSO on iOS using ADAL](howto-v1-enable-sso-ios.md)  
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
