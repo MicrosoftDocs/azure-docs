@@ -125,7 +125,6 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - Internal -->
-[advanced-networking]: networking-overview.md
-[deploy-advanced-networking]: networking-overview.md#configure-networking---cli
+[advanced-networking]: configure-advanced-networking.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
