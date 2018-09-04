@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.author: cynthn
 ---
 
@@ -37,7 +37,7 @@ In Azure, virtual machines can either depend on their host to synchronize with t
 
 Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](maintenance-and-updates.md#memory-preserving-maintenance) tasks, VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the time synchronization service uses integration services to monitor what is happening on the host and prompt changes to happen on the VMs to compensate.
 
-Without time synchronization working the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant if the VM isn't running software that is highly dependent on an accurate clock. But in most cases we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following affects:
+Without time synchronization working the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant unless the workload required highly accurate timekeeping. But in most cases we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following affects:
 
 - Authentication problems. Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. Systems stop to trust each other if their time differs significantly. Login and access attempts can fail because of unsynchronized time.
 - Distributed event correlation problems. It's very hard or practically impossible to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would be shown to occur on different times making event correlation a new problem.
@@ -138,8 +138,8 @@ Here is the output you could see and what it would mean:
 	
 - **time.windows.com** - in the default configuration, w32time would get time from time.windows.com. The time sync quality depends on internet connectivity to it and is affected by packet delays. This is the usual output from the default setup.
 - **VM IC Time Synchronization Provider**  - the VM is syncing time from the host. This usually is the result if you opt-in for host-only time sync or the NtpServer is not available at the moment. 
-- *<your domain server>* - the current machine is in a domain and the domain defines the time sync hierarchy.
-- *<some other server>* - w32time was explicitly configured to get the time from that another server. Time sync quality depends on this time server quality.
+- *Your domain server* - the current machine is in a domain and the domain defines the time sync hierarchy.
+- *Some other server* - w32time was explicitly configured to get the time from that another server. Time sync quality depends on this time server quality.
 - Local CMOS Clock - clock is unsynchronized. You can get this output if w32time hasn't had enough time to start after a reboot or when all the configured time sources are not available.
 
 
@@ -164,6 +164,11 @@ Restart the w32time Service.
 ```
 net stop w32time && net start w32time
 ```
+
+## Hybrid and mixed environments
+
+In environments where your workload needs synchronized time between on-premises computers and Azure VMs, you need to consider....
+
 
 ## Windows Server 2012 and R2 VMs 
 
