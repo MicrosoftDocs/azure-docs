@@ -35,8 +35,6 @@
   items:
   - name: Single-page web app
     href: tutorial-bing-image-search-single-page-app.md
-  - name: Single-page web app (source code)
-    href: tutorial-bing-image-search-single-page-app-source.md
   - name: Bing image upload for insights
     href: tutorial-image-post.md
   - name: Bing image upload for insights (source code)
