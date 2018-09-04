@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 ---
 
@@ -20,6 +20,7 @@ You can [test](luis-interactive-test.md) LUIS interactively, one utterance at a 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## What is a score in testing?
 See [Prediction score](luis-concept-prediction-score.md) concepts to learn more about prediction scores.
 

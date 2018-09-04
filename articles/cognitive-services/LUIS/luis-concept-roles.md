@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 ---
 # Entity roles in Patterns are contextual subtypes
@@ -26,9 +26,10 @@ Roles give a name to those differences:
 ## How are roles used in patterns?
 In a pattern's template utterance, roles are used within the utterance: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Pattern with entity roles|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## Role syntax in patterns
 The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 
