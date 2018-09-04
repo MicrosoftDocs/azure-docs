@@ -36,7 +36,7 @@ For serial console documentation for Linux VMs, [click here](../linux/serial-con
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 * The virtual machine for which you are acessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
 
@@ -75,7 +75,7 @@ If needed SAC can be enabled offline as well,
 
 If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. It can show a VM Health information in some cases or it would be blank.  
 
-### Enabling boot menu to show in the serial console 
+## Enabling boot menu to show in the serial console 
 
 If you need to enable Windows boot loader prompts to show in the serial console, you can add the following additional options to Windows boot loader.
 
@@ -147,6 +147,15 @@ If a user is connected to serial console and another user successfully requests 
 >[!CAUTION] 
 This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap. For Windows, there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. 
 
+## Common scenarios for accessing serial console 
+Scenario          | Actions in serial console                
+:------------------|:-----------------------------------------
+Incorrect firewall rules | Access serial console and fix Windows firewall rules. 
+Filesystem corruption/check | Access serial console and recover filesystem. 
+RDP configuration issues | Access serial console and change settings. Go to the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) to get started.
+Network lock down system| Access serial console via portal to manage system. Some network commands are listed in the [Serial Console CMD and PowerShell documentation](./serial-console-cmd-ps-commands.md). 
+Interacting with bootloader | Access BCD via the serial console. Go to [Enabling boot menu to show in the serial console](#enabling-boot-menu-to-show-in-the-serial-console) to get started. 
+
 ## Using Serial Console for NMI calls in Windows VMs
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
 
@@ -156,6 +165,14 @@ The Serial Console can be used to send a NMI to an Azure virtual machine using t
 
 For information on configuring Windows to create a crash dump when it receives an NMI, see: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## Accessibility
+Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is accessible for those with visual and hearing impairments, as well as people who may not be able to use a mouse.
+
+### Keyboard navigation
+Use the `tab` key on your keyboard to navigate around the serial console interface within the Aure portal. Your location will be highlighted on screen. To leave the focus of the serial console blade, press `Ctrl + F6` on your keyboard.
+
+### Use serial console with a screen reader
+Serial console comes with screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Errors
 Most errors are transient in nature and retrying connection address these. The table below shows a list of errors and mitigations
