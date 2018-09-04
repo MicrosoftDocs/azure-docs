@@ -3,18 +3,16 @@ title: Hadoop architecture - Azure HDInsight
 description: Describes Hadoop storage and processing on HDInsight clusters.
 services: hdinsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: ashishth
-
 ---
 # Hadoop architecture in HDInsight
 
-Hadoop includes two core components, the High Density File System (HDFS) that provides storage, and Yet Another Resource Negotiator (YARN) that provides processing. With storage and processing capabilities a cluster becomes capable of running MapReduce programs to perform the desired data processing.
+Hadoop includes two core components, the Hadoop Distributed File System (HDFS) that provides storage, and Yet Another Resource Negotiator (YARN) that provides processing. With storage and processing capabilities a cluster becomes capable of running MapReduce programs to perform the desired data processing.
 
 > [!NOTE]
 > An HDFS is not typically deployed within the HDInsight cluster to provide storage. Instead, an HDFS-compatible interface layer is used by Hadoop  components. The actual storage capability is provided by either Azure Storage or Azure Data Lake Store. For Hadoop, MapReduce jobs executing on the HDInsight cluster run as if an HDFS were present and so require no changes to support their storage needs. In Hadoop on HDInsight, storage is outsourced, but YARN processing  remains a core component. For more information, see [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md).
