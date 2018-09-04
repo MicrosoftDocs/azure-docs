@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
 # Quickstart: Deploy Azure Data Box using the Azure portal
@@ -21,9 +21,6 @@ ms.author: alkohli
 This quickstart describes how to deploy the Azure Data Box using the Azure portal. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md)
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-
 
 ## Prerequisites
 
@@ -51,11 +48,11 @@ This step takes roughly 5 minutes.
 
 Once the order is created, the device is prepared for shipment.
 
-## Unpack and cable
+## Cable 
 
 This step takes roughly 10 minutes.
 
-When you receive the Data Box, do the following steps to unpack, cable, and turn on the device. This step takes about 10 minutes.
+When you receive the Data Box, do the following steps to cable, connect to and turn on the device. This step takes about 10 minutes.
 
 1. If there is any evidence that the device is tampered with or damaged, do not proceed. Contact Microsoft Support to ship you a replacement device.
 2. Before you cable your device, ensure that you have the following cables:
@@ -77,7 +74,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
     4. Turn on the device. The power button is on the front panel of the device.
 
 
-## Set up
+## Connect
 
 This step takes about 5-7 minutes to complete.
 

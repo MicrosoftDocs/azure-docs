@@ -54,7 +54,7 @@ Before you begin, make sure that:
 
 Perform the following steps in the Azure portal to order a device.
 
-1. Use your Microsoft Azure credentials to sign in at this URL: [https://aka.ms/azuredatabox](https://aka.ms/azuredatabox).
+1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Click **+ Create a resource** and search for *Azure Data Box*. Click **Azure Data Box**.
     
    [![Search Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
@@ -64,7 +64,7 @@ Perform the following steps in the Azure portal to order a device.
 4. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**. 
     |Setting  |Value  |
     |---------|---------|
-    |Subscription     | Select an EA, CSP, or Pay as you go subscription only for Data Box service. <br> The subscription is linked to your billing account.       |
+    |Subscription     | Select an EA, CSP, or Pay as you go subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
     |Source country     |	Select the country where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
