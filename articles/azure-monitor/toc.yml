@@ -627,7 +627,7 @@
           href: ../application-insights/app-insights-usage-flows.md?toc=/azure/azure-monitor/toc.json
         - name: Workbooks
           href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
-    - name:  Monitor containers
+    - name: Monitor containers
       items:
       - name: Monitoring Containers overview
         href: ../monitoring/monitoring-container-overview.md?toc=/azure/azure-monitor/toc.json
@@ -637,6 +637,8 @@
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor Docker applications
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+    - name: Monitor resource groups
+      href: ../monitoring-and-diagnostics/resource-group-insights.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor databases
       items:
       - name: Azure SQL
