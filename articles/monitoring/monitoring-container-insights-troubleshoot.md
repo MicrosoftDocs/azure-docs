@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 09/04/2018
 ms.author: magoedte
 ---
 
 # Troubleshooting Azure Monitor Container Insights
 
-When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Container Insights, you may occasionally encounter issues. This article details some common issues and troubleshooting steps.
+When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Container Insights, you may encounter an issue. This article details some common issues and troubleshooting steps.
 
 ## Solution is enabled but not reporting any information
-If Container Insights is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analyics log query, you diagnose the problem by performing the following: 
+If Container Insights is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analytics log query, you diagnose the problem by performing the following: 
 
 1. Check the status of the agent by running the following command: 
 
