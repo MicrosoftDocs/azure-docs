@@ -48,7 +48,7 @@ Support for these resources will be incrementally deprecated over the next 6 - 8
 |2|The underlying APIs for creating the old workspaces and projects in the desktop Workbench and with the CLI ends. You can still run existing models and deploy web services to ACS in this phase.|
 |3|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
 
-[Start migrating](how-to-migrate.md) today. All features and capabilities (except data preparation) are available in the latest version through this [SDK](reference-azure-machine-learning-sdk.md), [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
+[Start migrating](how-to-migrate.md) today. All features and capabilities are available in the latest version through this [SDK](reference-azure-machine-learning-sdk.md), [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
 
 While you can still use the older features, you'll be able to find that documentation at the bottom of this [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
@@ -56,24 +56,23 @@ While you can still use the older features, you'll be able to find that document
 
 The older run histories will remain accessible for a while. When you are ready to move to the updated version of Azure Machine Learning service, you can export these run histories if you want to keep a copy.
 
-In the latest version of Azure Machine Learning service, run histories are now called *experiments*. You can collect your model's experiments and explore them using the SDK and CLI as well as in the web portal.
-
+In the latest version of Azure Machine Learning service, run histories were renamed to _experiments_. You can collect your model's experiments and explore them using the SDK, CLI, or web portal.
 
 ## Can I still prepare data?
 
-Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the Azure Machine Learning Data Prep SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. Learn how to get the pip-installable data prep SDK. 
+Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/en-us/python/api/azureml_dataprep/?view=azure-dataprep-py) to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. Learn how to get the [pip-installable data prep SDK](data-prep-overview.md). 
 
 ## Will projects persist?
 
-You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, projects are local directories that are attached to the Azure Machine Learning Workspace workspace. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
+You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning Workspace using a local config file. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
 
-Since much of the project contents was already on your local machine, you just need to attach this local project directory to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
+Since much of the project contents was already on your local machine, you just need to create a config file in that directory and reference it in your code to connect to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
 
 Learn how to create a project [in Python with the SDK](quickstart-get-started.md).
 
 ## What about deployed web services?
 
-The models you deployed as web services using your Model Management account will continue to work for as long as Azure Container Service (ACS) is supported. Those web services will even work after support has ended for Model Management accounts. However, when CLI support ends, so does your ability to manage those web services.
+The models you deployed as web services using your Model Management account will continue to work for as long as Azure Container Service (ACS) is supported. Those web services will even work after support has ended for Model Management accounts. However, when support fo the old CLI ends, so does your ability to manage those web services.
 
 In the newer version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. Without having to change any of your scoring files and dependencies, you can redeploy your models using the new SDK or CLI to either target: ACI or AKS. You do not need to change anything in your original scoring file, model file dependencies files, environment file, and schema files.
 
