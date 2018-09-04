@@ -109,9 +109,7 @@ Each category has its own set of attributes. You can change the following attrib
 
 -   **state**: The string can contain the options *Disabled* or *Enabled*. For this private preview release, the string is case-sensitive.
 
-These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. The following error message occurs when the file can’t be processed:
-
-![Security configuration error message](media/security-center-customize-os-security-config/invalid-json.png)
+These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. You will receive an error telling you that you need to upload a valid JSON configuration file.
 
 For a list of other potential errors, see [Error codes](#error-codes).
 
@@ -260,9 +258,7 @@ Example of a new custom rule:
 
 ## File upload failures
 
-If the submitted configuration file is invalid because of errors in values or formatting, a failure error is displayed. You can download a detailed errors .csv report to remediate and fix the errors before you resubmit a corrected configuration file.
-
-!["Save action failed" error message](media/security-center-customize-os-security-config/invalid-configuration.png)
+If the submitted configuration file is invalid because of errors in values or formatting, a failure error is displayed, such as **Save action failed**. You can download a detailed errors .csv report to remediate and fix the errors before you resubmit a corrected configuration file.
 
 Example of an error file:
 

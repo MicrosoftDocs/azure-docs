@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/3/2018
 ms.author: rkarlin
 
 ---
@@ -39,9 +39,8 @@ You can edit the default security policy for each of your Azure subscriptions in
 
 3. Select the subscription that you want to enable a security policy for.
 
-4. In the **Policy Components** section, select **Security policy**.  
-    This is the default policy that's assigned by Security Center. You can turn on or off the available security recommendations.
-
+4. Turn on the policies you want to enable for the subscription. You will get recommendations based on each policy you select. 
+  ![policy list](./media/security-center-policies/policies.png)
 5. When you finish editing, select **Save**.
 
 ## Available security policy definitions

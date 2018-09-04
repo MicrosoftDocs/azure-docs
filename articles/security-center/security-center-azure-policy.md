@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/4/2018
 ms.author: terrylan
 ---
 
@@ -42,6 +42,12 @@ An Azure policy consists of the following components:
 - An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, or resource group)
 
 A resource is evaluated against the policies that are assigned to it and receives a compliance ratio according to the number of policies the resource is compliant to.
+
+## Who can edit security policies?
+Security Center uses Role-Based Access Control (RBAC), which provides built-in roles that can be assigned to users, groups, and services in Azure. When users open Security Center, they see only information that's related to resources they have access to. Which means that users are assigned the role of owner, contributor, or reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
+
+- Security reader: Have view rights to Security Center, which includes recommendations, alerts, policy, and health, but they can't make changes.
+- Security admin: Have the same view rights as security reader, and they can also update the security policy and dismiss recommendations and alerts.
 
 ## Edit security policies
 You can edit the default security policy for each of your Azure subscriptions and management groups in Security Center. To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group. To view your security policies in Security Center:

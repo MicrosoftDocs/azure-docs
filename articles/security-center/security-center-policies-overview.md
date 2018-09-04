@@ -13,26 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/3/2018
 ms.author: rkarlin
 
 ---
 # Security policy settings
 This article provides an overview of security policy settings in Security Center.
 
-You can set the following per subscription under Security Policy per subscription:
+## What are security policies?
+A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Security Center, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads.
+
+You can set the following under Security Policy:
 
 - **Data collection**: Determines agent provisioning and [data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) settings.
-
-> [!NOTE]
-> You can set this for workspaces and resource groups in addition to subscriptions.
->
 - **Security policy**: Determines which controls Security Center monitors and recommends. You can edit the [security policy](security-center-policies.md) in Security Center. You can also use [Azure Policy](security-center-azure-policy.md) to create new definitions, define additional policies, and assign policies across management groups. 
 - **Email notifications**: Determines security contacts, and [email notification](security-center-provide-security-contact-details.md) settings.
 - **Pricing tier**: Defines free or standard [pricing selection](security-center-pricing.md). The tier you choose determines which Security Center features are available for resources in scope. You can specify a tier for subscriptions, resource groups, and workspaces.
 
 > [!NOTE]
-> You can set this for workspaces and resource groups in addition to subscriptions.
+> You can set all of these per subscription. For Workspaces, you can set only Data collection and Pricing tier. For Resource groups you can set only Pricing tier.
 >
 
 
