@@ -155,7 +155,7 @@ This section shows how to use the Maps route service API to find the route from 
     });
     ```
 
-2.  To instantiate the client service, add the following Javascript code to the script block, after the code that initializes the map.
+2.  Instantiate the client service, by adding the following Javascript code to the script block.
     ```JavaScript
     var client = new atlas.service.Client(subscriptionKey);
     ```
@@ -172,7 +172,7 @@ This section shows how to use the Maps route service API to find the route from 
             destinationPoint.coordinates[0];     
     ```
 
-4. To get the route, add the following block of code to the script. It queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) method. And then adds all the response lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for more information.
+4. To get the route, add the following block of code to the script. It queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). It then adds all the response lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for more information.
 
 ```JavaScript
 // Execute the query then add the route to the map once a response is received  
@@ -187,7 +187,7 @@ This section shows how to use the Maps route service API to find the route from 
     }); 
 ```
 
-5. Save the **MapRoute.html** file and refresh your web browser. For a successful connection with the Maps APIs, you should see a map similar to the following. 
+5. Save the **MapRoute.html** file and refresh your web browser. For a successful connection with the Maps APIs, you should see a map similar to the following.
 
     ![Azure Map Control and Route Service](./media/tutorial-route-location/map-route.png)
 
