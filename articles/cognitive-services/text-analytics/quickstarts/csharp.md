@@ -108,7 +108,7 @@ The Language Detection API detects the language of a text document, using the [D
             }
 ```
 
-## Extract key phrases request
+## Extract key phrases
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
 
