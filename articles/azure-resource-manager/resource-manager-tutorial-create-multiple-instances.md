@@ -18,7 +18,7 @@ ms.author: jgao
 
 # Tutorial: create multiple resource instances using resource manager templates
 
-Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In the last tutorial, you modified an existing template to create an encrypted Azure Storage account. In this tutorial,  you modify the same template to create three storage accounts.
+Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In the last tutorial, you modified an existing template to create an encrypted Azure Storage account. In this tutorial,  you modify the same template to create three storage account instances.
 
 > [!div class="checklist"]
 > * Open a quickstart template
@@ -141,7 +141,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to create multiple storage account instances. So far, you have only created one storage account or multiple storage account instances. In the next tutorial, you develop a template with multiple resources. Some of the resources have dependent resources.
+In this tutorial, you learned how to create multiple storage account instances. So far, you have created one storage account or multiple storage account instances. In the next tutorial, you develop a template with multiple resources and multiple resource types. Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
-> [Create multiple resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
