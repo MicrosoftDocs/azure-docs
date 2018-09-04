@@ -1,6 +1,6 @@
 ---
-title: How to add and remove Azure Active Directory group owners | Microsoft Docs
-description: Learn how to add and remove group owners using the Azure Active Directory portal. 
+title: How to add or remove Azure Active Directory group owners | Microsoft Docs
+description: Learn how to add or remove group owners using the Azure Active Directory portal. 
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,7 +14,7 @@ ms.author: lizross
 ms.custom: it-pro
 ---
 
-# How to add and remove group owners in Azure Active Directory
+# How to: Add or remove group owners in Azure Active Directory
 Azure Active Directory (Azure AD) security groups are owned and managed by group owners. Group owners are assigned to manage a group and its members by a resource owner (administrator). After a group owner has been assigned, only a resource owner can add or remove owners.
 
 ## Add an owner to a group
@@ -54,8 +54,12 @@ Remove an onwer from a security group using the Azure AD portal.
     After you remove the owner, you can return to the **Owners** blade and see the name has been removed from the list of owners.
 
 ## Next steps
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md)
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [What is Azure Active Directory?](active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+- [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md)
+
+- [Use groups to assign access to an integrated SaaS app](../users-groups-roles/groups-saasapps.md)
+
+- [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+
+- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-v2-cmdlets.md)
