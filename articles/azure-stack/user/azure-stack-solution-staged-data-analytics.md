@@ -21,6 +21,19 @@ ms.reviewer: Anjay.Ajodha
 
 Utilizing both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack offers a rapid, secure, and flexible solution for collecting, processing, storing and distributing local and remote data, particularly when security, confidentiality, corporate policy, and regulatory requirements may differ between locations and users.
 
+In this tutorial, you will build a sample environment to:
+
+> [!div class="checklist"]
+> - Item
+> - Item
+
+> [!Information]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+
+
 ## Prerequisites
 
 Some preparation is required to build this use case:

@@ -30,6 +30,13 @@ In this tutorial, you'll create a sample environment to:
 > * Automatically deploy your app to global Azure for user acceptance testing.
 > * When your code passes testing, automatically deploy the app to Azure Stack.
 
+> [!Information]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+
+
 ## Benefits of the hybrid delivery build pipe
 
 Continuity, security, and reliability are key elements of application deployment. These elements are essential to your organization and critical to your development team. A hybrid CI/CD pipeline enables you to consolidate your build pipes across your on-premises environment and the public cloud. A hybrid delivery model also lets you change deployment locations without changing your application.

@@ -38,6 +38,13 @@ In this tutorial, you will build a sample environment to:
 
 You must have Azure Stack operator permissions for the steps in this tutorial.
 
+> [!Information]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+
+
 ## Create a service principal for Azure AD in the portal
 
 If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure. The [create service principals](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals#create-service-principal-for-azure-ad) article shows you how to perform the steps through the portal. Check to see that you
