@@ -1,6 +1,6 @@
 ---
-title: Load data with the data prep SDK
-description: Learn about loading data with data prep SDK
+title: Load data with the Azure Data Prep SDK
+description: Learn about loading data with Azure Data Prep SDK
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -13,14 +13,6 @@ ms.date: 08/30/2018
 #Load Data with the data prep SDK
 
 DataPrep has the ability to load different types of input data. While it is possible to use our smart reading functionality to detect the type of a file, it is also possible to specify a file type and its parameters.
-
-## Table of Contents
-- [Read Lines](#read-lines)
-- [Read CSV](#read-csv)
-- [Read Excel](#read-excel)
-- [Read Fixed Width Files](#read-fixed-width-files)
-- [Read SQL](#read-sql)
-- [Read From ADLS](#read-from-adls)
 
 ## Read Lines
 One of the simplest ways to read a file into a dataframe is to just read it as text lines.
@@ -222,8 +214,8 @@ ds = dprep.MSSQLDataSource(server_name="dprep-sql-test.database.windows.net",
                            password=secret)
 ```
 As you can see, the password parameter of MSSQLDataSource accepts a Secret object. You can get a Secret object in two ways:
-1.	Register the secret and its value with the execution engine 
-2.	Create the secret with just an ID (useful if the secret value was already registered in the execution environment)
+-	Register the secret and its value with the execution engine 
+-	Create the secret with just an ID (useful if the secret value was already registered in the execution environment)
 
 Now that we have created a data source object, we can proceed to read data.
 ```
@@ -266,13 +258,13 @@ dtype: object
 
 ## Read from ADLS
 There are two ways the DataPrep API can acquire the necessary OAuth token to access Azure DataLake Storage:
-1.	Retrieve the access token from a recent login session of the user's Azure CLI login
-2.	Using a ServicePrincipal (SP) and a certificate as secret
+-	Retrieve the access token from a recent login session of the user's Azure CLI login
+-	Using a ServicePrincipal (SP) and a certificate as secret
 
 ### Using Access Token from a recent Azure CLI session
 On your local machine, run the following command:
 
-Note: If your user account is a member of more than one Azure tenant, it will be necessary to specify the tenant in the AAD url hostname form.
+![NOTE]: If your user account is a member of more than one Azure tenant, it will be necessary to specify the tenant in the AAD url hostname form.
 ```
 az login
 az account show --query tenantId

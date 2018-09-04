@@ -1,6 +1,6 @@
 ---
-title: Transform data with data prep SDK
-description: Learn about transforming data with data prep SDK
+title: Transform data with Azure Data Prep SDK
+description: Learn about transforming data with Azure Data Prep SDK
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -20,8 +20,6 @@ Currently there are:
 - [Derive Column by Example](#derive-column-by-example)
 - [Filtering](#filtering)
 - [Custom Python Transforms](#custom-python-transforms)
-
-More will be added in the future.
 
 ## Add Column using Expression
 
@@ -403,7 +401,7 @@ Use the expression builder col, specifying the column name as a string argument 
 
 In this example, dataflow.filter(col('Tip_amount') > 0) returns a new dataflow with the rows in which the value of 'Tip_amount' is greater than 0
 
-Note: 'Tip_amount' is first converted to numeric, which allows us to build an expression comparing it against other numeric values.
+![NOTE] 'Tip_amount' is first converted to numeric, which allows us to build an expression comparing it against other numeric values.
 
 ```
 dataflow = dataflow.to_number(['Tip_amount'])

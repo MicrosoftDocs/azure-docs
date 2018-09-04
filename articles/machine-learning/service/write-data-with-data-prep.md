@@ -1,6 +1,6 @@
 ---
-title: Write data with the data prep SDK
-description: Learn about writing data with data prep SDK
+title: Write data with the Azure Data Prep SDK
+description: Learn about writing data with Azure Data Prep SDK
 services: machine-learning
 ms.service: machine-learning
 ms.component: core

@@ -1,6 +1,6 @@
 ---
-title: What is the data prep SDK?
-description: Learn about the data prep SDK
+title: What is the Azure Data Prep SDK?
+description: Learn about the Azure Data Prep SDK
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -23,12 +23,12 @@ The data prep API provides (and will provide even more) value through:
 -	Scale through streaming. Unlike many other APIs, the Data Prep engine does not load all the data into memory; it streams it so it scales and performs much better than traditional APIs
 -	X-Plat with a single code artifact. Write to a single Data Prep API and have it run on Windows, macOS, Linux, Spark in a scale up or scale out manner
   
-Download:
+## Download the data prep SDK
 - [Data Prep SDK](https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/)
 
-```    
-pip install --upgrade --extra-index-url https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/ azureml-dataprep
-```
+    ```    
+    pip install --upgrade --extra-index-url https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/ azureml-dataprep
+    ```
 
 - [AzureML SDK](https://github.com/Azure/ViennaDocs/tree/master/PrivatePreview)
  
