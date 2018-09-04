@@ -22,9 +22,9 @@ ms.author: magoedte
 When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Container Insights, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
 
 ## Solution is enabled but not reporting any information
-If Container Insights is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analytics log query, you diagnose the problem by performing the following: 
+If Container Insights is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analytics log query, you diagnose the problem by following these steps: 
 
-1. Check the status of the agent by running the following command: 
+1. Check the status of the agent by running the command: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
@@ -35,11 +35,11 @@ If Container Insights is successfully enabled and configured, but you cannot vie
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Check the solution deployment status with agent version *06072018* or later using the following command:
+2. Check the solution deployment status with agent version *06072018* or later using the command:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
-    The output should resemble the following, which indicates that it was deployed properly:
+    The output should resemble the following example, which indicates that it was deployed properly:
 
     ```
     User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -47,9 +47,9 @@ If Container Insights is successfully enabled and configured, but you cannot vie
     omsagent   1         1         1            1            3h
     ```
 
-3. Check the status of the pod to verify that it is running using the following command: `kubectl get pods --namespace=kube-system`
+3. Check the status of the pod to verify that it is running using the command: `kubectl get pods --namespace=kube-system`
 
-    The output should resemble the following with a status of *Running* for the omsagent:
+    The output should resemble the following example with a status of *Running* for the omsagent:
 
     ```
     User@aksuser:~$ kubectl get pods --namespace=kube-system 
@@ -63,9 +63,9 @@ If Container Insights is successfully enabled and configured, but you cannot vie
 
 4. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and displays the version of the agent and provider. 
 
-5. To verify that the agent has been onboarded successfully, run the following command: `kubectl logs omsagent-484hw --namespace=kube-system`
+5. To verify that the agent has been onboarded successfully, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`
 
-    The status should resemble the following:
+    The status should resemble the following example:
 
     ```
     User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
