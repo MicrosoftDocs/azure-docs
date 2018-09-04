@@ -119,7 +119,7 @@ Following are some common scenarios to help you understand which permissions are
 
 ## Viewing permissions in the Azure portal
 
-From the **Data Explorer** blade of the Data Lake Storage Gen1 account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastore** account.
+From the **Data Explorer** blade of the Data Lake Storage Gen1 account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastorage** account.
 
 ![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
@@ -133,7 +133,7 @@ Click **Advanced View** to see the more advanced view, where the Default ACLs, m
 
 ## The super-user
 
-A super-user has the most rights of all the users in Data Lake Storage Gen1. A super-user:
+A super-user has the most rights of all the users in the Data Lake Storage Gen1 account. A super-user:
 
 * Has RWX Permissions to **all** files and folders.
 * Can change the permissions on any file or folder.
