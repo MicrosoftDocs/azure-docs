@@ -67,7 +67,9 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 4. **Select** a language for the Terms of use.  The language option allows you to upload multiple Terms of use, each with a different language.  The version of the Terms of use that an end user will see will be based on their browser preferences.
 
-5. For **Require users to expand the Terms of use**, select On or Off.  If this setting is set to On, end users will be required to view the Terms of use prior to accepting them.
+5. For **Require users to expand the terms of use**, select On or Off. If this setting is set to On, end users will be required to view the Terms of use prior to accepting them.
+
+5. For **Require users to consent on every device**, select On or Off. If this setting is set to On, end users will be required to agree to the Terms of use on every device they are accessing from. The end user will be required to [register their device in Azure AD](./devices/overview.md). When the device is registered, the device ID is used to enforce the Terms of use on each device. For more information, see [Per device Terms of use](#per-device-terms-of-use).
 
 6. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](conditional-access/best-practices.md).
 
@@ -171,6 +173,9 @@ The following procedure describes how to add a Terms of use language.
     ![Add TOU](media/active-directory-tou/language-add-tou.png)
 
 1. Click **Add** to add the language.
+
+## Per device Terms of use
+
 
 ## Delete Terms of use
 You can delete old Terms of use using the following procedure.
