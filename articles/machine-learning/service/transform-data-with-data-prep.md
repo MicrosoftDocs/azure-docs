@@ -401,7 +401,7 @@ Use the expression builder col, specifying the column name as a string argument 
 
 In this example, dataflow.filter(col('Tip_amount') > 0) returns a new dataflow with the rows in which the value of 'Tip_amount' is greater than 0
 
-![NOTE] 'Tip_amount' is first converted to numeric, which allows us to build an expression comparing it against other numeric values.
+>![NOTE] 'Tip_amount' is first converted to numeric, which allows us to build an expression comparing it against other numeric values.
 
 ```
 dataflow = dataflow.to_number(['Tip_amount'])
@@ -437,7 +437,7 @@ dataflow.head(5)
 
 It is also possible to filter rows combining more than one expression builder to create a nested expression.
 
-Note: 'lpep_pickup_datetime' and 'Lpep_dropoff_datetime' are first converted to datetime, which allows us to build an expression comparing it against other datetime values.
+>![NOTE]: 'lpep_pickup_datetime' and 'Lpep_dropoff_datetime' are first converted to datetime, which allows us to build an expression comparing it against other datetime values.
 
 ```
 dataflow = dataflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
