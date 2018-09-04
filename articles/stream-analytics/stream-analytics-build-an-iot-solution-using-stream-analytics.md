@@ -28,7 +28,7 @@ After completing this solution, you are able to:
 You need the following prerequisites to complete this solution:
 * An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 
-## Scenario introduction: “Hello, Toll!”
+## Scenario introduction: "Hello, Toll!"
 A toll station is a common phenomenon. You encounter them on many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths. At manual booths, you stop to pay the toll to an attendant. At automated booths, a sensor on top of each booth scans an RFID card that's affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
 
 ![Picture of cars at toll booths](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
@@ -106,7 +106,7 @@ Here is a short description of the columns:
 ## Set up the environment for Azure Stream Analytics
 To complete this solution, you need a Microsoft Azure subscription. If you do not have an Azure account, you can [request a free trial version](http://azure.microsoft.com/pricing/free-trial/).
 
-Be sure to follow the steps in the “Clean up your Azure account” section at the end of this article so that you can make the best use of your Azure credit.
+Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your Azure credit.
 
 ## Deploy the sample 
 There are several resources that can easily be deployed in a resource group together with a few clicks. The solution definition is hosted in github repository at [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
