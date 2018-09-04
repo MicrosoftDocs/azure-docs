@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -67,16 +67,15 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```
 
 2. Create the certificate directory structure. In the example below, you can change `<c:\certificates>` to a new directory path of your choice.
-
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension','Public Extension'
     
     $destination = 'c:\certificates'
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
-    ````
+    ```
     
     > [!Note]  
     > AD FS and Graph are required if you are using AD FS as your identity system.
@@ -85,7 +84,6 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
-    ```
 
 3. In the PowerShell window, change the values of **RegionName** and **FQDN** appropriate to the Azure Stack environment and run the following:
 
