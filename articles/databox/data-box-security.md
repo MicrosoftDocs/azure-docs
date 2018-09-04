@@ -95,7 +95,7 @@ Azure Data Box collects and displays personal information in the following key i
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 
-## Data Box security guidelines reference
+## Security guidelines reference
 
 The following security guidelines are implemented in Data Box: 
 

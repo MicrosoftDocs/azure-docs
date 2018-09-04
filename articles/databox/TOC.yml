@@ -34,7 +34,7 @@
     - name: How to
       items:  
       - name: Manage via Azure portal
-        href: data-box-portal-ui-admin.md
+        href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
         

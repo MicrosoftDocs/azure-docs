@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/27/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box?
@@ -81,9 +81,10 @@ A. What this means is that the Data Box service is not available for the combina
 ### Q. I placed my Data Box order few days back. When will I receive my Data Box?
 A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you will be notified.
 
+### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
+A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
 
 ## Configure and connect
- 
 
 ### Q. How do I unlock the Data Box? 
 A.  In the Azure portal, go to your Data Box order, and navigate to **Device details**. Copy the unlock password. Use this password to log into the local web UI on your Data Box. For more information, go to [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md).
@@ -108,6 +109,12 @@ A.
 
 ### Q. I could not set up Data Box on a private network. Why would this be?
 A.-->
+
+### Q. The system fault indicator LED on the front operating panel is on. What should I do?
+A. If the system fault indicator LED is on, it indicates that your system is not healthy. Contact Microsoft Support for next steps.
+
+### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
+A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have atleast Data Box Operator role permission to see the access credentials.
 
 ## Track status
 
@@ -167,6 +174,8 @@ We recommend that you use no more than three storage accounts for a given device
 
 <!--### Q. How do I schedule a pickup for my Data Box?--> 
 
+### Q. My device was delivered but the device seems to be damaged. What should I do?
+A. If your device has arrived damaged or there is evidence of tampering, do not use the device. Contact Microsoft Support and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
@@ -177,6 +186,15 @@ A. If the E-ink display is not showing the return shipment label, perform the fo
 - Go to your order in Azure portal. Go to Overview and download shipping label. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
 - Print the shipping label and insert it into the clear sleeve attached to the device. 
 - Ensure that the shipping label is clearly visible. 
+
+### Q. How is my data protected during transit? 
+A.  During the transit, the following features on the Data Box help protect the data.
+ - The Data Box disks are encrypted with AES 256-bit encryption. 
+ - The device is locked and needs an unlock password to enter and access data.
+For more information, go to [Data Box security features](data-box-security.md).  
+
+### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
+A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
   
 
 ## Verify and upload
@@ -200,28 +218,6 @@ A.  After the data copy is complete, when you run **Prepare to ship**, your data
 
 ### Q. What happens to my data after I have returned the Data Box?
 A.  Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines.  
-
-### Q. How is my data protected during transit? 
-A.  During the transit, the following features on the Data Box help protect the data.
- - The Data Box disks are encrypted with AES 256-bit encryption. 
- - The device is locked and needs an unlock password to enter and access data.
-For more information, go to [Data Box security features](data-box-security.md).  
-
-### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
-A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
-
-### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
-A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
-
-### Q. My device was delivered but the device seems to be damaged. What should I do?
-A. If your device has arrived damaged or there is evidence of tampering, do not use the device. Contact Microsoft Support and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
-
-### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
-A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have atleast Data Box Operator role permission to see the access credentials.
-
-### Q. The system fault indicator LED on the front operating panel is on. What should I do?
-A. If the system fault indicator LED is on, it indicates that your system is not healthy. Contact Microsoft Support for next steps.
-
 
 ## Next steps
 
