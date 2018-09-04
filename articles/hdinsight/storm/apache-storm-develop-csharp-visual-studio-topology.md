@@ -69,23 +69,23 @@ namespace ConsoleApplication2
    {
        static void Main(string[] args)
        {
-           string javaHome = Environment.GetEnvironmentVariable(“JAVA_HOME”);
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
            if (!string.IsNullOrEmpty(javaHome))
            {
-               string jarExe = Path.Combine(javaHome + @”\bin”, “jar.exe”);
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
                if (File.Exists(jarExe))
                {
-                   Console.WriteLine(“JAVA Is Installed properly”);
+                   Console.WriteLine("JAVA Is Installed properly");
                     return;
                }
                else
                {
-                   Console.WriteLine(“A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.”);
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
                }
            }
            else
            {
-             Console.WriteLine(“A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.”);
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
            }
        }  
    }
