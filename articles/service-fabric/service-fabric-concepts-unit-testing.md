@@ -81,14 +81,14 @@ This test asserts that the data being captured on one replica is available to a 
 #### Mimic Service Fabric replica orchestration
 When managing multiple service instances, the tests should initialize and tear down these services in the same manner as the Service Fabric orchestration. For example, when a service is created on a new primary replica, Service Fabric will invoke CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync, and RunAsync. The lifecycle events are documented in the following articles:
 
-- [Stateful Service Startup](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-startup)
-- [Stateful Service Shutdown](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-shutdown)
-- [Stateful Service Primary Swaps](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps)
+- [Stateful Service Startup](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
+- [Stateful Service Shutdown](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [Stateful Service Primary Swaps](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
 #### Run replica role changes
 The unit tests should change the roles of the service instances in the same manner as the Service Fabric orchestration. The role state machine is documented in the following article:
 
-[Replica Role State Machine](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-concepts-replica-lifecycle#replica-role)
+[Replica Role State Machine](service-fabric-concepts-replica-lifecycle.md#replica-role)
 
 Simulating role changes is one of the more critical aspects of testing and can uncover issues where the replica's state are not consistent with each other. Inconsistent replica state can occur due to storing in-memory state in static or class level instance variables. Examples of this may be cancellation tokens, enums, and configuration objects/values. This will also ensure that the service is respecting the cancellation tokens provided during RunAsync to allow the role change to occur. Simulating role changes can also uncover issues that may arise if code is not written to allow an invocation of RunAsync multiple times.
 
