@@ -60,7 +60,7 @@ The queries in this article use the following sample document.
 ```
 ## <a id="examplequery1"></a> Example query 1 
 
-Given the sample family document above, the following query returns the documents where the id field matches "WakefieldFamily".
+Given the sample family document above, the following query returns the documents where the id field matches `WakefieldFamily`.
 
 **Query**
     
