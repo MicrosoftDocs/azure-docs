@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/15/2018
+ms.date: 08/31/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a container registry
 > * Build an image classifier with Custom Vision
-> * 
+> * Develop an IoT Edge module that queries the Custom Vision web server on your device
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,6 +39,8 @@ An Azure IoT Edge device:
 Cloud resources:
 
 * A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A container registry. This tutorial uses [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
+    * Know the credentials for your container registry [admin account](../container-registry/container-registry-authentication.md#admin-account)
 
 Development resources:
 
@@ -48,22 +50,6 @@ Development resources:
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension for Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/). 
-
-## Create a container registry
-In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
-
-You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
-
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
-
-    ![create container registry](./media/tutorial-deploy-function/create-container-registry.png)
-
-2. Give your registry a name, and choose a subscription.
-3. For the resource group, it is recommended that you use the same resource group name that contains your IoT Hub. By keeping all the resources together in the same group, you can manage them together. For example, deleting the resource group used for testing deletes all test resources contained in the group. 
-4. Set the SKU to **Basic**, and toggle **Admin user** to **Enable**. 
-5. Click **Create**.
-6. Once your container registry is created, navigate to it and select **Access keys**. 
-7. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
 
 ## Build an image classifier with Custom Vision
 
@@ -147,9 +133,11 @@ Now you have a container version of your image classifier on your development ma
 
 ### Create a new solution
 
+A solution is a logical way of developing and organizing multiple modules for a single IoT Edge deployment. A solution contains code for one or more modules as well as the deployment manifest that declares how they will be deployed on an IoT Edge device. 
+
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
 
-2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge solution template in VS Code:
+2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge python module template in VS Code:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
@@ -163,11 +151,13 @@ Now you have a container version of your image classifier on your development ma
 
 5. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
-   1. Select the folder where you want to create the solution. 
-   2. Provide a name for your solution, like **CustomVisionSolution**.
-   3. Choose **Python Module** as the module template. 
-   4. Name your module **Classifier**. 
-   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/classifier.
+   | Field | Value |
+   | ----- | ----- |
+   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Provide a solution name | Enter a descriptive name for your solution, like **CustomVisionSolution**, or accept the default. |
+   | Select module template | Choose **Python Module**. |
+   | Provide a module name | Name your module **Classifier**. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. The final string looks like \<registry name\>.azurecr.io/classifier. |
  
    ![Provide Docker image repository](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -207,7 +197,7 @@ In this section, you add a new module to the same CustomVisionSolution and provi
 
    | Prompt | Value | 
    | ------ | ----- |
-   | Select deployment template file | Select the deployment.template.json file in the CustomVisionSolution workspace. |
+   | Select deployment template file | Select the deployment.template.json file in the CustomVisionSolution folder. |
    | Select module template | Select **Python Module** |
    | Provide a module name | Call your module **SimulatedCamera** |
    | Provide Docker image repository for the module | Replace **localhost:5000** with the login server value that you copied from your Azure Container Registry. The final string looks like **\<registryname\>.azurecr.io/simulatedcamera**. |
