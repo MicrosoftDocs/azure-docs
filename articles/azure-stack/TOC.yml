@@ -167,7 +167,9 @@
       - name: Back up Azure Stack
         href: azure-stack-backup-back-up-azure-stack.md
       - name: Back up files and applications on Azure Stack
-        href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
+        href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+      - name: Replicate Azure Stack VMs to Azure 
+        href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
       - name: Recover from catastrophic data loss
         href: azure-stack-backup-recover-data.md
       - name: Backup best practices

@@ -20,7 +20,7 @@ This article describes the password policies and complexity requirements associa
 
 ## Administrator reset policy differences
 
-**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this polciy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
+**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this policy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
 
 With a two-gate policy, **administrators don't have the ability to use security questions**.
 
@@ -73,7 +73,7 @@ A one-gate policy requires one piece of authentication data, such as an email ad
 
 ## UserPrincipalName policies that apply to all user accounts
 
-Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the polices that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
+Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the policies that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
 
 | Property | UserPrincipalName requirements |
 | --- | --- |
