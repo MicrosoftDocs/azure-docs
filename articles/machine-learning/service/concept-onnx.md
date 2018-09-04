@@ -22,7 +22,7 @@ Include a diagram with full model flow including AML training, deployment, and a
 
 How does ONNX relate to Azure Machine Learning.
 
-Microsoft also has native ONNX inference capabilities built into Windows ML Windows 10 RS4. For more information, read "[Get ONNX models for Windows ML](https://docs.microsoft.com/en-us/windows/ai/get-onnx-model)".
+Microsoft also has native ONNX inference capabilities built into Windows ML Windows 10 RS4. For more information, read "[Get ONNX models for Windows ML](https://docs.microsoft.com/windows/ai/get-onnx-model)".
 
 
 ## How it works?

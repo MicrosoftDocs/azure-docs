@@ -31,7 +31,7 @@
     href: concept-model-management-and-deployment.md
   - name: FPGA accelerations
     href: concept-accelerate-with-fpgas.md  
-  - name: Machine learning pipelines
+  - name: ML pipelines
     href: concept-ml-pipelines.md        
   - name: ONNX
     href: concept-onnx.md        
