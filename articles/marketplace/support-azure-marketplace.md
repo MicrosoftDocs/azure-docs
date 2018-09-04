@@ -25,13 +25,6 @@ The support options for Azure Marketplace.
 
 [Open a ticket](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for "Marketplace Onboarding" with Microsoft support to solve all issues with getting started.
 
-## Publishing  
-
-| Support channel | Description | Availability |  
-|:--- |:--- |:--- |  
-| Email: [azurecertified@microsoft.com](mailto:azurecertified@microsoft.com) | Support Azure Marketplace publishing apps for you. | Business hours are in the Pacific time zone. |  
-| Email: [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com) | Onboarding access to test drives. | Business hours are in the Pacific time zone. |  
-
 ## Cloud Partner Portal  
 
 | Support channel | Description | Availability |  
@@ -52,16 +45,6 @@ The support options for Azure Marketplace.
 |:--- |:--- |:--- |  
 | Email: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Support for onboarding processes and questions related to the Co-Sell program. | Based in the Pacific time zone. |  
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
-| Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
-
-# Support for AppSource  
-The support options for AppSource.  
-
-## Technical  
-
-| Support channel | Description |  
-|:--- |:--- |  
-| Email: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Support publishing Dynamics Apps for you |
 
 ## Next steps
 Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
