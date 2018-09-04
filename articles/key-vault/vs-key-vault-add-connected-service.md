@@ -68,7 +68,7 @@ Now, you can access your secrets in code. The next steps are different depending
 
 ## Access your secrets in code (ASP.NET Core projects)
 
-The connection to Key Vault is set up at startup by a class that implements [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1). The startup class uses two environment variables that contain the Key Vault connection information: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, set to true, and ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, set to your Key Vault URL. These are added to the launchsettings.json file when you run through the **Add Connected Service** process.
+The connection to Key Vault is set up at startup by a class that implements [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) using a way of extending startup behavior that is described in [Enhance an app from an external assembly in ASP.NET Core with IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). The startup class uses two environment variables that contain the Key Vault connection information: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, set to true, and ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, set to your Key Vault URL. These are added to the launchsettings.json file when you run through the **Add Connected Service** process.
 
 To access your secrets:
 
@@ -98,7 +98,7 @@ To access your secrets:
 
 ## Access your secrets in code (ASP.NET 4.7.1 projects)
 
-The connection to your Key Vault is set up by the configuration builder using information that was added to your web.config file when you run through the **Add Connected Service** process.
+The connection to your Key Vault is set up by the <xref:System.Configuration.ConfigurationBuilder> class using information that was added to your web.config file when you run through the **Add Connected Service** process.
 
 To access your secrets:
 
