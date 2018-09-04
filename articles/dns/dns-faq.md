@@ -101,6 +101,34 @@ We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master form
 
 This support is currently not available for TXT records created from the Azure portal. 
 
+## Alias records
+
+### What are some scenarios where alias records are useful?
+See the scenarios section in [Azure DNS alias records overview](dns-alias.md).
+
+### What record types are supported for alias record sets?
+Alias records sets are supported for the following record types in an Azure DNS zone: A, AAAA, CNAME, MX, PTR, SRV, and TXT.  However, except for A, AAAA and CNAME, alias record sets are only supported for pointing to another record set of the same type in the same DNS zone.
+
+### What resources are supported as targets for alias record sets?
+- Point to a Public IP resource from a DNS A/AAAA record set. You can create an A/AAAA record set, and make it an alias record set to point to a Public IP resource.
+- Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set. In addition to the ability to point to the CNAME of a Traffic Manager profile (for example: contoso.trafficmanager.net) from a DNS CNAME recordset, you can now also point to a Traffic Manager profile that has external endpoints, from an A or AAAA recordset in your DNS zone.
+- Point to another DNS recordset within the same zone. Alias records can be referenced to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME recordset of the same type. This is useful if you want to have some record sets be aliases and some as non-aliases in terms of behavior.
+
+### Can I create and update alias records from the Azure portal?
+Yes. Alias records can be created or managed in the Azure portal in addition to the Azure REST APIs, Azure PowerShell, CLI, and SDKs.
+
+### Will alias records help ensure my DNS record set is deleted when the underlying Public IP is deleted?
+Yes. In fact, this is one of the core capabilities of alias records. They help you avoid potential outages for end users of your application.
+
+### Will Alias records help ensure my DNS record set is updated to the correct IP address when the underlying Public IP address changes?
+Yes. As in the previous question, this is one of the core capabilities of alias records, and helps you avoid potential outages or security risks for your application.
+
+### Are there any restrictions when using alias record sets for an A or AAAA records to point to Traffic Manager?
+Yes. If you want to point to a Traffic Manager profile as an alias from an A or AAAA record set, you must ensure the Traffic Manager profile only uses External Endpoints. When you create the external endpoints in Traffic Manager, ensure you provide the actual IP addresses of the endpoints.
+
+### Is there an additional charge for using alias records?
+Alias records are a qualification on a valid DNS recordset, and there is no additional billing for alias records.
+
 ## Using Azure DNS
 
 ### Can I co-host a domain using Azure DNS and another DNS provider?
