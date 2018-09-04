@@ -66,7 +66,7 @@ In this case, you can follow the following steps.
 2.	Reduce the input partition count to the lowest possible value of 2 if you are using Event Hub.
 3.	Run the query with 6 SU. With expected load for each subquery, add as many such subqueries as possible, until the job is hitting system resource limits. Refer to [Case 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) for the symptoms when this happens.
 4.	Once you are hitting the subquery limit measured above, start adding the subquery to a new job. The number of jobs to run as a function of the number of independent queries should be fairly linear, assuming you don’t have any load skew. You can then forecast how many 6 SU jobs you need to run as a function of the number of tenants you would like to serve.
-5.	When using reference data join with such queries, you should union the inputs together, before joining with the same reference data, then split out the events if necessary. Otherwise, each reference data join keeps a copy of reference data in memory, likely blowing up the memory usage unnecessarily.
+5.	When using reference data join with such queries, union the inputs together before joining with the same reference data. Then, split out the events if necessary. Otherwise, each reference data join keeps a copy of reference data in memory, likely blowing up the memory usage unnecessarily.
 
 > [!Note] 
 > How many tenants to put in each job?
