@@ -17,7 +17,7 @@ ms.reviewer: kivenkat
 # Make Virtual Machine Scale Sets available in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
+  
 Virtual machine scale sets are an Azure Stack compute resource. You can use them to deploy and manage a set of identical virtual machines. With all virtual machines configured the same, scale sets don’t require pre-provisioning of virtual machines. It's easier to build large-scale services that target big compute, big data, and containerized workloads.
 
 This article guides you through the process to make scale sets available in the Azure Stack Marketplace. After you complete this procedure, your users can add virtual machine scale sets to their subscriptions.
@@ -33,7 +33,8 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
 - **The Marketplace**  
     Register Azure Stack with global Azure to enable the availability of items in the Marketplace. Follow the instructions in [Register Azure Stack with Azure](azure-stack-registration.md).
 - **Operating system image**  
-    If you haven’t added an operating system image to the Azure Stack Marketplace, see [Add an Azure Stack marketplace item from Azure](asdk/asdk-marketplace-item.md).
+  Before a virtual machine scale set (VMSS) can be created, you must download the VM images for use in the VMSS from the [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item). The images must already be present before a user can create a new VMSS. 
+
 
 ## Use the Azure Stack portal 
 
