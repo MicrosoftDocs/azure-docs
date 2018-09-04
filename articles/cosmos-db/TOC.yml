@@ -177,16 +177,14 @@
           href: cli-samples.md
       - name: How-to guides
         items:
-        - name: Use bulk executor - .NET library
+        - name: Bulk executor - .NET library
           href: bulk-executor-dot-net.md
-        - name: Use bulk executor - Java library
+        - name: Bulk executor - Java library
           href: bulk-executor-java.md
         - name: Write SQL queries
           href: sql-api-sql-query.md
         - name: Tune query performance
           href: sql-api-sql-query-metrics.md
-        - name: SQL data partitioning
-          href: sql-api-partition-data.md
         - name: Data types
           items:
           - name: DateTime
@@ -287,8 +285,6 @@
         items:
         - name: Import graph data 
           href: bulk-executor-graph-dotnet.md
-        - name: Graph data partitioning
-          href: graph-partitioning.md
     - name: Cassandra API Docs
       items: 
       - name: Overview
@@ -399,6 +395,10 @@
       items:
       - name: Model document data
         href: modeling-data.md
+      - name: SQL data partitioning
+        href: sql-api-partition-data.md
+      - name: Graph data partitioning
+        href: graph-partitioning.md
     - name: Big data & analytics
       items:
       - name: Lambda architecture
