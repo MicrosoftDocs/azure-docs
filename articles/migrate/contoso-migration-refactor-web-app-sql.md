@@ -303,7 +303,7 @@ Contoso admins now configure VSTS to perform build and release process to action
 
      ![Artifact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
-7. They click **Releases > **+New pipeline**.
+7. They click **Releases** > **+New pipeline**.
 
     ![New pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline7.png)
 
@@ -347,7 +347,7 @@ Contoso admins now configure VSTS to perform build and release process to action
 
     ![Add environment](./media/contoso-migration-refactor-web-app-sql/pipeline17.png)
 
-20. They repeat the process to publish the web app (**SmartHotel.Registration.Web.zip) file to the correct web app.
+20. They repeat the process to publish the web app (**SmartHotel.Registration.Web.zip**) file to the correct web app.
 
     ![Publish web app](./media/contoso-migration-refactor-web-app-sql/pipeline18.png)
 
@@ -398,7 +398,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 
 - Contoso needs to review backup requirements for the Azure SQL Database. [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 - Contoso also needs to learn about managing SQL Database backups and restores. [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups) about automatic backups.
-- Contoso should consider implementing failover groups to provide regional failover for the database. [Learn more].(https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
+- Contoso should consider implementing failover groups to provide regional failover for the database. [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 - Contoso needs to consider deploying the Web App in the main East US 2 and Central US region for resilience. Contoso could configure Traffic Manager to ensure failover in case of regional outages.
 
 ### Licensing and cost optimization
