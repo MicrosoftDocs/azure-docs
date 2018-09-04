@@ -219,6 +219,7 @@
       items: 
       - name: Overview
         href: mongodb-introduction.md
+        items:
         - name: MongoDB support
           href: mongodb-feature-support.md
       - name: Tutorials
@@ -269,6 +270,7 @@
       items: 
       - name: Overview
         href: graph-introduction.md
+        items:
         - name: Gremlin support
           href: gremlin-support.md
       - name: Tutorials
