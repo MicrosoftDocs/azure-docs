@@ -16,7 +16,7 @@ ms.reviewer: ''
 
 Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
 
-This article is broken into two sections. The first lists core languages commonly supported across Azure Cognitive Services. The second section focuses on additional language support for each service. Language availability may vary by country/region and market.
+This article is broken into two sections. The first lists core languages commonly supported across Azure Cognitive Services. The second section focuses on additional language support for each of the services. Language availability may vary by country/region and market.
 
 ## Core languages
 
