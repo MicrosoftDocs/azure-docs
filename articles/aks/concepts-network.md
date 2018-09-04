@@ -99,6 +99,8 @@ Separate to a NetworkPolicy, Azure includes a higher-level resource called netwo
 
 ## Next steps
 
+To get started with AKS networking, see [Create and configure advanced networking for an AKS cluster][aks-configure-advanced-networking].
+
 <!-- IMAGES -->
 [advanced-networking-diagram]: ./media/concepts-network/advanced-networking-diagram.png
 
