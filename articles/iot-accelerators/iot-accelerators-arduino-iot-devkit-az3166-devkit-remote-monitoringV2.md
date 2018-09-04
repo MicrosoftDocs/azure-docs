@@ -96,7 +96,7 @@ The MX Chip example code publishes three methods that you can see in the Method 
 
 ![Methods  MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-methods.png)
 
-You can change the color of one of the MX Chip leds using the method "LedColor". For doing it, select the checkbox of the device and click on the Schedule button. 
+You can change the color of one of the MX Chip LEDs using the method "LedColor". For doing it, select the checkbox of the device and click on the Schedule button. 
 
 ![Methods  MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-schedule.png)
 
@@ -104,9 +104,9 @@ Choose the method called ChangeColor in the dropdown where all the methods appea
 
 ![Dropdown  MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-change-color.png)
 
-In several seconds, your physical MX Chip should change the color of the RGB led (below of the A button)
+In several seconds, your physical MX Chip should change the color of the RGB LED (below of the A button)
 
-![Led  MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
+![LED  MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
 ## Problems and feedback
 
