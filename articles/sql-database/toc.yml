@@ -18,7 +18,7 @@
   - name: Configure
     items:
     - name: Logical server firewall rule
-      href: sql-database-get-started-portal.md#create-a-server-level-firewall-rule
+      href: sql-database-get-started-portal-firewall.md
     - name: Client VM connection to a Managed Instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a Managed Instance
