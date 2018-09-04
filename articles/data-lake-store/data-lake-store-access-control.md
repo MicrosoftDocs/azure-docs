@@ -183,10 +183,45 @@ The owning group can be changed by:
 
 ## Access check algorithm
 
-The following illustration represents the access check algorithm for Data Lake Storage Gen1 accounts.
+The following psuedocode represents the access check algorithm for Data Lake Storage Gen1 accounts.
 
-![Data Lake Storage Gen1 ACLs algorithm](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
+```
+def access_check( user, desired_perms, path ) : 
+  # access_check returns true if user has the desired permissions on the path, false otherwise
+  # user is the identity that wants to perform an operation on path
+  # desired_perms is a simple integer with values from 0 to 7 ( R=4, W=2, X=1). User desires these permissions
+  # path is the file or folder
+  # Note: the "sticky bit" is not illustrated in this algorithm
+  
+# Handle super users
+    if (is_superuser(user)) :
+      return True
 
+  # Handle the owning user. Note that mask is not used.
+    if (is_owning_user(path, user))
+      perms = get_perms_for_owning_user(path)
+      return ( (desired_perms & perms) == desired_perms )
+
+  # Handle the named user. Note that mask is used.
+  if (user in get_named_users( path )) :
+      perms = get_perms_for_named_user(path, user)
+      mask = get_mask( path )
+      return ( (desired_perms & perms & mask ) == desired_perms)
+
+  # Handle groups (named groups and owning group)
+  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
+  if (len(belongs_to_groups)>0) :
+    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
+    perms = 0
+    for p in group_perms : perms = perms | p # bitwise OR all the perms together
+    mask = get_mask( path )
+    return ( (desired_perms & perms & mask ) == desired_perms)
+
+  # Handle other
+  perms = get_perms_for_other(path)
+  mask = get_mask( path )
+  return ( (desired_perms & perms & mask ) == desired_perms)
+```
 
 ## The mask and "effective permissions"
 

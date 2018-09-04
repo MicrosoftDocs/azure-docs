@@ -121,5 +121,6 @@ Follow these steps to update or remove an existing role assignment.
 
 ## Next steps
 
+- [Extend or renew Azure resource roles in PIM](pim-resource-roles-renew-extend.md)
 - [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)
 - [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
