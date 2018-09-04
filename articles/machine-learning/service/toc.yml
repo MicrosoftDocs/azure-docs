@@ -15,8 +15,6 @@
   items:
   - name: Get started - Portal
     href: quickstart-get-started.md
-  - name: Get started - CLI
-    href: quickstart-get-started-with-cli.md   
 - name: Tutorials
   items:
   - name: '1. Train models'
@@ -65,7 +63,7 @@
   - name: Deploy models in production	
     items:    
     - name: Where to deploy models
-      href: deploy-models.md
+      href: how-to-deploy-and-where.md
       items:
        - name: Deploy to ACI
          href: how-to-deploy-to-aci.md

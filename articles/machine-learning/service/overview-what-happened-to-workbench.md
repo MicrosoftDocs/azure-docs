@@ -24,7 +24,7 @@ The latest release of Azure Machine Learning includes:
 + A new, more comprehensive [Python SDK](reference-azure-machine-learning-sdk.md)
 + An updated and expanded [Azure CLI extension](reference-azure-machine-learning-sdk.md)
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create workspaces in the [Azure portal](quickstart-get-started.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 While there are improved CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your experiments, but now you'll do so in the Azure portal online. In the online workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -69,7 +69,7 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Since much of the project contents was already on your local machine, you just need to attach this local project directory to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
 
-Learn how to create a project [in Python with the SDK](quickstart-get-started.md) or with [the updated CLI](quickstart-get-started-with-cli.md).
+Learn how to create a project [in Python with the SDK](quickstart-get-started.md).
 
 ## What about deployed web services?
 
@@ -100,5 +100,4 @@ Learn about [the latest architecture for Azure Machine Learning service](concept
 
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
 * [Quickstart: Create a workspace with Python](quickstart-get-started.md)
-* [Quickstart: Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)

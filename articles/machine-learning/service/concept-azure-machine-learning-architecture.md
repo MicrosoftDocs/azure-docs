@@ -66,16 +66,13 @@ The following diagram is a taxonomy of the workspace:
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script specified by the __run configuration__ is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example of using scripts to train a model, see one of the following documents:
-
-* [Create a workspace with Python](quickstart-get-started.md)
-* [Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
+For an example of using scripts to train a model, see [Create a workspace with Python](quickstart-get-started.md)
 
 ## Model
 
 A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. 
 
-Azure Machine Learning is framework agnostic. You can use any popular machine learning framework, including scikit-learn, xgboost, TensorFlow, and CNTK.
+Azure Machine Learning is framework agnostic. You can use any popular machine learning framework, including scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
 ## Image
 
@@ -171,5 +168,4 @@ You can get started using Azure Machine Learning:
 
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
 * [Quickstart: Create a workspace with Python](quickstart-get-started.md)
-* [Quickstart: Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
