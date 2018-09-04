@@ -31,6 +31,7 @@ Next, choose the organization in which to install the extension.
 
 > [!NOTE]
 > To install an extension to a VSTS organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/vsts/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions) 
+
 ![Choose a VSTS organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## Create a build definition
@@ -65,9 +66,9 @@ The completed build definition now looks like this.
 ## Configure tests to use the emulator
 Now, we will configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
 
-In this tutorial, we will use the [Visual Studio Test task](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a .runsettings file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+In this tutorial, we will use the [Visual Studio Test task](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
 
-Below is an example of a .runsettings file that defines parameters to be passed into an application's unit tests. Note the authKey variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the emulator. This is the key expected by the emulator build task and should be defined in your .runsettings file.
+Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the authKey variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the emulator. This is the key expected by the emulator build task and should be defined in your **.runsettings** file.
 
 ```csharp
 <RunSettings>
@@ -127,7 +128,7 @@ namespace todo.Tests
 }
 ```
 
-Navigate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the .runsettings file. In the **Override test run parameters** option, add in ` -endpoint $(CosmosDbEmulator.Endpoint)`. This will configure the Test task to refer to the endpoint of the emulator build task, instead of the one defined in the **.runsettings** file.  
+Navigate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the **.runsettings** file. In the **Override test run parameters** option, add in ` -endpoint $(CosmosDbEmulator.Endpoint)`. This will configure the Test task to refer to the endpoint of the emulator build task, instead of the one defined in the **.runsettings** file.  
 
 ![Override endpoint variable with Emulator build task endpoint](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
