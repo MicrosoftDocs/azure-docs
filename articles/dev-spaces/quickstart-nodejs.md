@@ -118,7 +118,7 @@ You first need to configure your code project so VS Code will communicate with o
 
 Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
+This adds debug configuration for Azure Dev Spaces under the `.vscode` folder. This command is not to be confused with the `azds prep` command, which configures the project for deployment.
 
 ![](./media/common/command-palette.png)
 

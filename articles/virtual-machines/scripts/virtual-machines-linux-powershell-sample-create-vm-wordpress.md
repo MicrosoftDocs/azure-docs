@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - WordPress | Microsoft Docs
 description: Azure PowerShell Script Sample - WordPress
 services: virtual-machines-linux

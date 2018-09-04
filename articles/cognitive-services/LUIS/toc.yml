@@ -11,7 +11,7 @@
     href: luis-get-started-create-app.md
   - name: Use APIs
     items: 
-    - name: Get utterance prediction with endpoint query
+    - name: Get intent 
       items:
       - name: C#
         href: luis-get-started-cs-get-intent.md
@@ -29,7 +29,7 @@
         href: luis-get-started-python-get-intent.md
       - name: Ruby
         href: luis-get-started-ruby-get-intent.md
-    - name: Add utterance to intent and train app
+    - name: Change model
       items: 
       - name: C#
         href: luis-get-started-cs-add-utterance.md
@@ -239,7 +239,7 @@
 - name: Reference
   items: 
   - name: User privacy
-    href: luis-reference-gdpr.md
+    href: luis-user-privacy.md
   - name: Regions
     href: luis-reference-regions.md
   - name: Boundaries
