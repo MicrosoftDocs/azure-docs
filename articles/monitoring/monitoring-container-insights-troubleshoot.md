@@ -22,7 +22,7 @@ ms.author: magoedte
 When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Container Insights, you may occasionally encounter issues. This article details some common issues and troubleshooting steps.
 
 ## Solution is enabled but not reporting any information
-If Container Insights was successfully enabled and configured but you cannot view status information or results in Log Analytics when you perform a log search, you can help diagnose the problem by doing the following: 
+If Container Insights is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analyics log query, you diagnose the problem by performing the following: 
 
 1. Check the status of the agent by running the following command: 
 
@@ -35,7 +35,7 @@ If Container Insights was successfully enabled and configured but you cannot vie
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Check the solution deployment status with agent version *06072018* or later by running the following command:
+2. Check the solution deployment status with agent version *06072018* or later using the following command:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
@@ -47,7 +47,7 @@ If Container Insights was successfully enabled and configured but you cannot vie
     omsagent   1         1         1            1            3h
     ```
 
-3. Check the status of the pod to verify that it is running by running the following command: `kubectl get pods --namespace=kube-system`
+3. Check the status of the pod to verify that it is running using the following command: `kubectl get pods --namespace=kube-system`
 
     The output should resemble the following with a status of *Running* for the omsagent:
 
@@ -87,5 +87,6 @@ If Container Insights was successfully enabled and configured but you cannot vie
 	omsagent 1.6.0.23
 	docker-cimprov 1.0.0.31
     ```
+
 ## Next steps
 With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Container Insights, see [View Azure Kubernetes Service health](monitoring-container-insights-analyze.md).
