@@ -3,7 +3,7 @@ title: Map style functionalities in Azure Maps| Microsoft Docs
 description: Learn about Azure Maps style related functionalities.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
+ms.date: 08/31/2018
 ms.topic: how-to-guides
 ms.service: azure-maps
 services: azure-maps

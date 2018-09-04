@@ -107,7 +107,7 @@ To display the results in CSV:
 ```
 
 ### System Requirements
-- A server running Windows Server 2012 R2 or Windows Server 2016 
+- A server running Windows Server 2012 R2 or Windows Server 2016:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
@@ -116,15 +116,15 @@ To display the results in CSV:
 
     Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
 
-- A server with a minimum of 2GB of memory
+    > [!Important]  
+    > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
+
+- A server with a minimum of 2 GiB of memory.
 
     > [!Important]  
-    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048MB of memory.
+    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
     
-- A locally attached volume formatted with the NTFS file system
-
-> [!Important]  
-> We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
+- A locally attached volume formatted with the NTFS file system.
 
 ### File system features
 | Feature | Support status | Notes |
