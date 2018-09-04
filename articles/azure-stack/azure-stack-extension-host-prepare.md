@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
@@ -14,7 +14,7 @@ manager: femila
 
 # Prepare for extension host for Azure Stack
 
-You can use the extension host to help secure Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through an Azure Stack Update package after the 1808 update.
+The Extension host secures Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through an Azure Stack Update package after the 1808 update.
 
 ## Certificate requirements
 
@@ -34,15 +34,17 @@ The detailed certificate requirements can be found in the [Azure Stack public ke
 The Azure Stack Readiness Checker Tool provides the ability to create a certificate signing request for the two new, required SSL certificates. Follow the steps in the article [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md).
 
 > [!Note]  
-> You may skip this step depending on your request your SSL certificates.
+> You may skip this step depending on how you requested your SSL certificates.
 
 ## Validate new certificates
 
 1. Open PowerShell with elevated permission on the hardware lifecycle host or the Azure Stack management workstation.
 2. Run the following cmdlet to install the Azure Stack Readiness Checker tool.
+
     ```PowerShell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
+
 3. Run the following script to create the required folder structure:
 
     ```PowerShell  
@@ -78,9 +80,11 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 1. Use a computer that can connect to the Azure Stack privileged endpoint for the next steps. Make sure you access to the new certificate files from that computer.
 2. Open PowerShell ISE to execute the next script blocks
 3. Import the certificate for hosting endpoint. Adjust the script to match your environment.
+4. Import the certificate for the Admin hosting endpoint.
 
     ```PowerShell  
-    $CertPassword = ConvertTo-SecureString "***" -AsPlainText -Force
+
+    $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
@@ -95,11 +99,13 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-
-5. Import the certificate for the Admin hosting endpoint.
-
+5. Import the certificate for the hosting endpoint.
     ```PowerShell  
-    [Byte[]] $HostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx  -Encoding Byte)
+    $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
+
+    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+
+    [Byte[]] $HostingCertContent = [Byte[]](Get-Content c:\certificate\myhostingcertificate.pfx  -Encoding Byte)
 
     Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
@@ -110,6 +116,8 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
             Import-UserHostingServiceCert $HostingCertContent $certPassword
     }
     ```
+
+
 
 ### Update DNS configuration
 

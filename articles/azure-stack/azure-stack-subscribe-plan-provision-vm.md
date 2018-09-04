@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 
 ---
@@ -42,9 +42,9 @@ After you create a subscription for a user, they can sign in to the user portal 
    - **Display name** – A friendly name for identifying the subscription that appears as the *User subscription name*.
    - **User** – Specify a user from an available directory tenant for this subscription. The user name appears as *Owner*.  The format of the user name depends on your identity solution. For example:
 
-     - **Azure AD:**  *&lt;user1>@&lt;contoso.onmicrosoft.com>*
+     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:**  *&lt;user1>@&lt;azurestack.local>*
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
    - **Directory tenant** –  Select the directory tenant where the user account belongs. If you haven't enabled multi-tenancy, only your local directory tenant is available.
 

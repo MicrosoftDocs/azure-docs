@@ -50,7 +50,7 @@ To enable sign-in for users using the multi-tenant Azure AD endpoint, you need t
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Save the application ID.
