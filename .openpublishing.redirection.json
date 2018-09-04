@@ -7179,6 +7179,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/20-days-of-tips.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/graph-sdk-dotnet.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
             "redirect_document_id": false
