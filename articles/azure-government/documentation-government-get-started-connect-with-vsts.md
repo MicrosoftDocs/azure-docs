@@ -1,6 +1,6 @@
 ﻿---
-title: Connect to Azure Government from Azure DevOps | Microsoft Docs
-description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Azure DevOps
+title: Connect to Azure Government from Azure DevOps Services | Microsoft Docs
+description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Azure DevOps Services
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.workload: azure-government
 ms.date: 08/10/2018
 ms.author: yujhong
 ---
-# Develop with Azure DevOps
+# Develop with Azure DevOps Services
 
-This article demonstrates how to set up continuous deployment to your web app running in Azure Government using Azure DevOps. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. Azure DevOps is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions. Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Azure DevOps.
+This article demonstrates how to set up continuous deployment to your web app running in Azure Government using Azure DevOps Services. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. Azure DevOps Services is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions. Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Azure DevOps Services.
 
 [Release Management in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) for Azure Government. 
 
-Azure DevOps itself is not available in Azure Government Clouds. When CD is configured using Azure DevOps to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Azure DevOps, click [here](https://docs.microsoft.com/azure/devops/index). 
+Azure DevOps Services itself is not available in Azure Government Clouds. When CD is configured using Azure DevOps Services to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud. To learn more about Azure DevOps Services, click [here](https://docs.microsoft.com/azure/devops/index). 
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
@@ -29,7 +29,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 * Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
 * Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
-+ Have an [Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) and [Azure DevOps Project](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?tabs=vsts)
++ Have an [Azure DevOps Services organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) and [Azure DevOps Project](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?tabs=vsts)
 + Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
 
 ## Create Azure Government app service 
@@ -74,7 +74,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
     ![ps4](./media/documentation-government-vsts-img11.png)
 
-## Configure the Azure DevOps Endpoint
+## Configure the Azure DevOps Services Endpoint
 
 > [!NOTE]
 > Make sure that you add the endpoint soon after running the Powershell script above, as the key expires. 
@@ -126,8 +126,6 @@ Now that your pipeline has been constructed, you can [deploy changes](https://do
 ## Q&A
 * Do I need a build agent?
 You need at least one [agent](https://www.visualstudio.com/en-us/docs/build/concepts/agents/agents) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://www.visualstudio.com/en-us/docs/build/concepts/agents/hosted). Configuring a private agent would limit data sharing outside of Azure Government.
-* I use Azure DevOps Server on-premises. Can I configure CD on my Azure DevOps Server to target Azure Government?
-Currently, Azure DevOps Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
 
 ## Get help and provide feedback
 

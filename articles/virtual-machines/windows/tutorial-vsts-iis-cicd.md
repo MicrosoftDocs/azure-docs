@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a CI/CD pipeline in Azure with Team Services | Microsoft Docs
-description: In this tutorial, you learn how to create a Visual Studio Team Services pipeline for continuous integration and delivery that deploys a web app to IIS on a Windows VM in Azure.
+title: Tutorial - Create a CI/CD pipeline in Azure with Azure DevOps Services | Microsoft Docs
+description: In this tutorial, you learn how to create a Azure DevOps Services pipeline for continuous integration and delivery that deploys a web app to IIS on a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -18,7 +18,7 @@ ms.date: 05/12/2017
 ms.author: cynthn
 ms.custom: mvc
 
-#Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like VSTS to build and deploy my applications automatically.
+#Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use services like Azure DevOps Services to build and deploy my applications automatically.
 ---
 
 # Tutorial: Create a continuous integration pipeline with Azure DevOps Services and IIS
@@ -92,7 +92,7 @@ Watch as the build is scheduled on a hosted agent, then begins to build. The out
 ## Create virtual machine
 To provide a platform to run your ASP.NET web app, you need a Windows virtual machine that runs IIS. Azure DevOps Services uses an agent to interact with the IIS instance as you commit code and builds are triggered.
 
-Create a Windows Server 2016 VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* in the *East US* location. The resource group *myResourceGroupVSTS* and supporting network resources are also created. To allow web traffic, TCP port *80* is opened to the VM. When prompted, provide a username and password to be used as the login credentials for the VM:
+Create a Windows Server 2016 VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* in the *East US* location. The resource group *myResourceGroupAzureDevOpsServices* and supporting network resources are also created. To allow web traffic, TCP port *80* is opened to the VM. When prompted, provide a username and password to be used as the login credentials for the VM:
 
 ```powershell
 # Create user object
@@ -100,7 +100,7 @@ $cred = Get-Credential -Message "Enter a username and password for the virtual m
 
 # Create a virtual machine
 New-AzureRmVM `
-  -ResourceGroupName "myResourceGroupVSTS" `
+  -ResourceGroupName "myResourceGroupAzureDevOpsServices" `
   -Name "myVM" `
   -Location "East US" `
   -ImageName "Win2016Datacenter" `
@@ -202,7 +202,7 @@ With your web application running on IIS, now try the whole CI/CD pipeline. Afte
 2. Navigate to and open *myWebApp | Views | Home | Index.cshtml*
 3. Edit line 6 to read:
 
-    `<h1>ASP.NET with VSTS and CI/CD!</h1>`
+    `<h1>ASP.NET with Azure DevOps Services and CI/CD!</h1>`
 
 4. Save the file.
 5. Open the **Team Explorer** window, select the *myWebApp* project, then choose **Changes**.

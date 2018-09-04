@@ -1,10 +1,10 @@
 ---
-title: Integrate Azure Automation with Visual Studio Team Services source control
-description: Scenario walks you through setting up integration with an Azure Automation account and Visual Studio Team Services source control.
+title: Integrate Azure Automation with Azure DevOps Services source control
+description: Scenario walks you through setting up integration with an Azure Automation account and Azure DevOps Services source control.
 services: automation
 author: eamonoreilly
 ms.author: eamono
-keywords: azure powershell, VSTS, source control, automation
+keywords: azure powershell, Azure DevOps Services, source control, automation
 ms.service: automation
 ms.component: process-automation
 ms.topic: conceptual

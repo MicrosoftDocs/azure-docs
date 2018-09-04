@@ -70,7 +70,7 @@ Now suppose you make some change to the *data\_ingestion* branch for the work it
 
 ## 3. <a name='CreateapullrequestonVSTS-3'></a>Create a pull request on Azure DevOps Services 
 
-When you are ready after a few commits and pushes, to merge the current branch into its base branch, you can submit a **pull request** on Azure DevOps server. 
+When you are ready after a few commits and pushes, to merge the current branch into its base branch, you can submit a **pull request** on Azure DevOps Services. 
 
 Go to the main page of your project and click **CODE**. Select the branch to be merged and the Git repository name that you want to merge the branch into. Then click **Pull Requests**, click **New pull request** to create a pull request review before the work on the branch is merged to its base branch.
 

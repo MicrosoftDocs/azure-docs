@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services
+title: Azure CLI Script Sample - Create a web app with continuous deployment from Azure DevOps Services | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app with continuous deployment from Azure DevOps Services
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -23,7 +23,7 @@ ms.custom: mvc
 This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Azure DevOps repository. For this sample, you need:
 
 * A Azure DevOps repository with application code, that you have administrative permissions for.
-* A [Personal Access Token (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) for your Azure DevOps organization.
+* A [Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) for your Azure DevOps organization.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

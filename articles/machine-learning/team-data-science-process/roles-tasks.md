@@ -85,7 +85,7 @@ For detailed step-by-step instructions, see [Group Manager tasks for a data scie
 
 The following tasks are completed by the Team Lead (or a designated project administrator) to adopt the TDSP:
 
-- If Azure DevOps is selected to be the code hosting platform for versioning and collaboration, create a **project** on the group's Azure DevOps server. Otherwise, this task can be skipped.
+- If Azure DevOps is selected to be the code hosting platform for versioning and collaboration, create a **project** on the group's Azure DevOps Services. Otherwise, this task can be skipped.
 - Create the **project template repository** under the project, and seed it from the group project template repository set up by your group manager or the delegate of the manager. 
 - Create the **team utility repository**, and add the team-specific utilities to the repository. 
 - (Optional) Create **[Azure file storage](https://azure.microsoft.com/services/storage/files/)** to be used to store data assets that can be useful for the entire team. Other team members can mount this shared cloud file store on their analytics desktops.
