@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/03/2018
 ms.author: danlep
 #Customer intent: As a data scientist or AI researcher, I want to quickly create a GPU cluster in Azure for training my AI or machine learning models.
 ---
@@ -60,7 +60,6 @@ To create a Batch AI cluster, use the `az batchai cluster create` command. The f
 * Contains a single node in the NC6 VM size, which has one NVIDIA Tesla K80 GPU. 
 * Runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. 
 * Adds a user account named *myusername*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*) in your local environment. 
-* Automatically creates (through the `--use-auto-storage` option) an associated storage account, which you can use to store files for training jobs. Batch AI mounts a file share and storage container in that account on each cluster node.  
 
 ```azurecli-interactive
 az batchai cluster create \
@@ -68,7 +67,6 @@ az batchai cluster create \
     --workspace myworkspace \
     --resource-group myResourceGroup \
     --vm-size Standard_NC6 \
-    --use-auto-storage \
     --target 1 \
     --user-name myusername \
     --generate-ssh-keys
@@ -94,9 +92,7 @@ mycluster  myResourceGroup   myworkspace  STANDARD_NC6  resizing      0         
 ```
 The cluster is ready to use when the state is `steady` and the single node is `Idle`.
 
-## Verify that the cluster is running
-
-### List cluster nodes 
+## List cluster nodes 
 
 If you need to connect to the cluster nodes (in this case, a single node) to install applications or perform maintenance, get connection information by running the `az batchai cluster node list` command:
 
@@ -126,28 +122,7 @@ ssh myusername@40.68.254.143 -p 50000
 ``` 
 Exit the SSH session to continue.
 
-### Show file share information
-
-Run the `az batchai cluster show` command to query for storage settings including the Azure file share URL and account name. This information is useful when configuring the input and output files for a job.
-
-```azurecli-interactive
-az batchai cluster show \
-    --name mycluster \
-    --workspace myworkspace \
-    --resource-group myResourceGroup \
-    --query "nodeSetup.mountVolumes.azureFileShares[0].{account:accountName, URL:azureFileUrl}"
-```
-
-Output is similar to the following. Note the name of the share (`batchaishare`) set up automatically in the account.
-
-```
-{
-  "URL": "https://baizxxxxxxxxxxxx.file.core.windows.net/batchaishare",
-  "account": "baizxxxxxxxxxxxx"
-}
-```
-
-### Resize the cluster
+## Resize the cluster
 
 When you use your cluster to run a training job, you might need more compute resources. For example, to increase the size to 2 nodes for a distributed training job, run the [batch ai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) command:
 
@@ -163,7 +138,7 @@ It takes a few minutes for the cluster to resize.
 
 ## Clean up resources
 
-If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, cluster, and storage account created in this quickstart. 
+If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace created in this quickstart. 
 
 You're charged for the Batch AI cluster while the nodes are running. If you want to keep the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. 
 
@@ -184,16 +159,10 @@ az batchai cluster delete \
     --resource-group myResourceGroup \
 ```
 
-When no longer needed, you can use the `az group delete` command to remove the resource groups for the Batch AI and storage resources. Delete the Batch AI resources as follows:
+When no longer needed, you can use the `az group delete` command to remove the resource group for the Batch AI resources. 
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
-```
-
-Delete the Batch AI storage resources as follows:
-
-```azurecli-interactive
-az group delete --name batchaiautostorage
 ```
 
 ## Next steps
