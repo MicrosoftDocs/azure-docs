@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # Quickstart: Create a Kusto cluster and database
 
-Kusto is a log analytics platform that is optimized for ad-hoc big data queries. To use Kusto, you first create a *cluster*, and create one or more *databases* in that cluster. Then you *ingest* (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database; then you ingest sample data into the database. This gives you a basic understanding of how Kusto works. 
+Kusto is a log analytics platform that is optimized for ad-hoc big data queries. To use Kusto, you first create a *cluster*, and create one or more *databases* in that cluster. Then you *ingest* (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database, then you ingest sample data into the database. This gives you a basic understanding of how Kusto works. 
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -31,38 +31,59 @@ You create a Kusto cluster in an Azure resource group, with a defined set of com
 
 1. Select **Databases** > **KustoDB**.
 
-   ![Kusto cluster option](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+   ![Create cluster option](media/create-cluster-database-portal/create-cluster.png)
 
-1. Fill out the new cluster details form with the following information:
+1. Fill out the form with the following information.
    
-   ![Create cluster form](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
+   ![Create cluster form](media/create-cluster-database-portal/create-cluster-form.png)
 
     **Setting** | **Suggested value** | **Field description** 
-    ---|---|---
-    Server name | Unique server name | Choose a unique name that identifies your Azure Database for MySQL server. For example, mydemoserver. The domain name *.mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-    Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
-    Resource group | *myresourcegroup* | Provide a new or existing resource group name.    Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
+    |---|---|---|
+    | Cluster name | A unique cluster name | Choose a unique name that identifies your cluster. For example, *mytestcluster*. The domain name *<region>.kusto.windows.net* is appended to the cluster name you provide. The name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+    | Subscription | Your subscription | Select the Azure subscription that you want to use for your cluster.|
+    | Resource group | *test-resource-group* | Create a new resource group. |
+    | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs.
+    | Pricing tier | *KC8 Compute optimized* | Select the lowest pricing tier for this quickstart. For a production system, select the tier that best meets your needs.
+    | | | 
+    
 
-1. Select **Create** to provision the cluster. Provisioning typically takes ten minutes.
+1. Select **Create** to provision the cluster. Provisioning typically takes about ten minutes.
    
 1.	Select **Notifications** on the toolbar (the bell icon) to monitor the provisioning process.
 
-1. When the process is complete, select the **Overview** tab to see the step-by-step process.  
+1. When the process is complete, select the **Overview** tab. You're now ready for the second step in the process: database creation.  
 
-    ![Three-step process]()
+    ![Step two: create a database](media/create-cluster-database-portal/database-creation.png)
 
 ## Create a database
 
-Create a database within the cluster to hold sample data:
+Create a database within the cluster to hold sample data.
 
-1. 
-1. 
+1. On the **Overview** tab, select **Create database**.
+
+1. Fill out the form with the following information.
+
+    ![Create database form](media/create-cluster-database-portal/create-database.png)
+
+    **Setting** | **Suggested value** | **Field description** 
+    |---|---|---|
+    | Database name | *test-database* | The database name must be unique within the cluster.
+    | Soft retention period | *3650* | The time span for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested.
+    | Hot cache period | *31* | The time span for which to keep frequently-queried data available in SSD storage or RAM, rather than in longer-term storage.
+    | | | |
+
+1. Select **Save** to create the database. Creation typically takes less than a minute.
+
+1. When the process is complete, select the **Overview** tab. You're now ready for the third step in the process: data ingestion.  
+
+    ![Step three: ingest data](media/create-cluster-database-portal/data-ingestion.png)
+
 
 ## Ingest sample data
 
-You now ingest the **StormEvents** sample data into the database. This is weather-related data made available by the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+You now ingest data into the database. The **StormEvents** sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
-1. `This series of steps is waiting on UI updates to use Event Hub. In the meantime, ingest the data in Query Explorer`:
+1. **This series of steps is waiting on UI updates to use Event Hub. In the meantime, ingest the data in Query Explorer**:
 
     ```Kusto
     .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
@@ -86,22 +107,32 @@ You now ingest the **StormEvents** sample data into the database. This is weathe
 
 ## Stop and restart the cluster
 
-When cluster is not used, in order to reduce cost the service can be stopped.
-To do so, you need to select the stop (currently deactivate) option in the top menu of the Overview blade.
-This means that the compute is being destroyed and the data is kept in storage (Blob).
-This means the data will not be available for queries and no more data will be ingested to the cluster.
-To start the cluster you need to go to the overview blade and select that option. 
-It takes about 10 minutes to start the cluster (like cluster creation) and then it take some more time to load the data to hot cache.
+You can stop and restart a cluster depending on business needs.
+
+1. To stop the cluster, at the top of the **Overview** tab, select **Stop**. 
+
+    When the cluster is stopped, data is not available for queries, and you can't ingest new data.
+
+1. To restart the cluster, at the top of the **Overview** tab, select **Start**.
+
+    When the cluster is restarted, it takes about ten minutes for it to become available (like when it was originally provisioned). It takes additional time for data to load into the hot cache.  
 
 
 ## Clean up resources
 
-If you plan to follow our other quickstarts and tutorials, keep the resources you created (you can stop the cluster as described in the last section). If not, clean up the **kustotest** resource group you created:  
+If you plan to follow our other quickstarts and tutorials, keep the resources you created. If not, clean up the **kustotest** resource group, to avoid incurring costs. 
 
-1. ssss
+1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
 
-1. 
+    If the left menu is collapsed, click ![Expand button](../../includes/media/cosmos-db-delete-resource-group/expand.png) to expand it.
 
+   ![Select resource group to delete](../../includes/media/cosmos-db-delete-resource-group/delete-resources-select.png)
+
+1. In the new window select the resource group, and then click **Delete resource group**.
+
+   ![Delete resource group](../../includes/media/cosmos-db-delete-resource-group/delete-resources.png)   
+
+1. In the new window, type the name of the resource group to delete (*test-resource-group*), and then click **Delete**.
 
 ## Next steps
 
