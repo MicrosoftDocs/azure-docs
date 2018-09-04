@@ -78,7 +78,7 @@ This section shows the summary of the insights.
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
 |faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
@@ -86,6 +86,7 @@ This section shows the summary of the insights.
 |labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
 |statistics | For more detailed information, see [statistics](#statistics).|
+|emotions| May contain zero or more emotions. For More detailed information, see [emotions](#emotions).|
 
 ## videos
 
@@ -161,6 +162,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
+|emotions| The [emotions](#emotions) dimension.|
 
 Example:
 
@@ -440,7 +442,7 @@ Example:
           "id": 0,
           "instances": [
             {
-	      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+	            "thumbnailId": "00000000-0000-0000-0000-000000000000",
               "start": "00: 00: 00.1670000",
               "end": "00: 00: 00.2000000"
             }
@@ -449,7 +451,7 @@ Example:
       ],
       "instances": [
         {
-	   "thumbnailId": "00000000-0000-0000-0000-000000000000",	
+	        "thumbnailId": "00000000-0000-0000-0000-000000000000",	
           "start": "00: 00: 00.2000000",
           "end": "00: 00: 05.0330000"
         }
@@ -462,7 +464,7 @@ Example:
           "id": 1,
           "instances": [
             {
-	      "thumbnailId": "00000000-0000-0000-0000-000000000000",	    
+	            "thumbnailId": "00000000-0000-0000-0000-000000000000",	    
               "start": "00: 00: 05.2670000",
               "end": "00: 00: 05.3000000"
             }
@@ -663,6 +665,94 @@ Videos that are found to contain adult or racy content might be available for pr
 |bannedWordsCount |The number of banned words.|
 |bannedWordsRatio |The ratio from total number of words.|
 
+#### emotions
+
+Video Indexer identifies emotions based on speech and audio cues. The identified emotion could be: joy, sadness, anger, or fear.
+
+|Name|Description|
+|---|---|
+|id|The emotion ID.|
+|type|The emotion moment that was identified based on speech and audio cues. The emotion could be: joy, sadness, anger, or fear.|
+|instances|A list of time ranges where this emotion appeared.|
+
+```json
+"emotions": [{
+    "id": 0,
+    "type": "Fear",
+    "instances": [{
+      "adjustedStart": "0:00:39.47",
+      "adjustedEnd": "0:00:45.56",
+      "start": "0:00:39.47",
+      "end": "0:00:45.56"
+    },
+    {
+      "adjustedStart": "0:07:19.57",
+      "adjustedEnd": "0:07:23.25",
+      "start": "0:07:19.57",
+      "end": "0:07:23.25"
+    }]
+  },
+  {
+    "id": 1,
+    "type": "Anger",
+    "instances": [{
+      "adjustedStart": "0:03:55.99",
+      "adjustedEnd": "0:04:05.06",
+      "start": "0:03:55.99",
+      "end": "0:04:05.06"
+    },
+    {
+      "adjustedStart": "0:04:56.5",
+      "adjustedEnd": "0:05:04.35",
+      "start": "0:04:56.5",
+      "end": "0:05:04.35"
+    }]
+  },
+  {
+    "id": 2,
+    "type": "Joy",
+    "instances": [{
+      "adjustedStart": "0:12:23.68",
+      "adjustedEnd": "0:12:34.76",
+      "start": "0:12:23.68",
+      "end": "0:12:34.76"
+    },
+    {
+      "adjustedStart": "0:12:46.73",
+      "adjustedEnd": "0:12:52.8",
+      "start": "0:12:46.73",
+      "end": "0:12:52.8"
+    },
+    {
+      "adjustedStart": "0:30:11.29",
+      "adjustedEnd": "0:30:16.43",
+      "start": "0:30:11.29",
+      "end": "0:30:16.43"
+    },
+    {
+      "adjustedStart": "0:41:37.23",
+      "adjustedEnd": "0:41:39.85",
+      "start": "0:41:37.23",
+      "end": "0:41:39.85"
+    }]
+  },
+  {
+    "id": 3,
+    "type": "Sad",
+    "instances": [{
+      "adjustedStart": "0:13:38.67",
+      "adjustedEnd": "0:13:41.3",
+      "start": "0:13:38.67",
+      "end": "0:13:41.3"
+    },
+    {
+      "adjustedStart": "0:28:08.88",
+      "adjustedEnd": "0:28:18.16",
+      "start": "0:28:08.88",
+      "end": "0:28:18.16"
+    }]
+  }],
+````
 
 ## Next steps
 

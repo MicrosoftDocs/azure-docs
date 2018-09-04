@@ -9,28 +9,41 @@ manager: erikre
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 07/25/2018
+ms.date: 09/04/2018
 ms.author: nolachar
 
 ---
-# What is Video Indexer? (preview)
+# What is Microsoft Azure Video Indexer?
 
-Video Indexer is a cloud application built using Azure Media Analytics, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service), and Azure Search. It enables you to extract the following insights from your videos using artificial intelligence technologies:
+Microsoft Azure Video Indexer is a cloud application built using Azure artificial intelligence technologies. Video Indexer is comprised of models that enable Video Indexer to perform tasks described below: 
 
-- **Automatic language detection**: Video Indexer can automatically detect the language of the video. Auto language detection currently supports English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian. Will fallback to English when the language can't be detected.
-- **Audio transcription**: Video Indexer has speech-to-text functionality, which enables customers to get a transcript of the spoken words. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Portuguese (Brazilian), Japanese, and Russian (with many more to come in the future). 
-- **Face tracking and identification**: Face technologies enable detection of faces in a video. The detected faces are matched against a celebrity database to evaluate which celebrities are present in the video. Customers can also label faces that do not match a celebrity. Video Indexer builds a face model based on those labels and can recognize those faces in videos submitted in the future.
-- **Speaker indexing**: Video Indexer has the ability to map and understand which speaker spoke which words and when.
-- **Visual text recognition**: With this technology, Video Indexer service extracts text that is displayed in the videos.  
-- **Voice activity detection**: Detection enables Video Indexer to separate background noise and voice activity. 
-- **Scene detection**: Video Indexer has the ability to perform visual analysis on the video to determine when a scene changes in a video.
-- **Keyframe extraction**: Video Indexer automatically detects keyframes in a video. 
-- **Sentiment analysis**: Video Indexer performs sentiment analysis on the text extracted using speech-to-text and optical character recognition, and provides that information in the form of positive, negative, or neutral sentiments, along with timecodes.
-- **Translation**: Video Indexer has the ability to translate the audio transcript from one language to another. The following languages are supported: English, Spanish, French, German, Italian, Chinese-Simplified, Portuguese-Brazilian, Japanese, and Russian. Once translated, the user can even get captioning in the video player in other languages.
-- **Visual content moderation**: This technology enables detection of adult and/or racy material present in the video and can be used for content filtering. 
-- **Keywords extraction**: Video Indexer extracts keywords based on the transcript of the spoken words and text recognized by visual text recognizer.
-- **Labels**: Video Indexer provides labels for visual objects such as cat, dog, table, car, as well as actions such as standing, running or flying.
-- **Brands**: Video Indexer extracts business brands based on the transcript of the spoken words and text recognized by visual text recognizer.
+- **Automatic language detection**:	Automatically identifies the dominant spoken language. 
+- **Audio transcription**: Converts speech to text in 10 languages and allow extensions.
+- **Closed captioning**: Creates closed captioning in three formats: vtt, ttml, srt.
+- **Two channel processing**: Auto detects, separate transcript and merges to single timeline.
+- **Noise reduction**:	Clears up telephony audio or noisy recordings (based on Skype filters).
+- **Transcript customization (CRIS)**: Trains and executes extended custom speech to text models to create industry-specific transcripts.
+- **Speaker enumeration**:	Maps and understands which speaker spoke which words and when.
+- **Speaker statistics**: Provides Statistics for speakers speech ratios.
+- **Visual text recognition (OCR)**: Extracts text that is visually displayed in the video.
+- **Keyframe extraction**: Detects stable keyframes in a video.
+- **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from Speech and visual text.
+- **Visual content moderation**: Detects adult and/or racy visuals.
+- **Keywords extraction**: Extracts keywords from speech and  visual text.
+- **Labels identification**: Identifies visual objects and actions displayed.
+- **Brands extraction**: Extracts brands from  speech and visual text.
+- **Face detection**: Detects and groups faces appearing in the video.
+- **Thumbnail extraction for faces ("best face")**:	Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extract it as an image asset.
+- **Celebrity identification**: Recognizes celebrities in the video based on a database of 1M celebrities, sourced from IMDB, Wikipedia, and top Linkedin influencers.
+- **Custom face identification**: Recognizes faces in the video based on a custom model trained for the specific account.
+- **Textual content moderation**: Detects explicit text in the audio transcript.
+- **Shot detection**: Determines when a scene changes in the video.
+- **Black frame detection**: Identifies black frames presented in the video.
+- **Audio effects**: Identifies audio effects such as hand claps, speech, and silence.
+- **Article inferencing**: Makes inference of the main topics from speech and visual text, based on several sources including IPTC taxonomy.
+- **Emotion detection**: Identifies emotion moment based on speech and audio cues. The emotion could be: joy, sadness, anger, or fear.
+- **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
+- **Translation**: Creates translations of the audio transcript to 54 different languages.
 
 Once Video Indexer is done processing and analyzing, you can review, curate, search, and publish the video insights.
 
