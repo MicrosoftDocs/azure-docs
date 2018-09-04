@@ -54,7 +54,7 @@ Access to the Azure portal is enabled by default when you change the Firewall se
 
 ## Connections from Global Azure datacenters or Azure PaaS services
 
-“Azure PaaS services like Azure Stream analytics, Azure Functions etc. are used in conjunction with Azure Cosmos DB. To allow applications from other Azure PaaS services to connect to your Azure Cosmos DB resources, a firewall setting must be enabled. To enable this firewall setting, add the IP address- 0.0.0.0 to the list of allowed IP addresses. The Ip address- 0.0.0.0 indicates that connections from all Azure datacenter IP address range are allowed to connect to your Azure Cosmos DB resources.“
+Azure PaaS services like Azure Stream analytics, Azure Functions etc. are used in conjunction with Azure Cosmos DB. To allow applications from other Azure PaaS services to connect to your Azure Cosmos DB resources, a firewall setting must be enabled. To enable this firewall setting, add the IP address- 0.0.0.0 to the list of allowed IP addresses. 0.0.0.0 restricts connections to Azure Cosmos DB account from Azure datacenter IP range. This setting does not allow access for any other IP ranges to the Azure Cosmos DB account.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.

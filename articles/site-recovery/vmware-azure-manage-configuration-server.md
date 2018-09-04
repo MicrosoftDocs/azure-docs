@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site RecoveryS.
 author: rayne-wiselman
@@ -84,6 +84,7 @@ You can reregister the configuration server in the same vault if you need to. If
           net stop obengine
           net start obengine
   ```
+  
 ## Upgrade the configuration server
 
 You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
