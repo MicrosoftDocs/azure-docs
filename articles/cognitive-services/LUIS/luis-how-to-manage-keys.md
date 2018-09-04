@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/09/2018
 ms.author: diberry
 ---
 
@@ -70,7 +70,7 @@ This setting allows your chatbot or LUIS-calling application to make a programma
 
 The intents and their scores are also included the endpoint logs. You can [export](luis-how-to-start-new-app.md#export-app) those logs and analyze the scores. 
 
-```
+```JSON
 {
   "query": "book a flight to Cairo",
   "topScoringIntent": {

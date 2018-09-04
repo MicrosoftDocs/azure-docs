@@ -9,7 +9,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
 #dfb - verified this tutorial works on 6/26 using logitech wireless headset
@@ -28,12 +28,13 @@ The intents, and utterances for this article are from the Human Resources LUIS a
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|Example utterances|
+|--|
+|Who is John Smith's manager?|
+|Who does John Smith manage?|
+|Where is Form 123456?|
+|Do I have any paid time off?|
+
 
 ## Add KeyPhrase prebuilt entity
 After importing the app, select **Entities**, then **Manage prebuilt entities**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.

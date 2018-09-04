@@ -7,7 +7,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As an advanced user, I want to understand how to use multiple LUIS endpoint keys to increase the number of endpoint requests my application receives.
 ---
@@ -344,7 +344,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 The successful response with the LUIS endpoint is:
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 
