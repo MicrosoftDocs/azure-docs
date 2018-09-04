@@ -264,7 +264,8 @@ There are two ways the DataPrep API can acquire the necessary OAuth token to acc
 ### Using Access Token from a recent Azure CLI session
 On your local machine, run the following command:
 
-> [!NOTE]: If your user account is a member of more than one Azure tenant, it will be necessary to specify the tenant in the AAD url hostname form.
+> [!NOTE] 
+> If your user account is a member of more than one Azure tenant, it will be necessary to specify the tenant in the AAD url hostname form.
 ```
 az login
 az account show --query tenantId
