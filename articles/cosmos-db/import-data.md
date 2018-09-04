@@ -199,7 +199,7 @@ Similar to the SQL source, the nesting separator property may be used to create 
 
 ![Screenshot of CSV sample records - CSV to JSON](./media/import-data/csvsample.png)
 
-Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of '.’, the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
+Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of '.', the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
 *{
   "DomainInfo": {
