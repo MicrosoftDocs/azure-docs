@@ -60,7 +60,7 @@ In the latest version of Azure Machine Learning service, run histories were rena
 
 ## Can I still prepare data?
 
-Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/en-us/python/api/azureml_dataprep/?view=azure-dataprep-py) to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. Learn how to get the SDK. 
+Data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  With smaller data sets, you can use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/azureml_dataprep/?view=azure-dataprep-py) to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. Learn how to get the SDK. 
 
 ## Will projects persist?
 
