@@ -37,9 +37,9 @@ To create a module, you need .NET to build the project folder, Docker to build t
 
 To setup local development environment to debug, run and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).Install [Python (2.7/3.6) and Pip](https://www.python.org/). Then install **iotedgehubdev** by running below command in your terminal.
 
-    ```cmd
-    pip install --upgrade iotedgehubdev
-    ```
+   ```cmd
+   pip install --upgrade iotedgehubdev
+   ```
 
 To test your module on a device, you need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Windows](quickstart.md) or [Linux](quickstart-linux.md). 
 
