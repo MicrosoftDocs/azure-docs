@@ -16,7 +16,19 @@
 # How To
 ## Manage
 ### [Subscription](germany-manage-subscriptions.md)
-
+## [Migrate](germany-migration-main.md)
+### [Compute](germany-migration-compute.md)             
+### [Networking](germany-migration-networking.md)
+### [Storage](germany-migration-storage.md)
+### [Web](germany-migration-web.md)
+### [Databases](germany-migration-databases.md)        
+### [Analytics](germany-migration-analytics.md)  
+### [Internet of Things](germany-migration-iot.md)        
+### [Integration](germany-migration-integration.md)
+### [Identity](germany-migration-identity.md)  
+### [Security](germany-migration-security.md)
+### [Management tools](germany-migration-management-tools.md)
+### [Media](germany-migration-media.md)
 
 # Reference
 ## [Images](germany-image-gallery.md)
