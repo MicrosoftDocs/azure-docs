@@ -37,7 +37,7 @@ The sizing requirements for the configuration server depend on the potential dat
 | 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) |18 GB |600 GB |500 GB to 1 TB |Replicate 100-150 machines. |
 | 16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) |32 GB |1 TB |1 TB to 2 TB |Replicate 150-200 machines. |
 
-If you're replicating more than one VMware VM, read [capacity planning considerations](/site-recovery-plan-capacity-vmware.md). Run the [Deployment planner tool](site-recovery-deployment-planner.md) for VMWare replication.
+If you're replicating more than one VMware VM, read [capacity planning considerations](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Run the [Deployment planner tool](site-recovery-deployment-planner.md) for VMWare replication.
 
 ## Download the template
 
