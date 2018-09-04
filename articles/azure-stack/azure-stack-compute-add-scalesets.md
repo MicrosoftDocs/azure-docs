@@ -33,7 +33,7 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
 - **The Marketplace**  
     Register Azure Stack with global Azure to enable the availability of items in the Marketplace. Follow the instructions in [Register Azure Stack with Azure](azure-stack-registration.md).
 - **Operating system image**  
-  Before a virtual machine scale set (VMSS) can be created, you must download the VM images for use in the VMSS from the [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item). The images must already be present before a user can create a new VMSS. 
+  Before a virtual machine scale set (VMSS) can be created, you must download the VM images for use in the VMSS from the [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). The images must already be present before a user can create a new VMSS. 
 
 
 ## Use the Azure Stack portal 
