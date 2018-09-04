@@ -25,6 +25,7 @@ Azure AD Terms of use provides a simple method that organizations can use to pre
 ## What can I do with Terms of use?
 Azure AD Terms of use enables you to do the following:
 - Require employees or guests to agree to your Terms of use before getting access.
+- Require employees or guests to agree to your Terms of use on every device before getting access.
 - Present general Terms of use for all users in your organization.
 - Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](users-groups-roles/groups-dynamic-membership.md)).
 - Present specific Terms of use when accessing high business impact applications, like Salesforce.
@@ -61,24 +62,24 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 1. Enter the **Name** for the Terms of use
 
-2. Enter **Display name**.  This is the header that users see when they sign in.
+1. Enter **Display name**.  This is the header that users see when they sign in.
 
-3. **Browse** to your finalized Terms of use PDF and select it.
+1. **Browse** to your finalized Terms of use PDF and select it.
 
-4. **Select** a language for the Terms of use.  The language option allows you to upload multiple Terms of use, each with a different language.  The version of the Terms of use that an end user will see will be based on their browser preferences.
+1. **Select** a language for the Terms of use.  The language option allows you to upload multiple Terms of use, each with a different language.  The version of the Terms of use that an end user will see will be based on their browser preferences.
 
-5. For **Require users to expand the terms of use**, select On or Off. If this setting is set to On, end users will be required to view the Terms of use prior to accepting them.
+1. For **Require users to expand the terms of use**, select On or Off. If this setting is set to On, end users will be required to view the Terms of use prior to accepting them.
 
-5. For **Require users to consent on every device**, select On or Off. If this setting is set to On, end users will be required to agree to the Terms of use on every device they are accessing from. The end user will be required to [register their device in Azure AD](./devices/overview.md). When the device is registered, the device ID is used to enforce the Terms of use on each device. For more information, see [Per device Terms of use](#per-device-terms-of-use).
+1. For **Require users to consent on every device**, select On or Off. If this setting is set to On, end users will be required to agree to the Terms of use on every device they are accessing from. For more information, see [Device-based Terms of use](#device-based-terms-of-use).
 
-6. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](conditional-access/best-practices.md).
+1. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Conditional access policy controls (including Terms of use) do not support enforcement on service accounts.  We recommend excluding all service accounts from the conditional access policy.
 
-7. Click **Create**.
+1. Click **Create**.
 
-8. If you selected a custom conditional access template, then a new screen appears which allows you to customize the conditional access policy.
+1. If you selected a custom conditional access template, then a new screen appears which allows you to customize the conditional access policy.
 
     You should now see your new Terms of use.
 
@@ -174,8 +175,26 @@ The following procedure describes how to add a Terms of use language.
 
 1. Click **Add** to add the language.
 
-## Per device Terms of use
+## Device-based Terms of use
 
+The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to [register their device in Azure AD](./devices/overview.md). When the device is registered, the device ID is used to enforce the Terms of use on each device.
+
+Here is list of the supported operating systems and software.
+
+> [!div class="mx-tableFixed"]
+> |  | iOS | Android | Windows 10 | Mac | Other |
+> | --- | --- | --- | --- | --- | --- |
+> | **Native app** | Yes | Yes | Yes | No | No |
+> | **Edge** | Yes | Yes | Yes | No | No |
+> | **Internet Explorer** | Yes | Yes | Yes | No | No |
+> | **Chrome** | Yes | Yes | Yes | No | No |
+> | **Other** | No | No | No | No | No |
+
+Device-based Terms of use has the following constraints:
+
+- A device can only be registered with one tenant.
+- Shared computers are not supported because users may not have permissions to register the device.
+- Intune enrollment app is not supported.
 
 ## Delete Terms of use
 You can delete old Terms of use using the following procedure.
