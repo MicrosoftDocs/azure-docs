@@ -59,6 +59,8 @@
       items:
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
+    - name: Tune hyperparameters
+      href: how-to-tune-hyperparameters.md
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
