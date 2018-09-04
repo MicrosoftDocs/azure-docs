@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -67,11 +67,10 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ````
 
 2. Create the certificate directory structure. In the example below, you can change `<c:\certificates>` to a new directory path of your choice.
-
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension','Public Extension'
     
     $destination = 'c:\certificates'
     
