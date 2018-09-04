@@ -27,6 +27,8 @@
   items: 
   - name: Architecture and terms
     href: concept-azure-machine-learning-architecture.md    
+  - name: Model management
+    href: concept-model-management-and-deployment.md
   - name: FPGA accelerations
     href: concept-accelerate-with-fpgas.md  
   - name: Machine learning pipelines
