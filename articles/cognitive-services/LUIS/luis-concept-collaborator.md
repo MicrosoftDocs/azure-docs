@@ -1,5 +1,5 @@
 ---
-title: Understand LUIS app collaboration - Azure Cognitive Services | Microsoft Docs
+title: Understand LUIS app collaboration - Azure | Microsoft Docs
 description: LUIS apps require a single owner and optional collaborators.
 services: cognitive-services
 author: diberry
@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 05/07/2018
 ms.author: diberry
 ---
 # Collaborating
@@ -45,7 +45,7 @@ Exported apps are JSON-formatted files, which can be compared for changes. Combi
 This method allows you to have one active version, one stage version, and one published version. You can compare the results in the interactive testing pane across the three versions.
 
 ### Manage multiple versions as apps
-Export the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
+[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
 
 Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
 
