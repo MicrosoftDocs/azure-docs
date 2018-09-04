@@ -204,7 +204,7 @@ For more information, see [Using a partitioned graph in Azure Cosmos DB](graph-p
 
 ## Form partition key by concatenating multiple fields
 
-You can also form a partition key by concatenating and padding multiple property values into a single artificial “partitionKey” property of the item. These keys are referred as synthetic keys.
+You can also form a partition key by concatenating and padding multiple property values into a single artificial "partitionKey" property of the item. These keys are referred as synthetic keys.
 
 For example, you have a document that looks like:
 

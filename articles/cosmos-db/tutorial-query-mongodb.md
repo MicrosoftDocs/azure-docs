@@ -60,11 +60,11 @@ The queries in this article use the following sample document.
 ```
 ## <a id="examplequery1"></a> Example query 1 
 
-Given the sample family document above, the following query returns the documents where the id field matches `WakefieldFamily`.
+Given the sample family document above, the following query returns the documents where the id field matches "WakefieldFamily".
 
 **Query**
     
-    db.families.find({ id: “WakefieldFamily”})
+    db.families.find({ id: "WakefieldFamily"})
 
 **Results**
 
@@ -114,7 +114,7 @@ The next query returns all the children in the family.
 
 **Query**
     
-    db.families.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **Results**
 
