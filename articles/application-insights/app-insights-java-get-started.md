@@ -218,7 +218,9 @@ package devCamp.WebApp.configurations;
     }
 ```
 
-[!NOTE] If you're using Spring Boot 1.3.8 or older replace the FilterRegistrationBean with the line below
+> [!NOTE]
+> If you're using Spring Boot 1.3.8 or older replace the FilterRegistrationBean with the line below
+
 ```Java
     import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```
