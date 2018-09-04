@@ -12,8 +12,8 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to build a Node.js REST web API that integrates with Azure Active Directory for authentication.
