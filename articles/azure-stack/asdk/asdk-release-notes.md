@@ -46,15 +46,15 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- IS ASDK --> Settings to scale virtual machine scale sets are now available in the portal.  
 
-- <!-- 2494144- IS, ASDK --> The issue the prevented some F-series virtual machine sizes from appearing when selecting a VM size for deployment is now resolved. 
+- <!-- 2494144- IS, ASDK --> The issue that prevented some F-series virtual machine sizes from appearing when selecting a VM size for deployment is now resolved. 
 
-- <!-- IS, ASDK --> Improvements for performance when creating virtual machines, and more optimized sue of underlying storage.
+- <!-- IS, ASDK --> Improvements for performance when creating virtual machines, and more optimized use of underlying storage.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 
 ### Changes
-- <!-- 1697698  | IS, ASDK --> The *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
+- <!-- 1697698  | IS, ASDK --> *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
 
 - <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
 
@@ -77,7 +77,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
-- <!--  TBD | ASDK -->  The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will automatically revert to UTC as the default during installation.
+
 
 #### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
@@ -104,7 +104,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!--  2966665 – IS, ASDK --> Attaching SSD data disks to premium size managed disk virtual machines  (DS, DSv2, Fs, Fs_V2) fails with an error:  *Failed to update disks for the virtual machine ‘vmname’ Error: Requested operation cannot be performed because storage account type ‘Premium_LRS’ is not supported for VM size ‘Standard_DS/Ds_V2/FS/Fs_v2)*
 
-   To work around this issue, use *Standard_LRS* data disks instead of *Premium_LRS disks*, Use of *Standard_LRS* data disks doesn't change IOPs or the billing cost.  
+   To work around this issue, use *Standard_LRS* data disks instead of *Premium_LRS disks*. Use of *Standard_LRS* data disks doesn't change IOPs or the billing cost.  
 
 - <!--  2795678 – IS, ASDK --> When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. 
 
@@ -130,7 +130,7 @@ This build includes the following improvements and fixes for Azure Stack.
  
   To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
-
+ 
 
 #### Networking
 - <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
