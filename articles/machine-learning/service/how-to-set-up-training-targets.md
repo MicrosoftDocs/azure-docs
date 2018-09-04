@@ -116,7 +116,7 @@ cd.add_conda_package('scikit-learn')
 cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
 ```
 
-You can submit the experiment the same way as in the user-managed example. The folder containing your experiment is submitted as part of the training process.
+You can submit the run the same way as in the user-managed example. The folder containing your code is submitted as part of the training process.
 
 ```python 
 from azureml.core.run import Run
@@ -131,7 +131,7 @@ run.wait_for_completion(show_output = True)
 
 ## Data Science Virtual Machine
 
-Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out your machine learning experiment by adding additional compute targets such as a Ubuntu-based Data Science Virtual Machines (DSVM).
+Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Ubuntu-based Data Science Virtual Machines (DSVM).
 
 > [!WARNING]
 > Azure Machine Learning does not support CentOS. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
@@ -216,7 +216,7 @@ Your local machine may not have the compute or GPU resources required to train t
     az ml runconfiguration create -n dsvmrun -t <dsvmname>
 
     # prepare run
-    #az ml experiment prepare -c dsvmrun -d aml_config/conda_dependencies.yml
+    #az ml environment prepare -c dsvmrun -d aml_config/conda_dependencies.yml
     az ml run prepare -c dsvmrun -d aml_config/conda_dependencies.yml
     ```
 
