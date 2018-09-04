@@ -19,6 +19,8 @@
   items:
   - name: Create encrypted storage account
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+  - name: Create multiple instances
+    href: resource-manager-tutorial-create-multiple-instances.md
   - name: Create multiple resources
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
 - name: Concepts

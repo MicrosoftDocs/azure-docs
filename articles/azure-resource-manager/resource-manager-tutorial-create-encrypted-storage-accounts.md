@@ -137,6 +137,8 @@ The following screenshot shows the CLI command for listing the newly created sto
 
 ![Azure Resource Manager encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
+Compare the storage account names with the name definition in the template.
+
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
@@ -148,7 +150,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to use template reference to customize an existing template. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources. Some of the resources have dependent resources.
+In this tutorial, you learned how to use template reference to customize an existing template. In the next tutorial, you learn how to use resource iteration to create multiple storage accounts.
 
 > [!div class="nextstepaction"]
-> [Create multiple resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)

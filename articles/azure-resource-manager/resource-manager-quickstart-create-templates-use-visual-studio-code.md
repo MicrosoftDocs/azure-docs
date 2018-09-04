@@ -169,7 +169,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-The primary focus of this tutorial is to use Visual Studio Code to edit an existing template from Azure Quickstart templates. You also learned how to deploy the template using either CLI or PowerShell from Azure Cloud Shell. The templates from Azure Quickstart templates might not give you everything you need. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
+The main focus of this tutorial is to use Visual Studio Code to edit an existing template from Azure Quickstart templates. You also learned how to deploy the template using either CLI or PowerShell from Azure Cloud Shell. The templates from Azure Quickstart templates might not give you everything you need. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
 
 > [!div class="nextstepaction"]
 > [Create an encrypted storage account](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
