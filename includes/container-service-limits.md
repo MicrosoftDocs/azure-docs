@@ -21,8 +21,8 @@ ms.custom: include file
 <sup>1</sup> This value is configurable at cluster deployment when deploying an AKS cluster with the Azure CLI or a Resource Manager template.<br />
 
 <!-- LINKS - Internal -->
-[basic-networking]: ../articles/aks/networking-overview.md#basic-networking
-[advanced-networking]: ../articles/aks/networking-overview.md#advanced-networking
+[basic-networking]: ../articles/aks/concepts-network.md#basic-networking
+[advanced-networking]: ../articles/aks/concepts-network.md#advanced-networking
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
