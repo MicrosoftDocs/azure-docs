@@ -76,7 +76,7 @@ Azure Machine Learning is framework agnostic. You can use any popular machine le
 
 ## Image
 
-We use images to group all the assets for your deployment. We currently support only Docker images. A Docker image is created from your scripts, and registered with the workspace. It encapsulates:
+We use images to group all the assets for your deployment. For example, when deploying to Azure Kubernetes Service, a Docker image is created from your scripts and registered with the workspace. Images encapsulate the following items:
 
 * A model file, or a directory of model files
 * A scoring script or application for device deployments
