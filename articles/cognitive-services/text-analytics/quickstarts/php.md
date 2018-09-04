@@ -46,7 +46,7 @@ The Language Detection API detects the language of a text document, using the [D
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
+$accessKey = 'ENTER KEY HERE';
 
 // Replace or verify the region.
 
@@ -88,11 +88,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Language detection response**
@@ -100,7 +100,6 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 A successful response is returned in JSON, as shown in the following example: 
 
 ```json
-
 {
    "documents": [
       {
@@ -138,8 +137,6 @@ A successful response is returned in JSON, as shown in the following example:
 
    ]
 }
-
-
 ```
 <a name="SentimentAnalysis"></a>
 
@@ -147,7 +144,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#Detect).
 
 ```php
 function GetSentiment ($host, $path, $key, $data) {
@@ -178,11 +175,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Sentiment analysis response**
@@ -211,7 +208,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#SentimentAnalysis).
 
 ```php
 function GetKeyPhrases ($host, $path, $key, $data) {
@@ -243,11 +240,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Key phrase extraction response**
@@ -296,7 +293,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#KeyPhraseExtraction).
 
 ```php
 function GetEntities ($host, $path, $key, $data) {
@@ -327,11 +324,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ?>
 ```
 
