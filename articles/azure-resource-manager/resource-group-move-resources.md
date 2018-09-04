@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/03/2018
 ms.author: tomfitz
 
 ---
@@ -118,7 +118,6 @@ The services that enable moving to both a new resource group and subscription ar
 * Azure Maps
 * Azure Relay
 * Azure Stack - registrations
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Bot Service
@@ -184,6 +183,7 @@ The services that currently don't enable moving a resource are:
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Instances
