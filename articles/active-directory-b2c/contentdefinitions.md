@@ -69,6 +69,20 @@ The **ContentDefinition** element contains the following elements:
 | Metadata | 1:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. | 
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
 
+### DataUri
+
+The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`.  The following table lists of the page identifiers you can use.
+
+| Value |	Description |
+| ----- | ----------- |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Displays an error page when an exception or an error is encountered. |
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` |	Lists the identity providers that users can choose from during sign-in. | 
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0`	| Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. | 
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Displays a form for signing in with a local account that's based on an email address or a user name. |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` |	Displays a form that enables users to create or update their profile. | 
+
+
 ### LocalizedResourcesReferences
 
 The **LocalizedResourcesReferences** element contains the following elements:
