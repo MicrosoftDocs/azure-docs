@@ -53,7 +53,7 @@ import (
 
 func main() {
     // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
+    const subscriptionKey = "ENTER KEY HERE"
 
     /*
     Replace or verify the region.
@@ -65,8 +65,11 @@ func main() {
     NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
     a free trial access key, you should not need to change this region.
     */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
+    const uriBase = "https://westcentralus.api.cognitive.microsoft.com"
     const uriPath = "/text/analytics/v2.0/"
+
+	// Detect language.
+	fmt.Println("===== DETECT LANGUAGE ======")
 
     uri := uriBase + uriPath + "languages"
 
@@ -172,29 +175,32 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#Detect).
 
 ```golang
-    uri := uriBase + uriPath + sentiment
+	// Detect sentiment.
+	fmt.Println("===== DETECT SENTIMENT ======")
 
-    data := []map[string]string{
+    uri = uriBase + uriPath + "sentiment"
+
+    data = []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
         {"id": "2", "language": "es", "text": "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico."},
     }
 
-    documents, err := json.Marshal(&data)
+    documents, err = json.Marshal(&data)
     if err != nil {
         fmt.Printf("Error marshaling data: %v\n", err)
         return
     }
 
-    r := strings.NewReader("{\"documents\": " + string(documents) + "}")
+    r = strings.NewReader("{\"documents\": " + string(documents) + "}")
 
-    client := &http.Client{
+    client = &http.Client{
         Timeout: time.Second * 2,
     }
 
-    req, err := http.NewRequest("POST", uri, r)
+    req, err = http.NewRequest("POST", uri, r)
     if err != nil {
         fmt.Printf("Error creating request: %v\n", err)
         return
@@ -203,23 +209,22 @@ Add the following code to the code from the previous sections.
     req.Header.Add("Content-Type", "application/json")
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 
-    resp, err := client.Do(req)
+    resp, err = client.Do(req)
     if err != nil {
         fmt.Printf("Error on request: %v\n", err)
         return
     }
     defer resp.Body.Close()
 
-    body, err := ioutil.ReadAll(resp.Body)
+    body, err = ioutil.ReadAll(resp.Body)
     if err != nil {
         fmt.Printf("Error reading response body: %v\n", err)
         return
     }
 
-    var f interface{}
     json.Unmarshal(body, &f)
 
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
+    jsonFormatted, err = json.MarshalIndent(f, "", "  ")
     if err != nil {
         fmt.Printf("Error producing JSON: %v\n", err)
         return
@@ -253,30 +258,33 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#SentimentAnalysis).
 
 ```golang
-    uri := uriBase + uriPath + "keyPhrases"
+	// Extract key phrases.
+	fmt.Println("===== EXTRACT KEY PHRASES ======")
 
-    data := []map[string]string{
+    uri = uriBase + uriPath + "keyPhrases"
+
+    data = []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
         {"id": "2", "language": "es", "text": "Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema."},
         {"id": "3", "language": "en", "text": "The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I've ever seen."},
     }
 
-    documents, err := json.Marshal(&data)
+    documents, err = json.Marshal(&data)
     if err != nil {
         fmt.Printf("Error marshaling data: %v\n", err)
         return
     }
 
-    r := strings.NewReader("{\"documents\": " + string(documents) + "}")
+    r = strings.NewReader("{\"documents\": " + string(documents) + "}")
 
-    client := &http.Client{
+    client = &http.Client{
         Timeout: time.Second * 2,
     }
 
-    req, err := http.NewRequest("POST", uri, r)
+    req, err = http.NewRequest("POST", uri, r)
     if err != nil {
         fmt.Printf("Error creating request: %v\n", err)
         return
@@ -285,29 +293,27 @@ Add the following code to the code from the previous sections.
     req.Header.Add("Content-Type", "application/json")
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 
-    resp, err := client.Do(req)
+    resp, err = client.Do(req)
     if err != nil {
         fmt.Printf("Error on request: %v\n", err)
         return
     }
     defer resp.Body.Close()
 
-    body, err := ioutil.ReadAll(resp.Body)
+    body, err = ioutil.ReadAll(resp.Body)
     if err != nil {
         fmt.Printf("Error reading response body: %v\n", err)
         return
     }
 
-    var f interface{}
     json.Unmarshal(body, &f)
 
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
+    jsonFormatted, err = json.MarshalIndent(f, "", "  ")
     if err != nil {
         fmt.Printf("Error producing JSON: %v\n", err)
         return
     }
     fmt.Println(string(jsonFormatted))
-}
 ```
 
 ## Extract key phrases response
@@ -356,29 +362,32 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#KeyPhraseExtraction).
 
 ```golang
-    uri := uriBase + uriPath + "entities"
+	// Detect linked entities.
+	fmt.Println("===== DETECT LINKED ENTITIES ======")
 
-    data := []map[string]string{
+    uri = uriBase + uriPath + "entities"
+
+    data = []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
         {"id": "2", "language": "en", "text": "The Seattle Seahawks won the Super Bowl in 2014."},
     }
 
-    documents, err := json.Marshal(&data)
+    documents, err = json.Marshal(&data)
     if err != nil {
         fmt.Printf("Error marshaling data: %v\n", err)
         return
     }
 
-    r := strings.NewReader("{\"documents\": " + string(documents) + "}")
+    r = strings.NewReader("{\"documents\": " + string(documents) + "}")
 
-    client := &http.Client{
+    client = &http.Client{
         Timeout: time.Second * 2,
     }
 
-    req, err := http.NewRequest("POST", uri, r)
+    req, err = http.NewRequest("POST", uri, r)
     if err != nil {
         fmt.Printf("Error creating request: %v\n", err)
         return
@@ -387,23 +396,22 @@ Add the following code to the code from the previous sections.
     req.Header.Add("Content-Type", "application/json")
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 
-    resp, err := client.Do(req)
+    resp, err = client.Do(req)
     if err != nil {
         fmt.Printf("Error on request: %v\n", err)
         return
     }
     defer resp.Body.Close()
 
-    body, err := ioutil.ReadAll(resp.Body)
+    body, err = ioutil.ReadAll(resp.Body)
     if err != nil {
         fmt.Printf("Error reading response body: %v\n", err)
         return
     }
 
-    var f interface{}
     json.Unmarshal(body, &f)
 
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
+    jsonFormatted, err = json.MarshalIndent(f, "", "  ")
     if err != nil {
         fmt.Printf("Error producing JSON: %v\n", err)
         return
