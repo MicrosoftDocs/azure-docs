@@ -132,7 +132,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-Add the following code to the code from the [previous section](#Language).
+Add the following code to the code from the [previous section](#Detect).
 
 ```ruby
 uri = URI(uri + path + 'sentiment')
