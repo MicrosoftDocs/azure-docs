@@ -29,7 +29,7 @@
     href: concept-azure-machine-learning-architecture.md    
   - name: FPGA accelerations
     href: concept-accelerate-with-fpgas.md  
-  - name: Machine learning pipelines
+  - name: ML pipelines
     href: concept-ml-pipelines.md        
   - name: ONNX
     href: concept-onnx.md        
