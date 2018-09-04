@@ -16,4 +16,4 @@ Azure DNS alias records are a custom record type that allows you to reference ot
 Other Azure services benefit from this Azure DNS integration too. For example, Azure Traffic Manager can use CNAMEs to direct your traffic to the Traffic Manager profile. However, since you can't create a CNAME for a domain apex (for example, contoso.com) it is not possible to redirect direct contoso.com traffic to Traffic Manager. But you can use an alias record to solve this problem, because you can create an alias record for the domain apex name and point the alias record to the Traffic Manager profile.
 
 > [!NOTE]
-> You must use static IP addresses to use alias records for Traffic Manager. When you configure the Traffic Manger endpoints, you must create an **External endpoint** type and then enter the static IP addresss for the target.
+> Alias records for the A or AAAA record types for Traffic Manager are only supported for External Endpoint types. You must provide the IPv4 or IPv6 address (ideally static IPs) as appropriate for external endpoints in Traffic Manager.
