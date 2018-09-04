@@ -25,6 +25,8 @@
     href: tutorial-alias-tm.md
   - name: Alias records for Public IP addresses
     href: tutorial-alias-pip.md
+  - name: Alias records for zone records
+    href: tutorial-alias-rr.md
 - name: Samples
   items:
   - name: Azure CLI

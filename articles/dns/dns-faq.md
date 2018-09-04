@@ -112,7 +112,7 @@ Alias records sets are supported for the following record types in an Azure DNS 
 ### What resources are supported as targets for alias record sets?
 - **Point to a Public IP resource from a DNS A/AAAA record set**. You can create an A/AAAA record set, and make it an alias record set to point to a Public IP resource.
 - **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set**. In addition to the ability to point to the CNAME of a Traffic Manager profile (for example: contoso.trafficmanager.net) from a DNS CNAME recordset, you can now also point to a Traffic Manager profile that has external endpoints, from an A or AAAA recordset in your DNS zone.
-- **Point to another DNS recordset within the same zone**. Alias records can be referenced to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME recordset of the same type. This is useful if you want to have some record sets be aliases and some as non-aliases in terms of behavior.
+- **Point to another DNS recordset within the same zone**. Alias records can reference to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME recordset of the same type. This is useful if you want to have some record sets be aliases and some as non-aliases in terms of behavior.
 
 ### Can I create and update alias records from the Azure portal?
 Yes. Alias records can be created or managed in the Azure portal in addition to the Azure REST APIs, Azure PowerShell, CLI, and SDKs.
