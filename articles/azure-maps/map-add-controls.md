@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Add Map Controls to Azure Maps
 
-This article shows you how to add map controls to a map. You will also learn how to create a map with all controls and a style picker.
+This article shows you how to add map controls to a map. You will also learn how to create a map with all controls and a [style picker](https://docs.microsoft.com/azure/azure-maps/choose-map-style#adding-the-style-picker).
 
 ## Add zoom control
 
