@@ -14,7 +14,7 @@ ms.author: lizross
 ms.reviewer: piotrci
 ---
 
-# Manage access to resources using Azure Active Directory groups
+# Learn about access management using Azure Active Directory groups
 Azure Active Directory (Azure AD) helps you to manage your cloud-based apps, on-premises apps, and your resources using your organization's groups. Your resources can be part of the directory, such as permissions to manage objects through roles in the directory, or external to the directory, such as for Software as a Service (SaaS) apps, Azure services, SharePoint sites, and on-premises resources.
 
 >[!NOTE]
