@@ -37,11 +37,11 @@ As soon as the document has expired (`ttl` + `_ts` <= current server time), the 
 
 The above logic can be shown in the following matrix:
 
-|  | DefaultTTL missing/not set on the collection | DefaultTTL = -1 on collection | DefaultTTL = "n" on collection |
+|  | DefaultTTL missing/not set on the collection | DefaultTTL = -1 on collection | DefaultTTL = n' on collection |
 | --- |:--- |:--- |:--- |
-| TTL Missing on document |Nothing to override at document level since both the document and collection have no concept of TTL. |No documents in this collection will expire. |The documents in this collection will expire when interval n elapses. |
-| TTL = -1 on document |Nothing to override at the document level since the collection doesn’t define the DefaultTTL property that a document can override. TTL on a document is uninterpreted by the system. |No documents in this collection will expire. |The document with TTL=-1 in this collection will never expire. All other documents will expire after "n" interval. |
-| TTL = n on document |Nothing to override at the document level. TTL on a document is uninterpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
+| TTL Missing on document |Nothing to override at document level since both the document and collection have no concept of TTL. |No documents in this collection will expire. |The documents in this collection will expire when interval n' elapses. |
+| TTL = -1 on document |Nothing to override at the document level since the collection doesn’t define the DefaultTTL property that a document can override. TTL on a document is uninterpreted by the system. |No documents in this collection will expire. |The document with TTL=-1 in this collection will never expire. All other documents will expire after n' interval. |
+| TTL = n on document |Nothing to override at the document level. TTL on a document is uninterpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit n' interval from the collection. |
 
 ## Configuring TTL
 By default, time to live is disabled by default in all Cosmos DB collections and on all documents. TTL can be set programmatically or by using the Azure portal. Use the following steps to configure TTL from Azure portal:

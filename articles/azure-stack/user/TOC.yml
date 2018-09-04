@@ -112,10 +112,11 @@
       - name: Install Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
-      - name: Download Azure Stack tools
-        href: azure-stack-powershell-download.md
-      - name: Configure PowerShell - User
+      - name: Configure PowerShell
         href: azure-stack-powershell-configure-user.md
+      - name: Download Azure Stack tools
+        href: ../azure-stack-powershell-download.md
+        maintainContext: true
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
       - name: Using API version profiles
@@ -154,7 +155,9 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+  - name: Azure Stack REST API Browser
+    href: /rest/api/
   - name: Azure Stack CLI
     href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Related

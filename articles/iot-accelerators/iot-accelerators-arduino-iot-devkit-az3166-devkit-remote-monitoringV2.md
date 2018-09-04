@@ -1,5 +1,5 @@
 ---
-title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Remote Monitoring IoT solution accelerator | Microsoft Docs'
+title: IoT DevKit to cloud -- Connect IoT DevKit AZ3166 to Remote Monitoring IoT solution accelerator | Microsoft Docs
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to Remote Monitoring IoT solution accelerator for monitoring and visualization.
 author: isabelcabezasm
 manager: 
@@ -134,12 +134,6 @@ In several seconds, your physical MX Chip should change the color of the RGB led
 
 ![Led  MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
-
-## Change device ID
-
-You can change the device ID in IoT Hub by following [this guide](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
-
-
 ## Problems and feedback
 
 If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or reach out to us from the following channels:
@@ -153,3 +147,4 @@ Now that you have learned how to connect a DevKit device to your IoT solution ac
 
 * [IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-suite/)
 * [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/)

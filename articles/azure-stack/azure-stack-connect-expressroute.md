@@ -179,7 +179,7 @@ After you create the Virtual network gateway you can get the gateway's public IP
 
 1. In the Azure Stack user portal, select **All resources**.
 1. Under **All resources**, select the virtual network gateway, which is **GW1** in the example.
-1. Under **Virtual network gateway**, select **Overview**. from the list of resources. Alternatively, you can select **Properties**.
+1. Under **Virtual network gateway**, select **Overview** from the list of resources. Alternatively, you can select **Properties**.
 1. The IP address that you want to note is listed under **Public IP address**. For the example configuration, this address is 192.68.102.1.
 
 #### Create a virtual machine

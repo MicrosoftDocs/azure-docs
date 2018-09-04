@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
+ms.author: diberry
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
 #dfb - verified this tutorial works on 6/26 using logitech wireless headset
 ---

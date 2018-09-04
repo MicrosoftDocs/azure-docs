@@ -12,18 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/15/2018
 ms.author: apimpm
 ---
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
 
-API Management supports multi-region deployment, which enables API publishers to distribute a single API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline. 
+Azure API Management supports multi-region deployment, which enables API publishers to distribute a single Azure API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline.
 
-A new API Management service initially contains only one [unit][unit] in a single Azure region, the Primary Region. Additional regions can be easily added through the Azure portal. An API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically redirected to the next closest gateway. 
+A new Azure API Management service initially contains only one [unit][unit] in a single Azure region, the Primary Region. Additional regions can be easily added through the Azure portal. An API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically redirected to the next closest gateway.
 
 > [!IMPORTANT]
 > Multi-region deployment is only available in the **[Premium][Premium]** tier.
+
+> [!NOTE]
+> Azure API Management replicates only the API gateway component across regions. The service management component is hosted only in the Primary Region. In case of an outage in the Primary Region, applying configuration changes to an Azure API Management service instance is not possible - including settings or policies updates.
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 

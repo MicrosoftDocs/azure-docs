@@ -104,7 +104,10 @@ The following steps describe what's required to configure authentication:
 
 ### Create a Service Principal
 
-Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal, and then choose **Web App/API** for the Application Type.
+Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal, and then choose **Web App/API** for the Application Type or [use this PowerShell script](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) as explained [here](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+
+ > [!Note]
+ > If you will use the script to create an Azure Stack Azure Resource Manager endpoint, you need to pass in the `-azureStackManagementURL` and `-environmentName` parameters, that is https://management.local.azurestack.external/ and *AzureStack*.
 
 ### Create an access key
 
@@ -257,7 +260,19 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 9. In **Add users and groups**, enter a user name and select that user from the list of users.
 10. Select **Save changes**.
 
-Now that the endpoint information exists, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
+## Create Azure Stack endpoint
+
+Check [this](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) documentation to create a service connection with an existing service principal and use the following mapping:
+
+- Environment: AzureStack
+- Environment URL: Something like `https://management.local.azurestack.external`
+- Subscription ID: User subscription ID from Azure Stack
+- Subscription name: User subscription name from Azure Stack
+- Service Principal client ID: The principal ID from [this](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section in this article.
+- Service Principal key: The key from the same article (or the password if you used the script).
+- Tenant ID: The tenant ID you got [here](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+
+Now that the endpoint is created, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
 
 ![Build agent](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 

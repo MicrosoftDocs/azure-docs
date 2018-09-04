@@ -4,8 +4,6 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: tomfitz
 
 ---
@@ -55,7 +53,7 @@ There are some important steps to perform before moving a resource. By verifying
   * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
   * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. The service must enable the ability to move resources. This article lists which services enable moving resources and which services don't enable moving resources.
+2. The service must enable the ability to move resources. See the sections below in this article of which [services enable moving resources](#services-that-can-be-moved) and which [services don't enable moving resources](#services-that-cannot-be-moved).
 3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
   For PowerShell, use the following commands to get the registration status:
@@ -109,18 +107,17 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 
 The services that enable moving to both a new resource group and subscription are:
 
+* Analysis Services
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Analysis Services
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Maps
 * Azure Relay
 * Azure Stack - registrations
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Bot Service
@@ -129,6 +126,8 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Container Registry
 * Content Moderator
+* Cost Management
+* Customer Insights
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -137,12 +136,14 @@ The services that enable moving to both a new resource group and subscription ar
 * Event Grid
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
+* Iot Central
 * IoT Hubs
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
+* Managed Identity - user-assigned
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -156,6 +157,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Search
 * Service Bus
 * Service Fabric
+* Service Fabric Mesh
 * SignalR Service
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -181,9 +183,13 @@ The services that currently don't enable moving a resource are:
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Container Instances
 * Container Service
+* Data Box
+* Dev Spaces
 * Dynamics LCS
 * Express Route
 * Kubernetes Service
@@ -192,6 +198,7 @@ The services that currently don't enable moving a resource are:
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * Public IP - see [Public IP limitations](#pip-limitations)
 * Recovery Services vault - also don't move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * SAP HANA on Azure
@@ -221,7 +228,7 @@ Virtual Machines with certificate stored in Key Vault can be moved to a new reso
 
 ## Virtual Networks limitations
 
-When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
+When moving a virtual network, you must also move its dependent resources. For VPN Gateways, you must move IP addresses, virtual network gateways, and all associated connection resources. Local network gateways can be in a different resource group.
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 

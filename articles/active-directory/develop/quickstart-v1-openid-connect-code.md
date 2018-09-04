@@ -191,8 +191,8 @@ Here, we configure Express to use the OpenID Connect authentication protocol. Pa
     ```JavaScript
     // configure Express (section 2)
 
-        var app = express();
-        app.configure(function() {
+      var app = express();
+      app.configure(function() {
       app.set('views', __dirname + '/views');
       app.set('view engine', 'ejs');
       app.use(express.logger());
@@ -404,9 +404,9 @@ Finally, build and run your app. Run `node app.js`, and then go to `http://local
 
 Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list. You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Alternatively, you can clone it from GitHub:
+For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip). Alternatively, you can clone it from GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 You can now move onto more advanced topics. You might want to try:
 

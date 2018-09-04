@@ -63,14 +63,14 @@ Accelerated networking must be enabled on a Linux virtual machine. The virtual m
 ```bash
 sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
+sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
 
 ### Ubuntu 18.04
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
+sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
 
 ### RHEL7.5/CentOS 7.5
@@ -78,7 +78,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```bash
 yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
-yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel
+yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
 ```
 
 ### SLES 15
