@@ -9,7 +9,7 @@ ms.date: 9/25/2018
 ms.author: victorh
 ---
 
-# Overview of Azure DNS alias records
+# Azure DNS alias records overview
 
 Azure DNS alias records are a custom record type that allows you to reference other Azure resources from within your DNS zone for both forward and reverse lookups. For example, can create an alias record that references an Azure Public IP address instead of creating an A record. Since your alias record points to the service instance (an Azure Public IP address), the alias record set seamlessly updates itself during DNS resolution. It points to the service instance, which has the actual IP address associated with it.
 
