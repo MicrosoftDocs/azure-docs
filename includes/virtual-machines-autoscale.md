@@ -10,7 +10,7 @@ Using runbooks in [Azure Automation](../articles/automation/automation-intro.md)
 
 ## Create a virtual machine scale set
 
-Scale sets make it easy for you to deploy and manage identical VMs as a set. You can create Linux or Windows scale sets using the [Azure portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), or the [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). You can also create and manage scale sets with SDKs such as [Python](/develop/python) or [Node.js](/nodejs/azure), or directly with the [REST APIs](/rest/api/compute/virtualmachinescalesets). Automatic scaling of VMs is accomplished by applying metrics and rules to the scale set.
+Scale sets make it easy for you to deploy and manage identical VMs as a set. You can create Linux or Windows scale sets using the [Azure portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), or the [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). You can also create and manage scale sets with SDKs such as [Python](https://azure.microsoft.com/develop/python/) or [Node.js](/nodejs/azure), or directly with the [REST APIs](/rest/api/compute/virtualmachinescalesets). Automatic scaling of VMs is accomplished by applying metrics and rules to the scale set.
 
 ## Configure autoscale for a scale set
 

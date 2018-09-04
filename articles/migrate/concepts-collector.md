@@ -207,17 +207,27 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_13) (version 1.0.9.13).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_14) (version 1.0.9.14).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Copy the zip file to the Azure Migrate collector virtual machine (collector appliance).
 4. Right-click on the zip file and select Extract All.
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
+
+#### Upgrade to version 1.0.9.14
+
+Hash values for upgrade [package 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### Upgrade to version 1.0.9.13
 
