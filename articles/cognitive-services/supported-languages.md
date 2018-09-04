@@ -18,7 +18,7 @@ Azure Cognitive Services allows you to build applications that see, hear, speak 
 
 ## Core languages
 
-The following languages are supported across Azure Cognitive Services. Availability may vary based on country/region or market.
+These core languages are supported for Azure Cognitive Services. Availability may vary by country/region or market.
 
 * Chinese
 * English
@@ -33,9 +33,10 @@ The following languages are supported across Azure Cognitive Services. Availabil
 > [!NOTE]
 > ¹ Speech-to-Text and Video Indexer are not supported.
 
-## Language availability by service
+## Additional language availability by service
 
-This table highlights language availability by Azure Cognitive Service; core languages are not included. Use the links below to learn more about additional language support, and country/region and market availability.
+This table highlights language availability by Azure Cognitive Service; core languages not included. Use the links below to learn about additional language support, and country/region and market availability.
+
 
 | | Arabic | Bulgarian | Catalan | Croatian | Czech | Danish | Dutch | Estonian | Finnish | Greek | Hindi | Hungarian | Icelandic | Indonesian | Latvian | Lithuanian | Malay | Norwegian | Polish | Romanian | Russian | Serbian | Slovak | Slovenian | Swedish | Tamil | Thai | Turkish | Ukranian | Vietnamese |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
