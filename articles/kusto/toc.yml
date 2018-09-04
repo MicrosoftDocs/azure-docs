@@ -5,7 +5,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Quickstart placeholder
+  - name: Create a cluster - Azure portal
+  - href: create-cluster-database-portal.md
 - name: Tutorials
 - name: Concepts
 - name: How-to guides
