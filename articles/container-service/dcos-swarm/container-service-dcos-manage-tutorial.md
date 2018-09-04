@@ -234,7 +234,7 @@ Browsing to this address returns the default NGINX site.
 
 ## Scale DC/OS cluster
 
-In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale](/cli/azure/acs#az-acs-scale) command. 
 
 To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#az-acs-show) command.
 
