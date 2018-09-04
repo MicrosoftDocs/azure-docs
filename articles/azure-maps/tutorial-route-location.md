@@ -40,7 +40,7 @@ The following steps show you how to create a static HTML page embedded with the 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/> 
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
         <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
         <style>
@@ -140,7 +140,7 @@ For this tutorial, set the start point as Microsoft, and the destination point a
 This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 
-1. First, add a new layer on the map to display the route path, or *linestring*. Add the following JavaScript code to the *script* block:
+1. First, add a new layer on the map to display the route path, or *linestring*. Add the following JavaScript code to the *script* block.
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
