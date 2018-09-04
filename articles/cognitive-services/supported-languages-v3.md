@@ -14,11 +14,13 @@ ms.reviewer: ''
 
 # Supported natural languages for Azure Cognitive Services
 
-Azure Cognitive Services allows you to build applications that see, hear, speak with, and understand your users. More than three dozen natural languages are currently supported, allowing users to communicate with your application in natural ways.
+Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
+
+This article is broken into two sections. The first lists core languages commonly supported across Azure Cognitive Services. The second section focuses on additional language support for each service. Language availability may vary by country/region and market.
 
 ## Core languages
 
-These core languages are supported for Azure Cognitive Services. Availability may vary by country/region or market.
+These core languages are supported across Azure Cognitive Services:
 
 * Chinese
 * English
