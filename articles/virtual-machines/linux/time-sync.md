@@ -38,11 +38,10 @@ Virtual machine interactions with the host can also affect the clock. During [me
 
 Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant unless the workload requires highly accurate timekeeping. But in most cases, we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following affects:
 
-- Authentication problems. Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. Systems stop to trust each other if their time differs significantly. Login and access attempts can fail because of unsynchronized time.
-- Distributed event correlation problems. It's very hard or practically impossible to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would be shown to occur on different times making event correlation a new problem.
-- There are number of distributed transactions algorithms that rely on precise time sync and they would not work if time drifts freely.
-- Billing intrinsically depends on the time sync. If clock is off the billing cycles would be calculated incorrectly.
-- Financial operations require precise time sync to resolve when each sell or buy did actually happen and consequently on what price.
+- Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. 
+- It's very hard to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would look like it occurred at different times, making correlation difficult.
+- If clock is off, the billing could be calculated incorrectly.
+
 
 
 ## Configuration options
@@ -76,7 +75,7 @@ If you have specific time sync requirements, there is also an option of using ex
 
 You can use an external time server alone, or combine it with the VMICTimeSync service to provide results similar to the default configuration. Combining an external time server with VMICTimeSync is the best option for dealing with issues that can be cause when VMs are paused for maintenance. 
 
-## Configuration
+## Tools and resources
 
 There are some basic commands for checking your time synchronization configuration. Documentation for Linux distribution will have more details on the best way to configure time synchronization for that distribution.
 
