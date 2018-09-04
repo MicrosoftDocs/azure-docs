@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Tutorial: Configure an alias record to refer to an Azure Public IP address
 
-Alias records referenced to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME recordset of the same type. This is useful if you want to have some record sets be aliases and some as non-aliases in terms of behavior.
+Alias records referenced to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME recordset of the same type. This is useful if you want to have some record sets as aliases and some as non-aliases in terms of behavior.
 
 In this tutorial, you learn how to:
 
@@ -37,7 +37,7 @@ Create an alias record that points to a resource record in the zone.
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
 3. In the **Name** text box **note**.
-4. For the **Type** select **TXT**.
+4. For the Type,** select **TXT**.
 5. Type **This is an alias record test** for the TXT record data.
 7. Need UI for the next step.
 
@@ -45,7 +45,7 @@ Create an alias record that points to a resource record in the zone.
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
 3. In the **Name** text box **test**.
-4. For the **Type** select **TXT**.
+4. For the **Type**, select **TXT**.
 5. Click the **Alias Record Set** check box.
 6. Need UI for the next step.
 
