@@ -45,7 +45,7 @@ require 'json'
 # **********************************************
 
 # Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+accessKey = 'ENTER KEY HERE'
 
 # Replace or verify the region.
 #
@@ -132,10 +132,10 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-Add the following code to the code from the previous section.
+Add the following code to the code from the [previous section](#Language).
 
 ```ruby
-uri = URI(uri + path + sentiment)
+uri = URI(uri + path + 'sentiment')
 
 documents = { 'documents': [
 	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -182,10 +182,10 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#SentimentAnalysis).
 
 ```ruby
-uri = URI(uri + path + keyPhrases)
+uri = URI(uri + path + 'keyPhrases')
 
 documents = { 'documents': [
 	{ 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -252,7 +252,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
-Add the following code to the code from the previous sections.
+Add the following code to the code from the [previous section](#KeyPhraseExtraction).
 
 ```ruby
 uri = URI(uri + path + 'entities')
