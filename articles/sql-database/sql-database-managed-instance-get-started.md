@@ -80,7 +80,7 @@ The following steps show you how to create your Managed Instance after your prev
 
 4. Select your subscription and verify that the preview terms show **Accepted**.
 
-   ![managed instance preview accepted](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
+   ![managed instance preview accepted](./media/sql-database-managed-instance-get-started/preview-accepted.png)
 
 5. Fill out the Managed Instance form with the requested information, using the information in the following table:
 
