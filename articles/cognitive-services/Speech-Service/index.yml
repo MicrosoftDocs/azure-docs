@@ -26,7 +26,7 @@ abstract:
       height: 110
       src: ../media/index/speech-landing-page-video.png
       width: 250  
-    title: Overview of Speech capabilities (10:34)
+    title: Speech Service overview (10:34)
     href: https://azure.microsoft.com/en-us/resources/videos/building-smart-apps-with-visual-studio-xamarin-and-cognitive-services/
     width: 250
 sections:
