@@ -56,7 +56,7 @@ For more information, see [Deploy to Azure IoT Edge](https://docs.microsoft.com/
 
 ## Field-programmable gate arrays (FPGA)
 
-Azure ML Hardware Accelerated Models Powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests by accelerating deep neural networks on FPGAs. This service is an Azure offering that hosts your model on FPGAs in the Azure cloud.  Commonly used DNNs are available as featurizers for transfer learning or customizable with weights trained from your own data.
+Azure Machine Learning Hardware Accelerated Models Powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests by accelerating deep neural networks (DNN) on FPGAs. This service is an Azure offering that hosts your model on FPGAs in the Azure cloud.  Commonly used DNNs are available as featurizers for transfer learning or customizable with weights trained from your own data.
 
 For more information, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
@@ -64,4 +64,5 @@ For more information, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.
 
 * [Deploy a model to Azure Container Instances](how-to-deploy-to-aci.md)
 * [Deploy a model to Azure Kubernetes Service](how-to-deploy-to-aks.md)
-* [Deploy a model to Azure Kubernetes Service](how-to-deploy-to-aks.md)
+* [Deploy a model to Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning)
+* [Deploy a model to FPGA](how-to-deploy-fpga-web-service.md)
