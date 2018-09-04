@@ -14,7 +14,15 @@
   - name: Create a new tenant
     href: quickstart-create-new-tenant.md
   - name: Register an app
-    href: quickstart-v2-register-an-app.md
+    items:
+    - name: With the Azure AD v2.0 endpoint
+      href: quickstart-v2-register-an-app.md
+    - name: With the Azure AD v1.0 endpoint
+      href: quickstart-v1-add-azure-ad-app.md
+  - name: Update an app
+    href: quickstart-v1-update-azure-ad-app.md
+  - name: Remove an app
+    href: quickstart-v1-remove-azure-ad-app.md
   - name: Mobile and desktop apps
     items:
     - name: v2.0
@@ -181,9 +189,11 @@
       href: 
     - name: Access tokens
       href: 
+    - name: Consent framework
+      href: consent-framework.md
     - name: Permissions and consent
       displayName: Scopes
-      href: 
+      href: v1-permissions-and-consent.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
     - name: National clouds

@@ -30,7 +30,7 @@ If you're developing an Android application, Microsoft makes it simple and strai
 The Azure AD Authentication Library (ADAL) Android library gives your app the ability to begin using the
 [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
 
-In this quickstart, we'll show you how to:
+In this quickstart, you'll learn how to:
 
 * Get a token for the Microsoft Graph
 * Refresh a token
@@ -137,5 +137,3 @@ Learn [how to enable cross-app SSO on Android by using ADAL](howto-v1-enable-sso
 The ADAL library exposes auth telemetry to help app developers understand how their apps are behaving and build better experiences. This allows you to capture sign in success, active users, and several other interesting insights. Using auth telemetry does require app developers to establish a telemetry service to aggregate and store events.
 
 To learn more about auth telemetry, checkout [ADAL Android auth telemetry](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry).
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
