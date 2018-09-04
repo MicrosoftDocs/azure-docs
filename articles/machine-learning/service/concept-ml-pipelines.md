@@ -40,9 +40,10 @@ The key advantages to building pipelines for your machine learning workflows is:
 |**Collaboration**|Share experiments you've run so other data scientists can reuse components that worked well.|
 
 ## Python SDK for pipelines
-In Azure, you can create ML pipelines in Python using the Azure Machine Learning SDK. The SDK offers imperative constructs for sequencing and parallelizing steps. 
 
-With the use of declarative data dependencies, you can optimize the execution of your ML tasks. Work comfortably in Jupyter notebooks or in any other preferred IDE. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended to model your own conventions.
+Create your ML pipelines in Python using the Azure Machine Learning SDK. This SDK offers imperative constructs for sequencing and parallelizing the steps in your pipelines. You can interact with it in Jupyter notebooks or in another preferred IDE. 
+
+Using declarative data dependencies, you can optimize your ML tasks. The SDK includes a framework of pre-built modules for common tasks such as data transfer, provisioning, and model publishing. The framework can be extended to model your own conventions.
 
 Pipelines can be saved as templates so you can schedule batch-scoring or retraining jobs.
 
