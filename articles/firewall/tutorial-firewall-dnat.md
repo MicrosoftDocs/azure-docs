@@ -209,7 +209,7 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 2. Connect a remote desktop to **Srv-Jump** virtual machine.
 3. Close the remote desktop.
 4. Change the DNAT-Coll01 rule action to **Deny**.
-5. Try to connect to **Srv-Jump** again. This time it should not succeeed because of the **Deny** rule.
+5. Try to connect to **Srv-Jump** again. This time it should not succeed because of the **Deny** rule.
 
 
 ## Clean up resources
