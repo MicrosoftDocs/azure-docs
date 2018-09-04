@@ -333,6 +333,8 @@
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
+## [Terms of use](active-directory-tou.md)
+
 ## Secure your identities
 
 ### Azure AD Identity Protection
