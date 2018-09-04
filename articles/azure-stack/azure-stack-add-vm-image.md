@@ -112,7 +112,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
     For more information, see the PowerShell reference for the [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet and the [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## Add a custom VM image to the Marketplace by using PowerShell
-
+ 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  
