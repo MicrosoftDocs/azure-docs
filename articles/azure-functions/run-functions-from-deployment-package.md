@@ -60,7 +60,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 ## Adding the WEBSITE_RUN_FROM_ZIP setting
 
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 ## Next steps
 

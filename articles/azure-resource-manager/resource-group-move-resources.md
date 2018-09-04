@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
 
 ---
@@ -53,7 +53,7 @@ There are some important steps to perform before moving a resource. By verifying
   * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
   * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. The service must enable the ability to move resources. This article lists which services enable moving resources and which services don't enable moving resources.
+2. The service must enable the ability to move resources. See the sections below in this article of which [services enable moving resources](#services-that-can-be-moved) and which [services don't enable moving resources](#services-that-cannot-be-moved).
 3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
   For PowerShell, use the following commands to get the registration status:
@@ -118,7 +118,6 @@ The services that enable moving to both a new resource group and subscription ar
 * Azure Maps
 * Azure Relay
 * Azure Stack - registrations
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Bot Service
@@ -184,6 +183,7 @@ The services that currently don't enable moving a resource are:
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Instances
@@ -233,8 +233,6 @@ When moving a virtual network, you must also move its dependent resources. For V
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
 You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
-
-You can't move a virtual network to a different subscription if the virtual network contains a custom DNS server. To move the virtual network, set it to Default (Azure-provided) DNS server. After the move, reconfigure the custom DNS server.
 
 ## App Service limitations
 

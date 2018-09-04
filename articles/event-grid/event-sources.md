@@ -70,13 +70,14 @@ For examples of Event Hubs as a handler, see [Event Hubs handler](event-handlers
 
 ## IoT Hub
 
-Subscribe to IoT Hub events to respond to device created and deleted events.
+Subscribe to IoT Hub events to respond to device created, deleted, connected and disconnected events.
 
 |Title  |Description  |
 |---------|---------|
-| [Tutorial: send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
-| [Overview: react to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Overview of integrating Iot Hubs with Event Grid. |
+| [Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT Hub. |
+| [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Overview of integrating IoT Hub with Event Grid. |
 | [Event schema](event-schema-iot-hub.md) | Shows fields in IoT Hub events. |
+| [Order device connected and device disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Shows how to order device connection state events. |
 
 ## Media Services
 
