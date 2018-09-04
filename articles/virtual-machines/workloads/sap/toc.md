@@ -62,8 +62,8 @@
 #### [Windows with Shared Disk for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [SAP NetWeaver Deployment guide](deployment-guide.md)
-## DBMS deployment guides for SAP workload
-### [General Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)[Run multiple SAP HANA instances on one HANA Large Instance unit](hana-multi-instances.md)
+## DBMS deployment guides for SAP workloadmulti
+### [General Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
 ### [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sqlserver.md)
 ### [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_oracle.md)
 ### [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_ibm.md)
