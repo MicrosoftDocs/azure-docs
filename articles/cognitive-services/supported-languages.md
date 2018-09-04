@@ -35,7 +35,7 @@ These core languages are supported for Azure Cognitive Services. Availability ma
 
 ## Additional language availability by service
 
-This table highlights language availability by Azure Cognitive Service; core languages not included. Use the links below to learn about additional language support, and country/region and market availability.
+This table highlights language availability by service; core languages excluded. Use the links below to learn about additional language support, and country/region and market availability.
 
 
 | | Arabic | Bulgarian | Catalan | Croatian | Czech | Danish | Dutch | Estonian | Finnish | Greek | Hindi | Hungarian | Icelandic | Indonesian | Latvian | Lithuanian | Malay | Norwegian | Polish | Romanian | Russian | Serbian | Slovak | Slovenian | Swedish | Tamil | Thai | Turkish | Ukranian | Vietnamese |
