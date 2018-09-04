@@ -136,7 +136,11 @@ A. There are multiple security features implemented to ensure that your Data Box
 
 
 ### Q. How do I copy the data to the Data Box? 
-A.  Use an SMB copy tool such as Robocopy, Diskboss, or even Windows File Explorer drag-and-drop to copy data onto the device. 
+A.  If using an SMB client, you can use an SMB copy tool such as Robocopy, Diskboss, or even Windows File Explorer drag-and-drop to copy data onto the device. 
+
+If using  an NFS client, you can use [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/). 
+
+For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
 ### Q. Are there any tips to speed up the data copy?
 A.  To speed up the copy process:
@@ -157,10 +161,12 @@ A.  To speed up the copy process:
 ### Q. Can I use multiple storage accounts with Data Box?
 A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the GA release, the storage accounts in all regions in US, West Europe, North Europe, France, and UK in the Azure public cloud are supported.
 
+We recommend that you use no more than three storage accounts for a given device. Using more storage accounts could potentially impact the performance.
+
 ## Ship device
 
 <!--### Q. How do I schedule a pickup for my Data Box?--> 
-A.
+
 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
