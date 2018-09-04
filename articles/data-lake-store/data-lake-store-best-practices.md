@@ -33,7 +33,7 @@ Once a security group is assigned permissions, adding or removing users from the
 
 ### Security for groups 
 
-As discussed, when users need access to Data Lake Storage Gen1, it’s best to use Azure Active Director security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the account, and even separate ones for key subfolders. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that later you do not need a long processing time for assigning new permissions to thousands of files. 
+As discussed, when users need access to Data Lake Storage Gen1, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the account, and even separate ones for key subfolders. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that later you do not need a long processing time for assigning new permissions to thousands of files. 
 
 ### Security for service principals 
 
