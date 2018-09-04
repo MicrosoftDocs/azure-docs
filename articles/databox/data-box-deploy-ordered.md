@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/20/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
 # Tutorial: Order Azure Data Box
 
-Azure Data Box is a cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to an Microsoft-supplied 80 TB (usable capacity) storage device and then ship the device back. This data is then uploaded to Azure.
+Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied 80 TB (usable capacity) storage device and then ship the device back. This data is then uploaded to Azure.
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
 
@@ -28,8 +28,6 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Track the order
 > * Cancel the order
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
 Complete the following configuration prerequisites for Data Box service and device before you deploy the device.
@@ -38,6 +36,12 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 Before you begin, make sure that:
 - You have your Microsoft Azure storage account with access credentials.
+- Make sure that the subscription you use for Data Box service is one of the following types:
+    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+    - Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
+
+- Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 
 ### For device
 
@@ -60,7 +64,7 @@ Perform the following steps in the Azure portal to order a device.
 4. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**. 
     |Setting  |Value  |
     |---------|---------|
-    |Subscription     | Select the subscription you want to use for Data Box service. <br> The subscription is linked to your billing account.       |
+    |Subscription     | Select an EA, CSP, or Pay as you go subscription only for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
     |Source country     |	Select the country where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
@@ -98,7 +102,7 @@ If the device is not available, you receive a notification. If the device is ava
 - SMB shares are created for each storage account associated with the device. 
 - For each share, access credentials such as username and password are generated.
 - Device password that helps unlock the device is also generated. 
-- The Data Box is locked to prevent anyone from accessing the device while in transit.
+- The Data Box is locked to prevent unauthorized access to the device at any point.
 
 When the device preparation is complete, the portal shows the order in **Processed** state.
 
@@ -108,7 +112,7 @@ Microsoft then prepares and dispatches your device via a regional carrier. You r
 
 To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
 
-You can only cancel when the device is ordered and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order.
+After placing an order, you can cancel it at any point before the order status is marked processed.
 
    [![Data Box status ordered](media/data-box-deploy-ordered/data-box-ordered.png)](media/data-box-deploy-ordered/data-box-ordered.png#lightbox)   
 

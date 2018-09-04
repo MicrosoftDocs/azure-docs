@@ -86,9 +86,7 @@ To restart your Data Box, perform the following steps.
 
 The device shuts down and then restarts.
 
-## Securely erase data from your device
-
-
+<!--## Securely erase data from your device-->
 
 ## View available capacity of the device
 
@@ -100,7 +98,7 @@ You can use the device dashboard to view the available and used capacity of the 
     ![View available capacity](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
 
-## Skip checksum validation
+<!--## Skip checksum validation-->
 
 ## Next steps
 

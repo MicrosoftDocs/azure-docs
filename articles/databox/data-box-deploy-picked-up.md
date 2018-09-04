@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/07/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
 
@@ -21,7 +21,7 @@ ms.author: alkohli
 
 This tutorial describes how to return Azure Data Box and verify the data uploaded to Azure.
 
-In this tutorial, you will learn about:
+In this tutorial, you will learn about topics such as:
 
 > [!div class="checklist"]
 > * Ship Data Box to Microsoft
@@ -36,17 +36,17 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 1. Ensure that the device is powered off and cables are removed.
 2. Ensure that the shipping label is visible and schedule a pickup with your carrier. If the label is damaged or lost, download the shipping label from the Azure portal and affix on the device. Go to **Overview > Download shipping label**.
-4. Schedule a pickup with UPS if returning the device in US. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number. Go to the country DHL Express website and choose **Book a Courier Collection > eReturn Shipment**. 
+3. Schedule a pickup with UPS if returning the device in US. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number. Go to the country DHL Express website and choose **Book a Courier Collection > eReturn Shipment**. 
 
     Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
-5. Once the Data Box is picked up by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 ## Verify data upload to Azure
 
-When Microsoft receives and scans the device, order status is updated to **Received**. 
+When Microsoft receives and scans the device, order status is updated to **Received**. The device then undergoes physical verification for damage or signs of tampering. 
 
-The data copy starts automatically once the Data Box is connected to the network in the Azure datacenter. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
+After the verification is complete, the Data Box is connected to the network in the Azure datacenter. The data copy starts automatically. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
 
 Once the copy is complete, order status updates to **Completed**.
 
