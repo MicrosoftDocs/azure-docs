@@ -74,6 +74,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Swedish        |  Neural |`sv`          |
 | Tahitian      | Statistical |`ty`          |
 | Tamil      | Statistical |`ta`          |
+| Telugu   | Neural   | `te` |
 | Thai      | Neural |`th`          |
 | Tongan      | Statistical |`to`          |
 | Turkish       |  Neural |`tr`          |
@@ -230,6 +231,7 @@ The following languages can be detected by the Detect method. Detect may detect 
 | Swahili |
 | Swedish |
 | Tagalog |
+| Telugu |
 | Thai |
 | Turkish |
 | Ukrainian |
