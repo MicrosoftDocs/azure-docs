@@ -71,7 +71,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
         |Setting|Description|
         |---|---|
-        |Video Indexer account region|The name of the Video Indexer account region. For better performance and lower costs, it is highly recommended to specifiy the name of the region where the Azure Media Services resource and Azure Storage account are located. |
+        |Video Indexer account region|The name of the Video Indexer account region. For better performance and lower costs, it is highly recommended to specify the name of the region where the Azure Media Services resource and Azure Storage account are located. |
         |Azure Active Directory (AAD) tenant|The name of the Azure AD tenant, for example "contoso.onmicrosoft.com". The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top right corner.|
         |Subscription ID|The Azure subscription under which this connection should be created. The subscription ID can be retrieved from the Azure portal. Click on **All services** in the left panel, and search for "subscriptions". Select, **Subscriptions** and choose the desired ID from the list of your subscriptions.|
         |Azure resource group Name|Name for the new resource group in which to create your connection.|
