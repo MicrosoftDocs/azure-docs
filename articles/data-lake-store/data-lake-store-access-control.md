@@ -133,7 +133,7 @@ Click **Advanced View** to see the more advanced view, where the Default ACLs, m
 
 ## The super-user
 
-A super-user has the most rights of all the users in the Data Lake Store. A super-user:
+A super-user has the most rights of all the users in Data Lake Storage Gen1. A super-user:
 
 * Has RWX Permissions to **all** files and folders.
 * Can change the permissions on any file or folder.
