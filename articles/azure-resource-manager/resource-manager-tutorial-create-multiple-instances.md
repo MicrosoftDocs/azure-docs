@@ -107,6 +107,8 @@ The completed template looks like:
 }
 ```
 
+For more information about creating multiple instances, see [Deploy multiple instances of a resource or property in Azure Resource Manager Templates](./resource-group-create-multiple.md)
+
 ## Deploy the template
 
 Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
@@ -126,6 +128,7 @@ To list all three storage accounts, omit the --name parameter:
     
     ---
 
+Compare the storage account names with the name definition in the template.
 
 ## Clean up resources
 

@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/04/2018
 ms.topic: tutorial
 ms.author: jgao
 
@@ -109,9 +109,14 @@ To use the variable defined in the template:
 The goal of this tutorial is to define a template to create an encrypted storage account.  The sample template only creates a basic unencrypted storage account. To find the encryption-related configuration, you can use the template reference of Azure Storage account.
 
 1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
-2. From the TOC on the left, select **Reference**->**Storage**->**Storage Accounts**. You can also enter **storage** in the **Filter by title** field.  The page contains the schema for defining a Storage Account information.
-3. Explore the encryption-related information.  
-4. Inside the properties element of the storage account resource definition, add the following json:
+2. In **Filter by title**, enter **storage accounts**.
+3. Select **Reference/Template reference/Storage/Storage Accounts** as shown in the following screenshot:
+
+    ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Explore the encryption-related information.  
+1. Inside the properties element of the storage account resource definition, add the following json:
 
     ```json
     "encryption": {
@@ -136,8 +141,6 @@ Refer to the [Deploy the template](./resource-manager-quickstart-create-template
 The following screenshot shows the CLI command for listing the newly created storage account, which indicates encryption has been enabled for the blob storage.
 
 ![Azure Resource Manager encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
-
-Compare the storage account names with the name definition in the template.
 
 ## Clean up resources
 
