@@ -7,7 +7,7 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: bonova
 manager: craigg
@@ -100,7 +100,7 @@ You are connected to your virtual machine in the Server Manager dashboard.
    It will take a few moments to open as it needs to complete its configuration as this is the first time SSMS has been started.
 2. In the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
 
-    ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
+    ![ssms connect](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
 After you connect, you can view your system and user databases in the Databases node, and various objects in the Security, Server Objects, Replication, Management, SQL Server Agent, and XEvent Profiler nodes.
 
