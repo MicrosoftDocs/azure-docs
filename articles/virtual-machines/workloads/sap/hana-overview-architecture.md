@@ -44,3 +44,5 @@ The different documents of HANA Large Instance guidance cover the following area
 - [High availability set up in SUSE by using the STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
 - [OS backup and restore for Type II SKUs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
+## Next steps
+- Refer [Know the terms](hana-know-the-terms.md)

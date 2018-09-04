@@ -63,3 +63,6 @@ The underlying infrastructure of HANA Large Instance provides functionality for 
 **Archive**: You might prefer to archive copies of data by using your own methods in storage accounts. Archiving requires management, compliance, costs, and operations. You are responsible for generating archive copies and backups on Azure and storing them in a compliant way.
 
 See the [SLA for SAP HANA on Azure (Large Instances)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
+
+## Next steps
+- Refer [SAP HANA (Large Instances) architecture on Azure](hana-architecture.md)

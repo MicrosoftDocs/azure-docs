@@ -89,3 +89,5 @@ The storage used for HANA Large Instance allows a transparent encryption of the 
 
 With the Type I class of SKUs, the volume the boot LUN is stored on is encrypted. For the Type II class of SKUs of HANA Large Instance, you need to encrypt the boot LUN with OS methods. For more information, contact the Microsoft Service Management team.
 
+## Next steps
+- Refer [Supported scenarios for HANA Large Instances](hana-supported-scenario.md)

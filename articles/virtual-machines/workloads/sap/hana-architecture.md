@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/27/2018
+ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -57,3 +57,5 @@ Just as you can choose between different VM types with Azure Virtual Machines, y
 
 You can find available SKUs [Available SKUs for HLI](hana-available-skus.md).
 
+## Next steps
+- Refer [SAP HANA (Large Instances) network architecture](hana-network-architecture.md)

@@ -152,3 +152,6 @@ The figure shows how the different virtual networks in both regions are connecte
 
 > [!IMPORTANT] 
 > If you used multiple ExpressRoute circuits, AS Path prepending and Local Preference BGP settings should be used to ensure proper routing of traffic.
+
+## Next steps
+- Refer [SAP HANA (Large Instances) storage architecture](hana-storage-architecture.md)

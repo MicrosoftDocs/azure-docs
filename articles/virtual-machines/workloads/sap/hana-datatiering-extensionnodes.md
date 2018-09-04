@@ -31,3 +31,6 @@ When you look at the documentation, the advantage might not be visible immediate
 - You end up with a capacity of 3 TB for your data and a hot-to-warm ratio of 1:2 for option-1. You have 5 TB of data and a 1:4 ratio with the option-2 extension node configuration.
 
 The higher the data volume compared to the memory, the higher the chances are that the warm data you are asking for is stored on disk storage.
+
+## Next steps
+- Refer [SAP HANA (Large Instances) architecture on Azure](hana-architecture.md)

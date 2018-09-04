@@ -81,3 +81,6 @@ There are significant differences between running SAP HANA on HANA Large Instanc
 - There is no virtualization layer for SAP HANA on Azure (Large Instances). You get the performance of the underlying bare-metal hardware.
 - Unlike Azure, the SAP HANA on Azure (Large Instances) server is dedicated to a specific customer. There is no possibility that a server unit or host is hard or soft partitioned. As a result, a HANA Large Instance unit is used as assigned as a whole to a tenant and with that to you. A reboot or shutdown of the server doesn't lead automatically to the operating system and SAP HANA being deployed on another server. (For Type I class SKUs, the only exception is if a server encounters issues and redeployment needs to be performed on another server.)
 - Unlike Azure, where host processor types are selected for the best price/performance ratio, the processor types chosen for SAP HANA on Azure (Large Instances) are the highest performing of the Intel E7v3 and E7v4 processor line.
+
+- ## Next steps
+- Refer [HLI Sizing](hana-sizing.md)
