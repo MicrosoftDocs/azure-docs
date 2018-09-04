@@ -58,7 +58,7 @@ docker run --rm -it -p 8000:8000 flask-quickstart
 
 Open a web browser, and navigate to the sample app at `http://localhost:8000`.
 
-You can see the **Hello World** message from the sample app displayed in the page.
+You can see the **Hello,Azure!** message from the sample app displayed in the page.
 
 ![Sample app running locally](media/quickstart-python/localhost-hello-world-in-browser.png)
 
