@@ -22,7 +22,7 @@
     - name: Client VM connection to a Managed Instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a Managed Instance
-      href: sql-database-managed-instance-configure-vm.md  
+      href: sql-database-managed-instance-configure-p2s.md
   - name: Load data
     items:
     - name: Import BACPAC into a single database
