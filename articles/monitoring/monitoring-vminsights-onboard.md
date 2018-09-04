@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/30/2018
+ms.date: 09/04/2018
 ms.author: magoedte
 ---
 
@@ -313,4 +313,4 @@ Files for the Dependency agent are placed in the following directories:
 
 ## Next steps
 
-With monitoring enabled for your virtual machine, this information is available for analysis with VM Insights.  To learn how to use the health feature, see [View Azure VM health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-map.md).  
+With monitoring enabled for your virtual machine, this information is available for analysis with VM Insights.  To learn how to use the health feature, see [View Azure VM health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-maps.md).  

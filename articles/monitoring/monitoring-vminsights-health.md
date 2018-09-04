@@ -31,7 +31,7 @@ To view the health of an Azure VM, select **Insights (preview)** from the left-h
 
 ![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health-monitoring/vminsights-health-page-01.png)
 
-On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](<link to section below>) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](<link to section>) for more details. 
+On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](#alerting-and-alert-management) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](#health-diagnostics) for more details. 
 
 If the health status is not healthy, the **Top health issues** table provides an overview of the top five health issues identified on the VM.  To see a complete list of health issues or just health state of all components, click on **See all health criteria**. 
 
@@ -183,12 +183,10 @@ The three columns are interlinked with each other. When a user selects a discove
 
 In the above example, when one selects **/mnt (Logical Disk)**, the Health Criteria tree is filtered to **/mnt (Logical Disk)**. The **Availability** and **Performance** tabs are filtered accordingly too. The **State Change** column shows the state change based on the availability of **/mnt (Logical Disk)**. 
 
-### Health diagnostics tasks 
+At any time, you can refresh the Health diagnostics page by clicking on the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - Healthy, Warning, Critical, Unknown, and all.  The **Last Updated** time in the top right corner represents the last time when the Health diagnostics page was refreshed.  
 
-From Health diagnostics page you can run two user-initiated actions to 
+## Alerting and alert management 
+VM Insights Health is configured to alert when the predefined health criteria that are enabled change from healthy to an unhealthy state.  The severity of alerts is indicated by the Sev levels – Sev 0 through Sev 4, with Sev 0 indicating the highest severity. 
 
-
- has two task options – 
-1) Refresh – This refreshes the entire health diagnostics page. If there is an update to the health criterion’s health state based on the predefined polling interval, this task would update the health criteria to the latest. 2) Health Criteria State – This is a filter. User can filter the whole health diagnostics screen based on the health criteria state – Healthy, Warning, Critical, Unknown and All. 
- 
-The Last Updated time to the top right corner, represents the latest time when the health diagnostic page was refreshed. 
+You may approach alerts in the UX layer in two fashions: 
+1. View all alerts fired on the monitored VMs 2. View all alerts fired on a monitored VM 
