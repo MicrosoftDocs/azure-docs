@@ -67,7 +67,9 @@ This article shows how to create a Video Indexer account that's linked to an Azu
         Your Media Services account must have the same region as your Video Indexer account. To minimize indexing duration and low throughput, adjust the type and number of Reserved Units to **10 S3 Reserved Units** in your Media Services account.
     * To manually configure your connection, click the **Switch to manual configuration**. 
     
-        You may want to manually configure your connection, if for some reason the automatic option fails to complete, or if your setup and configuration is different than the common cases, or you want to have full visibility and control over the settings. If you decide to use the manual configuration, provide the following information.
+        You may want to manually configure your connection, if for some reason the automatic option fails to complete, or if your setup and configuration is different than the common cases, or you want to have full visibility and control over the settings. 
+        
+        In the **Connect Video Indexer to an Azure subscription**, provide the following information.
 
         |Setting|Description|
         |---|---|
@@ -78,8 +80,6 @@ This article shows how to create a Video Indexer account that's linked to an Azu
         |Azure resource Name|The name of the Azure Media Services resource.|
         |Application ID|The Azure AD application ID with permissions for the specified Media Services account. For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad#service-principal-authentication.md).|
         |Application Key|For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad#service-principal-authentication.md).|
-
-        ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
 
 5. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
