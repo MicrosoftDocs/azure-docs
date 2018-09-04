@@ -92,9 +92,7 @@ mycluster  myResourceGroup   myworkspace  STANDARD_NC6  resizing      0         
 ```
 The cluster is ready to use when the state is `steady` and the single node is `Idle`.
 
-## Verify that the cluster is running
-
-### List cluster nodes 
+## List cluster nodes 
 
 If you need to connect to the cluster nodes (in this case, a single node) to install applications or perform maintenance, get connection information by running the `az batchai cluster node list` command:
 
@@ -124,7 +122,7 @@ ssh myusername@40.68.254.143 -p 50000
 ``` 
 Exit the SSH session to continue.
 
-### Resize the cluster
+## Resize the cluster
 
 When you use your cluster to run a training job, you might need more compute resources. For example, to increase the size to 2 nodes for a distributed training job, run the [batch ai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) command:
 

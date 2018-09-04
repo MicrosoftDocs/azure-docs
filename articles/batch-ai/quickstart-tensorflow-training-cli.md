@@ -304,7 +304,7 @@ az batchai cluster delete \
     --resource-group myResourceGroup
 ```
 
-When no longer needed, you can use the `az group delete` command to remove the resource group for the Batch AI and storage resources. Delete the Batch AI resources as follows:
+When no longer needed, you can use the `az group delete` command to remove the resource group for the Batch AI and storage resources. 
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

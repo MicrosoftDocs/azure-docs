@@ -102,7 +102,7 @@ az storage account create --resource-group batchai.horovod --name mystorageaccou
 
 Create an Azure file share called `myshare` in the account, using the `az storage share create` command:
 
-```azurecli-interactibve
+```azurecli-interactive
 az storage share create --name myshare --account-name mystorageaccount
 ```
 
@@ -280,7 +280,7 @@ Keep in mind that this script uses a relatively small model and dataset for demo
 
 ## Upload the training script
 
-Once the script is ready, the next step is to upload it to the file share directory that you created earlier. The following `az storage file upload` command uploads it from the local working directory to the proper location. Substitute the name of the auto-storage account for `<STORAGE ACCOUNT NAME>`.
+Once the script is ready, the next step is to upload it to the file share directory that you created earlier. The following `az storage file upload` command uploads it from the local working directory to the proper location.
 
 ```azurecli-interactive
 az storage file upload --path cifar --share-name myshare --source cifar_cnn_distributed.py --account-name mystorageaccount
@@ -455,7 +455,6 @@ Model training is usually a part of a larger workflow. For example, you might ex
 ```azurecli-interactive
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name myshare --account-name mystorageaccount
 ```
-
 ## Clean up resources
 
 Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` so that you don't get charged for idle time. Use the following `az batchai cluster resize` command. 
