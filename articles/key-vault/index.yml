@@ -16,8 +16,20 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys that access and encrypt your resources and solutions.
+  description: Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys and secrets that access and encrypt your resources and solutions.
 sections:
+
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - href: /azure/key-vault/key-vault-whatis
+        html: <p>Learn foundational concepts related to Azure Key Vault.</p>
+        image:
+          src: https://docs.microsoft.com/en-us/media/common/i_article.svg
+        title: Concepts
 
 - title: 5-Minute Quickstarts
   items:

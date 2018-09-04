@@ -13,13 +13,15 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
+#Customer intent: As a user, I want to join my corporate device during a first-run so that I can access my corporate resources 
+
 ---
-# Join a new Windows 10 device with Azure AD during a first run
+# Tutorial: Join a new Windows 10 device with Azure AD during a first run
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see the [introduction to device management in Azure Active Directory](overview.md).
 
@@ -30,9 +32,13 @@ If you have either Windows 10 Professional or Windows 10 Enterprise installed on
 
 In the Windows *out-of-box experience*, joining an on-premises Active Directory (AD) domain is not supported. If you plan to join a computer to an AD domain, during setup, you should select the link **Set up Windows with a local account**. You can then join the domain from the settings on your computer.
  
+In this tutorial, you learn how to join a device to Azure AD during FRX:
+ > [!div class="checklist"]
+> * Prerequisites
+> * Joining a device
+> * Verification
 
-
-## Before you begin
+## Prerequisites
 
 To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 

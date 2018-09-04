@@ -91,6 +91,8 @@
       items:
       - name: Create an environment
         href: devtest-lab-create-environment-from-arm.md
+      - name: Configure and use public environments
+        href: devtest-lab-configure-use-public-environments.md        
     - name: Secure access to labs
       items:
       - name: Add lab owners and users

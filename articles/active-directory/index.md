@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Enterprise users</h3>
+                        <h3><a href="/azure/active-directory/users-groups-roles/index">Enterprise users</a></h3>
                         <p>
                         <a href="/azure/active-directory/add-users-azure-active-directory">Users</a><br/>
                         <a href="/azure/active-directory/active-directory-manage-groups">Groups</a><br/>
@@ -83,7 +83,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <a href="/azure/active-directory/authentication/concept-sspr-howitworks">Passwords</a><br/>
                         <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Multi-factor authentication</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
-                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Certificate-based authentication</a>
+                        <a href="/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started">Certificate-based authentication</a>
                         </p>
                     </div>
                 </div>
@@ -113,9 +113,9 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>Devices</h3>
                         <p>
-                        <a href="/azure/active-directory/device-management-introduction">Device management</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10 devices</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Joined devices</a>
+                        <a href="/azure/active-directory/devices/index">Device management</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Windows 10 devices</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Joined devices</a>
                         </p>
                     </div>
                 </div>

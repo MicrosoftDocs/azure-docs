@@ -10,13 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 08/10/2018
+ms.date: 08/17/2018
 ms.author: juliako
 ---
 
 # Azure Event Grid schemas for Media Services events
 
 This article provides the schemas and properties for Media Services events.
+
+For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-sources.md#azure-subscriptions).
 
 ## Available event types
 

@@ -310,7 +310,7 @@ Replace the contents of the entire file with the following HTML that defines a s
 </div>
 ```
 
-Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**. 
+Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**.
 At the top of **Index.cshtml.cs**, add `using System.Net.Http;`
 
 Replace the contents of `public class IndexModel` with:
@@ -333,7 +333,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -343,7 +343,7 @@ public class IndexModel : PageModel
 The URL for the back-end service is required  to communicate with that service. For the purpose of this tutorial, the following code excerpt (which is defined above as part of the IndexModel) reads environment variables to compose the URL:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

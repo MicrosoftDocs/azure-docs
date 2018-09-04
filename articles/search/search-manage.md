@@ -73,7 +73,7 @@ If you do not use indexers, you would use your application code to push objects 
 
 Because Azure Search is not a primary data storage solution, we do not provide a formal mechanism for self-service backup and restore. Your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. 
 
-To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store. Alternatively, you can reach out to [customer support]() to salvage indexes if there is a regional outage.
+To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store. Alternatively, you can reach out to customer support to salvage indexes if there is a regional outage.
 
 
 <a id="scale"></a>

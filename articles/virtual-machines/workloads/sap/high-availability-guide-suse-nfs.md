@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/16/2018
 ms.author: sedusch
 
 ---
@@ -98,12 +98,12 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
 
 ## Set up a highly available NFS server
 
-You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set, and load balancer or you can deploy the resources manually.
+You can either use an Azure Template from GitHub to deploy all required Azure resources, including the virtual machines, availability set, and load balancer or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
-You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [SAP file server template][template-file-server] in the Azure portal   

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
 
@@ -66,6 +66,10 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
   - Added Wincache 2.0.0.8
   - Updated Git for Windows to v 2.17.1.2
   - Updated Kudu to 74.10611.3437
+  
+- **Updates to underlying operating system of all roles**:
+  - [Servicing stack update for Windows Server 2016 for x64-based Systems (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [2018-07 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### Post Update Steps (optional)
 
@@ -76,7 +80,7 @@ For customers wishing to migrate to contained database for existing Azure App Se
 >
 >
 
-1. Add [database to an Availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Add [AppService databases (appservice_hosting and appservice_metering) to an Availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. Enable contained database
     ```sql
@@ -170,6 +174,21 @@ Validate
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
+
+### Known issues (post-installation)
+
+- Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network.  This is also called out in the Azure App Service on Azure Stack deployment documentation.
+
+If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+ * Source: Any
+ * Source port range: *
+ * Destination: IP Addresses
+ * Destination IP address range: Range of IPs for your file server
+ * Destination port range: 445
+ * Protocol: TCP
+ * Action: Allow
+ * Priority: 700
+ * Name: Outbound_Allow_SMB445
 
 ### Known issues for Cloud Admins operating Azure App Service on Azure Stack
 
