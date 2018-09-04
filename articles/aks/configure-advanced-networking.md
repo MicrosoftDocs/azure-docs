@@ -52,8 +52,8 @@ These are the *default* maximums when you deploy an AKS cluster without specifyi
 
 | Deployment method | Basic | Advanced | Configurable at deployment |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 110 | Yes |
-| Resource Manager template | 110 | 110 | Yes |
+| Azure CLI | 110 | 30 | Yes |
+| Resource Manager template | 110 | 30 | Yes |
 | Portal | 110 | 30 | No |
 
 ### Configure maximum - new clusters
