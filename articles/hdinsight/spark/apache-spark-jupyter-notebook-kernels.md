@@ -4,7 +4,7 @@ description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter no
 keywords: jupyter notebook on spark,jupyter spark
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017

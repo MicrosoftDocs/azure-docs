@@ -11,7 +11,7 @@
     href: luis-get-started-create-app.md
   - name: Use APIs
     items: 
-    - name: Get utterance prediction with endpoint query
+    - name: Get intent 
       items:
       - name: C#
         href: luis-get-started-cs-get-intent.md
@@ -23,13 +23,13 @@
         href: luis-get-started-js-get-intent.md
       - name: Node.js
         href: luis-get-started-node-get-intent.md
-      - name: Python
-        href: luis-get-started-python-get-intent.md
       - name: PHP
         href: luis-get-started-php-get-intent.md
+      - name: Python
+        href: luis-get-started-python-get-intent.md
       - name: Ruby
         href: luis-get-started-ruby-get-intent.md
-    - name: Add utterance to intent and train app
+    - name: Change model
       items: 
       - name: C#
         href: luis-get-started-cs-add-utterance.md
@@ -41,10 +41,10 @@
         href: luis-get-started-javascript-add-utterance.md
       - name: Node.js
         href: luis-get-started-node-add-utterance.md
-      - name: Python
-        href: luis-get-started-python-add-utterance.md
       - name: PHP
         href: luis-get-started-php-add-utterance.md
+      - name: Python
+        href: luis-get-started-python-add-utterance.md
       - name: Ruby
         href: luis-get-started-ruby-add-utterance.md
 - name: Tutorials
@@ -239,7 +239,7 @@
 - name: Reference
   items: 
   - name: User privacy
-    href: luis-reference-gdpr.md
+    href: luis-user-privacy.md
   - name: Regions
     href: luis-reference-regions.md
   - name: Boundaries
@@ -290,9 +290,9 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
-    - name: .Net Authoring
+    - name: .NET Authoring
       href: https://aka.ms/luis-sdk-dotnet-authoring
-    - name: .Net Runtime
+    - name: .NET Runtime
       href: https://aka.ms/luis-sdk-dotnet-runtime
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
