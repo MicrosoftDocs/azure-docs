@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 06/27/2018
+ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -33,9 +33,7 @@ To create a module, you need .NET to build the project folder, Docker to build t
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker Community Edition](https://docs.docker.com/install/) on your development machine. 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry. 
+   * You can use a local Docker registry for prototype and testing purposes instead of a cloud registry. 
 
 To setup local development environment to debug, run and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).Install [Python (2.7/3.6) and Pip](https://www.python.org/). Then install **iotedgehubdev** by running below command in your terminal.
 
@@ -59,7 +57,9 @@ Take these steps to create an IoT Edge module based on .NET Core 2.0 using Visua
 6. Enter a name for your solution. 
 7. Select **C# Module** as the template for the first module in the solution.
 8. Enter a name for your module. Choose a name that's unique within your container registry. 
-9. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**.
+9. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name.
+
+   ![Provide Docker image repository](./media/how-to-develop-csharp-module/repository.png)
 
 VS Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
@@ -77,7 +77,8 @@ There are four items within the solution:
 
 ## Develop your module
 
-The default C# module code that comes with the solution is located at **modules** > **\<your module name\>** > **Program.cs**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
+
+The default C# module code that comes with the solution is located at **modules** > ** [your module name] ** > **Program.cs**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
 
 When you're ready to customize the C# template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability. 
 
@@ -86,17 +87,17 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 
 ### Setup IoT Edge simulator for single module app
 
-To setup and start the simulator, in VS Code command pallete, type and select **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module**. You also need to specify the input names for your single module application, type **input1** and press Enter. The command will trigger **iotedgehubdev** CLI and start IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
+1. To setup and start the simulator, in VS Code command pallete, type and select **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module**. You also need to specify the input names for your single module application, type **input1** and press Enter. The command will trigger **iotedgehubdev** CLI and start IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
 
-![Setup IoT Edge simulator for single module app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
+   ![Setup IoT Edge simulator for single module app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
-You can move to Docker Explorer and see the module running status.
+   You can move to Docker Explorer and see the module running status.
 
-![Simulator module status](media/how-to-develop-csharp-module/simulator-status.png)
+   ![Simulator module status](media/how-to-develop-csharp-module/simulator-status.png)
 
-The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without IoT Edge security daemon and provide environment settings for your native module app or module containers. The **input** container exposed restAPIs to help bridge messages to target input channel on your module.
+   The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without IoT Edge security daemon and provide environment settings for your native module app or module containers. The **input** container exposed restAPIs to help bridge messages to target input channel on your module.
 
-In VS Code command pallete, type and select **Set Module Credentials to User Settings** to set the module environment settings into `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` in user settings. You can find these environment settings are referenced in **.vscode** > **launch.json** and [VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings).
+2. In VS Code command pallete, type and select **Azure IoT Edge: Set Module Credentials to User Settings** to set the module environment settings into `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` in user settings. You can find these environment settings are referenced in **.vscode** > **launch.json** and [VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings).
 
 ### Build module app and debug in launch mode
 
