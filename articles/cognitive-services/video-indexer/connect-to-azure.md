@@ -78,8 +78,8 @@ This article shows how to create a Video Indexer account that's linked to an Azu
         |Subscription ID|The Azure subscription under which this connection should be created. The subscription ID can be retrieved from the Azure portal. Click on **All services** in the left panel, and search for "subscriptions". Select, **Subscriptions** and choose the desired ID from the list of your subscriptions.|
         |Azure resource group Name|The name for the new resource group in which to create your connection.|
         |Azure resource Name|The name of the Azure Media Services resource.|
-        |Application ID|The Azure AD application ID with permissions for the specified Media Services account. For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad#service-principal-authentication.md).|
-        |Application Key|For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad#service-principal-authentication.md).|
+        |Application ID|The Azure AD application ID with permissions for the specified Media Services account. For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Application Key|For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
