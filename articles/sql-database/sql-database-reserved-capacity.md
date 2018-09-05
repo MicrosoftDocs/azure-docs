@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: carlrab
 
 ---
@@ -55,7 +55,14 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 6. Select **Purchase**.
 7. Select **View this Reservation** to see the status of your purchase.
 
-## Next steps 
+## Cancellations and exchanges
+
+If you bought a reservation for the wrong region, deployment type, service tier, or term, you can exchange it for another SQL Database reserved capacity reservation that's of equal or greater value. The term start date resets when you exchange the reservation.
+
+If you bought SQL Database reserved capacity within the last 48 hours and haven't used any instances, you can cancel the reservation with no fee. After 48 hours, there is an 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee.
+
+## Next steps
+
 The vCore reservation discount is applied automatically to the number of SQL Database instances that match the SQL Database reserved capacity reservation scope and attributes. You can update the scope of the SQL Database reserved capacity reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
 To learn how to manage the SQL Database reserved capacity reservation, see [Manage SQL Database reserved capacity](../billing/billing-manage-reserved-vm-instance.md).

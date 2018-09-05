@@ -3,7 +3,7 @@ author: yashesvi
 ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08-07-2018
+ms.date: 09-05-2018
 ---
 # Prepay for Virtual Machines with Azure Reserved VM Instances
 
@@ -57,6 +57,12 @@ Reserved VM Instances are available for most VM sizes with some exceptions:
 7. Select **View this Reservation** to see the status of your purchase.
 
     ![Screenshot after submitting the reservation purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+
+## Cancellations and exchanges
+
+If you bought Reserved VM Instances for the wrong location, VM size group, or term, you can exchange it for another Reserved VM Instances reservation that's of equal or greater value. The term start date resets when you exchange the reservation.
+
+If you bought Reserved VM Instances within the last 48 hours and haven't used them, you can cancel the reservation with no fee. After 48 hours, there is an 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee.
 
 ## Next steps
 
