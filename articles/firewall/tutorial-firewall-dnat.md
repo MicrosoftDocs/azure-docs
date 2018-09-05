@@ -1,5 +1,5 @@
 ---
-title: Deploy and configure Azure Firewall DNAT using the Azure portal
+title: Filter inbound traffic with Azure Firewall DNAT using the Azure portal
 description: In this tutorial, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
 services: firewall
 author: vhorne
@@ -12,8 +12,11 @@ ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound access to resources located in a subnet.
 ---
-# Tutorial: Deploy and configure Azure Firewall DNAT using the Azure portal
+# Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal
 
+You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound traffic to your subnets. Azure Firewall does not have a concept of inbound rules and outbound rules. There are application rules and network rules, and they are applied to any traffic that comes into the firewall. Network rules are applied first, then application rules, and the rules are terminating.
+
+To configure DNAT, you configure the **Action** to **Translate**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might set a network rule to allow Remote Desktop traffic on TCP port 3389.
 
 In this tutorial, you learn how to:
 
@@ -21,24 +24,20 @@ In this tutorial, you learn how to:
 > * Set up a test network environment
 > * Deploy a firewall
 > * Create a default route
-> * Configure DNAT rules
+> * Configure a DNAT rule
+> * Configure a network rule
 > * Test the firewall
-
-
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-For this tutorial, you create a single VNet with three subnets:
-- **FW-SN** - the firewall is in this subnet.
-- **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
-- **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) the workload server.
-
-This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets in the same region with one or more subnets.
+For this tutorial, you create a two peered VNets:
+- **VN-Hub** - the firewall is in this VNet.
+- **VN-Spoke** - the workload server is in this VNet.
 
 ## Create a resource group
 1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 1. On the Azure portal home page, click **Resource groups**, then click **Add**.
-2. For **Resource group name**, type **Test-FW-RG**.
+2. For **Resource group name**, type **RG-DNAT-Test**.
 3. For **Subscription**, select your subscription.
 4. For **Resource group location**, select a location. All subsequent resources that you create must be in the same location.
 5. Click **Create**.
@@ -53,7 +52,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 4. For **Name**, type **VN-Hub**.
 5. For **Address space**, type **10.0.0.0/16**.
 7. For **Subscription**, select your subscription.
-8. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
+8. For **Resource group**, select **Use existing**, and then select **RG-DNAT-Test**.
 9. For **Location**, select the same location that you used previously.
 10. Under **Subnet**, for **Name** type **AzureFirewallSubnet**.
 
@@ -71,7 +70,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 4. For **Name**, type **VN-Spoke**.
 5. For **Address space**, type **192.168.0.0/16**.
 7. For **Subscription**, select your subscription.
-8. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
+8. For **Resource group**, select **Use existing**, and then select **RG-DNAT-Test**.
 9. For **Location**, select the same location that you used previously.
 10. Under **Subnet**, for **Name** type **SN-Workload**.
 
@@ -110,10 +109,10 @@ Now create a workload virtual machine, and place it in the appropriate subnet.
 
 **Basics**
 
-1. For **Name**, type **Srv-Jump**.
+1. For **Name**, type **Srv-Workload**.
 5. Type a username and password.
 6. For **Subscription**, select your subscription.
-7. For **Resource group**, click **Use existing**, and then select **Test-FW-RG**.
+7. For **Resource group**, click **Use existing**, and then select **RG-DNAT-Test**.
 8. For **Location**, select the same location that you used previously.
 9. Click **OK**.
 
@@ -145,9 +144,9 @@ Review the summary, and then click **Create**. This will take a few minutes to c
    
    |Setting  |Value  |
    |---------|---------|
-   |Name     |Test-FW01|
+   |Name     |FW-DNAT-test|
    |Subscription     |\<your subscription\>|
-   |Resource group     |**Use existing**: Test-FW-RG |
+   |Resource group     |**Use existing**: RG-DNAT-Test |
    |Location     |Select the same location that you used previously|
    |Choose a virtual network     |**Use existing**: VN-Hub|
    |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
@@ -156,7 +155,7 @@ Review the summary, and then click **Create**. This will take a few minutes to c
 3. Review the summary, and then click **Create** to create the firewall.
 
    This will take a few minutes to deploy.
-4. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
+4. After deployment completes, go to the **RG-DNAT-Test** resource group, and click the **FW-DNAT-test** firewall.
 6. Note the private IP address. You'll use it later when you create the default route.
 
 
@@ -167,12 +166,12 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 1. From the Azure portal home page, click **All services**.
 2. Under **Networking**, click **Route tables**.
 3. Click **Add**.
-4. For **Name**, type **Firewall-route**.
+4. For **Name**, type **RT-FWroute**.
 5. For **Subscription**, select your subscription.
-6. For **Resource group**, select **Use existing**, and select **Test-FW-RG**.
+6. For **Resource group**, select **Use existing**, and select **RG-DNAT-Test**.
 7. For **Location**, select the same location that you used previously.
 8. Click **Create**.
-9. Click **Refresh**, and then click the **Firewall-route** route table.
+9. Click **Refresh**, and then click the **RT-FWroute** route table.
 10. Click **Subnets**, and then click **Associate**.
 11. Click **Virtual network**, and then select **VN-Spoke**.
 12. For **Subnet**, click **SN-Workload**.
@@ -187,34 +186,60 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 2. Click **OK**.
 
 
-## Configure DNAT rules
+## Configure a DNAT rule
 
 
-1. Open the **Test-FW-RG**, and click the **Test-FW01** firewall.
-1. On the **Test-FW01** page, under **Settings**, click **Rules**.
+1. Open the **RG-DNAT-Test**, and click the **FW-DNAT-test** firewall.
+1. On the **FW-DNAT-test** page, under **Settings**, click **Rules**.
 2. Click **Add DNAT rule collection**.
-3. For **Name**, type **DNAT-Coll01**.
+3. For **Name**, type **RC-DNAT-01**.
 1. For **Priority**, type **200**.
-2. For **Action**, select **Allow**.
+6. Under **Rules**, for **Name**, type **RL-01**.
+7. For **Source Addresses**, type **\***.
+8. For **Destination Addresses** type the firewall's public IP address.
+9. For **Destination ports**, type **3389**.
+10. For **Translated Address** type the private IP address for the Srv-Workload virtual machine.
+11. For **Translated port**, type **3389**.
+13. Click **Add**.
 
-6. Under **Rules**, for **Name**, type **AllowRDP**.
-7. For **Source Addresses**, type **Any**.
-8. For **Protocol:port**, type **TCP:3389**. 
-10. Click **Add**.
+## Configure a network rule
+
+1. Open the **RG-DNAT-Test**, and click the **FW-DNAT-test** firewall.
+1. On the **FW-DNAT-test** page, under **Settings**, click **Rules**.
+2. Click **Add network rule collection**.
+
+Configure the rule using the following table and then click **Add**:
+
+
+|Parameter  |Value  |
+|---------|---------|
+|Name     |**RC-Net-01**|
+|Priority     |**200**|
+|Action     |**Allow**|
+
+Under **Rules**:
+
+|Parameter  |Setting  |
+|---------|---------|
+|Name     |**RL-RDP**|
+|Protocol     |**TCP**|
+|Source Addresses     |**\***|
+|Destination Addresses     |**Srv-Workload** private IP address|
+|Destination ports|**3389**|
 
 
 ## Test the firewall
 
-1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
-2. Connect a remote desktop to **Srv-Jump** virtual machine.
+1. From the Azure portal, review the network settings for the **Srv-Workload** virtual machine and note the private IP address.
+2. Connect a remote desktop to firewall public IP address. You should be connected to the **Srv-Workload** virtual machine.
 3. Close the remote desktop.
-4. Change the DNAT-Coll01 rule action to **Deny**.
-5. Try to connect to **Srv-Jump** again. This time it should not succeed because of the **Deny** rule.
+4. Change the RC-DNAT-01 rule action to **Deny**.
+5. Try to connect to firewall public IP address again. This time it should not succeed because of the **Deny** rule.
 
 
 ## Clean up resources
 
-You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
+You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **RG-DNAT-Test** resource group to delete all firewall-related resources.
 
 
 ## Next steps
@@ -222,10 +247,11 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Set up the network
-> * Create a firewall
+> * Set up a test network environment
+> * Deploy a firewall
 > * Create a default route
-> * Configure DNAT firewall rules
+> * Configure a DNAT rule
+> * Configure a network rule
 > * Test the firewall
 
 Next, you can monitor the Azure Firewall logs.
