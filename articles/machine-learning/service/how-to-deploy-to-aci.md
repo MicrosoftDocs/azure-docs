@@ -21,24 +21,31 @@ When you're ready to use your models and web services for high-scale, production
 
 This article shows three different methods to deploy a model on ACI.
 
-1. Deploy from model file - `Webservice.deploy()`
-1. Deploy from registered model - `Webservice.deploy_from_model()`
-1. Deploy registered model from image - `Webservice.deploy_from_image()`
+* Deploy from model file - `Webservice.deploy()`
+* Deploy from registered model - `Webservice.deploy_from_model()`
+* Deploy registered model from image - `Webservice.deploy_from_image()`
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - An Azure Machine Learning Workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md).
-- A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  Code examples in this article show the deployment for a model `mnist_model.pkl` created from the tutorial.  
+- The workspace object
+
+    ```python
+    from azureml.core import Workspace
+    ws = Workspace.from_config()
+    ```
+
+- A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  Code examples in this article show the deployment for a model `sklearn_mnist.pkl` created from the tutorial.  
 - A [Docker image configuration](#docker-image-configuration)
 - An [ACI container configuration ](#aci-container-configuration)
-- A [registered model]() (for methods deploying a registered model)
+- A [registered model](#registered-model-when-deploying-a-registered-model) (for methods deploying a registered model)
 
 ### Docker image configuration
 
 Configure the Docker image no matter which method you use.  To configure:
-1. Create the [scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script) and 
+1. Create the [scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
 1. Create [an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 1. Use these two files to configure the Docker image
 
@@ -70,12 +77,15 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 Register a model to use `Webservice.deploy_from_model()` or ``Webservice.deploy_from_image()`. When you use Azure Machine Learning to train your model, the model might already be registered in your workspace, as is the case with the deployment tutorial.  
 
-If your model was built elsewhere, you can still register it into your workspace.  To register a model, the model file (`mnist_model.pkl` in this example) must be in the current working directory. Then register that file as a model called `mnist_model` in the workspace with `Model.register()`.
+If your model was built elsewhere, you can still register it into your workspace.  To register a model, the model file (`sklearn_mnist.pkl` in this example) must be in the current working directory. Then register that file as a model called `sklearn_mnist` in the workspace with `Model.register()`.
 
 ```python
+from azureml.core import Workspace
+ws = Workspace.from_config()
+
 from azureml.core.model import Model
-model_name = "mnist_model"
-model = Model.register(model_path = "mnist_model.pkl",
+model_name = "sklearn_mnist"
+model = Model.register(model_path = "sklearn_mnist.pkl",
                        model_name = model_name,
                        tags = ["mnist"],
                        description = "Mnist handwriting recognition",
@@ -87,13 +97,25 @@ model = Model.register(model_path = "mnist_model.pkl",
 
 Deploy a model file using  `Webservice.deploy()`.  The model file must be present in your local working directory. You don't need a registered model for this method.
 
+1. In the prerequisite file score.py, change the  `init()` section to:
+
+```
+def init():
+    global model
+    # retreive the local path to the model using the model name
+    model_path = 'sklearn_mnist.pkl' 
+    model = joblib.load(model_path)
+```
+
+1. Deploy your model file:
+
 ```python
 from azureml.core.webservice import Webservice
 
 service_name = 'aci-mnist-1'
 service = Webservice.deploy(deployment_config = aciconfig,
                                 image_config = image_config,
-                                model_paths = ['mnist_model.pkl'],
+                                model_paths = ['sklearn_mnist.pkl'],
                                 name = service_name,
                                 workspace = ws)
 
@@ -101,17 +123,11 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-When you use this method, the scoring script `init()` section is slightly different than for a registered model:
-
-```
-def init():
-    global model
-    # retreive the local path to the model using the model name
-    model_path = 'mnist_model.pkl' 
-    model = joblib.load(model_path)
-```
+**Time estimate**: Approximately 8 minutes.
 
 This method is a convenient way to deploy a model file without registering it.  You can't name the model or associate tags or a description for it. Also it's harder to reuse the Docker image for more models later.  
+
+Proceed to [test the web service](#test-web-service).
 
 ## Deploy from registered model
 
@@ -131,7 +147,11 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
+**Time estimate**: Approximately 8 minutes.
+
 This method is a convenient way to deploy a registered model you have now, but it's harder to reuse the Docker image for more models later.  
+
+Proceed to [test the web service](#test-web-service).
 
 
 ## Deploy from image
@@ -171,8 +191,11 @@ service = Webservice.deploy_from_image(deployment_config = aciconfig,
                                            workspace = ws)
 service.wait_for_deployment(show_output = True)
 print(service.state)
-```    
+```   
+ 
+**Time estimate**: Approximately 8 minutes.
 
+Proceed to test the web service.
 
 ## Test web service
 
