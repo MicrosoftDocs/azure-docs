@@ -17,7 +17,7 @@ ms.custom: mvc
 ---
 # Tutorial: Configure an Azure web application to read a secret from Key Vault
 
-In this tutorial, you go over the necessary steps for getting an Azure web application to read information from Key vault using managed identities for Azure services. You learn how to:
+In this tutorial, you go over the necessary steps for getting an Azure web application to read information from Key vault using managed identities for Azure resources. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Key Vault.

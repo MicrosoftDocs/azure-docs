@@ -24,13 +24,13 @@ This quickstart shows you how to store a secret in Key Vault and how to retrieve
 > * Store a secret in Key Vault.
 > * Retrieve a secret from Key Vault.
 > * Create an Azure Web Application.
-> * [Enable managed service identities](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview).
+> * Enable a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for the web app.
 > * Grant the required permissions for the web application to read data from Key vault.
 
 Before you proceed make sure that you are familiar with the [basic concepts](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
-To understand why the below tutorial is the best practice we need to understand a few concepts. Key Vault is a central repository to store secrets programmatically. But to do so applications / users need to first authenticate to Key Vault i.e. present a secret. To follow security best practices this first secret needs to be rotated periodically as well. But with [Managed Service Identity](../active-directory/managed-service-identity/overview.md) applications that run in Azure are given an identity which is automatically managed by Azure. This helps solve the **Secret Introduction Problem** where users / applications can follow best practices and not have to worry about rotating the first secret
+To understand why the below tutorial is the best practice we need to understand a few concepts. Key Vault is a central repository to store secrets programmatically. But to do so applications / users need to first authenticate to Key Vault i.e. present a secret. To follow security best practices this first secret needs to be rotated periodically as well. But with [managed identites for Azure resources](../active-directory/managed-service-identity/overview.md) applications that run in Azure are given an identity which is automatically managed by Azure. This helps solve the **Secret Introduction Problem** where users / applications can follow best practices and not have to worry about rotating the first secret
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ Below are the few steps we need to do
     git remote add azure <url>
     ```
 
-## Enable Managed Service Identity
+## Enable a managed identity for the web app
 
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-service-identity/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
@@ -166,7 +166,7 @@ Run the assign-identity command to create the identity for this application:
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-This command is the equivalent of going to the portal and switching **Managed service identity** to **On** in the web application properties.
+This command is the equivalent of going to the portal and switching the **Identity / System assigned** setting to **On** in the web application properties.
 
 ### Assign permissions to your application to read secrets from Key Vault
 

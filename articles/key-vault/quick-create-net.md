@@ -22,7 +22,7 @@ In this quickstart, you follow the necessary steps for getting an Azure web appl
 > * Store a secret in the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure web application.
-> * [Enable managed identities for Azure resources](../active-directory/managed-service-identity/overview.md).
+> * Enable a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for the web app.
 > * Grant the required permissions for the web application to read data from the key vault.
 
 Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
