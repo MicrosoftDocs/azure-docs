@@ -1,48 +1,65 @@
 ---
-title: Static website hosting in Azure Storage (Preview) | Microsoft Docs
-description: Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications.  
+title: Static website hosting in Azure Storage
+description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.  
 services: storage
 author: MichaelHauss
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/17/18
+ms.date: 09/17/18
 ms.author: mihauss
 ms.component: blobs
 ---
 
-# Static website hosting in Azure Storage (Preview)
-Azure Storage now offers static website hosting (Preview), enabling you to deploy cost-effective and scalable modern web applications on Azure. On a static website, webpages contain static content and JavaScript or other client-side code. By contrast, dynamic websites depend on server-side code, and can be hosted using [Azure Web Apps](/azure/app-service/app-service-web-overview).
+# Static website hosting in Azure Storage
+Azure Storage accounts allow you to serve static content (HTML, CSS, JavaScript and image files) directly from a storage container named *$web*. Taking advantage of hosting in Azure Storage allows you to leverage serverless architectures including [Azure Functions](/azure/azure-functions/functions-overview) and other PaaS services.
 
-As deployments shift toward elastic, cost-effective models, the ability to deliver web content without the need for server management is critical. The introduction of static website hosting in Azure Storage makes this possible, enabling rich backend capabilities with serverless architectures leveraging [Azure Functions](/azure/azure-functions/functions-overview) and other PaaS services.
+In contrast to static website hosting, dynamic sites that depend on server-side code are best hosted using [Azure Web Apps](/azure/app-service/app-service-web-overview).
 
 ## How does it work?
-When you enable static websites on your storage account, a new web service endpoint is created of the form `<account-name>.<zone-name>.web.core.windows.net`.
+When you enable static website hosting on your storage account, you select the name of your default file and optionally provide a path to a custom 404 page. If a container named *$web* doesn't exist, then the container is created for you. 
 
-The web service endpoint always allows anonymous read access, returns formatted HTML pages in response to service errors, and allows only object read operations. The web service endpoint returns the index document in the requested directory for both the root and all subdirectories. When the storage service returns a 404 error, the web endpoint returns a custom error document if you configured it.
+Files in the *$web* container are:
 
-Content for your static website is hosted in a special container named "$web". As a part of the enablement process, "$web" is created for you if it does not already exist. Content in "$web" can be accessed at the account root using the web endpoint. For example `https://contoso.z4.web.core.windows.net/` returns the index document you configured for your website, if a document of that name exists in the root directory of $web.
+- served through anonymous access requests
+- only available through object read operations
+- case sensitive
+- available to the public web following this pattern: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/FILE_NAME`
+- available through a Blob storage endpoint following this pattern: `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/FILE_NAME`
 
-When uploading content to your website, use the blob storage endpoint. To upload a blob named 'image.jpg' that can be accessed at the account root use the following URL
-`https://contoso.blob.core.windows.net/$web/image.jpg`. The uploaded image can be viewed in a web browser at the corresponding web endpoint `https://contoso.z4.web.core.windows.net/image.jpg`.
+You use the Blob storage endpoint to upload files. For instance the file uploaded to this location:
+
+```bash
+https://contoso.blob.core.windows.net/$web/image.jpg
+```
+
+is available in the browser at this location:
+
+```bash
+https://contoso.z4.web.core.windows.net/image.jpg
+```
+
+The default file name you designate is used for the root as well as any subdirectories. If the server returns a 404 and you do not designate an error document path, then a default 404 page is returned to the user.
 
 
 ## Custom domain names
-You can use a custom domain to host your web content. To do so, follow the guidance in [Configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md). To access your website hosted at a custom domain name over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). Point your CDN to the web endpoint as opposed to the blob endpoint and remember that CDN configuration doesn't happen instantaneously, so you may need to wait a few minutes before your content is visible.
+You can [configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md) to make your static website available via a custom domain. To access your website hosted at a custom domain name over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to point your CDN to the web endpoint as opposed to the blob endpoint. Remember that the CDN configuration doesn't happen instantaneously, so you may need to wait a few minutes before your content is visible.
 
 ## Pricing and billing
 Static website hosting is provided at no additional cost. For more details on prices for Azure Blob Storage, check out the [Azure Blob Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Quickstart
 ### Azure portal
-If you haven't already, [create a GPv2 storage account](../common/storage-quickstart-create-account.md) To start hosting your web application, you can configure the feature using the Azure Portal and click on "Static website (preview)" under "Settings" in the left navigation bar. Click "Enabled" and enter the name of the index document and (optionally) the custom error document path.
+Begin by opening the azure portal at https://portal.azure.com and run through the following steps:
+
+1. Click on **Settings**
+2. Click on **Static website**
+3. Enter an index document name. A common value is *index.html*
+4. Optionally enter a path to a custom 404 page. A common value is *404.html*
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Upload your web assets to the "$web" container that was created as a part of static website enablement. You can do this directly in Azure Portal, or you can take advantage of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload entire directory structures. Make sure to include an index document with the name you configured. In this example, the document's name is "index.html".
-
-> [!NOTE]
-> The document name is case sensitive and therefore needs to match the name of the file in storage exactly.
+Next, upload your assets to the *$web* via the Azure Portal or use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload entire directory structures. Make sure to include a file that matches the *index document name* you selected when enabling the feature.
 
 Finally, navigate to your web endpoint to test your website.
 
