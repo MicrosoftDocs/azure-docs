@@ -102,12 +102,6 @@ The primary metric is the metric that the hyperparameter tuning run will optimiz
 * `primary_metric_name`: The name of the primary metric to optimize. The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Logging metrics for hyperparameter tuning](#logging-metrics-for-hyperparameter-tuning).
 * `primary_metric_goal`: It can be either PrimaryMetricGoal.MAXIMIZE or PrimaryMetricGoal.MINIMIZE and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
 
-Here is an example of how you can specify the primary metric -
-```Python
-primary_metric_name="accuracy", 
-primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
-```
-
 ### Resources allocated to hyperparameter tuning
 You can control your resource budget for your hyperparameter tuning run by either specifying the maximum total number of training runs or the maximum duration for your hyperparameter tuning run (in minutes). 
 * `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
@@ -117,7 +111,7 @@ NOTE: Either one of max_total_runs or max_duration_minutes needs to be specified
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 * `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment.
 
-Finally, in order to configure your hyperparameter tuning run, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](#link) for more information on estimators) and the `compute_target` where you wish to run the training script (See [link](#link) for more information on compute targets). If no `compute_target` is specified, the one from the `estimator` is used.
+Finally, in order to configure your hyperparameter tuning run, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators) and the `compute_target` where you wish to run the training script (See [link](/how-to-set-up-training-targets.md) for more information on compute targets). If no `compute_target` is specified, the one from the `estimator` is used.
 
 Here is an example of how you can configure your hyperparameter tuning run -
 ```Python
