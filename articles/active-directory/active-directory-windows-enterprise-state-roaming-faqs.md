@@ -93,7 +93,7 @@ Administrators can configure UE-V to roam Windows desktop app data by changing r
 In the future, Microsoft may investigate ways to make UE-V deeply integrated into Windows and extend UE-V to roam settings through the Azure AD cloud.
 
 ## Can I store synced settings and data on premises?
-Enterprise State Roaming stores all synced data in Microsoft cloud. UE-V offers an on-premises roaming solution.
+Enterprise State Roaming stores all synced data in the Microsoft cloud. UE-V offers an on-premises roaming solution.
 
 ## Who owns the data that’s being roamed?
 The enterprises own the data roamed via Enterprise State Roaming. Data is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using the Azure Rights Management service from Azure Information Protection. This is an improvement compared to Microsoft account-based settings sync, which encrypts only certain sensitive data such as user credentials before it leaves the device.
