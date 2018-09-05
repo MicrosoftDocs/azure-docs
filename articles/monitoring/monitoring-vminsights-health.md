@@ -72,10 +72,10 @@ This section provides the distribution of VMs based on operating system or basic
 
 On the Operating Systems tab, the table shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM. The health states defined for a VM are: 
 
-1. **Healthy** – no issues detected for the VM and it is functioning as required. 
-2. **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal functionality as expected.
-3. **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.
-4. **Unknown** – if the service was not able to make a connection with the VM, the status changes to an unknown state.
+* **Healthy** – no issues detected for the VM and it is functioning as required.  
+* **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal functionality as expected. 
+* **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.  
+* **Unknown** – if the service was not able to make a connection with the VM, the status changes to an unknown state.  
 
 You can click on any column item - **VM count**, **Critical**, **Warning**, **Healthy** or **Unknown** to drill down into that specific VM view to get more details. Based on the column cell selected, the results are filtered on the list view page. For example, if we want to check all VMs running **Ubuntu 16.04 (x86_64)**, click on the VM count value for that OS and it will open the following page, listing the two virtual machines that are in a critical health state.  
 
@@ -104,9 +104,9 @@ The **Fired alerts** table shows the top alerts raised and the **Top health issu
 Selecting **See All Health Criteria** opens a page show a list view of all the health criteria available with this solution.  The information can be further filtered based on the following options:
 
 * **Type** – There are three kinds of health criteria types to assess conditions and roll up overall health state of the monitored VM.  
-   a. **Unit** – Measures some aspect of the virtual machine. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watch for an event that indicates an error.  By default the filter is set to unit.  
-   b. **Dependency** - Provides health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.  
-   c. **Aggregate** -  Provides a combined health state of similar health criteria. Unit and dependency health criterion will typically be configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
+    a. **Unit** – Measures some aspect of the virtual machine. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watch for an event that indicates an error.  By default the filter is set to unit.  
+    b. **Dependency** - Provides health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.  
+    c. **Aggregate** -  Provides a combined health state of similar health criteria. Unit and dependency health criterion will typically be configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
 * **Category** - Type of health criteria used to group criteria of similar type for reporting purposes.  They are either **Availability** or **Performance**.
 
 You can drill further down to see which instances are unhealthy by clicking on a value under the **Unhealthy Component** column.  On the page a table lists the components which are in a critical health state.    
