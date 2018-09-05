@@ -23488,11 +23488,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/privileged-identity-management/index.md",
-            "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-privileged-identity-management-configure.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
             "redirect_document_id": true
