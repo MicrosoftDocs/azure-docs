@@ -1,6 +1,6 @@
 ---
-title: Computer Vision Python quickstart domain model | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Use a domain model - REST, Python - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you use domain models to identify celebrities and landmarks in  an image using Computer Vision with Python in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Use a domain model - REST, Python
+# Quickstart: Use a domain model - REST, Python - Computer Vision
 
 In this quickstart, you use domain models to identify celebrities and landmarks in an image using Computer Vision.
 

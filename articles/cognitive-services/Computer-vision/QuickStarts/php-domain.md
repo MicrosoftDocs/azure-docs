@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API PHP quickstart domain model | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Use a domain model - REST, PHP - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you use a domain model to identify landmarks in  an image using Computer Vision with PHP in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Use a domain model - REST, PHP
+# Quickstart: Use a domain model - REST, PHP - Computer Vision
 
 In this quickstart, you use a domain model to identify landmarks or celebrities in an image using Computer Vision.
 
