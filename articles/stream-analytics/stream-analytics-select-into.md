@@ -24,9 +24,9 @@ Note that the job is running, but no events are being produced in the output. On
 
 ![The Monitoring tile](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
-In this situation, you can add a few extra SELECT INTO statements to “log” the intermediate JOIN results and the data that's read from the input.
+In this situation, you can add a few extra SELECT INTO statements to "log" the intermediate JOIN results and the data that's read from the input.
 
-In this example, we've added two new “temporary outputs.” They can be any sink you like. Here we use Azure Storage as an example:
+In this example, we've added two new "temporary outputs." They can be any sink you like. Here we use Azure Storage as an example:
 
 ![Adding extra SELECT INTO statements](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
