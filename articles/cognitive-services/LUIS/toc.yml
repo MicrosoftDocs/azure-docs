@@ -89,6 +89,8 @@
   items:
   - name: Best practices
     href: luis-concept-best-practices.md
+  - name: Plan your app
+    href: luis-how-plan-your-app.md
   - name: Author App
     items: 
     - name: Authoring cycle
@@ -145,8 +147,6 @@
       href: luis-concept-keys.md
 - name: How-to guides
   items: 
-  - name: Plan your app
-    href: luis-how-plan-your-app.md
   - name: Start a new app
     href: luis-how-to-start-new-app.md
   - name: Build Model
