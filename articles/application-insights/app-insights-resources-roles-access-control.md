@@ -63,11 +63,11 @@ Choose **Access control (IAM)** from the left-hand menu.
 
 Select **Add**
 
-![Screenshot of Access control button in Azure portal](./media/app-insights-resources-roles-access-control/002-add.png)
+![Screenshot of Access control menu with add button highlighted in red](./media/app-insights-resources-roles-access-control/002-add.png)
 
 The **Add permissions** view below is specific to Application Insights resources, if you were viewing the access control permissions from a higher level like resource groups, you would see additional non-Application Insights-centric roles.
 
-![Screenshot of Access control button in Azure portal](./media/app-insights-resources-roles-access-control/003-user-roles.png)
+![Screenshot of Access control user role list](./media/app-insights-resources-roles-access-control/003-user-roles.png)
 
 #### Select a role
 
