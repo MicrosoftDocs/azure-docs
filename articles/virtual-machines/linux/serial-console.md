@@ -179,6 +179,14 @@ A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback
 
 A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
+**Q. Can I use serial console instead of an SSH connection?**
+
+A. While this may seem technically possible, serial console is intended to be used primarily as a troubleshooting tool in situations where connectivity via SSH is not possible. We recommend against using serial console as an SSH replacement for two reasons:
+
+1. Serial console does not have as much bandwidth as ssh - it is a text-only connection, so more GUI-heavy interactions will be difficult in serial console.
+1. Serial console access is currently only by username and password. SSH keys are far more secure than username/password combinations, so from a login security perspective we recommend SSH over serial console.
+
+
 
 ## Next steps
 * Use Serial Console to [boot into GRUB and enter single user mode](serial-console-grub-single-user-mode.md)
