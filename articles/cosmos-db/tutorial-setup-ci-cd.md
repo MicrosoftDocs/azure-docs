@@ -45,7 +45,7 @@ Select the desired team project, repository, and branch to enable builds.
 
 ![Select the team project, repository, and branch for the build definition ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-Finally, select the desired template for the build definition. We will select the **ASP.NET** template in this tutorial. 
+Finally, select the desired template for the build definition. We'll select the **ASP.NET** template in this tutorial. 
 
 ![Select the desired build definition template ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
 
@@ -58,15 +58,15 @@ Now we have a build definition that we can set up to use the Azure Cosmos DB Emu
 To add the emulator build task, search for **cosmos** in the search box and select **Add.** The build task will start up a container with an instance of the Cosmos DB emulator already running, so the task needs to be placed before any other tasks that expect the emulator to be running.
 
 ![Add the Emulator build task to the build definition](./media/tutorial-setup-ci-cd/addExtension_3.png)
-In this tutorial, we will add the task to the beginning of Phase 1 to ensure the Emulator is available before our tests execute.
+In this tutorial, we'll add the task to the beginning of Phase 1 to ensure the Emulator is available before our tests execute.
 The completed build definition now looks like this. 
 
 ![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_5.png)
 
 ## Configure tests to use the emulator
-Now, we will configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
+Now, we'll configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
 
-In this tutorial, we will use the [Visual Studio Test task](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
 
 Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the `authKey` variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the emulator. This `authKey` is the key expected by the emulator build task and should be defined in your **.runsettings** file.
 
