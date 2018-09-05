@@ -30,7 +30,8 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 <a name="export-app"></a>
 <a name="import-new-app"></a>
-<a name="delete-app"></a>    
+<a name="delete-app"></a>
+<a name="export-version"></a>    
 
 ## Create new app in LUIS
 
