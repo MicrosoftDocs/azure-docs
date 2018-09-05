@@ -23,7 +23,6 @@ The following procedure demonstrates how to add the "Bookflight" intent in the T
 1. Open your app (for example, TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
 2. On the **Intents** page, click **Create new intent**.
 
-    ![Intents List](./media/luis-how-to-add-intents/IntentsList.png)
 3. In the **Create new intent** dialog box, type the intent name "BookFlight" and click **Done**.
 
     ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
