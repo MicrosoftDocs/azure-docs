@@ -6,9 +6,9 @@
     tocHref: /azure/event-hubs/
     topicHref: /azure/active-directory/index
     items:
-    - name: Managed Service Identity
+    - name: Managed identities for Azure resources
       tocHref: /azure/event-hubs/
-      topicHref: /azure/active-directory/managed-service-identity/index
+      topicHref: /azure/active-directory/managed-identities-azure-resources/index
   
 - name: Azure
   tocHref: /azure/
@@ -18,9 +18,9 @@
     tocHref: /azure/service-bus-messaging/
     topicHref: /azure/active-directory/index
     items:
-    - name: Managed Service Identity
+    - name: Managed identities for Azure resources
       tocHref: /azure/service-bus-messaging/
-      topicHref: /azure/active-directory/managed-service-identity/index
+      topicHref: /azure/active-directory/managed-identities-azure-resources/index
   
 - name: Azure
   tocHref: /azure/
@@ -30,6 +30,6 @@
     tocHref: /azure/app-service/
     topicHref: /azure/active-directory/index
     items:
-    - name: Managed Service Identity
+    - name: Managed identities for Azure resources
       tocHref: /azure/app-service/
-      topicHref: /azure/active-directory/managed-service-identity/index
+      topicHref: /azure/active-directory/managed-identities-azure-resources/index
