@@ -29,7 +29,7 @@ In this article you will learn how to do the following in the Azure portal and P
 ## Before you begin
 **Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.  Before you can restore a SQL data warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
 
-# Restore through PowerShell
+## Restore through PowerShell
 
 ## Install PowerShell
 In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.  The latest version can be installed from  [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
@@ -208,7 +208,7 @@ $GeoRestoredDatabase.status
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
-# Restore through the Azure portal
+## Restore through the Azure portal
 
 ## Create a user-defined restore point using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
