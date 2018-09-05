@@ -1,5 +1,5 @@
 ---
-title: 'Connect - client VM - SQL Database Managed Instance | Microsoft Docs'
+title: 'Connect client VM - Azure SQL Database Managed Instance | Microsoft Docs'
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 keywords: 
 services: sql-database
@@ -13,9 +13,9 @@ ms.author: bonova
 manager: craigg
 
 ---
-# Connect to an Azure SQL Database Managed Instance from an Azure VM
+# Configure Azure VM to connect to an Azure SQL Database Managed Instance
 
-This quickstarts demonstrates how to connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.  
+This quickstarts demonstrates how to connect to an Azure SQL Database Managed Instance using SQL Server Management Studio (SSMS)  from an Azure virtual machine.  
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ You are connected to your virtual machine in the Server Manager dashboard.
 
 ## Use SSMS to connect to the Managed Instance
 
-1. In the virtual machine, open SSMS.
+1. In the virtual machine, open SQL Server Management Studio (SSMS).
  
    It will take a few moments to open as it needs to complete its configuration as this is the first time SSMS has been started.
 2. In the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.

@@ -1,5 +1,5 @@
 ---
-title: 'Configure P2S - SQL Database Managed Instance | Microsoft Docs'
+title: 'Configure P2S - Azure SQL Database Managed Instance | Microsoft Docs'
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio using a point-to-site connection from an on-premises client computer.
 keywords: 
 services: sql-database
@@ -7,15 +7,15 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: bonova
 manager: craigg
 
 ---
-# Connect to an Azure SQL Database Managed Instance from on-premises using a Point-to-Site connection
+# Configure a point-to-site connection to connect to an Azure SQL Database Managed Instance from on-premises computer
 
-This quickstart demonstrates how to connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../vpn-gateway/point-to-site-about.md)
+This quickstart demonstrates how to connect to an Azure SQL Database Managed Instance using SQL Server Management Studio (SSMS) from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../vpn-gateway/point-to-site-about.md)
 
 ## Prerequisites
 
@@ -26,16 +26,58 @@ This quickstart:
 
 ## Attach a VPN gateway to your Managed Instance virtual network
 
-Run the following PowerShell script to attach a VPN Gateway to the Managed Instance virtual network that you created 
-This is done in three steps:
-Create and install certificates on client machine
-Calculate future VPN Gateway subnet IP range
-Deploy ARM template that will attach VPN Gateway to subnet
+1. Open Powershell on your on-premises client computer.
+2. Copy and paste the following PowerShell script. This script attaches a VPN Gateway to the Managed Instance virtual network that you created in the [Create a Managed Instance](sql-database-managed-instance-get-started.md) quickstart. This script performs the following three steps:
+  - Creates and install certificates on client machine
+  - Calculates the future VPN Gateway subnet IP range
+  - Creates the GetewaySubnet
+  - Deploys the Azure Resource Manager template that attaches the VPN Gateway to VPN subnet
+3. Provide the requested parameters in the PowerShell script.
 
-> [!IMPORTANT]
-> To deploy this template user needs to provide public self-signed root certificate data. For detailed information on this and setting up certificates for point-to-site VPN, see [VPN Gaateway certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md)
+   ```powershell
+   $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/attach-vpn-gateway'
 
-2. Fill out the form with the requested information, using the information in the following table:
+   $parameters = @{
+       subscriptionId = '<subscriptionId>'
+       resourceGroupName = '<resourceGroupName>'
+       virtualNetworkName = '<virtualNetworkName>'
+       certificateNamePrefix  = '<certificateNamePrefix>'
+       }
+
+   Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase 
+   ```
+
+4. Execute the PowerShell script.
+
+## Create a VPN connection to your Managed Instance
+
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Open the resource group in which you created the virtual network gateway and then open the virtual network gateway resource.
+
+    ![virtual network gateway resource](./media/sql-database-managed-instance-configure-p2s/vpn-gateway.png)  
+
+3. Click **Point-to-site configuration** and then click **Download VPN client**.
+
+    ![Download VPN client](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
+4. 
+
+## Use SSMS to connect to the Managed Instance
+
+1. On the on-premises client computer, open SQL Server Management Studio (SSMS) .
+ 
+2. In the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
+
+    ![ssms connect](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
+
+After you connect, you can view your system and user databases in the Databases node, and various objects in the Security, Server Objects, Replication, Management, SQL Server Agent, and XEvent Profiler nodes.
+
+## Next steps
+
+- To learn how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
+- For an overview of the connection options for applications, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
+- To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
+
+
 
 ## Next steps
 
