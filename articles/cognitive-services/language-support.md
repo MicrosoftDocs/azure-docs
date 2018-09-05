@@ -1,5 +1,5 @@
 ---
-title: Supported Languages v2
+title: Language support
 titleSuffix: Cognitive Services - Azure
 description: A list of supported human languages across Azure Cognitive Services.
 services: cognitive-services
@@ -7,12 +7,12 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: erhopf
 ms.reviewer: ''
 ---
 
-# Supported natural languages for Azure Cognitive Services
+# Natural language support for Azure Cognitive Services
 
 Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
 
