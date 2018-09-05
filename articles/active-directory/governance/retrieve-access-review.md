@@ -19,9 +19,9 @@ ms.reviewer: mwahl
 
 # Retrieve access review results
 
-Administrators can use Azure Active Directory (Azure AD) to [create an access review](active-directory-azure-ad-controls-create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **User Account Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](fundamentals/active-directory-users-assign-role-azure-portal.md).
+Administrators can use Azure Active Directory (Azure AD) to [create an access review](create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **User Account Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## Locating an access review
 
@@ -42,14 +42,14 @@ To view the results of a completed instance of an access review that is recurrin
 
 ## Removing users from an access review
 
-By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequently data about that user will be removed from active access reviews.  Audit information about deleted users remains in the audit log.
+By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequently data about that user will be removed from active access reviews.  Audit information about deleted users remains in the audit log.
 
 ## Next steps
 
-- [Manage user access with Azure AD access reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-- [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-- [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
-- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md)
+- [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md)
+- [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md)
+- [Manage programs and controls for Azure AD access reviews](manage-programs-controls.md)
+- [Create an access review for members of a group or access to an application](create-access-review.md)
+- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

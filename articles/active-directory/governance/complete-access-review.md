@@ -19,8 +19,8 @@ ms.reviewer: mwahl
 
 # Complete an access review of members of a group or users' access to an application in Azure AD
 
-Administrators can use Azure Active Directory (Azure AD) to [create an access review](active-directory-azure-ad-controls-create-access-review.md) for group members or users assigned to an application. Azure AD automatically sends reviewers an email that prompts them to review access. If a user didn't get an email, you can send them the instructions
-in [Review your access](active-directory-azure-ad-controls-perform-access-review.md). (Note that guests who are assigned as reviewers but have not accepted the invite will not receive an email from access reviews, as they must first accept an invite prior to reviewing.) After the access review period is over or if an administrator stops the access review, follow the steps in this article to see and apply the results.
+Administrators can use Azure Active Directory (Azure AD) to [create an access review](create-access-review.md) for group members or users assigned to an application. Azure AD automatically sends reviewers an email that prompts them to review access. If a user didn't get an email, you can send them the instructions
+in [Review your access](perform-access-review.md). (Note that guests who are assigned as reviewers but have not accepted the invite will not receive an email from access reviews, as they must first accept an invite prior to reviewing.) After the access review period is over or if an administrator stops the access review, follow the steps in this article to see and apply the results.
 
 ## View an access review in the Azure portal
 
@@ -54,8 +54,8 @@ If you're no longer interested in the review, you can delete it. Select **Delete
 
 ## Next steps
 
-- [Manage user access with Azure AD access reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-- [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-- [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
-- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md)
+- [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md)
+- [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md)
+- [Manage programs and controls for Azure AD access reviews](manage-programs-controls.md)
+- [Create an access review for members of a group or access to an application](create-access-review.md)
+- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md)

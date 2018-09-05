@@ -324,17 +324,17 @@
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Access reviews
-### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md)
-### [Create an access review](active-directory-azure-ad-controls-create-access-review.md)
-### [How to perform an access review](active-directory-azure-ad-controls-perform-access-review.md)
-### [How to review your access](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
+### [Access reviews overview](governance/access-reviews-overview.md)
+### [Complete an access review](governance/complete-access-review.md)
+### [Create an access review](governance/create-access-review.md)
+### [How to perform an access review](governance/perform-access-review.md)
+### [How to review your access](governance/how-to-review-your-access.md)
+### [Guest access with access reviews](governance/manage-guest-access-with-access-reviews.md)
+### [Managing user access with reviews](governance/manage-user-access-with-access-reviews.md)
+### [Managing programs and controls](governance/manage-programs-controls.md)
+### [Retrieve access review results](governance/retrieve-access-review.md)
 
-## [Terms of use](active-directory-tou.md)
+## [Terms of use](governance/active-directory-tou.md)
 
 ## Secure your identities
 

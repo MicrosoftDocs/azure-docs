@@ -19,7 +19,7 @@ ms.reviewer: mwahl
 # Create an access review of group members or application access with Azure AD
 
 Access assignments become "stale" when users have access they don't need any more. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create an access review for group members or users assigned to an application. Creating recurring access reviews can be time-saving. If you need to routinely review users who have access to an application or are members of a group, you can define the frequency of those reviews. For more information on these scenarios, see 
-[Manage user access](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) and [Manage guest access](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md). 
+[Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md). 
 
 ## Create an access review
 
@@ -58,18 +58,18 @@ Based on your selections in Upon completion settings, auto-apply will be execute
 
 ## Manage the access review
 
-By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access](active-directory-azure-ad-controls-perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review your own access](active-directory-azure-ad-controls-perform-access-review.md).
+By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review your own access](perform-access-review.md).
 
 If some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
 
 To manage a series of access reviews, navigate to the access review from **Controls**, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly. 
 
-You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access Reviews** section. No access rights are changed in the directory until [the review is completed](active-directory-azure-ad-controls-complete-access-review.md).
+You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access Reviews** section. No access rights are changed in the directory until [the review is completed](complete-access-review.md).
 
 ## Next steps
 
-When an access review has started, Azure AD automatically sends reviewers an email that prompts them to review access. If a user didn't get an email, you can send them the instructions for how to [review access](active-directory-azure-ad-controls-perform-access-review.md). 
+When an access review has started, Azure AD automatically sends reviewers an email that prompts them to review access. If a user didn't get an email, you can send them the instructions for how to [review access](perform-access-review.md). 
 
-If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md) to see and apply the results.  
+If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review](complete-access-review.md) to see and apply the results.  
 
 If this is a review series, then navigate to **Review history** on the access review series page, to select a completed access review.  Upcoming reviews will be listed under **Scheduled review**, where you can edit the duration, and add or remove reviewers for individual reviews.
