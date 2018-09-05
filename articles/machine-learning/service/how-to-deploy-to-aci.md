@@ -106,29 +106,29 @@ Deploy a model file using  `Webservice.deploy()`.  The model file must be presen
 
 1. Edit the prerequisite file score.py and change the  `init()` section to:
 
-```python
-def init():
-    global model
-    # retreive the local path to the model using the model name
-    model_path = Model.get_model_path('sklearn_mnist_model.pkl')
-    model = joblib.load(model_path)
-```
+    ```python
+    def init():
+        global model
+        # retreive the local path to the model using the model name
+        model_path = Model.get_model_path('sklearn_mnist_model.pkl')
+        model = joblib.load(model_path)
+    ```
 
 1. Deploy your model file:
 
-```python
-from azureml.core.webservice import Webservice
-
-service_name = 'aci-mnist-1'
-service = Webservice.deploy(deployment_config = aciconfig,
-                                image_config = image_config,
-                                model_paths = ['sklearn_mnist.pkl'],
-                                name = service_name,
-                                workspace = ws)
-
-service.wait_for_deployment(show_output = True)
-print(service.state)
-```
+    ```python
+    from azureml.core.webservice import Webservice
+    
+    service_name = 'aci-mnist-1'
+    service = Webservice.deploy(deployment_config = aciconfig,
+                                    image_config = image_config,
+                                    model_paths = ['sklearn_mnist.pkl'],
+                                    name = service_name,
+                                    workspace = ws)
+    
+    service.wait_for_deployment(show_output = True)
+    print(service.state)
+    ```
 
 **Time estimate**: Approximately 6-7 minutes.
 
