@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/05/2018
 ms.author: dobett
 ---
 
@@ -20,7 +20,7 @@ Each IoT hub is provisioned with a certain number of units in a specific tier. T
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
 ## Operation throttles
-Operation throttles are rate limitations that are applied in minute ranges, and are intended to prevent abuse. IoT Hub tries to avoid returning errors whenever possible, but starts returning exceptions if the throttle is violated for too long.
+Operation throttles are rate limitations that are applied in minute ranges, and are intended to prevent abuse. IoT Hub tries to avoid returning errors whenever possible, but starts returning 429 exceptions if the throttle is violated for too long.
 
 At any given time, you can increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
@@ -37,13 +37,12 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Direct methods<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
 | Twin (device and module) reads<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Twin updates (device and module)<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
-| Jobs create, update, list, delete operations | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
-| Jobs twin update, invoke direct method operations | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
-| Jobs bulk import/export operations | 1 active job per hub | 1 active job per hub | 1 active job per hub |
+| Jobs operations<sup>1,3</sup> <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
+| Jobs device operations<sup>1</sup> <br/> (update twin, invoke direct method) | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Configurations and edge deployments<sup>1</sup> <br/> (create, update, list, delete) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) |
 
 
-<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB.
+<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time.
 
 The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
 
