@@ -36,7 +36,7 @@ The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extens
 
 ## SignalR connection info input binding
 
-Before a client can connect to SignalR Service, it must obtain the service endpoint and a valid access key. The *SignalRConnectionInfo* input binding produces the SignalR Service endpoint and a valid token that is used as an access key to connect to the service. The token is time-limited and can be used to authenticate a user to a connection, therefore you should not cache the token or share it between clients. An HTTP trigger using this binding can be used by clients to obtain the connection information.
+Before a client can connect to SignalR Service, it must retrieve the service endpoint and a valid access key. The *SignalRConnectionInfo* input binding produces the SignalR Service endpoint and a valid token that is used as an access key to connect to the service. Because the token is time-limited and can be used to authenticate a user to a connection, you should not cache the token or share it between clients. An HTTP trigger using this binding can be used by clients to retrieve the connection information.
 
 See the language-specific example:
 
@@ -59,10 +59,10 @@ public static IActionResult GetSignalRInfo(
 
 #### Authenticated tokens
 
-If the function is triggered by an authenticated client, you can add a user id claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
+If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
 (../app-service/app-service-authentication-overview.md).
 
-App Service Authentication sets an HTTP header named `x-ms-client-principal-id` the authenticated user's client principal id. You can set the `UserId` property of the binding to the value from the header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}`. 
+App Service Authentication sets an HTTP header named `x-ms-client-principal-id` the authenticated user's client principal ID. You can set the `UserId` property of the binding to the value from the header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}`. 
 
 ```cs
 [FunctionName("GetSignalRInfo")]
@@ -104,10 +104,10 @@ module.exports = function (context, req, connectionInfo) {
 
 #### Authenticated tokens
 
-If the function is triggered by an authenticated client, you can add a user id claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
+If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
 (../app-service/app-service-authentication-overview.md).
 
-App Service Authentication sets an HTTP header named `x-ms-client-principal-id` the authenticated user's client principal id. You can set the `userId` property of the binding to the value from the header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}`. 
+App Service Authentication sets an HTTP header named `x-ms-client-principal-id` the authenticated user's client principal ID. You can set the `userId` property of the binding to the value from the header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}`. 
 
 Example function.json:
 
@@ -134,7 +134,7 @@ module.exports = function (context, req, connectionInfo) {
 
 ## SignalR output binding
 
-Use the SignalR output binding to send one or more messages. A message can be broadcast to all connected clients, or it can be broadcast only to connected clients that has been authenticated to a given user.
+Use the SignalR output binding to send one or more messages. You can broadcast a message to all connected clients, or you can broadcast it only to connected clients that have been authenticated to a given user.
 
 See the language-specific example:
 
@@ -145,7 +145,7 @@ See the language-specific example:
 
 #### Broadcast to all clients
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that sends a message using the output binding to all connected clients. The target is the name of the method to be invoked on each client. The arguments is zero or more objects.
+The following example shows a [C# function](functions-dotnet-class-library.md) that sends a message using the output binding to all connected clients. The target is the name of the method to be invoked on each client. The arguments property is an array zero or more objects to be passed to the client method.
 
 ```cs
 [FunctionName("SendMessage")]
@@ -168,7 +168,7 @@ public static async Task<IActionResult> SendMessage(
 
 #### Send to a user
 
-You can send a message only to connections that have been authenticated to a user or users by specifying one or more user ids in the `UserIds` property of the SignalR message.
+You can send a message only to connections that have been authenticated to a user or users by specifying one or more user IDs in the `UserIds` property of the SignalR message.
 
 ```cs
 [FunctionName("SendMessage")]
@@ -224,9 +224,9 @@ module.exports = function (context, req) {
 
 #### Send to a user
 
-You can send a message only to connections that have been authenticated to a user or users by specifying one or more user ids in the `userIds` property of the SignalR message.
+You can send a message only to connections that have been authenticated to a user or users by specifying one or more user IDs in the `userIds` property of the SignalR message.
 
-*function.json* remains the same. Here's the JavaScript code:
+*function.json* stays the same. Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, req) {
