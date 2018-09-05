@@ -26,8 +26,6 @@ Prebuilt entities are defined in the [Recognizers-Text](https://github.com/Micro
  
 2. On the **Entities** page, select **Manage prebuilt entities**.
 
-    ![Screenshot of adding prebuilt entity on Entities Page](./media/add-entities/manage-prebuilt-entities-button.png)
-
 3. In **Add or remove prebuilt entities** dialog box, select the **number** and **datetimeV2** prebuilt entities. Then select **Done**.
 
     ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
@@ -38,8 +36,6 @@ Prebuilt entities are defined in the [Recognizers-Text](https://github.com/Micro
 A simple entity is a generic entity that describes a single concept. 
 
 1. In your app, from the **Build** section, and then click **Entities** in the left panel, and then select **Create new entity**.
-
-    ![Screenshot of Entities page with Create new entity button highlighted](./media/add-entities/create-new-entity-button.png)
 
 2. In the pop-up dialog box, type `Airline` in the **Entity name** box,  select **Simple** from the **Entity type** list, and then select **Done**.
 

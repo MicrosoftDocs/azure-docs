@@ -47,8 +47,6 @@ After importing the app, select **Entities**, then **Manage prebuilt entities**.
 3. On the **Keys and endpoints** page, assign the LUIS key created in the [Create LUIS endpoint key](#create-luis-endpoint-key) section.
 
   On this page, collect the app ID, publish region, and subscription ID of the LUIS key created in the  [Create LUIS endpoint key](#create-luis-endpoint-key) section. You need to modify the code to use these values later in this article. 
-
-  These values are all included in the endpoint URL at the bottom of the **Publish** page for the key you created. 
   
   Do **not** use the free starter key for this exercise. Only a **Language Understanding** key created in the Azure portal will work for this exercise. 
 
