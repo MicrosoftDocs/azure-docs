@@ -27,30 +27,9 @@ This article provides steps for testing your application in Azure using DevTest 
 Create an Azure Storage account in the lab's resource group by following instructions in the [Create a storage account](../storage/common/storage-create-storage-account.md) article. On the **Create storage account** page, select **Use existing** for **Resource group**, and select the **lab's resource group**. 
 
 ## Create a file share in the storage
+Creaet a file share in your Azure storage by following instructions in the [Create a file shire in Azure Files](../storage/files/storage-how-to-create-file-share
+.md) article. 
 
-6. On the **Notifications** page, confirm that the storage account is created successfully. Select the **resource group** link in the notification message. Close the **Notifications** page by clicking **X** in the right corner. 
-
-    ![Notification message](media/test-app-in-azure/storage-created-successfully.png)
-7. On the **Resource group** page, select the storage account you created.  
-
-    ![Select storage account you created](media/test-app-in-azure/select-storage-account-created.png)
-1. On the **Storage account** page, select **Files**. 
-
-    ![Select Files tile](media/test-app-in-azure/select-files-tile.png)
-2. Select **+ File share** button on the toolbar. 
-
-    ![Add file share button](media/test-app-in-azure/select-add-file-share-button.png)
-3. On the **File share** page, enter a **name** and **quota** for the file share, and select **Create**.
-
-    ![Create file share](media/test-app-in-azure/specify-share-name.png)
-4. After the file share is created, select the **file share** from the list. 
-
-    ![Select file share in the list](media/test-app-in-azure/select-file-share-in-list.png)
-6. On the **File share** page, select **Connect** on the toolbar. 
-
-    ![Select connect on the toolbar](media/test-app-in-azure/select-connect-on-toolbar.png)
-7. On the **Connect** page, you see different ways of mounting the file share as a drive on your machine. The next section has detailed instructions for mounting a file share. 
- 
 
 ## Mount the file share 
 
