@@ -179,16 +179,15 @@ The following procedure describes how to add a Terms of use language.
 
 The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to [register their device in Azure AD](./devices/overview.md). When the device is registered, the device ID is used to enforce the Terms of use on each device.
 
-Here is list of the supported operating systems and software.
+Here is a list of the supported platforms and software.
 
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Mac | Other |
 > | --- | --- | --- | --- | --- | --- |
-> | **Native app** | Yes | Yes | Yes | No | No |
-> | **Edge** | Yes | Yes | Yes | No | No |
-> | **Internet Explorer** | Yes | Yes | Yes | No | No |
-> | **Chrome** | Yes | Yes | Yes | No | No |
-> | **Other** | No | No | No | No | No |
+> | **Native app** | Yes | Yes | Yes |  |  |
+> | **Edge** | Yes | Yes | Yes |  |  |
+> | **Internet Explorer** | Yes | Yes | Yes |  |  |
+> | **Chrome** | Yes | Yes | Yes |  |  |
 
 Device-based Terms of use has the following constraints:
 
