@@ -4754,6 +4754,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-saas-clarizen-tutorial.md",
             "redirect_url": "/azure/active-directory/saas-apps/clarizen-tutorial",
             "redirect_document_id": true
@@ -6104,6 +6109,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/saas-apps/replicon-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-saas-replicon-tutorial.md",
             "redirect_url": "/azure/active-directory/saas-apps/replicon-tutorial",
             "redirect_document_id": true
@@ -6805,6 +6815,11 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-xmatters-ondemand-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/xmatters-ondemand-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
             "redirect_document_id": false
         },
