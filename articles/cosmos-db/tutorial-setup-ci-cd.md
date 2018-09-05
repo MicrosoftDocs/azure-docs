@@ -80,7 +80,7 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
   </TestRunParameters>
 </RunSettings>
 ```
-These `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB. 
+These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB. 
 
 ```csharp
 namespace todo.Tests
