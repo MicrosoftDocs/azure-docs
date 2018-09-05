@@ -9,7 +9,7 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App 
 
-This quickstart shows you how to store a secret in Key Vault and how to retrieve it using a Web app. To see the secret value you would have to run this on Azure. The quickstart uses Node.js and Managed service identities (MSIs)
+This quickstart shows you how to store a secret in Key Vault and how to retrieve it using a Web app. To see the secret value you would have to run this on Azure. The quickstart uses Node.js and managed identities for Azure resources.
 
 > [!div class="checklist"]
 > * Create a Key Vault.
@@ -158,7 +158,7 @@ Below are the few steps we need to do
 
 ## Enable Managed Service Identity
 
-Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-service-identity/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 Run the assign-identity command to create the identity for this application:
 
