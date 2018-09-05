@@ -7,7 +7,7 @@ manager: jpconnock
 
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 8/25/2018
+ms.date: 9/25/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound access to resources located in a subnet.
