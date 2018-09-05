@@ -17,7 +17,7 @@ ms.date: 08/28/2018
 
 The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can use models you create with Azure Machine Learning, or from other sources. For example, you might deploy a model that you trained on your local computer.
 
-<!-- Models are registered ??? -->
+[ ![Azure Machine Learning CI/CD cycle](media/concept-model-management-and-deployment/model-ci-cd-mini.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## Deployment pipeline
 
@@ -34,9 +34,10 @@ Each step can be performed independently, or as part of a single deployment comm
 <!--
 You can read more about the single deployment commands and using continuous integration and continuous deployment (CI/CD) tools with our services in the [Azure ML CI/CD reference](link to the CI/CD document).
 -->
+
 The following diagram illustrates the complete deployment pipeline:
 
-[ ![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+[ ![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline-mini.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 ## Model registration
 
@@ -89,7 +90,7 @@ You can deploy registered images into the cloud or to edge devices. The deployme
 
 Deployments are also searchable. For example, you can search for all deployments of a specific model or image.
 
-[ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets-mini.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 ### Managed cloud deployments
 
