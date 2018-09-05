@@ -3,8 +3,8 @@ title: Understanding application consent experiences | Microsoft Docs
 description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
 services: active-directory
 documentationcenter: ''
-author: zachowd
-manager: stevebal
+author: Zawad
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: zachowd
+ms.author: Zawad
 
 ---
 
@@ -41,12 +41,12 @@ The following diagram and table provide information about the building blocks of
 
 | # | Component | Purpose |
 | ----- | ----- | ----- |
-| 1 | User identifier | This identifier represents the user which the client application is requesting to access protected resources on behalf of. |
-| 2 | Title | The title changes based on whether the users are going through the user or admin consent flow. In user consent flow the title will be “Permissions requested” while in the admin consent flow the title will have an additional line “Accept for your organization”. |
+| 1 | User identifier | This identifier represents the user that the client application is requesting to access protected resources on behalf of. |
+| 2 | Title | The title changes based on whether the users are going through the user or admin consent flow. In user consent flow, the title will be “Permissions requested” while in the admin consent flow the title will have an additional line “Accept for your organization”. |
 | 3 | App logo | This image should help users have a visual cue of whether this app is the app they intended to access. This image is provided by application developers and the ownership of this image isn't validated. |
 | 4 | App name | This value should inform users which application is requesting access to their data. Note this name is provided by the developers and the ownership of this app name isn't validated. |
 | 5 | Publisher domain | This value should provide users with a domain they may be able to evaluate for trustworthiness. This domain is provided by the developers and the ownership of this publisher domain is validated. |
-| 6 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it is best to request access to the permissions with the least privilege. |
+| 6 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it is best to request access, to the permissions with the least privilege. |
 | 7 | Permission description | This value is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
 | 8 | App terms | These terms contain links to the terms of service and privacy statement of the application. The publisher is responsible for outlining their rules in their terms of service. Additionally, the publisher is responsible for disclosing the way they use and share user data in their privacy statement. If the publisher doesn't provide links to these values for multi-tenant applications, there will be a bolded warning on the consent prompt. |
 | 9 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
