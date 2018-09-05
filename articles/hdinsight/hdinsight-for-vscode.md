@@ -101,7 +101,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
     - Submit PySpark batch scripts
     - Set configurations
 
-<h3 id="linkcluster"></a>To link a cluster
+<h3 id="linkcluster">To link a cluster</h3>
 
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a Cluster**.
@@ -247,7 +247,7 @@ Running the interactive query takes much less time than [running a Hive batch jo
 7. Select a cluster to which to submit your PySpark query. Soon after, the query result is shown in the new right tab:
 
    ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-8. The tool also supports the **SQL Clause**  query.
+8. The tool also supports the **SQL Clause** query.
 
    ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
    The submission status appears on the left of the bottom status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**. 
@@ -265,9 +265,9 @@ Alternatively, click **Disable Validation** button when the dialog pops.
 
    ![Set the environment check from dialog](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
-### When submit PySpark interactive with PySpark3
+### PySpark3 is not supported with Spark2.2/2.3
 
-PySpark3 is not supported anymore with Spark 2.2 cluster and Spark2.3 cluster, only "PySpark" is supported for Python. It is known issue that submit to spark 2.2/2.3 fail with Python3.
+PySpark3 is not supported anymore with Spark 2.2 cluster and Spark2.3 cluster, only "PySpark" is supported for Python. It is known issue that submits to spark 2.2/2.3 fail with Python3.
 
    ![Submit to python3 get error](./media/hdinsight-for-vscode/hdi-azure-hdinsight-py3-error.png)
 
@@ -386,7 +386,7 @@ Azure HDInsight has been added to the left panel. You can browse and manage the 
 
 3. Click **Copy & Open** button will open browser, paste the code, click **Continue** button, then you will see the hint about sign in successfully.
 
-4. After signed in, the available subscriptions and clusters (Spark, Hadoop and HBase are supported) will be listed in **AZURE HDINSIGHT**. 
+4. After signed in, the available subscriptions and clusters (Spark, Hadoop, and HBase are supported) will be listed in **AZURE HDINSIGHT**. 
 
    ![Azure HDInsight Subscription](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
 
