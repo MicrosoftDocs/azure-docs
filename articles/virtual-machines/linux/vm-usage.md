@@ -19,7 +19,7 @@ ms.author: memccror
 ---
 
 # Understanding Azure virtual machine usage
-By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](/billing/billing-understand-your-bill.md).
+By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## Download your usage details
 To begin, [download your usage details](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
@@ -140,5 +140,6 @@ In the Classic model, billing for resources is aggregated at the Cloud Service l
 Premium storage capable VMs are billed at the same rate as non-premium storage capable VMs. Only your storage costs differ. Visit the [storage pricing page](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) for more information.
 
 ## Next steps
-To learn more about your usage details, see [Understand your bill for Microsoft Azure.](/billing/billing-understand-your-bill.md)
+To learn more about your usage details, see [Understand your bill for Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)
 
