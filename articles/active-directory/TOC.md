@@ -323,19 +323,6 @@
 
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
-## Access reviews
-### [Access reviews overview](governance/access-reviews-overview.md)
-### [Complete an access review](governance/complete-access-review.md)
-### [Create an access review](governance/create-access-review.md)
-### [How to perform an access review](governance/perform-access-review.md)
-### [How to review your access](governance/how-to-review-your-access.md)
-### [Guest access with access reviews](governance/manage-guest-access-with-access-reviews.md)
-### [Managing user access with reviews](governance/manage-user-access-with-access-reviews.md)
-### [Managing programs and controls](governance/manage-programs-controls.md)
-### [Retrieve access review results](governance/retrieve-access-review.md)
-
-## [Terms of use](governance/active-directory-tou.md)
-
 ## Secure your identities
 
 ### Azure AD Identity Protection
