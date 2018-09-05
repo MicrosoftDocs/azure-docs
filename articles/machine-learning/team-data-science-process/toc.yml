@@ -219,7 +219,7 @@
 - name: Related
   items:
   - name: Azure Machine Learning - AML
-    href: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+    href: https://docs.microsoft.com/azure/machine-learning/service/
   - name: Microsoft Cognitive Toolkit - CNTK
     href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true

@@ -44,9 +44,7 @@ Learn more about [what changed in this release](overview-what-happened-to-workbe
 
 Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning service. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
-Get started with the latest version by creating an Azure Machine Learning Workspace:
-+ In the [Azure portal](quickstart-get-started.md)
-+ Using the new [machine learning CLI extension](quickstart-get-started-with-cli.md)
+Get started with the latest version by creating an Azure Machine Learning Workspace in the [Azure portal](quickstart-get-started.md)
 
 This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning service. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
 
@@ -56,7 +54,7 @@ This new workspace is the top-level service resource and enables you to use all 
 
 Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
-To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. Using a single CLI command or in a few lines of Python code, your existing project files will continue to work in the latest version. For a complete example, follow the [CLI quickstart](quickstart-get-started-with-cli.md) or [Portal/SDK quickstart](quickstart-get-started.md). 
+To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. Using a single CLI command or in a few lines of Python code, your existing project files will continue to work in the latest version. For a complete example, try the [Portal/SDK quickstart](quickstart-get-started.md). 
 
 + For [CLI](reference-azure-machine-learning-cli.md), use:
   ```azurecli
@@ -114,9 +112,7 @@ Data preparation files are not portable without the Workbench. But you can still
 
 ## Next steps
 
-For a quickstart showing you how to create a workspace, create a project, run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try:
-+ [Get started with Azure Machine Learning service](quickstart-get-started.md)
-+ [Get started with Azure Machine Learning using the CLI extension](quickstart-get-started-with-cli.md)
+For a quickstart showing you how to create a workspace, create a project, run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try [get started with Azure Machine Learning service](quickstart-get-started.md).
 
 For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for training and deploying models with Azure Machine Learning service. 
 

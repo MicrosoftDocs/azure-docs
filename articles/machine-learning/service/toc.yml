@@ -15,8 +15,6 @@
   items:
   - name: Get started - Portal
     href: quickstart-get-started.md
-  - name: Get started - CLI
-    href: quickstart-get-started-with-cli.md   
 - name: Tutorials
   items:
   - name: '1. Train models'
@@ -29,12 +27,16 @@
   items: 
   - name: Architecture and terms
     href: concept-azure-machine-learning-architecture.md    
+  - name: Model management
+    href: concept-model-management-and-deployment.md
   - name: FPGA accelerations
     href: concept-accelerate-with-fpgas.md  
-  - name: Machine learning pipelines
+  - name: ML pipelines
     href: concept-ml-pipelines.md        
   - name: ONNX
-    href: concept-onnx.md        
+    href: concept-onnx.md   
+  - name: Data prep
+    href: data-prep-overview.md    
 - name: How-to guides
   items:  
   - name: Manage workspaces
@@ -47,6 +49,14 @@
       href: how-to-configure-environment.md
   - name: Set up training environments	
     href: how-to-set-up-training-targets.md
+  - name: Prepare data for modeling
+    items:
+    - name: Load data
+      href: load-data-with-data-prep.md
+    - name: Transform data
+      href: transform-data-with-data-prep.md
+    - name: Write data
+      href: write-data-with-data-prep.md
   - name: Train and tune models
     items:    
     - name: Choose an ML algorithm	
@@ -65,7 +75,7 @@
   - name: Deploy models in production	
     items:    
     - name: Where to deploy models
-      href: deploy-models.md
+      href: how-to-deploy-and-where.md
       items:
        - name: Deploy to ACI
          href: how-to-deploy-to-aci.md

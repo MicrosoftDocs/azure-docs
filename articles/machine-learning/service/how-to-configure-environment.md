@@ -87,16 +87,16 @@ Create a configuration file, so your code can interact with your workspace in th
     conda install <new package>
     ```
 
-5. To install a conda-aware Jupyter Notebook server and enable run history widgets, use the following commands:
+5. To install a conda-aware Jupyter Notebook server and enable experiment widgets (to view run information), use the following commands:
 
     ```shell
     # install Jupyter 
     conda install nb_conda
 
-    # install run history widget
+    # install experiment widget
     jupyter nbextension install --py --user azureml.train.widgets
 
-    # enable run history widget
+    # enable experiment widget
     jupyter nbextension enable --py --user azureml.train.widgets
     ```
 

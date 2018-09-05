@@ -12,17 +12,20 @@ ms.topic: article
 ms.date: 09/24/2018
 #Customer intent: As a professional data scientist, I can use Automated Machine Learning functionality to tune a model on a DSVM remote compute target.
 ---
-# Automatically train a model in the cloud
+# Train models automatically in the cloud
 
-Azure Machine Learning can automatically train your model in several different environments. These environments, called compute targets, could be local or in the cloud. You easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machine (DSVM).
+Azure Machine Learning can automatically train your model in several different environments. These environments, called compute targets, could be local or in the cloud. 
 
-In this article, you'll learn about the DSVM compute target and how to use it.  
+
+You easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machine (DSVM). The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
+
+In this article, you learn how to perform automated model selection on the DSVM.  
 
 ## How does remote differ from local?
 
-The [Automatically train a classification model](tutorial-auto-train-models.md) tutorial shows how to use a local target for training.  The same workflow applies to training on remote targets as well. 
+The tutorial "[Automatically train a classification model](tutorial-auto-train-models.md)" teaches you how to use a local target for automated modeling.  The workflow when training locally also applies to  remote targets as well. 
 
-This article shows additional code necessary to perform automatic training on a DSVM instead of a local computer.  The workspace object, `ws`, from the tutorial is used throughout the code here.
+This article explains the code needed to perform automated modeling on a remote DSVM instead.  The workspace object, `ws`, from the tutorial is used throughout the code here.
 
 ```python
 ws = Workspace.from_config()
@@ -30,11 +33,9 @@ ws = Workspace.from_config()
 
 ## Create resource
 
-The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
+Create the DSVM in your workspace (`ws`) if it does not already exist. If the DSVM was previously created, this code skips the creation process and loads the existing resource detail into the `dsvm_compute` object.  
 
-Create the DSVM in your workspace (`ws`) if it does not already exist. If already present, the code skips the creation process and loads the resource detail into the `dsvm_compute` object.  
-
-Creation of the VM takes **approximately 5 minutes**.
+**Time estimate**: Creation of the VM takes approximately 5 minutes.
 
 ```python
 from azureml.core.compute import DsvmCompute
@@ -49,23 +50,26 @@ except:
     dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
     dsvm_compute.wait_for_provisioning(show_output = True)
 ```
-The `dsvm_compute` object can now be used to as the remote compute target.
 
-Note:
-* The DSVM name must be shorter than 64 characters.  
-* The DSVM name may not include any of the following characters: 
-    <code>` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.</code>
-* If creation fails with a message about Marketplace purchase eligibility:
-    1. Go to the [Azure portal](https://portal.azure.com)
-    1. Start creating a DSVM 
-    1. Select "Want to create programmatically" to enable programmatic creation
-    1. Exist without actually creating the VM
-    1. Rerun the creation code
+You can now use the `dsvm_compute` object as the remote compute target.
+
+DSVM name restrictions include:
++ Must be shorter than 64 characters.  
++ Cannot include any of the following characters: 
+  `\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
+
+>[!Warning]
+>If creation fails with a message about Marketplace purchase eligibility:
+>    1. Go to the [Azure portal](https://portal.azure.com)
+>    1. Start creating a DSVM 
+>    1. Select "Want to create programmatically" to enable programmatic creation
+>    1. Exist without actually creating the VM
+>    1. Rerun the creation code
 
 
 ## Configure resource
 
-Configure the remote resource with the environment required to run your training code.  This includes:
+Configure the remote resource with the development environment needed to run your training code.  This includes:
 
 * Any required `conda` or `pip` installs
 * The compute target (`dsvm_compute`)
@@ -96,16 +100,18 @@ run_config.auto_prepare_environment = True
 # save the conda dependencies to the aml_config folder 
 run_config.save(path = project_folder, name = dsvm_name)
 ```
-The `run_config` object now can be used as the target for automatic training. 
+
+You can now use the `run_config` object as the target for automatic training. 
 
 ## Access data
 
-Provide the remote resource access to your training data.  To provide access:
+Provide the remote resource access to your training data.  
 
-* Create a **get_data.py** file containing a `get_data()` function. 
-* Place the file in root directory of the project folder. 
+To provide access, you must:
++ Create a get_data.py file containing a `get_data()` function 
+* Place that file in the root directory of the folder containing your scripts 
 
-You can encapsulate code to read data either from a blob storage or local disk in this file. In the code below, the data comes from the `sklearn` package.
+You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
 
 
 ```python
@@ -157,27 +163,27 @@ automl_config = AutoMLConfig(task = 'classification',
 
 ## Automatic training
 
-Now invoke the automatic training.   Call the `submit()` method with `automl_config`  train the model. 
+Once configured, you can run code to automatically select the algorithm, tune, and train the model using the `submit()` method with `automl_config`. 
 
 ```python
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
+
 (Learn [more information about parameters]() for the `submit` method.)
 
 ## Explore results
 
-As in the local compute tutorial, you can use a Jupyter widget to see a graph and table of results.
+You can use the same Jupyter widget as the one in [this tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
 You can click on a pipeline to see run properties and output logs. 
 
-Logs are also available on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs
+Find logs on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs
 
-Also notice the widget displays a link at the bottom. This links to a web page to explore the individual run details.
+The widget displays a URL you can use to see and explore the individual run details.
  
 ```python
 from azureml.train.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
-
 
 ## View status of DSVM
 You can iterate through all runs in your experiment and view the DSVM status and run history.
