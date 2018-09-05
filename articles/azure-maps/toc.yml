@@ -66,12 +66,14 @@
       href: map-add-shape.md
     - name: Add custom HTML
       href: map-add-custom-html.md
-    - name: Show search results 
-      href: map-search-location.md  
-    - name: Get information from a coordinate
-      href: map-get-information-from-coordinate.md
-    - name: Show directions from A to B
-      href: map-route.md   
+    - name: Services
+      items:  
+      - name: Show search results 
+        href: map-search-location.md  
+      - name: Get information from a coordinate
+        href: map-get-information-from-coordinate.md
+      - name: Show directions from A to B
+        href: map-route.md   
     - name: Show traffic 
       href: map-show-traffic.md
     - name: Interacting with mouse events
