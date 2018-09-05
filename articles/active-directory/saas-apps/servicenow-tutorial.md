@@ -146,11 +146,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Select the plugin. Right click and select **Activate/Upgrade**.
 
+	 ![Activate plugin](./media/servicenow-tutorial/tutorial_activate.png "Activate plugin")
+
 	d. Click the **Activate** button.
 
-8. There are two ways in which **ServiceNow** can be configured - Automatic and Manual.
+	 ![Activate plugin](./media/servicenow-tutorial/tutorial_activate1.png "Activate plugin")
 
-9. For configuring **ServiceNow** automatically, follow the below steps:
+8. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
+
+	![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
+
+9. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
+
+	![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
+
+	* As **Enable multiple provider SSO**, select **Yes**.
+  
+	* As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
+
+	* As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
+
+	* In **The field on the user table that...** textbox, type **user_name**.
+  
+	* Click **Save**.
+
+10. There are two ways in which **ServiceNow** can be configured - Automatic and Manual.
+
+11. For configuring **ServiceNow** automatically, follow the below steps:
 
 	* Return to the **ServiceNow** Single-Sign on page in the Azure portal.
 
@@ -164,17 +186,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	* Sign on to your ServiceNow application as an administrator.
 
-	* In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your identity provider in ServiceNow. follow the below steps for the same:
+	* In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your identity provider in ServiceNow. Follow the below steps for the same:
 
-	* In the navigation pane on the left side, click **Identity Providers** Under **Multi-Provider SSO**.
+	* In the navigation pane on the left side, click **Identity Providers** under **Multi-Provider SSO**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
-	* Click on the automatically generated identity provider
+	* Click on the automatically generated Identity Provider
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
 
-	* Scroll down to the **X.509 Certificate** section. Select **Edit**.
+	* Scroll down to the **X.509 Certificate** section, select **Edit**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configure single sign-on")
 
@@ -185,29 +207,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* Click **Save**.
 
 	* Click on **Activate** at the top right corner of the page.
+
+		![Activate plugin](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
   
-	* In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
-
-		![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
-
-	* On the **Multiple Provider SSO Properties** dialog, perform the following steps:
-	
-		![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
-	
-		* As **Enable multiple provider SSO**, select **Yes**.
-  
-		* As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
-	 
-		* As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
-
-		* In **The field on the user table that...** textbox, type **user_name**.
-  
-		* Click **Save**.
-
 	* Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
-	
+
 	* In the upper left search box, search for **sys_properties.list** and press enter.
 
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694993.png "Configure single sign-on")
@@ -219,7 +225,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* In the **System Property** section, perform the following steps:
 
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694995.png "Configure single sign-on")
-	
+
 		* Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
 
 		* In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
@@ -247,27 +253,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> Also please note that, you have to test your new Idp configuration in a new incognito window
 
-10. For configuring **ServiceNow** manually, follow the below steps:
+12. For configuring **ServiceNow** manually, follow the below steps:
 
 	* Sign on to your ServiceNow application as an administrator.
-
-	* In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
-
-		![Configure app URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
-
-	* On the **Multiple Provider SSO Properties** dialog, perform the following steps:
-
-		![Configure app URL](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
-
-		* As **Enable multiple provider SSO**, select **Yes**.
-
-		* As **Enable Auto Importing of users from all identity providers into the user table**, select **Yes**.
-
-		* As **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
-
-		* In **The field on the user table that...** textbox, type **user_name**.
-
-		* Click **Save**.
 
 	* In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **x509 Certificates**.
 
@@ -301,13 +289,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694977.png "Configure single sign-on")
 
-	* On the **Identity Providers** dialog, click **SAML2 Update1?**.
+	* On the **Identity Providers** dialog, click **SAML**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694978.png "Configure single sign-on")
 
-	* On the SAML2 Update1 Properties dialog, perform the following steps:
+	* On the **SAML2 Update1 Properties** dialog, perform the following steps:
 
 		![Configure single sign-on](./media/servicenow-tutorial/idp.png "Configure single sign-on")
+
+		* Select **Identity Providers**
 
 		* Select **URL** option in **Import Identity Provider Metadata** dialogue box.
 
@@ -320,7 +310,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694982.png "Configure single sign-on")
 
 		* In the **Name** textbox, type a name for your configuration (for example, **SAML 2.0**).
-	
+
 		* Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
 			> [!NOTE]
@@ -339,7 +329,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 			> ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same, please follow the below steps.
 
 	* Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
-	
+
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
 
 	* In the upper left search box, search for **sys_properties.list** and press enter.
@@ -429,9 +419,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure app URL](./media/servicenow-tutorial/ic7694981ex.png "Configure app URL")
 
 	a. Toggle **Enable multiple provider SSO** to the right.
-	
+
 	b. Toggle **Enable debug logging for the multiple provider SSO integration** to the right.
-	
+
 	c. In **The field on the user table that...** textbox, type **user_name**.
 
 11. On the **Single Sign-On** dialog, click **Add New Certificate**.
@@ -465,7 +455,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. In the **Name** textbox, type a name for your configuration (for example: **SAML 2.0**).
 
 	b. In the **Identity Provider URL** field, paste the value of **Identity Provider ID**, which you have copied from Azure portal.
-	
+
 	c. In the **Identity Provider's AuthnRequest** field, paste the value of **Authentication Request URL**, which you have copied from Azure portal.
 
 	d. In the **Identity Provider's SingleLogoutRequest** field, paste the value of **Single Sign-Out Service URL**, which you have copied from Azure portal
@@ -549,13 +539,13 @@ The objective of this section is to create a user called Britta Simon in Service
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to ServiceNow.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to ServiceNow, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **ServiceNow**.
 
@@ -580,14 +570,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the ServiceNow tile in the Access Panel, you should get automatically signed-on to your ServiceNow application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configure User Provisioning](servicenow-provisioning-tutorial.md)
-
 
 <!--Image references-->
 
