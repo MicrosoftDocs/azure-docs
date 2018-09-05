@@ -13,49 +13,62 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/28/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
 ---
 
 # Approve or deny requests for Azure AD directory roles in PIM
 
-With Privileged Identity Management, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers.
+With Azure AD Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Follow the steps in this article to approve or deny requests for Azure AD directory roles.
 
-## View pending approvals (requests)
+## View pending requests
 
-As a delegated approver, you’ll receive email notifications when a request is
-pending your approval. To view these requests in the PIM portal, from the
-dashboard (in the new navigation) select the “Pending Approval Requests” tab in
-the left navigation bar.
+As a delegated approver, you'll receive an email notification when an Azure AD directory role request is pending your approval. You can view these pending requests in PIM.
 
-![](media/azure-ad-pim-approval-workflow/image023.png)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-From there, you’ll see a list of requests pending approval:
+1. Open **Azure AD Privileged Identity Management**.
 
-![](media/azure-ad-pim-approval-workflow/image024.png)
+1. Click **Azure AD directory roles**.
 
-## Approve or deny requests for role elevation (single and/or bulk)
+1. Click **Approve requests**.
 
-Select the requests you wish to approve or deny, and click the button in the
-action bar that corresponds with your decision:
+    ![PIM Azure AD directory roles - Roles](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
-![](media/azure-ad-pim-approval-workflow/image025.png)
+    You'll see a list of requests pending your approval.
 
-## Provide justification for my approval/denial
+## Approve requests
 
-This will open a new blade to approve or deny multiple requests at once. Enter a
-justification for your decision, and click approve (or deny) at the bottom or
-the blade:
+1. Select the requests you want to approve and then click **Approve** to open the Approve selected requests pane.
 
-![](media/azure-ad-pim-approval-workflow/image029.png)
+    ![PIM Approve requests list](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-When the request process is complete, the status symbol will reflect the
-decision you made (in this example, the decision is approve):
+1. In the **Approve reason** box, type a reason.
 
-![](media/azure-ad-pim-approval-workflow/image031.png)
+    ![PIM Approve selected requests](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Click **Approve**.
+
+    The Status symbol will be updated with your approval.
+
+    ![PIM Approve selected requests](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## Deny requests
+
+1. Select the requests you want to deny and then click **Deny** to open the Deny selected requests pane.
+
+    ![PIM Approve requests list](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. In the **Deny reason** box, type a reason.
+
+    ![PIM Deny selected requests](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Click **Deny**.
+
+    The Status symbol will be updated with your denial.
 
 ## Next steps
 
-- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
 - [Email notifications in PIM](pim-email-notifications.md)
+- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)

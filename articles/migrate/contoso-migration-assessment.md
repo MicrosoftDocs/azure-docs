@@ -282,13 +282,13 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
     **Example** 
     
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match these settings (version 1.0.9.12):
+3. The generated hash should match these settings (version 1.0.9.14):
 
-    Algorithm | Hash value
+    **Algorithm** | **Hash value**
     --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
 ### Create the collector appliance
 

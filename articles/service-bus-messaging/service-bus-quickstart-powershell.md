@@ -2,7 +2,7 @@
 title: Quickstart - Send and receive messages to and from Azure Service Bus | Microsoft Docs
 description: In this quickstart, you learn to send and receive Service Bus messages using PowerShell and the .NET Standard client
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
@@ -10,7 +10,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
+ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
