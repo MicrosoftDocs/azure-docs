@@ -377,6 +377,8 @@
         href: local-emulator-export-ssl-certificates.md
       - name: Visual Studio Code extension
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+    - name: Set up VSTS CI/CD pipeline
+      href: tutorial-setup-ci-cd.md
     - name: Best practices
       items:
       - name: Performance tips

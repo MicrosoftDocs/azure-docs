@@ -1,4 +1,5 @@
 - name: Privileged Identity Management documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure AD PIM?
