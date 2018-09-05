@@ -41,10 +41,10 @@ For a Windows 10 device to use the Enterprise State Roaming service, the device 
 Enterprise State Roaming data is hosted in one or more [Azure regions](https://azure.microsoft.com/regions/) that best align with the country/region value set in the Azure Active Directory instance. Enterprise State Roaming data is partitioned based on three major geographic regions: North America, EMEA, and APAC. Enterprise State Roaming data for the tenant is locally located with the geographical region, and is not replicated across regions.  For example:
 Country/region value | has their data hosted in
 ---------------------|-------------------------
-An EMEA country such as “France” or “Zambia" | one or of the Azure regions within Europe 
-A North American country such as “United States” or “Canada” | one or more of the Azure regions within the US
-An APAC country such as “Australia” or “New Zealand” | one or more of the Azure regions within Asia
-South American and Antarctica regions | one or more Azure regions within the US
+An EMEA country such as France or Zambia | One or more of the Azure regions within Europe 
+A North American country such as United States or Canada | One or more of the Azure regions within the US
+An APAC country such as Australia or New Zealand | One or more of the Azure regions within Asia
+South American and Antarctica regions | One or more Azure regions within the US
 
 The country/region value is set as part of the Azure AD directory creation process and cannot be subsequently modified. If you need more details on your data storage location, file a ticket with [Azure support](https://azure.microsoft.com/support/options/).
 
