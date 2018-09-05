@@ -95,5 +95,6 @@ If you have a proxy or firewall that is blocking anonymous traffic, as Windows D
 
 ## Next Steps
 
-- 
-- 
+* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+* [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
