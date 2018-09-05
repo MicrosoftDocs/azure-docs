@@ -59,13 +59,35 @@ This quickstart:
 3. Click **Point-to-site configuration** and then click **Download VPN client**.
 
     ![Download VPN client](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. 
+4. Extract the files from the zip file and then open the extracted folder. 
+5. Havigate to the WindowsAmd64 folder and open the **VpnClientSetupAmd64.exe** file.
+6. If you recieve a **Windows protected your PC** message, click **More info** and then click **Run anyway**.
+
+    ![Install VPN client](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
+7. Click **Yes** in the User Account Control dialog box to proceed.
+8. In the MyNewVNet dialog box, click **Yes** to install a Vpn Client for MyNewVNet.
+
+## Connect to the VPN connection.
+
+1. Go to VPN connections on your client computer and click **MyNewVNet** to establish a connection to this VNet.
+
+    ![VPN connection](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
+2. Click **Connect**.
+3. In the MyNewVNet dialog box, click **Connect**.
+
+    ![VPN connection](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
+4. When prompted that Connection Manager needs elevated privilege to update your route table, click **Continue**.
+5. Click **Yes** in the User Account Control dialog box to proceed.
+
+    ![VPN connection](./media/sql-database-managed-instance-configure-p2s/vpn-connection-succeeded.png)  
+
+   You have established a VPN connection to your Managed Instance VNet.
 
 ## Use SSMS to connect to the Managed Instance
 
-1. On the on-premises client computer, open SQL Server Management Studio (SSMS) .
+1. On the on-premises client computer, open SQL Server Management Studio (SSMS).
  
-2. In the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
+2. In the **Connect to Server** dialog box, enter the fully qualified **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
 
     ![ssms connect](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
@@ -73,7 +95,7 @@ After you connect, you can view your system and user databases in the Databases 
 
 ## Next steps
 
-- To learn how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
+- To learn how to connect from an Azure virtual machine, see [Configure an Azure virtual machine connection](sql-database-managed-instance-configure-vm.md)
 - For an overview of the connection options for applications, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
 - To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
 

@@ -22,8 +22,8 @@ This quickstart demonstrates how to restore a backup of a database stored in Azu
 This quickstart:
 - Uses as its starting point the resources created in this quickstart: [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 - Requires connectivity to your Managed Instance. See these quickstarts:
-  - [Connect to an Azure SQL Database Managed Instance from an Azure VM]()
-  - [Connect to an Azure SQL Database Managed Instance from on-premises using a Point-to-Site connection]().
+  - [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md)
+  - [Connect to an Azure SQL Database Managed Instance from on-premises using a Point-to-Site connection](sql-database-managed-instance-configure-p2s.md).
 - Requires the newest version of [SQL Server Management Studio][ssms-install-latest-84g] on your on-premises client computer
 - Uses a preconfigured Azure blob storage account containing the the Wide World Importers - Standard backup file (downloaded from https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak).
 

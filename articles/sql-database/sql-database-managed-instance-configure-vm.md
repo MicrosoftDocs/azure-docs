@@ -98,7 +98,7 @@ You are connected to your virtual machine in the Server Manager dashboard.
 1. In the virtual machine, open SQL Server Management Studio (SSMS).
  
    It will take a few moments to open as it needs to complete its configuration as this is the first time SSMS has been started.
-2. In the **Connect to Server** dialog box, enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
+2. In the **Connect to Server** dialog box, enter the fully qualified **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password, and then click **Connect**.
 
     ![ssms connect](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
