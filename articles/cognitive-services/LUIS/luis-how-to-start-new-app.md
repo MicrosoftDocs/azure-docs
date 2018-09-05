@@ -43,6 +43,8 @@ You can create a new app with the authoring APIs in a couple of ways:
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
+<!--
+
 ## Import new app
 You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
 
@@ -83,7 +85,7 @@ The logs contain the Query, UTC time, and LUIS JSON response.
 Query,UTC DateTime,Response
 text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,"{""query"":""text I'm driving and will be 30 minutes late to the meeting"",""intents"":[{""intent"":""None"",""score"":0.111048922},{""intent"":""SendMessage"",""score"":0.987501}],""entities"":[{""entity"":""i ' m driving and will be 30 minutes late to the meeting"",""type"":""Message"",""startIndex"":5,""endIndex"":58,""score"":0.162995353}]}"
 ```
-
+-->
 ## Next steps
 
 Your first task in the app is to [add intents](luis-how-to-add-intents.md).
