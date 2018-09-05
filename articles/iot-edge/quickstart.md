@@ -224,7 +224,7 @@ If you want to remove the installations from your device, use the following comm
 Remove the IoT Edge runtime.
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression;
    Uninstall-SecurityDaemon
    ```
 
