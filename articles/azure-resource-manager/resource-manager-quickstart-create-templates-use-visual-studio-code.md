@@ -15,7 +15,7 @@ ms.date: 08/24/2018
 ms.topic: quickstart
 ms.author: jgao
 
-#Customer intent: As a developer new to Azure deployment, I want to learn how to create a resource manager template using Visual Studio Code, so I can deploy Azure resources.
+#Customer intent: As a developer new to Azure deployment, I want to learn how to create a Resource Manager template using Visual Studio Code, so I can deploy Azure resources.
 
 ---
 

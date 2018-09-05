@@ -18,7 +18,7 @@ ms.author: jgao
 
 # Tutorial: create linked Azure Resource Manager templates
 
-Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. This is great for modularising  templates, simplifying templates and reusing templates.
+Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. This is great for modularizing  templates, simplifying templates, and reusing templates.
 
 This tutorial covers the following tasks:
 
@@ -62,7 +62,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 ## Create the linked template
 
-The linked template creates a storage account. The linked template is almost identical to the standalone template that creates a storage account. In this tutorial, the linked template needs to pass a value back to the main template. This values is defined in the `outputs` element.
+The linked template creates a storage account. The linked template is almost identical to the standalone template that creates a storage account. In this tutorial, the linked template needs to pass a value back to the main template. This value is defined in the `outputs` element.
 
 1. Open linkedTemplate.json in Visual Studio Code if it is not opened.
 2. Make the following changes:
@@ -128,7 +128,7 @@ The linked template creates a storage account. The linked template is almost ide
 
 ## Upload the linked template
 
-The templates needs to be uploaded to somewhere where it is accessible from where you run the deployment. This location could be an Azure storage account, Github, or Dropbox. If your templates contain sensitive information, make sure you protect access to them. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md). The main template (azuredeploy.json is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere.  To reduce the tasks of this tutorial, the linked template defined in the previous section has been uploaded to [an Azure storage account](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json).
+The templates need to be accessible from where you run the deployment. This location could be an Azure storage account, Github, or Dropbox. If your templates contain sensitive information, make sure you protect access to them. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md). The main template (azuredeploy.json) is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere.  To reduce the tasks of this tutorial, the linked template defined in the previous section has been uploaded to [an Azure storage account](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json).
 
 ## Call the linked template
 
@@ -183,7 +183,7 @@ Because the storage account is defined in the linked template now, you must upda
             }
     }
     ```
-    This values is required by the main template.
+    This value is required by the main template.
 
 1. Open azuredeploy.json in Visual Studio Code if it is not opened.
 2. Expand the virtual machine resource definition, update **dependsOn** as shown in the following screenshot:

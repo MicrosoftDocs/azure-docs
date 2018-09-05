@@ -55,7 +55,7 @@ From Visual Studio Code, make the following four changes:
 ![Azure Resource Manager create multiple instances](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Add a `copy` element to the storage account resource definition. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and can't exceed 800.
-2. The `copyIndex()` function returns the current iteration in the loop. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the copyIndex() function. For example *copyIndex(1)*.
+2. The `copyIndex()` function returns the current iteration in the loop. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the copyIndex() function. For example, *copyIndex(1)*.
 3. Delete the **variables** element, because it is not used anymore.
 4. Delete the **outputs** element.  `copyIndex()` is not supported in `outputs`.
 
