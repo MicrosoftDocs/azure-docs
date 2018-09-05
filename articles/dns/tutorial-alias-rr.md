@@ -53,7 +53,7 @@ Create an alias record that points to a resource record in the zone.
 ## Test the alias record
 
 1. Start you favorite nslookup tool. One option is to browse to [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Set the query type for A records and lookup **test.\<your domain name\>**.
+2. Set the query type for A records and lookup **test.\<your domain name\>**. You get **10.10.10.10** for the answer.
 3. In the Azure portal, change the **server** A record to **10.11.11.11**.
 4. Wait a few minutes, and then use nslookup again for **test** record.
 5. You should get **10.11.11.11** as the answer.
