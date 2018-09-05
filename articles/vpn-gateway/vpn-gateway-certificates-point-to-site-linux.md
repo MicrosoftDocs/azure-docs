@@ -23,13 +23,13 @@ The computer configuration used for the steps for this article was the following
 
 ## Generate keys and certificate
 
-1. Generate the CA.
+1. Generate the CA certificate.
 
   ```
   ipsec pki --gen --outform pem > caKey.pem
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
-2. Print the CA certificate in base64 format. This is the format that is supported by Azure. This certificate will be uploaded to Azure in later steps.
+2. Print the CA certificate in base64 format. This is the format that is supported by Azure. You will later upload this to Azure as part of your P2S configuration.
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo
@@ -43,7 +43,7 @@ The computer configuration used for the steps for this article was the following
   ipsec pki --gen --outform pem > "${USERNAME}Key.pem"
   ipsec pki --pub --in "${USERNAME}Key.pem" | ipsec pki --issue --cacert caCert.pem --cakey caKey.pem --dn "CN=${USERNAME}" --san "${USERNAME}" --flag clientAuth --outform pem > "${USERNAME}Cert.pem"
   ```
-4. Generate a p12 bundle.
+4. Generate a p12 bundle containing the user certificate. This bundle will be used in the next steps when working with the [Client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linux).
 
   ```
   openssl pkcs12 -in "${USERNAME}Cert.pem" -inkey "${USERNAME}Key.pem" -certfile caCert.pem -export -out "${USERNAME}.p12" -password "pass:${PASSWORD}"

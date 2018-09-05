@@ -13,7 +13,7 @@
 1. Download the VPNClient package from Azure portal.
 2. Extract the File.
 3. From the **Generic** folder, copy or move the VpnServerRoot.cer to /etc/ipsec.d/cacerts.
-4. From the **Generic** folder, copy or move cp client.p12 to  /etc/ipsec.d/private/.
+4. From the **Generic** folder, copy or move cp client.p12 to /etc/ipsec.d/private/.
 5. Open VpnSettings.xml file and copy the <VpnServer> value. You will use this value in the next step.
 6. Adjust the values in the example below, then add the example to the /etc/ipsec.conf configuration.
   
