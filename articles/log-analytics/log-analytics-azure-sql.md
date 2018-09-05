@@ -21,9 +21,9 @@ ms.component: na
 
 ![Azure SQL Analytics symbol](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is a cloud monitoring solution for monitoring performance of Azure SQL Databases, elastic pools and Managed Instances at scale and across multiple subscriptions. It collects and visualizes important Azure SQL Database performance metrics with built-in intelligence for performance troubleshooting.
+Azure SQL Analytics is a cloud monitoring solution for monitoring performance of Azure SQL Databases, elastic pools, and Managed Instances at scale and across multiple subscriptions. It collects and visualizes important Azure SQL Database performance metrics with built-in intelligence for performance troubleshooting.
 
-By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
+By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
 Currently, this preview solution supports up to 200,000 Azure SQL Databases and 5,000 SQL Elastic Pools per workspace.
 
@@ -34,7 +34,7 @@ For a hands-on overview on using Azure SQL Analytics solution and for typical us
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases, elastic pools and Managed Instances. As it doesn't use agents to connect to the Log Analytics service, the solution doesn't support monitoring of on-premises SQL Servers or VMs, see the compatibility table below.
+Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Databases, elastic pools, and Managed Instances. As it doesn't use agents to connect to the Log Analytics service, the solution doesn't support monitoring of on-premises SQL Servers or VMs, see the compatibility table below.
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
@@ -160,7 +160,7 @@ AzureMetrics
 > - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
-*Azure SQL Database storage in average above 95% in the last 1hr*
+*Azure SQL Database storage in average above 95% in the last 1 hr*
 
 ```
 let time_range = 1h;
