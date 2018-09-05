@@ -124,13 +124,6 @@ ms.author: mtillman
                                                             <a href="develop/v2-id-and-access-tokens">ID and access tokens</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="develop/index">Developers</a></h3>
-                                                        <p>
-                                                            <a href="develop/v2-app-types">Application types</a><br>
-                                                            <a href="develop/protocols-oauth-openid-connect">OAuth and OpenID Connect protocol</a><br>
-                                                            <a href="develop/v2-id-and-access-tokens">ID and access tokens</a>
-                                                        </p>
-														<br><br>
 														<h3><a href="devices/index">Device management</a></h3>
                                                         <p>
                                                             <a href="devices/hybrid-azuread-join-managed-domains">Configure hybrid join for managed domains</a><br>
@@ -144,6 +137,13 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Join Windows Server VM to managed domain</a><br>
                                                             <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Configure secure LDAP</a>
                                                         </p>
+														<br><br>
+                                                        <h3><a href="users-groups-roles/index">Enterprise users</a></h3>
+                                                        <p>
+                                                            <a href="users-groups-roles/directory-assign-admin-roles">Assign administrator roles</a><br>
+                                                            <a href="users-groups-roles/licensing-groups-assign">Assign licenses to groups</a><br>
+                                                            <a href="users-groups-roles/authentication/groups-create-rule">Create a dynamic group</a>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,13 +154,6 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="users-groups-roles/index">Enterprise users</a></h3>
-                                                        <p>
-                                                            <a href="users-groups-roles/directory-assign-admin-roles">Assign administrator roles</a><br>
-                                                            <a href="users-groups-roles/licensing-groups-assign">Assign licenses to groups</a><br>
-                                                            <a href="users-groups-roles/authentication/groups-create-rule">Create a dynamic group</a>
-                                                        </p>
-														<br><br>
                                                         <h3><a href="hybrid/index">Hybrid identity</a></h3>
                                                         <p>
                                                             <a href="hybrid/tutorial-password-hash-sync">Azure AD Connect</a><br>
