@@ -186,7 +186,9 @@ In the above example, when one selects **/mnt (Logical Disk)**, the Health Crite
 At any time, you can refresh the Health diagnostics page by clicking on the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - Healthy, Warning, Critical, Unknown, and all.  The **Last Updated** time in the top right corner represents the last time when the Health diagnostics page was refreshed.  
 
 ## Alerting and alert management 
-VM Insights Health is configured to alert when the predefined health criteria that are enabled change from healthy to an unhealthy state.  The severity of alerts is indicated by the Sev levels – Sev 0 through Sev 4, with Sev 0 indicating the highest severity. 
+VM Insights Health integrates with [Azure Alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level.  
 
-You may approach alerts in the UX layer in two fashions: 
-1. View all alerts fired on the monitored VMs 2. View all alerts fired on a monitored VM 
+Alert severity rollup are available in two places:
+
+1. From Azure Monitor when viewing health status across all monitored virtual machines on the **Health** homepage under the section **Fired alerts**.  
+2. Directly from the virtual machine when you open the **Health** homepage under the section **Fired alerts**.  
