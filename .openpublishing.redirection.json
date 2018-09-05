@@ -7179,6 +7179,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/20-days-of-tips.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/graph-sdk-dotnet.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
             "redirect_document_id": false
@@ -23480,11 +23485,6 @@
         {
             "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/privileged-identity-management/index.md",
-            "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
             "redirect_document_id": false
         },
         {
