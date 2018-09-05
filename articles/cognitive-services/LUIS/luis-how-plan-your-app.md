@@ -44,7 +44,7 @@ A simple entity describes a single concept.
 See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try this [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
 
 ### Hierarchical entity
-A hierarchical entity is a special type of a **simple** entity; defining a category and its members in the form of parent-child relationship. The relationshipd is determined by context from within the utterance. Children of a hierarchical entity are also simple entities.
+A hierarchical entity is a special type of a **simple** entity; defining a category and its members in the form of parent-child relationship. The relationship is determined by context from within the utterance. Children of a hierarchical entity are also simple entities.
 
 ![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
 
@@ -65,7 +65,7 @@ LUIS provides [prebuilt entities](luis-prebuilt-entities.md) for common data typ
 See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting the Prebuilt entity from the endpoint JSON query response. 
 
 ### List entity 
-A list entity is an explicitly-specified list of values. Each value consists of one or more synonyms. In a travel app, you might choose to create a list entity to represent airport names.
+A list entity is an explicitly specified list of values. Each value consists of one or more synonyms. In a travel app, you might choose to create a list entity to represent airport names.
 
 ![list entity](./media/luis-plan-your-app/list-entity.png)
 
