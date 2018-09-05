@@ -18,30 +18,30 @@ ms.author: nolachar
 Microsoft Azure Video Indexer is a cloud application built on Azure artificial intelligence technologies. Video Indexer is comprised of models that enable Video Indexer to perform tasks described below: 
 
 - **Automatic language detection**:	Automatically identifies the dominant spoken language. 
-- **Audio transcription**: Converts speech to text in 10 languages and allow extensions.
-- **Closed captioning**: Creates closed captioning in three formats: vtt, ttml, srt.
+- **Audio transcription**: Converts speech to text in 10 languages and allows extensions.
+- **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 - **Two channel processing**: Auto detects, separate transcript and merges to single timeline.
 - **Noise reduction**:	Clears up telephony audio or noisy recordings (based on Skype filters).
 - **Transcript customization (CRIS)**: Trains and executes extended custom speech to text models to create industry-specific transcripts.
 - **Speaker enumeration**:	Maps and understands which speaker spoke which words and when.
-- **Speaker statistics**: Provides Statistics for speakers speech ratios.
+- **Speaker statistics**: Provides statistics for speakers speech ratios.
 - **Visual text recognition (OCR)**: Extracts text that is visually displayed in the video.
 - **Keyframe extraction**: Detects stable keyframes in a video.
-- **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from Speech and visual text.
+- **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
 - **Visual content moderation**: Detects adult and/or racy visuals.
 - **Keywords extraction**: Extracts keywords from speech and  visual text.
 - **Labels identification**: Identifies visual objects and actions displayed.
 - **Brands extraction**: Extracts brands from  speech and visual text.
 - **Face detection**: Detects and groups faces appearing in the video.
 - **Thumbnail extraction for faces ("best face")**:	Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extract it as an image asset.
-- **Celebrity identification**: Recognizes celebrities in the video based on a database of 1M celebrities, sourced from IMDB, Wikipedia, and top Linkedin influencers.
+- **Celebrity identification**: Recognizes celebrities in the video based on a database of 1M celebrities. The source comes from IMDB, Wikipedia, and top Linkedin influencers.
 - **Custom face identification**: Recognizes faces in the video based on a custom model trained for the specific account.
 - **Textual content moderation**: Detects explicit text in the audio transcript.
 - **Shot detection**: Determines when a scene changes in the video.
 - **Black frame detection**: Identifies black frames presented in the video.
 - **Audio effects**: Identifies audio effects such as hand claps, speech, and silence.
 - **Article inferencing**: Makes inference of the main topics from speech and visual text, based on several sources including IPTC taxonomy.
-- **Emotion detection**: Identifies emotion moment based on speech and audio cues. The emotion could be: joy, sadness, anger, or fear.
+- **Emotion detection**: Identifies emotions based on speech and audio cues. The emotion could be: joy, sadness, anger, or fear.
 - **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 - **Translation**: Creates translations of the audio transcript to 54 different languages.
 
