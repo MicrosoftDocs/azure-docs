@@ -45,4 +45,4 @@ The different documents of HANA Large Instance guidance cover the following area
 - [OS backup and restore for Type II SKUs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 **Next steps**
-- Refer [Know the terms](hana-know-the-terms.md)
+- Refer [Know the terms](hana-know-terms.md)
