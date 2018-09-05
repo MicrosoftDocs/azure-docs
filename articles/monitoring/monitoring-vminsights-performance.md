@@ -33,10 +33,10 @@ On the **Aggregate** tab, if you have more than one Log Analytics workspace, cho
 
 The four capacity utilization charts shown on the page are:
 
-1. CPU Utilization % - defaults showing the average and top 95th percentile 
-2. Available Memory - defaults showing the average, top 5th and 10th percentile 
-3. Logical Disk Space Used % - defaults showing the average and 95th percentile 
-4. Network Adapter - defaults showing average bytes sent and received
+* CPU Utilization % - defaults showing the average and top 95th percentile 
+* Available Memory - defaults showing the average, top 5th and 10th percentile 
+* Logical Disk Space Used % - defaults showing the average and 95th percentile 
+* Network Adapter - defaults showing average bytes sent and received
 
 You can also change the granularity of the charts within the time range by selecting **Avg**, **Min**, **Max**, **50th**, **90th**, and **95th** in the percentile selector.   
 
@@ -61,4 +61,4 @@ To access VM Insights directly from a virtual machine, perform the following.
 3. Select the **Performance** tab. 
 
 ## Next steps
-To learn how to use the health feature, see [View Azure VM health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-maps.md). 
+To learn how to use the health feature, see [View Azure VM Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-maps.md). 

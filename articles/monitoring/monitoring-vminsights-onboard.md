@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: magoedte
 ---
 
@@ -64,11 +64,11 @@ To enable the solution, you need to be a member of the Log Analytics contributor
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
-### Supported Operating Systems
+### Supported operating systems
 
 The following versions of the Windows and Linux operating systems are officially supported with VM Insights:
 
-|OS Version |Performance |Maps |Health |  
+|OS version |Performance |Maps |Health |  
 |-----------|------------|-----|-------|  
 |Windows Server 2016 | X | X | X |  
 |Windows Server 2012 R2 | X | X | |  
@@ -256,7 +256,7 @@ The VM Insights Map Dependency agent does not transmit any data itself, and it d
 
 Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).
 
-Summaized steps:
+Summarized steps:
 
 1. Install Log Analytics Agent for Windows or Linux
 2. Install VM Insights Dependency agent

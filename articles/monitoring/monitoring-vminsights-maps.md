@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 09/05/2018
 ms.author: magoedte
 ---
 
@@ -110,5 +110,5 @@ From Azure Monitor, the Map feature provides a global view of your virtual machi
 
 From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution and has virtual machines reporting to it.  You then select from the **Group** selector, a subscription or resource group to view a set of VMs and their dependencies matching the group, over a specified period of time.  By default, the map shows the last 30 minutes.  Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
 
-
-
+## Next steps
+To learn how to use the health feature, see [View Azure VM Health](monitoring-vminsights-health.md), or to identify bottlenecks and overall utilization with your VMs performance, see [View VM Insights Performance](monitoring-vminsights-performance.md). 

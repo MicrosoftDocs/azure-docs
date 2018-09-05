@@ -39,11 +39,11 @@ The information presented under **Top health issues** and on the **Health Criter
 
 |Column | Description |
 |-------|-------------|
-|Health Criteria State |The health state health criteria monitoring this VM. |
-|Health Criteria |The name of the health criteria. |
+|Health criteria state |The health state health criteria monitoring this VM. |
+|Health criteria |The name of the health criteria. |
 |Component type |Indicates the component type the health criteria is monitoring.  Example, Logical disk, Disk, Network adapter, etc. |
 |Component name |The name of the component instance on the VM monitored by the health criteria. |
-|Last State Change |The time difference of the last state change, which is a change from an unhealthy to health state. | 
+|Last state change |The time difference of the last state change, which is a change from an unhealthy to health state. | 
 |Category |Represented as *Availability* or *Performance*. |
 |Type | The category of health criteria, which is represented as *Unit*, *Dependency*, *Aggregate*. |
 
@@ -59,13 +59,13 @@ To view health collection for all of your virtual machines, from the navigation 
 
 On the **Health** tab, you are able to learn the following:
 
-1. How many VMs are in a critical or unhealthy state, versus how many are healthy or not submitting data (referred to as an unknown state)?
-2. Which VMs by operating system (OS) or OS components are reporting an unhealthy state and how many?
-3. What monitored components of the VM are unhealthy and which health criteria is reporting the condition?  Is it the processor, disk, memory or network adapter?
+* How many VMs are in a critical or unhealthy state, versus how many are healthy or not submitting data (referred to as an unknown state)?
+* Which VMs by operating system (OS) or OS components are reporting an unhealthy state and how many?
+* What monitored components of the VM are unhealthy and which health criteria is reporting the condition?  Is it the processor, disk, memory or network adapter?
 
 Here you can quickly identify the top critical issues detected by the health criteria  proactively monitoring the VM, and review alert details and associated knowledge article intended to assist in the diagnosis and remediation of the issue.  
 
-### VM Distribution
+### VM distribution
 This section provides the distribution of VMs based on operating system or basic components of a VM. 
 
 ![VM Insights virtual machine distribution perspective](./media/monitoring-vminsights-health/vminsights-vmdistribution-perspective-01.png)
@@ -95,7 +95,7 @@ The **Fired alerts** table shows the top alerts raised and the **Top health issu
 
 |Column | Description |
 |-------|-------------| 
-|Health Criteria |The name of the health criteria measuring the health state on the monitored VM. |
+|Health criteria |The name of the health criteria measuring the health state on the monitored VM. |
 |Unhealthy components |The number of components in the environment that are in an unhealthy state with respect to the health criterion. |
 |Unknown state components |The number of components whose health state is unknown with respect to this health condition. |
 |Category |The health criteria are organized into two major health categories based on the aspect that they align with - *Availability* and *Performance*.  |
@@ -103,12 +103,11 @@ The **Fired alerts** table shows the top alerts raised and the **Top health issu
 
 Selecting **See All Health Criteria** opens a page show a list view of all the health criteria available with this solution.  The information can be further filtered based on the following options:
 
-1. **Type** – There are three kinds of health criteria types to assess conditions and roll up overall health state of the monitored VM.
+* **Type** – There are three kinds of health criteria types to assess conditions and roll up overall health state of the monitored VM.  
    a. **Unit** – Measures some aspect of the virtual machine. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watch for an event that indicates an error.  By default the filter is set to unit.  
-   b. **Dependency** - Provides health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.
+   b. **Dependency** - Provides health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.  
    c. **Aggregate** -  Provides a combined health state of similar health criteria. Unit and dependency health criterion will typically be configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
-
-2. **Category** - Type of health criteria used to group criteria of similar type for reporting purposes.  They are either **Availability** or **Performance**.
+* **Category** - Type of health criteria used to group criteria of similar type for reporting purposes.  They are either **Availability** or **Performance**.
 
 You can drill further down to see which instances are unhealthy by clicking on a value under the **Unhealthy Component** column.  On the page a table lists the components which are in a critical health state.    
 
@@ -119,17 +118,11 @@ Health diagnostics page allows you to view all the components of the VM, associa
 
 You can launch Health diagnostics in the following ways.
 
-1. By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor.  On the VM Insights health page, click on the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health** and drill down to the page that lists all the VMs matching that filtered category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.     
+* By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor.  On the VM Insights health page, click on the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health** and drill down to the page that lists all the VMs matching that filtered category.  Clicking on the value in the **Health State** column will open Health Diagnostics scoped to that particular VM.      
 
-    <Show image> 
-
-2. By operating system from the aggregate VM perspective in Azure Monitor. Under **VM distribution**, selecting any one of the column values will open the **Virtual Machines** page and return a list in the table matching the filtered category.  Clicking on the value under **Health State** column opens Health diagnostics for the selected VM.    
-
-    <Show image>
+* By operating system from the aggregate VM perspective in Azure Monitor. Under **VM distribution**, selecting any one of the column values will open the **Virtual Machines** page and return a list in the table matching the filtered category.  Clicking on the value under **Health State** column opens Health diagnostics for the selected VM.    
  
-4. From the guest VM on the VM Insights Health tab, by selecting **View health diagnostics** 
-
-    <Show image>
+* From the guest VM on the VM Insights Health tab, by selecting **View health diagnostics** 
 
 Health diagnostics organizes health information into the following categories: 
 
@@ -138,13 +131,11 @@ Health diagnostics organizes health information into the following categories:
  
 All health criteria defined for a selected target displays in the appropriate category. 
 
-<Show image>
-
 Health state for health criteria is defined by one of the three states – *Critical*, *Warning* and *Healthy*. There is another state *Unknown*, which is not associated with health state, but represents its known monitoring status by the solution.  
 
 The following table provides details on the health states represented in Health diagnostics.
 
-|Icon |Health State |Meaning |
+|Icon |Health state |Meaning |
 |-----|-------------|------------|
 | |Healthy |The health state is healthy if it is within the defined health conditions. In the case of a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
 | |Critical |The health state is critical if it is not within the defined health condition. In the case of a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
@@ -153,9 +144,9 @@ The following table provides details on the health states represented in Health 
 
 Health diagnostics page has three main sections:
 
-1. Component Model 
-2. Health Criteria
-3. State Changes 
+* Component Model 
+* Health Criteria
+* State Changes 
 
 ### Component model
 The left-most column in a Health diagnostics page is the component model. All the components and its discovered instances, which are associated with the VM, are displayed in this column. 
@@ -190,5 +181,30 @@ VM Insights Health integrates with [Azure Alerts](../monitoring-and-diagnostics/
 
 Alert severity rollup are available in two places:
 
-1. From Azure Monitor when viewing health status across all monitored virtual machines on the **Health** homepage under the section **Fired alerts**.  
-2. Directly from the virtual machine when you open the **Health** homepage under the section **Fired alerts**.  
+* From Azure Monitor when viewing health status across all monitored virtual machines on the **Health** dashboard under the section **Fired alerts**.  
+* Directly from the virtual machine when you open the **Health** dashboard under the section **Fired alerts**.  
+
+When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.  For example, if you selected the row corresponding to **Sev level 1**, then you see the following view:
+
+![Example of all Severity Level 1 alerts](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
+
+You can filter this view by selecting values in the dropdown menus at the top of the page.
+
+|Column |Description | 
+|-------|------------| 
+|Subscription |Select an Azure subscriptions. Only alerts in the selected subscription are included in the view. | 
+|Resource Group |Select a single resource group. Only alerts with targets in the selected resource group are included in the view. | 
+|Resource type |Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. | 
+|Resource |Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. | 
+|Severity |elect an alert severity, or select *All* to include alerts of all severities. | 
+|Monitor Condition |Select a monitor condition to filter alerts if they have been *Fired* by the system or *Resolved* by the system if the condition is no longer active. Or select *All* to include alerts of all conditions. | 
+|Alert state |Select an alert state, *New*, *Acknowledge*, *Closed*, or select *All* to include alerts of all states. | 
+|Monitor service |Select a service, or select *All* to include all services. Only alerts from Infrastructure Insights is supported for this solution. | 
+|Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. | 
+
+The Alert detail page is displayed when you select an alert. It provides details of the alert and enables you to change its state.
+
+![Alert details pane for a selected alert](./media/monitoring-vminsights-health/alert-details-pane-01.png)
+
+## Next steps
+To identify bottlenecks and overall utilization with your VMs performance,, see [View Azure VM Performance](monitoring-vminsights-performance.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-maps.md). 
