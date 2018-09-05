@@ -20,7 +20,7 @@ ms.author: harijay
 # Virtual Machine Serial Console (preview) 
 
 
-The Virtual Machine Serial Console on Azure provides access to a text-based console for Linux and Windows virtual machines. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to the serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
+The Virtual Machine Serial Console on Azure provides access to a text-based console for Linux virtual machines. This serial connection is to the COM1 serial port of the virtual machine, providing access to the virtual machine that is independent of a virtual machine's network or operating system state. Access to the serial console for a virtual machine can currently only be done via the Azure portal and is allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
 For serial console documentation for Windows VMs, [click here](../windows/serial-console.md).
 
