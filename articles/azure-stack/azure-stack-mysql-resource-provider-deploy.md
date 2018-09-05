@@ -148,6 +148,7 @@ When the resource provider installation script finishes, refresh your browser to
 2. Select **Resource Groups**
 3. Select the **system.\<location\>.mysqladapter** resource group.
 4. On the summary page for Resource group Overview, there should be no failed deployments.
+5. Finally, select **Virtual machines** in the admin portal to verify that the MySQL resource provider VM was successfully created and is running.
 
 ## Next steps
 
