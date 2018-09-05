@@ -1,4 +1,4 @@
----
+﻿---
 title: Understand Azure IoT Hub direct methods | Microsoft Docs
 description: Developer guide - use direct methods to invoke code on your devices from a service app.
 author: nberdy
@@ -29,6 +29,15 @@ Direct methods are implemented on the device and may require zero or more inputs
 > [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
+> 
+
+> 
+[!NOTE]
+
+> Maximum number of topics that can be subscribed to is 5 per device. If you have more direct methods on a device, consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages accordingly to your desired `method name`s.
+
+> 
+
 > 
 
 Direct methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable up to 3600 seconds). Direct methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands. For example, turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
