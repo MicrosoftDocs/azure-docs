@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: jeedes
 
 ---
@@ -43,6 +43,9 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+
+> [!NOTE]
+> Customers who don't have the Snowflake account yet, and would like to try it out through Azure AD app gallery try [this](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp) link.
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
