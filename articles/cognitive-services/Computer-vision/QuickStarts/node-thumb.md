@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API Node.js quickstart create thumbnail | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Generate a thumbnail - REST, Node.js - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using Computer Vision with Node.js in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Generate a thumbnail - REST, Node.js
+# Quickstart: Generate a thumbnail - REST, Node.js - Computer Vision
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

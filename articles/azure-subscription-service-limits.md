@@ -196,7 +196,7 @@ See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtu
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### App Service limits
-The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.
+The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 

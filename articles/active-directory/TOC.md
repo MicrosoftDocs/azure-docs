@@ -84,7 +84,6 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
@@ -103,6 +102,7 @@
 #### [Route activity logs to an Azure event hub](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archive activity logs to an Azure storage account](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrate activity logs with Splunk using Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Integrate activity logs with SumoLogic using Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Reference
 #### [Retention](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +332,8 @@
 ### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [Terms of use](active-directory-tou.md)
 
 ## Secure your identities
 
