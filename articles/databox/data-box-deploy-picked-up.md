@@ -54,7 +54,9 @@ Verify that your data is in the storage account(s) before you delete it from the
 
 ## Erasure of data from Data Box
  
- Once the upload to Azure is complete, the Data Box securely erases its disks as per the NIST standard. 
+ Once the upload to Azure is complete, the Data Box erases the data on its disks as per the NIST standard. 
+
+## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
@@ -66,6 +68,6 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the following article to learn how to manage Data Box via the local web UI.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer Azure Data Box](./data-box-portal-ui-admin.md)
+> [Use local web UI to administer Azure Data Box](./data-box-portal-admin.md)
 
 

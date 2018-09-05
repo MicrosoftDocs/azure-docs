@@ -17,9 +17,9 @@ ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
 ---
-# What is Azure Data Box?
+# Azure Data Box: Frequently Asked Questions
 
-The Microsoft Azure Data Box cloud solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal. 
+The Microsoft Azure Data Box hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal. 
 
 Questions and answers are arranged in the following categories:
 

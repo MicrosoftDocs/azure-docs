@@ -21,6 +21,8 @@ ms.author: alkohli
 
 Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. This article describes the Azure Data Box security features that help protect each of the Data Box solution components and the data stored on them. 
 
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
 ## Data flow through components
 
 The Microsoft Azure Data Box solution consists of four main components that interact with each other:
@@ -68,8 +70,6 @@ The Data Box service is protected by the following features.
 - The Data box service stores order details and status in the service. This information is deleted when the order is deleted. 
 
 ## Managing personal data
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 Azure Data Box collects and displays personal information in the following key instances in the service:
 
