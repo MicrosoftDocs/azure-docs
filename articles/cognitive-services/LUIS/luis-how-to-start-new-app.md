@@ -27,6 +27,11 @@ You can create a new app with the authoring APIs in a couple of ways:
 * [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) with an empty app and create intents, utterances, and entities.
 * [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) with a prebuilt domain.  
 
+
+<a name="export-app"></a>
+<a name="import-new-app"></a>
+<a name="delete-app"></a>    
+
 ## Create new app in LUIS
 
 1. On **My Apps** page, select **Create new app**.
@@ -40,8 +45,10 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 3. Choose your application culture (for TravelAgent app, choose English), and then select **Done**. 
 
-    >[!NOTE]
-    >The culture cannot be changed once the application is created. 
+    > [!NOTE]
+    > The culture cannot be changed once the application is created. 
+
+    
 
 <!--
 
