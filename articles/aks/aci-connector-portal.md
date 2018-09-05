@@ -45,20 +45,18 @@ To create an AKS cluster, complete the following steps:
     
     ![Create AKS cluster - provide basic information](media/aci-connector-portal/create-cluster.png)
 
-    Select **Next: Authentication** when complete.
-
-1. **Authentication**: Configure the following options:
-    - Create a new service principal or *Configure* to use an existing one. When using an existing SPN, you need to provide the SPN client ID and secret.
-    - Enable the option for Kubernetes role-based access controls (RBAC). These controls provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster. RBAC is required for the ACI connector.
-
-    ![Create AKS cluster - configure authentication](media/aci-connector-portal/configure-authentication.png)
-
     Select **Next: Networking** when complete.
 
 1. **Networking**: Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. The ACI connector requires a delegated subnet for ACI, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
-    - Create a new, or select an existing, *Virtual network*.
-    - Create a new, or select an existing, *Subnet* for use with the AKS cluster. The AKS nodes and resources created with the Kubernetes cluster are created in this subnet.
-    - Create a new, or select an existing, *ACI subnet* for use with the ACI connector. This subnet is used to allow pods that run in ACI to communicate with the other AKS cluster resources and pods.
+    - If you need to create a virtual network and subnet, complete the following steps:
+        - Under *Virtual network*, choose **Create new**.
+        - Provide a name, such as *myVnet*. Set the **Address range** as *10.0.0.0/16*
+        - Under **Subnets**, provide a name, such as *myAKSSubnet*, and set the **Address range** to *10.0.0.0/24*.
+        - Provide the name for an additional subnet, such as *myACISubnet*, and set the **Address range** to *10.0.1.0/24*.
+        - Select **Create**.
+    - Under **ACI connector subnet**, choose the subnet created in the previous step, such as *myACISubnet*.
+    - Set the **Kubernetes service address range** to *10.0.2.0/24*.
+    - Set the **Kubernetes DNS service IP address** to *10.0.2.10*.
     
     ![Create AKS cluster - configure advanced networking](media/aci-connector-portal/configure-networking.png)
 
@@ -89,12 +87,57 @@ kubectl get nodes
 The following example output shows the single node created and then ACI connectors for Linux and Windows:
 
 ```
-# Add output showing the VK node(s), I guess?
+$ kubectl get nodes
+
+NAME                       STATUS    ROLES     AGE       VERSION
+aci-connector-linux        Ready     agent     28m       v1.8.3
+aks-agentpool-14693408-0   Ready     agent     32m       v1.11.2
 ```
 
 ## Deploy a sample app
 
-**-- NEED SAMPLE APP TO DEPLOY THAT GENERATES STRESS TO BURST TO ACI --**
+In the Azure Cloud Shell, create a file named `aci-connector.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined.
+
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: aci-helloworld
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aci-helloworld
+    spec:
+      containers:
+      - name: aci-helloworld
+        image: microsoft/aci-helloworld
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        kubernetes.io/hostname: aci-connector-linux
+      tolerations:
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
+        effect: NoSchedule
+```
+
+Run the application with the [kubectl create][kubectl-create] command.
+
+```console
+kubectl apply -f aci-connector.yaml
+```
+
+Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `aci-connector-linux` node.
+
+```
+$ kubectl get pods -o wide
+
+NAME                            READY     STATUS    RESTARTS   AGE       IP              NODE
+aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   aci-connector-linux
+```
 
 ## Remove ACI connector
 
@@ -110,6 +153,8 @@ The ACI connector is often one component of a scaling solution in AKS. For more 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+[toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
