@@ -71,10 +71,9 @@ A support person will then be in contact with you. That person will be available
 
 ## ZRS Classic: A legacy option for block blobs redundancy
 > [!NOTE]
-> ZRS Classic accounts are planned for deprecation and required migration on March 31, 2021. Microsoft will send more details to ZRS Classic customers prior to deprecation. Microsoft plans to provide an automated migration process from ZRS Classic to ZRS in the future.
-
->[!NOTE]
-> Once ZRS is [generally available](#support-coverage-and-regional-availability) in a region, you will no longer be able to create a ZRS Classic account from the portal in that same region. However, you can still create one through other means like Microsoft PowerShell and the Azure CLI, that is, until ZRS Classic is deprecated.
+> Microsoft will deprecate and migrate ZRS Classic accounts on March 31, 2021. More details will be provided to ZRS Classic customers prior to deprecation. 
+>
+> When ZRS becomes [generally available](#support-coverage-and-regional-availability) in a region, customers will no longer be able to create ZRS Classic accounts from the portal in that region. Using Microsoft PowerShell and Azure CLI to create ZRS Classic accounts is supported until ZRS Classic is deprecated.
 
 ZRS Classic asynchronously replicates data across data centers within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic is available only for **block blobs** in [general-purpose V1 (GPv1)](storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#general-purpose-v1-accounts) storage accounts. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
 
