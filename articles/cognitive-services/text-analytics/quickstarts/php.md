@@ -7,7 +7,7 @@ author: ashmaka
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 08/30/2018
 ms.author: ashmaka
 ---
 # Quickstart for Text Analytics API with PHP 
@@ -46,7 +46,7 @@ The Language Detection API detects the language of a text document, using the [D
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
+$accessKey = 'ENTER KEY HERE';
 
 // Replace or verify the region.
 
@@ -57,7 +57,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/languages';
+$path = '/text/analytics/v2.0/';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -76,7 +76,7 @@ function DetectLanguage ($host, $path, $key, $data) {
 		)
 	);
 	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
+	$result = file_get_contents ($host . $path . 'languages', false, $context);
 	return $result;
 }
 
@@ -88,12 +88,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Language detection response**
@@ -101,7 +100,6 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 A successful response is returned in JSON, as shown in the following example: 
 
 ```json
-
 {
    "documents": [
       {
@@ -139,8 +137,6 @@ A successful response is returned in JSON, as shown in the following example:
 
    ]
 }
-
-
 ```
 <a name="SentimentAnalysis"></a>
 
@@ -148,36 +144,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+Add the following code to the code from the [previous section](#Detect).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/sentiment';
-
 function GetSentiment ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
@@ -195,7 +164,7 @@ function GetSentiment ($host, $path, $key, $data) {
 		)
 	);
 	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
+	$result = file_get_contents ($host . $path . 'sentiment', false, $context);
 	return $result;
 }
 
@@ -206,12 +175,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Sentiment analysis response**
@@ -240,36 +208,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+Add the following code to the code from the [previous section](#SentimentAnalysis).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/keyPhrases';
-
 function GetKeyPhrases ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
@@ -287,7 +228,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
 		)
 	);
 	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
+	$result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
 	return $result;
 }
 
@@ -299,13 +240,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
-
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Key phrase extraction response**
@@ -354,36 +293,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
-1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+Add the following code to the code from the [previous section](#KeyPhraseExtraction).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/entities';
-
 function GetEntities ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
@@ -401,7 +313,7 @@ function GetEntities ($host, $path, $key, $data) {
 		)
 	);
 	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
+	$result = file_get_contents ($host . $path . 'entities', false, $context);
 	return $result;
 }
 
@@ -412,13 +324,12 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ?>
-
 ```
 
 **Entity linking response**
