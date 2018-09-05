@@ -52,9 +52,9 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## Configure Serial Console for Windows 
+## Enable Serial Console in custom or older images
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
-To enable Serial console for Windows virtual machines created with using Feb2018 or lower images please use the following steps: 
+To enable Serial console for Windows virtual machines created before February 2018, please use the following steps: 
 
 1. Connect to your Windows virtual machine via Remote Desktop
 2. From an Administrative command prompt, run the following commands 
@@ -71,13 +71,13 @@ If needed SAC can be enabled offline as well,
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### How do I know if SAC is enabled or not?
+### How do I know if SAC is enabled?
 
-If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. It can show a VM Health information in some cases or it would be blank.  
+If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. In some cases, VM Health information will be shown, and in other cases it will be blank.  
 
-## Enabling boot menu to show in the serial console 
+## Enable the Windows Boot Menu in Serial Console 
 
-If you need to enable Windows boot loader prompts to show in the serial console, you can add the following additional options to Windows boot loader.
+If you need to enable Windows boot loader prompts to show in the serial console, you can add the following additional options to your boot configuration data. See [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) for more details
 
 1. Connect to your Windows virtual machine via Remote Desktop
 2. From an Administrative command prompt run the following commands 
@@ -86,13 +86,10 @@ If you need to enable Windows boot loader prompts to show in the serial console,
 * `bcdedit /set {bootmgr} bootems yes`
 3. Reboot the system for the boot menu to be enabled
 
-> [!NOTE] 
-> At this point support for function keys is not enabled, if you require advanced boot options use bcdedit /set {current} onetimeadvancedoptions on, see [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) for more details
-
 ## Use Serial Console for NMI calls in Windows VMs
 A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
 
-The Serial Console can be used to send a NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system respond. Windows can be configured to crash and create a memory dump when receiving an NMI.
+The Serial Console can be used to send a NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system responds. Windows can be configured to crash and create a memory dump when receiving an NMI.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 

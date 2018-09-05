@@ -179,6 +179,7 @@ A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback
 
 A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
+
 ## Next steps
 * Use Serial Console to [boot into GRUB and enter single user mode](serial-console-grub-single-user-mode.md)
 * Use Serial Console for [NMI and SysRq calls](serial-console-nmi-sysrq.md)
