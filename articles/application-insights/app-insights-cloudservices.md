@@ -76,7 +76,7 @@ If you've decided to create a separate resource for each role - and perhaps a se
 1. In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app. 
 
     ![Click New, Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. Note that each resource is identified by an Instrumentation Key. You might need this later if you want to manually configure or verify the configuration of the SDK.
+2. Each resource is identified by an Instrumentation Key. You might need this later if you want to manually configure or verify the configuration of the SDK.
 
 
 ## Set up Azure Diagnostics for each role
@@ -101,14 +101,14 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 1. **Web roles**: Right-click the project and choose **Configure Application Insights** or **Add > Application Insights telemetry**.
 
 2. **Worker roles**: 
- * Right-click the project and select **Manage Nuget Packages**.
+ * Right-click the project and select **Manage NuGet Packages**.
  * Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configure the SDK to send data to the Application Insights resource.
 
-    In a suitable startup function, set the instrumentation key from the configuration setting in the .cscfg file:
+    In a suitable startup function, set the instrumentation key from the configuration setting in the ``.cscfg file``:
  
     ```csharp
    
@@ -122,7 +122,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
    * [For web pages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Set the ApplicationInsights.config file to be copied always to the output directory. 
    
-    (In the .config file, you'll see messages asking you to place the instrumentation key there. However, for cloud applications it's better to set it from the .cscfg file. This ensures that the role is correctly identified in the portal.)
+    (In the .config file, you'll see messages asking you to place the instrumentation key there. However, for cloud applications it's better to set it from the ``.cscfg file``. This ensures that the role is correctly identified in the portal.)
 
 #### Run and publish the app
 Run your app, and sign into Azure. Open the Application Insights resources you created, and you'll see individual data points appearing in [Search](app-insights-diagnostic-search.md), and aggregated data in [Metric Explorer](app-insights-metrics-explorer.md). 
@@ -146,7 +146,7 @@ To see performance counters and counts of events, open [Metrics Explorer](app-in
 
 ![Azure diagnostic data](./media/app-insights-cloudservices/23-wad.png)
 
-Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](app-insights-analytics-tour.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. That will help you find the root cause of the issue.
+Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](app-insights-analytics-tour.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
 
 ![Azure diagnostics search](./media/app-insights-cloudservices/25-wad.png)
 
