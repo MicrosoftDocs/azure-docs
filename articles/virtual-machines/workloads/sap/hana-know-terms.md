@@ -41,5 +41,5 @@ Several common definitions are widely used in the Architecture and Technical Dep
 
 A variety of additional resources are available on how to deploy an SAP workload in the cloud. If you plan to execute a deployment of SAP HANA in Azure, you need to be experienced with and aware of the principles of Azure IaaS and the deployment of SAP workloads on Azure IaaS. Before you continue, see [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information. 
 
-## Next steps
+**Next steps**
 - Refer [HLI Certification](hana-certification.md)

@@ -4,12 +4,12 @@
 # SAP HANA on Azure (Large Instances)
 ## Overview
 ### [What is SAP HANA on Azure (Large Instances)?](hana-overview-architecture.md)
-### [Know the terms](hana-know-the-terms.md)
+### [Know the terms](hana-know-terms.md)
 ### [Certification](hana-certification.md)
 ### [Available SKUs for HLI](hana-available-skus.md)
 ### [Sizing](hana-sizing.md)
 ### [Onboarding requirements](hana-onboarding-requirements.md)
-### [Data tiering and extension nodes](hana-datatiering-extensionnodes.md)
+### [SAP HANA data tiering and extension nodes](hana-data-tiering-extension-nodes.md)
 ### [Operations model and responsibilities](hana-operations-model.md)
 ## Architecture
 ### [General architecture](hana-architecture.md)
@@ -62,7 +62,7 @@
 #### [Windows with Shared Disk for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [SAP NetWeaver Deployment guide](deployment-guide.md)
-## DBMS deployment guides for SAP workloadmulti
+## DBMS deployment guides for SAP workload
 ### [General Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
 ### [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sqlserver.md)
 ### [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_oracle.md)

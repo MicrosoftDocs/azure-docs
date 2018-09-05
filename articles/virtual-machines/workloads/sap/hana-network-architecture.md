@@ -46,9 +46,9 @@ If SAP HANA on Azure (Large Instances) is deployed in multiple different Azure r
 
  
 
-### Additional virtual network information
+## Additional virtual network information
 
-To connect a virtual network to ExpressRoute, an Azure gateway must be created. For more information, see [About virtual network gateways for ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). 
+To connect a virtual network to ExpressRoute, an Azure gateway must be created. For more information, see [About virtual network gateways for ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 An Azure gateway can be used with ExpressRoute to an infrastructure outside of Azure or to an Azure Large Instance stamp. An Azure gateway also can be used to connect between virtual networks. For more information, see [Configure a network-to-network connection for Resource Manager by using PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You can connect the Azure gateway to a maximum of four different ExpressRoute connections as long as those connections come from different Microsoft enterprise edge routers. For more information, see [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -56,7 +56,7 @@ An Azure gateway can be used with ExpressRoute to an infrastructure outside of A
 > The throughput an Azure gateway provides is different for both use cases. For more information, see [About VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The maximum throughput you can achieve with a virtual network gateway is 10 Gbps by using an ExpressRoute connection. Copying files between a VM that resides in a virtual network and a system on-premises (as a single copy stream) doesn't achieve the full throughput of the different gateway SKUs. To leverage the complete bandwidth of the virtual network gateway, use multiple streams. Or you must copy different files in parallel streams of a single file.
 
 
-### Networking architecture for HANA Large Instance
+## Networking architecture for HANA Large Instance
 The networking architecture for HANA Large Instance can be separated into four different parts:
 
 - On-premises networking and ExpressRoute connection to Azure. This part is the customer's domain and is connected to Azure through ExpressRoute. See the lower right in the following figure.
@@ -84,7 +84,7 @@ To provide deterministic network latency between VMs and HANA Large Instance, th
 
 
 
-### Single SAP system
+## Single SAP system
 
 The on-premises infrastructure previously shown is connected through ExpressRoute into Azure. The ExpressRoute circuit connects into an enterprise edge router. For more information, see [ExpressRoute technical overview](../../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). After the route is established, it connects into the Azure backbone, and all Azure regions are accessible.
 
@@ -95,7 +95,7 @@ The virtual network gateway for the VMs that host SAP application instances is c
 
 This system is a straightforward example of a single SAP system. The SAP application layer is hosted in Azure. The SAP HANA database runs on SAP HANA on Azure (Large Instances). The assumption is that the virtual network gateway bandwidth of 2-Gbps or 10-Gbps throughput doesn't represent a bottleneck.
 
-### Multiple SAP systems or large SAP systems
+## Multiple SAP systems or large SAP systems
 
 If multiple SAP systems or large SAP systems are deployed to connect to SAP HANA on Azure (Large Instances), the throughput of the virtual network gateway might become a bottleneck. In such a case, split the application layers into multiple virtual networks. You also might create a special virtual network that connects to HANA Large Instance for cases such as:
 
@@ -118,7 +118,7 @@ The figure shows the SAP application layer, or components, deployed over multipl
 For more information about virtual network peering, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 
-### Routing in Azure
+## Routing in Azure
 
 Three network routing considerations are important for SAP HANA on Azure (Large Instances):
 
@@ -136,13 +136,13 @@ Three network routing considerations are important for SAP HANA on Azure (Large 
 
 > Be aware that implementation and support for custom solutions involving third-party network appliances or IPTables isn't provided by Microsoft. Support must be provided by the vendor of the component used or the integrator. 
 
-### Internet connectivity of HANA Large Instance
+## Internet connectivity of HANA Large Instance
 HANA Large Instance does *not* have direct internet connectivity. As an example, this limitation might restrict your ability to register the OS image directly with the OS vendor. You might need to work with your local SUSE Linux Enterprise Server Subscription Management Tool server or Red Hat Enterprise Linux Subscription Manager.
 
-### Data encryption between VMs and HANA Large Instance
+## Data encryption between VMs and HANA Large Instance
 Data transferred between HANA Large Instance and VMs is not encrypted. However, purely for the exchange between the HANA DBMS side and JDBC/ODBC-based applications, you can enable encryption of traffic. For more information, see [this documentation by SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
 
-### Use HANA Large Instance units in multiple regions
+## Use HANA Large Instance units in multiple regions
 
 You might have reasons to deploy SAP HANA on Azure (Large Instances) in multiple Azure regions other than for disaster recovery. Perhaps you want to access HANA Large Instance from each of the VMs deployed in the different virtual networks in the regions. The IP addresses assigned to the different HANA Large Instance units aren't propagated beyond the virtual networks that are directly connected through their gateway to the instances. As a result, a slight change is introduced to the virtual network design. A virtual network gateway can handle four different ExpressRoute circuits out of different enterprise edge routers. Each virtual network that is connected to one of the Large Instance stamps can be connected to the Large Instance stamp in another Azure region.
 
@@ -153,5 +153,5 @@ The figure shows how the different virtual networks in both regions are connecte
 > [!IMPORTANT] 
 > If you used multiple ExpressRoute circuits, AS Path prepending and Local Preference BGP settings should be used to ensure proper routing of traffic.
 
-## Next steps
+**Next steps**
 - Refer [SAP HANA (Large Instances) storage architecture](hana-storage-architecture.md)

@@ -47,7 +47,7 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
 - Red Hat Subscription Manager deployed in Azure on a VM. The Red Hat Subscription Manager provides the capability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat. (There is no direct internet access from within the tenant deployed on the Azure Large Instance stamp.)
 - SAP requires you to have a support contract with your Linux provider as well. This requirement isn't removed by the solution of HANA Large Instance or the fact that you run Linux in Azure. Unlike with some of the Linux Azure gallery images, the service fee is *not* included in the solution offer of HANA Large Instance. It's your responsibility to fulfill the requirements of SAP regarding support contracts with the Linux distributor. 
    - For SUSE Linux, look up the requirements of support contracts in [SAP Note #1984787 - SUSE Linux Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) and [SAP Note #1056161 - SUSE priority support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161).
-   - For Red Hat Linux, you need to have the correct subscription levels that include support and service updates to the operating systems of HANA Large Instance. Red Hat recommends the Red Hat Enterprise Linux for [SAP Solutions](https://access.redhat.com/solutions/3082481 subscription. 
+   - For Red Hat Linux, you need to have the correct subscription levels that include support and service updates to the operating systems of HANA Large Instance. Red Hat recommends the Red Hat Enterprise Linux subscription for SAP solution. Refer https://access.redhat.com/solutions/3082481. 
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
@@ -79,5 +79,5 @@ For the compatibility matrix of the operating system and HLI firmware/driver ver
 - Expectation is that you're an SAP customer and have a support contract with SAP.
 - Especially for implementations of the Type II class of HANA Large Instance SKUs, consult with SAP on versions of SAP HANA and the eventual configurations on large-sized scale-up hardware.
 
-## Next steps
+**Next steps**
 - Refer [SAP HANA (Large Instances) architecture on Azure](hana-architecture.md)

@@ -1,6 +1,6 @@
 ---
-title: data tiering and extension nodes for SAP HANA on Azure (Large Instances) | Microsoft Docs
-description: data tiering and extension nodes for SAP HANA on Azure (Large Instances).
+title: Data tiering and extension nodes for SAP HANA on Azure (Large Instances) | Microsoft Docs
+description: Data tiering and extension nodes for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
@@ -32,5 +32,5 @@ When you look at the documentation, the advantage might not be visible immediate
 
 The higher the data volume compared to the memory, the higher the chances are that the warm data you are asking for is stored on disk storage.
 
-## Next steps
+**Next steps**
 - Refer [SAP HANA (Large Instances) architecture on Azure](hana-architecture.md)

@@ -37,5 +37,5 @@ Compared to running SAP HANA in VMs, this solution has a benefit. It provides fo
 - In addition to the solutions described here, you can install other components in your Azure subscription that connects to SAP HANA on Azure (Large Instances). Examples are components that enable communication with or directly to the SAP HANA database, such as jump servers, RDP servers, SAP HANA Studio, SAP Data Services for SAP BI scenarios, or network monitoring solutions.
 - As in Azure, HANA Large Instance offers support for high availability and disaster recovery functionality.
 
-## Next steps
+**Next steps**
 - Refer [Available SKUs for HLI](hana-available-skus.md) 

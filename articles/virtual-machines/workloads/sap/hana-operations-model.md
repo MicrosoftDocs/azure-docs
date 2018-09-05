@@ -64,5 +64,5 @@ The underlying infrastructure of HANA Large Instance provides functionality for 
 
 See the [SLA for SAP HANA on Azure (Large Instances)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
 
-## Next steps
+**Next steps**
 - Refer [SAP HANA (Large Instances) architecture on Azure](hana-architecture.md)

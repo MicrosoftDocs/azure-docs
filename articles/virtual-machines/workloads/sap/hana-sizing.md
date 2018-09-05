@@ -31,5 +31,5 @@ For green field implementations, SAP Quick Sizer is available to calculate memor
 
 Memory requirements for HANA increase as data volume grows. Be aware of your current memory consumption to help you predict what it's going to be in the future. Based on memory requirements, you then can map your demand into one of the HANA Large Instance SKUs.
 
-## Next steps
+**Next steps**
 - Refer [Onboarding requirements](hana-onboarding-requirements.md)

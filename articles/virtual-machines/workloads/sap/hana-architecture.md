@@ -57,5 +57,5 @@ Just as you can choose between different VM types with Azure Virtual Machines, y
 
 You can find available SKUs [Available SKUs for HLI](hana-available-skus.md).
 
-## Next steps
+**Next steps**
 - Refer [SAP HANA (Large Instances) network architecture](hana-network-architecture.md)
