@@ -43,7 +43,7 @@ For this tutorial, you create a two peered VNets:
 5. Click **Create**.
 
 ## Set up the network environment
-First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
+First, create the VNets and then peer them.
 
 ### Create the Hub VNet
 1. From the Azure portal home page, click **All services**.
@@ -99,9 +99,9 @@ First, create a resource group to contain the resources needed to deploy the fir
 6. Click **Allow forwarded traffic**.
 7. Click **OK**.
 
-### Create a virtual machine
+## Create a virtual machine
 
-Now create a workload virtual machine, and place it in the appropriate subnet.
+Now create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 1. From the Azure portal home page, click **All services**.
 2. Under **Compute**, click **Virtual machines**.
@@ -133,6 +133,8 @@ Now create a workload virtual machine, and place it in the appropriate subnet.
 **Summary**
 
 Review the summary, and then click **Create**. This will take a few minutes to complete.
+
+After deployment finishes, note the private IP address for the virtual machine. It will be used later when you deploy the firewall. Click the virtual machine name, and under **Settings**, click **Networking** to find the private IP address.
 
 
 ## Deploy the firewall
