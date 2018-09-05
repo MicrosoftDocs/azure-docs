@@ -1,5 +1,5 @@
 ---
-title: Set up CI/CD pipeline with the Cosmos DB emulator build task
+title: Set up CI/CD pipeline with the Azure Cosmos DB emulator build task
 description: Tutorial on how to set up build and release workflow in Visual Studio Team Services (VSTS) using the Cosmos DB emulator build task
 services: cosmos-db
 keywords: Azure Cosmos DB Emulator
@@ -53,7 +53,7 @@ Now we have a build definition that we can set up to use the Azure Cosmos DB Emu
 
 ![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_4.png)
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the emulator build task to a build definition
+## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the task to a build definition
 
 To add the emulator build task, search for **cosmos** in the search box and select **Add.** The build task will start up a container with an instance of the Cosmos DB emulator already running, so the task needs to be placed before any other tasks that expect the emulator to be running.
 
