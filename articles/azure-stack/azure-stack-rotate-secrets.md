@@ -75,13 +75,11 @@ When secrets are within 30 days of expiration, the following alerts are generate
 Running secret rotation using the instructions below will remediate these alerts.
 
 ## Pre-steps for secret rotation
-
+    > [!IMPORTANT]  
+    > Ensure secret rotation hasn't been previously successfully executed on your environment. If secret rotation has already been performed update to Azure Stack version 1807 or later prior to rotating secrets. 
 1.  Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
-
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.
-
-2. Ensure secret rotation hasn't been successfully executed on your environment within the past month. At this point in time Azure Stack only supports secret rotation once per month. 
 3. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 4.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
 5.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
