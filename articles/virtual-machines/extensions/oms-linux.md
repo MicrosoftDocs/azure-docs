@@ -33,7 +33,7 @@ The Log Analytics Agent extension can be run against these Linux distributions.
 | Distribution | Version |
 |---|---|
 | CentOS Linux | 6 and 7 (x86/x64) |
-| Amazon Linux 2017.09 | 
+| Amazon Linux | 2017.09 | 
 | Oracle Linux | 6 and 7 (x86/x64) |
 | Red Hat Enterprise Linux Server | 6 and 7 (x86/x64) |
 | Debian GNU/Linux | 8 and 9 (x86/x64) |
