@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/18/2018
 ms.author: ryanwi
 
 ---
@@ -28,27 +28,15 @@ ms.author: ryanwi
 This quick-start helps you create your first Azure Service Fabric Java application in a Linux development environment in just a few minutes.  When you are finished, you'll have a simple Java single-service application running on the local development cluster.  
 
 ## Prerequisites
-Before you get started, install the Service Fabric SDK, the Service Fabric CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
+Before you get started, install the Service Fabric SDK, the Service Fabric CLI, Yeoman, setup the Java development environment, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [Set up a development environment on Mac using Docker](service-fabric-get-started-mac.md).
 
 Also install the [Service Fabric CLI](service-fabric-cli.md).
 
 ### Install and set up the generators for Java
-Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for Java working on your machine.
-1. Install nodejs and NPM on your machine
+Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator.  If Yeoman isn't already installed, see [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) for instructions on setting up Yeoman. Run the following command to install the Service Fabric Yeoman template generator for Java.
 
   ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. Install the Service Fabric Yeoman Java application generator from NPM
-
-  ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## Basic concepts
@@ -140,11 +128,16 @@ This contains your actor implementation and actor registration code. The actor c
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
 ```java
-@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@ActorServiceAttribute(name = "HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
-    Logger logger = Logger.getLogger(this.getClass().getName());
+public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor {
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    public HelloWorldActorImpl(FabricActorService actorService, ActorId actorId){
+        super(actorService, actorId);
+    }
+
+    @Override
     protected CompletableFuture<?> onActivateAsync() {
         logger.log(Level.INFO, "onActivateAsync");
 
@@ -173,15 +166,16 @@ The actor service must be registered with a service type in the Service Fabric r
 ```java
 public class HelloWorldActorHost {
 
-    public static void main(String[] args) throws Exception {
-
+private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
+    
+public static void main(String[] args) throws Exception {
+        
         try {
-            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
 
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
-
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Exception occured", e);
             throw e;
         }
     }
@@ -190,24 +184,19 @@ public class HelloWorldActorHost {
 
 ## Build the application
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal.
-Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK and Gradle installed. If not yet installed, you can run the following to install JDK(openjdk-8-jdk) and Gradle -
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK and Gradle installed. If they are not installed, see [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-java-development) for instructions on installing JDK and Gradle.
 
 To build and package the application, run the following:
 
   ```bash
-  cd myapp
+  cd HelloWorldActorApplication
   gradle
   ```
 
 ## Deploy the application
 Once the application is built, you can deploy it to the local cluster.
 
-1. Connect to the local Service Fabric cluster.
+1. Connect to the local Service Fabric cluster (the cluster must be [setup and running](service-fabric-get-started-linux.md#set-up-a-local-cluster)).
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
@@ -232,13 +221,28 @@ Once the application has been deployed, open a browser and navigate to
 Then, expand the **Applications** node and note that there is now an entry for your application type and another for
 the first instance of that type.
 
+> [!IMPORTANT]
+> To deploy the application to a secure Linux cluster in Azure, you need to configure a certificate to validate your application with the Service Fabric runtime. Doing so enables your Reliable Actors services to communicate with the underlying Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## Start the test client and perform a failover
 Actors do not do anything on their own, they require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.
 
+> [!Note]
+> The test client uses the ActorProxy class to communicate with actors, which must run within the same cluster as the actor service or share the same IP address space.  You can run the test client on the same computer as the local development cluster.  To communicate with actors in a remote cluster, however, you must deploy a gateway on the cluster that handles external communication with the actors.
+
 1. Run the script using the watch utility to see the output of the actor service.  The test script calls the `setCountAsync()` method on the actor to increment a counter, calls the `getCountAsync()` method on the actor to get the new counter value, and displays that value to the console.
 
+   In case of MAC OS X, you need to copy the HelloWorldTestClient folder into the some location inside the container by running the following additional commands.    
+    
     ```bash
-    cd myactorsvcTestClient
+     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     cd /home
+     ```
+
+    ```bash
+    cd HelloWorldActorTestClient
     watch -n 1 ./testclient.sh
     ```
 
@@ -267,8 +271,8 @@ Service Fabric Reliable Actor support for your application.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -277,7 +281,7 @@ Service Fabric Reliable Actor support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -288,8 +292,8 @@ Service Fabric Reliable Services support for your application.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -298,7 +302,7 @@ Service Fabric Reliable Services support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -310,8 +314,8 @@ Transport layer support for Service Fabric Java application. You do not need to 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -320,7 +324,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -331,8 +335,8 @@ System level support for Service Fabric, which talks to native Service Fabric ru
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -341,12 +345,9 @@ System level support for Service Fabric, which talks to native Service Fabric ru
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
-
-## Migrating old Service Fabric Java applications to be used with Maven
-We have recently moved Service Fabric Java libraries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Yeoman or Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned [here](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
 
 ## Next steps
 

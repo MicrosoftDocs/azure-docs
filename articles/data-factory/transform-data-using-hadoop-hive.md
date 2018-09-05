@@ -3,28 +3,24 @@ title: Transform data using Hadoop Hive activity in Azure Data Factory | Microso
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2017
-ms.author: shengc
+ms.topic: conceptual
+ms.date: 01/16/2018
+ms.author: douglasl
 
 ---
 # Transform data using Hadoop Hive activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-hive-activity.md)
-> * [Version 2 - Preview](transform-data-using-hadoop-hive.md)
+> * [Version 1](v1/data-factory-hive-activity.md)
+> * [Current version](transform-data-using-hadoop-hive.md)
 
 The HDInsight Hive activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Hive queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Hive Activity in V1](v1/data-factory-hive-activity.md).
 
 If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 

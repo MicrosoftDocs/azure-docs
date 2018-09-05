@@ -1,0 +1,21 @@
+- name: OpenShift Documentation
+  href: index.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: 'OpenShift:  Community template'
+    href: https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/
+- name: Tutorials
+  items:
+  - name: Deploy to Azure VMs
+    href: /azure/virtual-machines/linux/openshift-get-started
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: OpenShift Container template
+    href: https://github.com/Microsoft/openshift-container-platform
+  - name: OpenShift Origin
+    href: https://docs.openshift.org/latest/getting_started/index.html
+  - name: OpenShift site
+    href: https://docs.openshift.org/latest/welcome/index.html

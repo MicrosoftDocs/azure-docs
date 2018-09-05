@@ -3,8 +3,8 @@ title: IP address types in Azure (Classic) | Microsoft Docs
 description: Learn about public and private IP addresses (Classic) in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
-ms.author: jdial
+ms.author: genli
 
 ---
 # IP address types and allocation methods (classic) in Azure

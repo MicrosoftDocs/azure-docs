@@ -3,17 +3,18 @@ title: How to select permissions for a given API | Microsoft Docs
 description: How to find the authentication endpoints for a custom application you are developing or registering with Azure AD.
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -32,4 +33,4 @@ You can find the authentication endpoints for your application in the [Azure por
 -   Use the endpoint specific to the authentication protocol you are using, in conjunction with the application ID to craft the authentication request specific to your application.
 
 ## Next steps
-[Azure Active Directory developer's guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

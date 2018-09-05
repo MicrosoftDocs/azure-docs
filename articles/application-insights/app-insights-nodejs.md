@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
 
@@ -37,15 +37,15 @@ Complete the following tasks to set up monitoring for an app or service.
 
 Before you begin, make sure that you have an Azure subscription, or [get a new one for free][azure-free-offer]. If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user] to add you to it.
 
-[azure-free-offer]: https://azure.microsoft.com/en-us/free/
-[add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
+[azure-free-offer]: https://azure.microsoft.com/free/
+[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
 
 
 ### <a name="resource"></a> Set up an Application Insights resource
 
 
 1. Sign in to the [Azure portal][portal].
-2. Select **New** > **Developer tools** > **Application Insights**. The resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.
+2. Select **Create a resource** > **Developer tools** > **Application Insights**. The resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.
 
   ![Create an Application Insights resource](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

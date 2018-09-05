@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 05/11/2018
 ms.author: genli
 ---
 
@@ -84,12 +84,14 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 6. Verify that the subnets match exactly (Azure policy-based gateways)
 
--	Verify that the subnets match exactly between the Azure virtual network and on-premises definitions for the Azure virtual network.
+-	Verify that the virtual network address space(s) match exactly between the Azure virtual network and on-premises definitions.
 -	Verify that the subnets match exactly between the **Local Network Gateway** and on-premises definitions for the on-premises network.
 
 ### Step 7. Verify the Azure gateway health probe
 
-1. Go to the [health probe](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Open health probe by browsing to the following URL:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:

@@ -1,5 +1,5 @@
-﻿---
-title: Azure PowerShell Script Sample - Open application port in load balancer| Microsoft Docs
+---
+title: Azure PowerShell Script Sample - Open application port in load balancer | Microsoft Docs
 description: Azure PowerShell Script Sample - Open a port in the Azure load balancer for a Service Fabric application.
 services: service-fabric
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 08/15/2017
+ms.date: 05/18/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
 
 # Open an application port in the Azure load balancer
 
-A Service Fabric application running in Azure sits behind the Azure load balancer. This sample script opens a port in an Azure load balancer so that a Service Fabric application can communicate with external clients. Customize the parameters as needed. 
+A Service Fabric application running in Azure sits behind the Azure load balancer. This sample script opens a port in an Azure load balancer so that a Service Fabric application can communicate with external clients. Customize the parameters as needed. If your cluster is in a network security group, also [add an inbound network security group rule](service-fabric-powershell-add-nsg-rule.md) to allow inbound traffic.
 
 If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
 

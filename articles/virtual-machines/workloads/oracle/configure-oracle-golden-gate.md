@@ -3,8 +3,8 @@ title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
-manager: timlt
+author: romitgirdhar
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
 
 # Implement Oracle Golden Gate on an Azure Linux VM 
@@ -47,7 +47,7 @@ The following is a summary of the environment configuration:
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription with the [az login](/cli/azure/#login) command. Then follow the on-screen directions.
+Sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command. Then follow the on-screen directions.
 
 ```azurecli
 az login
@@ -55,7 +55,7 @@ az login
 
 ### Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
 
 The following example creates a resource group named `myResourceGroup` in the `westus` location.
 
@@ -77,7 +77,7 @@ az vm availability-set create \
 
 ### Create a virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 
@@ -240,7 +240,7 @@ Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=gg1; export ORACLE_SID
+$ ORACLE_SID=cdb1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
@@ -250,7 +250,7 @@ Optionally, you can add ORACLE_HOME and ORACLE_SID to the .bashrc file, so that 
 # add oracle home
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 # add oracle sid
-export ORACLE_SID=gg1
+export ORACLE_SID=cdb1
 # add Oracle library path
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```

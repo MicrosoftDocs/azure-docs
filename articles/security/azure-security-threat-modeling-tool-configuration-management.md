@@ -3,9 +3,9 @@ title: Configuration Management - Microsoft Threat Modeling Tool - Azure | Micro
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -39,12 +39,12 @@ ms.author: rodsan
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](http://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://docs.webplatform.org/wiki/tutorials/content-security-policy), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **References**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](http://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
 | **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a whitelist-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP’s Base Restriction-1</li><li>Inject `<script src=”http://attacker.com/maliciousCode.js”/>`. This exploit will not work since the attacker controlled domain will not be in CSP’s whitelist of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP’s whitelist</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
 
 ### Example
 Example policy: 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 This policy allows scripts to load only from the web application’s server and google analytics server. Scripts loaded from any other site will be rejected. When CSP is enabled on a website, the following features are automatically disabled to mitigate XSS attacks. 
@@ -104,12 +104,12 @@ Example: var str="alert(1)"; eval(str);
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) |
+| **References**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Steps** | <p>click-jacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page.</p><p>This layering is achieved by crafting a malicious page with an iframe, which loads the victim's page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. To prevent click-jacking attacks, set the proper X-Frame-Options HTTP response headers that instruct the browser to not allow framing from other domains</p>|
 
 ### Example
 The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippet for sites that should never be framed: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -121,7 +121,7 @@ The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippe
 
 ### Example
 Web.config code for sites that should only be framed by pages in the same domain: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -156,7 +156,7 @@ If access to Web.config is available, then CORS can be added through the followi
 
 ### Example
 If access to web.config is not available, then CORS can be configured by adding the following CSharp code: 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -224,7 +224,7 @@ Add the header in the web.config file if the application is hosted by Internet I
 
 ### Example
 Add the header through the global Application\_BeginRequest 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -233,7 +233,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### Example
 Implement custom HTTP module 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -260,7 +260,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### Example
 You can enable the required header only for specific pages by adding it to individual responses: 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -299,7 +299,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### Example
 In the App_Start/WebApiConfig.cs, add the following code to the WebApiConfig.Register method 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -323,7 +323,7 @@ namespace WebService
 ### Example
 EnableCors attribute can be applied to action methods in a controller as follows: 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -363,7 +363,7 @@ Please note that it is critical to ensure that the list of origins in EnableCors
 
 ### Example
 To disable CORS on a particular method in a class, the DisableCors attribute can be used as shown below: 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -398,7 +398,7 @@ Enabling CORS with middleware: To enable CORS for the entire application add the
 
 ### Example
 The first is to call UseCors with a lambda. The lambda takes a CorsPolicyBuilder object: 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -410,7 +410,7 @@ public void Configure(IApplicationBuilder app)
 
 ### Example
 The second is to define one or more named CORS policies, and then select the policy by name at run time. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ Enabling CORS in MVC: Developers can alternatively use MVC to apply specific COR
 
 ### Example
 Per action: To specify a CORS policy for a specific action add the [EnableCors] attribute to the action. Specify the policy name. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### Example
 Per controller: 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### Example
 Globally: 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ Please note that it is critical to ensure that the list of origins in EnableCors
 
 ### Example
 To disable CORS for a controller or action, use the [DisableCors] attribute. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {
@@ -561,7 +561,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [IoT Hub Device Management Overview](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
+| **References**              | [IoT Hub Device Management Overview](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
 | **Steps** | LWM2M is a protocol from the Open Mobile Alliance for IoT Device Management. Azure IoT device management allows to interact with physical devices using device jobs. Ensure that the Cloud Gateway implements a process to routinely keep the device and other configuration data up to date using Azure IoT Hub Device Management. |
 
 ## <a id="controls-policies"></a>Ensure that devices have end-point security controls configured as per organizational policies
@@ -605,7 +605,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | <p>Not placing a limit on the use of system resources could result in resource exhaustion and ultimately a denial of service.</p><ul><li>**EXPLANATION:** Windows Communication Foundation (WCF) offers the ability to throttle service requests. Allowing too many client requests can flood a system and exhaust its resources. On the other hand, allowing only a small number of requests to a service can prevent legitimate users from using the service. Each service should be individually tuned to and configured to allow the appropriate amount of resources.</li><li>**RECOMMENDATIONS** Enable WCF's service throttling feature and set limits appropriate for your application.</li></ul>|
 
 ### Example
@@ -628,7 +628,7 @@ The following is an example configuration with throttling enabled:
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | Metadata can help attackers learn about the system and plan a form of attack. WCF services can be configured to expose metadata. Metadata gives detailed service description information and should not be broadcast in production environments. The `HttpGetEnabled` / `HttpsGetEnabled` properties of the ServiceMetaData class defines whether a service will expose the metadata | 
 
 ### Example

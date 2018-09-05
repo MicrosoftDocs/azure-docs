@@ -4,18 +4,19 @@ description: A detailed walkthrough showing how to create a predictive analytics
 keywords: credit risk, predictive analytics solution,risk assessment
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
-ms.author: garye
 
 ---
 # Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning
@@ -52,7 +53,7 @@ To create this credit risk assessment solution, we follow these steps:
 6. [Access the web service](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> You can find a working copy of the experiment that we develop in this walkthrough in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Go to **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> You can find a working copy of the experiment that we develop in this walkthrough in the [Azure AI Gallery](https://gallery.cortanaintelligence.com). Go to **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 > 
 > This walkthrough is based on a simplified version of the sample experiment,
 [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270), also available in the [Gallery](http://gallery.cortanaintelligence.com/).

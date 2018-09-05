@@ -1,22 +1,24 @@
 ---
-title: Problems signing in to an Azure AD Gallery application configured for federated single sign-on | Microsoft Docs
+title: Problems signing in to an Azure AD Gallery application configured for password single sign-on | Microsoft Docs
 description: How to troubleshoot issues with Azure AD Gallery application configured for password single sign-on
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
+ms.reviewer: asteen
 
 ---
 
-# Problems signing in to an Azure AD Gallery application configured for federated single sign-on
+# Problems signing in to an Azure AD Gallery application configured for password single sign-on
 
 The Access Panel is a web-based portal which enables a user who has a work or school account in Azure Active Directory (Azure AD) to view and launch cloud-based applications that the Azure AD administrator has granted them access to. A user who has Azure AD editions can also use self-service group and app management capabilities through the Access Panel. The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription.
 
@@ -41,7 +43,7 @@ For password-based SSO, the end user’s browsers can be:
 
 ## How to install the Access Panel Browser extension
 
-To install the Access Panel Browser extension, follow the steps below:
+To install the Access Panel Browser extension, follow these steps:
 
 1.  Open the [Access Panel](https://myapps.microsoft.com) in one of the supported browsers and sign in as a **user** in your Azure AD.
 
@@ -77,7 +79,7 @@ Follow the tutorial [How to Deploy the Access Panel Extension for Internet Explo
 
 ## Troubleshoot the Access Panel in Internet Explorer
 
-Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
+Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
 
 ## How to configure password single sign-on for an Azure AD gallery application
 
@@ -91,17 +93,17 @@ To configure an application from the Azure AD gallery you need to:
 
 ### Add an application from the Azure AD gallery
 
-To add an application from the Azure AD Gallery, follow the steps below:
+To add an application from the Azure AD Gallery, follow these steps:
 
-1.  Open the [Azure Portal](https://portal.azure.com) and sign in as a **Global Administrator** or **Co-admin**
+1.  Open the [Azure portal](https://portal.azure.com) and sign in as a **Global Administrator** or **Co-admin**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click the **Add** button at the top-right corner on the **Enterprise Applications** blade.
+5.  click the **Add** button at the top-right corner on the **Enterprise Applications** pane.
 
 6.  In the **Enter a name** textbox from the **Add from the gallery** section, type the name of the application.
 
@@ -111,19 +113,19 @@ To add an application from the Azure AD Gallery, follow the steps below:
 
 9.  Click **Add** button, to add the application.
 
-After a short period, you be able to see the application’s configuration blade.
+After a short period, you be able to see the application’s configuration pane.
 
 ### Configure the application for password single sign-on
 
-To configure single sign-on for an application, follow the steps below:
+To configure single sign-on for an application, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -131,7 +133,7 @@ To configure single sign-on for an application, follow the steps below:
 
 6.  Select the application you want to configure single sign-on
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
 8.  Select the mode **Password-based Sign-on.**
 
@@ -141,15 +143,15 @@ To configure single sign-on for an application, follow the steps below:
 
 ### Assign users to the application
 
-To assign one or more users to an application directly, follow the steps below:
+To assign one or more users to an application directly, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -157,11 +159,11 @@ To assign one or more users to an application directly, follow the steps below:
 
 6.  Select the application you want to assign a user to from the list.
 
-7.  Once the application loads, click **Users and Groups** from the application’s left hand navigation menu.
+7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
 
-8.  Click the **Add** button on top of the **Users and Groups** list to open the **Add Assignment** blade.
+8.  Click the **Add** button on top of the **Users and Groups** list to open the **Add Assignment** pane.
 
-9.  click the **Users and groups** selector from the **Add Assignment** blade.
+9.  click the **Users and groups** selector from the **Add Assignment** pane.
 
 10. Type in the **full name** or **email address** of the user you are interested in assigning into the **Search by name or email address** search box.
 
@@ -171,7 +173,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 13. When you are finished selecting users, click the **Select** button to add them to the list of users and groups to be assigned to the application.
 
-14. **Optional:** click the **Select Role** selector in the **Add Assignment** blade to select a role to assign to the users you have selected.
+14. **Optional:** click the **Select Role** selector in the **Add Assignment** pane to select a role to assign to the users you have selected.
 
 15. Click the **Assign** button to assign the application to the selected users.
 
@@ -193,4 +195,4 @@ open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

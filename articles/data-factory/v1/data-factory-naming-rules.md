@@ -4,23 +4,23 @@ description: Describes naming rules for Data Factory entities.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: bc5e801d-0b3b-48ec-9501-bb4146ea17f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex
 ---
 # Azure Data Factory - naming rules
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [naming rules in Data Factory version 2](../naming-rules.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [naming rules in Data Factory](../naming-rules.md).
 
 The following table provides naming rules for Data Factory artifacts.
 

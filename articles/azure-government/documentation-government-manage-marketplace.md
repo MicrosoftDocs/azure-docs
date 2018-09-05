@@ -1,11 +1,11 @@
 ---
 title: Azure Government Marketplace | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government.
+description: Provides guidance on how to use the Azure Government Marketplace.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: VybavaRamadoss
-manager: asimm
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: b4ffa6c1-30c9-4aef-8938-10326e9f7d1e
 ms.service: azure-government
@@ -13,65 +13,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/14/2016
-ms.author: vybavar
+ms.date: 07/13/2018
+ms.author: gsacavdm
 
 ---
-# Azure Marketplace for Government
-The Azure Marketplace is available for Azure Government with an updated list of images from our marketplace publishers. 
+# Azure Government Marketplace
+The Azure Government Marketplace helps connect government agencies and partners with independent software vendors (ISVs) and start-ups that are offering their solutions in Azure Government.
+
+> [!NOTE]
+> For information on making your images available in Azure Government, see the [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md).
 
 ## Variations
-Below are some considerations when using Azure Marketplace for Government:
-
-* Only Bring Your Own License (BYOL) images are available. You cannot access any images that require purchase transaction through Azure Marketplace
-* Only a subset of images is currently available as compared to the public marketplace. You can find the list of available images [here](../azure-government-image-gallery.md) 
-* Before provisioning an image, your Enterprise Administrator must enable Marketplace purchases for your Azure subscription
-  * Log in to the Portal as an Enterprise Administrator
-  * Navigate to *Manage*
-  * Under *Enrollment Details* click the pencil icon next to the *Azure Marketplace* line item
-  * Toggle *Enabled/Disabled* as appropriate
-  * Click *Save*
+The Azure Government Marketplace differs from the Azure Marketplace in the following ways:
+* Only Bring Your Own License (BYOL) and Pay-as-you-Go (PayGo) images are available.
+* A different set of images is available. You can find the list of available images [here](../azure-government-image-gallery.md) 
 
 > [!NOTE]
-> If you are interested in making your images available in Azure Government please refer to [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md) for more information.
-> 
-> 
+> Red Hat Enterprise Linux is available in Azure Government with Azure Marketplace billing. This is a special case exception to the above statement about license options in Azure Government.
 
-### Step 1
-Launch the Marketplace
-
-![alt text](./media/government-manage-marketplace-launch.png)  
-
-### Step 2
-Browse through different products to find the right one.
-
-The marketplace publisher provides a list of certifications as part of the product description to help you make the right choice. 
-
-![alt text](./media/government-manage-marketplace-service.png)
-
-### Step 3
-Choose an product\image
-
-![alt text](./media/government-manage-marketplace-image.png)
-
-### Step 4
-Launch the create flow and enter the required parameters for deployment
-
-![alt text](./media/government-manage-marketplace-deployment.png)
+## Enable the Azure Government Marketplace
+If your subscription is under an Enterprise Agreement (EA), the Azure Government Marketplace must be enabled before you can deploy a Marketplace solution to your subscription.
+1. Log in to the [Enterprise Account Portal](https://ea.azure.com) as an Enterprise Administrator
+1. Navigate to **Manage**
+1. Under **Enrollment Details**, click the pencil icon next to the **Azure Marketplace** line item
+1. Toggle **Enabled/Disabled** as appropriate
+1. Click **Save**
 
 > [!NOTE]
-> In the Location dropdown, only Azure Government locations are visible
-> 
-> 
+> It can take up to 24 hours for the change to take effect.  
 
-### Step 5
-Observe pricing
+## Deploy a Solution to your Subscription
+1. **Log in** to the [Azure Government portal](https://portal.azure.us).
 
-![alt text](./media/government-manage-marketplace-pricing.png)
+1. Click on **+New**.
 
-### Step 6
-Complete all steps and click Ok to start the provisioning process
+   ![alt text](./media/government-manage-marketplace-launch.png)  
+
+1. Browse through different products to find the right one. The marketplace publisher provides a list of certifications as part of the product description to help you make the right choice. 
+
+   ![alt text](./media/government-manage-marketplace-service.png)
+
+1. Choose an product\image and click **Create**.
+
+   ![alt text](./media/government-manage-marketplace-image.png)
+
+1. Enter the required parameters for deployment.
+
+   > [!NOTE]
+   > In the Location dropdown, only Azure Government locations are visible
+  
+   ![alt text](./media/government-manage-marketplace-deployment.png)
+
+1. To start the provisioning process, click **Ok**.
 
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
-
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
+* Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 

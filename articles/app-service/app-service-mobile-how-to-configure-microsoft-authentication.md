@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
 
 ---
@@ -25,7 +25,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 ## <a name="register-microsoft-account"> </a>Register your app with Microsoft Account
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**, which later you use to configure your app with Microsoft Account.
 2. Navigate to the [My Applications] page in the Microsoft Account Developer Center, and log on with your Microsoft account, if required.
-3. Click **Add an app**, then type an application name, and click **Create application**.
+3. Click **Add an app**, then type an application name, and click **Create**.
 4. Make a note of the **Application ID**, as you will need it later. 
 5. Under "Platforms," click **Add Platform** and select "Web".
 6. Under "Redirect URIs" supply the endpoint for your application, then click **Save**. 

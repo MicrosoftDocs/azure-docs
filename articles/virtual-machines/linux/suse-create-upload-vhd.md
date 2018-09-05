@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 03/12/2018
 ms.author: szark
 
 ---
@@ -29,12 +29,12 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
 * Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
-* All of the VHDs must have sizes that are multiples of 1 MB.
+* All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ## Use SUSE Studio
 [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
 
-As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## Prepare SUSE Linux Enterprise Server 11 SP4
 1. In the center pane of Hyper-V Manager, select the virtual machine.
@@ -95,9 +95,9 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 - - -
@@ -130,7 +130,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         # sudo zypper update
 5. Install the Azure Linux Agent.
    
-   # sudo zypper install WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
    
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -157,14 +157,13 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 11. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Ensure the Azure Linux Agent runs at startup:
     
         # sudo systemctl enable waagent.service
 13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next steps
-You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
+You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).

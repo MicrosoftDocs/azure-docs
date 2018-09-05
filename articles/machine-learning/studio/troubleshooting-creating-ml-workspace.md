@@ -3,18 +3,19 @@ title: 'Troubleshoot: Create and connect to a Machine Learning workspace | Micro
 description: Solutions for common issues in creating and connecting to an Azure Machine Learning workspace
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
 
 ---
 # Troubleshooting guide: Create and connect to an Machine Learning workspace

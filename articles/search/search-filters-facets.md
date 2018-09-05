@@ -1,21 +1,13 @@
 ---
 title: Facet filters in Azure Search | Microsoft Docs
 description: Filter criteria by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-
 ---
 
 # How to build a facet filter in Azure Search 
@@ -31,7 +23,7 @@ Faceted navigation is used for self-directed filtering on query results in a sea
 
 Facets are dynamic and returned on a query. Search responses bring with them the facet categories used to navigate the results. If you aren't familiar with facets, the following example is an illustration of a facet navigation structure.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Search](search-faceted-navigation.md).
 
@@ -46,7 +38,7 @@ Any [field type](https://docs.microsoft.com/rest/api/searchservice/supported-dat
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (see [How to facet complex data types](#facet-complex-fields) later in this article.)
++ Edm.Collections
 + Numeric field types: Edm.Int32, Edm.Int64, Edm.Double
 
 You cannot use Edm.GeographyPoint in faceted navigation. Facets are constructed from human readable text or numbers. As such, facets are not supported for geo-coordinates. You would need a city or region field to facet by location.

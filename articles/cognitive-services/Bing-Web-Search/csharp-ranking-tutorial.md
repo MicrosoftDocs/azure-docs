@@ -4,13 +4,12 @@ description: Shows how to use the Bing RankingResponse answer to display search 
 services: cognitive-services
 author: bradumbaugh
 manager: bking
-
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/08/2017
-ms.author: brumba
+ms.author: brumbaug
 ---
 
 # Build a console app search client in C#
@@ -42,7 +41,7 @@ Name the application **MyConsoleSearchApp**, and then click **OK**.
 JSON.net allows you to work with the JSON responses returned by the API. Add its NuGet package to your project:
 
 - In **Solution Explorer** right-click on the project and select **Manage NuGet Packages...**. 
-- On the  **Browse** tab, search search for `Newtonsoft.Json`. Select the latest version, and then click **Install**. 
+- On the  **Browse** tab, search for `Newtonsoft.Json`. Select the latest version, and then click **Install**. 
 - Click the **OK** button on the **Review Changes** window.
 - Close the Visual Studio tab titled **NuGet: MyConsoleSearchApp**.
 
@@ -218,7 +217,7 @@ Before showing how to display the results in ranked order, take a look at a samp
 
 The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups: 
 
-- `pole`: The search results to get the the most visible treatment (for example, displayed above the mainline and sidebar).
+- `pole`: The search results to get the most visible treatment (for example, displayed above the mainline and sidebar).
 - `mainline`: The search results to display in the mainline.
 - `sidebar`: The search results to display in the sidebar. If there is no sidebar, display the results below the mainline.
 

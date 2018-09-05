@@ -89,7 +89,7 @@ Make a list of BGP community values you want to use in the route filter. As an e
 A route filter can have only one rule, and the rule must be of type 'Allow'. This rule can have a list of BGP community values associated with it.
 
 ### 1. Create a route filter
-You can create a route filter by selecting the option to create a new resource. Click **New** > **Networking** > **RouteFilter**, as shown in the following image:
+You can create a route filter by selecting the option to create a new resource. Click **Create a resource** > **Networking** > **RouteFilter**, as shown in the following image:
 
 ![Create a route filter](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

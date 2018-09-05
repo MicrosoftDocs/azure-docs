@@ -3,17 +3,19 @@ title: How to configure user provisioning to an Azure AD Gallery application | M
 description: How you can quickly configure rich user account provisioning and deprovisioning to applications already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
+ms.reviewer: asteen
 
 ---
 
@@ -29,7 +31,7 @@ In the Azure portal, the **Provisioning** tab in the left navigation pane for an
 
 If Manual is the only mode shown for a given application, it means that no automatic Azure AD provisioning connector has been created for the app yet. Or it means the app does not support the pre-requisite user management API upon which to build an automated provisioning connector.
 
-If you would like to request support for automatic provisioning for a given app, you can fill out a request at <http://aka.ms/aadapprequest>.
+If you would like to request support for automatic provisioning for a given app, you can fill out a request using the [Azure Active Directory Application Requests](https://aka.ms/aadapprequest).
 
 ## Configuring an application for Automatic Provisioning
 

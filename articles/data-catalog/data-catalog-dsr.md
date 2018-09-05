@@ -1,22 +1,13 @@
 ---
-title: Supported data sources in Azure Data Catalog | Microsoft Docs
+title: Supported data sources in Azure Data Catalog
 description: This article lists specifications of the currently supported data sources.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: jstevens
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 10/15/2017
-ms.author: maroche
-
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 
 # Supported data sources in Azure Data Catalog
@@ -1394,8 +1385,8 @@ If you want to see a specific data source supported, suggest it (or voice your s
     </tr>
     <tr>
       <td>Other (none of the above)</td>
-      <td>\*</td>
-      <td>\*</td>
+      <td>&#10033;</td>
+      <td>&#10033;</td>
       <td>
         
             Protocol: generic-asset

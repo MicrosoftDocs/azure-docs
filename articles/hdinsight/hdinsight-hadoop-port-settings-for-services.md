@@ -1,21 +1,15 @@
 ---
-title: Ports used by Hadoop services on HDInsight - Azure | Microsoft Docs
+title: Ports used by Hadoop services on HDInsight - Azure 
 description: A list of ports used by Hadoop services running on HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/13/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/20/2018
+ms.author: jasonh
    
 ---
 # Ports used by Hadoop services on HDInsight
@@ -55,6 +49,7 @@ The following are available for specific cluster types:
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |HBase REST API. See [Get started using HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Spark jobs remotely using Livy](spark/apache-spark-livy-rest-interface.md) |
+| Spark Thrift server |443 |HTTPS |Spark |Spark Thrift server used to submit Hive queries. See [Use Beeline with Hive on HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Storm topologies on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### Authentication
@@ -72,7 +67,7 @@ All services publicly exposed on the internet must be authenticated:
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 
 > [!IMPORTANT]
-> Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive a 404 error, retry using the secondary headnode.
+> Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive an error, retry using the secondary headnode.
 
 ### Ambari
 
@@ -167,6 +162,7 @@ Examples:
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift servers |Head nodes |10002 |Thrift | &nbsp; | Service for connecting to Spark SQL (Thrift/JDBC) |
 | Livy server | Head nodes | 8998 | HTTP | &nbsp; | Service for running statements, jobs, and applications |
+| Jupyter notebook | Head nodes | 8001 | HTTP | &nbsp; | Jupyter notebook website |
 
 Examples:
 

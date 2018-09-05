@@ -11,17 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
+ms.topic: conceptual
+ms.date: 05/07/2018
 ms.author: magoedte
-ms.custom: mvc
+ms.component: na
 ---
 
 # Delete an Azure Log Analytics workspace with the Azure portal
-This topic shows how to use the Azure portal to delete a Log Analytics workpace that you may no longer require. 
+This article shows how to use the Azure portal to delete a Log Analytics workspace that you may no longer require. 
 
 ## To delete a workspace 
-When you delete a Log Analytics workspace, all data related to your workspace is deleted from the service within 30 days.  You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operations.  
+When you delete a Log Analytics workspace, all data related to your workspace is deleted from the service within 30 days.  You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operations. Consider the other Azure services and sources that store its data in Log Analytics, such as:
+
+* Application Insights
+* Azure Security Center
+* Azure Automation
+* Agents running on Windows and Linux virtual machines
+* Agents running on Windows and Linux computers in your environment
+* System Center Operations Manager
+* Management solutions 
+
+Any agents and System Center Operations Manager management groups configured to report to the workspace continue to in an orphaned state.  Inventory what agents, solutions, and other Azure services are integrated with the workspace before you proceed.   
  
 If you are an administrator and there are multiple users associated with the workspace, the association between those users and the workspace is broken. If the users are associated with other workspaces, then they can continue using Log Analytics with those other workspaces. However, if they are not associated with other workspaces then they need to create a workspace to use Log Analytics. 
 

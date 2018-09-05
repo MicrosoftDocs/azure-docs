@@ -2,15 +2,15 @@
 title: Service-to-service authentication to Azure Key Vault using .NET
 description: Use the Microsoft.Azure.Services.AppAuthentication library to authenticate to Azure Key Vault using .NET.
 keywords: azure key-vault authentication local credentials
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 services: key-vault
 
-ms.author: alleonar
+ms.author: bryanla
 ms.date: 11/15/2017
 ms.topic: article
 ms.prod:
-ms.service: microsoft-keyvault
+ms.service: key-vault
 ms.technology:
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
@@ -26,7 +26,7 @@ Using developer credentials during local development is more secure because you 
 
 The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.
 
-The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure App Services or an Azure Virtual Machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
+The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure App Services or an Azure Virtual Machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
 
 <a name="asal"></a>
 ## Using the library
@@ -55,7 +55,7 @@ For .NET applications, the simplest way to work with a Managed Service Identity 
 
 The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. Consequently, you no longer have to check the expiration before calling the `GetAccessTokenAsync` method. Just call the method when you want to use the token. 
 
-The `GetAccessTokenAsync` method requires a resource identifier. To learn more, see [Which Azure services support Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+The `GetAccessTokenAsync` method requires a resource identifier. To learn more, see [Which Azure services support Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>
@@ -186,7 +186,7 @@ To use a certificate to sign into Azure AD:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}.
+          CertificateStoreLocation={LocalMachine or CurrentUser}
     ```
  
     Replace _{AppId}_, _{TenantId}_, and _{Thumbprint}_ with values generated in Step 1.
@@ -202,7 +202,7 @@ To sign in using an Azure AD shared secret credential:
 2. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
     ```
-    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
+    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
     Replace _{AppId}_, _{TenantId}_, and _{ClientSecret}_ with values generated in Step 1.

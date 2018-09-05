@@ -1,8 +1,8 @@
 ---
 title: "Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs"
+services: cloud-services
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,8 +10,8 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: "thraka"
-ms.author: "adegeo"
+author: "jpconnock"
+ms.author: "jeconnoc"
 manager: "timlt"
 ---
 

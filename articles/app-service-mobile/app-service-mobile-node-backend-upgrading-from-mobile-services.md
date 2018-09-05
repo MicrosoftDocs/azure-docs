@@ -1,9 +1,9 @@
----
+﻿---
 title: Upgrade from Mobile Services to Azure App Service - Node.js
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Upgrade your existing Node.js Azure Mobile Service to App Service
@@ -189,7 +189,7 @@ completely upgraded to an App Service Mobile App using the latest Mobile Apps se
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Authentication Concepts]: ../app-service/app-service-authentication-overview.md
 [Authentication Quickstart]: app-service-mobile-auth.md

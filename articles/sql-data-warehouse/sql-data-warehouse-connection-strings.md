@@ -1,33 +1,27 @@
 ---
-title: Drivers for SQL Data Warehouse | Microsoft Docs
-description: Connection strings and drivers for SQL Data Warehouse
+title: Connection strings for Azure SQL Data Warehouse | Microsoft Docs
+description: Connection strings for SQL Data Warehouse
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: ''
-
-ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
+author: kavithaj
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
 ---
-# Drivers for Azure SQL Data Warehouse
+
+# Connection strings for Azure SQL Data Warehouse
 You can connect to SQL Data Warehouse with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
-```C#
+```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ## Sample ODBC connection string
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 

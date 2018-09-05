@@ -3,18 +3,18 @@ title: 'Tutorial: Create a pipeline using Copy Wizard | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: craigg
+
 
 ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 11/01/2017
-ms.author: spelluru
+ms.topic: tutorial
+ms.date: 01/22/2018
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -30,7 +30,7 @@ robots: noindex
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
 
 
 This tutorial shows you how to use the **Copy Wizard** to copy data from an Azure blob storage to an Azure SQL database. 
@@ -46,7 +46,7 @@ Complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-
 In this step, you use the Azure portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
 1. Log in to [Azure portal](https://portal.azure.com).
-2. Click **+ NEW** from the top-left corner, click **Data + analytics**, and click **Data Factory**. 
+2. Click **Create a resource** from the top-left corner, click **Data + analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. In the **New data factory** blade:
@@ -72,7 +72,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    ![Data factory home page](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## Launch Copy Wizard
-1. On the Data Factory blade, click **Copy data [PREVIEW]** to launch the **Copy Wizard**. 
+1. On the Data Factory blade, click **Copy data** to launch the **Copy Wizard**. 
    
    > [!NOTE]
    > If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third-party cookies and site data** setting in the browser settings (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the wizard again.

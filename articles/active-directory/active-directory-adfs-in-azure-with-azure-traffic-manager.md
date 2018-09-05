@@ -5,7 +5,7 @@ keywords: Ad fs with Azure traffic manager, adfs with Azure Traffic Manager,geog
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54

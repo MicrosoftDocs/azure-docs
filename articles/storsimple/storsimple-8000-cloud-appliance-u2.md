@@ -75,7 +75,7 @@ The following sections explain the configuration prerequisites for your StorSimp
 Before you provision the cloud appliance, you need to make the following preparations in your Azure environment:
 
 * Ensure that you have a StorSimple 8000 series physical device (model 8100 or 8600) deployed and running in your datacenter. Register this device with the same StorSimple Device Manager service that you intend to create a StorSimple Cloud Appliance for.
-* For the cloud appliance, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium Storage regions are regions that correspond to the row for Disk storage in the [list of Azure Services by Region](https://azure.microsoft.com/regions/services/).
+* For the cloud appliance, [configure a virtual network on Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium Storage regions are regions that correspond to the row for Disk storage in the [list of Azure Services by Region](https://azure.microsoft.com/regions/services/).
 * We recommend that you use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the cloud appliance fails.
 * Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 * You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (host servers) in the virtual network that can use the volumes exposed by the cloud appliance. These servers must meet the following requirements:
@@ -261,7 +261,7 @@ To stop all the charges, you must delete the cloud appliance. To delete the back
 ## Troubleshoot Internet connectivity errors
 During the creation of a cloud appliance, if there is no connectivity to the Internet, the creation step fails. To troubleshoot Internet connectivity failures, perform the following steps in the Azure portal:
 
-1. [Create a Windows server 2012 virtual machine in Azure](/articles/virtual-machines/windows/quick-create-portal.md). This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
+1. [Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
 2. Remote log into the virtual machine created in the preceding step.
 3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
 4. Run the following cmd at the prompt.

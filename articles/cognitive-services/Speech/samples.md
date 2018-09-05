@@ -4,9 +4,8 @@ description: Samples for using Microsoft Speech Service that converts spoken aud
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
@@ -27,4 +26,4 @@ Microsoft Speech Service provides end-to-end samples showing how to use Microsof
 
 - [ObjectiveC on iOS samples](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS)
 
-All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [LICENSE](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [LICENSE](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE).

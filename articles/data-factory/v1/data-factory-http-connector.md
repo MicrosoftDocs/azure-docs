@@ -4,26 +4,26 @@ description: Learn about how to move data from an on-premises or a cloud HTTP so
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2017
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data from an HTTP source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-http-connector.md)
-> * [Version 2 - Preview](../connector-http.md)
+> * [Version 1](data-factory-http-connector.md)
+> * [Version 2 (current version)](../connector-http.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [HTTP connector in V2](../connector-http.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [HTTP connector in V2](../connector-http.md).
 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to move data from an on-premises/cloud HTTP endpoint to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
@@ -50,7 +50,7 @@ The following table provides description for JSON elements specific to HTTP link
 | type | The type property must be set to: `Http`. | Yes |
 | url | Base URL to the Web Server | Yes |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server. When your HTTPS server is using self-signed certificate, set this to false. | No, default is true |
 | gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
 | encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 

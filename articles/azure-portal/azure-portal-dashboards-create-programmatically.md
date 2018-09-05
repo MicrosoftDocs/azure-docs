@@ -3,13 +3,13 @@ title: Programmatically create Azure Dashboards | Microsoft Docs
 description: This article explains how to programmatically create Azure Dashboards.
 services: azure-portal
 documentationcenter: ''
-author: adamab
-manager: timlt
+author: adamabmsft
+manager: dougeby
 editor: tysonn
 
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
@@ -24,7 +24,7 @@ This document walks through the process of programmatically creating and publish
 
 ## Overview
 
-Shared dashboards in Azure are [resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts.  Therefore, they can be managed programmatically via the [Azure Resource Manager REST APIs](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview), [Azure PowerShell commands](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0), and many [Azure portal](https://portal.azure.com) features build on top of these APIs to make resource management easier.  
+Shared dashboards in Azure are [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts.  Therefore, they can be managed programmatically via the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), and many [Azure portal](https://portal.azure.com) features build on top of these APIs to make resource management easier.  
 
 Each of these APIs and tools offers ways to create, list, retrieve, modify, and delete resources.  Since dashboards are resources, you can pick your favorite API / tool to use.
 
@@ -52,7 +52,7 @@ After you have configured the dashboard to your liking the next steps are to pub
 
 ![share command](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) to the subscription and resource group that you choose.
+Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to the subscription and resource group that you choose.
 
 ![sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -76,20 +76,20 @@ It is not necessary to fully understand the dashboard JSON structure to create a
 
 To publish this dashboard for any virtual machine in the future you need to parameterize every occurrence of this string within the JSON. 
 
-There are two flavors of APIs that create resources in Azure. [Imperative APIs](https://docs.microsoft.com/en-us/rest/api/resources/resources) that create one resource at a time, and a [template-based deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) system that can orchestrate the creation of multiple, dependent resources with a single API call. The latter natively supports parameterization and templating so we use it for our example.
+There are two flavors of APIs that create resources in Azure. [Imperative APIs](https://docs.microsoft.com/rest/api/resources/resources) that create one resource at a time, and a [template-based deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) system that can orchestrate the creation of multiple, dependent resources with a single API call. The latter natively supports parameterization and templating so we use it for our example.
 
 ## Programmatically create a dashboard from your template using a template deployment
 
-Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy as well as the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the [template language](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment and does not work if used with the imperative APIs discussed earlier.
+Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy as well as the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the [template language](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment and does not work if used with the imperative APIs discussed earlier.
 
 If you’re going this route, then parameterization should be done using the template’s parameter syntax.  You replace all instances of the resource id we found earlier as shown here.
 
 ### Example JSON property with hard-coded resource Id
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### Example JSON property converted to a parameterized version based on template parameters
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 You also need to declare some required template metadata and the parameters at the top of the json template like this:
 
@@ -116,9 +116,9 @@ You also need to declare some required template metadata and the parameters at t
 
 __You can see the full, working template at the end of this document.__
 
-Once you have crafted your template you can deploy it using the [REST APIs](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create), or the [portal’s template deployment page](https://portal.azure.com/#create/Microsoft.Template).
+Once you have crafted your template you can deploy it using the [REST APIs](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), The [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create), or the [portal’s template deployment page](https://portal.azure.com/#create/Microsoft.Template).
 
-Here are are two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any VM and deployed using Azure Resource Manager.
+Here are two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any VM and deployed using Azure Resource Manager.
 
 ## JSON representation of our example dashboard (before templating)
 

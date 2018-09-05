@@ -3,8 +3,8 @@ title: Customize web application firewall rules in Azure Application Gateway - P
 description: This article provides information on how to customize web application firewall rules in Application Gateway with PowerShell.
 documentationcenter: na
 services: application-gateway
-author: davidmu1 
-manager: timlt
+author: vhorne 
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 
@@ -81,8 +81,9 @@ OWASP (Ver. 2.2.9):
 
 The following example disables rules `910018` and `910017` on an application gateway:
 
-```azurecli
-az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
+```powershell
+$disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-910-IP-REPUTATION -Rules 910018,910017
+Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
 ```
 
 ## Next steps

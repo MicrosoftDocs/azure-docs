@@ -2,8 +2,8 @@
 ms.assetid: 
 title: Azure Key Vault security worlds | Microsoft Docs
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
 ms.date: 07/03/2017
 ---

@@ -3,10 +3,10 @@ title: How to enable nested virtualization in Azure Virtual Machines | Microsoft
 description: How to enable nested virtualization in Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: philmea
-manager: timlt
+author: cynthn
+manager: jeconnoc
 
-ms.author: philmea
+ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: howto
 ms.service: virtual-machines-windows
@@ -17,19 +17,21 @@ ms.workload: infrastructure
 ---
 # How to enable nested virtualization in an Azure VM
 
-Nested virtualization is supported in the Dv3 and Ev3 series of Azure virtual machines. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments. 
+Nested virtualization is supported in several Azure virtual machine families. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments.   
 
-This article steps through enabling nested virtualization on an Azure VM and configuring Internet connectivity to that guest virtual machine.
+This article steps through enabling Hyper-V on an Azure VM and configuring Internet connectivity to that guest virtual machine.
 
-## Create a Dv3 or Ev3 series Azure VM
+## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM and choose a size from the Dv3 or Ev3 series. Ensure you choose a size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
+Create a new Windows Server 2016 Azure VM.  For quick refernce, all v3 virtual machines support nested virtualization. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
+
+Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
 
 You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/regions/services/).
 
 >[!NOTE]
 >
->For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
+>For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
 ## Connect to your Azure VM
 
@@ -47,7 +49,7 @@ Create a remote desktop connection to the virtual machine.
 You can configure these settings manually or we have provided a PowerShell script to automate the configuration.
 
 ### Option 1: Use a PowerShell script to configure nested virtualization
-A PowerShell script to enable nested virtualization on a Windows Server 2016 host is available on [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). The script checks pre-requisites and then configures nested virtualization on the Azure VM. A restart of the Azure VM is necessary to complete the configuration. This script may work in other environments but is not guaranteed. 
+A PowerShell script to enable nested virtualization on a Windows Server 2016 host is available on [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). The script checks pre-requisites and then configures nested virtualization on the Azure VM. A restart of the Azure VM is necessary to complete the configuration. This script may work in other environments but is not guaranteed. 
 Check out the Azure blog post with a live video demonstration on nested virtualization running on Azure! https://aka.ms/AzureNVblog.
 
 ### Option 2: Configure nested virtualization manually
@@ -76,7 +78,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 2. Create an internal switch.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. View the properties of the switch and note the ifIndex for the new adapter.
@@ -139,7 +141,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 2. In wizard, click **Next** until the Server Roles page.
   
-3. Click to select the **DHCP Server** checkbox, click **Add Features**, and then click**Next** until you complete the wizard.
+3. Click to select the **DHCP Server** checkbox, click **Add Features**, and then click **Next** until you complete the wizard.
   
 4. Click **Install**.
 
@@ -158,7 +160,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
 6. Click **Next** until the wizard completes, leaving all default values, then click **Finish**.
     
 ### Option 2: Manually set a static IP address on the guest virtual machine
-If you did not configure DHCP to dynamically assign an IP address toe the guest virtual machine, follow these steps to set a static IP address.
+If you did not configure DHCP to dynamically assign an IP address to the guest virtual machine, follow these steps to set a static IP address.
 
 1. On the Azure VM, open PowerShell as an Administrator.
 

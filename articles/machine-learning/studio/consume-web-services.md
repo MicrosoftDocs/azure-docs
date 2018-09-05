@@ -3,18 +3,19 @@ title: How to consume an Azure Machine Learning Web service | Microsoft Docs
 description: Once a machine learning service is deployed, the RESTFul Web service that is made available can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.author: garye
 
 ---
 # How to consume an Azure Machine Learning Web service
@@ -61,18 +62,11 @@ To retrieve the API key for a Classic Machine Learning Web service:
 5. Copy and save the **Primary Key**.
 
 ### Classic Web service
- You can also retrieve a key for a Classic Web service from Machine Learning Studio or the Azure classic portal.
+ You can also retrieve a key for a Classic Web service from Machine Learning Studio.
 
 #### Machine Learning Studio
 1. In Machine Learning Studio, click **WEB SERVICES** on the left.
 2. Click a Web service. The **API key** is on the **DASHBOARD** tab.
-
-#### Azure classic portal
-1. Click **MACHINE LEARNING** on the left.
-2. Click the workspace in which your Web service is located.
-3. Click **WEB SERVICES**.
-4. Click a Web service.
-5. Click an endpoint. The “API KEY” is down at the lower-right.
 
 ## <a id="connect"></a>Connect to a Machine Learning Web service
 You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from a Machine Learning Web service help page.

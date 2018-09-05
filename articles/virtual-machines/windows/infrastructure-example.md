@@ -3,8 +3,8 @@ title: Example Azure Infrastructure Walkthrough | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
 documentationcenter: ''
 services: virtual-machines-windows
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,15 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
-ms.author: iainfou
+ms.date: 12/15/2017
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
 # Example Azure infrastructure walkthrough for Windows VMs
-
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
 This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple online store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 ## Example workload
@@ -61,7 +58,7 @@ All the above follow these naming conventions:
 Adventure Works Cycles is using their Enterprise subscription, named Adventure Works Enterprise Subscription, to provide billing for this IT workload.
 
 ## Storage
-Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both storage available storage tiers are used:
+Adventure Works Cycles determined that they should use Azure Managed Disks. When creating VMs, both available storage tiers are used:
 
 * **Standard storage** for the web servers, application servers, and domain controllers and their data disks.
 * **Premium storage** for the SQL Server VMs and their data disks.

@@ -13,12 +13,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
 ---
 # API Management authentication policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AuthenticationPolicies"></a> Authentication policies  
   
 -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.  
@@ -96,4 +96,9 @@ This topic provides a reference for the following API Management policies. For i
   
 
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

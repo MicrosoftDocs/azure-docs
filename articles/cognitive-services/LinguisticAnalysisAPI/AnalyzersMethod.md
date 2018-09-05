@@ -4,9 +4,8 @@ description: The analyzers REST API provides a list of analyzers that are curren
 services: cognitive-services
 author: RichardSunMS
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: lesun

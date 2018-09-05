@@ -1,21 +1,15 @@
 ---
-title: Migrate from Windows-based HDInsight to Linux-based HDInsight - Azure | Microsoft Docs
+title: Migrate from Windows-based HDInsight to Linux-based HDInsight - Azure 
 description: Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/04/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/30/2018
+ms.author: jasonh
 
 ---
 # Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -41,8 +35,7 @@ The general workflow for migration is as follows.
 
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
-Once you have verified that everything works as expected, schedule
-downtime for the migration. During this downtime, perform the following actions:
+Once you have verified that everything works as expected, schedule downtime for the migration. During this downtime, perform the following actions:
 
 1. Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
 

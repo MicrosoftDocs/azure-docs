@@ -3,23 +3,24 @@ title: How to fill out specific fields for a custom-developed application | Micr
 description: Guidance on how to fill out specific fields when you are registering a custom developed application with Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
 # How to fill out specific fields for a custom-developed application
 
-This article give you a brief description of all the available fields in the application registration form in the [Azure portal](https://portal.azure.com).
+This article gives you a brief description of all the available fields in the application registration form in the [Azure portal](https://portal.azure.com).
 
 ## Register a new application
 
@@ -41,7 +42,7 @@ This article give you a brief description of all the available fields in the app
 | |**Native**: An application that can be installed on a user's device or computer           |
 | Sign-on URL      | The URL where users can sign in to use your application                                  |
 
-Once you have filled the above fields, the application be registered in the Azure portal, and you be redirected to the application page. The **Settings** button on the application pane opens up the Settings page, which has more fields for you to customize your application. The table below describes all the fields in the Settings page. note that you would only see a subset of these fields, depending on whether you created a web application or a native application.
+Once you have filled the above fields, the application is registered in the Azure portal, and you are redirected to the application page. The **Settings** button on the application pane opens up the Settings page, which has more fields for you to customize your application. The table below describes all the fields in the Settings page. note that you would only see a subset of these fields, depending on whether you created a web application or a native application.
 
 | Field           | Description                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,9 +52,9 @@ Once you have filled the above fields, the application be registered in the Azur
 | Home page URL   | This is the sign-on URL specified during application registration.                                                                                                                                                                                                                                              |
 | Logout URL      | This the single sign-out logout URL. Azure AD sends a logout request to this URL when the user clears their session with Azure AD using any other registered application.                                                                                                                                       |
 | Multi-tenanted  | This switch specifies whether the application can be used by multiple tenants. Typically, this means that external organizations can use your application by registering it in their tenant and granting access to their organization's data.                                                                   |
-| Reply URLs      | The reply URLs are the endpoints where Azure AD return any tokens that your application requests.                                                                                                                                                                                                          |
-| Redirect URIs   | For native applications, this is where the user be sent to following successful authorization. Azure AD check that the redirect URI your application supplies in the OAuth 2.0 request matches one of the registered values in the portal.                                                            |
+| Reply URLs      | The reply URLs are the endpoints where Azure AD returns any tokens that your application requests.                                                                                                                                                                                                          |
+| Redirect URIs   | For native applications, this is where the user is sent after successful authorization. Azure AD check that the redirect URI your application supplies in the OAuth 2.0 request matches one of the registered values in the portal.                                                            |
 | Keys            | You can create Keys to programmatically access web APIs secured by Azure AD without any user interaction. From the \*\*Keys\*\* page, enter a key description and the expiration date and save to generate the key. Make sure to save it somewhere secure, as you won't be able to access it later.             |
 
 ## Next steps
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)
