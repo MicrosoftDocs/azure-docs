@@ -52,12 +52,12 @@ As you'll see, there's more information available in a user's profile than what 
     All of your changes are saved for the user.
 
 ## Next steps
-After you've added your users, you can:
+After you've updated your users' profiles, you can perform the following basic processes:
 
 - [Add or delete users](add-users-azure-active-directory.md)
-
-- [Reset a user's password](active-directory-users-reset-password-azure-portal.md)
 
 - [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+
+Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).

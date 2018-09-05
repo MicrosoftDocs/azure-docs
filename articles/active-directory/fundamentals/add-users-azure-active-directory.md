@@ -44,7 +44,7 @@ You can create a new user using the Azure AD portal.
 
     - **Groups.** Optionally, you can add the user to an existing group. You can also add users to groups at a later time. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
-    - **Directory role.** Optionally, you can change the user's role. The available options are User, Global administrator, and Limited administrator. For more information about each of these roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
+    - **Directory role.** Optionally, you can change the user's role. The available options are **User**, **Global administrator**, and **Limited administrator**. For more information about each of these roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
 
 4. Copy the auto-generated password provided in the **Password** box. You'll need to give this password to the user for the initial sign-in process.
 
@@ -70,7 +70,12 @@ You can delete an existing user using the Azure AD portal.
     The user is deleted and no longer appears on the **Users - All users** blade.
 
 ## Next steps
+After you've added your users, you can perform the following basic processes:
 
-- [Add guest users from another directory](../b2b/what-is-b2b.md)
+- [Add or change profile information](active-directory-users-profile-azure-portal.md)
 
-- [Restore a deleted user](active-directory-users-restore.md)
+- [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
+
+- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+
+Or you can perform more complex user scenarios, such as [adding guest users from another directory](../b2b/what-is-b2b.md) or [restoring a deleted user](active-directory-users-restore.md). For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml)
