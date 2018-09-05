@@ -1,6 +1,6 @@
 ---
-title: How to add or remove users in Azure Active Directory | Microsoft Docs
-description: Learn how to add new users or remove existing users using the Azure Active Directory portal.
+title: How to add or delete users in Azure Active Directory | Microsoft Docs
+description: Learn how to add new users or delete existing users using the Azure Active Directory portal.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -15,8 +15,8 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 ---
 
-# How to: Add new or remove users using the Azure Active Directory portal
-Add new users or remove existing users from your Azure Active Directory (Azure AD) tenant, using the Azure AD portal.
+# How to: Add or delete users using the Azure Active Directory portal
+Add new users or delete existing users from your Azure Active Directory (Azure AD) tenant, using the Azure AD portal.
 
 ## Add a new user
 You can create a new user using the Azure AD portal.
@@ -38,15 +38,15 @@ You can create a new user using the Azure AD portal.
     
         The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name, such as contoso.com. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
 
-    - **Profile.** Optionally, you can add more information about the user. You can also do this after you've finished adding the user. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
+    - **Profile.** Optionally, you can add more information about the user. You can also add user information at a later time. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
 
-    - **Properties.** Optionally, you can change the **Source of authority** for the user. The default value for this is _Azure Active Directory_. For more information about changing a user's source of authority, see [How to change a user's source of authority information](active-directory-users-properties-azure-portal.md).
+    - **Properties.** Optionally, you can change the **Source of authority** for the user. The default value is _Azure Active Directory_, but it can also be _Windows Server Active Directory_ if you have a hybrid environment. For more information about hybrid environments, see [Azure Active Directory B2B collaboration for hybrid organizations](../b2b/hybrid-organizations.md).
 
-    - **Groups.** Optionally, you can add the user to an existing group. You can also do this after you've finished adding the user. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
+    - **Groups.** Optionally, you can add the user to an existing group. You can also add users to groups at a later time. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
     - **Directory role.** Optionally, you can change the user's role. The available options are User, Global administrator, and Limited administrator. For more information about each of these roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
 
-4. Copy the auto-generated password provided in the **Password** box. You'll need to give this to the user for the intial sign-in process.
+4. Copy the auto-generated password provided in the **Password** box. You'll need to give this password to the user for the initial sign-in process.
 
 5. Select **Create**.
 
