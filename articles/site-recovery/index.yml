@@ -48,7 +48,7 @@ sections:
     - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
     - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
     - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
-    - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
+    - html: <a href="vmware-azure-tutorial-failover-failback">Run a failover and failback</a>
   - type: text
     html: <h3>Hyper-V</h3> 
   - type: list    
