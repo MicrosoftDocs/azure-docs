@@ -7,7 +7,7 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 09/05/2017
+ms.date: 09/05/2018
 ms.author: bryanla
 ---
 # Azure Key Vault Developer's Guide
