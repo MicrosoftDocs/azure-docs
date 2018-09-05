@@ -10,7 +10,7 @@ author: sanpil
 ms.date: 09/24/2018
 ---
 
-# Pipelines with Azure Machine Learning
+# Pipelines and Azure Machine Learning
 
 Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their ML workflows. A typical pipeline involves multiple steps that cover the following areas:
 + Data preparation, such as normalizations and transformations
@@ -19,7 +19,8 @@ Machine learning (ML) pipelines are used by data scientists to build, optimize, 
 
 The following diagram shows an example pipeline:
 
-![png](./media/concept-ml-pipelines/pipelines.png)
+[ ![Machine learning pipelines](./media/concept-ml-pipelines/pipelines.png) ]
+(./media/concept-ml-pipelines/pipelines.png#lightbox)
 
 ## Why build pipelines?
 
