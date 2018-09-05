@@ -220,10 +220,36 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
 
 ### Copy data via NFS
 
-If you're using a Linux host computer, follow these guidelines:
+If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
-- Use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
-- Ensure that you have a multithreaded option with atleast 32 or 64 threads. 
+The cp command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
+
+If using rsync option for a multi-threaded copy, follow these guidelines:
+
+ - Install the **CIFS Utils** package, **Rsync**, and **Parallel** (this varies depending on the Linux flavor).
+
+    `sudo apt-get install cifs-utils`
+    `sudo apt-get install rsync`
+    `sudo apt-get install parallel`
+
+ - Create a mount point.
+
+    `sudo mkdir /mnt/databox`
+
+ - Mount the volume.
+
+    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
+
+ - Mirror folder directory structure.  
+
+    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
+
+ - Copy files. 
+
+    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
+
+     where j specifies the number of parallelization,  X = number of parallel copies
+
 
 ## Prepare to ship
 

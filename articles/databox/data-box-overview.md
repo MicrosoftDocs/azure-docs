@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom:
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/27/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box?

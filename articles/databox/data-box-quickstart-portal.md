@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 ---
 # Quickstart: Deploy Azure Data Box using the Azure portal

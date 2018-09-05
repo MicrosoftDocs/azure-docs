@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box local web UI administration | Microsoft Docs in data 
-description: Describes how to use the local web UI to administer your Data Box
+description: Describes how to use the local web UI to administer your Data Box device
 services: databox
 documentationcenter: NA
 author: alkohli

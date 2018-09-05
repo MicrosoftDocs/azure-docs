@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions

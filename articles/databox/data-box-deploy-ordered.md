@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 ---
 # Tutorial: Order Azure Data Box
