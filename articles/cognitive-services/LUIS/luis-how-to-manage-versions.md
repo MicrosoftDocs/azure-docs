@@ -50,6 +50,8 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
     Once you import a version, the new version becomes the active version.
 
+<a name = "export-version"></a>
+
 ## Other actions
 
 * To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**. 
