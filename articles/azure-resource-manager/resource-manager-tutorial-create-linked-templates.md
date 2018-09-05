@@ -18,25 +18,21 @@ ms.author: jgao
 
 # Tutorial: create linked Azure Resource Manager templates
 
-Learn how to create linked Azure Resource Manager templates. You modify the same template used in []() to create the following two templates:
+Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. This is great for modularising  templates, simplifying templates and reusing templates.
 
-- Main template: create all the resources except the storage account.
-- Linked template: create the storage account.
-
-What you learn in this tutorial:
-
-- how to create a linked template?
-- how to call the linked template from the main template?
-- how to pass values from the main template to the linked template?
-- how to set dependencies between the two templates?
+This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Open a quickstart template
-> * Explore the template
+> * Create the linked template
+> * Upload the linked template
+> * Link to the linked template
+> * Configure dependency
+> * Get values from linked template
 > * Deploy the template
 > * Clean up resources
 
-The instructions in this tutorial create a virtual machine, a virtual network, and some other dependent resources. 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -44,11 +40,15 @@ To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/).
 * Resource Manager Tools extension.  See [Install the extension
-](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Complete [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## Open a Quickstart template
 
-Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). This is the same template used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md). You save two copies of the same template to be used as:
+
+- Main template: create all the resources except the storage account.
+- Linked template: create the storage account. 
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
@@ -62,13 +62,23 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 ## Create the linked template
 
-In this section, you create the linked template based off the virtual machine template.
+The linked template creates a storage account. The linked template is almost identical to the standalone template that creates a storage account. In this tutorial, the linked template needs to pass a value back to the main template. This values is defined in the `outputs` element.
 
-1. Open linkedTemplate.json in Visual Studio Code.
+1. Open linkedTemplate.json in Visual Studio Code if it is not opened.
 2. Make the following changes:
 
     - Remove all the resources except the storage account. You remove a total of four resources.
-    - Remove the content inside the **outputs** element.
+    - Update the **outputs** element, so it looks like:
+
+        ```json
+        "outputs": {
+            "storageUri": {
+                "type": "string",
+                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+              }
+        }
+        ```
+        storageUri is required by the virtual machine resource definition in the main template.  You pass the value back to the main template as an output value.
     - Remove the parameters that are never used. These parameters have a green wave line underneath them. You shall only have one parameter left called **location**.
     - Remove the **variables** element.
     - Add a parameter called **storageAccountName**. The storage account name is passed from the main template to the linked template as a parameter.
@@ -108,21 +118,25 @@ In this section, you create the linked template based off the virtual machine te
           }
         ],
         "outputs": {
+            "storageUri": {
+                "type": "string",
+                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+              }
         }
     }
     ```
 
 ## Upload the linked template
 
+The templates needs to be uploaded to somewhere where it is accessible from where you run the deployment. This location could be an Azure storage account, Github, or Dropbox. If your templates contain sensitive information, make sure you protect access to them. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md). The main template (azuredeploy.json is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere.  To reduce the tasks of this tutorial, the linked template defined in the previous section has been uploaded to [an Azure storage account](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json).
 
-
-## Link to the linked template
+## Call the linked template
 
 The main template is called azuredeploy.json.
 
 1. Open azuredeploy.json in Visual Studio Code if it is not opened.
 2. Delete the storage account resource definition from the template.
-3. Add the following json snippet as the first resource:
+3. Add the following json snippet to the place where you had the storage account definition:
 
     ```json
     {
@@ -132,7 +146,7 @@ The main template is called azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json"
+              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -144,10 +158,10 @@ The main template is called azuredeploy.json.
 
     Pay attention to these details:
 
-    - A `deployments` resource in the main template is used to link to another template.
+    - A `Microsoft.Resources/deployments` resource in the main template is used to link to another template.
     - The 'deployments' resource has a name called **linkedTemplate**. This name is used for [configuring dependency](#configure-dependency).  
     - You can only use [Incremental](./deployment-modes.md) deployment mode when calling linked templates.
-    - `templateLink/uri` contains the linked template URI. The template is uploaded to a share storage account.  You can update the URI if you upload the tempalte to the Internet.
+    - `templateLink/uri` contains the linked template URI. The template is uploaded to a share storage account. You can update the URI if you upload the template another location on the Internet.
     - Use `parameters` to pass values from the main template to the linked template.
 
 ## Configure dependency
@@ -156,83 +170,34 @@ Recall from [Tutorial: create multiple resource instances using Resource Manager
 
 ![Azure Resource Manager templates dependency diagram](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
-Now the storage account is defined in the linked template. You must update the main template accordingly. 
+Because the storage account is defined in the linked template now, you must update the following two elements of the `Microsoft.Compute/virtualMachines` resource.
+
+- Reconfigure the `dependOn` element. The storage account definition is moved to the linked template.
+- Reconfigure the `properties/diagnosticsProfile/bootDiagnostics/storageUri' element. In [Create the linked template](#create-the-linked-template), you added an output value:
+
+    ```json
+    "outputs": {
+        "storageUri": {
+            "type": "string",
+            "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
+    }
+    ```
+    This values is required by the main template.
 
 1. Open azuredeploy.json in Visual Studio Code if it is not opened.
-2. Expand the virtual machine resource definition, and update **dependsOn** as shown in the following screenshot:
+2. Expand the virtual machine resource definition, update **dependsOn** as shown in the following screenshot:
 
     ![Azure Resource Manager linked templates configure dependency ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
     
     "linkedTemplate" is the name of the deployments resource.  
+3. update **properties/diagnosticsProfile/bootDiagnostics/storageUri** as shown in the previous screenshot.
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
+Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Select **Cloud Shell** from the upper right corner as shown in the following image:
-
-    ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
-3. Select **PowerShell** from the upper left corner of the Cloud shell.  You use PowerShell in this tutorial.
-4. Select **Restart**
-5. Select **Upload file** from the Cloud shell:
-
-    ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-6. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file will be overwritten without any notification.
-7. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
-
-    ```shell
-    ls
-    ```
-
-    ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    The file name shown on the screenshot is azuredeploy.json.
-
-8. From the Cloud shell run the following command to verify the content of the JSON file:
-
-    ```shell
-    cat azuredeploy.json
-    ```
-9. From the Cloud shell, run the following PowerShell commands:
-
-    ```powershell
-    $resourceGroupName = "<Enter the resource group name>"
-    $location = "<Enter the Azure location>"
-    $vmAdmin = "<Enter the admin username>"
-    $vmPassword = "<Enter the password>"
-    $dnsLabelPrefix = "<Enter the prefix>"
-
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-    New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-	    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-	    -dnsLabelPrefix $dnsLabelPrefix
-    ```
-    Here is the screenshot for a sample deployment:
-
-    ![Azure portal Cloud shell deploy template](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
-
-    On the screenshot, these values are used:
-
-    * **$resourceGroupName**: myresourcegroup0710. 
-    * **$location**: eastus2
-    * **&lt;DeployName>**: mydeployment0710
-    * **&lt;TemplateFile>**: azuredeploy.json
-    * **Template parameter**s:
-
-        * **adminUsername**: JohnDole
-        * **adminPassword**: Pass@word123
-        * **dnsLabelPrefix**: myvm0710
-
-10. Run the following PowerShell command to list the newly created virtual machine:
-
-    ```powershell
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName <ResourceGroupName>
-    ```
-
-    The virtual machine name is hard-coded as **SimpleWinVM** inside the template.
-
+For more information, see [Use linked and nested templates when deploying Azure resources](./resource-group-linked-templates.md)
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.

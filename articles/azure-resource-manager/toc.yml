@@ -19,10 +19,12 @@
   items:
   - name: Create encrypted storage account
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Create multiple instances
+  - name: Create multiple storage account instances
     href: resource-manager-tutorial-create-multiple-instances.md
-  - name: Create multiple resources
+  - name: Create multiple Azure resources
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+  - name: Create linked templates
+    href: resource-manager-tutorial-create-linked-templates.md
 - name: Concepts
   items:
   - name: Resource providers and types
