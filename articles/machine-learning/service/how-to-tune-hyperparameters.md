@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations and to find a 'good' configuration, that result in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be quite expensive.
 
-Azure Machine Learning Services allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training jobs to run for this exploration. The system then automatically launches multiple simultaneous training jobs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training jobs are automatically early terminated, reducing wastage of compute resources, and these resources are instead used to explore other hyperparameter configurations.
+Azure Machine Learning Services allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources, and these resources are instead used to explore other hyperparameter configurations.
 
 In this article, we demonstrate how to efficiently perform a hyperparameter sweep. We will show you how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
 
@@ -73,7 +73,7 @@ run_logger.log("Accuracy", float(val_accuracy))
 In this example, the training script calculates the val_accuracy and logs this "Accuracy", which is used as the primary metric. It is up to the model developer to determine how frequently to report this metric.
 
 ## Early Termination Policy
-When using Azure Machine Learning services to tune hyperparameters, poorly performing jobs are automatically early terminated. This reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
+When using Azure Machine Learning services to tune hyperparameters, poorly performing runs are automatically early terminated. This reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
 Azure Machine Learning service supports the following Early Termination Policies -
 
@@ -82,9 +82,61 @@ The Bandit Policy early terminates any runs that are not within the specified sl
 * `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric.
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
-e.g. consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
+    e.g. consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs.
 
-### Median Stopping Policy
+Consider this example -
+```Python
+early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=1, delay_evaluation=5)
+```
+In this example, the early termination policy is applied at every interval when metrics are reported, starting at evaluation interval 5. Any run whose best metric is less than (1/(1+0.1) or 91% of the best performing run will be terminated.
 
 ### Default Policy
+If you want all training runs to run to completion, set `policy` to None. This will have the effect of not applying any early termination policy.
+
+## Configure your hyperparameter tuning run
+In addition to defining the hyperparameter search space and early termination policy, you will need to specify the metric that you want to optimize and configure resources allocated for hyperparameter tuning.
+
+### Primary Metric
+The primary metric is the metric that the hyperparameter tuning run will optimize. Each training run is evaluated for this primary metric and poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to specifying the primary metric name, you also need to specify the goal of the optimization - whether to maximize or minimize the primary metric.
+* `primary_metric_name`: The name of the primary metric to optimize. The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Logging metrics for hyperparameter tuning](#logging-metrics-for-hyperparameter-tuning).
+* `primary_metric_goal`: It can be either PrimaryMetricGoal.MAXIMIZE or PrimaryMetricGoal.MINIMIZE and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
+
+Here is an example of how you can specify the primary metric -
+```Python
+primary_metric_name="accuracy", 
+primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
+```
+
+### Resources allocated to hyperparameter tuning
+You can control your resource budget for your hyperparameter tuning run by either specifying the maximum total number of training runs or the maximum duration for your hyperparameter tuning run (in minutes). 
+* `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
+* `max_duration_minutes`: Maximum duration of the hyperparameter tuning run in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically cancelled.
+NOTE: Either one of max_total_runs or max_duration_minutes needs to be specified. If both are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
+
+Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
+* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment.
+
+Finally, in order to configure your hyperparameter tuning run, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](#link) for more information on estimators) and the `compute_target` where you wish to run the training script (See [link](#link) for more information on compute targets). If no `compute_target` is specified, the one from the `estimator` is used.
+
+Here is an example of how you can configure your hyperparameter tuning run -
+```Python
+hyperdrive_run_config = HyperDriveRunConfig(".", estimator=estimator,
+                          hyperparameter_sampling=param_sampling, 
+                          policy=early_termination_policy,
+                          primary_metric_name="accuracy", 
+                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                          max_total_runs=100,
+                          max_concurrent_runs=4,
+                          compute_target=compute_target)
+```
+## Launch your hyperparameter tuning run
+Once you have defined the configuration for your hyperparameter tuning run, you can launch the search across the hyperparameter space using -
+```Python
+hyperdrive_run = search(hyperdrive_run_config, run_name)
+```
+where `run_name` is the name you want to assign to your hyperparameter tuning run.
+
+## Visualize your hyperparameter tuning runs
+
+## Find the configuration that resulted in the best performance
