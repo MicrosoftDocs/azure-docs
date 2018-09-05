@@ -174,6 +174,9 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
 			                <li style="list-style: none;">
                             	<a class="barLink" href="/azure/security/abstract-azure-network-security">Azure network security</a>
                             </li>
+                            <li style="list-style: none;">
+                            	<a class="barLink" href="/azure/security/abstract-container-security-microsoft-azure">Container security in Microsoft Azure</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

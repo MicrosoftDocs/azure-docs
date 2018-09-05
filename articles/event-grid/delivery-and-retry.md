@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
 ---
 
@@ -31,19 +31,20 @@ The following HTTP response codes indicate that an event has been delivered succ
 
 ### Failure codes
 
-The following HTTP response codes indicate that an event delivery attempt failed. 
+The following HTTP response codes indicate that an event delivery attempt failed.
 
 - 400 Bad Request
 - 401 Unauthorized
 - 404 Not Found
 - 408 Request timeout
+- 413 Request Entity Too Large
 - 414 URI Too Long
 - 429 Too Many Requests
 - 500 Internal Server Error
 - 503 Service Unavailable
 - 504 Gateway Timeout
 
-If Event Grid receives an error that indicates the endpoint is temporarily unavailable or a future request might succeed, it tries again to send the event. If Event Grid receives an error that indicates the delivery will never succeed and a [dead-letter endpoint has been configured](manage-event-delivery.md), it sends the event to the dead-letter endpoint. 
+If you have [configured a dead-letter endpoint](manage-event-delivery.md) and Event Grid receives either a 400 or 413 response code, Event Grid immediately sends the event to the dead-letter endpoint. Otherwise, Event Grid retries all errors.
 
 ## Retry intervals and duration
 
