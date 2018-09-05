@@ -130,7 +130,7 @@ ms.author: mtillman
                                                             <a href="develop/protocols-oauth-openid-connect">OAuth and OpenID Connect protocol</a><br>
                                                             <a href="develop/v2-id-and-access-tokens">ID and access tokens</a>
                                                         </p>
-														<br><br>                                                        
+														<br><br>
 														<h3><a href="devices/index">Device management</a></h3>
                                                         <p>
                                                             <a href="devices/hybrid-azuread-join-managed-domains">Configure hybrid join for managed domains</a><br>
