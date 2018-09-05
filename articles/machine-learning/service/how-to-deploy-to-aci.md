@@ -37,10 +37,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     ws = Workspace.from_config()
     ```
 
-- A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  Code examples in this article show the deployment for a model `sklearn_mnist.pkl` created from the tutorial.  
+- A model to deploy.  Learn how to create one in the [Train a model tutorial](tutorial-train-models-with-aml.md).  Code examples in this article show the deployment for the model `sklearn_mnist_model.pkl` created from the tutorial. 
 - A [Docker image configuration](#docker-image-configuration)
 - An [ACI container configuration ](#aci-container-configuration)
-- A [registered model](#registered-model-when-deploying-a-registered-model) (for methods deploying a registered model)
+- A [registered model](#registered-model) (skip this prerequisite if you are deploying from a file (`Webservice.deploy()`))
 
 ### Docker image configuration
 
@@ -52,7 +52,7 @@ Configure the Docker image no matter which method you use.  To configure:
 ```python
 from azureml.core.image import ContainerImage
 
-image_config = ContainerImage.image_configuration(execution_script = "mnist_score.py",
+image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                   runtime = "python",
                                                   conda_file = "myenv.yml",
                                                   description = "Image with mnist model",
@@ -73,37 +73,44 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Handwriting recognition')
 ```
 
-### Registered model (when deploying a registered model)
+### Registered model
 
-Register a model to use `Webservice.deploy_from_model()` or ``Webservice.deploy_from_image()`. When you use Azure Machine Learning to train your model, the model might already be registered in your workspace, as is the case with the deployment tutorial.  
+>Skip this prerequisite if you are [deploying from a file](#deploy-from-model-file) (`Webservice.deploy()`).
 
-If your model was built elsewhere, you can still register it into your workspace.  To register a model, the model file (`sklearn_mnist.pkl` in this example) must be in the current working directory. Then register that file as a model called `sklearn_mnist` in the workspace with `Model.register()`.
+Register a model to use `Webservice.deploy_from_model(#deploy-from-registered-model)` or ``Webservice.deploy_from_image(#deploy-from-image)`. If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model tutorial] registered the model.  You can retrieve the registered model to deploy:
 
 ```python
-from azureml.core import Workspace
-ws = Workspace.from_config()
-
 from azureml.core.model import Model
+
 model_name = "sklearn_mnist"
-model = Model.register(model_path = "sklearn_mnist.pkl",
+model=Model(ws, model_name)
+```
+
+If your model was built elsewhere, you can still register it into your workspace.  To register a model, the model file (`sklearn_mnist_model.pkl` in this example) must be in the current working directory. Then register that file as a model called `sklearn_mnist` in the workspace with `Model.register()`.
+
+```python
+from azureml.core.model import Model
+
+model_name = "sklearn_mnist"
+model = Model.register(model_path = "sklearn_mnist_model.pkl",
                        model_name = model_name,
-                       tags = ["mnist"],
+                       tags = ['mnist','classification'],
                        description = "Mnist handwriting recognition",
                        workspace = ws)
 ```
 
 
-## Deploy from a file
+## Deploy from model file
 
 Deploy a model file using  `Webservice.deploy()`.  The model file must be present in your local working directory. You don't need a registered model for this method.
 
-1. In the prerequisite file score.py, change the  `init()` section to:
+1. Edit the prerequisite file score.py and change the  `init()` section to:
 
-```
+```python
 def init():
     global model
     # retreive the local path to the model using the model name
-    model_path = 'sklearn_mnist.pkl' 
+    model_path = Model.get_model_path('sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 ```
 
@@ -123,9 +130,9 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-**Time estimate**: Approximately 8 minutes.
+**Time estimate**: Approximately 6-7 minutes.
 
-This method is a convenient way to deploy a model file without registering it.  You can't name the model or associate tags or a description for it. Also it's harder to reuse the Docker image for more models later.  
+This method is a convenient way to deploy a model file without first registering it.  You can't name the model or associate tags or a description for it.  
 
 Proceed to [test the web service](#test-web-service).
 
@@ -149,7 +156,7 @@ print(service.state)
 
 **Time estimate**: Approximately 8 minutes.
 
-This method is a convenient way to deploy a registered model you have now, but it's harder to reuse the Docker image for more models later.  
+This method is a convenient way to deploy a registered model you have now.  It doesn't allow you to name the Docker image.
 
 Proceed to [test the web service](#test-web-service).
 
@@ -176,6 +183,7 @@ image = ContainerImage.create(name = "myimage1",
 
 image.wait_for_creation(show_output = True)
 ```
+**Time estimate**: Approximately 3 minutes.
 
 ### Deploy from image
 
@@ -193,7 +201,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```   
  
-**Time estimate**: Approximately 8 minutes.
+**Time estimate**: Approximately 3 minutes.
 
 Proceed to test the web service.
 
@@ -202,24 +210,32 @@ Proceed to test the web service.
 The webservice is the same regardless of how it was created.  To get predictions, use the `run` method of the service.  
 
 ```python
+# Load Data
+import os
+import urllib
+
+os.makedirs('./data', exist_ok = True)
+
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/test-images.gz')
+
+from utils import load_data
+X_test = load_data('./data/test-images.gz', False) / 255.0
+
 from sklearn import datasets
 import numpy as np
 import json
 
-# Get sample data
-mnist_data = datasets.load_digits()
-features = mnist_data.images
-features = features.reshape(features.shape[0],-1)
+# find 5 random samples from test set
+n = 5
+sample_indices = np.random.permutation(X_test.shape[0])[0:n]
 
-# Pick the data row that corresponds to number 8
-test_samples = json.dumps({"data": features[8:9, :].tolist()})
+test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
+test_samples = bytes(test_samples, encoding = 'utf8')
+
+# predict using the deployed model
 prediction = service.run(input_data = test_samples)
 print(prediction)
 ```
-
-The returned result is:
-
-`{"result": [8]}`
 
 
 ## Delete the service to clean up
