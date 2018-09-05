@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -171,13 +171,13 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You added the code to make a customized Function module in the previous section, but the SQL Server module is already built. You just need to tell the IoT Edge runtime to include it, then configure it on your device. 
 
-1. In the Visual Studio Code explorer, open the **deployment.template.json** file.
+1. In the Visual Studio Code explorer, open the **deployment.template.json** file. 
 2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor**, which generates simulated data, and your **sqlFunction** module.
-3. If you're on a Windows machine, modify the **sqlFunction.settings.image** section.
+3. If you're using Windows containers, modify the **sqlFunction.settings.image** section.
     ```json
     "image": "${MODULES.sqlFunction.windows-amd64}"
     ```
-1. Add the following code to declare a third module:
+4. Add the following code to declare a third module. Add a comma after the sqlFunction section and insert:
 
    ```json
    "sql": {
@@ -192,16 +192,18 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    }
    ```
 
-5. Depending on the operating system of your IoT Edge device, update the **sql.settings** parameters with the following code:
+   Here's an example if there is any confusion with adding a JSON element. ![Add sql server container](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. Depending on the type of Docker containers on your IoT Edge device, update the **sql.settings** parameters with the following code:
+
+   * Windows containers:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Linux containers:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -211,28 +213,20 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    >[!Tip]
    >Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-6. Save the **deployment.template.json** file. 
+6. Save the **deployment.template.json** file.
 
 ## Build your IoT Edge solution
 
 In the previous sections, you created a solution with one module, and then added another to the deployment manifest template. Now, you need to build the solution, create container images for the modules, and push the images to your container registry. 
 
-1. In the deployment.template.json file, give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **moduleContent.$edgeAgent.properties.desired.runtime.settings** section. 
-2. Insert the following JSON code after the **loggingOptions**:
+1. In the .env file, give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **CONTAINER_REGISTRY_USERNAME** and **CONTAINER_REGISTRY_PASSWORD** sections and insert your credentials after the equals symbol: 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. Insert your registry credentials into the **username**, **password**, and **address** fields. Use the values that you copied when you created your Azure Container Registry at the beginning of the tutorial.
-4. Save the **deployment.template.json** file.
-5. Sign in your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you just added to the deployment manifest. Enter the following command in the integrated terminal: 
+2. Save the .env file.
+3. Sign in to your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you added to the .env file. Enter the following command in the integrated terminal:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -244,7 +238,7 @@ In the previous sections, you created a solution with one module, and then added
     Login Succeeded
     ```
 
-6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
+4. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
 
 ## Deploy the solution to a device
 
@@ -265,39 +259,13 @@ On your IoT Edge device, run the following command to see the status of the modu
    iotedge list
    ```
 
-## Pull SQL Container Image from Docker
-
-Before you connect to your database, if you don't already have a container image of SQL Server Container, you can run this command to pull it from the Docker Hub. Since we are using the SQL container in this tutorial, we can't connect to the database unless we have this component present and running. Otherwise, Docker will not find a SQL container to connect to. Make sure if you're on Windows, Docker is using Windows containers, and for Linux, use Linux containers.
-
-    ```PowerShell
-    docker pull microsoft/mssql-server-windows-developer:latest
-    ```
-
-    ```bash
-    sudo docker pull microsoft/mssql-server-linux:2017-latest
-    ```
-
-Afterwards, we need to run the container image with Docker.
-
-    ```PowerShell
-    docker run -d -p 1433:1433 -e sa_password=<SA_PASSWORD> -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer
-    ```
-
-    ```bash
-    sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<YourStrong!Passw0rd>' \
-   -p 1433:1433 --name sql \
-   -d microsoft/mssql-server-linux:2017-latest
-    ```
-
-Run `iotedge list`, you should see the sql component now running with the other modules. If not, it helps to re-run the [IoT Edge runtime](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-windows-with-windows).
-
 ## Create the SQL database
 
-When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database.
+When you apply the deployment manifest to your device, you get three modules running. The tempSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. 
 
-This section guides you through setting up the SQL database to store the temperature data.
+This section guides you through setting up the SQL database to store the temperature data. 
 
-1. In a command-line tool, connect to your database. 
+1. In a command-line too, connect to your database. 
    * Windows container:
    
       ```cmd
@@ -314,7 +282,7 @@ This section guides you through setting up the SQL database to store the tempera
    * Windows container:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Linux container: 
