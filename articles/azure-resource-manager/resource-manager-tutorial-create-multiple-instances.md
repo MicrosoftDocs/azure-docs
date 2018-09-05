@@ -115,18 +115,18 @@ Refer to the [Deploy the template](./resource-manager-quickstart-create-template
 
 To list all three storage accounts, omit the --name parameter:
 
-    # [CLI](#tab/CLI)
-    ```cli
-    az storage account show --resource-group <ResourceGroupName>
-    ```
-   
-    # [PowerShell](#tab/PowerShell)
-    
-    ```powershell
-    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
-    ```
-    
-    ---
+# [CLI](#tab/CLI)
+```cli
+az storage account show --resource-group <ResourceGroupName>
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```powershell
+Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
+```
+
+---
 
 Compare the storage account names with the name definition in the template.
 
