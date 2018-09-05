@@ -24,11 +24,15 @@ This article provides instructions for deploying an Azure Blob Storage container
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
-* The Azure Blob Storage module supports AMD64 devices running the following operating systems:
-   * Ubuntu Server 16.04
-   * Ubuntu Server 18.04
-   * Windows 10 IoT Enterprise (October update)
-   * Windows Server 2019 
+* The Azure Blob Storage module supports the following device configurations:
+
+   | Operating system | Architecture |
+   | ---------------- | ------------ |
+   | Ubuntu Server 16.04 | AMD64 |
+   | Ubuntu Server 18.04 | AMD64 |
+   | Windows 10 IoT Enterprise (October update) | AMD64 |
+   | Windows Server 2019 | AMD64 |
+   | Rasbian Stretch | ARM32 |
 
 Cloud resources:
 
@@ -55,24 +59,24 @@ Use the following steps to configure the deployment manifest:
 
    * **Name** - Enter a recognizable name for your module, like **AzureBlobStorage**.
    * **Image URI** - If your IoT Edge device uses Linux containers, enter **mcr.microsoft.com/azure-blob-storage:linux**. If your IoT Edge device uses Windows containers, enter **mcr.microsoft.com/azure-blob-storage:nanoserver-1809**. 
-   * **Container Create Options** - Copy and paste the following JSON. Update `\<your storage account name\>` with any name. Update `\<your storage account key\>` with a 512-bit key. You can generate a 512-bit key with tools like OpenSSL. 
+   * **Container Create Options** - Copy and paste the following JSON. Update `\<your storage account name\>` with any name. Update `\<your storage account key\>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules.
 
-   ```json
-   {
-       "Env":[
-           "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-           "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
-       ],
-       "HostConfig":[
-           "Binds":[
-               "/tmp/blobroot:/blobroot"
-           ],
-           "PortBindings":{
-               "11002/tcp":[{"HostPort":"11002"}]
-           }
-       ]
-   }
-   ```
+      ```json
+      {
+          "Env":[
+              "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
+              "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+          ],
+          "HostConfig":[
+              "Binds":[
+                  "/tmp/blobroot:/blobroot"
+              ],
+              "PortBindings":{
+                  "11002/tcp":[{"HostPort":"11002"}]
+              }
+          ]
+      }
+      ```
 
 Continue following the steps in the deployment guide to deploy your blob storage module. 
 
@@ -107,7 +111,7 @@ The solution template creates a deployment manifest template that includes your 
 3. Copy and paste the following code into the **createOptions** field of your blob storage module: 
 
    ```json
-   {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME =$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"/tmp/blobroot:/blobroot\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
+   {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"/tmp/blobroot:/blobroot\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
    ![Update module create options](./media/how-to-store-data-blob/create-options.png)
@@ -121,11 +125,11 @@ The solution template creates a deployment manifest template that includes your 
 7. Add two new environment variables: 
 
    ```env
-   LOCAL_STORAGE_ACCOUNT_NAME=
-   LOCAL_STORAGE_ACCOUNT_KEY=
+   STORAGE_ACCOUNT_NAME=
+   STORAGE_ACCOUNT_KEY=
    ```
 
-8. Provide any name for the storage account name, and provide a 512-bit key for the storage account key. 
+8. Provide any name for the storage account name, and provide a 64-byte base64 key for the storage account key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules. 
 
 9. Save **.env**. 
 
@@ -133,5 +137,7 @@ The solution template creates a deployment manifest template that includes your 
 
 Visual Studio Code takes the information that you provided in deployment.template.json and .env and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
-## Connect to local blob storage
+## Connect to your blob storage module
+
+
 
