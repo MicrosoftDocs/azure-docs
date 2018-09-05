@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -104,10 +104,12 @@ The following steps describe what's required to configure authentication:
 
 ### Create a Service Principal
 
-Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal, and then choose **Web App/API** for the Application Type or [use this PowerShell script](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) as explained [here](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal. Choose **Web App/API** for the Application Type or [use the PowerShell script](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) as explained in the article [Create an Azure Resource Manager service connection with an existing service principal
+](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
- > [!Note]
- > If you will use the script to create an Azure Stack Azure Resource Manager endpoint, you need to pass in the `-azureStackManagementURL` and `-environmentName` parameters, that is https://management.local.azurestack.external/ and *AzureStack*.
+ > [!Note]  
+ > If you use the script to create an Azure Stack Azure Resource Manager endpoint, you need to pass the **-azureStackManagementURL** parameter and **-environmentName** parameter. For example:  
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### Create an access key
 
@@ -200,7 +202,7 @@ Create a Personal Access Token to access VSTS.
 1. Sign in to your VSTS account and select your account profile name.
 2. Select **Manage Security** to access token creation page.
 
-    ![User sign in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![User sign-in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
     ![Select team project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
@@ -260,17 +262,18 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 9. In **Add users and groups**, enter a user name and select that user from the list of users.
 10. Select **Save changes**.
 
-## Create Azure Stack endpoint
+## Create an Azure Stack endpoint
 
-Check [this](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) documentation to create a service connection with an existing service principal and use the following mapping:
+You can follow the instructions in [Create an Azure Resource Manager service connection with an existing service principal
+](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) article to create a service connection with an existing service principal and use the following mapping:
 
 - Environment: AzureStack
 - Environment URL: Something like `https://management.local.azurestack.external`
 - Subscription ID: User subscription ID from Azure Stack
 - Subscription name: User subscription name from Azure Stack
-- Service Principal client ID: The principal ID from [this](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section in this article.
+- Service Principal client ID: The principal ID from [this](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section in this article.
 - Service Principal key: The key from the same article (or the password if you used the script).
-- Tenant ID: The tenant ID you got [here](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+- Tenant ID: The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
 
 Now that the endpoint is created, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
 
@@ -312,7 +315,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 ### Create the build definition
 
 1. Sign in to VSTS with an account that can create a build definition.
-2. Navigate to the **Build Web Applicaiton** page for the project.
+2. Navigate to the **Build Web Application** page for the project.
 
 3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 
@@ -450,7 +453,7 @@ This section shows how you can monitor and track all your deployments. The relea
 
     You can choose a person icon in the **Action** column for a Pre-deployment or Post-deployment approval to see who approved (or rejected) the deployment, and the message they provided.
 
-2. After the deployment finishes, the entire log file is displayed in the right pane. You can select any **Step** in the left pane to see the log file for an single step, such as "Initialize Job". The ability to see individual logs makes it easier to trace and debug  parts of the overall deployment. You can also **Save** the log file for a step, or **Download all logs as zip**.
+2. After the deployment finishes, the entire log file is displayed in the right pane. You can select any **Step** in the left pane to see the log file for a single step, such as "Initialize Job". The ability to see individual logs makes it easier to trace and debug  parts of the overall deployment. You can also **Save** the log file for a step, or **Download all logs as zip**.
 
     ![Release logs](media\azure-stack-solution-hybrid-pipeline\203.png)
 
