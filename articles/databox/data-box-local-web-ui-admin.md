@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box
@@ -32,8 +32,7 @@ This article includes the following tutorials:
 - Monitor available capacity of the device
 - Skip checksum validation 
 
-## Use error logs to troubleshoot setup
-
+<!--## Use error logs to troubleshoot setup-->
 
 ## Generate Support package
 
