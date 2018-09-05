@@ -16,15 +16,15 @@ ms.author: cherylmc
 
 All clients that connect to a virtual network using Point-to-Site Azure certificate authentication require a client certificate. This article helps you install a client certificate that is used for authentication when connecting to a VNet using P2S.
 
-## <a name="generate"></a>Generate and export a client certificate
+## <a name="generate"></a>Acquire a client certificate
 
-You can generate a client certificate from either a root certificate that was generated using an Enterprise CA solution, or a self-signed root certificate. See the [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md), or [Linux](vpn-gateway-certificates-point-to-site-linux.md) instructions for steps. 
+No matter what client operating system you want to connect from, you must always have a client certificate. You can generate a client certificate from either a root certificate that was generated using an Enterprise CA solution, or a self-signed root certificate. See the [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md), or [Linux](vpn-gateway-certificates-point-to-site-linux.md) instructions for steps. 
 
-## <a name="installwin"></a>Install certificate - Windows
+## <a name="installwin"></a>Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>Install certificate - Mac
+## <a name="installmac"></a>Mac
 
 >[!NOTE]
 >Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model.
@@ -33,7 +33,7 @@ You can generate a client certificate from either a root certificate that was ge
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
-## <a name="installlinux"></a>Install certificate - Linux
+## <a name="installlinux"></a>Linux
 
 The Linux client certificate is installed on the client as part of the client configuration. See [Client configuration - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linux) for instructions.
 
