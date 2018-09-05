@@ -34,7 +34,7 @@ Direct methods are implemented on the device and may require zero or more inputs
 > 
 [!NOTE]
 
-> Maximum number of topics that can be subscribed to is 5 per device. If you have more direct methods on a device, consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages accordingly to your desired `method name`s.
+> Maximum number of topics that can be subscribed to is 5 per device. If you have more direct methods on a device, consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages accordingly to your desired method names.
 
 > 
 
