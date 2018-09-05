@@ -98,7 +98,7 @@ To access your secrets:
 
 ## Access your secrets in code (ASP.NET 4.7.1 projects)
 
-The connection to your Key Vault is set up by the <xref:System.Configuration.ConfigurationBuilder> class using information that was added to your web.config file when you run through the **Add Connected Service** process.
+The connection to your Key Vault is set up by the ConfigurationBuilder class using information that was added to your web.config file when you run through the **Add Connected Service** process.
 
 To access your secrets:
 
