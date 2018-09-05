@@ -20,12 +20,6 @@ To rapidly scale application workloads in an Azure Kubernetes Service (AKS) clus
 
 The ACI connector enables network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created for use with ACI. The ACI connector only works with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
 
-For more information, see [AKS advanced networking][].
-
-The AKS cluster created in this article is also configured with Kubernetes role-based access controls. The ACI connector only works with RBAC-enabled clusters.
-
-For more information, see [AKS security with RBAC][].
-
 ## Sign in to Azure
 
 Sign in to the Azure portal at http://portal.azure.com.
@@ -138,10 +132,6 @@ $ kubectl get pods -o wide
 NAME                            READY     STATUS    RESTARTS   AGE       IP              NODE
 aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   aci-connector-linux
 ```
-
-## Remove ACI connector
-
-If you no longer wish to use the ACI connector, you can disable the connector **-- UNDER THE SCALE SETTINGS FOR AN AKS CLUSTER IN THE PORTAL???--**
 
 ## Next steps
 
