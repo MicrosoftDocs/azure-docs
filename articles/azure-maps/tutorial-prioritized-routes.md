@@ -23,13 +23,13 @@ This tutorial shows how to use your Azure Maps account and the route service to 
 
 ## Prerequisites
 
-Before you proceed, follow the steps in the first tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey). 
+Before you proceed, follow the steps in the first tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey).
 
 
 ## Create a new map 
-The following steps show you how to create a static HTML page embedded with the Map Control API. 
+The following steps show you how to create a static HTML page embedded with the Map Control API.
 
-1. On your local machine, create a new file and name it **MapTruckRoute.html**. 
+1. On your local machine, create a new file and name it **MapTruckRoute.html**.
 2. Add the following HTML components to the file:
 
     ```HTML
@@ -229,7 +229,7 @@ This section shows how to use the Maps route service API to find multiple routes
             }); 
         }); 
     ```
-    This code snippet first instantiates a service client, and constructs a route query string. It then queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). And then creates an array of coordinates for the route returned, and adds it to the map's `truckRouteLayerName` layer.
+    This code snippet above instantiates a service client, and constructs a route query string. It then queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). And then creates an array of coordinates for the route returned, and adds it to the map's `truckRouteLayerName` layer.
 
 3. Add the following JavaScript code to request the route for a car and display the results:
 
@@ -245,9 +245,9 @@ This section shows how to use the Maps route service API to find multiple routes
             }); 
     }); 
     ```
-    This code snippet uses for a car the same route query constructed above for the heavy truck. It queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). And then creates an array of coordinates for the route returned, and adds it to the map's `carRouteLayerName` layer.
+    This code snippet uses the same truck route query for a car. It queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). And then creates an array of coordinates for the route returned, and adds it to the map's `carRouteLayerName` layer.
 
-3. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following. 
+3. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following.
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
@@ -262,6 +262,6 @@ In this tutorial, you learned how to:
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
 
-To learn more about the coverage and capabilities of Azure Maps, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) and the other Concepts articles. 
+To learn more about the coverage and capabilities of Azure Maps, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) and the other Concepts articles.
 
-For more code examples and an interactive coding experience, see [How to use the map control](how-to-use-map-control.md) and the other How-to guides. 
+For more code examples and an interactive coding experience, see [How to use the map control](how-to-use-map-control.md) and the other How-to guides.

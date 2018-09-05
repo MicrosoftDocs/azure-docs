@@ -22,15 +22,15 @@
   items:
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Service coverage
+  - name: Coverage
     items:
-    - name: Geocoding
+    - name: Geocoding coverage
       href: geocoding-coverage.md
-    - name: Traffic
+    - name: Traffic coverage
       href: traffic-coverage.md
-    - name: Render
+    - name: Render coverage
       href: render-coverage.md
-    - name: Routing
+    - name: Routing coverage
       href: routing-coverage.md
   - name: Supported languages
     href: supported-languages.md
