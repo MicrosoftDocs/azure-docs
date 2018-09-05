@@ -47,7 +47,13 @@ If you don't have an existing tenant associated with your account, you'll see a 
 
 ## Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or want to create a new one, you can do so using the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the [Azure portal](https://portal.azure.com). The process will take about a minute, and then you'll be prompted to navigate to your newly created tenant.
+If you don't already have an Azure AD tenant or want to create a new one, you can do so using the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the [Azure portal](https://portal.azure.com). Provide the following info to create your new tenant:
+
+- **Organization name**
+- **Initial domain** - This will be part of onmicrosoft.com. You can add other domain names later.
+- **Country or region**
+
+The process will take about a minute, and then you'll be prompted to navigate to your newly created tenant.
 
 ## Next steps
 

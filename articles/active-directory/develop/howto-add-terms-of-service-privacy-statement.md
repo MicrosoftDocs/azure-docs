@@ -50,6 +50,7 @@ Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-st
 ## Adding links to the terms of service and privacy statement
 
 When the terms of service and privacy statement are ready, you can add links to these documents in your app using one of these methods:
+
 * [Through the Azure portal](#registered-in-azure-portal)
 * [In the Application Registration Portal, or Dev Center](#registered-in-app-reg-portal)
 * [Using the app object JSON](#app-object-json)
@@ -65,7 +66,7 @@ Follow these steps if you registered your app in the Azure portal.
 4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
 5. Save your changes.
 
-![App properties section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![App properties section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>If you registered your app in the Application Registration Portal
 
@@ -76,7 +77,7 @@ Follow these steps if you registered your app in the Application Registration Po
 3. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
 4. Save your changes.
 
-![App profile section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![App profile section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Using the app object JSON
 

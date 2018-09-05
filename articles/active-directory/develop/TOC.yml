@@ -259,7 +259,7 @@
   - name: Claims in Azure AD security tokens
     href: 
   - name: Azure AD APIs in Microsoft Graph
-    href: 
+    href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
   - name: Authentication and authorization error codes
     href: reference-aadsts-error-codes.md
   - name: Breaking changes
@@ -282,3 +282,5 @@
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Getting help
     href: developer-support-help-options.md
+  - name: Managed Service Identity for Azure resources
+    href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
