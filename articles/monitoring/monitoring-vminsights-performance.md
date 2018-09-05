@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 
 # How to chart performance with Azure Monitor VM Insights
-VM Insights includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing — Processor, Memory, Disk, and Network.  The charts show resource utilization over a period of time so you can identify bottlenecks or anomalies that may or may not be isolated, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, VM Insights is focused on the operating system as manifested through the processor, memory, network adapters, and disks.  This compliments the health monitoring feature of the solution and together, helps expose issues that indicate a possible system component failure, support  tuning and optimization to achieve efficiency, or support capacity planning.  
+VM Insights include a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing — Processor, Memory, Disk, and Network.  The charts show resource utilization over a period of time so you can identify bottlenecks or anomalies that may or may not be isolated, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, VM Insights is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance compliments the health monitoring feature of the solution and together, helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
 
 ## Multi-VM perspective from Azure Monitor
 From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access VM Insights from Azure Monitor, perform the following. 
@@ -46,7 +46,7 @@ To view the resource utilization by individual VM in a list view and see which m
 >The list cannot show more than 500 machines at a time.  
 >
 
-To filter the results on a specific virtual machine, enter it's computer name in the **Search by name** textbox.  
+To filter the results on a specific virtual machine, enter its computer name in the **Search by name** textbox.  
 
 If you would rather view utilization from a different performance metric, from the **Metric** drop-down list select **Available Memory**, **Logical Disk Space Used %**, **Network Received Byte/s**, or **Network Sent Byte/s** and the list updates to show utilization scoped to that metric.  
 
