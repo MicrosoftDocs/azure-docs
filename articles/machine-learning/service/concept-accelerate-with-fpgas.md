@@ -33,7 +33,7 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 
 Project Brainwave is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale**.
 
-FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means collecting a larger amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
+FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means collecting a large amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
 
 FPGAs can be reconfigured for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used.
 
@@ -62,11 +62,11 @@ The following scenarios use FPGA on Project Brainwave architecture:
 
 Here is the workflow for creating an image recognition service in Azure using a supported DNNs as a featurizer:
 
-1. Create a service definition, which is a file describing a pipeline of graphs (input, featurizer, and classifier) using TensorFlow. The deployment command will automatically compress the definition and graphs into a ZIP file and upload the ZIP to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
+1. Use the Azure Machine Learning SDK for Python to create a service definition, which is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command will automatically compress the definition and graphs into a ZIP file and upload the ZIP to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
 
-1. Register the model using Azure ML Model Management Service with the ZIP file in Azure Blob storage.
+1. Register the model using the SDK with the ZIP file in Azure Blob storage.
 
-1. Deploy the service with the registered model using Azure ML Model Management API.
+1. Deploy the service with the registered model using SDK.
 
 You can get started deploying trained DNN models to FPGAs in the Azure cloud with this article, **"[Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)"**.
 
