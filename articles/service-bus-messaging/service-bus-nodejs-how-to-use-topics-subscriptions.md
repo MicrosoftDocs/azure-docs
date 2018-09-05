@@ -105,7 +105,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-The `createServiceBusService` method also supports additional options, which
+The `createTopicIfNotExists` method also supports additional options, which
 enable you to override default topic settings such as message time to
 live or maximum topic size. 
 
