@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/07/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
 # Tutorial: Copy data to Azure Data Box 
@@ -39,7 +39,9 @@ Before you begin, make sure that:
 
 ## Connect to Data Box
 
-Your Data Box creates three shares for each associated storage account. The three shares store data from block blobs, page blobs, and Azure Files. 
+Based on the storage account selected, Data Box creates upto:
+- Three shares for each associated storage account for (GPv1 and GPv2).
+- One share for premium or blob storage account. 
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
@@ -52,7 +54,7 @@ Consider the following example.
 
 Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to connect and copy can be different.
 
-### Connect to an SMB share 
+### Connect via SMB 
 
 If you are using a Windows Server host computer, perform the following steps to connect to the Data Box.
 
@@ -89,7 +91,7 @@ If you are using a Windows Server host computer, perform the following steps to 
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
-### Connect to an NFS share 
+### Connect via NFS 
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
 
@@ -113,8 +115,9 @@ Once you are connected to the Data Box shares, the next step is to copy data. Pr
 - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+- We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
 
-### Copy data to an SMB share
+### Copy data via SMB
 
 After you have connected to the SMB share, initiate a data copy. 
 
@@ -199,6 +202,14 @@ The following sample shows the output of the robocopy command to copy files to t
         Bytes :     3.9 k     3.9 k         0         0         0         0          
     C:\Users>
        
+
+To optimize the performance, use the following robocopy parameters when copying the data.
+
+|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
+
+
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
 Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting.
@@ -207,7 +218,7 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### Copy data to an NFS share
+### Copy data via NFS
 
 If you're using a Linux host computer, follow these guidelines:
 
@@ -230,12 +241,24 @@ Final step is to prepare the device to ship. In this step, all the device shares
         
         ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
 
-    3. You can download the list of files that were copied in this process.
+    3. Download the list of files that were copied in this process. You can later use this list to verify the files uploaded to Azure.
         
         ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
 
 3. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
-4. Remove the cables and return to the device case. The next step is to ship the device to Microsoft.
+4. Remove the cables. The next step is to ship the device to Microsoft.
+
+ 
+<!--## Appendix - robocopy parameters
+
+This section describes the robocopy parameters used when copying the data to optimize the performance.
+
+|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
+|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
+|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
+-->
 
 ## Next steps
 

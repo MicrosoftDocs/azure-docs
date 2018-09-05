@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
-# What is Azure Data Box?
+# Azure Data Box: Frequently Asked Questions
 
-The Microsoft Azure Data Box cloud solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal. 
+The Microsoft Azure Data Box hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal. 
 
 Questions and answers are arranged in the following categories:
 
@@ -42,7 +42,7 @@ A. The Azure Data Box allows a quick, inexpensive, and secure transfer of teraby
 Once the device is received, you quickly set it up using the local web UI. Copy the data from your servers to the device and ship the device back to Azure. In the Azure datacenter, your data is automatically uploaded from the device to Azure. The entire process is tracked end-to-end by the Data Box service in the Azure portal.
 
 ### Q. When should I use Data Box?
-A. If you have 40 - 100 TB of data that you want to transfer to Azure, you would benefit from using Data Box.
+A. If you have 40 - 500 TB of data that you want to transfer to Azure, you would benefit from using Data Box. For data sizes < 40 TB, use Data Box Disk and for data sizes > 500 TB, sign up for Data Box Heavy.
 
 ### Q. What is the price of Data Box?
 A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Shipping is also free, however, the charges for Azure storage apply. For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/). 
@@ -81,9 +81,10 @@ A. What this means is that the Data Box service is not available for the combina
 ### Q. I placed my Data Box order few days back. When will I receive my Data Box?
 A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you will be notified.
 
+### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
+A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
 
 ## Configure and connect
- 
 
 ### Q. How do I unlock the Data Box? 
 A.  In the Azure portal, go to your Data Box order, and navigate to **Device details**. Copy the unlock password. Use this password to log into the local web UI on your Data Box. For more information, go to [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md).
@@ -109,6 +110,12 @@ A.
 ### Q. I could not set up Data Box on a private network. Why would this be?
 A.-->
 
+### Q. The system fault indicator LED on the front operating panel is on. What should I do?
+A. If the system fault indicator LED is on, it indicates that your system is not healthy. Contact Microsoft Support for next steps.
+
+### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
+A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have atleast Data Box Operator role permission to see the access credentials.
+
 ## Track status
 
 ### Q. How do I track the Data Box from when I placed the order to shipping the device back? 
@@ -123,7 +130,7 @@ A. You can go to your Data Box order in the Azure portal and go to **Overview**.
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box?  
-A.  Data Box has a usable storage capacity of 80 TB. You can use it for data that ranges in size from 40 TB - 80 TB. For larger data size, you can order multiple devices or you can order Data Box Heavy.  
+A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes upto 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.  
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
@@ -132,10 +139,15 @@ A.  The maximum sizes are governed by Azure Storage limits. The maximum block bl
 A. Depending on the file size, you can see up to 
 
 ### Q. How do I know that my data is secure during transit? 
-A.  Data Box is encrypted using BitLocker AES-128 bit encryption and the passkey is only available in the Azure portal. Log into the Azure portal using your account credentials to get the passkey. Supply this passkey when you run the Data Box unlock tool.
+A. There are multiple security features implemented to ensure that your Data Box is secure during transit. Some of these include tamper-evident seals, hardware and software tampering detection, device unlock password. For more information, go to [Azure Data Box security and data protection](data-box-security.md).
+
 
 ### Q. How do I copy the data to the Data Box? 
-A.  Use an SMB copy tool such as Robocopy, Diskboss, or even Windows File Explorer drag-and-drop to copy data onto the device. 
+A.  If using an SMB client, you can use an SMB copy tool such as Robocopy, Diskboss, or even Windows File Explorer drag-and-drop to copy data onto the device. 
+
+If using  an NFS client, you can use [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/). 
+
+For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
 ### Q. Are there any tips to speed up the data copy?
 A.  To speed up the copy process:
@@ -156,16 +168,34 @@ A.  To speed up the copy process:
 ### Q. Can I use multiple storage accounts with Data Box?
 A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the GA release, the storage accounts in all regions in US, West Europe, North Europe, France, and UK in the Azure public cloud are supported.
 
+We recommend that you use no more than three storage accounts for a given device. Using more storage accounts could potentially impact the performance.
+
 ## Ship device
 
 <!--### Q. How do I schedule a pickup for my Data Box?--> 
-A.
+
+### Q. My device was delivered but the device seems to be damaged. What should I do?
+A. If your device has arrived damaged or there is evidence of tampering, do not use the device. Contact Microsoft Support and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
 
 ### Q. E Ink display is not showing the return shipment label. What should I do?
-A. Ensure customer has run prepare to ship on the local OOBI and it completed without errors. If this was the case, you can always download a shipping label by going to your order in the portal. Navigate to 
+A. If the E-ink display is not showing the return shipment label, perform the following steps:
+- Remove the old shipping label and any sticker from the previous shipping.
+- Go to your order in Azure portal. Go to Overview and download shipping label. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
+- Print the shipping label and insert it into the clear sleeve attached to the device. 
+- Ensure that the shipping label is clearly visible. 
+
+### Q. How is my data protected during transit? 
+A.  During the transit, the following features on the Data Box help protect the data.
+ - The Data Box disks are encrypted with AES 256-bit encryption. 
+ - The device is locked and needs an unlock password to enter and access data.
+For more information, go to [Data Box security features](data-box-security.md).  
+
+### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
+A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
+  
 
 ## Verify and upload
 
@@ -188,28 +218,6 @@ A.  After the data copy is complete, when you run **Prepare to ship**, your data
 
 ### Q. What happens to my data after I have returned the Data Box?
 A.  Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines.  
-
-### Q. How is my data protected during transit? 
-A.  During the transit, the following features on the Data Box help protect the data.
- - The Data Box disks are encrypted with AES 256-bit encryption. 
- - The device is locked and needs an unlock password to enter and access data.
-For more information, go to [Data Box security features](data-box-security.md).  
-
-### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
-A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
-
-### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
-A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
-
-### Q. My device was delivered but the device seems to be damaged. What should I do?
-A. If your device has arrived damaged or there is evidence of tampering, do not use the device. Contact Microsoft Support and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
-
-### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
-A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have atleast Data Box Operator role permission to see the access credentials.
-
-### Q. The system fault indicator LED on the front operating panel is on. What should I do?
-A. If the system fault indicator LED is on, it indicated that your system is not healthy. Contact Microsoft Support for next steps.
-
 
 ## Next steps
 

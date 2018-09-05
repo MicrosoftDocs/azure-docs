@@ -14,12 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/21/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ---
 # Azure Data Box security and data protection
 
 Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. This article describes the Azure Data Box security features that help protect each of the Data Box solution components and the data stored on them. 
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## Data flow through components
 
@@ -32,7 +34,7 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 
 The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure.
 
-<!--![Data Box security](media/data-box-disk-security/data-box-disk-security-1.png)-->
+![Data Box security](media/data-box-security/data-box-security-2.png)
 
 ## Security features
 
@@ -46,7 +48,7 @@ The Data Box device is protected by the following features:
 - Tamper-evident seals to indicate any device tampering during transit.
 - Hardware and software tampering detection that prevents further device operations.
 - Runs only Data Box-specific software.
-- Boots up in a locked state
+- Boots up in a locked state.
 - Controls device access via device unlock password.
 - Access credentials to copy data in and out of the device.
 
@@ -67,10 +69,7 @@ The Data Box service is protected by the following features.
 - The Data Box service stores unlock password that is used to unlock the device in the service. 
 - The Data box service stores order details and status in the service. This information is deleted when the order is deleted. 
 
-
 ## Managing personal data
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 Azure Data Box collects and displays personal information in the following key instances in the service:
 
@@ -95,6 +94,18 @@ Azure Data Box collects and displays personal information in the following key i
 
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
+
+## Security guidelines reference
+
+The following security guidelines are implemented in Data Box: 
+
+|Guideline   |Description   |
+|---------|---------|
+|[IEC 60529 IP52](http://www.iec.ch/)    | For water and dust protection         |
+|[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | For adverse transport conditions endurance          |
+|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | For secure firmware update         |
+|[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | For data protection         |
+|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | For data sanitization         |
 
 ## Next steps
 

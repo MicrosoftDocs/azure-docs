@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom:
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/20/2018
+ms.date: 08/27/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box?
@@ -26,7 +26,7 @@ You can order the Data Box device via the Azure portal. Once the device is recei
 
 ## Use cases
 
-Data Box is ideally suited to transfer data sizes larger than 30 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. Here are the various scenarios where Data Box can be used for data transfer.
+Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. Here are the various scenarios where Data Box can be used for data transfer.
 
  - **One time migration** - when large amount of on-premises data is moved to Azure. 
      - Moving a media library from offline tapes into Azure to create an online media library.
@@ -59,11 +59,10 @@ The Data Box device has the following features in this release.
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Weight                                                  | ~ 50 lbs.                |
-| Dimensions                                              | Device - Width: 305 mm Height: 410 mm Depth: 500 mm |            
+| Weight                                                  | < 50 lbs.                |
+| Dimensions                                              | Device - Width: 309.0 mm Height: 430.4 mm Depth: 502.0 mm |            
 | Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
 | Cables required                                         | 1 X power cable <br> 2 X 1 Gbps RJ45 cables <br> 2 X 10 Gbps SFP+ copper cables|
-| Components                                              | Built-in power supply unit (PSU)|
 | Storage capacity                                        | 100 TB <br> 80 TB usable capacity after RAID 5 protection|
 | Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
@@ -118,9 +117,8 @@ Data Box can transfer data based on the region in which service is deployed, cou
     - UK - UK South and UK West.
     - France - France Central and France South.
 
-- **Shipping datacenters** - The Data Box devices are shipped from datacenters in West US, East US, West Europe, and UK West. 
-
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions for public cloud. The regions where the storage accounts store Data Box data should be located for optimum performance.
+
     We strongly recommend that you create storage accounts in the same region or very close to the region where the device is deployed. A storage account located far from the device results in long latencies and slower performance. 
 
 
