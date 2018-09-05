@@ -65,7 +65,7 @@ Here are the consent experiences that a user may see in the common consent scena
         ![Consent prompt for scenario 1b](./media/application-consent/consent_prompt_1b.png)
 
 1. Individuals accessing an app that requires at least one permission that is outside their scope of authority.
-    1. Admins will see the same prompt as 1.a shown above.
+    1. Admins will see the same prompt as 1.i shown above.
     2. Users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app. 
                 
         ![Consent prompt for scenario 1b](./media/application-consent/consent_prompt_2b.png)
@@ -75,7 +75,7 @@ Here are the consent experiences that a user may see in the common consent scena
         
         ![Consent prompt for scenario 1b](./media/application-consent/consent_prompt_3a.png)
         
-    1. Non-admin users will see the same screen as 2.b shown above.
+    1. Non-admin users will see the same screen as 2.ii shown above.
 
 ## Recommended reading
 - Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
