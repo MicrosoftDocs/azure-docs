@@ -36,8 +36,8 @@ The easiest way to create a client virtual machine with all nesseccary tools is 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 
-   > [!NOTE]
-   > This template also installs SQL Server Management Studio in the VM.
+    > [!NOTE]
+    > This template also installs SQL Server Management Studio in the VM.
 
 2. Fill out the form with the requested information, using the information in the following table:
 
