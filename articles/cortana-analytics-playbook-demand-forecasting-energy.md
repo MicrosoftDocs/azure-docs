@@ -4,7 +4,7 @@ description: A Solution Template with Microsoft Cortana Intelligence that helps 
 services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
+ms.author: yijichen
 
 ---
 # Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy

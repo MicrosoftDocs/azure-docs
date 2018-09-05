@@ -5,8 +5,8 @@ keywords: solution accelerator;cortana analytics;energy forecasting
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+
 
 ms.assetid: 745db9da-9ca1-421a-aa76-13c992f6513d
 ms.service: machine-learning
