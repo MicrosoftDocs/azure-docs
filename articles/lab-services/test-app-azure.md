@@ -31,7 +31,7 @@ Creaet a file share in your Azure storage by following instructions in the [Crea
 .md) article. 
 
 
-## Mount the file share 
+## Mount the file share on your local machine
 
 1. On your local machine, use the script from [Persisting Azure file share credentials in Windows](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) section of [Use an Azure file share with Windows](../storage/files/storage-how-to-use-files-windows.md) article. 
 2. Then, use `net use` command to mount the file share on your machine. Here is the sample command: Specify your Azure storage name and file share name before running the command. 
