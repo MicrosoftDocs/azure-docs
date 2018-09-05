@@ -193,11 +193,12 @@ Because the storage account is defined in the linked template now, you must upda
     "linkedTemplate" is the name of the deployments resource.  
 3. update **properties/diagnosticsProfile/bootDiagnostics/storageUri** as shown in the previous screenshot.
 
+For more information, see [Use linked and nested templates when deploying Azure resources](./resource-group-linked-templates.md)
+
 ## Deploy the template
 
 Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure.
 
-For more information, see [Use linked and nested templates when deploying Azure resources](./resource-group-linked-templates.md)
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
