@@ -39,7 +39,7 @@ Infrastructure service certificates for external-facing services that are provid
     - ADFS<sup>*</sup>
     - Graph<sup>*</sup>
 
-    > <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
+   <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
 
 > [!NOTE]
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
@@ -51,7 +51,7 @@ In order to maintain the integrity of the Azure Stack infrastructure, operators 
 Azure Stack supports secret rotation with external certificates from a new Certificate Authority (CA) in the following contexts:
 
 |Installed Certificate CA|CA to Rotate To|Supported|Azure Stack Versions Supported|
-|-----|-----|-----|-----|-----|
+|-----|-----|-----|-----|
 |From Self-Signed|To Enterprise|Not Supported||
 |From Self-Signed|To Self-Signed|Not Supported||
 |From Self-Signed|To Public<sup>*</sup>|Supported|1803 & Later|
@@ -75,8 +75,9 @@ When secrets are within 30 days of expiration, the following alerts are generate
 Running secret rotation using the instructions below will remediate these alerts.
 
 ## Pre-steps for secret rotation
-    > [!IMPORTANT]  
-    > Ensure secret rotation hasn't been previously successfully executed on your environment. If secret rotation has already been performed update to Azure Stack version 1807 or later prior to rotating secrets. 
+
+   > [!IMPORTANT]  
+   > Ensure secret rotation hasn't been previously successfully executed on your environment. If secret rotation has already been performed update to Azure Stack version 1807 or later prior to rotating secrets. 
 1.  Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.
@@ -155,7 +156,6 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating internal and external secrets. End directory must be **\Certificates**. |
 | CertificatePassword | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when both internal and external secrets are rotated. |
-|
 
 ### Examples
  
