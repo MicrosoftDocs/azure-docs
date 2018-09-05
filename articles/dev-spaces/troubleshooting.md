@@ -16,6 +16,14 @@ manager: douge
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
+## Enabling detailed logging
+
+In order to troubleshoot problems more effectively, it may help to create more detailed logs for review.
+
+For the Visual Studio extension, you can do this by setting the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs will be written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+
+In the CLI, you can output more information during command execution by using the `--verbose` switch.
+
 ## Error 'Failed to create Azure Dev Spaces controller'
 
 You might see this error when something goes wrong with the creation of the controller. If it's a transient error, deleting and recreating the controller will fix it.
