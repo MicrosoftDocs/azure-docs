@@ -134,7 +134,7 @@ module.exports = function (context, req, connectionInfo) {
 
 ## SignalR output binding
 
-Use the SignalR output binding to send one or more messages. You can broadcast a message to all connected clients, or you can broadcast it only to connected clients that have been authenticated to a given user.
+Use the *SignalR* output binding to send one or more messages. You can broadcast a message to all connected clients, or you can broadcast it only to connected clients that have been authenticated to a given user.
 
 See the language-specific example:
 
@@ -251,7 +251,19 @@ The following table explains the binding configuration properties that you set i
 |**direction**|| must be set to `in`.|
 |**name**|| Variable name used in function code for connection info object. |
 |**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**authToken**|**AuthToken**| This value must be set to the name of an app setting that holds your Twilio authentication token.|
+|**userId**|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
+
+### SignalR
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `SignalR` attribute.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type**|| must be set to `signalR`.|
+|**direction**|| must be set to `out`.|
+|**name**|| Variable name used in function code for connection info object. |
+|**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
 |**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
