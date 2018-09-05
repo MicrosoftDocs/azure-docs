@@ -28,7 +28,7 @@ Create an Azure Storage account in the lab's resource group by following instruc
 
 ## Create a file share in the storage
 
-6. On the **Notifications** page, select the storage account. Confirm that the storage account is created successfully. Select the **resource group** link in the notification message. Close the **Notifications** page by clicking **X** in the right corner. 
+6. On the **Notifications** page, confirm that the storage account is created successfully. Select the **resource group** link in the notification message. Close the **Notifications** page by clicking **X** in the right corner. 
 
     ![Notification message](media/test-app-in-azure/storage-created-successfully.png)
 7. On the **Resource group** page, select the storage account you created.  
@@ -102,6 +102,7 @@ In this section, you publish your app from Visual Studio to a test VM in the clo
     **Web app:**
 
     ![Web app](media/test-app-in-azure/web-app.png)
+
 1. Select **Next** to complete the publish workflow, and select **Finish**. When you finish the wizard steps, Visual Studio builds your application and publishes it to your file share. 
 
 
