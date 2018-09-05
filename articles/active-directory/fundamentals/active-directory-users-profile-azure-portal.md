@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ---
 
 # How to: Add or update a user's profile information using the Azure Active Directory portal
-Add user profile information,including a profile picture, job-specific information, and some settings using the Azure Active Directory (Azure AD) portal. For more information about adding new users, see [How to add or delete users using the Azure Active Directory portal](add-users-azure-active-directory.md).
+Add user profile information, including a profile picture, job-specific information, and some settings using the Azure Active Directory (Azure AD) portal. For more information about adding new users, see [How to add or delete users using the Azure Active Directory portal](add-users-azure-active-directory.md).
 
 ## Add or change profile information
 As you'll see, there's more information available in a user's profile than what you're able to add during the user's creation. All of this additional information is optional and can be added as needed by your organization.
@@ -37,15 +37,15 @@ As you'll see, there's more information available in a user's profile than what 
 
     - **Identity.** Add any account-related information, such as a married last name or a changed user name. 
     
-        You might have previously added this information while creating the user. This is the only profile-related information that was available at that time.
+        You might have previously added this information while creating the user. The identity-related information is the only profile information that was available at that time.
 
     - **Job info.** Add any job-related information, such as the user's job title, department, or manager.
 
-    - **Settings.** Decide whether the user can sign in to the Azure Active Directory tenant, and specify the user's global location.
+    - **Settings.** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
 
     - **Contact info.** Add any relevant contact information for the user. For example, a street address or a mobile phone number.
 
-    - **Authentication contact info.** Verify this information to make sure there's an active phone number and email address for the user. This information is used by Azure Active Directory to make sure the user is legitimate when he or she signs in.
+    - **Authentication contact info.** Verify this information to make sure there's an active phone number and email address for the user. This information is used by Azure Active Directory to make sure the user is really the user during sign-in.
 
 4. Select **Save**.
 
