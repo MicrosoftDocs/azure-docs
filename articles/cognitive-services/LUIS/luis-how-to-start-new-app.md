@@ -12,24 +12,28 @@ ms.author: diberry
 ---
 
 # Create an app
-You create a new app in different ways: 
+There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+
+## Using the LUIS portal
+You can create a new app in the LUIS portal in several ways:
 
 * [Start](#create-new-app) with an empty app and create intents, utterances, and entities.
 * [Start](#create-new-app) with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
 * [Import a LUIS app](#import-new-app) from a JSON file that already contains intents, utterances, and entities.
 
-## What is an app
-The app contains [versions](luis-how-to-manage-versions.md) of your model as well as any [collaborators](luis-how-to-collaborate.md) for the app. When you create the app, you select the culture ([language](luis-supported-languages.md)) which **cannot be changed later**. 
+## Using the authoring APIs
+You can create a new app with the authoring APIs in a couple of ways:
 
-The default version of a new app is "0.1." 
+* [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) with an empty app and create intents, utterances, and entities.
+* [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) with a prebuilt domain.  
 
-You can create and manage your applications on **My Apps** page. You can always access this page by selecting **My apps** on the top navigation bar of the [LUIS](luis-reference-regions.md) website. 
-
-[![](media/luis-create-new-app/apps-list.png "Screenshot of List of apps")](media/luis-create-new-app/apps-list.png#lightbox)
-
-## Create new app
+## Create new app in LUIS
 
 1. On **My Apps** page, select **Create new app**.
+
+    ![LUIS apps list](./media/luis-create-new-app/apps-list.png)
+
+
 2. In the dialog box, name your application "TravelAgent".
 
     ![Create new app dialog](./media/luis-create-new-app/create-app.png)
