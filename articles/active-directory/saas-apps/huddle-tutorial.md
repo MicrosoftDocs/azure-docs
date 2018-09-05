@@ -115,26 +115,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Huddle Domain and URLs single sign-on information](./media/huddle-tutorial/tutorial_huddle_url.png)
 
     a. In the **Identifier** textbox, type any one of the URL using the following pattern:
-	|||
-	|--|
-	| `https://<customsubdomain>.huddle.com` |
+
+	| | |
+	|--|--|
+	| `https://<customsubdomain>.huddle.com`|
 	| `https://us.huddle.com` |
+	| |
 
 	b. In the **Reply URL** textbox, type any one of the URL using the following pattern:
-	|||
-	|--|
-	| `https://<customsubdomain>.huddle.com/saml/idp-initiated-sso` |
-	| `https://us.huddle.com/saml/idp-initiated-sso` |
+
+	| | |
+	|--|--|
+	| `https://<customsubdomain>.huddle.com/saml/idp-initiated-sso`|
+	| `https://us.huddle.com/saml/idp-initiated-sso`|
+	| |
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Huddle Domain and URLs single sign-on information](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
     In the **Sign-on URL** textbox, type any one of the URL using the following pattern:
-	|||
-	|--|
-	| `https://<customsubdomain>.huddle.com` |
-	| `https://us.huddle.com` |
+	
+	| | |
+	|--|--|
+	| `https://<customsubdomain>.huddle.com`|
+	| `https://us.huddle.com`|
+	| |
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Huddle Client support team](https://huddle.zendesk.com) to get these values. 
