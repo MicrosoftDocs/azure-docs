@@ -44,9 +44,9 @@ Indexes are built and populated from code that you write, and run only on Azure 
 
 ### Can I restore my index or service once it is deleted?
 
-If you delete an Azure Search index, the operation if final and can't be recovered.  When you delete an Azure Search service, all indexes in the service are deleted permanently.  Also, if you delete an Azure resource group that contains one or more Azure Search services, all services will be deleted permanently.  
+No, you cannot restore indexes or services. If you delete an Azure Search index, the operation is final and the index cannot be recovered. When you delete an Azure Search service, all indexes in the service are deleted permanently. Also, if you delete an Azure resource group that contains one or more Azure Search services, all services are deleted permanently.  
 
-You will need to recreate each index involved in the delete operations and reindex all data that was in the index.  For this reason, it is strongly recommended that you retain a master copy or backup of the data in your index in another data store, such as Azure SQL or Cosmos DB.
+Restoring resources such as indexes, indexers, data sources, and skillsets requires that you recreate them from code. In the case of indexes, you must reindex data from external sources. For this reason, it is strongly recommended that you retain a master copy or backup of the original data in another data store, such as Azure SQL Database or Cosmos DB.
 
 ### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
