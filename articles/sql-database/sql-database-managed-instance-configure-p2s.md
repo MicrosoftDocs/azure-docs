@@ -15,19 +15,22 @@ manager: craigg
 ---
 # Connect to an Azure SQL Database Managed Instance from on-premises using a Point-to-Site connection
 
-This quickstart demonstrates how to connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an on-premises client computer over a Point-to-site connection. For information about Point-to-site connections, see [About Point-to-Site VPN](../vpn-gateway/point-to-site-about.md)
+This quickstart demonstrates how to connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../vpn-gateway/point-to-site-about.md)
 
 ## Prerequisites
 
-This quickstart uses as its starting point the resources created in this quickstart: [Create a Managed Instance](sql-database-managed-instance-get-started.md).
+This quickstart:
+- Uses as its starting point the resources created in this quickstart: [Create a Managed Instance](sql-database-managed-instance-get-started.md).
+- Requires PowerShell 5.1 and Azure PowerShell 5.4.2 or higher your on-premises client computer.
+- Requires the newest version of [SQL Server Management Studio][ssms-install-latest-84g] on your on-premises client computer
 
-## Create a virtual network gateway configured for point-to-site connections
+## Attach a VPN gateway to your Managed Instance virtual network
 
-Since SQL Managed Instance is placed in your private Virtual Network, to connect to it with SQL Server Management Studio, you need to create a virtual network gateway in the Managed Instance VNet.
-
-The easiest way to create a client virtual machine with all nesseccary tools is to use the Azure Resource Manager templates.
-
-1. Click on the following button (make sure that you are signed-in to the Azure portal in another browser tab):Use the following template to create a virtual network gateway in the Managed Instance VNet.
+Run the following PowerShell script to attach a VPN Gateway to the Managed Instance virtual network that you created 
+This is done in three steps:
+Create and install certificates on client machine
+Calculate future VPN Gateway subnet IP range
+Deploy ARM template that will attach VPN Gateway to subnet
 
 > [!IMPORTANT]
 > To deploy this template user needs to provide public self-signed root certificate data. For detailed information on this and setting up certificates for point-to-site VPN, see [VPN Gaateway certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md)

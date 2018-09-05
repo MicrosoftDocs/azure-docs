@@ -46,9 +46,9 @@ The easiest way to create a client virtual machine with all nesseccary tools is 
    |**Managed instance name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Do not use "serveradmin" as that is a reserved server-level role.| 
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Resource Group**|The resource group that you created earlier||
+   |**Resource Group**|The resource group that you created in the [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart.|This must be the resource group in which the VNet exists.|
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
-   |**Virtual network**|The virtual network for your managed instance| Existing VNET that you created while [creating your Managed Instance](sql-database-managed-instance-get-started.md). |
+   |**Virtual network**|The virtual network for your managed instance| Existing VNET that you created in the [Creatie a Managed Instance](sql-database-managed-instance-get-started.md) quickstart.|
 
     ![create client VM](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
