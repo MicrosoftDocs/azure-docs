@@ -45,8 +45,6 @@ Building great multi-tenant apps can be challenging because of the number of dif
 * Follow the principle of least user access to ensure that your app only requests permissions it actually needs. Avoid requesting permissions that require admin consent as this may prevent users from acquiring your app at all in some organizations. 
 * Provide appropriate names and descriptions for any permissions you expose as part of your app. This helps users and admins know what they are agreeing to when they attempt to use your app's APIs. For more information, see the best practices section in the [permissions guide](v1-permissions-and-consent.md).
 
-## For more information
+## Next steps
 
 * [How to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
-
-
