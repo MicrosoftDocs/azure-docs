@@ -13,9 +13,9 @@ ms.date: 09/04/2018
 ms.author: nolachar
 
 ---
-# What is Microsoft Azure Video Indexer?
+# What is Video Indexer?
 
-Microsoft Azure Video Indexer is a cloud application built using Azure artificial intelligence technologies. Video Indexer is comprised of models that enable Video Indexer to perform tasks described below: 
+Microsoft Azure Video Indexer is a cloud application built on Azure artificial intelligence technologies. Video Indexer is comprised of models that enable Video Indexer to perform tasks described below: 
 
 - **Automatic language detection**:	Automatically identifies the dominant spoken language. 
 - **Audio transcription**: Converts speech to text in 10 languages and allow extensions.
