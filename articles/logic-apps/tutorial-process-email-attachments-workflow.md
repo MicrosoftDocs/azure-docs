@@ -72,7 +72,7 @@ You can save incoming emails and attachments as blobs in
 an [Azure storage container](../storage/common/storage-introduction.md). 
 
 1. Before you can create a storage container, 
-[create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) 
+[Create a storage account](../storage/common/storage-quickstart-create-account.md) 
 with these settings:
 
    | Setting | Value | Description | 

@@ -175,6 +175,8 @@ The VPN client configuration files contain settings to configure devices to conn
 
 From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then click **Connect**.
 
+Please check [Install - Mac (OS X)](https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) for detailed instrcutions.
+
   ![Mac connection](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
 ## <a name="verify"></a>To verify your connection

@@ -7,7 +7,7 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: conceptual 
-ms.date: 06/22/2018 
+ms.date: 0813/2018 
 ms.author: jovanpop 
 manager: craigg 
 --- 
@@ -261,7 +261,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication 
  
-Replication is supported on Managed Instance. For information about Replication, see [SQL Server Replication](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replication is supported on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### RESTORE statement 
  

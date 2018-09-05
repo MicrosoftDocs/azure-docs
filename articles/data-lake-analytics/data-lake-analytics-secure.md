@@ -5,8 +5,8 @@ ms.service: data-lake-analytics
 services: data-lake-analytics
 author: matt1883
 ms.author: mahi
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 05/30/2018
 ---

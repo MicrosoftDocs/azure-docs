@@ -5,11 +5,11 @@ ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "include"
-manager: "douge"
+manager: douge
 ---
 So far you've been running your application's code as if you were the only developer working on the app. In this section, you'll learn how Azure Dev Spaces streamlines team development:
 * Enable a team of developers to work in the same environment, by working in a shared dev space or in distinct dev spaces as needed..
