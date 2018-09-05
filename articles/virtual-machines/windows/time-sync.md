@@ -56,7 +56,7 @@ There are three options for configuring time sync for your Windows VMs hosted in
 By default Windows OS VM images are configured for w32time to sync from two sources: 
 
 - The NtpClient provider, which gets information from time.windows.com 
-- The VMICTimeSync service and VMICTimeProvider, used to communicate the host time to the VMs. 
+- The VMICTimeSync service, used to communicate the host time to the VMs and make corrections after the VM is paused for maintenance. Azure hosts use time.microsoft.com to keep accurate time.
 
 w32time would prefer the time provider in the following order of priority: stratum level, root delay, root dispersion, time offset. In most cases, w32time would prefer time.windows.com to the host because time.windows.com reports lower stratum. 
 
@@ -77,7 +77,7 @@ You can use an external time server as the NtpClient alone, or combine it with t
 
 ## Check your configuration
 
-Scripts below show how you can test what time sync setup is being currently used and how you can switch to host-only time sync. The scripts are intentionally simple to provide the big-picture perspective. If you are to use some automated way to apply any of these scripts, you'll need to add error processing. Also note that some of the provided commands would require administrator permissions to work. For more details what each setting and command does, see these links:
+Below are some basic commands for checking your time sync configuration. For more details what each setting and command does, see these links:
 
 - [Windows Time Service Tools and Settings](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
 - [Windows Server 2016 Improvements
@@ -87,19 +87,20 @@ Scripts below show how you can test what time sync setup is being currently used
 
 
 
-If you want to test if your Windows VM is using the default time sync setup, run the following commands.
 
-Check to see if VMICTimeProvider time provider (sync from host) is enabled. 
+Check to see if VMICTimeSync service is enabled. 
 
 ```
 w32tm /dumpreg /subkey:TimeProviders\VMICTimeProvider | findstr /i "enabled"
 ```
-If VMICTimeProvider time provider (sync from host) is enabled you would get the following output:
 
+If VMICTimeSync time is enabled you would get the following output:
+
+```
 Enabled           REG_DWORD           1
+```
 
-
-To see if the NtpClient time provider is configured to use NTP servers (NTP) or domain time sync (NT5DS).
+Check if the NtpClient time provider is configured to use NTP servers (NTP) or domain time sync (NT5DS).
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "type"
@@ -107,9 +108,10 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "type"
 
 If the VM is using NTP, you will see the following output:
 
+```
 Value Name                 Value Type          Value Data
 Type                       REG_SZ              NTP
-
+```
 
 See what server the NtpClient time provider is using.
 
@@ -119,17 +121,17 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 If the VM is using the default, the output will look like this:
 
+```
 NtpServer                  REG_SZ              time.windows.com,0x8
+```
 
 
-
-To see what exactly time provider is being used currently.
+To see what time provider is being used currently.
 
 ```
 w32tm /query /source
 ```
 
-In the default configuration, the output would be something like this:
 
 Here is the output you could see and what it would mean:
 	
@@ -137,12 +139,12 @@ Here is the output you could see and what it would mean:
 - **VM IC Time Synchronization Provider**  - the VM is syncing time from the host. This usually is the result if you opt-in for host-only time sync or the NtpServer is not available at the moment. 
 - *Your domain server* - the current machine is in a domain and the domain defines the time sync hierarchy.
 - *Some other server* - w32time was explicitly configured to get the time from that another server. Time sync quality depends on this time server quality.
-- Local CMOS Clock - clock is unsynchronized. You can get this output if w32time hasn't had enough time to start after a reboot or when all the configured time sources are not available.
+- **Local CMOS Clock** - clock is unsynchronized. You can get this output if w32time hasn't had enough time to start after a reboot or when all the configured time sources are not available.
 
 
 ## Opt-in for host-only time sync
 
-We are constantly working on improving time sync on hosts and can guarantee that all the time sync infrastructure is collocated in Microsoft-owned datacenters. If you have time sync issues with the default setup that prefers to use time.windows.com as the primary time source, you can use the following commands to opt-in to host-only time sync.
+Azure is constantly working on improving time sync on hosts and can guarantee that all the time sync infrastructure is collocated in Microsoft-owned datacenters. If you have time sync issues with the default setup that prefers to use time.windows.com as the primary time source, you can use the following commands to opt-in to host-only time sync.
 
 Mark the VMIC provider as enabled. 
 
@@ -161,10 +163,6 @@ Restart the w32time Service.
 ```
 net stop w32time && net start w32time
 ```
-
-## Hybrid and mixed environments
-
-In environments where your workload needs synchronized time between on-premises computers and Azure VMs, you need to consider....
 
 
 ## Windows Server 2012 and R2 VMs 
