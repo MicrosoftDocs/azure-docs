@@ -42,6 +42,12 @@ Although you can [get an index definition](https://docs.microsoft.com/rest/api/s
 
 Indexes are built and populated from code that you write, and run only on Azure Search in the cloud. Typically, customers who want to move an index to another service do so by editing their code to use a new endpoint, and then rerun indexing. If you want the ability to take a snapshot or backup an index, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
+### Can I restore my index or service once it is deleted?
+
+If you delete an Azure Search index, the operation if final and can't be recovered.  When you delete an Azure Search service, all indexes in the service are deleted permanently.  Also, if you delete an Azure resource group that contains one or more Azure Search services, all services will be deleted permanently.  
+
+You will need to recreate each index involved in the delete operations and reindex all data that was in the index.  For this reason, it is strongly recommended that you retain a master copy or backup of the data in your index in another data store, such as Azure SQL or Cosmos DB.
+
 ### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
 There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
