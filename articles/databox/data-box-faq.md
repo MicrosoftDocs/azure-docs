@@ -139,7 +139,7 @@ A.  The maximum sizes are governed by Azure Storage limits. The maximum block bl
 A. Depending on the file size, you can see up to 
 
 ### Q. How do I know that my data is secure during transit? 
-A. There are multiple security features implemented to ensure that your Data Box is secure during transit. Some of these include tamper-evident seals, hardware and software tampering detection, device unlock passowrd. For more information, go to [Azure Data Box security and data protection](data-box-security.md).
+A. There are multiple security features implemented to ensure that your Data Box is secure during transit. Some of these include tamper-evident seals, hardware and software tampering detection, device unlock password. For more information, go to [Azure Data Box security and data protection](data-box-security.md).
 
 
 ### Q. How do I copy the data to the Data Box? 
