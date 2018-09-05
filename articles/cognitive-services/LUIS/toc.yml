@@ -300,6 +300,10 @@
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/  
       - name: NuGet - runtime
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/
+    - name: Go 
+      items:
+      - name: SDK
+        href: https://aka.ms/luis-sdk-go
     - name: Java 
       items: 
       - name: SDK
