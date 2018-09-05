@@ -28,7 +28,7 @@ With pipelines, you can optimize your workflow with simplicity, speed, portabili
 
 Steps in the pipeline often have an input and output throughout the data preparation, training, and   deployment phases. The data that is output by a prior step is often referred to as intermediate data since it becomes input for the next step. 
 
-Using distinct steps makes it possible to rerun only the steps you need as you tweak and test. Once the pipeline is designed, there is often more tweaking done around training loop of the pipeline. When you rerun a pipeline, Azure might not run the pipeline from end-to-end.  Instead, the execution jumps to the steps that need to be rerun, such as an updated training script, skipping what hasn't changed. The same paradigm applies to unchanged scripts and metadata which are not reloaded unless necessary. 
+Using distinct steps makes it possible to rerun only the steps you need as you tweak and test. Once the pipeline is designed, there is often more tweaking done around training loop of the pipeline. When you rerun a pipeline, Azure might not run the pipeline from end-to-end.  Instead, the execution jumps to the steps that need to be rerun, such as an updated training script, skipping what hasn't changed. The same paradigm applies to unchanged scripts and metadata that are not reloaded unless necessary. 
 
 With Azure Machine Learning, you can use different toolkits and frameworks for each step in your pipeline. Azure coordinates between the various compute targets you use so that your intermediate data can be shared with the downstream compute targets easily. 
 
