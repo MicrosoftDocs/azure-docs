@@ -124,7 +124,7 @@ Like Distcp, the AdlCopy needs to be orchestrated by something like Azure Automa
 
 Data Lake Storage Gen1 provides detailed diagnostic logs and auditing. Data Lake Storage Gen1 provides some basic metrics in the Azure portal under the Data Lake Storage Gen1 account and in Azure Monitor. Availability of Data Lake Storage Gen1 is displayed in the Azure portal. However, this metric is refreshed every seven minutes and cannot be queried through a publicly exposed API. To get the most up-to-date availability of a Data Lake Storage Gen1 account, you must run your own synthetic tests to validate availability. Other metrics such as total storage utilization, read/write requests, and ingress/egress can take up to 24 hours to refresh. So, more up-to-date metrics must be calculated manually through Hadoop command-line tools or aggregating log information. The quickest way to get the most recent storage utilization is running this HDFS command from a Hadoop cluster node (for example, head node):   
 
-    hdfs dfs -du -s -h adl://<adls_account_name>.azuredatalakestore.net:443/
+    hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
 
 ### Export Data Lake Storage Gen1 diagnostics 
 
