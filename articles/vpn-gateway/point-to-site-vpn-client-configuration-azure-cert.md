@@ -1,36 +1,22 @@
 ---
-title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: PowerShell: Azure | Microsoft Docs'
-description: Create and install Windows, Linux (strongSwan), and Mac OS X VPN client configuration files for P2S certificate authentication.
+title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: Azure | Microsoft Docs'
+description: Create and install Windows, Linux (strongSwan), Linux (Ubuntu), and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
 
 ---
 # Create and install VPN client configuration files for native Azure certificate authentication Point-to-Site configurations
 
-VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows, Mac IKEv2 VPN, or Linux client to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication.
+VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows, Mac IKEv2 VPN, or Linux clients to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication. For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
-
-### <a name="workflow"></a>P2S Workflow
-
-  1. Set up the Azure VPN gateway for a P2S connection.
-  2. Generate root certificate and client certificates. Upload the root certificate public key to Azure and install the client certificates on the client devices. The certificates are used for authenticating connecting users.
-  3. Obtain the VPN client configuration for the authentication option of your choice, and use it to set up the VPN client on your Windows and Mac devices. This lets you connect to Azure VNets over a Point-to-Site connection.
 
 >[!NOTE]
 >Client configuration files are specific to the VPN configuration for the VNet. If there are any changes to the Point-to-Site VPN configuration after you generate the VPN client configuration files, such as the VPN protocol type or authentication type, be sure to generate new VPN client configuration files for your user devices.
@@ -166,6 +152,10 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
 8. Click the **Network Manager** icon (up-arrow/down-arrow) and hover over **VPN Connections**. You see the VPN connection that you created. Click to initiate the connection.
+
+## <a name="installubuntu"></a>Install - Linux (Ubuntu)
+
+[!INCLUDE [ubuntu](../../includes/vpn-gateway-point-to-site-client-ubuntu-include.md)]
 
 ## Next steps
 
