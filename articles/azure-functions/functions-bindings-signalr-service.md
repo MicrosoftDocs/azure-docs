@@ -141,7 +141,7 @@ See the language-specific example:
 * [2.x C#](#2x-c-output-example)
 * [2.x JavaScript](#2x-javascript-output-example)
 
-### 2.x C# input example
+### 2.x C# output example
 
 #### Broadcast to all clients
 
