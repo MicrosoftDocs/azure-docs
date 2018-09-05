@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API cURL quickstart analyze a local image | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Analyze a local image - REST, cURL - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze a local image using Computer Vision with cURL in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Analyze a local image - REST, cURL
+# Quickstart: Analyze a local image - REST, cURL - Computer Vision
 
 In this quickstart, you analyze a local image to extract visual features using Computer Vision. To analyze a remote image, see [Analyze a remote image with cURL](curl-analyze.md).
 
