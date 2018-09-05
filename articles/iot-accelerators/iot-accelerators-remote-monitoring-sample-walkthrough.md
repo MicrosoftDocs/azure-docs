@@ -43,6 +43,17 @@ You can connect physical devices to the solution. You can implement the behavior
 
 You can provision physical devices from the dashboard in the solution portal.
 
+### Device simulation microservice
+
+The solution includes the [device simulation microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) that enables you to manage a pool of simulated devices from the solution dashboard to test the end-to-end flow in the solution. The simulated devices:
+
+* Generate device-to-cloud telemetry.
+* Respond to cloud-to-device method calls from IoT Hub.
+
+The microservice provides a RESTful endpoint for you to create, start, and stop simulations. Each simulation consists of a set of virtual devices of different types, that send telemetry and respond to method calls.
+
+You can provision simulated devices from the dashboard in the solution portal.
+
 ### IoT Hub
 
 The [IoT hub](../iot-hub/index.yml) ingests telemetry sent from both the physical and simulated devices into the cloud. The IoT hub makes the telemetry available to the services in the IoT solution backend for processing.
@@ -71,24 +82,13 @@ This service also runs IoT Hub queries to retrieve devices belonging to user-def
 
 The microservice provides a RESTful endpoint to manage devices and device twins, invoke methods, and run IoT Hub queries.
 
-### Device simulation microservice
-
-The solution includes the [device simulation microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) that enables you to manage a pool of simulated devices to test the end-to-end flow in the solution. The simulated devices:
-
-* Generate device-to-cloud telemetry.
-* Respond to cloud-to-device method calls from IoT Hub.
-
-The microservice provides a RESTful endpoint for you to create, start, and stop simulations. Each simulation consists of a set of virtual devices of different types, that send telemetry and respond to method calls.
-
-You can provision simulated devices from the dashboard in the solution portal.
-
 ### Telemetry microservice
 
 The [telemetry microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) provides a RESTful endpoint for read access to device telemetry, CRUD operations on rules, and read/write access for alarm definitions from storage.
 
 ### Storage adapter microservice
 
-The [storage adapter microservice](https://github.com/Azure/pcs-storage-adapter-dotnet) manages key-value pairs, abstracting the storage service semantics, and presenting a simple interface to store data of any format using Azure Cosmos DB.
+The [storage adapter microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/storage-adapter) manages key-value pairs, abstracting the storage service semantics, and presenting a simple interface to store data of any format using Azure Cosmos DB.
 
 Values are organized in collections. You can work on individual values or fetch entire collections. Complex data structures are serialized by the clients and managed as simple text payload.
 
@@ -141,7 +141,7 @@ The configuration microservice enables the user interface to store and retrieve 
 
 ## Next steps
 
-If you want to explore the source code and developer documentation, start with one the two GitHub repositories:
+If you want to explore the source code and developer documentation, start with one of the two GitHub repositories:
 
 * [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Solution accelerator for Remote Monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
