@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Tutorial: Create an alias record to refer to a zone resource record
 
-Alias records reference other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME recordset of the same type. This is useful if you want to have some record sets as aliases and some as non-aliases in terms of behavior.
+Alias records can reference other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME record set of the same type. This is useful if you want to have some record sets as aliases and some as non-aliases in terms of behavior.
 
 In this tutorial, you learn how to:
 
@@ -36,29 +36,31 @@ Create an alias record that points to a resource record in the zone.
 ### Create the target resource record
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
-3. In the **Name** text box **note**.
-4. For the **Type**,** select **TXT**.
-5. In the **VALUE** text box, type **This is an alias record test** for the TXT record data.
-7. Click **OK**.
+3. In the **Name** text box **server**.
+4. For the **Type**,** select **A**.
+5. In the **IP ADDRESS** text box, type **10.10.10.10**.
+6. Click **OK**.
 
 ### Create the alias record
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
 3. In the **Name** text box **test**.
-4. For the **Type**, select **TXT**.
-5. Click the **Alias Record Set** check box.
-6. Need UI for the next step.
+4. For the **Type**, select **A**.
+5. Click **Yes** in the **Alias Record Set** check box and select the **Zone record set** option.
+6. For the **Zone record set**, select the **server** record.
+7. Click **OK**.
 
 ## Test the alias record
 
-1. Go to NSlookup site.
-2. look up the TXT record and alias record.
-3. Change the TXT record data.
-4. Lookup th alias record and note the change.
+1. Start you favorite nslookup tool. One option is to browse to [https://network-tools.com/nslook](https://network-tools.com/nslook).
+2. Set the query type for A records and lookup **test.\<your domain name\>**.
+3. In the Azure portal, change the **server** A record to **10.11.11.11**.
+4. Wait a few minutes, and then use nslookup again for **test** record.
+5. You should get **10.11.11.11** as the answer.
 
 ## Clean up resources
 
-When no longer needed, you can delete the **note** and **test** resource records in your zone.
+When no longer needed, you can delete the **server** and **test** resource records in your zone.
 
 
 ## Next steps
