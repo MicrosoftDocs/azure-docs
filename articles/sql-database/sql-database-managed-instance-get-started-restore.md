@@ -76,4 +76,5 @@ With SSMS, use the following steps to restore the Wide World Importers database 
 
 ## Next steps
 
-For more information about Managed Instances, see [What is a Managed Instance](sql-database-managed-instance.md).
+- For more information about Managed Instances, see [What is a Managed Instance](sql-database-managed-instance.md).
+- To query using one of your favorite tools or languages, see [connect and query](sql-database-connect-query.md).

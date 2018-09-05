@@ -1262,6 +1262,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md",
+            "redirect_url": "/azure/sql-database/sql-database-get-started-restore",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
             "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
             "redirect_document_id": false

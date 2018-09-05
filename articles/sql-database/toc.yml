@@ -28,7 +28,7 @@
     - name: Import BACPAC into a single database
       href: sql-database-import.md
     - name: Restore a database backup to a Managed Instance
-      href: sql-database-managed-instance-restore-from-backup-tutorial.md#restore-the-wide-world-importers-database-from-a-backup-file
+      href: sql-database-managed-instance-get-started-restore.md
   - name: Query
     href: sql-database-connect-query.md
     items:
