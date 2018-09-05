@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jerkin
 ---
-# Tutorial: Single-page Web app
+# Tutorial: Display images within a single-page Web app
 
-The Bing Image Search API lets you search the Web and obtain image results relevant to the search query. In this tutorial, we build a single-page Web application that uses the Bing Image Search API to display search results right in the page. The application includes HTML, CSS, and JavaScript components.
+The Bing Image Search API enables you search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage.
 
 <!-- Remove until we can sanitize images
 ![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
@@ -25,22 +25,25 @@ The tutorial app illustrates how to:
 
 > [!div class="checklist"]
 > * Perform a Bing Image Search API call in JavaScript
-> * Pass search options to the Bing Image Search API
-> * Display search results
-> * Page through search results
-> * Handle the Bing client ID and API subscription key
-> * Handle errors that might occur
-
-The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or even image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
+> * Improve search results using search options 
+> * Display and page through search results
+> * Request and handle an API subscription key, and Bing client ID.
 
 In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](tutorial-bing-image-search-single-page-app-source.md). Copy and paste this code into a text editor and save it as `bing.html`.
 
 > [!NOTE]
 > This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with image search results.
 
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+## Prerequisites
+
+* The latest version of [Node.js](https://nodejs.org/).
+* The [Express.js](https://expressjs.com/) framework for Node.js.
+
 ## App components
 
-Like any single-page Web app, the tutorial application includes three parts:
+Like any single-page web app, the tutorial application includes three parts:
 
 > [!div class="checklist"]
 > * HTML - Defines the structure and content of the page
