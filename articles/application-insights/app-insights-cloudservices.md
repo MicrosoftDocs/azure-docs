@@ -6,22 +6,20 @@ documentationcenter: ''
 keywords: "WAD2AI, Azure Diagnostics"
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
-
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
 
 ---
 # Application Insights for Azure Cloud Services
 [Microsoft Azure Cloud service apps](https://azure.microsoft.com/services/cloud-services/) can be monitored by [Application Insights][start] for availability, performance, failures, and usage by combining data from Application Insights' SDKs with [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your Cloud Services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
-![Example](./media/app-insights-cloudservices/sample.png)
+![Screenshot of overview dashboard](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## Before you start
 You'll need:
@@ -80,7 +78,6 @@ If you've decided to create a separate resource for each role - and perhaps a se
     ![Click New, Application Insights](./media/app-insights-cloudservices/01-new.png)
 2. Note that each resource is identified by an Instrumentation Key. You might need this later if you want to manually configure or verify the configuration of the SDK.
 
-    ![Click Properties, select the key, and press ctrl+C](./media/app-insights-cloudservices/02-props.png) 
 
 ## Set up Azure Diagnostics for each role
 Set this option to monitor your app with Application Insights. For web roles, this provides performance monitoring, alerts, and diagnostics, as well as usage analysis. For other roles, you can search and monitor Azure diagnostics such as restart, performance counters, and calls to System.Diagnostics.Trace. 
@@ -194,7 +191,7 @@ For web roles, these counters are also collected:
 
 You can specify additional custom or other windows performance counters by editing ApplicationInsights.config [as in this example](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![Performance counters](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![Performance counters](./media/app-insights-cloudservices/002-servers.png)
 
 ## Correlated Telemetry for Worker Roles
 It is a rich diagnostic experience, when you can see what led to a failed or high latency request. With web roles, the SDK automatically sets up correlation between related telemetry. 
@@ -205,11 +202,7 @@ Here's how:
 
 * Set the correlation Id into a CallContext as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). In this case, we are using the Request ID as the correlation id
 * Add a custom TelemetryInitializer implementation, to set the Operation.Id to the correlationId set above. There's an example here: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Add the custom telemetry initializer. You could do that in the ApplicationInsights.config file, or in code as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
-
-That's it! The portal experience is already wired up to help you see all associated telemetry at a glance:
-
-![Correlated telemetry](./media/app-insights-cloudservices/bHxuUhd.png)
+* Add the custom telemetry initializer. You could do that in the ApplicationInsights.config file, or in code as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## Client telemetry
 [Add the JavaScript SDK to your web pages][client] to get browser-based telemetry such as page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.
