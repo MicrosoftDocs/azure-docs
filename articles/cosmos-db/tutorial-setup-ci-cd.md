@@ -49,7 +49,7 @@ Finally, select the desired template for the build definition. We'll select the 
 
 ![Select the desired build definition template ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
 
-Now we have a build definition that we can set up to use the Azure Cosmos DB Emulator build task that looks like the one below. 
+Now we have a build definition that we can set up to use the Azure Cosmos DB emulator build task that looks like the one below. 
 
 ![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_4.png)
 
@@ -58,7 +58,7 @@ Now we have a build definition that we can set up to use the Azure Cosmos DB Emu
 To add the emulator build task, search for **cosmos** in the search box and select **Add.** The build task will start up a container with an instance of the Cosmos DB emulator already running, so the task needs to be placed before any other tasks that expect the emulator to be running.
 
 ![Add the Emulator build task to the build definition](./media/tutorial-setup-ci-cd/addExtension_3.png)
-In this tutorial, we'll add the task to the beginning of Phase 1 to ensure the Emulator is available before our tests execute.
+In this tutorial, we'll add the task to the beginning of Phase 1 to ensure the emulator is available before our tests execute.
 The completed build definition now looks like this. 
 
 ![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_5.png)
@@ -137,7 +137,7 @@ Now, save and queue the build.
 
 ![Save and run the build](./media/tutorial-setup-ci-cd/runBuild_1.png)
 
-Once the build has started, observe the Cosmos DB Emulator task has begun pulling down the Docker image with the Emulator installed. 
+Once the build has started, observe the Cosmos DB emulator task has begun pulling down the Docker image with the emulator installed. 
 
 ![Save and run the build](./media/tutorial-setup-ci-cd/runBuild_4.png)
 
@@ -147,6 +147,6 @@ After the build completes, observe that your tests pass, all running against the
 
 ## Next steps
 
-To learn more about using the Emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
+To learn more about using the emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
 
-To export Emulator SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)
+To export emulator SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)
