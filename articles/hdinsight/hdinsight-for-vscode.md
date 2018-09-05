@@ -99,7 +99,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
     - Submit Hive batch scripts
     - Submit interactive PySpark queries
     - Submit PySpark batch scripts
-    - Set configurations
+    - Set configuration
 
 <h3 id="linkcluster">To link a cluster</h3>
 
@@ -126,7 +126,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a Cluster**.
 2. Select **Generic Livy Endpoint**.
-3. Enter the generic livy endpoint, for example: http://10.172.41.42:18080
+3. Enter the generic livy endpoint, for example: http://10.172.41.42:18080.
 4. Select **Basic** when need authorization for the generic livy endpoint, otherwise, select **None**.
 5. Input user name when select **Basic** in step4.
 6. Input password when select **Basic** in step4.
@@ -167,9 +167,9 @@ To test the connection, you can list your HDInsight clusters:
 
    ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
-## Submit interactive Hive queries
+## Submit interactive Hive queries, Hive batch scripts
 
-With HDInsight Tools for VS Code, you can submit interactive Hive queries to HDInsight interactive query clusters.
+With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive batch scripts to HDInsight clusters.
 
 1. Create a new work folder and a new Hive script file if you don't already have them.
 
@@ -180,36 +180,15 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries to HDI
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Right-click the script editor, and then select **HDInsight: Hive Interactive** to submit the query, select the cluster when need. The tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query results appear in a new tab.
+4. Right-click the script editor, select **HDInsight: Hive Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**. Select **HDInsight: Hive Batch** to submit the script, or use shortcut **Ctrl + Alt + H**. 
+
+5. Select the cluster when need. The tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query results appear in a new tab.
 
    ![Interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
     - **RESULTS** panel: You can save the whole result as CSV, JSON, or Excel file to local path, or just select multiple lines.
 
     - **MESSAGES** panel: When you select **Line** number, it jumps to the first line of the running script.
-
-Running the interactive query takes much less time than [running a Hive batch job](#submit-hive-batch-scripts).
-
-## Submit Hive batch scripts
-
-1. Create a new work folder and a new Hive script file if you don't already have them.
-
-2. Connect to your Azure account or link clusters.
-
-3. Copy and paste the following code into your Hive file, and then save it.
-
-    ```hiveql
-    SELECT * FROM hivesampletable;
-    ```
-4. Right-click the script editor, and then select **HDInsight: Hive Batch** to submit a Hive job. 
-
-5. Select the cluster to which you want to submit when need.  
-
-    After you submit a Hive job, the submission success info and jobid appears in the **OUTPUT** panel. The Hive job also opens **WEB BROWSER**, which shows the real-time job logs and status.
-
-   ![submit Hive job result](./media/hdinsight-for-vscode/submit-Hivejob-result.png)
-
-[Submitting interactive Hive queries](#submit-interactive-hive-queries) takes much less time than submitting a batch job.
 
 ## Submit interactive PySpark queries
 
@@ -233,7 +212,7 @@ Running the interactive query takes much less time than [running a Hive batch jo
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Highlight these scripts. Then right-click the script editor and select **HDInsight: PySpark Interactive**.
+4. Highlight these scripts. Then right-click the script editor and select **HDInsight: PySpark Interactive**, or use shortcut **Ctrl + Alt + I**.
 
 5. If you haven't already installed the **Python** extension in VS Code, select the **Install** button as shown in the following illustration:
 
@@ -309,7 +288,7 @@ Follow the steps to use Python2.x:
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. Right-click the script editor, and then select **HDInsight: PySpark Batch**. 
+4. Right-click the script editor, and then select **HDInsight: PySpark Batch**, or use shortcut **Ctrl + Alt + H**. 
 
 5. Select a cluster to which to submit your PySpark job. 
 
