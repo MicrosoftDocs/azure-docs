@@ -9274,6 +9274,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-overview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
             "redirect_document_id": false
