@@ -1,5 +1,5 @@
 ---
-title: 'Introduction to Azure Cosmos DB Graph APIs | Microsoft Docs'
+title: 'Introduction to Azure Cosmos DB Gremlin API | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
 services: cosmos-db
 author: LuisBosquez
@@ -14,7 +14,7 @@ ms.author: lbosq
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---
-# Introduction to Azure Cosmos DB: Graph API
+# Introduction to Azure Cosmos DB: Gremlin API
 
 [Azure Cosmos DB](introduction.md) is the globally distributed, multimodel database service from Microsoft for mission-critical applications. Azure Cosmos DB provides the following features, which are all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/):
 
@@ -26,7 +26,7 @@ experiment_id: "662dc5fd-886f-4a"
 
 Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multimodel and supports document, key-value, graph, and columnar data models.
 
-The Azure Cosmos DB Graph API provides:
+The Azure Cosmos DB Gremlin API provides:
 
 - Graph modeling.
 - Traversal APIs.
@@ -38,7 +38,7 @@ The Azure Cosmos DB Graph API provides:
 
 To query Azure Cosmos DB, you can use the [Apache TinkerPop](http://tinkerpop.apache.org) graph traversal language, or [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
-This article provides an overview of the Azure Cosmos DB Graph API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily.
+This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily.
 
 ## Graph database
 Data as it appears in the real world is naturally connected. Traditional data modeling focuses on entities. For many applications, there's also a need to model or to model both entities and relationships naturally.
@@ -93,7 +93,7 @@ Azure Cosmos DB offers the following differentiated capabilities when compared t
 Azure Cosmos DB also can use multiple models, like document and graph, within the same containers/databases. You can use a document container to store graph data side by side with documents. You can use both SQL queries over JSON and Gremlin queries to query the same data as a graph.
 
 ## Get started
-You can use the Azure command-line interface (CLI), Azure PowerShell, or the Azure portal with support for graph API to create Azure Cosmos DB accounts. After you create accounts, the Azure portal provides a service endpoint, like `https://<youraccount>.gremlin.cosmosdb.azure.com`, that provides a WebSocket front end for Gremlin. You can configure your TinkerPop-compatible tools, like the [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), to connect to this endpoint and build applications in Java, Node.js, or any Gremlin client driver.
+You can use the Azure command-line interface (CLI), Azure PowerShell, or the Azure portal with support for Gremlin API to create Azure Cosmos DB accounts. After you create accounts, the Azure portal provides a service endpoint, like `https://<youraccount>.gremlin.cosmosdb.azure.com`, that provides a WebSocket front end for Gremlin. You can configure your TinkerPop-compatible tools, like the [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), to connect to this endpoint and build applications in Java, Node.js, or any Gremlin client driver.
 
 The following table shows popular Gremlin drivers that you can use against Azure Cosmos DB:
 
