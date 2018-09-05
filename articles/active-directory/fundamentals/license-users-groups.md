@@ -1,25 +1,70 @@
 ---
-title: License users in Azure AD | Microsoft Docs
-description: Learn how to license yourself and your users in Azure Active Directory.
+title: How to assign Azure Active Directory licenses to users | Microsoft Docs
+description: Assign Azure Active Directory licenses to yourself and your users using the Azure Active Directory portal.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 08/22/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: lizross
-ms.reviewer: jeffgilb
+ms.reviewer: jeffsta
 custom: it-pro
 ---
 
-# Quickstart: License users in Azure Active Directory
+# How to: Assign Azure Active Directory licenses to users
+Many Azure Active Directory (Azure AD) services require you to activate an Azure AD product and to license each of your users for that product. Only users with active licenses will be able to access and use the licensed Azure AD services.
+
+## Available product editions
+There are several editions available for the Azure AD product.
+
+- Azure AD Free
+
+- Azure AD Basic
+
+- Azure AD Premium 1 (Azure AD P1)
+
+- Azure AD Premium 2 (Azure AD P2)
+
+For specific information about each product edition and the associatetd licensing details, see [What license do I need?](../authentication/concept-sspr-licensing.md)
+
+## Product edition and license details
+Your product, and as a result your individual licenses, have expiration dates and a limited number of assignments available.
+
+### To find your product and license details
+1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+
+2. Select **Azure Active Directory**, and then select **Licenses**.
+
+    The **Licenses** blade appears.
+
+    ![Licenses blade, showing the number of purchased products and assigned licenses](media/license-users-groups/license-details-blade.png)
+    
+3. Select the **Purchased products** link to view the **Products** blade and to see the **Assigned**, **Available**, and **Expiring soon** details for each specific product edition.
+
+    ![Product blade, with product editions and associated license info](media/license-users-groups/license-products-blade-with-products.png)
+
+4. Select a product edition name to see its licensed users and groups.
+
+## Assign licenses to users
+You must make sure that anyone that needs to use the licensed Azure AD services must have a license that includes the appropriate product edition for that service.
+
+
+
+
+
+
+
+
+
+
+
+
+
 License-based Azure AD services work by activating an Azure Active Directory (Azure AD) subscription in your Azure tenant. After the subscription is active, service capabilities are managed by Azure AD administrators and used by licensed users. When you purchase Enterprise Mobility + Security, Azure AD Premium, or Azure AD Basic, your tenant is updated with the subscription, including its validity period and prepaid licenses. Your subscription information, including the number of assigned or available licenses, is available through the Azure portal under **Azure Active Directory** by opening the **Licenses** tile. The **Licenses** blade is also the best place to manage your license assignments.
 
 Although obtaining a subscription is all you need to configure paid capabilities, you must still assign user licenses for paid Azure AD paid features. Any user who should have access to, or who is managed through, an Azure AD paid feature must be assigned a license. License assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility + Security.
@@ -90,3 +135,6 @@ You can use the following link to configure subscription license assignments in 
 
 > [!div class="nextstepaction"]
 > [Assign Azure AD licenses](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Overview) 
+
+authentication/concept-sspr-licensing.md
+[group-based license assignment](active-directory-licensing-whatis-azure-portal.md)

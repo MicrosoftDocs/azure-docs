@@ -11,9 +11,9 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/05/2018
+ms.date: 09/05/2018
 ms.author: lizross
-ms.reviewer: sahenry
+ms.reviewer: jeffsta
 ms.custom: it-pro
 
 ---
