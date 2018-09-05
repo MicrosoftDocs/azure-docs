@@ -116,7 +116,7 @@ You can also use AdlCopy to copy data between two Data Lake Storage Gen1 account
         Copy Completed. 1 file copied.
 3. The following command copies all files from a specific folder in the source Data Lake Storage Gen1 account to a folder in the destination Data Lake Storage Gen1 account.
 
-        AdlCopy /Source adl://mydatastore.azuredatalakestorage.net/mynewfolder/ /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
+        AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
 ### Performance considerations
 
