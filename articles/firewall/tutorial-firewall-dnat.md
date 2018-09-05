@@ -232,10 +232,9 @@ Under **Rules**:
 
 ## Test the firewall
 
-1. From the Azure portal, review the network settings for the **Srv-Workload** virtual machine and note the private IP address.
-2. Connect a remote desktop to firewall public IP address. You should be connected to the **Srv-Workload** virtual machine.
+1. Connect a remote desktop to firewall public IP address. You should be connected to the **Srv-Workload** virtual machine.
 3. Close the remote desktop.
-4. Change the RC-DNAT-01 rule action to **Deny**.
+4. Change the **RC-Net-01** network rule collection action to **Deny**.
 5. Try to connect to firewall public IP address again. This time it should not succeed because of the **Deny** rule.
 
 
