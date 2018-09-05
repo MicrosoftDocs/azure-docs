@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/29/2018
+ms.date: 09/04/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
 # Overview – About Dedicated HSM
 
-The Azure Dedicated HSM service provides a cryptographic key storage capability within Microsoft’s Azure Cloud that meets the most stringent security requirements. For customers requiring FIPS 140-2 Level 3 certification and sole access to, and complete control of the HSM devices, this would be the ideal solution. The HSM devices are distributed globally across Microsoft’s datacenters and can be easily provisioned as a single device, or devices distributed across regions for a highly available solution. Microsoft has partnered with Gemalto for the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) device which offers the highest levels of performance and capability.  Azure virtual private networking is used to provide access to the devices and potentially connect to a customers on-premises applications and management capabilities. Once provisioned, Gemalto will make available all software components required and Microsoft will ensure the highest levels of access to the devices.
+Azure Dedicated HSM provides a cryptographic key storage in Azure that meets the most stringent security requirements. Dedicated HSM is the ideal solution for customers requiring FIPS 140-2 Level 3 certification and complete and exclusive control of the HSM devices. The HSM devices are distributed globally across Microsoft’s datacenters and can be easily provisioned as a single device, or devices. HSMs may be distributed across regions for a highly available solution. Microsoft has partnered with Gemalto to provide the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). This device offers the highest levels of performance and functionality.  Azure virtual private networking is used to give access to the devices and potentially connect to a customer's on-premises applications and management tools. Once provisioned, Gemalto will supply all of the software components required and Microsoft will ensure the highest levels of access to the devices.
 
 ## Why use Azure dedicated HSM?
 
 ### FIPS 140-2 Level 3 Compliance
 
-Many of our customers have industry regulations that dictate cryptographic key storage must comply with [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final). Microsoft’s multi-tenant Azure Key Vault service currently only provides FIPS 140-2 Level 2 certification and hence Azure Dedicated HSM fulfills a real need for our customers predominantly in the financial services industry and government agencies.
+Many environments must follow industry regulations that dictate cryptographic key storage meets [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) requirements. Microsoft’s multi-tenant Azure Key Vault service currently only provides FIPS 140-2 Level 2 certification. Azure Dedicated HSM fulfills a real need for financial services industry, government agencies, and others who must meet FIPS 140-2 Level 3 requirements.
 
 ### Single Tenant Devices
 
-Many of our customers have a requirement for single tenancy of the cryptographic storage device. The Azure Dedicated HSM service will allow for provisioning of a physical device from one of Microsoft’s globally distributed datacenters and once access is provided to the customer, only that customer will make any use of the device provisioned.  
+Many of our customers have a requirement for single tenancy of the cryptographic storage device. The Azure Dedicated HSM service will allow for provisioning of a physical device from one of Microsoft’s globally distributed datacenters. Once access is provided to the customer, only that customer will be able of using it.  
 
 ### Full Administrative Control
 
@@ -37,7 +37,7 @@ As well as single tenant devices, many customers require full administrative con
 
 ### High Performance
 
-The Gemalto device was specifically selected for this service as it provides a broad range of cryptographic support, a variety of operating system support and broad API support as well as offering excellent performance. The specific model deployed offers 10,000 tps for RSA-2048 and also supports 10 partitions for unique application instances. This is low latency, high capacity and high throughput.
+The Gemalto device was selected for this service due to its broad range of cryptographic support, variety of operating systems supported and broad API support.  The specific model deployed offers excellent performance with 10,000 transactions per second (TPS) for RSA-2048. It supports 10 partitions that can be used for unique application instances. This is low latency, high capacity, and high throughput.
 
 ### Unique Cloud-based Offering
 
@@ -53,7 +53,7 @@ Most suitable for “lift-and-shift” scenarios that require direct and sole ac
 
 - Migrating applications from on-premises to Azure Virtual Machines
 - Migrating applications from Amazon AWS EC2 to Azure Virtual Machines that use the AWS Cloud HSM Classic service (Amazon is not offering this service to new customers)
-- Running shrink-wrapped software in Azure Virtual Machines such as Apache/Ngnix SSL Offload, Oracle TDE and ADCS
+- Running shrink-wrapped software in Azure Virtual Machines such as Apache/Ngnix SSL Offload, Oracle TDE, and ADCS
 
 ### Not a Fit
 
@@ -80,7 +80,7 @@ Many scenarios will depend on a potential complex mix of requirements and what c
 
 ## Next Steps
 
-Considering the highly specialized nature of this service, it is recommended that some of the key concepts found in this documentation set are fully understood, the pricing, support and service level agreements are fully understood, and then a Quickstart is available to facilitate hands-on use of an HSM. Gemalto integration guides and how-to guides for deciding deployment architecture are also a great resource.
+Considering the highly specialized nature of this service, it is recommended that some of the key concepts found in this documentation set are fully understood, the pricing, support, and service level agreements are fully understood, and then a Quickstart is available to facilitate hands-on use of an HSM. Gemalto integration guides and how-to guides for deciding deployment architecture are also a great resource.
 
 - Key Concepts
 - Pricing
