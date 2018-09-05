@@ -59,6 +59,29 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with an SSH public key will not have access to the serial console. To create a local user with password, use the [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (also available in the portal by clicking "Reset password") and create a local user with a password.
 
+## Access Serial Console for Linux
+In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
+
+Distro      | Serial Console access
+:-----------|:---------------------
+Red Hat Enterprise Linux    | Red Hat Enterprise Linux Images available on Azure have console access enabled by default. 
+CentOS      | CentOS images available on Azure have console access enabled by default. 
+Ubuntu      | Ubuntu images available on Azure have console access enabled by default.
+CoreOS      | CoreOS images available on Azure have console access enabled by default.
+SUSE        | Newer SLES images available on Azure have console access enabled by default. If you are using older versions (10 or below) of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
+Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
+Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
+
+## Common scenarios for accessing serial console 
+Scenario          | Actions in serial console                
+:------------------|:-----------------------------------------
+Broken FSTAB file | `Enter` key to continue and fix fstab file using a text editor. You may need to be in single user mode for this. See [how to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started.
+Incorrect firewall rules | Access serial console and fix iptables. 
+Filesystem corruption/check | Access serial console and recover filesystem. 
+SSH/RDP configuration issues | Access serial console and change settings. 
+Network lock down system| Access serial console via portal to manage system. 
+Interacting with bootloader | Access GRUB via the serial console. Go to [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. 
+
 ## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
 
@@ -116,32 +139,6 @@ If a user is connected to serial console and another user successfully requests 
 
 >[!CAUTION] 
 This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap. For Windows there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. To do this simply add `export TMOUT=600` in your .bash_profile or .profile for the user you logon in the console with, to timeout the session after 10 minutes.
-
-### Disable feature
-The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
-
-## Common scenarios for accessing serial console 
-Scenario          | Actions in serial console                
-:------------------|:-----------------------------------------
-Broken FSTAB file | `Enter` key to continue and fix fstab file using a text editor. You may need to be in single user mode for this. See [how to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started.
-Incorrect firewall rules | Access serial console and fix iptables. 
-Filesystem corruption/check | Access serial console and recover filesystem. 
-SSH/RDP configuration issues | Access serial console and change settings. 
-Network lock down system| Access serial console via portal to manage system. 
-Interacting with bootloader | Access GRUB via the serial console. Go to [Using Serial Console to access GRUB and Single User Mode](serial-console-grub-single-user-mode.md) to get started. 
-
-## Access Serial Console for Linux
-In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
-
-Distro      | Serial Console access
-:-----------|:---------------------
-Red Hat Enterprise Linux    | Red Hat Enterprise Linux Images available on Azure have console access enabled by default. 
-CentOS      | CentOS images available on Azure have console access enabled by default. 
-Ubuntu      | Ubuntu images available on Azure have console access enabled by default.
-CoreOS      | CoreOS images available on Azure have console access enabled by default.
-SUSE        | Newer SLES images available on Azure have console access enabled by default. If you are using older versions (10 or below) of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
-Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
-Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
 
 ## Accessibility
 Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is accessible for those with visual and hearing impairments, as well as people who may not be able to use a mouse.
