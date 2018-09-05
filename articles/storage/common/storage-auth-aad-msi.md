@@ -12,7 +12,7 @@ ms.component: common
 
 # Authenticate with Azure AD from an Azure Managed Service Identity (Preview)
 
-Azure Storage supports Azure Active Directory (Azure AD) authentication with [Managed Service Identity](../../active-directory/managed-service-identity/overview.md). Managed Service Identity (MSI) provides an automatically managed identity in Azure Active Directory (Azure AD). You can use MSI to authenticate to Azure Storage from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others. By using MSI and leveraging the power of Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+Azure Storage supports Azure Active Directory (Azure AD) authentication with [Managed Service Identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed Service Identity (MSI) provides an automatically managed identity in Azure Active Directory (Azure AD). You can use MSI to authenticate to Azure Storage from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others. By using MSI and leveraging the power of Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
 To grant permissions to a managed service identity for storage containers or queues, you assign an RBAC role encompassing storage permissions to the MSI. For more information about RBAC roles in storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md). 
 
@@ -28,14 +28,14 @@ This article shows how to authenticate to Azure Storage with MSI from an Azure V
 Before you can use MSI to authenticate to Azure Storage from your VM, you must first enable MSI on the VM. To learn how to enable MSI, see one of these articles:
 
 - [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager Template](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure SDKs](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager Template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure SDKs](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## Get an MSI access token
 
-To authenticate with MSI, your application or script must acquire an MSI access token. To learn about how to acquire an access token, see [How to use an Azure VM Managed Service Identity (MSI) for token acquisition](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+To authenticate with MSI, your application or script must acquire an MSI access token. To learn about how to acquire an access token, see [How to use an Azure VM Managed Service Identity (MSI) for token acquisition](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## .NET code example: Create a block blob
 

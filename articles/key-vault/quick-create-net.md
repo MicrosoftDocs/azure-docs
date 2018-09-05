@@ -22,7 +22,7 @@ In this quickstart, you follow the necessary steps for getting an Azure web appl
 > * Store a secret in the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure web application.
-> * [Enable managed service identities](../active-directory/managed-service-identity/overview.md).
+> * [Enable managed service identities](../active-directory/managed-identities-azure-resources/overview.md).
 > * Grant the required permissions for the web application to read data from the key vault.
 
 Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
@@ -30,7 +30,7 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
 >[!NOTE]
 >Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. To follow security best practices, this first secret needs to be rotated periodically. 
 >
->With [Managed Service Identity](../active-directory/managed-service-identity/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
+>With [Managed Service Identity](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
 
 ## Prerequisites
 

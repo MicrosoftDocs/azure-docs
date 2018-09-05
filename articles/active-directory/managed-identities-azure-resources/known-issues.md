@@ -80,7 +80,7 @@ Where:
 
 When managed identities for Azure resources is enabled on a VM, the following error is shown when attempting to use the “Automation script” feature for the VM, or its resource group:
 
-![Managed identities for Azure resources automation script export error](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
+![Managed identities for Azure resources automation script export error](./media/msi-known-issues/automation-script-export-error.png)
 
 The managed identities for Azure resources VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
 

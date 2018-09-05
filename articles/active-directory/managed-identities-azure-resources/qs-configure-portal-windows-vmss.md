@@ -50,7 +50,7 @@ To enable the system-assigned managed identity on a virtual machine scale set th
 
 3. Under **System assigned**, **Status**, select **On** and then click **Save**:
 
-   [![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ### Remove system-assigned managed identity from a virtual machine scale set
 
@@ -62,7 +62,7 @@ If you have a virtual machine scale set that no longer needs a system-assigned m
 
 3. Under **System assigned**, **Status**, select **Off** and then click **Save**:
 
-   ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
+   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
 ## User-assigned managed identity
 

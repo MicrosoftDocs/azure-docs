@@ -27640,11 +27640,6 @@
             "source_path": "articles/active-directory/managed-service-identity/services-support-msi.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-msi",
             "redirect_document_id" : true
-        },
-        {
-            "source_path": "articles/active-directory/managed-service-identity/index.yml",
-            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/index",
-            "redirect_document_id" : true
         }
     ]
 }
