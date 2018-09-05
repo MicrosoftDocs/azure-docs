@@ -79,4 +79,4 @@ The following JSON response illustrates what Computer Vision returns when taggin
 
 ## Next steps
 
-Learn concepts about [categorizing images](concept-categorizing-images) and [describing images](concept-describing-images).
+Learn concepts about [categorizing images](concept-categorizing-images.md) and [describing images](concept-describing-images.md).
