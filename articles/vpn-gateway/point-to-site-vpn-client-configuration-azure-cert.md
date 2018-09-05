@@ -1,6 +1,6 @@
 ---
 title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: Azure | Microsoft Docs'
-description: Create and install Windows, Linux (strongSwan), Linux (Ubuntu), and Mac OS X VPN client configuration files for P2S certificate authentication.
+description: Create and install Windows, Linux, Linux (strongSwan), and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 author: cherylmc
 
@@ -153,9 +153,9 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
 8. Click the **Network Manager** icon (up-arrow/down-arrow) and hover over **VPN Connections**. You see the VPN connection that you created. Click to initiate the connection.
 
-## <a name="installubuntu"></a>Install - Linux (Ubuntu)
+## <a name="linux"></a>Install - Linux
 
-[!INCLUDE [ubuntu](../../includes/vpn-gateway-point-to-site-client-ubuntu-include.md)]
+[!INCLUDE [linux](../../includes/vpn-gateway-point-to-site-client-linux-include.md)]
 
 ## Next steps
 

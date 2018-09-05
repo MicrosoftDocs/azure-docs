@@ -12,27 +12,14 @@ ms.author: cherylmc
 ---
 # Generate and export certificates for Point-to-Site using Linux
 
-Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using Linux. If you are looking for instructions to generate certificates using PowerShell or MakeCert, see:
+Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using Linux. If you are looking for different certificate instructions, see [Certificates - PowerShell](vpn-gateway-certificates-point-to-site.md) or [Certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
 
-> [!div class="op_single_selector"]
-> * [Create self-signed certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Create self-signed certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> 
-> 
+The computer configuration used for the steps for this article was the following:
 
-The configuration used for this article is:
-
-**Computer:**
-
-Ubuntu Server 16.04<br>
-ID_LIKE=debian<br>
-PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>
-VERSION_ID="16.04"
-
-**Dependencies:**
-
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls<br>
-apt-get install libstrongswan-standard-plugins
+| | |
+|---|---|
+|**Computer**| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
+|**Dependencies**| apt-get install strongswan-ikev2 strongswan-plugin-eap-tls<br>apt-get install libstrongswan-standard-plugins |
 
 ## Generate keys and certificate
 
@@ -64,4 +51,4 @@ apt-get install libstrongswan-standard-plugins
 
 ## Next steps
 
-Continue with your Point-to-Site configuration to [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#ubuntu).
+Continue with your Point-to-Site configuration to [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linux).
