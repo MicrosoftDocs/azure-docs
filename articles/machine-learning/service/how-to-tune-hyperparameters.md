@@ -11,7 +11,7 @@ author: swatig007
 ms.date: 09/24/2018
 ---
 
-# Tune Hyperparameters for your Deep Learning / Machine Learning models
+# Tune Hyperparameters for your model
 
 In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations and to find a 'good' configuration, that result in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be quite expensive.
 
@@ -65,7 +65,26 @@ param_sampling = GridParameterSampling( {
 ```
 
 ## Logging metrics for hyperparameter tuning
-
+In order to use Azure Machine Learning services for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric.
+You can update your training script to log this metric, using the following sample snippet -
+```Python
+run_logger.log("Accuracy", float(val_accuracy))
+```
+In this example, the training script calculates the val_accuracy and logs this "Accuracy", which is used as the primary metric. It is up to the model developer to determine how frequently to report this metric.
 
 ## Early Termination Policy
 When using Azure Machine Learning services to tune hyperparameters, poorly performing jobs are automatically early terminated. This reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
+
+Azure Machine Learning service supports the following Early Termination Policies -
+
+### Bandit Policy
+The Bandit Policy early terminates any runs that are not within the specified slack factor / slack amount with respect to the best performing training run. It takes only 3 configuration parameters -
+* `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric.
+* `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
+
+e.g. consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
+* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs.
+
+### Median Stopping Policy
+
+### Default Policy
