@@ -103,7 +103,7 @@ SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for au
 
 | Feature | Guidance |
 | ------- | -------- |
-| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using token issuance policies](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using Azure AD App Gallery SharePoint on premise app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [App authentication & server-to-server authentication in SharePoint on-prem](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Not affected by ACS retirement; no changes necessary. | 
 | [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Not affected by ACS retirement; no changes necessary. |

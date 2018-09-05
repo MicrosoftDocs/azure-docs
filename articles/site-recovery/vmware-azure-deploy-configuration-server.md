@@ -37,7 +37,7 @@ The sizing requirements for the configuration server depend on the potential dat
 | 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) |18 GB |600 GB |500 GB to 1 TB |Replicate 100-150 machines. |
 | 16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) |32 GB |1 TB |1 TB to 2 TB |Replicate 150-200 machines. |
 
-If you're replicating more than one VMware VM, read [capacity planning considerations](/site-recovery-plan-capacity-vmware.md). Run the [Deployment planner tool](site-recovery-deployment-planner.md) for VMWare replication.
+If you're replicating more than one VMware VM, read [capacity planning considerations](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Run the [Deployment planner tool](site-recovery-deployment-planner.md) for VMWare replication.
 
 ## Download the template
 
@@ -76,7 +76,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 1. In the vSphere Client inventory, right-click the VM and select **Edit Settings**.
 2. In **Hardware**, select **Add** > **Ethernet Adapter**. Then select **Next**.
-3. Select an adapter type and a network. 
+3. Select an adapter type and a network.
 4. To connect the virtual NIC when the VM is turned on, select **Connect at power-on**. Then select **Next** > **Finish** > **OK**.
 
 ## Register the configuration server with Azure Site Recovery services
@@ -97,7 +97,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
     > [!NOTE]
     > Once registered, there is no flexibility to change the recovery services vault.
-    
+
 3. In **Install third-party software**,
 
     |Scenario   |Steps to follow  |
@@ -139,6 +139,10 @@ If you want to add an additional NIC to the configuration server, add it before 
 ## Upgrade the configuration server
 
 To upgrade the configuration server to the latest version, read the steps given [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## Manage the configuration server
+
+To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ## Troubleshoot deployment issues
 
