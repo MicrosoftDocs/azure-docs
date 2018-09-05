@@ -21,6 +21,8 @@ A privileged role administrator can customize Azure AD Privileged Identity Manag
 
 ## Open role settings
 
+Follow these steps to open the settings for an Azure AD directory role.
+
 1. Open **Azure AD Privileged Identity Management**.
 
 1. Click **Azure AD directory roles**.
@@ -39,19 +41,19 @@ A privileged role administrator can customize Azure AD Privileged Identity Manag
 
 ## Activations
 
-The **Activations** slider is the maximum time, in hours, that a role stays active before it expires. This value can be between 1 and 72 hours.
+Use the **Activations** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be between 1 and 72 hours.
 
 ## Notifications
 
-The **Notifications** switch enables you to choose whether the system sends emails to administrators confirming that they have activated a role. This can be useful for detecting unauthorized or illegitimate activations.
+Use the **Notifications** switch to specify whether the system sends emails to administrators confirming that they have activated a role. This can be useful for detecting unauthorized or illegitimate activations.
 
 ## Incident/Request ticket
 
-The **Incident/Request ticket** switch enables you to choose whether to require eligible administrators to include a ticket number when they activate their role. This can be useful when you perform role access audits.
+Use the **Incident/Request ticket** switch to specify whether to require eligible administrators to include a ticket number when they activate their role. This can be useful when you perform role access audits.
 
 ## Multi-Factor Authentication
 
-The **Multi-Factor Authentication** switch enables you to choose whether to require users to verify their identity with MFA before they can activate their roles. They only have to verify this once per session, not every time they activate a role. There are two tips to keep in mind when you enable MFA:
+Use the **Multi-Factor Authentication** switch to specify whether to require users to verify their identity with MFA before they can activate their roles. They only have to verify this once per session, not every time they activate a role. There are two tips to keep in mind when you enable MFA:
 
 * Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure MFA. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable MFA for that role.
 * You cannot disable MFA for highly privileged roles for Azure AD and Office365. This is a safety feature because these roles should be carefully protected:  
@@ -75,13 +77,13 @@ The **Multi-Factor Authentication** switch enables you to choose whether to requ
   * Skype for Business administrator  
   * User account administrator  
 
-For more information about using MFA with PIM, see [Require multi-factor authentication for Azure AD directory roles in PIM](pim-how-to-require-mfa.md).
+For more information, see [Multi-factor authentication (MFA) and PIM](pim-how-to-require-mfa.md).
 
 ## Require approval
 
-The **Require approval** switch enables you to choose whether to require approval to activate this role.
+If you want to require approval to activate a role, follow these steps.
 
-1. When you set the switch to **Enabled**, the pane expands with options to select approvers.
+1. Set the **Require approval** switch to **Enabled**. The pane expands with options to select approvers.
 
     ![Azure AD directory roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -102,5 +104,5 @@ The **Require approval** switch enables you to choose whether to require approva
 
 ## Next steps
 
-- [Require multi-factor authentication for Azure AD directory roles in PIM](pim-how-to-require-mfa.md)
+- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
 - [Configure security alerts for Azure AD directory roles in PIM](pim-how-to-configure-security-alerts.md)

@@ -9,10 +9,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/15/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Extract handwritten text with Java
+# Quickstart: Extract handwritten text - REST, Java
 
 In this quickstart, you extract handwritten txt from an image using Computer Vision.
 
@@ -452,7 +452,7 @@ Text recognition result response:
 
 ## Next steps
 
-Explore a Java Swing application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a Java Swing application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Java Tutorial](../Tutorials/java-tutorial.md)
