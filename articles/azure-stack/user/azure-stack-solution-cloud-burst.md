@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
----
+---Kv
 
 # Create cross-cloud scaling solutions with Azure
 
@@ -31,11 +31,11 @@ In this tutorial, you will build a sample environment to:
 
 This Cross-Cloud solution provides a manually triggered process for switching from an Azure Stack Hosted Web app, to an Azure Hosted Web app with Auto-Scaling via Traffic Manager, ensuring flexible and scalable cloud utility when under load.
 
-> [!Information]  
-> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
-> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+> [!Note]
+![Design  Considerations for Hybrid Applications](https://docs.microsoft.com/en-us/media/illustrations/nuget-tools-reference_2.svg)
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.
+>  
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
 
 ## Prerequisites
 
