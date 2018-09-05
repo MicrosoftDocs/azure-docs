@@ -179,7 +179,13 @@ For example, to group all results from the same job execution together, use the 
 
 ## Monitor database performance
 
-The following example creates a new job to collect performance data from multiple databases.  
+The following example creates a new job to collect performance data from multiple databases.
+
+By default the job agent will look to create the table to store the returned results in. As a result the login associated with the credential used for the output credential will need to have sufficient permissions to perform this. If you want to manually create the table ahead of time then it needs to have the following properties:
+1. Columns with the correct name and data types for the result set.
+2. Additional column for internal_execution_id with the data type of uniqueidentifier.
+3. A nonclustered index named "IX_<TableName>_Internal_Execution_ID" on the internal_execution_id column.
+
 Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following commands:
 
 ```sql
