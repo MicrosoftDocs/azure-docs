@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/actve-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/batch/batch-dotnet-get-started.md",
             "redirect_url": "/azure/batch/quick-run-dotnet",
             "redirect_document_id": true
@@ -23485,11 +23490,6 @@
         {
             "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/privileged-identity-management/index.md",
-            "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
             "redirect_document_id": false
         },
         {
