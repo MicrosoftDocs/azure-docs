@@ -107,6 +107,8 @@
           href: vnet-service-endpoint.md
         - name: Key vault to store secrets
           href: access-secrets-from-keyvault.md
+        - name: Prepay for reserved capacity
+          href: cosmos-db-reserved-capacity.md
   - name: Multi-model APIs
     expanded: true
     items:
