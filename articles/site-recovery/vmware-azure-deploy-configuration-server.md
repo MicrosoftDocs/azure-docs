@@ -114,21 +114,21 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## FAQ
 
-1. Can I use the VM, where Configuration server is installed, for different purposes?
+1. Can I use the VM, where the configuration server is installed, for different purposes?
 
-    **No**, we recommend you to use the VM for sole purpose of configuration server. Ensure to follow all the specifications mentioned in [Prerequisites](#prerequisites) for efficient management of disaster recovery.
-1. Can I switch the vault already registered in the configuration server with a newly created vault?
+    **No**, we recommend you to use the VM for sole purpose of configuration server. Ensure you follow all the specifications mentioned in [Prerequisites](#prerequisites) for efficient management of disaster recovery.
+2. Can I switch the vault already registered in the configuration server with a newly created vault?
 
     **No**, once a vault is registered with configuration server, it cannot be changed.
 3. Can I use the same configuration server for protecting both physical and virtual machines?
 
-    **Yes**, same configuration server can be used for replicating physical and virtual machines. However, physical machine can be failed back only to a VMware VM.
-4. What is the purpose of a Configuration server and where is it used?
+    **Yes**, the same configuration server can be used for replicating physical and virtual machines. However, physical machine can be failed back only to a VMware VM.
+4. What is the purpose of a configuration server and where is it used?
 
-    Refer to our Azure Site Recovery architecture [here](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
+    Refer to [VMware to Azure replication architecture](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
 5. Where can I find the latest version of Configuration server?
 
-    Refer to the article on steps to upgrade the configuration server [through portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). You can also directly download it from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). You can also directly download it from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 6. Where can I download the passphrase for configuration server?
 
     Refer to [this article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to download the passphrase.
@@ -138,7 +138,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Upgrade the configuration server
 
-To upgrade the configuration server to the latest version, read the steps given [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## Manage the configuration server
 
