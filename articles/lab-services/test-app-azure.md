@@ -27,8 +27,7 @@ This article provides steps for testing your application in Azure using DevTest 
 Create an Azure Storage account in the lab's resource group by following instructions in the [Create a storage account](../storage/common/storage-create-storage-account.md) article. On the **Create storage account** page, select **Use existing** for **Resource group**, and select the **lab's resource group**. 
 
 ## Create a file share in the storage
-Creaet a file share in your Azure storage by following instructions in the [Create a file shire in Azure Files](../storage/files/storage-how-to-create-file-share
-.md) article. 
+Creaet a file share in your Azure storage by following instructions in the [Create a file shire in Azure Files](../storage/files/storage-how-to-create-file-share.md) article. 
 
 
 ## Mount the file share on your local machine
