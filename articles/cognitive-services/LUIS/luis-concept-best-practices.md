@@ -1,6 +1,7 @@
 ---
-title: Understand LUIS best practices - Azure Cognitive Services | Microsoft Docs
-description: Use the app authoring process to build your LUIS app. Once your app is published, use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances.
+title: Best practices for building apps with LUIS - Language Understanding 
+titleSuffix: Azure Cognitive Services
+description: Learn the LUIS best practices to get the best results.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -10,7 +11,7 @@ ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
 ---
-# Best practices
+# Best practices for building a language understanding app with Cognitive Services
 Use the app authoring process to build your LUIS app. 
 
 * Build language model

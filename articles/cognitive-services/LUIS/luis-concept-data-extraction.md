@@ -1,6 +1,7 @@
 ---
-title: Understand data extraction concepts in LUIS - Azure Cognitive Services | Microsoft Docs
-description: LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
+title: Data extraction concepts in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
+description: Learn what kind of data can be extracted from Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
 manager: cjgronlund

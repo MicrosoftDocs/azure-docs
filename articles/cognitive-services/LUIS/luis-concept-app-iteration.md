@@ -1,6 +1,7 @@
 ---
-title: Understand LUIS iterative app design - Azure Cognitive Services | Microsoft Docs
-description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 
+title: Understand LUIS iterative app design - Language Understanding
+description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.  LUIS apps require design iterations to train LUIS to get the best data extraction.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: cjgronlund
