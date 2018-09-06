@@ -153,7 +153,7 @@ Imagine you have accidentally deleted an important database table, and cannot re
    
 3. Click **OK** to restore the server to restore to a point in time <!--[restore to a point in time](./howto-restore-server-portal.md)--> before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify. 
 
-## Next steps
+<!--## Next steps
 In this tutorial, you use the Azure portal to learned how to:
 
 > [!div class="checklist"]
@@ -165,5 +165,5 @@ In this tutorial, you use the Azure portal to learned how to:
 > * Update data
 > * Restore data
 
-><!--> [!div class="nextstepaction"]
+><> [!div class="nextstepaction"]
 > [How to connect applications to Azure Database for MariaDB](./howto-connection-string.md)-->
