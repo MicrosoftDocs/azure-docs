@@ -1,6 +1,6 @@
 ---
 title: Deploy web services to Azure Container Instances | Azure Machine Learning
-description: Learn how to deploy a trained model as a web service API on Azure Container Instances (ACI) with Azure Machine Learning service.
+description: Learn how to deploy a trained model as a web service on Azure Container Instances (ACI) with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -13,17 +13,18 @@ ms.date: 09/24/2018
 
 # How to deploy web services to Azure Container Instances
 
-You can deploy your trained model as a web service API on either [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS).
+You can deploy your trained model as a web service on either [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS).
 
-In this article, you'll learn how to deploy on ACI.  ACI is generally cheaper than AKS and setup can be done in a few minutes with just a 4-6 lines of code. ACI is the perfect option for testing deployments.
+In this article, you'll learn how to deploy on ACI.  ACI is generally cheaper than AKS and setup can be done with just 4-6 lines of code. ACI is the perfect option for testing deployments.
 
-When you're ready to use your models and web services for high-scale, production usage, [deploy them to AKS](how-to-deploy-to-aks.md) instead.
+When you're ready to use your models and web services for high-scale, production usage, [deploy them to AKS](how-to-deploy-to-aks.md).
 
-This article shows three different methods to deploy a model on ACI.
+This article shows three different methods to deploy a model on ACI. They differ in the number of lines of code you write and the control you have in naming parts of the deployment. In order from least code/least control to most code/most control, the methods are:
 
-* Deploy from model file - `Webservice.deploy()`
-* Deploy from registered model - `Webservice.deploy_from_model()`
+* Deploy from model file - `Webservice.deploy()`. 
+* Deploy from registered model - `Webservice.deploy_from_model()`  
 * Deploy registered model from image - `Webservice.deploy_from_image()`
+
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,17 +38,16 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     ws = Workspace.from_config()
     ```
 
-- A model to deploy.  Learn how to create one in the [Train a model tutorial](tutorial-train-models-with-aml.md).  Code examples in this article show the deployment for the model `sklearn_mnist_model.pkl` created from the tutorial. 
-- A [Docker image configuration](#docker-image-configuration)
-- An [ACI container configuration ](#aci-container-configuration)
-- A [registered model](#registered-model) (skip this prerequisite if you are deploying from a file (`Webservice.deploy()`))
+- A model to deploy. The examples in this document use the model created in the [train a model](tutorial-train-models-with-aml.md) tutorial. If you do not use this model, modify the steps to refer to your model name.  You also need to write your own scoring script to run your model.
 
-### Docker image configuration
 
-Configure the Docker image no matter which method you use.  To configure:
+## Docker image configuration
+
+Configure the Docker image:
 1. Create the [scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
 1. Create [an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 1. Use these two files to configure the Docker image
+
 
 ```python
 from azureml.core.image import ContainerImage
@@ -60,9 +60,9 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-### ACI container configuration
+## ACI container configuration
 
-Configure the ACI container no matter which method you use. Specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of one core and 1 gigabyte of RAM is sufficient for typical models. If you feel you need more later, you will have to recreate the image and redeploy the service.  
+Configure the ACI container.  Specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of one core and 1 gigabyte of RAM is sufficient for many models. If you feel you need more later, recreate the image and redeploy the service.  
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -73,11 +73,11 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Handwriting recognition')
 ```
 
-### Registered model
+## Registered model
 
 >Skip this prerequisite if you are [deploying from a file](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Register a model to use `Webservice.deploy_from_model(#deploy-from-registered-model)` or ``Webservice.deploy_from_image(#deploy-from-image)`. If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model tutorial] registered the model.  You can retrieve the registered model to deploy:
+Register a model to use `Webservice.deploy_from_model(#deploy-from-registered-model)` or ``Webservice.deploy_from_image(#deploy-from-image)`. If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
 
 ```python
 from azureml.core.model import Model
@@ -114,7 +114,7 @@ Deploy a model file using  `Webservice.deploy()`.  The model file must be presen
         model = joblib.load(model_path)
     ```
 
-1. Deploy your model file:
+1. Deploy your model file.
 
     ```python
     from azureml.core.webservice import Webservice
@@ -138,7 +138,7 @@ Proceed to [test the web service](#test-web-service).
 
 ## Deploy from registered model
 
-Deploy a registered model (`model`) using `Webservice.deploy_from_model()`.  You provide the configuration for the Docker container and the ACI container, along with the registered model:
+Deploy a registered model (`model`) using `Webservice.deploy_from_model()`.  You provide the configuration for the Docker container and the ACI container, along with the registered model.
 
 
 ```python
@@ -165,13 +165,9 @@ Proceed to [test the web service](#test-web-service).
 
 Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This method allows you to create the Docker image separately and deploy from that image.  You have more flexibility to name and reuse the Docker image for new models in the future.  
 
-The steps are:
-- Build and register the Docker image under the workspace using `ContainerImage.create()`
-- Deploy the Docker image as a service using `Webservice.deploy_from_image()`
+1. Build and register the Docker image under the workspace using `ContainerImage.create()`
 
-### Build image
-
-This method gives you more control over the image by creating it in a separate step.  The registered model (`model`) is included in the image:
+This method gives you more control over the image by creating it in a separate step.  The registered model (`model`) is included in the image.
 
 ```python
 from azureml.core.image import ContainerImage
@@ -185,7 +181,7 @@ image.wait_for_creation(show_output = True)
 ```
 **Time estimate**: Approximately 3 minutes.
 
-### Deploy from image
+2 Deploy the Docker image as a service using `Webservice.deploy_from_image()`
 
 Now deploy the image to ACI.  
 
@@ -207,7 +203,7 @@ Proceed to test the web service.
 
 ## Test web service
 
-The webservice is the same regardless of how it was created.  To get predictions, use the `run` method of the service.  
+The web service is the same no matter which method was used.  To get predictions, use the `run` method of the service.  
 
 ```python
 # Load Data

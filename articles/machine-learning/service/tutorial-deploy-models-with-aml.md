@@ -225,7 +225,7 @@ dependencies:
 
 ### Create configuration file
 
-Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for typical models. If you feel you need more later, you would have to recreate the image and redeploy the service.
+Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for many models. If you feel you need more later, you would have to recreate the image and redeploy the service.
 
 ```python
 from azureml.core.webservice import AciWebservice
