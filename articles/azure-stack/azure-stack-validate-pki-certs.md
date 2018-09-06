@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -34,7 +34,7 @@ The Readiness Checker tool performs the following certificate validations:
 - **DNS names**  
     Checks the SAN contains relevant DNS names for each endpoint, or if a supporting wildcard is present.
 - **Key usage**  
-    Checks if the key usage contains digital signature and key encipherment and enhanced key usage contains server authentication and client authentication.
+    Checks if the key usage contains a digital signature and key encipherment and enhanced key usage contains server authentication and client authentication.
 - **Key size**  
     Checks if the key size is 2048 or larger.
 - **Chain order**  
@@ -70,7 +70,7 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension','Public Extension'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
     
     $destination = 'c:\certificates'
     
