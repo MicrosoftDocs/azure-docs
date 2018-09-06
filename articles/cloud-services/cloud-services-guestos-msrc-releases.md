@@ -13,12 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+
+## July Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10 Security |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338823] |Windows Security only |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338820] |Windows Security only |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338824] |Windows Security only |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345459] |Security rollup refresh |2.76 |July 10, 2018 |
+| Rel 18-07 | [4345425] |Security rollup refresh |3.63 |July 10, 2018 |
+| Rel 18-07 | [4345424] |Security rollup refresh |4.56 |July 10, 2018 |
+| Rel 18-07 | [4345418] |Security rollup refresh |5.21 |July 10, 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x Security |2.76 |July 10, 2018 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x Security |3.63 |July 10, 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|July 10, 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |July 10, 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |July 10, 2018 |
+| N/A | [4284826] |June non-security rollup |2.76 |June 12, 2018 |
+| N/A | [4284855] |June non-security rollup |3.63 |June 12, 2018 |
+| N/A | [4284815] |June non-security rollup |4.56 |June 12, 2018 |
 
 ## June Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -670,6 +691,28 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

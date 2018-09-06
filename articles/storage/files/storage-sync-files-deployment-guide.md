@@ -1,24 +1,17 @@
 ---
-title: Deploy Azure File Sync (preview) | Microsoft Docs
+title: Deploy Azure File Sync | Microsoft Docs
 description: Learn how to deploy Azure File Sync, from start to finish.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
-# Deploy Azure File Sync (preview)
-Use Azure File Sync (preview) to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+# Deploy Azure File Sync
+Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 We strongly recommend that you read [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before you complete the steps described in this article.
 
@@ -27,7 +20,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
     - [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a step-by-step description of how to create a storage account.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
+* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Ensure PowerShell 5.1 is installed on your Windows Server. If you are using Windows Server 2012 R2, ensure that you are running at least PowerShell 5.1.\*. You can safely skip this check on Windows Server 2016 as PowerShell 5.1 is the default version out-of-box. On Windows Server 2012 R2, you can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```PowerShell
@@ -79,7 +72,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
 
 > [!Important]  
-> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster.
+> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
 
 We recommend that you do the following:
 - Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
@@ -89,6 +82,9 @@ When the Azure File Sync agent installation is finished, the Server Registration
 
 # [PowerShell](#tab/powershell)
 Execute the following PowerShell code to download the appropriate version of the Azure File Sync agent for your OS and install it on your system.
+
+> [!Important]  
+> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
 
 ```PowerShell
 # Gather the OS version
@@ -131,7 +127,7 @@ The deployment of Azure File Sync starts with placing a **Storage Sync Service**
 > The Storage Sync Service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
 
 # [Portal](#tab/portal)
-To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *New* and then search for Azure File Sync. In the search results, select **Azure File Sync (preview)**, and then select **Create** to open the **Deploy Storage Sync** tab.
+To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *New* and then search for Azure File Sync. In the search results, select **Azure File Sync**, and then select **Create** to open the **Deploy Storage Sync** tab.
 
 On the pane that opens, enter the following information:
 
@@ -242,7 +238,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## Create a sync group and a cloud endpoint
-A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to to appropriately describe your desired sync topology.
+A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
 
 A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the Storage Sync Service. The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that will not sync to other endpoints. Do not use or delete it!
 

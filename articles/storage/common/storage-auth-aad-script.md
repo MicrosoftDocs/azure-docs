@@ -1,19 +1,18 @@
 ---
 title: Run Azure CLI or PowerShell commands under an Azure AD identity to access Azure Storage (Preview) | Microsoft Docs
-description: Azure CLI and PowerShell support logging in with an Azure AD identity to run commands on Azure Storage containers and queues and their data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the role assigned to the Azure AD identity. 
+description: Azure CLI and PowerShell support logging in with an Azure AD identity to run commands on Azure Storage containers and queues and their data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the role assigned to the Azure AD identity.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 08/29/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)
 
-Azure Storage provides preview extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed service identity](../../active-directory/managed-service-identity/overview.md). You can assign permissions to access storage resources to the Azure AD identity via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+Azure Storage provides preview extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed service identity](../../active-directory/managed-identities-azure-resources/overview.md). You can assign permissions to access storage resources to the Azure AD identity via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 
 When you log in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
@@ -62,7 +61,7 @@ To use Azure PowerShell to sign in with an Azure AD identity:
 1. Make sure that you have the latest version of PowerShellGet installed. Run the following command to install the latest:
  
     ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview"
     ```
 
 2. Uninstall any previous installations of Azure PowerShell.

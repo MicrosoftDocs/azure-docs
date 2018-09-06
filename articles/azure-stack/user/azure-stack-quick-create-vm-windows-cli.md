@@ -36,7 +36,7 @@ You can create a Windows Server 2016 virtual machine by using the Azure CLI. Fol
 
 ## Create a resource group
 
-A resource group is a logical container where you can deploy and manage Azure Stack resources. From your Azure Stack environment, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group.
+A resource group is a logical container where you can deploy and manage Azure Stack resources. From your Azure Stack environment, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group.
 
 >[!NOTE]
  Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location local
 
 ## Create a virtual machine
 
-Create a virtual machine (VM) by using the [az vm create](/cli/azure/vm#az_vm_create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the user password. Change these values to something that is appropriate for your environment.
+Create a virtual machine (VM) by using the [az vm create](/cli/azure/vm#az-vm-create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the user password. Change these values to something that is appropriate for your environment.
 
 ```cli
 az vm create \
@@ -98,7 +98,7 @@ You can use a web browser of your choice to view the default IIS welcome page. U
 
 ## Clean up resources
 
-Clean up the resources that you don't need any longer. Use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, the virtual machine, and all related resources.
+Clean up the resources that you don't need any longer. Use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, the virtual machine, and all related resources.
 
 ```cli
 az group delete --name myResourceGroup

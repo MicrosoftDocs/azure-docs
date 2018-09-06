@@ -13,14 +13,14 @@ ms.date: 01/24/2018
 ms.author: sngun
 
 ---
+
+# Performance tips for Azure Cosmos DB and .NET
+
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
-
-# Performance tips for Azure Cosmos DB and .NET
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or [SDK method call](set-throughput.md#set-throughput-sdk). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL .NET SDK](documentdb-sdk-dotnet.md).
 
@@ -35,7 +35,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
    * Gateway Mode (default)
       
-     Gateway Mode is supported on all SDK platforms and is the configured default. If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops.
+     Gateway Mode is supported on all SDK platforms and is the configured default. If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops. Gateway connection mode is also recommended when you run applications in environments with limited number of socket connections, for example when using Azure Functions or if you are on a consumption plan. 
 
    * Direct Mode
 
@@ -130,9 +130,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 8. **Cache document URIs for lower read latency**
 
-    Cache document URIs whenever possible for the best read performance.
+    Cache document URIs whenever possible for the best read performance. You have to define logic to cache the resourceid when you create the resource. Resourceid based lookups are faster than name based lookups, so caching these values improves the performance. 
+
    <a id="tune-page-size"></a>
-9. **Tune the page size for queries/read feeds for better performance**
+1. **Tune the page size for queries/read feeds for better performance**
 
     When performing a bulk read of documents using read feed functionality (for example, ReadDocumentFeedAsync) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 

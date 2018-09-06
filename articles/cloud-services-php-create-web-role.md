@@ -206,7 +206,7 @@ To stop the emulators, execute this command:
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Next steps
 
@@ -216,6 +216,6 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 [service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
+[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648

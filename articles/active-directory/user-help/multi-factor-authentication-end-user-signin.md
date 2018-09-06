@@ -2,20 +2,18 @@
 title: Azure MFA sign-in with two-step verification | Microsoft Docs
 description: This page will provide you guidance on where to go to see the various sign-in methods available with Azure MFA.
 keywords: user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
-ms.service: multi-factor-authentication
+
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
 ---
 
 # The sign-in experience with Azure Multi-Factor Authentication

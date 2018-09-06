@@ -68,9 +68,7 @@ Any number of additional certificates can be installed on a cluster for applicat
 * Encryption and decryption of application configuration values
 * Encryption of data across nodes during replication 
 
-Application certificates cannot be configured when creating a cluster through the Azure portal. To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
-
-</a "create-cluster-portal" ></a>
+Application certificates cannot be configured when [creating a cluster through the Azure portal](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
 
 ## Create cluster in the Azure portal
 

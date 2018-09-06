@@ -1,19 +1,17 @@
 ---
-# required metadata
 title: Create logic apps that automate workflows with Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Quickstart for how to automate tasks, processes, and workflows with Azure Logic Apps in Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-
-# optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.date: 07/31/2018
 ---
 
 # Quickstart: Create and automate tasks, processes, and workflows with Azure Logic Apps - Visual Studio
@@ -52,8 +50,9 @@ Before you start, make sure that you have these items:
   * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 or Visual Studio 2015 - Community edition or greater</a>. 
   This quickstart uses Visual Studio Community 2017, which is free.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 or later)</a> 
-  and <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for .NET (2.9.1 or later)</a> 
+  and <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
+  Learn more about <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>.
 
   * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps Tools for Visual Studio 2017</a> 
   or the <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 version</a>
@@ -151,7 +150,7 @@ which fires when specific criteria is met. Each time the trigger fires,
 the Logic Apps engine creates a logic app instance that runs your workflow.
 
 1. In Logic App Designer, enter "rss" in the search box. 
-Select this trigger: **RSS - When a feed item is published**
+Select this trigger: **When a feed item is published**
 
    ![Build your logic app by adding a trigger and actions](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -179,7 +178,7 @@ deploy the app from Visual Studio to Azure,
 which just takes a few steps.
 
 1. In Solution Explorer, on your project's shortcut menu, 
-select **Deploy** > **New...**. If prompted, 
+select **Deploy** > **New**. If prompted, 
 sign in with your Azure account.
 
    ![Create logic app deployment](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
@@ -239,10 +238,10 @@ contains your logic app and related resources.
 1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 with the same account used to create your logic app. 
 
-2. On the main Azure menu, choose **Resource groups**. 
-Select the resource group for your logic app.
+2. On the main Azure menu, select **Resource groups**.
+Select the resource group for your logic app, and then select **Overview**.
 
-3. Choose **Delete resource group**. 
+3. On the **Overview** page, choose **Delete resource group**. 
 Enter the resource group name as confirmation, 
 and choose **Delete**.
 

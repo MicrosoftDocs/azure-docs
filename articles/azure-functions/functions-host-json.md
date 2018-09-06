@@ -2,7 +2,7 @@
 title: host.json reference for Azure Functions
 description: Reference documentation for the Azure Functions host.json file.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # host.json reference for Azure Functions

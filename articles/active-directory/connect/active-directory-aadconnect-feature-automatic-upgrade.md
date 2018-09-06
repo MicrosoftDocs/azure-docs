@@ -91,8 +91,8 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
-| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
-| UpgradeNotSupportedNonMsolAccount |The [AD Connector account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) is not the default MSOL_ account anymore. |
+| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |d
+| UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. | 
 | UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). |

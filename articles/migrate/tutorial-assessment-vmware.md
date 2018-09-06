@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 08/20/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -78,6 +78,14 @@ Check that the .OVA file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings.
 
+  For OVA version 1.0.9.14
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+
   For OVA version 1.0.9.12
 
     **Algorithm** | **Hash value**
@@ -147,7 +155,7 @@ will be hosted.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) about the internet connectivity requirements and the list of URLs that the collector accesses.
 
     > [!NOTE]
-    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported.
+    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initally fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
 
     - The collector checks that the collector service is running. The service is installed by default on the collector VM.
     - Download and install VMware PowerCLI.
@@ -223,9 +231,9 @@ Estimated monthly costs for compute and storage are aggregated for all VMs in th
 
 #### Confidence rating
 
-Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 star (1 star being the lowest and 5 star being the highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
+Each performance-based assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 star (1 star being the lowest and 5 star being the highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate. Confidence rating is not applicable to as on-premises assessments.
 
-The confidence-rating of an assessment is more useful for assessments with sizing criterion as 'performance-based sizing. For performance-based sizing, Azure Migrate needs the utilization data for CPU, memory of the VM. Additionally, for every disk attached to the VM, it needs the disk IOPS and throughput data. Similarly for each network adapter attached to a VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided as below:
+For performance-based sizing, Azure Migrate needs the utilization data for CPU, memory of the VM. Additionally, for every disk attached to the VM, it needs the disk IOPS and throughput data. Similarly for each network adapter attached to a VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided as below:
 
    **Availability of data points** | **Confidence rating**
    --- | ---

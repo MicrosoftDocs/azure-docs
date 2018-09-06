@@ -45,6 +45,8 @@
         href: howto-administer.md
       - name: Export your data
         href: howto-export-data.md
+      - name: Visualize your data in Power BI
+        href: howto-connect-powerbi.md
   - name : Builder
     items:
       - name: Set up the device template
@@ -55,6 +57,8 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
+      - name: Create webhook actions on rules
+        href: howto-create-webhooks.md
       - name: Build workflows in Microsoft Flow
         href: howto-add-microsoft-flow.md
       - name: Configure homepage

@@ -3,7 +3,7 @@ title: Triggers and bindings in Azure Functions
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -550,11 +550,13 @@ public class BlobInfo
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
+
+    log.Info($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

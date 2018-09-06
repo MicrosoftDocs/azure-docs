@@ -1,21 +1,16 @@
 ---
-title: Learn using a Hadoop sandbox - emulator - Azure HDInsight | Microsoft Docs
+title: Learn using a Hadoop sandbox - emulator - Azure HDInsight 
 description: 'To start learning about using the Hadoop ecosystem, you can set up a Hadoop sandbox from Hortonworks on an Azure virtual machine. '
 keywords: hadoop emulator,hadoop sandbox
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-author: nitinme
-documentationcenter: ''
-tags: azure-portal
+author: jasonwhowell
 
-ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Get started with a Hadoop sandbox, an emulator on a virtual machine

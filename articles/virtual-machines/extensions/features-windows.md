@@ -3,7 +3,7 @@ title: Azure VM extensions and features for Windows | Microsoft Docs
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -39,7 +39,7 @@ In addition to process-specific extensions, a Custom Script extension is availab
 
 ## Prerequisites
 
-To handle the extension on the VM, you need the Azure Linux Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
+To handle the extension on the VM, you need the Azure Windows Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
 
 ### Azure VM agent
 
@@ -132,7 +132,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-The `Set-AzureRmVMExtension` command can be used to start any VM extension. For more information, see the [Set-AzureRmVMExtension reference](https://msdn.microsoft.com/library/mt603745.aspx).
+The `Set-AzureRmVMExtension` command can be used to start any VM extension. For more information, see the [Set-AzureRmVMExtension reference](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
 ### Azure portal

@@ -31,7 +31,9 @@ To configure Geo-replication between two caches, the following prerequisites mus
 - If the primary linked cache has clustering enabled, the secondary linked cache must have clustering enabled with the same number of shards as the primary linked cache.
 - Both caches must be created and in a running state.
 - Persistence must not be enabled on either cache.
-- Geo-replication between caches in the same VNET is supported. Geo-replication between caches in different VNETs is also supported, as long as the two VNETs are configured in such a way that resources in the VNETs are able to reach each other via TCP connections.
+- Geo-replication between caches in the same VNET is supported. 
+- Geo-replication between caches in peered VNETs within the same region is currently a preview feature. The two VNETs need to be configured in such a way that resources in the VNETs are able to reach each other via TCP connections.
+- Geo-replication between caches in peered VNETs in different regions is not yet supported, but will be in preview soon.
 
 After Geo-replication is configured, the following restrictions apply to your linked cache pair:
 

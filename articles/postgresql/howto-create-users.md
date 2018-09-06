@@ -60,7 +60,7 @@ The server admin user account can be used to create additional users and grant t
    
    CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
-   GRANT CONNECT ON DATABASE testdb TO <db_user>;
+   GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
 4. Using an admin account, you may need to grant additional privileges to secure the objects in the database. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/ddl-priv.html) for further details on database roles and privileges. For example: 

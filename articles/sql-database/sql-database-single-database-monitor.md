@@ -3,13 +3,14 @@ title: Monitoring database performance in Azure SQL Database | Microsoft Docs
 description: Learn about the options for monitoring your database with Azure tools and dynamic management views.
 keywords: database monitoring, cloud database performance
 services: sql-database
-author: CarlRabeler
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: carlrab
+ms.author: v-daljep
+ms.reviewer: carlrab
 
 ---
 # Monitoring database performance in Azure SQL Database

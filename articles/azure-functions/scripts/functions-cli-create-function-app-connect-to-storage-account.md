@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Create a function app that connects to an Azure Storage account
 
-This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [[storage trigger or binding](..\functions-bindings-storage-blob.md). 
+This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [storage trigger or binding](..\functions-bindings-storage-blob.md). 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

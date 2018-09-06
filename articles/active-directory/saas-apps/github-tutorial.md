@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 08/23/2018
 ms.author: jeedes
 
 ---
@@ -46,6 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
+
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -53,6 +54,7 @@ The scenario outlined in this tutorial consists of two main building blocks:
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding GitHub from the gallery
+
 To configure the integration of GitHub into Azure AD, you need to add GitHub from the gallery to your list of managed SaaS apps.
 
 **To add GitHub from the gallery, perform the following steps:**
@@ -64,7 +66,7 @@ To configure the integration of GitHub into Azure AD, you need to add GitHub fro
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -98,7 +100,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/github-tutorial/tutorial_github_samlbase.png)
 
 3. On the **GitHub Domain and URLs** section, perform the following steps:
@@ -144,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Issuer** textbox, paste **SAML Entity ID** value which you have copied from the Azure portal.
 
-	c. Open the downloaded certificate from Azure portal in notepad, paste the content into the **Public Certificate** textbox.
+	c. Open the downloaded certificate from Azure portal in notepad, paste the content into the **Public Certificate** textbox.
 
 	![Settings](./media/github-tutorial/tutorial_github_config_github_051.png)
 
@@ -153,6 +155,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Settings](./media/github-tutorial/tutorial_github_config_github_06.png)
 
 13. Click **Save**
+
+> [!NOTE]
+> Single sign-on in GitHub authenticates to a specific organization in GitHub and does not replace the authentication of GitHub itself. Therefore, if the user's GitHub.com session has expired, you may be asked to authenticate with GitHub's ID/password during the single sign-on process.
 
 ### Create an Azure AD test user
 
@@ -185,7 +190,7 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a GitHub test user
 
 The objective of this section is to create a user called Britta Simon in GitHub. GitHub supports automatic user provisioning, which is by default enabled. You can find more details [here](github-provisioning-tutorial.md) on how to configure automatic user provisioning.
@@ -244,20 +249,18 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the GitHub tile in the Access Panel, you should get automatically signed-on to your GitHub application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -272,4 +275,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/github-tutorial/tutorial_general_201.png
 [202]: ./media/github-tutorial/tutorial_general_202.png
 [203]: ./media/github-tutorial/tutorial_general_203.png
-

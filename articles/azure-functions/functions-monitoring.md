@@ -2,7 +2,7 @@
 title: Monitor Azure Functions
 description: Learn how to use Azure Application Insights with Azure Functions for monitoring function execution.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Monitor Azure Functions
@@ -218,7 +218,7 @@ The *host.json* file configures how much logging a function app sends to Applica
       "categoryLevels": {
         "Host.Results": "Error",
         "Function": "Error",
-        "Host.Aggregator": "Information"
+        "Host.Aggregator": "Trace"
       }
     }
   }
@@ -228,7 +228,7 @@ The *host.json* file configures how much logging a function app sends to Applica
 This example sets up the following rules:
 
 1. For logs with category "Host.Results" or "Function", send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
-2. For logs with category Host. Aggregator, send only `Information` level and above to Application Insights. Logs for `Debug` level and below are ignored.
+2. For logs with category Host.Aggregator, send all logs to Application Insights. The `Trace` log level is the same as what some loggers call `Verbose`, but use `Trace` in the *host.json* file.
 3. For all other logs, send only `Information` level and above to Application Insights.
 
 The category value in *host.json* controls logging for all categories that begin with the same value. For example, "Host" in *host.json* controls logging for "Host.General", "Host.Executor", "Host.Results", and so forth.

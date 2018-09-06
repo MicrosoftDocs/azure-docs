@@ -20,9 +20,9 @@ ms.author: apurvajo;cephalin
 
 This tutorial shows you how to secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
 
-## Step 1 - Log in to Azure
+## Step 1 - Sign in to Azure
 
-Log in to the Azure portal at http://portal.azure.com
+Sign in to the Azure portal at http://portal.azure.com
 
 ## Step 2 - Place an SSL Certificate order
 
@@ -73,7 +73,7 @@ From the same **Certificate Configuration** page you used in Step 3, click **Ste
 
 Choose the preferred domain verification method. 
 
-There are four types of domain verification supported by App Service Certificates: App Service, Domain, Mail, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
+There are four types of domain verification supported by App Service Certificates: App Service, Domain, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
 
 > [!NOTE]
 > **App Service Verification** is the most convenient option when the domain you want to verify is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
@@ -130,16 +130,7 @@ At this point, you should be able to visit your app using `HTTPS://` instead of 
 
 ### Verifying Domain Ownership
 
-There are two more types of domain verification supported by App service Certificates: Mail, and Manual Verification.
-
-#### Mail Verification
-
-Verification email has already been sent to the Email Address(es) associated with this custom domain.
-To complete the Email verification step, open the email and click the verification link.
-
-![insert image of email verification](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-If you need to resend the verification email, click the **Resend Email** button.
+There are two other types of domain verification supported by App service Certificates: domain verification and manual verification.
 
 #### Domain Verification
 
@@ -194,11 +185,11 @@ Rekeying your certificate rolls the certificate with a new certificate issued fr
 
 ## Renew the certificate
 
-To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**.
+To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**. Certificates can start automatically renewing 90 days before expiration if you have automatic renewal turned on.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-To manually renew the certificate instead, click **Manual Renew** instead.
+To manually renew the certificate instead, click **Manual Renew** instead. You can request to manually renew your certificate 60 days before expiration.
 
 > [!NOTE]
 > The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
@@ -209,11 +200,11 @@ To manually renew the certificate instead, click **Manual Renew** instead.
 If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note that: 
 
 - GoDaddy, which generates App Service certificates, requires domain verification once every two years. The domain administrator receives an email once every three years to verify the domain. Failure to check the email or verify your domain prevents the App Service certificate from being automatically renewed. 
-- Because of a change in GoDaddy policy, all App Service certificates issued prior to March 1, 2018 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
+- Because of a change in GoDaddy policy, all App Service certificates issued prior to March 1, 2017 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
 
 ## More resources
 
 * [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
-* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
+* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
 * [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

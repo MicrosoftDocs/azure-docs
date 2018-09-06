@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with MobileIron | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and MobileIron.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding MobileIron from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding MobileIron from the gallery
 To configure the integration of MobileIron into Azure AD, you need to add MobileIron from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of MobileIron into Azure AD, you need to add Mobile
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **MobileIron**, select **MobileIron** from result panel then click **Add** button to add the application.
+1. In the search box, type **MobileIron**, select **MobileIron** from result panel then click **Add** button to add the application.
 
 	![MobileIron in the results list](./media/mobileiron-tutorial/tutorial_mobileiron_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In MobileIron, assign the value of the **user name** in Azure AD as the value of
 To configure and test Azure AD single sign-on with MobileIron, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a MobileIron test user](#create-a-mobileiron-test-user)** - to have a counterpart of Britta Simon in MobileIron that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a MobileIron test user](#create-a-mobileiron-test-user)** - to have a counterpart of Britta Simon in MobileIron that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-3. On the **MobileIron Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **MobileIron Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![MobileIron Domain and URLs single sign-on information](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![MobileIron Domain and URLs single sign-on](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
@@ -120,27 +120,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You will get the values of key and host from the ​administrative​ ​portal of MobileIron which is explained later in the tutorial.
 
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
 
-6. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/mobileiron-tutorial/tutorial_general_400.png)
 
-7. In a different web browser window, log in to your MobileIron company site as an administrator.
+1. In a different web browser window, log in to your MobileIron company site as an administrator.
 
-8. Go to **Admin** > **Identity**.
+1. Go to **Admin** > **Identity**.
 
    * Select **AAD** option in the **Info on Cloud IDP Setup** field.
 
     ![Configure Single Sign-On Admin button](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
-9. Copy the values of **Key** and **Host** and paste them to complete the URLs in the **MobileIron Domain and URLs** section in Azure portal.
+1. Copy the values of **Key** and **Host** and paste them to complete the URLs in the **MobileIron Domain and URLs** section in Azure portal.
 
     ![Configure Single Sign-On Admin button](./media/mobileiron-tutorial/key.png)
 
-10. In the **Export​​ ​metadata​ file ​from​ ​A​AD​ and import to MobileIron Cloud Field** click **Choose File** to upload the downloaded metadata from Azure portal. Click **Done** once uploaded.
+1. In the **Export​​ ​metadata​ file ​from​ ​A​AD​ and import to MobileIron Cloud Field** click **Choose File** to upload the downloaded metadata from Azure portal. Click **Done** once uploaded.
  
     ![Configure Single Sign-On admin metadata button](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
@@ -159,15 +159,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/mobileiron-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/mobileiron-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/mobileiron-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/mobileiron-tutorial/create_aaduser_04.png)
 
@@ -188,11 +188,11 @@ In the case of MobileIron, provisioning is a manual task.
 
 1. Log in to your MobileIron company site as an administrator.
 
-2. Go to **Users** and Click on **Add** > **Single User**.
+1. Go to **Users** and Click on **Add** > **Single User**.
 
     ![Configure Single Sign-On user button](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
 
-3. On the **“Single User”** dialog page, perform the following steps:
+1. On the **“Single User”** dialog page, perform the following steps:
 
 	![Configure Single Sign-On user add button](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
@@ -216,23 +216,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **MobileIron**.
+1. In the applications list, select **MobileIron**.
 
 	![The MobileIron link in the Applications list](./media/mobileiron-tutorial/tutorial_mobileiron_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

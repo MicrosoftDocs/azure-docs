@@ -48,7 +48,7 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Create a Swarm Mode cluster in Azure Container Service with ACS Engine](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Connect with the Swarm cluster in Azure Container Service](../container-service-connect.md)
 - [Create an Azure container registry](../../container-registry/container-registry-get-started-portal.md)
-- [Have a Visual Studio Team Services account and team project created](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Have a Visual Studio Team Services account and team project created](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Fork the GitHub repository to your GitHub account](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]

@@ -5,13 +5,13 @@ description: Add cloud-based two-step verification capabilities to your existing
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 05/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
