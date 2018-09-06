@@ -44,7 +44,9 @@ Before accessing Azure Cognitive Services, you must create and subscribe to at l
 
 If you pinned the resource to the Azure dashboard, select the tile. Otherwise, you can find it in **Resource Groups**.
 
-Within your Cognitive Services resource, You can use the **Endpoint URL** in the **Overview** section, and keys in the **Keys** section to start making API calls in your applications.
+Within your Cognitive Services resource, You can use the Endpoint URL and keys in the **Overview** section to start making API calls in your applications.
+
+![Resources screen](media/cognitive-services-apis-create-account/resourceScreen.png)
 
 ### Next Steps
 
