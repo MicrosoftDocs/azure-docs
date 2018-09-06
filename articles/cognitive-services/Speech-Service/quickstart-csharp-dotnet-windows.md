@@ -28,8 +28,6 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
   ![Enable .NET desktop development](media/sdk/vs-enable-net-desktop-workload.png)
 
-  ![Enable .NET Core cross-platform development](media/sdk/vs-enable-net-desktop-workload.png)
-
 ## Create a Visual Studio project
 
 1. In Visual Studio 2017, create a new Visual C# Console App. In the **New Project** dialog box, from the left pane, expand **Installed** \> **Visual C#** \> **Windows Desktop** and then select **Console App (.NET Framework)**. For the project name, enter *helloworld*.
