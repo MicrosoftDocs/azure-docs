@@ -46,9 +46,11 @@ When the deployment for the Remote Monitoring solution finishes, open the soluti
   * Device ID: **AZ3166**
   * Authentication Type: **Symmetric Key**
   * Authentication Key: **Auto generate keys**
+  
   ![Adding a new device form](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-new-device-form.png)
 
 1. After the new device is created, copy the **Connection String primary key**. This is the device that is just created in Azure IoT Hub underneath.
+  
   ![Device Connection String](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-new-device-connstring.png)
 
 ## Open the Remote Monitoring sample in VS Code
@@ -114,6 +116,14 @@ Let us try change the color of one of the DevKit LEDs using the method "LedColor
 In several seconds, your DevKit should change the color of the RGB LED (below the button A).
 
 ![IoT DevKit red led](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
+
+## Clean up resources
+
+If you plan to move on to the tutorials, leave the Remote Monitoring solution accelerator deployed.
+
+If you no longer need the solution accelerator, delete it from the Provisioned solutions page, by selecting it, and then clicking Delete Solution:
+
+![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 ## Problems and feedback
 
