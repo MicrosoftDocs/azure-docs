@@ -17,17 +17,25 @@ ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Create a staged data analytics solution with Azure and Azure Stack 
+# Tutorial: Create a staged data analytics solution with Azure and Azure Stack 
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+Learn how to configure a hybrid cloud identity for your Azure and Azure Stack applications.
 
 Utilizing both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack offers a rapid, secure, and flexible solution for collecting, processing, storing and distributing local and remote data, particularly when security, confidentiality, corporate policy, and regulatory requirements may differ between locations and users.
 
 In this tutorial, you will build a sample environment to:
 
 > [!div class="checklist"]
-> - Item
-> - Item
+> - Create the raw data storage blob.
+> - Create a New Azure Stack Function to move clean data from Azure Stack to Azure.
+> - Create a Blob storage triggered function.
+> - Create an Azure Stack storage account containing a blob and a queue.
+> - Create a queue triggered function.
+> - Test the queue triggered function.
 
-> [!Information]  
+> [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
 > 

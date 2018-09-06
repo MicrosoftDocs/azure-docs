@@ -29,7 +29,7 @@ In this tutorial, you will build a sample environment to:
 > - Keep data on-premises to meet privacy or regulatory requirements, but have access to global Azure resources.
 > - Maintain a legacy system while using cloud-scaled app deployment and resources in global Azure.
 
-> [!Information]  
+> [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
 > 

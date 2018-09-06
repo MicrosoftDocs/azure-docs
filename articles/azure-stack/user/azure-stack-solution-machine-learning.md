@@ -17,34 +17,37 @@ ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Create an edge machine learning solution with Azure and Azure Stack
+# Tutorial: Create an edge machine learning solution with Azure and Azure Stack
 
-Summary
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+Learn how to create an edge machine learning solution with Azure and Azure Stack.
 
 In this tutorial, you will build a sample environment to:
 
 > [!div class="checklist"]
-> - Item
-> - Item
+> - Create a storage account and container for clean data to reside.
+> - Create an Ubuntu Data Science Virtual Machine (DSVM) in Azure portal.
+> - Deploy Azure Machine Learning Services in Azure to build and train models.
+> - Create Azure Machine Learning services accounts.
+> - Deploy and use Azure Container Registry.
+> - Deploy a Kubernetes cluster to Azure Stack.
+> - Create an Azure Stack storage account and Storage Queue for data.
+> - Create a New Azure Stack Function to move the Clean Data from Azure Stack to Azure.
 
 ## When to use this solution
 
- -  My organization is using a DevOps approach, or has one planned for the near future.
+ -  Your organization is using a DevOps approach, or has one planned for the near future.
+ -  You want to implement CI/CD practices across your Azure Stack implementation and the public cloud.
+ -  You want to consolidate the CI/CD pipeline across cloud and on-premises environments.
+ -  You want the ability to develop applications using cloud or on-premises services.
+ -  You want to leverage consistent developer skills across cloud and on-premises applications.
 
- -  I want to implement CI/CD practices across my Azure Stack implementation and the public cloud.
-
- -  I want to consolidate the CI/CD pipeline across cloud and on-premises environments.
-
- -  I want the ability to develop applications seamlessly using cloud or on-premises services.
-
- -  I want to leverage consistent developer skills across cloud and on-premises applications.
-
- > [!Information]  
+> [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
 > 
 > The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
-
 
 ## Prerequisites
 

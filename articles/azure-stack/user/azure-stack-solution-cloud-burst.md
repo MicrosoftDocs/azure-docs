@@ -15,27 +15,28 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
----Kv
+---
 
-# Create cross-cloud scaling solutions with Azure
+# Tutorial: Create cross-cloud scaling solutions with Azure
 
-Azure and AzureStack are uniquely suited to support the needs of todaysglobally distributed business.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Microsoft offers an unrivaled integration of on-premises assets with Azure Stack and Azure Cloud in one unified solution, eliminating the need tomanagemultiple point solutions and a mix of cloud providers. Azure and Azure Stack provides a scalable solution utilizing the advantages of both environments, and Cross-Cloud Scaling, a multi-cloud service, provides data security, back up and redundancy, consistent and rapid availability, scalable storage and distribution, and geo-compliant routing.
+Learn how to create a cross-Cloud solution to provide a manually triggered process for switching from an Azure Stack hosted web app, to an Azure hosted web app with auto-scaling via traffic manager, ensuring flexible and scalable cloud utility when under load.
 
 In this tutorial, you will build a sample environment to:
 
 > [!div class="checklist"]
-> - Item
-> - Item
+> - Create a multi-node web application.
+> - Configure and manage the Continuous Deployment (CD) process.
+> - Publish the web app to Azure Stack.
+> - Create a release.
+> - Learn to monitor and track your deployments.
 
-This Cross-Cloud solution provides a manually triggered process for switching from an Azure Stack Hosted Web app, to an Azure Hosted Web app with Auto-Scaling via Traffic Manager, ensuring flexible and scalable cloud utility when under load.
-
-> [!Note]
-![Design  Considerations for Hybrid Applications](https://docs.microsoft.com/en-us/media/illustrations/nuget-tools-reference_2.svg)
-> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.
->  
-> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
 
 ## Prerequisites
 
@@ -57,7 +58,7 @@ This Cross-Cloud solution provides a manually triggered process for switching fr
 
 -   [Windows Server 2016 with SQL 2017 VM > Image](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image#add-a-vm-image-through-the-portal) > is available in the Azure Stack Marketplace. If this image is not > available, work with an Azure Stack Operator to ensure it is added > to the environment.
 
-## Issues and Considerations
+## Issues and considerations
 
 ### Scalability considerations
 
@@ -71,7 +72,7 @@ Ensure locally deployed apps are configured for high-availability through on-pre
 
 The Cross-Cloud solution ensures seamless management and familiar interface between environments. PowerShell is recommended for cross-platform management.
 
-## Cross-Cloud Scaling
+## Cross-Cloud scaling
 
 ### Obtain a custom domain and configure DNS
 
@@ -122,7 +123,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [AR
 
 3. Run the build. The [self-contained deployment build](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 
-## Using an Azure Hosted Agent
+## Using an Azure hosted agent
 
 Using a hosted agent in VSTS is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Tutorial: deploy apps to Azure and Azure Stack
+# Tutorial: Deploy apps to Azure and Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -29,13 +29,6 @@ In this tutorial, you'll create a sample environment to:
 > * Initiate a new build based on code commits to your Visual Studio Team Services (VSTS) repository.
 > * Automatically deploy your app to global Azure for user acceptance testing.
 > * When your code passes testing, automatically deploy the app to Azure Stack.
-
-> [!Information]  
-> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
-> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
-
 
 ## Benefits of the hybrid delivery build pipe
 
@@ -50,6 +43,12 @@ To learn more about CI and CD:
 
 * [What is Continuous Integration?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
 * [What is Continuous Delivery?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
 
 ## Prerequisites
 

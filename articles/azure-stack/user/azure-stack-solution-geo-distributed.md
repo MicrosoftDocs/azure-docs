@@ -12,22 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/25/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Create a geo-distributed app solution with Azure and Azure Stack
+# Tutorial: Create a geo-distributed app solution with Azure and Azure Stack
 
-The Azure Stack geographic traffic routing method, or Geo-Distributed Apps, allows traffic to be directed to specific endpoints based on various metrics. Creating a Traffic Manager profile with geographic-based routing and endpoint configuration effectively and seamlessly ensures information is correctly routed to endpoints based on regional requirements, corporate and international regulation, and data needs.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+Learn how to direct traffic to specific endpoints based on various metrics using Geo-Distributed Apps. Creating a Traffic Manager profile with geographic-based routing and endpoint configuration effectively and ensures information is correctly routed to endpoints based on regional requirements, corporate and international regulation, and data needs.
 
 In this tutorial, you will build a sample environment to:
 
 > [!div class="checklist"]
-> - Item
-> - Item
+> - Create a Geo-Distributed App.
+> - Use Traffic Manager to target your app.
 
-> [!Information]  
+> [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
 > 
