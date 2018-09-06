@@ -21,7 +21,7 @@ ms.reviewer: gibattag
 
 # Create and access a Cognitive Services API resource in the Azure portal
 
-Before accessing Azure Cognitive Services, you must first create and subscribe to at least one Cognitive Services resource in the Azure portal. These resource enable you to connect to one or more of the many Cognitive Services APIs available.  
+Before accessing Azure Cognitive Services, you must create and subscribe to at least one Cognitive Services resource in the Azure portal. These resources enable you to connect to one or more of the many Cognitive Services APIs available.  
 
 1. Sign in to the [Azure portal](http://portal.azure.com), and click **+ Create a resource**.
     
@@ -37,7 +37,7 @@ Before accessing Azure Cognitive Services, you must first create and subscribe t
 |--|--|
 | **Name** | A descriptive name for your cognitive services resource. We recommend using a descriptive name, for example *MyNameFaceAPIAccount*. |
 | **Subscription:** | Select one of your available Azure subscriptions. |
-| **Pricing tier:** | The cost of your Cognitive Services account depends on the options you choose and your usage. See the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/) for more information.
+| **Pricing tier:** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
 | **Resource Group Location:** | This is required only if the API selected is global (not bound to a location). If the API is global and not bound to a location, however, you must specify a location for the resource group where the metadata associated with the Cognitive Services API account resides. This location has no impact on the runtime availability of your account. |
 
 4. Click **Create** to create the account.
