@@ -22,7 +22,7 @@ ms.author: alkarche
  `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### Summary
-This issue occurs when the Functions Runtime cannot start. The most common reason for this error to occur is the Function App losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+This issue occurs when the Functions Runtime cannot start. The most common reason for this error to occur is the Function App losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ## Troubleshooting
 We'll walk through the four most common error cases, how to identify, and how to resolve each case.
@@ -34,7 +34,7 @@ We'll walk through the four most common error cases, how to identify, and how to
 
 ### Storage Account deleted
 
-Verification: Check to see if your storage account exists by looking up the name in your Application Settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` will contain the name of your storage account wrapped up in a connection string. Read more specifics at the [application setting reference here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+Verification: Check to see if your storage account exists by looking up the name in your Application Settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` will contain the name of your storage account wrapped up in a connection string. Read more specifics at the [application setting reference here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 
 Search for your storage account in the Azure portal to see if it still exists. If it has been deleted, you will need to recreate a storage account and replace your storage connection strings. Your function code is lost and you will need to redeploy it again.
 
@@ -45,12 +45,12 @@ In the previous step, if you did not have a storage account connection string th
 #### Required Application Settings
 
 * Required
-    * [`AzureWebJobsStorage`](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+    * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Required for Consumption Plan Functions
-    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
-    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#websitecontentshare)
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
+    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentshare)
 
-[Read about these application settings here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings)
+[Read about these application settings here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
 #### Guidance
 
@@ -60,11 +60,11 @@ In the previous step, if you did not have a storage account connection string th
 
 ### Storage Account Credentials Invalid
 
-The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
 
 ### Storage Account Inaccessible
 
 Your Function App must be able to access the storage account. Common issues that block a Functions access to a storage account are:
 
 * Function Apps deployed to App Service Environments without the correct network rules to allow traffic to and from the storage account
-* The storage account firewall is enabled and not configured to allow traffic to and from Functions. [Read more about storage account firewall configuration here](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* The storage account firewall is enabled and not configured to allow traffic to and from Functions. [Read more about storage account firewall configuration here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
