@@ -76,7 +76,7 @@ For detailed information about how to add users, see [How to add or delete users
     The **Assign license** blade updates to show that a user is selected and that the assignments are configured.
 
     >[!NOTE]
-    >Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory > Users > Profile > Settings** area in the Azure AD portal.
+    >Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in the Azure AD portal.
 
 5. Select **Assign**.
 
@@ -102,7 +102,7 @@ For detailed information about how to add users, see [How to add or delete users
     The **Assign license** blade updates to show that a user is selected and that the assignments are configured.
 
     >[!NOTE]
-    >Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory > Users > Profile > Settings** area in the Azure AD portal. Any user whose usage location is not specified inherits the location of the tenant.
+    >Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in the Azure AD portal. Any user whose usage location is not specified inherits the location of the tenant.
 
 5. Select **Assign**.
 
