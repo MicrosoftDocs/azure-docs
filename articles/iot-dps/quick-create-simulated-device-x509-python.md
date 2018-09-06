@@ -61,17 +61,29 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
-2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*, making sure to include both of these lines as well. 
+2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. 
+
+3. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. 
+    
+    Copy the first certificate to clipboard. Begin with the first occurance of:
+    
+        -----BEGIN CERTIFICATE----- 
+        
+    End you copying with the first occurance of:
+    
+        -----END CERTIFICATE-----
+        
+    Make sure to include both of those lines as well. 
 
     ![Dice device enrollment application](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
-3. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
+4. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
-4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
+5. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
-5. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+6. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
-6. Under the **Add enrollment** panel, enter the following information:
+7. Under the **Add enrollment** panel, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
     - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509testcertificate.pem** created in the previous steps.
     - Optionally, you may provide the following information:
