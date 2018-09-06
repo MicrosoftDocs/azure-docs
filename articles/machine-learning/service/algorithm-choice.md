@@ -358,13 +358,9 @@ JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) and an
 [insightful blog by Chris
 Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
-<!--
-## More help with algorithms
+## Next steps
 
-For a downloadable infographic that describes algorithms and provides links to examples in the [Azure AI Gallery](https://gallery.azure.ai/), see [Downloadable Infographic: Machine learning basics with algorithm examples](../studio/basics-infographic-with-algorithm-examples.md).
--->
-
-<!-- Media -->
+* Learn how to [automatically train a classification model with Azure Automated Machine Learning service](tutorial-auto-train-models.md).
 
 [1]: ./media/algorithm-choice/image1.png
 [2]: ./media/algorithm-choice/image2.png
