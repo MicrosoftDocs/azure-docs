@@ -140,5 +140,5 @@ If you encounter problems, refer to [the IoT DevKit FAQs](https://microsoft.gith
 Now that you have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and visualize the sensor data, here are the suggested next steps:
 
 * [Azure IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Customize the UI](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize)
-* [Connect IoT DevKit to your Azure IoT Central application](../articles/iot-central/howto-connect-devkit.md)
+* [Customize the UI](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
+* [Connect IoT DevKit to your Azure IoT Central application](../iot-central/howto-connect-devkit.md)
