@@ -98,7 +98,7 @@
     - name: C#
       href: how-to-develop-csharp-module.md
     - name: Node.js
-      href: how-to-develop-node-module.
+      href: how-to-develop-node-module.md
     - name: Java
       href: how-to-develop-java-module.md
     - name: C
