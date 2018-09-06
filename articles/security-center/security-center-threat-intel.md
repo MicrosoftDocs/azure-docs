@@ -3,7 +3,7 @@ title: Threat intelligence in Azure Security Center | Microsoft Docs
 description: Learn how to use the threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
+ms.date: 09/3/2018
+ms.author: rkarlin
 
 ---
 # Security alerts map Azure Security Center
@@ -47,7 +47,7 @@ The map provides alerts across any subscriptions you previously selected in Azur
 
 The alerts on the map are displayed according to the geographical location where they are detected as originating from, and they are color coded by severity. 
  
-# Viewing the event-based Threat intelligence dashboard
+## Viewing the event-based Threat intelligence dashboard
 To view the Threat intelligence map based on raw security events, you can follow this procedure. This map displays only events that involve an IP address that is considered risk, for example an IP address of a known botnet.
 
 1. Open the **Security Center** dashboard.
@@ -55,18 +55,16 @@ To view the Threat intelligence map based on raw security events, you can follow
 1. In the left pane, under **Threat Protection** select **Security alerts map**. The map opens.
 2. In the top right corner, click **Go to security events map**.
 3. Select the workspace for which you want to view the dashboard.
-1. At the top of the map, select **View classic threat intelligence**. The **Threat intelligence** dashboard opens.
+4. At the top of the map, select **View classic threat intelligence**. The **Threat intelligence** dashboard opens.
 
-
-
-	> [!NOTE]
-	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing.
-	>
-1. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
+   > [!NOTE]
+   > If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing.
+   >
+5. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
 
 	![Threat intelligence information](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-1. The dashboard is divided into four tiles:
+6. The dashboard is divided into four tiles:
 
 	a.  **Threat types**. Summarizes the type of threats that were detected in the selected workspace.
 
