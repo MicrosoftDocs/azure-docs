@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -39,7 +39,7 @@ Ensure that the following prerequisites are in place:
 * **Use a supported Azure AD Connect topology**: Ensure that you are using one of Azure AD Connect's supported topologies described [here](active-directory-aadconnect-topologies.md).
 
     >[!NOTE]
-    >Seamless SSO supports multiple AD forests, whether there is AD trusts between them or not.
+    >Seamless SSO supports multiple AD forests, whether there are AD trusts between them or not.
 
 * **Set up domain administrator credentials**: You need to have domain administrator credentials for each Active Directory forest that:
     * You synchronize to Azure AD through Azure AD Connect.
