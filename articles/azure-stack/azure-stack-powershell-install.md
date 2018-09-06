@@ -182,12 +182,11 @@ In scenarios that require a proxy server to access the Internet, you must first 
 2. Run the following commands:
 
    ```PowerShell  
-     #To use Windows credentials for proxy authentication
-     [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
+   #To use Windows credentials for proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
-     #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
-
-     [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
+   #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
 
 ## Next steps
