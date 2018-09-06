@@ -9,6 +9,7 @@ ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Create a custom language model

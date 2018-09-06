@@ -9,6 +9,7 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: priyar
+ROBOTS: NOINDEX
 ---
 # Bing text to speech API
 

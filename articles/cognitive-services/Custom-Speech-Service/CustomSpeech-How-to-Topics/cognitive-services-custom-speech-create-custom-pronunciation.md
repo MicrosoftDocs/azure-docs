@@ -9,6 +9,7 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Enable custom pronunciation
