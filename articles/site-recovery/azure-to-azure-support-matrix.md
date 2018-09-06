@@ -142,6 +142,7 @@ Add disk to replicated VM | Not supported. You need to disable replication for t
 --- | --- | ---
 Size | Any Azure VM size with at least 2 CPU cores and 1-GB RAM | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
 Availability sets | Supported | If you use the default option during 'Enable replication' step in portal, the availability set is auto created based on source region configuration. You can change the target availability set in 'Replicated item > Settings > Compute and Network > Availability set' any time.
+Availability zones | Not supported | VMs deployed in Availability zones are currently not supported.
 Hybrid Use Benefit (HUB) VMs | Supported | If the source VM has HUB license enabled, the Test failover or Failover VM also uses the HUB license.
 Virtual machine scale sets | Not supported |
 Azure Gallery Images - Microsoft published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
