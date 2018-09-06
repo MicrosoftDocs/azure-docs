@@ -9,6 +9,7 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Custom Speech Service meters and quotas

@@ -10,6 +10,7 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jansko
+ROBOTS: NOINDEX
 ---
 
 # How to sign up for the Microsoft Translator Speech API

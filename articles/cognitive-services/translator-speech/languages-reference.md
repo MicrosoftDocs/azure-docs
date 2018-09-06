@@ -11,6 +11,7 @@ ms.technology: microsoft translator
 ms.topic: article
 ms.date: 05/18/18
 ms.author: v-jansko
+ROBOTS: NOINDEX
 ---
 
 # Speech API: Languages

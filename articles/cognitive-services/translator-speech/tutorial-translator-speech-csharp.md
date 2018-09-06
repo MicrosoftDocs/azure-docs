@@ -11,6 +11,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jerkin
+ROBOTS: NOINDEX
 ---
 # Tutorial: Microsoft Translator WPF application in C#
 

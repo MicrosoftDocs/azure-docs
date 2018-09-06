@@ -9,6 +9,7 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Get started with speech recognition in Java on Android
 
