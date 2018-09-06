@@ -40,12 +40,12 @@ Most of the artifacts created in the earlier version of Azure Machine Learning s
 
 You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018.
 
-Support for these resources will be incrementally deprecated over the next 6 - 8 months.
+Support for these resources will be incrementally deprecated over the next 3 - 4 months.
 
 |Phase|Support details for earlier features|
 |:---:|----------------|
-|1|The ability to create _Azure Machine Learning Experimentation_ and _Model Management_ accounts in the Azure portal ends. Existing accounts, the CLI, and the desktop Workbench continue to work in this phase.|
-|2|The underlying APIs for creating the old workspaces and projects in the desktop Workbench and with the CLI ends. You can still run existing models and deploy web services to ACS in this phase.|
+|1|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI, and the desktop Workbench continues to work in this phase.|
+|2|The underlying APIs for creating old workspaces and projects in the desktop Workbench and with the CLI ends. You can still open existing projects, add additional scripts to it, execute scripts in existing projects, and deploy web services to existing ML Compute Environments in this phase.|
 |3|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
 
 [Start migrating](how-to-migrate.md) today. All features and capabilities are available in the latest version through this [SDK](reference-azure-machine-learning-sdk.md), [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
