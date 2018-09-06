@@ -14,7 +14,7 @@ ms.author: jovanpop-msft
 ---
 # Create an Azure SQL Managed Instance
 
-This quickstart walks through how to create a SQL [Managed Instance](sql-database-managed-instance.md) in Azure, including the preparation of the network environment. 
+This quickstart walks through how to create a SQL [Managed Instance](sql-database-managed-instance.md) in the Azure portal, including the preparation of the network environment. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
