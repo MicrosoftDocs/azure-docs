@@ -36,15 +36,15 @@ Create an alias record that points to a resource record in the zone.
 ### Create the target resource record
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
-3. In the **Name** text box **server**.
-4. For the **Type**,** select **A**.
+3. In the **Name** text box type **server**.
+4. For the **Type**, select **A**.
 5. In the **IP ADDRESS** text box, type **10.10.10.10**.
 6. Click **OK**.
 
 ### Create the alias record
 1. Click your Azure DNS zone to open the zone.
 2. Click **Record set**.
-3. In the **Name** text box **test**.
+3. In the **Name** text box type **test**.
 4. For the **Type**, select **A**.
 5. Click **Yes** in the **Alias Record Set** check box and select the **Zone record set** option.
 6. For the **Zone record set**, select the **server** record.
@@ -53,10 +53,10 @@ Create an alias record that points to a resource record in the zone.
 ## Test the alias record
 
 1. Start you favorite nslookup tool. One option is to browse to [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Set the query type for A records and lookup **test.\<your domain name\>**. You get **10.10.10.10** for the answer.
+2. Set the query type for A records and lookup **test.\<your domain name\>**. You should get **10.10.10.10** for the answer.
 3. In the Azure portal, change the **server** A record to **10.11.11.11**.
 4. Wait a few minutes, and then use nslookup again for **test** record.
-5. You should get **10.11.11.11** as the answer.
+5. You should get **10.11.11.11** for the answer.
 
 ## Clean up resources
 
