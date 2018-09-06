@@ -44,13 +44,14 @@ To create an AKS cluster, complete the following steps:
 1. **Networking**: Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. Virtual nodes requires a delegated subnet, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
     - If you need to create a virtual network and subnet, complete the following steps:
         - Under *Virtual network*, choose **Create new**.
-        - Provide a name, such as *myVnet*. Set the **Address range** as *10.0.0.0/16*
-        - Under **Subnets**, provide a name, such as *myAKSSubnet*, and set the **Address range** to *10.0.0.0/24*.
-        - Provide the name for an additional subnet, such as *myVirtualNodeSubnet*, and set the **Address range** to *10.0.1.0/24*.
+        - Provide a name, such as *myVnet*. Set the **Address range** as *10.240.0.0/16*
+        - Under **Subnets**, provide a name, such as *myAKSSubnet*, and set the **Address range** to *10.240.0.0/17*.
+        - Provide the name for an additional subnet, such as *myVirtualNodeSubnet*, and set the **Address range** to *10.240.252.0/22*.
         - Select **Create**.
     - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *myVirtualNodeSubnet*.
-    - Set the **Kubernetes service address range** to *10.0.2.0/24*.
-    - Set the **Kubernetes DNS service IP address** to *10.0.2.10*.
+    - Leave the **Kubernetes service address range** as the default *10.0.0.0/16*.
+    - Leave the **Kubernetes DNS service IP address** as the default *10.0.0.10*.
+    - Leave the **Docker Bridge address** as the default *172.17.0.1/16*.
     
     ![Create AKS cluster - configure advanced networking](media/aci-connector-portal/configure-networking.png)
 

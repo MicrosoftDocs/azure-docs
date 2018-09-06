@@ -34,24 +34,25 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual network
 
-Create a virtual network using the [az network vnet create][az-network-vnet-create] command. The following example creates a virtual network name *myVnet* with an address prefix of *10.0.0.0/16*, and a subnet named *myAKSSubnet*. The address prefix of this subnet defaults to *10.0.0.0/24*:
+Create a virtual network using the [az network vnet create][az-network-vnet-create] command. The following example creates a virtual network name *myVnet* with an address prefix of *10.240.0.0/16*, and a subnet named *myAKSSubnet*. The address prefix of this subnet defaults to *10.240.0.0/17*:
 
 ```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefixes 10.0.0.0/16 \
-    --subnet-name myAKSSubnet
+    --address-prefixes 10.240.0.0/16 \
+    --subnet-name myAKSSubnet \
+    --subnet-prefix 10.240.0.0/17
 ```
 
-Now create an additional subnet for virtual nodes using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *myVirtualNodeSubnet* with the address prefix of *10.0.1.0/24*.
+Now create an additional subnet for virtual nodes using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *myVirtualNodeSubnet* with the address prefix of *10.240.252.0/22*.
 
 ```azurecli-interactive
 az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
-    --address-prefix 10.0.1.0/24
+    --address-prefix 10.240.252.0/22
 ```
 
 ## Create a service principal
@@ -110,8 +111,8 @@ az aks create \
     --name myAKSCluster \
     --node-count 1 \
     --network-plugin azure \
-    --service-cidr 10.0.2.0/24 \
-    --dns-service-ip 10.0.2.10 \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id <subnetId> \
     --service-principal <appId> \
