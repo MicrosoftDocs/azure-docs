@@ -1,18 +1,22 @@
 ---
 title: 'Generate and export certificates for Point-to-Site: Linux: Azure | Microsoft Docs'
-description: Create a self-signed root certificate, export the public key, and generate client certificates using Linux.
+description: Create a self-signed root certificate, export the public key, and generate client certificates using the Linux (strongSwan) CLI.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/06/2018
 ms.author: cherylmc
 
 ---
-# Generate and export certificates for Point-to-Site using Linux
+# Generate and export certificates for Point-to-Site using Linux strongSwan CLI
 
-Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using Linux. If you are looking for different certificate instructions, see [Certificates - PowerShell](vpn-gateway-certificates-point-to-site.md) or [Certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
+Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using the Linux CLI and strongSwan. If you are looking for different certificate instructions, see the [Powershell](vpn-gateway-certificates-point-to-site.md) or [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) articles.
+
+> [!NOTE]
+> The steps in this article require strongSwan.
+>
 
 The computer configuration used for the steps for this article was the following:
 
@@ -20,6 +24,13 @@ The computer configuration used for the steps for this article was the following
 |---|---|
 |**Computer**| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
 |**Dependencies**| apt-get install strongswan-ikev2 strongswan-plugin-eap-tls<br>apt-get install libstrongswan-standard-plugins |
+
+## Install strongSwan
+
+1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
+2. `apt-get install libstrongswan-standard-plugins`
+
+For more information about how to install using the GUI, see the steps in the [Client configuration](point-to-site-vpn-client-configuration-azure-cert.ms#install) article.
 
 ## Generate keys and certificate
 
@@ -51,4 +62,4 @@ The computer configuration used for the steps for this article was the following
 
 ## Next steps
 
-Continue with your Point-to-Site configuration to [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linux).
+Continue with your Point-to-Site configuration to [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linuxcli).

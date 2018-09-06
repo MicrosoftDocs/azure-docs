@@ -107,7 +107,7 @@ Click **Add** to import.
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. On the **Network** dialog, click **Apply** to save all changes. Then, click **Connect** to start the P2S connection to the Azure VNet.
 
-## <a name="installlinux"></a>Linux (strongSwan)
+## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
 ### Extract the key and certificate
 
@@ -127,7 +127,7 @@ Follow the steps below:
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
   ```
 
-### Install
+### <a name="install"></a>Install and configure
 
 The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the command line. The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
 
@@ -154,7 +154,16 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
   ![request an inner IP address](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
 8. Click the **Network Manager** icon (up-arrow/down-arrow) and hover over **VPN Connections**. You see the VPN connection that you created. Click to initiate the connection.
 
-## <a name="linux"></a>Linux
+## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
+
+### Install strongSwan
+
+You can use the following CLI commands, or use the strongSwan steps in the [GUI](#install) to install strongSwan.
+
+1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
+2. `apt-get install libstrongswan-standard-plugins`
+
+### Install and configure
 
 1. Download the VPNClient package from Azure portal.
 2. Extract the File.
