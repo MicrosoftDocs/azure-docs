@@ -15,7 +15,7 @@ ms.author: erhopf
 
 This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results based on a user's query. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript logic required to call the Bing Web Search API, handle the response, and display the results. HTML, CSS, and JS files are available on [GitHub](placeholder) with quickstart instructions.  
 
-The sample app can:
+This sample app can:
 
 > [!div class="checklist"]
 > * Call the Bing Web Search API with search options
@@ -26,26 +26,49 @@ The sample app can:
 
 To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) to get a subscription key.
 
-## App components
+## Prerequisites
 
-Like any single-page Web app, the tutorial application includes three parts:
+Here are a few things that you'll to run the app:
 
-> [!div class="checklist"]
-> * HTML - Defines the structure and content of the page
-> * CSS - Defines the appearance of the page
-> * JavaScript - Defines the behavior of the page
+* Node.js 8 or later
+* A subscription key
 
-This tutorial doesn't cover most of the HTML or CSS in detail, as they are straightforward.
+## Get the source code and install dependencies
 
-The HTML contains the search form in which the user enters a query and chooses search options. The form is connected to the JavaScript that actually performs the search by the `<form>` tag's `onsubmit` attribute:
+The first step is to clone the repository with the sample app's source code.
 
-```html
-<form name="bing" onsubmit="return newBingWebSearch(this)">
+```console
+git clone https://github.com/Azure-Samples/cognitive-services-REST-api-samples.git
 ```
 
-The `onsubmit` handler returns `false`, which keeps the form from being submitted to a server. The JavaScript code actually does the work of collecting the necessary information from the form and performing the search.
+Then run `npm install`. For this project, Express.js is the only dependency.
 
-The HTML also contains the divisions (HTML `<div>` tags) where the search results appear.
+```console
+cd <path-to-repo>/cognitive-services-REST-api-samples/Tutorials/Bing-Web-Search
+npm install
+```
+
+## App components
+
+The sample app we're building is made up of 4 parts:
+
+* `app.js` - Our Express.js app. It handles request/response logic and routing.
+* `public/index.html` - The skeleton of our app; it defines how data is presented to the user.
+* `public/css/styles.css` - Defines page styles, such as fonts, colors, text size.
+* `public/js/scripts.js` - Contains the logic to makes requests to the Bing Web Search API, manage subscription keys, handle and parse responses, and display results.
+
+This tutorial focuses on `scripts.js` and the logic required to call the Bing Web Search API and handle the response.
+
+## HTML form
+
+`index.html` includes a form that enables users to search and select search options. The `onsubmit` attribute fires when the form is submitted, calling the JavaScript method defined in `scripts.js`:
+
+```html
+<form name="bing" onsubmit="return bingWebSearch(this.query.value,
+    bingSearchOptions(this), getSubscriptionKey())">
+```
+
+The `onsubmit` handler returns `false`, which keeps the form from being submitted to a server. The JavaScript does the work of collecting the information from the form and performing the search.
 
 ## Managing subscription key
 
