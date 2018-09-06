@@ -90,13 +90,13 @@ These steps are shown in the Azure App Service repository as [an example](https:
 
 The Dockerfile uses the [`ENTRYPOINT` instruction](https://docs.docker.com/engine/reference/builder/#entrypoint) to run the script.
 
-```docker
-COPY init_container.sh /opt/startup
-...
-RUN chmod 755 /opt/startup/init_container.sh
-...
-ENTRYPOINT ["/opt/startup/init_container.sh"]
-```
+    ```docker
+    COPY init_container.sh /opt/startup
+    ...
+    RUN chmod 755 /opt/startup/init_container.sh
+    ...
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
+    ```
 
 ## Open SSH session from remote shell
 
