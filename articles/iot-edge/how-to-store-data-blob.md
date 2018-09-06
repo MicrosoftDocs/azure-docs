@@ -57,7 +57,7 @@ Use the following steps to configure the deployment manifest:
 
 3. Specify the settings for your blob storage module. 
 
-   * **Name** - Enter a recognizable name for your module, like **AzureBlobStorage**.
+   * **Name** - Enter a recognizable name for your module, like **azureBlobStorage**.
    * **Image URI** - If your IoT Edge device uses Linux containers, enter **mcr.microsoft.com/azure-blob-storage:linux**. If your IoT Edge device uses Windows containers, enter **mcr.microsoft.com/azure-blob-storage:nanoserver-1809**. 
    * **Container Create Options** - Copy and paste the following JSON. Update `\<your storage account name\>` with any name. Update `\<your storage account key\>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules.
 
@@ -97,7 +97,7 @@ Use the following steps to create a new IoT Edge solution with a blob storage mo
    1. **Select Folder** - Browse to the folder where you want to create the new solution.  
    2. **Provide a solution name** - Enter a name for your solution, or accept the default.
    3. **Select module template** - Choose **Existing Module (Enter full image URL)**.
-   4. **Provide a module name** - Enter a recognizable name for your module, like **AzureBlobStorage**.
+   4. **Provide a module name** - Enter a recognizable name for your module, like **azureBlobStorage**.
    5. **Provide Docker image for the module** - If your IoT Edge device uses Linux containers, enter **mcr.microsoft.com/azure-blob-storage:linux**. If your IoT Edge device uses Windows containers, enter **mcr.microsoft.com/azure-blob-storage:nanoserver-1809**. 
 
 VS Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window. 
