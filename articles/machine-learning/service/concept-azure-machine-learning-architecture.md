@@ -40,7 +40,7 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 
 The workspace provides a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. This information can be used to determine which training run produces the best model.
 
-Once you've determined the best model, you can register it with the workspace. From a registered model, coupled with scoring scripts, you can create a Docker image. The Docker image can then be deployed into Azure Container Instances or Azure Kubernetes Service as a REST-based HTTP endpoint.
+Once you've determined the best model, you can register it with the workspace. From a registered model, coupled with scoring scripts, you can create an image. The image can then be deployed into Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint.
 
 You can create multiple workspaces, and each workspace can be shared by multiple people. When sharing a workspace, you can assign the following roles to users:
 
@@ -70,13 +70,13 @@ For an example of using scripts to train a model, see [Create a workspace with P
 
 ## Model
 
-A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. 
+A model is a logic operation, stored in one or more files. It is used to score input data. For example, an image classification model would take an image as input and return a value indicating whether the image contains a dog or a cat. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create an image and deployment. 
 
 Azure Machine Learning is framework agnostic. You can use any popular machine learning framework, including scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
 ## Image
 
-We use images to group all the assets for your deployment. We currently support only Docker images. A Docker image is created from your scripts, and registered with the workspace. It encapsulates:
+We use images to group all the assets for your deployment. For example, when deploying to Azure Kubernetes Service, a Docker image is created from your scripts and registered with the workspace. Images encapsulate the following items:
 
 * A model file, or a directory of model files
 * A scoring script or application for device deployments
@@ -90,8 +90,8 @@ A deployment is an instantiation of your image into either a Web Service that ma
 
 ### Web Services
 
-A deployed web service can use either Azure Container Instances or Azure Kubernetes Service.
-It is a Docker container created from a Docker image, and encapsulates your model, script, and associated files. The image has an HTTP Load balanced endpoint to send scoring request to.
+A deployed web service can use Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA).
+The service is created from an image that encapsulates your model, script, and associated files. The image has an HTTP Load balanced endpoint to send scoring request to.
 
 Azure helps you monitor your Web service deployment by collecting Application Insight telemetry and/or model telemetry if you have chosen to enable this feature. The telemetry data is only accessible to you, and stored in your Application Insights and storage account instances.
 

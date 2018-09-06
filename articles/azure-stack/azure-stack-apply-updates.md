@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/05/2018
 ms.author: mabrigg
 
 ---
@@ -39,7 +39,7 @@ The following procedure shows how to import and install update packages in the a
 > [!IMPORTANT]
 > We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both user workloads and portal operations.
 
-1. In the administrator portal, select **More services**. Then, under the **Data + Storage** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
+1. In the administrator portal, select **All services**. Then, under the **DATA + STORAGE** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
 
     ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates1.png)
 

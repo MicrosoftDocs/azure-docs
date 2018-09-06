@@ -21,7 +21,7 @@ Use this SDK to quickly build, train, and deploy highly accurate machine learnin
 
 ## Install the SDK
 
-[!INCLUDE [aml-install-sdk](../../../includes/aml-install-sdk.md)]
+The SDK must be installed into your development environment. The steps are similar across the various environment options. Follow the steps in this "[How to configure your development environment](how-to-configure-environment.md)" to learn how.
 
 ## Next steps
 
@@ -29,7 +29,7 @@ Try these next steps to learn how to use this Azure Machine Learning SDK for Pyt
 
 1. [Follow the tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy a model in Python.
 
-1. Look up classes and modules in [the reference documentation](https://docs.microsoft.com/python/api/overview/azure-ml-sdk/azure-ml-sdk-overview/).
+1. Look up classes and modules in [the reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py)
 
 <br>
 The Azure Machine Learning service CLI was built on top of this SDK. Read the [overview for the machine learning CLI](reference-azure-machine-learning-sdk.md) to learn more.
