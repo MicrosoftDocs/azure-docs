@@ -18,7 +18,7 @@ ms.custom: it-pro
 
 # Restore a deleted Office 365 group in Azure Active Directory
 
-When you delete an Office 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Office 365 groups in Azure AD. It is not available for security groups and distribution groups.
+When you delete an Office 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Office 365 groups in Azure AD. It is not available for security groups and distribution groups.
 
 > [!NOTE]
 > Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-AzureADMSGroup` to delete an O365 group.
@@ -29,7 +29,7 @@ Role | Permissions
 --------- | ---------
 Company Administrator, Partner Tier2 support, and InTune Service Admins | Can restore any deleted Office 365 group
 User Account Administrator and Partner Tier1 support | Can restore any deleted Office 365 group except those assigned to the Company Administrator role
-User | Can restore any deleted Office 365 group tHat they owned
+User | Can restore any deleted Office 365 group that they owned
 
 
 ## View the deleted Office 365 groups that are available to restore
