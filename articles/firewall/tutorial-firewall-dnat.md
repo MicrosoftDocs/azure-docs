@@ -3,7 +3,6 @@ title: Filter inbound traffic with Azure Firewall DNAT using the Azure portal
 description: In this tutorial, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
 services: firewall
 author: vhorne
-manager: jpconnock
 
 ms.service: firewall
 ms.topic: tutorial
@@ -16,7 +15,7 @@ ms.custom: mvc
 
 You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound traffic to your subnets. Azure Firewall does not have a concept of inbound rules and outbound rules. There are application rules and network rules, and they are applied to any traffic that comes into the firewall. Network rules are applied first, then application rules, and the rules are terminating.
 
-To configure DNAT, you configure the **Action** to **Translate**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might set a network rule to allow Remote Desktop traffic on TCP port 3389.
+When you configure DNAT, the DNAT rule collection action is set to **Translate**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might configure a network rule to allow Remote Desktop traffic on TCP port 3389.
 
 In this tutorial, you learn how to:
 
@@ -80,6 +79,8 @@ First, create the VNets and then peer them.
 
 ### Peer the VNets
 
+Now peer the two VNets.
+
 #### Hub to spoke
 
 1. Click the **VN-Hub** virtual network.
@@ -101,7 +102,7 @@ First, create the VNets and then peer them.
 
 ## Create a virtual machine
 
-Now create a workload virtual machine, and place it in the **SN-Workload** subnet.
+Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 1. From the Azure portal home page, click **All services**.
 2. Under **Compute**, click **Virtual machines**.
@@ -237,11 +238,9 @@ Under **Rules**:
 4. Change the **RC-Net-01** network rule collection action to **Deny**.
 5. Try to connect to firewall public IP address again. This time it should not succeed because of the **Deny** rule.
 
-
 ## Clean up resources
 
 You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **RG-DNAT-Test** resource group to delete all firewall-related resources.
-
 
 ## Next steps
 
