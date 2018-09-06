@@ -53,7 +53,7 @@ To enable the system-assigned managed identity on a VM that was originally provi
 
 3. Under **System assigned**, **Status**, select **On** and then click **Save**:
 
-   ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### Remove system-assigned managed identity from a VM
 
@@ -65,7 +65,7 @@ If you have a Virtual Machine that no longer needs system-assigned managed ident
 
 3. Under **System assigned**, **Status**, select **Off** and then click **Save**:
 
-   ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
+   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 
 ## User-assigned managed identity
 
