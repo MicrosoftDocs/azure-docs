@@ -22,10 +22,10 @@ ms.author: alkarche
  `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### Summary
-This issue occurs when the Functions Runtime cannot start. The most common reason for this to occur is the Function App losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+This issue occurs when the Functions Runtime cannot start. The most common reason for this error to occur is the Function App losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ## Troubleshooting
-We'll walk through the 4 most common error cases, how to identify, and how to resolve each case.
+We'll walk through the four most common error cases, how to identify, and how to resolve each case.
 
 1. Storage Account deleted
 1. Storage Account application setting deleted
@@ -36,11 +36,11 @@ We'll walk through the 4 most common error cases, how to identify, and how to re
 
 Verification: Check to see if your storage account exists by looking up the name in your Application Settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` will contain the name of your storage account wrapped up in a connection string. Read more specifics at the [application setting reference here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 
-Search for your storage account in the Azure portal to see if it still exists. If it has been deleted you will need to recreate a storage account and replace the connection strings with new connection strings generated in the new account. Your function code is lost and you will need to re-deploy it again.
+Search for your storage account in the Azure portal to see if it still exists. If it has been deleted, you will need to recreate a storage account and replace your storage connection strings. Your function code is lost and you will need to redeploy it again.
 
 ### Storage Account Application Settings Deleted
 
-In the previous step, if you did not have a storage account connection string they were likely deleted or overwritten. This is most commonly done when using deployment slots or ARM scripts to set application settings.
+In the previous step, if you did not have a storage account connection string they were likely deleted or overwritten. Deleting app settings is most commonly done when using deployment slots or Azure Resource Manager scripts to set application settings.
 
 #### Required Application Settings
 
@@ -54,13 +54,13 @@ In the previous step, if you did not have a storage account connection string th
 
 #### Guidance
 
-1. Do not sticky any of these settings when using deployment slots.
+1. Do not check "slot setting" for any of these settings. When you swap deployment slots the application will break.
 1. Do not overwrite these settings when using automated deployments.
 1. These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
 
 ### Storage Account Credentials Invalid
 
-The above Storage Account connection strings must be updated if you re-generate storage keys. [Read more about storage key management here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
 
 ### Storage Account Inaccessible
 
