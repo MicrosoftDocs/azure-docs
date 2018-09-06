@@ -62,72 +62,32 @@ This tutorial focuses on `scripts.js` and the logic required to call the Bing We
 
 ## HTML form
 
-The `index.html` includes a form that enables users to search and select search options. The `onsubmit` attribute fires when the form is submitted, calling the JavaScript method defined in `scripts.js`:
+The `index.html` includes a form that enables users to search and select search options. The `onsubmit` attribute fires when the form is submitted, calling the `bingWebSearch()` method defined in `scripts.js`. It takes three arguments:
+
+* Search query
+* Selected options
+* Subscription key
 
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this.query.value,
     bingSearchOptions(this), getSubscriptionKey())">
 ```
 
-This method calls the Bing Web Search API and takes three arguments:
+## Query options
 
-* Search query
-* Selected options
-* Subscription key
-
-// Something about... in the following sections...
-
-## Manage subscription keys
-
-To avoid including the Bing Search API subscription key in the code, this sample app uses the browser's persistent storage to store the subscription key. If no subscription key is stored, the user is prompted to enter one. If the subscription key is rejected by the API, the user is prompted to re-enter a subscription key.
-
-//Re-write this section.
-
-The `storeValue` and `retrieveValue` functions use either the `localStorage` object (if the browser supports it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
-
-```javascript
-// cookie names for data we store
-API_KEY_COOKIE   = "bing-search-api-key";
-CLIENT_ID_COOKIE = "bing-search-client-id";
-
-BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/search";
-
-// ... omitted definitions of storeValue() and retrieveValue()
-
-// get stored API subscription key, or prompt if it's not found
-function getSubscriptionKey() {
-    var key = retrieveValue(API_KEY_COOKIE);
-    while (key.length !== 32) {
-        key = prompt("Enter Bing Search API subscription key:", "").trim();
-    }
-    // always set the cookie in order to update the expiration date
-    storeValue(API_KEY_COOKIE, key);
-    return key;
-}
-```
-
-The HTML `form` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
-
-```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
-    bingSearchOptions(this), getSubscriptionKey())">
-```
-
-## Selecting search options
-
-![[Bing Web Search form]](media/cognitive-services-bing-web-api/web-search-spa-form.png)
-
-The HTML form includes elements with the following names:
+The HTML form includes options that map to query parameters in the [Bing Web Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters):
 
 | | |
 |-|-|
-| `where` | A drop-down menu for selecting the market (location and language) used for the search. |
-| `query` | The text field in which to enter the search terms. |
-| `what` | Checkboxes for promoting particular kinds of results. Promoting images, for example, increases the ranking of images. |
-| `when` | Drop-down menu for optionally limiting the search to the most recent day, week, or month. |
-| `safe` | A checkbox indicating whether to use Bing's SafeSearch feature to filter out "adult" results. |
-| `count` | Hidden field. The number of search results to return on each request. Change to display fewer or more results per page. |
+| `where` | A drop-down menu to select the market (location and language). |
+| `query` | A text field to enter a query string. |
+| `what` | Checkboxes to promote specific result types. Promoting images, for example, increases the ranking of images in search results. |
+| `when` | A drop-down menu that allows the user to limit limiting the search results to today, this week, or this month. |
+| `safe` | A checkbox to enable Bing SafeSearch, which filters out adult content. |
+| `count` | Hidden field. The number of search results to return on each request. Change this value to display fewer or more results per page. |
 | `offset` | Hidden field. The offset of the first search result in the request; used for paging. It's reset to `0` on a new request. |
+
+![[Bing Web Search form]](media/cognitive-services-bing-web-api/web-search-spa-form.png)
 
 > [!NOTE]
 > Bing Web Search offers many more query parameters. We're using only a few of them here.
@@ -135,7 +95,7 @@ The HTML form includes elements with the following names:
 The JavaScript function `bingSearchOptions()` converts these fields to the format required by the Bing Search API.
 
 ```javascript
-// build query options from the HTML form
+// Build query options from selections in the HTML form.
 function bingSearchOptions(form) {
 
     var options = [];
@@ -165,6 +125,55 @@ If any of the **Promote** checkboxes are marked, we also add an `answerCount` pa
 > Promoting a result type does not *guarantee* that the search results include that kind of result. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
 
 We also send `textDecoration` and `textFormat` query parameters to cause the search term to be boldfaced in the search results. These values are hardcoded in the script.
+
+## Manage subscription keys
+
+To avoid hardcoding the Bing Search API subscription key, this sample app uses a browser's persistent storage to store the subscription key. If no subscription key is stored, the user is prompted to enter one. If the subscription key is rejected by the API, the user is prompted to re-enter a subscription key.
+
+The `getSubscriptionKey()` function uses the `storeValue` and `retrieveValue` functions to store and retrieve a user's subscription key. These functions use the `localStorage` object, if supported, or cookies.
+
+```javascript
+// Cookie names for stored data.
+API_KEY_COOKIE   = "bing-search-api-key";
+CLIENT_ID_COOKIE = "bing-search-client-id";
+
+BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/search";
+
+// See source code for storeValue and retrieveValue definitions.
+
+// Get stored subscription key, or prompt if it's not found.
+function getSubscriptionKey() {
+    var key = retrieveValue(API_KEY_COOKIE);
+    while (key.length !== 32) {
+        key = prompt("Enter Bing Search API subscription key:", "").trim();
+    }
+    // Always set the cookie in order to update the expiration date.
+    storeValue(API_KEY_COOKIE, key);
+    return key;
+}
+```
+
+As we saw earlier, when the form is submitted, `onsubmit` fires, calling `bingWebSearch`. This function constructs the query and returns a response with applicable search results based on the options selected by the user. `getSubscriptionKey` is called on each submission to authenticate the request.
+
+## Select search options
+
+
+
+The HTML form includes elements with the following names:
+
+| | |
+|-|-|
+| `where` | A drop-down menu for selecting the market (location and language) used for the search. |
+| `query` | The text field in which to enter the search terms. |
+| `what` | Checkboxes for promoting particular kinds of results. Promoting images, for example, increases the ranking of images. |
+| `when` | Drop-down menu for optionally limiting the search to the most recent day, week, or month. |
+| `safe` | A checkbox indicating whether to use Bing's SafeSearch feature to filter out "adult" results. |
+| `count` | Hidden field. The number of search results to return on each request. Change to display fewer or more results per page. |
+| `offset` | Hidden field. The offset of the first search result in the request; used for paging. It's reset to `0` on a new request. |
+
+> [!NOTE]
+> Bing Web Search offers many more query parameters. We're using only a few of them here.
+
 
 ## Performing the request
 
