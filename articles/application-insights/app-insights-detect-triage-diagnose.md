@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
 
 ---
@@ -59,7 +59,7 @@ But more importantly, an alert about any failure is emailed to the development t
 ## Monitor Performance
 On the overview page in Application Insights, there's a chart that shows a variety of [key metrics](app-insights-web-monitor-performance.md).
 
-![Various metrics](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Screenshot of overview performance KPI graphs](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 Browser page load time is derived from telemetry sent directly from web pages. Server response time, server request count, and failed request count are all measured in the web server and sent to Application Insights from there.
 
@@ -67,7 +67,7 @@ Marcela is slightly concerned with the server response graph. This graph shows t
 
 She opens the Servers charts:
 
-![Various metrics](./media/app-insights-detect-triage-diagnose/06.png)
+![Various metrics](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 There seems to be no sign of resource limitation there, so maybe the bumps in the server response charts are just a coincidence.
 
@@ -150,7 +150,7 @@ Exceptions and events show up in the [Diagnostic Search](app-insights-diagnostic
 ## Monitor proactively
 Marcela doesn't just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times](app-insights-web-monitor-performance.md) - both the overall figure and the table of slowest requests, as well as exception counts.  
 
-![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Response time graph and grid of server response times.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 She can assess the performance effect of every deployment, typically comparing each week with the last. If there's a sudden worsening, she raises that with the relevant developers.
 
@@ -164,8 +164,6 @@ By contrast, a dramatic and stable rise in the graph of exception counts or resp
 A useful triage tactic is Try It Yourself. If you run into the same problem, you know it's real.
 
 What fraction of users are affected? To obtain a rough answer, divide the failure rate by the session count.
-
-![Charts of failed requests and sessions](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
 When there are slow responses, compare the table of slowest-responding requests with the usage frequency of each page.
 
@@ -199,7 +197,6 @@ Fabrikam Bank's development team take a more structured approach to performance 
 * They set performance targets in terms of specific measures in the Application Insights overview page.
 * They design performance measures into the application from the start, such as the metrics that measure user progress through 'funnels.'  
 
-
 ## Monitor user activity
 When response time is consistently good and there are few exceptions, the dev team can move on to usability. They can think about how to improve the users' experience, and how to encourage more users to achieve the desired goals.
 
@@ -207,7 +204,7 @@ Application Insights can also be used to learn what users do with an app. Once i
 
 For example, a typical user journey through the web site has a clear "funnel." Many customers look at the rates of different types of loan. A smaller number go on to fill in the quotation form. Of those who get a quotation, a few go ahead and take out the loan.
 
-![Page view counts](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Page view counts](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 By considering where the greatest numbers of customers drop out, the business can work out how to get more users through to the bottom of the funnel. In some cases, there might be a user experience (UX) failure - for example, the 'next' button is hard to find, or the instructions aren't obvious. More likely, there are more significant business reasons for drop-outs: maybe the loan rates are too high.
 

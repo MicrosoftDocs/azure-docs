@@ -1,17 +1,18 @@
 ---
-title: Batch test your LUIS app - Azure | Microsoft Docs
-description: Use Language Understanding (LUIS) batch testing to find utterances with incorrect intents and entities.
+title: Batch test with 1000 example utterances
+titleSuffix: Azure Cognitive Services
+description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
 ---
 
-# Batch testing
+# Batch testing with a set of example utterances
  Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. 
 
 <a name="batch-testing"></a>
@@ -22,8 +23,6 @@ ms.author: diberry
     ![Batch Testing Link](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate a JSON file with the correct [JSON format](luis-concept-batch-test.md#batch-file-format) that contains *no more than 1,000* utterances to test.
-
-    ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. For more information, see [Common errors](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
