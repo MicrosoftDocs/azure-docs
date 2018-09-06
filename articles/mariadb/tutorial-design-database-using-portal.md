@@ -7,7 +7,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 09/24/2018
 ms.custom: mvc
 ---
 
