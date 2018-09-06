@@ -123,7 +123,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 2. Download and install the IoT Edge service on your device. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; 
    Install-SecurityDaemon -Manual -ContainerOs Linux
    ```
 
