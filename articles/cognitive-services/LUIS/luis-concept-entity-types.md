@@ -1,5 +1,6 @@
 ---
-title: Understanding entity types in LUIS apps in Azure | Microsoft Docs
+title: Entity types in LUIS apps - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
 author: diberry
