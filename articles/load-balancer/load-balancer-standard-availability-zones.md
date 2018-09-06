@@ -168,7 +168,7 @@ The SNAT port preallocation and algorithm is the same with or without zones.
 
 ### Health probes
 
-Your existing health probe definitions remain as they are without Availability Zones.  But we have expanded the health model at an infrastructure level. 
+Your existing health probe definitions remain as they are without Availability Zones.  But we've expanded the health model at an infrastructure level. 
 
 When using zone-redundant frontends, Load Balancer expands its internal health model to independently probe the reachability of a VM from each Availability Zone and shut down paths across zones that may have failed without customer intervention.  If a given path is not available from the Load Balancer infrastructure of one zone to a VM in another zone, Load Balancer can detect and avoid this failure. Other zones who can reach this VM can continue to serve the VM from their respective frontends.  As a result, it is possible that during failure events, each zone may have slightly different flow distributions while protecting the overall health of your end-to-end service.
 
@@ -190,9 +190,9 @@ Avoid introducing unintended cross-zone dependencies, which will nullify availab
 
 - If your application has two components like an IP address and a VM with managed disk, and they're guaranteed in zone 1 and zone 2, when zone 1 fails your end-to-end service will not survive when zone 1 fails.  Don't cross zones unless you fully understand that you are creating a potentially hazardous failure mode.
 
-- If your application has two components like an IP address and a VM with managed disk, and they are guaranteed to be zone-redundant and zone 1 respectively, your end-to-end service will survive zone failure of zone 2, zone 3, or both unless zone 1 has failed.  However, you lose some ability to reason about the health of your service if all you are observing is the reachability of the frontend.  Consider developing a more extensive health and capacity model.  You may be able to use zone-redundant and zonal concepts together to expand insight and manageability.
+- If your application has two components like an IP address and a VM with managed disk, and they are guaranteed to be zone-redundant and zone 1 respectively, your end-to-end service will survive zone failure of zone 2, zone 3, or both unless zone 1 has failed.  However, you lose some ability to reason about the health of your service if all you are observing is the reachability of the frontend.  Consider developing a more extensive health and capacity model.  You might use zone-redundant and zonal concepts together to expand insight and manageability.
 
-- If your application has two components like a zone-redundant Load Balancer frontend and a cross-zone virtual machine scale set in three zones, your resources in zones not impacted by failure will be available but your end-to-end service may be degraded in terms of capacity during zone failure. From an infrastructure perspective, your deployment can survive one or more zone failures, and this raises the following questions:
+- If your application has two components like a zone-redundant Load Balancer frontend and a cross-zone virtual machine scale set in three zones, your resources in zones not impacted by failure will be available but your end-to-end service capacity may be degraded during zone failure. From an infrastructure perspective, your deployment can survive one or more zone failures, and this raises the following questions:
   - Do you understand how your application reasons about such failures and degraded capacity?
   - Do you need to have safeguards in your service to force a fail over to a region pair if necessary?
   - How will you monitor, detect, and mitigate such a scenario? You may be able to use Standard Load Balancer diagnostics to augment monitoring of your end-to-end service performance. Consider what is available and what may need augmentation for a complete picture.
@@ -207,11 +207,11 @@ Zone-redundant can provide a zone-agnostic and at the same time resilient option
 
 Zonal can provide an explicit guarantee to a zone, sharing fate with the health of the zone. Associating a zonal IP address or zonal Load Balancer frontend can be a desirable or reasonable attribute especially if your attached resource is a zonal VM in the same zone.  Or perhaps your application requires explicit knowledge about which zone a resource is located in and you wish to reason about availability in separate zones explicitly.  You can choose to expose multiple zonal frontends for an end-to-end service distributed across zones (that is, per zone zonal frontends for multiple zonal virtual machine scale sets).  And if your zonal frontends are public IP addresses, you can use these multiple zonal frontends for exposing your service with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Or you can use multiple zonal frontends to gain per zone health and performance insights through third party monitoring solutions and expose the overall service with a zone-redundant frontend. You should only serve zonal resources with zonal frontends aligned to the same zone and avoid potentially harmful cross-zone scenarios for zonal resources.  Zonal resources only exist in regions where Availability Zones exist.
 
-There is no general guidance that one is a better choice than the other without knowing the service architecture.
+There's no general guidance that one is a better choice than the other without knowing the service architecture.
 
 ## Limitations
 
-- While data plane is fully zone-redundant (unless zonal guarantee was specified), control plane operations are not fully zone-redundant.
+- While data plane is fully zone-redundant (unless zonal guarantee was specified), control plane operations aren't fully zone-redundant.
 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
