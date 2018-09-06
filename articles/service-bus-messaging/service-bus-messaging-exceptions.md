@@ -3,7 +3,7 @@ title: Azure Service Bus messaging exceptions | Microsoft Docs
 description: List of Service Bus messaging exceptions and suggested actions.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Service Bus messaging exceptions
@@ -36,7 +36,7 @@ The following table lists messaging exception types, and their causes, and notes
 | [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |The server did not respond to the requested operation within the specified time which is controlled by [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). The server may have completed the requested operation. This can happen due to network or other infrastructure delays. |Check the system state for consistency and retry if necessary. See [Timeout exceptions](#timeoutexception). |Retry might help in some cases; add retry logic to code. |
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |The requested user operation is not allowed within the server or service. See the exception message for details. For example, [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) generates this exception if the message was received in [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode. |Check the code and the documentation. Make sure the requested operation is valid. |Retry will not help. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |An attempt is made to invoke an operation on an object that has already been closed, aborted or disposed. In rare cases, the ambient transaction is already disposed. |Check the code and make sure it does not invoke operations on a disposed object. |Retry will not help. |
-| [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |The [TokenProvider](/dotnet/api/microsoft.azure.servicebus.tokenprovider) object could not acquire a token, the token is invalid, or the token does not contain the claims required to perform the operation. |Make sure the token provider is created with the correct values. Check the configuration of the Access Control service. |Retry might help in some cases; add retry logic to code. |
+| [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |The [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object could not acquire a token, the token is invalid, or the token does not contain the claims required to perform the operation. |Make sure the token provider is created with the correct values. Check the configuration of the Access Control service. |Retry might help in some cases; add retry logic to code. |
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |One or more arguments supplied to the method are invalid.<br /> The URI supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) contains path segment(s).<br /> The URI scheme supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) is invalid. <br />The property value is larger than 32KB. |Check the calling code and make sure the arguments are correct. |Retry will not help. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |Entity associated with the operation does not exist or it has been deleted. |Make sure the entity exists. |Retry will not help. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Attempt to receive a message with a particular sequence number. This message is not found. |Make sure the message has not been received already. Check the deadletter queue to see if the message has been deadlettered. |Retry will not help. |
