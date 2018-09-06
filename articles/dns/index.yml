@@ -49,6 +49,7 @@ sections:
     - html: <a href="/azure/dns/private-dns-getstarted-powershell">Create private DNS zone and record</a>
     - html: <a href="/azure/dns/tutorial-alias-pip">Configure an alias record to refer to an Azure Public IP address</a>
     - html: <a href="/azure/dns/tutorial-alias-tm">Configure an alias record to support apex domain names with Traffic Manager</a>
+    - html: <a href="/azure/dns/tutorial-alias-rr">Configure an alias record for zone records</a>
 
 
 - title: Free Pluralsight Video Training
