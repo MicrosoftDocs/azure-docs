@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: alfredop
 
@@ -126,7 +126,7 @@ Sign in to the user portal as the delegated provider and then create a new offer
 
 4. The public delegated offers are now visible only through the delegated portal. To find and change this URL:
 
-    a.  Select **Browse** > **More services** > **Subscriptions**. Then select the Delegated Provider Subscription. For example, **DPSubscription** > **Properties**.
+    a.  Select **Browse** > **All services**, and then under the **GENERAL** category, select **Subscriptions**. Select the Delegated Provider Subscription. For example, **DPSubscription** > **Properties**.
 
     b.  Copy the portal URL to a separate location, such as Notepad.
 
