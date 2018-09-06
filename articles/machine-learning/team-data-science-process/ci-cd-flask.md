@@ -60,7 +60,7 @@ The pipeline architecture is given below.
 11. DNS server passes the request to load balancer and sends the response back to user.
 
 ## Next steps
-* Refer to the [tutorial]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) to follow the details and implement your own CI/CD pipeline for your application.
+* Refer to the [tutorial](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) to follow the details and implement your own CI/CD pipeline for your application.
 
 ## References
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
