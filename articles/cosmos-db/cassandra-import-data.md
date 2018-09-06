@@ -66,7 +66,7 @@ To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, us
             {
                 byte[] valueInBytes = customPayload[key];
                 string value = Encoding.UTF8.GetString(valueInBytes);
-                Console.WriteLine($“CustomPayload:  {key}: {value}”);
+                Console.WriteLine($"CustomPayload:  {key}: {value}");
             }
  
     ``` 
