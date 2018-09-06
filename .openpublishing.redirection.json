@@ -1273,7 +1273,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md",
-            "redirect_url": "/azure/sql-database/sql-database-get-started-restore",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started-restore",
             "redirect_document_id": false
         },
         {
