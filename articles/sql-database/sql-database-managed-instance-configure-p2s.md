@@ -54,7 +54,7 @@ This quickstart:
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Open the resource group in which you created the virtual network gateway and then open the virtual network gateway resource.
 
-    ![virtual network gateway resource](./media/sql-database-managed-instance-configure-p2s/vpn-gateway.png)  
+    ![virtual network gateway resource](./media/sql-database-managed-instance-configure-p2s/vnet-gateway.png)  
 
 3. Click **Point-to-site configuration** and then click **Download VPN client**.
 
