@@ -348,7 +348,5 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Test the model locally
 > * Deploy the model to ACI
 > * Test the deployed model
-
-Now that you have a deployed model, find out how an application can [consume a deployed web service](how-to-consume-web-services.md).
  
 You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning can auto-select and tune the best algorithm for your model and build that model for you.
