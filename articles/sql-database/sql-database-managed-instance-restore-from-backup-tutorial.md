@@ -52,7 +52,7 @@ Log in to the [Azure portal](https://portal.azure.com/#create/Microsoft.SQLManag
    |**Account kind**|Blob storage||
    |**Performance**|Standard or premium|Magnetic drives or SSDs|
    |**Replication**|Locally redundant storage||
-   |**Access tier (default)|Cool or hot||
+   |**Access tier (default)**|Cool or hot||
    |**Secure transfer required**|Disabled||
    |**Subscription**|Your subscription|For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions).|
    |**Resource group**|The resource group that you created earlier|| 
