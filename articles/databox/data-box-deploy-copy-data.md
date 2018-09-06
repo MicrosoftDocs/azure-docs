@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/06/2018
 ms.author: alkohli
 ---
 # Tutorial: Copy data to Azure Data Box 
@@ -254,6 +254,7 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 
      where j specifies the number of parallelization,  X = number of parallel copies
 
+     We recommend that you start with 16 starts and increase the number of threads depending on the resources available.
 
 ## Prepare to ship
 

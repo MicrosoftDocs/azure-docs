@@ -29,6 +29,10 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
  - If using multiple storage accounts with Data Box service, all the storage accounts need to belong to the same Azure region only.
  - We recommend that you use no more than three storage accounts. Using more storage accounts could potentially impact the performance.
 
+## Data Box limits
+
+- Data Box can store a maximum of 5 million files.
+
 ## Azure storage limits
 
 This section describes the limits for Azure Storage service, and the required naming conventions for Azure Files, Azure block blobs, and Azure page blobs, as applicable to the Data Box service. Review the storage limits carefully and follow all the recommendations.

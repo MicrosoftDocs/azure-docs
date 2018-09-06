@@ -42,10 +42,10 @@ Here is a list of the supported operating systems for the data copy operation vi
 
 ### Supported file systems for Linux clients
 
-| **Operating system** | **Versions** | 
+| **Protocols** | **Versions** | 
 | --- | --- | 
-| CIFS |3.X |
-| NFS | All versions up to and including 4.0|
+| SMB |2.X and later |
+| NFS | All versions up to and including 4.1|
 
 ### Supported storage accounts
 
