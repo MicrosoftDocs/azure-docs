@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: rimman
+ms.reviewer: sngun
 ---
 
 # Understand how the reservation discount is applied to Azure Cosmos DB
@@ -19,7 +20,7 @@ For reserved Virtual Machine Instances see [Understand Azure Reserved VM Instanc
 
 ## Reservation discount applied to Azure Cosmos DB accounts
 
-Reservation discount is applied to provisioned throughput (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
+A reservation discount is applied to provisioned throughput (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 * The discounts are tiered which means reservations with higher request units provide higher discounts.  
 * The reservation purchase will apply discounts to all regions in the ratio equivalent to the regional on-demand pricing. For reservation discount ratios in each region see [reservation discount per region](#reservation-discount-per-region) section of this article.
@@ -71,7 +72,7 @@ Consider the following requirements for a reservation:
 
 In this case, your total on-demand charges are for 500 quantity of 100 RU/s meter in these two regions, for a total RU/s consumption of 100,000 every hour. 
 
-**Scenario1**
+**Scenario 1**
 
 If your deployments were in the following regions, then a reservation purchase of 100,000 RU/s would completely balance your on-demand charges for RU/s. 
 
@@ -82,7 +83,7 @@ If your deployments were in the following regions, then a reservation purchase o
 
 Using the example in the above table: 50,000 units of capacity (RU/s) in AU Central 2 of provisioned throughput corresponds to 75,000 of billable usage (or normalized usage), computed as (Provisioned Throughput * Reservation Discount Ratio for That Region) that is: 50,000 * 1.5 = 75,000 of billable or normalized usage. For reservation discount ratios in each region see [reservation discount per region](#reservation-discount-per-region) section of this article.
 
-**Scenario2**
+**Scenario 2**
 
 If your deployments were in the following regions, then a reservation purchase of 100,000 RU/s would be applicable as follows (assuming that AU Central 2 usage was discounted first)::
 
