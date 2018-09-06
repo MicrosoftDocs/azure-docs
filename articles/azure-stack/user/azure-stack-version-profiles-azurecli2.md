@@ -90,7 +90,7 @@ $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
 $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
 $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
 $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-$sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
+$sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
 $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
 $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
 

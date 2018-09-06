@@ -74,9 +74,9 @@ Get the storage account key by using the [az storage account keys list](/cli/azu
 In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ containers public access is set to `off`, the _thumbnails_ containers public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
  
 ```azurecli-interactive 
-$blobStorageAccount="<blob_storage_account>"
+blobStorageAccount=<blob_storage_account>
 
-$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container create -n images --account-name $blobStorageAccount \

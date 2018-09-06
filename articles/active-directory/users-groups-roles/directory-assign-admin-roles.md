@@ -42,6 +42,8 @@ The following administrator roles are available:
 
 * **[Cloud Application Administrator](#cloud-application-administrator)**: Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
 
+* **[Cloud Device Administrator](#cloud-device-administrator)**: Users in this role can enable, disable, and delete devices in Azure AD and read Windows 10 BitLocker keys (if present) in the Azure portal. The role does not grant permissions to manage any other properties on the device.
+
 * **[Compliance Administrator](#compliance-administrator)**: Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
@@ -294,6 +296,22 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Cloud Device Administrator
+
+Limited access to manage devices in Azure AD.  
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers Role.
+  >
+  >
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/devices/delete | Delete devices in Azure Active Directory. |
+| microsoft.aad.directory/devices/update | Update the accountEnabled property on Devices in Azure Active Directory |
+| microsoft.aad.reports/allEntities/read | Read Azure AD Reports. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
 ### Company Administrator
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
