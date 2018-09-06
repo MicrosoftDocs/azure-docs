@@ -5,8 +5,8 @@
     items:
     - name: Overview
       items:
-    - name: What is Data Box?
-      href: data-box-overview.md
+      - name: What is Data Box?
+        href: data-box-overview.md
     - name: Quickstarts
       items:
       - name: Set up - Azure portal
