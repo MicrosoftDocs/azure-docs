@@ -250,7 +250,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 ### Azure portal steps
 
-1. Log in to the [Azure portal][http-azure-portal-link-ref-477t].
+1. Sign in to the [Azure portal][http-azure-portal-link-ref-477t].
 
 2. Then navigate the portal to **SQL servers** &gt; **Firewall / Virtual Networks**.
 
