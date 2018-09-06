@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API Java quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Generate a thumbnail - REST, Java - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using Computer Vision with Java in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -9,10 +9,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/15/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Generate a thumbnail with Java
+# Quickstart: Generate a thumbnail - REST, Java - Computer Vision
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

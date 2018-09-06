@@ -1,6 +1,6 @@
 ---
-title: Computer Vision Python quickstart handwritten text | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Extract handwritten text - REST, Python - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract handwritten text from an image using Computer Vision with Python in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -9,10 +9,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/17/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Extract handwritten text with Python
+# Quickstart: Extract handwritten text - REST, Python - Computer Vision
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
 
