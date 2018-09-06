@@ -32,7 +32,7 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-## (version tbd)
+## 1.1.882.0 
 
 9/7/2018: released for download, will not be release for auto upgrade
 
