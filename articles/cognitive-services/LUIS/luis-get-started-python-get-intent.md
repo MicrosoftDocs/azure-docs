@@ -1,5 +1,6 @@
 ---
-title: Quickstart learning how to call a Language Understanding (LUIS) app using Python | Microsoft Docs
+title: Python Quickstart - predict intent - LUIS
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you learn to call a LUIS app using Python.
 services: cognitive-services
 author: diberry
@@ -7,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Python. 
 ---
