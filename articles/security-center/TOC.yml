@@ -37,6 +37,8 @@
   items:
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
+  - name: Server protection with WATP (Preview)
+    href: security-center-wdatp.md
   - name: Set Security policy
     href: security-center-policies-overview.md
     items:
@@ -54,9 +56,7 @@
       href: security-center-azure-policy.md
     - name: Tenant-wide visibility
       href: security-center-management-groups.md
-    - name: Server protection with WATP (Preview)
-      href: security-center-wdatp.md
-  
+
   - name: Implement security recommendations
     href: security-center-recommendations.md
   - name: Monitor security health
