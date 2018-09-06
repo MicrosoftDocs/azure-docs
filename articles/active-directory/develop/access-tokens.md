@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Azure AD access tokens
 
-Access tokens enable clients to securely call APIs protected by Azure.  Azure AD access tokens are [JWTs](LINK), base-64 encoded JSON objects signed by Azure.  For clients, these access tokens should be treated as opaque strings, as the contents of the token are intended for the resource only.  For validation and debugging purposes though, JWTs can be decoded using a site like [jwt.ms](https://jwt.ms).  
+Access tokens enable clients to securely call APIs protected by Azure.  Azure AD access tokens are [JWTs](LINK), base-64 encoded JSON objects signed by Azure.  For clients, these access tokens should be treated as opaque strings, as the contents of the token are intended for the resource only.  For validation and debugging purposes though, JWTs can be decoded using a site like [jwt.ms](https://jwt.ms).  Your client can get an access token from either endpoint (v1.0 or v2.0) using a variety of protocols.
 
 [!> Try it out!] 
 This is a v1 access token - try putting it into [JWT.ms](https://jwt.ms).  Note that it includes several [optional claims], which won't appear unless your resource requests them.  
@@ -44,8 +44,8 @@ JWTs are split into three pieces - header, payload, and signature, each seperate
 
 |-----|--------|-------------|
 |Claim   | Format | Description |
-|`typ`   | String - always "JWT" | Indicates that the token is a JWT. 
-|`nonce` | Opaque String | A internal claim used by Azure AD to revalidate this token.  Should not be used by resources. | 
+|`typ`   | String - always "JWT" | Indicates that the token is a JWT.|
+|`nonce` | String | A unique identifier used to protect against token replay attacks.  Your resource can record this value to protect against replays. |
 |`alg`   | String | Indicates the algorithm that was used to sign the token.  Example: "RS256" |
 |`kid`   | String | Thumbprint for the public key used to sign this token. Emitted in both v1 and v2 access tokens. |
 |`x5t`   | String | The same (in use and value) as `kid`.  However, this is a legacy claim emitted only in v1 access tokens for compaitibility purposes. |
@@ -132,7 +132,8 @@ Your application's business logic will dictate this step, some common authorizat
 
 * Check the `scp` or `roles` claim to verify that all present scopes match those exposed by your API, and allow the client to perform the requested action.
 * Ensure the calling client is allowed to call your API using the `appid` claim.
-* Validate the authentication status of the calling client using `appidacr` - it shoudl not be 0 if public clients are not allowed to call your API.
+* Validate the authentication status of the calling client using `appidacr` - it should not be 0 if public clients are not allowed to call your API.
+* Check againts a list of past `nonce` claims to verify the token is not being replayed.
 * Check that the `tid` matches a tenant that is allowed to call your API.
 * Use the `acr` claim to verify the user has performed MFA - note that this should be enforced using [Conditional Access](LINK).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to perform this action.
