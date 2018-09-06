@@ -53,7 +53,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 * Added support for Proxy.
 * Added support for resource token authorization.
 * Fixed a bug in handling large partition keys ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
-* Documentatoin improved.
+* Documentation improved.
 * SDK restructured into more granular modules.
 
 ### <a name="2.0.1"/>2.0.1
