@@ -151,7 +151,7 @@ The following information is required as input for the automation parameters:
    ```
 
 ### Assign a role
-Once the Service Principal is created, you must [assign it to a role](#assign-role-to-service-principal)
+Once the Service Principal is created, you must [assign it to a role](#assign-role-to-service-principal).
 
 ### Sign in through PowerShell
 Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:
