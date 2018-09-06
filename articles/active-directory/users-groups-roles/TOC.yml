@@ -87,7 +87,7 @@
     - name: Add group access to SaaS apps    
       href: groups-saasapps.md
     - name: Restore deleted groups   
-      href: /azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: groups-restore-deleted.md
     - name: Manage group settings    
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
     - name: Dynamic groups    
