@@ -46,10 +46,6 @@ If you pinned the resource to the Azure dashboard, select the tile. Otherwise, y
 
 Within your Cognitive Services resource, You can use the **Endpoint URL** in the **Overview** section, and keys in the **Keys** section to start making API calls in your applications.
 
-![Display account information](media/cognitive-services-apis-create-account/display-account.png)
-
-![Display account keys](media/cognitive-services-apis-create-account/account-keys.png)
-
 ### Next Steps
 
 See the [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) page to find quickstarts, tutorials, and other documentation for the API you're using.
