@@ -46,9 +46,9 @@ Keep in mind the following points about the preview:
 
 ## Get started with Azure AD for Storage
 
-The first step in using Azure AD integration with Azure Storage is to assign RBAC roles for storage data to your service principal (a user, group, or application service principal) or Managed Service Identity (MSI). RBAC roles encompass common sets of permissions for containers and queues. To learn more about RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+The first step in using Azure AD integration with Azure Storage is to assign RBAC roles for storage data to your service principal (a user, group, or application service principal) or managed identities for Azure resources. RBAC roles encompass common sets of permissions for containers and queues. To learn more about RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 
-To use Azure AD to authorize access to storage resources in your applications, you need to request an OAuth 2.0 access token from your code. To learn how to request an access token and use it to authorize requests to Azure Storage, see [Authenticate with Azure AD from an Azure Storage application (Preview)](storage-auth-aad-app.md). If you are using an Azure Managed Service Identity (MSI), see [Authenticate with Azure AD from an Azure VM Managed Service Identity (Preview)](storage-auth-aad-msi.md).
+To use Azure AD to authorize access to storage resources in your applications, you need to request an OAuth 2.0 access token from your code. To learn how to request an access token and use it to authorize requests to Azure Storage, see [Authenticate with Azure AD from an Azure Storage application (Preview)](storage-auth-aad-app.md). If you are using a managed identity, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md).
 
 Azure CLI and PowerShell now support logging in with an Azure AD identity. After you log in with an Azure AD identity, your session runs under that identity. To learn more, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
 
