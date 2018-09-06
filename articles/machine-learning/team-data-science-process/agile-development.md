@@ -67,7 +67,7 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 
 ## 2. <a name='SprintPlanning-2'></a>Sprint planning 
 
-Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the Azure DevOps server, you can easily create, manage, and track work items in your project and conduct sprint planning to ensure that your projects are moving forward as expected. 
+Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the Azure DevOps Services, you can easily create, manage, and track work items in your project and conduct sprint planning to ensure that your projects are moving forward as expected. 
 
 Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in Azure DevOps Services. 
 

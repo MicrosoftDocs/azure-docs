@@ -1,10 +1,10 @@
 ---
-title: Integrate Azure Automation with Visual Studio Team Services source control
-description: Scenario walks you through setting up integration with an Azure Automation account and Visual Studio Team Services source control.
+title: Integrate Azure Automation with Azure DevOps Services source control
+description: Scenario walks you through setting up integration with an Azure Automation account and Azure DevOps Services source control.
 services: automation
 author: eamonoreilly
 ms.author: eamono
-keywords: azure powershell, VSTS, source control, automation
+keywords: azure powershell, Azure DevOps Services, source control, automation
 ms.service: automation
 ms.component: process-automation
 ms.topic: conceptual
@@ -30,10 +30,10 @@ Sync-VSTSGit | Import runbooks or configurations from Azure DevOps under Git sou
 
 Variable | Description|
 -----------|------------|
-VSToken | Secure variable asset you create that contains the Azure DevOps personal access token. You can learn how to create an Azure DevOps personal access token on the [Azure DevOps authentication page](/vsts/accounts/use-personal-access-tokens-to-authenticate).
+VSToken | Secure variable asset you create that contains the Azure DevOps personal access token. You can learn how to create an Azure DevOps personal access token on the [Azure DevOps authentication page](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 ## Installing and configuring this scenario
 
-Create a [personal access token](/vsts/accounts/use-personal-access-tokens-to-authenticate) in Azure DevOps that you use to sync the runbooks or configurations into your automation account.
+Create a [personal access token](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) in Azure DevOps that you use to sync the runbooks or configurations into your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 

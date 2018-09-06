@@ -1,6 +1,6 @@
 ---
-title: Deploy a Service Fabric app with continuous integration (Team Services) in Azure | Microsoft Docs
-description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Visual Studio Team Services.
+title: Deploy a Service Fabric app with continuous integration (Azure DevOps Services) in Azure | Microsoft Docs
+description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Azure Devops Services.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -46,7 +46,7 @@ Before you begin this tutorial:
 * [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 * Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Create an [Azure DevOps organization](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+* Create an [Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
 ## Download the Voting sample application
 
@@ -210,6 +210,6 @@ Advance to the next tutorial:
 [changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Changes.png
 [unpublished-changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/UnpublishedChanges.png
 [push]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Push.png
-[continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
+[continuous-delivery-with-AzureDevOpsServices]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png

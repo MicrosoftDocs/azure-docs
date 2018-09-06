@@ -19,7 +19,7 @@ This topic shows you how to use Azure Functions to create a [serverless](https:/
 To complete this topic, you must have:
 
 * An Azure DevOps repository that contains your function app project and to which you have administrative permissions.
-* A [personal access token (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) to access your Azure DevOps repository.
+* A [personal access token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to access your Azure DevOps repository.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

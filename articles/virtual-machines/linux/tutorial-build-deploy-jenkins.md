@@ -1,5 +1,5 @@
 ---
-title: Tutorial - CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
+title: Tutorial - CI/CD from Jenkins to Azure VMs with Azure DevOps Services | Microsoft Docs
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
 author: tomarcher
 manager: jpconnock
@@ -24,7 +24,7 @@ Continuous integration (CI) and continuous deployment (CD) form a pipeline by wh
 
 In this tutorial, you use Jenkins to build a Node.js web app. You then use Azure DevOps to deploy it
 
-to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) that contains Linux virtual machines (VMs). You learn how to:
+to a [deployment group](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/index?view=vsts) that contains Linux virtual machines (VMs). You learn how to:
 
 > [!div class="checklist"]
 > * Get the sample app.
@@ -45,7 +45,7 @@ to a [deployment group](https://www.visualstudio.com/docs/build/concepts/definit
   You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+  > For more information, see [Connect to Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
 
 *  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
@@ -97,7 +97,7 @@ First, you must configure two Jenkins plug-ins: **NodeJS** and **VS Team Service
  
 1.  Create a PAT in your Azure DevOps Services organization if you don't already have one. Jenkins requires this information to access your Azure DevOps Services organization. Be sure to store the token information for upcoming steps in this section.
   
-    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+    To learn how to generate a token, read [How do I create a personal access token for Azure DevOps Services?](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
 2. In the **Post-build Actions** tab, select **Add post-build action**. Select **Archive the artifacts**.
 3. For **Files to archive**, enter `**/*` to include all files.
 4. To create another action, select **Add post-build action**.

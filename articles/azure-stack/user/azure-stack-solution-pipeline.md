@@ -82,7 +82,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 
 ### Developer tool requirements
 
-* Create an [Azure DevOps Services workspace](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). The sign-up process creates a project named **MyFirstProject**.
+* Create an [Azure DevOps Services workspace](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). The sign-up process creates a project named **MyFirstProject**.
 * [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connect to your project and [clone it locally](https://www.visualstudio.com/docs/git/gitquickstart).
 
@@ -193,7 +193,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 ### Azure DevOps Services Agent Pools
 
-Instead of managing each agent separately, you can organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In Azure DevOps Services, agent pools are scoped to the Azure DevOps Services organization, which means that you can share an agent pool across projects. To learn more about agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+Instead of managing each agent separately, you can organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In Azure DevOps Services, agent pools are scoped to the Azure DevOps Services organization, which means that you can share an agent pool across projects. To learn more about agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
 ### Add a Personal Access Token (PAT) for Azure Stack
 
@@ -263,6 +263,7 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 9. In **Add users and groups**, enter a user name and select that user from the list of users.
 10. Select **Save changes**.
 
+Now that the endpoint information exists, the Azure DevOps Services to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure DevOps Services, and then the agent conveys endpoint information for communication with Azure Stack.
 ## Create an Azure Stack endpoint
 
 You can follow the instructions in [Create an Azure Resource Manager service connection with an existing service principal
@@ -427,7 +428,7 @@ Creating a release pipeline is the final step in your application build process.
 23. Save all your changes.
 
 > [!Note]
-> Some settings for release tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release pipeline from a template. These settings can't be modified in the task settings. However, you can edit these settings in the parent environment items.
+> Some settings for release tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) when you created a release pipeline from a template. These settings can't be modified in the task settings. However, you can edit these settings in the parent environment items.
 
 ## Create a release
 

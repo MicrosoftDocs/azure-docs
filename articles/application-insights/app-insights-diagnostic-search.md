@@ -135,7 +135,7 @@ You can create a bug in GitHub or Azure DevOps with the details from any telemet
 
 The first time you do this, you are asked to configure a link to your Azure DevOps organization and project.
 
-![Fill the URL of your Azure DevOps server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
+![Fill the URL of your Azure DevOps Services and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
 
 (You can also configure the link on the Work Items blade.)
 

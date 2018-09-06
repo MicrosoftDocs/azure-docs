@@ -16,7 +16,6 @@ This article shows how Contoso are refactoring their on-premises Team Foundation
 
 This document is one in a series of articles that show how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity. We'll add additional articles over time.
 
-
 **Article** | **Details** | **Status**
 --- | --- | ---
 [Article 1: Overview](contoso-migration-overview.md) | Provides an overview of Contoso's migration strategy, the article series, and the sample apps we use. | Available
@@ -32,7 +31,6 @@ This document is one in a series of articles that show how the fictitious compan
 Article 11: Refactor a TFS deployment in Azure DevOps Services | Migrate the dev app TFS to Azure DevOps Services in Azure | This article
 [Article 12: Rearchitect an app on Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | Available
-
 
 
 ## Business drivers
@@ -137,7 +135,7 @@ They upgrade as follows:
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade5.png) 
 
 > [!NOTE]
-> Some TFS upgrades need to run the Configure Features Wizard after the upgrade completes. [Learn more](https://docs.microsoft.com/vsts/work/customize/configure-features-after-upgrade?utm_source=ms&utm_medium=guide&utm_campaign=vstsdataimportguide&view=vsts).
+> Some TFS upgrades need to run the Configure Features Wizard after the upgrade completes. [Learn more](https://docs.microsoft.com/azure/devops/reference/configure-features-after-upgrade?utm_source=ms&utm_medium=guide&utm_campaign=vstsdataimportguide&view=vsts).
 
 **Need more help?**
 
@@ -486,13 +484,13 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
 **Need more help?**
 
-[Learn more](https://docs.microsoft.com/vsts/git/import-from-tfvc?view=vsts) about importing from TFVC.
+[Learn more](https://docs.microsoft.com/azure/devops/repos/git/import-from-TFVC?view=vsts) about importing from TFVC.
 
 ##  Clean up after migration
 
 With migration complete, Contoso needs to do the following:
 
-- Review the [post-import](https://docs.microsoft.com/vsts/articles/migration-post-import?view=vsts) article for information about additional import activities.
+- Review the [post-import](https://docs.microsoft.com/azure/devops/articles/migration-post-import?view=vsts) article for information about additional import activities.
 - Either delete the TFVC repos, or place them in read-only mode. The code bases mustn't used, but can be referenced for their history.
 
 ## Next steps

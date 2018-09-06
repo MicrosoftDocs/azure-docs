@@ -117,7 +117,7 @@ After you verify code through the build and test process, you can submit U-SQL j
 
 ### Submit U-SQL jobs through Azure DevOps
 
-The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps with the following sample PowerShell script to submit U-SQL jobs directly from the Azure Pipelines.
+The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps with the following sample PowerShell script to submit U-SQL jobs directly from the Azure Pipelines.
 
 ```powershell
 <#
@@ -226,7 +226,7 @@ Main
 
 You can submit U-SQL jobs directly from Azure DevOps. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-Use the [Azure PowerShell task](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
+Use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
 
 ```powershell
 <#
