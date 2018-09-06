@@ -49,7 +49,6 @@
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
@@ -163,7 +162,7 @@
 ##### [Silent install](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Custom home page](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Translate inline links](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
-##### [Wildcards](active-directory-application-proxy-wildcard.md)
+##### [Wildcards](manage-apps/application-proxy-wildcard.md)
 ##### [Remove personal data](manage-apps/application-proxy-remove-personal-data.md)
 
 
@@ -172,7 +171,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](manage-apps/application-proxy-integrate-with-teams.md)
 ##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
-##### [Qlik](active-directory-application-proxy-qlik.md)
+##### [Qlik](manage-apps/application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)

@@ -1,11 +1,11 @@
 ---
-title: Azure Quickstart - CNTK training with Batch AI - Python | Microsoft Docs
-description: Quickly learn to run a CNTK training job with Batch AI using the Python SDK
+title: Train a CNTK model with Azure Batch AI - Python | Microsoft Docs
+description: Train a Microsoft Cognitive Toolkit (CNTK) neural network with Azure Batch AI using the Python SDK
 services: batch-ai
 documentationcenter: na
 author: lliimsft
-manager: Vaman.Bedekar
-editor: tysonn
+manager: jeconnoc
+editor: 
 
 ms.assetid:
 ms.custom:
@@ -14,13 +14,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: Python
 ms.topic: quickstart
-ms.date: 06/18/2018
+ms.date: 08/15/2018
 ms.author: danlep
 ---
 
 # Run a CNTK training job using the Azure Python SDK
 
-This quickstart details using the Azure Python SDK to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service.
+This article shows you how to use the Azure Python SDK to train a sample Microsoft Cognitive Toolkit (CNTK) model using the Batch AI service.
 
 In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster.
 
@@ -41,6 +41,7 @@ az provider register -n Microsoft.BatchAI
 ```
 
 ## Configure credentials
+
 Add the following code into your script file and replace `FILL-IN-HERE` with appropriate values:
 
 ```Python
@@ -97,6 +98,7 @@ resource = resource_management_client.resource_groups.create_or_update(
 
 
 ## Prepare Azure file share
+
 For illustration purposes, this quickstart uses an Azure File share to host the training data and scripts for the training job.
 
 Create a file share named `batchaiquickstart`.
@@ -114,7 +116,7 @@ Create a directory in the share named `mnistcntksample`.
 mnist_dataset_directory = 'mnistcntksample'
 service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False)
 ```
-Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip into the current directory. The following code uploads required files into Azure File share:
+Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip into the current directory. The following code uploads required files into the Azure File share:
 
 ```Python
 for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
@@ -241,6 +243,7 @@ batchai_client.jobs.create(resource_group_name, workspace_name, experiment_name,
 ```
 
 ## Monitor job
+
 You can inspect the job’s state using the following code:
 
 ```Python
@@ -257,6 +260,7 @@ The `executionState` contains the current execution state of the job:
 * `succeeded` (or `failed`): the job is completed and `executionInfo` contains details about the result
 
 ## List stdout and stderr output
+
 Use the following code to list generated stdout, stderr, and log files:
 
 ```Python
@@ -297,4 +301,4 @@ resource_management_client.resource_groups.delete('myresourcegroup')
 ```
 ## Next steps
 
-In this quickstart, you learned how to run a CNTK training job on a Batch AI cluster, using the Azure Python SDK. To learn more about using Batch AI with different toolkits, see the [training recipes](https://github.com/Azure/BatchAI).
+To learn more about using Batch AI with different frameworks, see the [training recipes](https://github.com/Azure/BatchAI).
