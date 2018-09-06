@@ -31,7 +31,7 @@ This article also requires that you are running the Azure CLI version 2.0.41 or 
 
 ## Create an ingress controller
 
-By default, an NGINX ingress controller is created with a new, dynamic public IP address assignment. A common configuration requirement is to provide an existing *static* public IP address. This approach allows you to use existing DNS records and network configurations in a consistent manner.
+By default, an NGINX ingress controller is created with a new public IP address assignment. This public IP address is only static for the life-span of the ingress controller, and is lost if the controller is deleted and re-created. A common configuration requirement is to provide the NGINX ingress controller an existing static public IP address. The static public IP address remains if the ingress controller is deleted. This approach allows you to use existing DNS records and network configurations in a consistent manner throughout the lifecycle of your applications.
 
 If you need to create a static public IP address, first get the resource group name of the AKS cluster with the [az aks show][az-aks-show] command:
 

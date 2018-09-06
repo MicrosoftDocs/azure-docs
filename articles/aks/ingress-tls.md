@@ -40,7 +40,9 @@ To create the ingress controller, use `Helm` to install *nginx-ingress*.
 helm install stable/nginx-ingress --namespace kube-system
 ```
 
-During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
+During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
+
+To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
