@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
 
@@ -217,12 +217,12 @@ Usage is reported for the following resource providers:
 **Meter ID**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Meter name**: ActualStandardSnapshotSize   
 **Unit**: Byte   
-**Notes**: The actual size on disk of managed standard snapshot. Note: Snapshot meters are charged as Page Blob Capacity meter in Azure billing portal. 
+**Notes**: The actual size on disk of managed standard snapshot.  
 
 **Meter ID**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Meter name**: ActualPremiumSnapshotSize   
 **Unit**: Byte   
-**Notes**: The actual size on disk of managed premium. Note: Snapshot meters are charged as Page Blob Capacity meter in Azure billing portal.  
+**Notes**: The actual size on disk of managed premium.   
 
 ### Sql RP
   
