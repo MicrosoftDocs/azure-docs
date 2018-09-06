@@ -11,8 +11,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/batch/batch-python-tutorial.md",
-            "redirect_url": "/azure/batch/quick-run-python",
+            "source_path": "articles/batch-ai/quickstart-python.md",
+            "redirect_url": "/azure/batch-ai/cntk-training-python",
             "redirect_document_id": true
         },
         {
@@ -27619,6 +27619,11 @@
         {
             "source_path": "articles/active-directory/managed-service-identity/services-support-msi.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-msi",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/index.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources",
             "redirect_document_id" : true
         }
     ]
