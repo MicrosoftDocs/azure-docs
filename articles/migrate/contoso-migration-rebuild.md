@@ -573,7 +573,7 @@ Contoso admins can now publish the website.
 
     ![Approval mail](./media/contoso-migration-rebuild/vsts-publishfront14.png)
 
-16. They make a comment and apporve. This starts the swap of the **staging** and **prod** slots, and moves the build into production.
+16. The lead makes a comment and approves. This starts the swap of the **staging** and **prod** slots, and moves the build into production.
 
     ![Approve and swap](./media/contoso-migration-rebuild/vsts-publishfront15.png)
 
@@ -600,7 +600,7 @@ Contoso admins deploy the app as follows.
 7. They accept the defaults for the template.
 8. In **Triggers**, then select to **Enable continuous integration**, and click **Save & Queue** to start a build.
 9. After the build succeeds, they build a Release pipeline, adding the **Azure App Service deployment with slot**.
-10. They name the environment **Prod**, and select the subscription. They set the **App type** to **Function App***, and the app service name as **smarthotelpetchecker**.
+10. They name the environment **Prod**, and select the subscription. They set the **App type** to **Function Ap**, and the app service name as **smarthotelpetchecker**.
 
     ![Function app](./media/contoso-migration-rebuild/petchecker2.png)
 
