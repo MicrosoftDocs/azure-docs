@@ -197,12 +197,12 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 3. For **Name**, type **RC-DNAT-01**.
 1. For **Priority**, type **200**.
 6. Under **Rules**, for **Name**, type **RL-01**.
-7. For **Source Addresses**, type **\***.
+7. For **Source Addresses**, type *.
 8. For **Destination Addresses** type the firewall's public IP address.
 9. For **Destination ports**, type **3389**.
 10. For **Translated Address** type the private IP address for the Srv-Workload virtual machine.
 11. For **Translated port**, type **3389**.
-13. Click **Add**.
+12. Click **Add**.
 
 ## Configure a network rule
 
@@ -225,7 +225,7 @@ Under **Rules**:
 |---------|---------|
 |Name     |**RL-RDP**|
 |Protocol     |**TCP**|
-|Source Addresses     |**\***|
+|Source Addresses     |*|
 |Destination Addresses     |**Srv-Workload** private IP address|
 |Destination ports|**3389**|
 
