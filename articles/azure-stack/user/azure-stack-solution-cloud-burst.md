@@ -15,6 +15,7 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
+
 ---
 
 # Tutorial: Create cross-cloud scaling solutions with Azure
