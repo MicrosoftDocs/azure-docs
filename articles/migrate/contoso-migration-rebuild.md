@@ -93,11 +93,17 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 ### Migration process
 
-1. Contoso provisions the ACR, AKS, and CosmosDB.
-2. Contoso provisions the infrastructure for the deployment, including the Azure Web App, storage account, function, and API. 
-3. After the infrastructure is in place, Contoso builds the microservices container images using VSTS, which pushes them to the ACR.
-4. Contoso deploys these microservices to ASK using a PowerShell script.
-5. Finally, Contoso deploys the Azure function and Web App.
+1. Contoso prepares and provisions the services and infrastructure they need:
+
+ - A managed Kubernetes cluster using AKS and ACR.
+ - A Cosmos DB for pet photos.
+ - An Azure Function to provide uploads of pet photos.
+ - A storage acccount to hold containers for pet photos and front-end app settings.
+ - Computer Vision API to evaluate pet photos for the app.
+ - An Azure Web app.
+ 
+2. After the infrastructure is in place, Contoso sets up a DevOps build and release pipeline to create, push, and continually integrate the containers to the ACR.  
+3. Finally, Contoso deploys VSTS projects for the front-end of the site, and sets up a pipeline to push and continually integrate the code into Azure.
 
     ![Migration process](./media/contoso-migration-rebuild/migration-process.png) 
 
@@ -177,7 +183,6 @@ The Contoso admins provision as follows:
     ```
     .\gen-aks-env.ps1  -resourceGroupName ContosoRg -orchestratorName smarthotelakseus2 -registryName smarthotelacreus2
     ```
-
     ![AKS](./media/contoso-migration-rebuild/aks6.png)
 
 8. Azure creates another resource group, containing the resources for the AKS cluster.
@@ -299,6 +304,7 @@ Now, Contoso admins do the following:
 - The instructions in this section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repo.
 - Note that Some of the configuration settings (for example Active Directory B2C) aren’t covered in this article. Read more information about these settings in the repo.
 
+They create the pipeline:
 
 1. Using Visual Studio they update the **/deploy/k8s/config_local.yml** file with the database connection information they noted earlier.
 
@@ -432,7 +438,6 @@ Contoso admins provision the web app using the Azure portal.
 
 4. Now, in the Azure portal they create a staging slot for the code. the pipeline will deploy to this slot. This ensures that code isn't put into production until admins perform a release.
 
-    
     ![Web app staging slot](media/contoso-migration-rebuild/web-app3.png)
 
 
