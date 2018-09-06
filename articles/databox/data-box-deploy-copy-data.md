@@ -226,11 +226,15 @@ The cp command is one of best options to copy a directory. For more information 
 
 If using rsync option for a multi-threaded copy, follow these guidelines:
 
- - Install the **CIFS Utils** package, **Rsync**, and **Parallel** (this varies depending on the Linux flavor).
+ - Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
 
     `sudo apt-get install cifs-utils`
+    `sudo apt-get install nfs-utils`
+
+ -  Install **Rsync**, and **Parallel** (varies depending on the Linux distributed version).
+
     `sudo apt-get install rsync`
-    `sudo apt-get install parallel`
+    `sudo apt-get install parallel` 
 
  - Create a mount point.
 
