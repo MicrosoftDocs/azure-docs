@@ -21,6 +21,8 @@ ms.custom: aaddev
 ---
 # How to restrict your app to a set of users
 
+## Feature description
+
 Applications registered in an Azure Active Directory (Azure AD) tenant are by default available to all users of the tenant who authenticate successfully.
 
 Similarly, in case of a [multi-tenant](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) app, all users in the Azure AD tenant where this app is provisioned will be able to access this application once they successfully authenticate in their respective tenant.
@@ -29,16 +31,16 @@ Tenant administrators and developers often have requirements where an app is to 
 
 Azure AD allows Tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
 
-## This option only works with the following application types
+### This option works with the following types of application
 
 1. Applications configured for Federated Single Sign-on with SAML-based Authentication
 
 1. Application Proxy applications that use Azure Active Directory Pre-Authentication
 
 1. Applications built directly on the Azure AD application platform that use OAuth2.0/OpenID Connect Authentication after a user or admin has consented to that application.
-     >This feature is available for Web App/Api and Enterprise applications only. Apps that are registered as [Native](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) cannot be restricted to a set of users or security groups in the tenant.
+     >This feature is available for Web App/Api and Enterprise applications only. Apps that are registered as [native](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) cannot be restricted to a set of users or security groups in the tenant.
 
-## Quickstart: Restrict your app to a set of users
+# Quickstart: Restrict your app to a set of users
 
 ### Update the app's properties to enable user assignment
 
