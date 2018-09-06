@@ -458,7 +458,7 @@ Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary o
 
 ### Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
 
-Azure Cosmos DB Gremlin API implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information please see [Gremlin support](gremlin-support) article.
+Azure Cosmos DB Gremlin API implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information please see [Gremlin support](gremlin-support.md) article.
 
 The best workaround is to re-write the required Gremlin steps with the supported functionality, since all essential Gremlin steps are supported by Azure Cosmos DB.
 
