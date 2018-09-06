@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/16/2018
+ms.date: 09/07/2018
 ms.author: sachinp
 
 ---
@@ -130,6 +130,5 @@ Save these resources if you want to go to [Next steps](#next-steps) and learn ho
 - If creating a server-level firewall rule, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages, including
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Connect and query using SQL Server Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- To learn how to design your first database, create tables, and insert data, see one of these tutorials:
- - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
- - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
+- To create databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md)
+- To create databases using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md)

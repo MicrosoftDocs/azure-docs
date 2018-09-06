@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 
 ---
@@ -34,8 +34,8 @@ To complete this tutorial, make sure the following prerequisites are completed:
 - Installed an Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
 
    - [Create DB - Portal](sql-database-get-started-portal.md)
-   - [Create DB - CLI](sql-database-get-started-cli.md)
-   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
+   - [Create DB - CLI](sql-database-cli-samples.md)
+   - [Create DB - PowerShell](sql-database-powershell-samples.md)
 
 - Have identified a method to execute SQL scripts against your database, you can use one of the following query tools:
    - The query editor in the [Azure portal](https://portal.azure.com). For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
