@@ -34,7 +34,7 @@ You can create ONNX models in several ways:
 3. Train a model in Azure Machine Learning services and convert or export it to ONNX - learn more with this [tutorial](http://aka.ms/aml-onnx-training-notebook)
 4. Convert a model you obtained from somewhere else
 
-Once you have an ONNX model, you can deploy it to Azure. You can also deploy the same ONNX model to Windows 10 devices using Windows ML - for more information, read "[Get ONNX models for Windows ML](https://docs.microsoft.com/en-us/windows/ai/)".
+Once you have an ONNX model, you can deploy it to Azure. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/en-us/windows/ai/).
 
 ### Converting TensorFlow models
 
@@ -49,7 +49,7 @@ Use the [WinMLTools](https://docs.microsoft.com/en-us/windows/ai/convert-model-w
 * libSVM
 * CoreML
 
-## Deploying ONNX models in Azure
+## Deploying ONNX models in Azure with ONNX Runtime
 
 Azure Machine Learning services enable you to deploy, manage, and monitor your ONNX models. Using the standard [deployment pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-model-management-and-deployment) and the ONNX Runtime you can create a REST endpoint hosted in the cloud.
 
