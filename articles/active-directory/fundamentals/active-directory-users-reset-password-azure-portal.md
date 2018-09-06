@@ -18,7 +18,7 @@ ms.custom: it-pro
 
 ---
 # How to: Reset a user's password using the Azure Active Directory portal
-You can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never receieved a password.
+You can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.
 
 ## To reset a password
 
