@@ -238,7 +238,7 @@ print(prediction)
 ```
 
 
-## Delete the service to clean up
+## Clean up resources
 
 If you're not going to use this web service, delete it so you don't incur any charges.
 
