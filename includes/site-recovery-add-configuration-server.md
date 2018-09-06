@@ -1,3 +1,17 @@
+---
+title: include file
+description: include file
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 09/06/2018
+ms.author: raynew
+ms.custom: include file
+
+---
+
 1. Run the Unified Setup installation file.
 2. In **Before You Begin**, select **Install the configuration server and process server**.
 
