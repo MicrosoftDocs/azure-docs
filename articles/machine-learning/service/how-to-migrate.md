@@ -108,7 +108,7 @@ az ml history download
 ```
 
 ## Data preparation files
-Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new data prep SDK or use Azure Data Bricks for big data sets. Learn how to get the pip-installable data prep SDK. 
+Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Data Bricks for big data sets.  [Learn how to get the data prep SDK](concept-data-preparation.md). 
 
 ## Next steps
 
