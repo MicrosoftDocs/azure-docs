@@ -1,5 +1,5 @@
 ---
-title: Log searches in Azure Log Analytics| Microsoft Docs
+title: Analyzing Log Analytics data in Azure Monitor | Microsoft Docs
 description: You require a log search to retrieve any data from Log Analytics.  This article describes how new log searches are used in Log Analytics and provides concepts that you need to understand before creating one.
 services: log-analytics
 documentationcenter: ''
@@ -17,24 +17,26 @@ ms.author: bwren
 ms.component: na
 ---
 
-# Analyzing log data in Azure Monitor
-
-> [!NOTE]
-> Log Analytics was previously treated as its own service in Azure Monitor and included such features as Windows and Linux agents for data collection, views to visualize existing data, and alerts to proactively notify you of identified issues. Log Analytics is now considered a part of Azure Monitor and includes only storage and analysis of log data using its query language. The other features that were part of Log Analytics have not changed but are now considered part of Azure Monitor.
+# Analyzing Log Analytics data in Azure Monitor
 
 Log data collected by Azure Monitor is stored in Log Analytics which collects telemetry and other data from a variety of sources and provides a query language for advanced analytics.
 
+> [!NOTE]
+> Log Analytics was previously treated as its own service in Azure. It is now considered a part of Azure Monitor and focuses on storage and analysis of log data using its query language. Features that were considered part of Log Analytics, such as Windows and Linux agents for data collection, views to visualize existing data, and alerts to proactively notify you of issues, have not changed but are now considered part of Azure Monitor.
+
+
+
 ## Log queries
 
-You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](), [configuring an alert rule]() to be notified of a particular condition, or retrieving data using the [Log Analytics API](), you will use a query to specify the data you want.  This article describes how log searches are used in Log Analytics and provides concepts that should understand before creating one.
+You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](log-analytics-log-search-portals.md), [configuring an alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Log Analytics and provides concepts that should understand before creating one.
 
 
 
 ## Where log queries are used
 
-The different ways that you will use log searches in Log Analytics include the following:
+The different ways that you will use queries in Log Analytics include the following:
 
-- **Portals.** You can perform interactive analysis of log data in the [Azure portal]().  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
+- **Portals.** You can perform interactive analysis of log data in the [Azure portal](log-analytics-log-search-portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
 - **Alert rules.** [Alert rules](log-analytics-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard]() which allow you to visualize log and metric data together and optionally share with other Azure users. 
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](log-analytics-view-designer.md).  Log queries provide the data used by [tiles](log-analytics-view-designer-tiles.md) and [visualization parts](log-analytics-view-designer-parts.md) in each view.  
