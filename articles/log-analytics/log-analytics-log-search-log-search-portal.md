@@ -34,9 +34,8 @@ Start by opening the Log Search portal.
 
 1. Open the Azure portal.
 2. Navigate to Log Analytics and select your workspace.
-3. Select **Log Search**.
+3. Select **Logs**.
 
-![Log Search button](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## Create a simple search
 The quickest way to retrieve some data to work with is a simple query that returns all records in table.  If you have any Windows or Linux clients connected to your workspace, then you'll have data in either the Event (Windows) or Syslog (Linux) table.

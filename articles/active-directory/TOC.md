@@ -84,7 +84,6 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
@@ -103,6 +102,7 @@
 #### [Route activity logs to an Azure event hub](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archive activity logs to an Azure storage account](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrate activity logs with Splunk using Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Integrate activity logs with SumoLogic using Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Reference
 #### [Retention](reports-monitoring/reference-reports-data-retention.md)
@@ -118,15 +118,11 @@
 #### [Azure AD activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
 
-###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
+### [Programmatic Access](reports-monitoring/concept-reporting-api.md)
 #### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 #### [Using certificates](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Manage passwords](authentication/concept-sspr-howitworks.md)
-### User documents
-#### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
-
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
@@ -337,11 +333,9 @@
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
+## [Terms of use](active-directory-tou.md)
+
 ## Secure your identities
-### Certificate-based Authentication
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Get started](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD Identity Protection
 #### [Overview](identity-protection/overview.md)

@@ -39,7 +39,7 @@ In addition to process-specific extensions, a Custom Script extension is availab
 
 ## Prerequisites
 
-To handle the extension on the VM, you need the Azure Linux Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
+To handle the extension on the VM, you need the Azure Windows Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
 
 ### Azure VM agent
 
