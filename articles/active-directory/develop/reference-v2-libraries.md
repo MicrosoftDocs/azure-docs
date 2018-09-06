@@ -28,8 +28,6 @@ It's recommended that you use libraries written by protocol domain experts who f
 
 > [!NOTE]
 > Looking for the Azure AD v1.0 libraries (ADAL)? Checkout the [ADAL library guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
->
->
 
 ## Types of libraries
 

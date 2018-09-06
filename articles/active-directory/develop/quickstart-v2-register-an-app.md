@@ -18,23 +18,25 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to register an app with the Azure AD v2.0 endpoint so I can build an app that accepts both personal Microsoft accounts, and work and school accounts (Azure AD) to sign in.
+#Customer intent: As an application developer, I want to register an app with the Azure Active Directory v2.0 endpoint so I can build an app that accepts both personal Microsoft accounts, and work and school accounts (Azure AD) to sign in.
 ---
 
 # Quickstart: Register an app with the Azure Active Directory v2.0 endpoint
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 To build an app that accepts both personal Microsoft account (MSA), and work or school account (Azure AD) sign-in, you'll need to register an app with the Azure Active Directory (Azure AD) v2.0 endpoint. At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
 
 > [!NOTE]
 > Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about the [v2.0 limitations](active-directory-v2-limitations.md).
 
-## Sign in to the Microsoft application registration portal
+## Step 1: Sign in to the Microsoft application registration portal
 
 1. Navigate to the Microsoft app registration portal at [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
 1. Sign in with either a personal or work or school Microsoft account. If you don't have either, sign up for a new personal account.
 1. Done? You should now be looking at your list of Microsoft apps, which is probably empty. Let's change that.
 
-## Register an app
+## Step 2: Register an app
 
 1. Select **Add an app**, and give it a name.
     The portal will assign your app a globally unique Application ID that you'll use later in your code. If your app includes a server-side component that needs access tokens for calling APIs (think: Office, Azure, or your own web API), you'll want to create an **Application Secret** here as well.

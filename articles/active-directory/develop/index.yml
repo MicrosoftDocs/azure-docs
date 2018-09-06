@@ -39,12 +39,12 @@ sections:
           src: ./media/index/i_get-started.svg
         title: Authentication basics
       - href: /azure/active-directory/develop/v2-app-types/
-        html: <p>Learn about the primary application types supported by Azure AD and understand the basics on protocol flows, registering, and token expiration based on the application type.</p>
+        html: <p>Learn about the app types supported by Azure AD and understand the basics on protocol flows, registration, and token expiration for each app type.</p>
         image:
           src: ./media/index/i_web-apps.svg
         title: Application types
       - href: 
-        html: <p>Confused about which Azure AD endpoint to use? Start here to understand the endpoint capabilities and get our recommendation on which endpoint to use based on the scenario you want to enable.</p>
+        html: <p>Start here to understand the endpoint capabilities and get our recommendation on which endpoint to use based on the scenario you want to enable.</p>
         image:
           src: ./media/index/i_forks.svg
         title: Endpoints and libraries
@@ -52,17 +52,17 @@ sections:
         html: <p>Learn about the types of security tokens emitted by Azure AD, format, security characteristics, and contents of each type of token.</p>
         image:
           src: ./media/index/i_data-collection.svg
-        title: ID and access tokens
+        title: ID tokens
       - href: /azure/active-directory/develop/sample-v2-code/
-        html: <p>Find out the installation and setup requirements, and download code samples that show you how to add authentication and authorization to your app.</p>
+        html: <p>Find installation and setup requirements, and download code samples that show you how to add authentication and authorization to your app.</p>
         image:
           src: ./media/index/i_code-samples.svg
         title: v2.0 code samples by scenario
-      - href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-        html: <p>Using other Azure services and need to manage the credentials in your code for authenticating to cloud services? Learn how Managed Service Identity for Azure resources can keep these credentials secure.</p>
+      - href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+        html: <p>Learn how to use the Azure AD REST APIs in Microsoft Graph to create unique workflows between Azure AD resources and third-party resources.</p>
         image:
-          src: ./media/index/i_account-management.svg
-        title: Managed Service Identity for Azure resources
+          src: ./media/index/i_queries.svg
+        title: Azure AD identity and access management API
    
   - title: Quickstarts
     items:
@@ -240,7 +240,7 @@ sections:
         title: Claims in Azure AD security tokens
         image:
           src: ./media/index/i_code-edit.svg
-      - href: 
+      - href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
         title: Azure AD APIs in Microsoft Graph
         image:
           src: ./media/index/i_queries.svg

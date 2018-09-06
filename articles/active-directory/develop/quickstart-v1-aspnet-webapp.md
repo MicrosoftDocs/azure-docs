@@ -23,7 +23,7 @@ ms.author: andret
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-In this quickstart, you'll learn how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. Here you'll learn how to enable sign-ins from work and school accounts in your ASP.NET application.
+In this quickstart, you'll learn how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. You'll learn how to enable sign-ins from work and school accounts in your ASP.NET application.
 
 At the end of this quickstart, your application will accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory (Azure AD).
 
@@ -320,4 +320,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ## Next steps
 
-You can now move on to additional scenarios. To learn more, see the [ASP.NET tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp).
+You can now move on to additional scenarios.
+
+> [!div class="nextstepaction"]
+> [ASP.NET tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp)
