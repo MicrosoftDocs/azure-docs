@@ -21,10 +21,7 @@
 7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then Setup checks that PowerCLI 6.0 is installed.
-
-    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-
+8. In **Environment Details**, select No if you're replicating Azure Stack VMs or physical servers. 
 9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
 
     ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
