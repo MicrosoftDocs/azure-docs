@@ -13,7 +13,7 @@ ms.author: erhopf
 ---
 # Tutorial: Create a single-page app using the Bing Web Search API
 
-This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results based on a user's query. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript logic required to call the Bing Web Search API, handle the response, and display the results. HTML, CSS, and JS files are available on [GitHub](placeholder) with quickstart instructions.  
+This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results based on a user's query. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript logic required to call the Bing Web Search API, handle the response, and display the results. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples) with quickstart instructions.  
 
 This sample app can:
 
