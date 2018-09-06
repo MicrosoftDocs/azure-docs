@@ -40,7 +40,7 @@ Azure AD allows Tenant administrators and developers to restrict an app to a spe
 1. Applications built directly on the Azure AD application platform that use OAuth2.0/OpenID Connect Authentication after a user or admin has consented to that application.
      >This feature is available for Web App/Api and Enterprise applications only. Apps that are registered as [native](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) cannot be restricted to a set of users or security groups in the tenant.
 
-# Quickstart: Restrict your app to a set of users
+## Quickstart: Restrict your app to a set of users
 
 ### Update the app's properties to enable user assignment
 
