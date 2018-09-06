@@ -35,13 +35,13 @@ To create a module, you need .NET to build the project folder, Docker to build t
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * You can use a local Docker registry for prototype and testing purposes instead of a cloud registry. 
 
-To setup local development environment to debug, run and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).Install [Python (2.7/3.6) and Pip](https://www.python.org/). Then install **iotedgehubdev** by running below command in your terminal.
+To setup local development environment to debug, run and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (2.7/3.6) and Pip](https://www.python.org/). Then install **iotedgehubdev** by running below command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
-To test your module on a device, you need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Windows](quickstart.md) or [Linux](quickstart-linux.md). 
+To test your module on a device, you need an active IoT hub with at least one IoT Edge device ID created. If you are running IoT Edge daemon on development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step. 
 
 ## Create a new solution with C# module
 
@@ -108,9 +108,6 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
     dotnet build
     ```
 
-   > [!TIP]
-   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages through instead of `curl`.
-
 2. Navigate to `program.cs`. Add a breakpoint in this file.
 
 3. Navigate to VS Code debug view. Select the debug configuration **ModuleName Local Debug (.NET Core)**. 
@@ -133,7 +130,7 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 
     ![Watch Variables](media/how-to-develop-csharp-module/single-module-variables.png)
 
-7. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
+7. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator** stop and clean the simulator.
 
 ## Build module container for debugging and debug in attach mode
 
