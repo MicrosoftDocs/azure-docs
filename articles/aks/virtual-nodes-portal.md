@@ -5,7 +5,7 @@ services: container-service
 author: iainfoulds
 
 ms.service: container-service
-ms.date: 09/24/2018
+ms.date: 09/10/2018
 ms.author: iainfou
 ---
 
@@ -18,7 +18,7 @@ To rapidly scale application workloads in an Azure Kubernetes Service (AKS) clus
 
 ## Before you begin
 
-Virtual nodes enable network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+To enable network communication between pods that run on virtual nodes and the AKS cluster, virtual nodes need their own virtual network subnet and delegated permissions. Virtual nodes only work with AKS clusters created using *advanced* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
 
 ## Sign in to Azure
 
@@ -37,23 +37,23 @@ To create an AKS cluster, complete the following steps:
         - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
         - Under **Virtual nodes**, select *Enabled*.
     
-    ![Create AKS cluster - provide basic information](media/aci-connector-portal/create-cluster.png)
+    ![Create AKS cluster and enable the virtual nodes](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
     Select **Next: Networking** when complete.
 
 1. **Networking**: Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. Virtual nodes requires a delegated subnet, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
-    - If you need to create a virtual network and subnet, complete the following steps:
-        - Under *Virtual network*, choose **Create new**.
-        - Provide a name, such as *myVnet*. Set the **Address range** as *10.240.0.0/16*
-        - Under **Subnets**, provide a name, such as *myAKSSubnet*, and set the **Address range** to *10.240.0.0/17*.
-        - Provide the name for an additional subnet, such as *myVirtualNodeSubnet*, and set the **Address range** to *10.240.252.0/22*.
-        - Select **Create**.
-    - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *myVirtualNodeSubnet*.
-    - Leave the **Kubernetes service address range** as the default *10.0.0.0/16*.
-    - Leave the **Kubernetes DNS service IP address** as the default *10.0.0.10*.
-    - Leave the **Docker Bridge address** as the default *172.17.0.1/16*.
+    - If you need to create a virtual network and subnet, under *Virtual network*, choose **Create new**.
+        - A default virtual network is populated named *default-aks-vnet* with an **Address range** of *10.240.0.0/16*
+        - Under **Subnets**, a *default* subnet is defined with the **Address range** of *10.240.0.0/17*.
+        - An additional *virtual-node-aci* subnet is defined with the **Address range** of *10.240.252.0/22*.
+        - To accept these defaults, select **Create**.
+
+        
+
+    - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *virtual-node-aci*.
+    - Leave the default addresses for **Kubernetes service address range**, **Kubernetes DNS service IP address**, and **Docker Bridge address**.
     
-    ![Create AKS cluster - configure advanced networking](media/aci-connector-portal/configure-networking.png)
+    ![Configure advanced networking for the virtual nodes](media/virtual-nodes-portal/create-virtual-network.png)
 
     Select **Review + create** and then **Create** when ready.
 
@@ -85,28 +85,28 @@ The following example output shows the single VM node created and then the virtu
 $ kubectl get nodes
 
 NAME                       STATUS    ROLES     AGE       VERSION
-virtual-node-linux        Ready     agent     28m       v1.8.3
+virtual-node-linux         Ready     agent     28m       v1.8.3
 aks-agentpool-14693408-0   Ready     agent     32m       v1.11.2
 ```
 
 ## Deploy a sample app
 
-In the Azure Cloud Shell, create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined.
+In the Azure Cloud Shell, create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined. These settings allow the pod to be scheduled on the virtual node and confirm that the feature is successfully enabled.
 
 ```yaml
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: aci-helloworld
+  name: virtual-node-helloworld
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: aci-helloworld
+        app: virtual-node-helloworld
     spec:
       containers:
-      - name: aci-helloworld
+      - name: virtual-node-helloworld
         image: microsoft/aci-helloworld
         ports:
         - containerPort: 80
@@ -125,13 +125,13 @@ Run the application with the [kubectl create][kubectl-create] command.
 kubectl apply -f virtual-node.yaml
 ```
 
-Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `virtual-node-linux` node.
+Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `virtual-node-helloworld` pod has been scheduled on the `virtual-node-linux` node.
 
 ```
 $ kubectl get pods -o wide
 
-NAME                            READY     STATUS    RESTARTS   AGE       IP              NODE
-aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   virtual-node-linux
+NAME                                     READY     STATUS    RESTARTS   AGE       IP              NODE
+virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   virtual-node-linux
 ```
 
 ## Next steps
