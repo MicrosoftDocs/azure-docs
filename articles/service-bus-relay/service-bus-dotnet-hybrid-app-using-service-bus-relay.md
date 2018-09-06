@@ -3,7 +3,7 @@ title: Azure WCF Relay hybrid on-premises/cloud application (.NET) | Microsoft D
 description: Learn how to create a .NET on-premises/cloud hybrid application using Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # .NET on-premises/cloud hybrid application using Azure WCF Relay

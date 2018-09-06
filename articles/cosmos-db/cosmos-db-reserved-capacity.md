@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: rimman
+ms.reviewer: sngun
 ---
 
 # Prepay for Azure Cosmos DB resources with reserved capacity
@@ -36,8 +37,11 @@ You can also sum up the average throughput for all the workloads on your Azure C
 ## Buy Azure Cosmos DB reserved capacity
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
-2. Select **All services** > **Reservations**.  
-3. Select **Add**, from the **Select Product Type** pane, choose **Azure Cosmos DB** and then **Select** to purchase a new reservation.  
+
+2. Select **All services** > **Reservations** > **Add**.  
+
+3. From the **Select Product Type** pane, choose **Azure Cosmos DB**, and then **Select** to purchase a new reservation.  
+
 4. Fill in the required fields as described in the table below:
 
    ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
@@ -52,6 +56,7 @@ You can also sum up the average throughput for all the workloads on your Azure C
    |Term  |   One year or three years.   |
 
 5. Review the discount and the price of the reservation in the **Costs** section. This reservation price is applicable to Azure Cosmos DB resources with throughput provisioned across all regions.  
+
 6. Select **Purchase**. You can see the following screenshot when the purchase is successful. 
 
    ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png) 
