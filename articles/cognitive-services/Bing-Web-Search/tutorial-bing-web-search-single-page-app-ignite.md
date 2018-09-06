@@ -90,7 +90,7 @@ The HTML form includes options that map to query parameters in the [Bing Web Sea
 > [!NOTE]
 > The Bing Web Search API offers additional query parameters to help refine search results. This sample only uses a few. For a complete list of available parameters, see [Bing Web Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
 
-The `bingSearchOptions()` function converts these fields to the format required by the Bing Search API.
+The `bingSearchOptions()` function converts these options to the format required by the Bing Search API.
 
 ```javascript
 // Build query options from selections in the HTML form.
@@ -117,14 +117,12 @@ function bingSearchOptions(form) {
 
 For example, `SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default. However, this form uses a checkbox, which has only two states. This code sample converts this setting to either `strict` or `off`, `moderate` is not used.
 
-If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. We simply set it to `9` (the number of result types supported by the Bing Web Search API) to make sure we get the maximum possible number of result types.
-
-<TODO: Erik  - pick up edits from here...>
+If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. We simply set it to `9` (the number of result types supported by the Bing Web Search API) to make sure we get the maximum number of result types.
 
 > [!NOTE]
-> Promoting a result type does not *guarantee* that the search results include that kind of result. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
+> Promoting a result type does not *guarantee* that it will be included in the search results. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
 
-We also send `textDecoration` and `textFormat` query parameters to cause the search term to be boldfaced in the search results. These values are hardcoded in the script.
+In this tutorial, the `textDecoration` and `textFormat` query parameters are hardcoded into the script, and cause the search term to be boldfaced in the search results.
 
 ## Manage subscription keys
 
@@ -154,26 +152,6 @@ function getSubscriptionKey() {
 ```
 
 As we saw earlier, when the form is submitted, `onsubmit` fires, calling `bingWebSearch`. This function constructs the query and returns a response with applicable search results based on the options selected by the user. `getSubscriptionKey` is called on each submission to authenticate the request.
-
-## Select search options
-
-
-
-The HTML form includes elements with the following names:
-
-| | |
-|-|-|
-| `where` | A drop-down menu for selecting the market (location and language) used for the search. |
-| `query` | The text field in which to enter the search terms. |
-| `what` | Checkboxes for promoting particular kinds of results. Promoting images, for example, increases the ranking of images. |
-| `when` | Drop-down menu for optionally limiting the search to the most recent day, week, or month. |
-| `safe` | A checkbox indicating whether to use Bing's SafeSearch feature to filter out "adult" results. |
-| `count` | Hidden field. The number of search results to return on each request. Change to display fewer or more results per page. |
-| `offset` | Hidden field. The offset of the first search result in the request; used for paging. It's reset to `0` on a new request. |
-
-> [!NOTE]
-> Bing Web Search offers many more query parameters. We're using only a few of them here.
-
 
 ## Performing the request
 
