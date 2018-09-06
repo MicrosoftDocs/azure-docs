@@ -82,7 +82,7 @@ When using an early termination policy, a user can configure the following param
 Azure Machine Learning service supports the following Early Termination Policies -
 
 ### Bandit Policy
-The Bandit Policy early terminates any runs that are not within the specified slack factor / slack amount with respect to the best performing training run. It takes only 3 configuration parameters -
+Bandit Policy is a termination policy based on slack factor/slack amount and evaluation interval. This policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters -
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
     e.g. consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
@@ -95,32 +95,34 @@ early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=
 In this example, the early termination policy is applied at every interval when metrics are reported, starting at evaluation interval 5. Any run whose best metric is less than (1/(1+0.1) or 91% of the best performing run will be terminated.
 
 ### Median Stopping Policy
-The Median Stopping policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy only requires you to specify an evaluation interval, and optionally can delay the first evaluation.
+Median Stopping Policy is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy only requires you to specify an evaluation interval, and optionally can delay the first evaluation.
 * `evaluation_interval`: the frequency for applying the policy.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 Consider this example -
 ```Python
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
-In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5 if its best primary metric is worse than the median of the running averages of 1:5 across all training runs.
+In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5 if its best primary metric is worse than the median of the running averages over intervals 1:5 across all training runs.
 
 ### Truncation Selection Policy
-The Truncation Selection policy terminates the lowest X% runs in terms of performance. It takes the following configuration parameters -
-* `truncation_percentage`: percentage of lowest performing runs to terminate.
+Truncation Selection Policy cancels a given percentage of lowest performing runs at each evaluation interval. Runs are compared based on their performance on the primary metric and the lowest X% are terminated. It takes the following configuration parameters -
+* `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. This should be an integer value between 1 and 99.
 * `evaluation_interval`: the frequency for applying the policy.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
-* `exclude_finished_jobs`: true or false. Determines whether or not to exclude completed runs when applying the policy.
 Consider this example -
 ```Python
-early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, exclude_finished_jobs="false", delay_evaluation=5)
+early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
-In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5, if its performance at interval 5 is in the lowest 20% of performance of all unfinished runs at interval 5.
+In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5, if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5.
 
-### No early termination policy
-If you want all training runs to run to completion, set `policy` to "None". This will have the effect of not applying any early termination policy.
+### No Termination Policy
+If you want all training runs to run to completion, use NoTerminationPolicy. This will have the effect of not applying any early termination policy. E.g. 
+```Python
+early_termination_policy = NoTerminationPolicy()
+```
 
 ### Default Policy
-If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default.
+If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
 ## Configure your hyperparameter tuning run
 In addition to defining the hyperparameter search space and early termination policy, you will need to specify the metric that you want to optimize and configure resources allocated for hyperparameter tuning.
@@ -137,10 +139,10 @@ You can control your resource budget for your hyperparameter tuning run by eithe
 
 NOTE: Either one of max_total_runs or max_duration_minutes needs to be specified. If both are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
 
-Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
+Additionally, you need to specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 * `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment.
 
-Finally, in order to configure your hyperparameter tuning run, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators) and the `compute_target` where you wish to run the training script (See [link](/how-to-set-up-training-targets.md) for more information on compute targets). If no `compute_target` is specified, the one from the `estimator` is used.
+Finally, in order to configure your hyperparameter tuning run, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators) and the `compute_target` where you wish to run the training script (See [link](/how-to-set-up-training-targets.md) for more information on compute targets). If no `compute_target` is specified, the one defined in the `estimator` is used.
 
 Here is an example of how you can configure your hyperparameter tuning run -
 ```Python
@@ -174,7 +176,7 @@ You can also visualize the performance of each of the runs as training progresse
 
 ![hyperparameter tuning plot](media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
 
-Finally, you can visually identify the correlation between performance and values of individual hyperparameters using a Parallel Coordinates PLot. E.g. 
+Finally, you can visually identify the correlation between performance and values of individual hyperparameters using a Parallel Coordinates Plot. E.g. 
 
 ![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
