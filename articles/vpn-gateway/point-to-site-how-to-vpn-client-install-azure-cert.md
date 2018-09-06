@@ -34,7 +34,7 @@ No matter what client operating system you want to connect from, you must always
 
 ## <a name="installlinux"></a>Linux
 
-The Linux client certificate is installed on the client as part of the client configuration. See [Client configuration - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxcli) for instructions.
+The Linux client certificate is installed on the client as part of the client configuration. See [Client configuration - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) for instructions.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Generate and export certificates for Point-to-Site: Linux: Azure | Microsoft Docs'
+title: 'Generate and export certificates for Point-to-Site: Linux: CLI: Azure | Microsoft Docs'
 description: Create a self-signed root certificate, export the public key, and generate client certificates using the Linux (strongSwan) CLI.
 services: vpn-gateway
 author: cherylmc
@@ -54,7 +54,7 @@ For more information about how to install using the GUI, see the steps in the [C
   ipsec pki --gen --outform pem > "${USERNAME}Key.pem"
   ipsec pki --pub --in "${USERNAME}Key.pem" | ipsec pki --issue --cacert caCert.pem --cakey caKey.pem --dn "CN=${USERNAME}" --san "${USERNAME}" --flag clientAuth --outform pem > "${USERNAME}Cert.pem"
   ```
-4. Generate a p12 bundle containing the user certificate. This bundle will be used in the next steps when working with the [Client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linux).
+4. Generate a p12 bundle containing the user certificate. This bundle will be used in the next steps when working with the [Client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli).
 
   ```
   openssl pkcs12 -in "${USERNAME}Cert.pem" -inkey "${USERNAME}Key.pem" -certfile caCert.pem -export -out "${USERNAME}.p12" -password "pass:${PASSWORD}"
@@ -62,4 +62,4 @@ For more information about how to install using the GUI, see the steps in the [C
 
 ## Next steps
 
-Continue with your Point-to-Site configuration to [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linuxcli).
+Continue with your Point-to-Site configuration to [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli).

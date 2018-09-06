@@ -55,7 +55,7 @@
     - name: P2S certificates and clients
       items:
       - name: Generate self-signed certificates
-      items:
+        items:
         - name: Azure PowerShell
           href: vpn-gateway-certificates-point-to-site.md
         - name: Makecert
