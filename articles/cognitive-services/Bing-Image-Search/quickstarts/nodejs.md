@@ -83,19 +83,14 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
         });
         ```
 
-    3. When an **end** flag is signalled, the JSON can be processed, and both the headers and JSON body can be displayed.
+    3. When an **end** flag is signalled, the JSON can be processed, and URL for the image can be printed, along with the number of images returned.
     
         ```javascript
         response.on('end', function () {
-            console.log('\nRelevant Headers:\n');
-            // display headers
-            for (var header in response.headers)
-                // note: header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            console.log('\nJSON Response:\n');
-            console.log(body);
+            let firstImageResult = imageResults.value[0];
+            console.log(`Image result count: ${imageResults.value.length}`);
+            console.log(`First image thumbnail url: ${firstImageResult.thumbnailUrl}`);
+            console.log(`First image web search url: ${firstImageResult.webSearchUrl}`);
          });
         ```
 
