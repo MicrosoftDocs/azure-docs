@@ -14,9 +14,10 @@ ms.custom: codepen
 # Get information from a coordinate
 
 This article shows you how to make a reverse address search, and upon a mouse click show the address of the clicked location in a popup.
-You can use either of the following two methods to make a reverse address search.
 
-## Use HTTP request to make a reverse address search
+There are two ways to make a reverse address search, one is by querying through a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) and other is by using a service module to query. We discuss both below.
+
+## Use XMLHTTPRequest to make a reverse address search
 
 ### Understand the code
 
