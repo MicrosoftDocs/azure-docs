@@ -41,7 +41,7 @@ When the deployment for the Remote Monitoring solution finishes, open the soluti
 1. In the dashboard, go to **Devices** section and click the **New Device**.
    ![Adding a new device](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-device.png)
 
-1. Configure the device by using information below and click **Apply**.
+2. Configure the device by using information below and click **Apply**.
   * Device Type: **Physical**
   * Device ID: **AZ3166**
   * Authentication Type: **Symmetric Key**
@@ -49,7 +49,7 @@ When the deployment for the Remote Monitoring solution finishes, open the soluti
   
   ![Adding a new device form](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-new-device-form.png)
 
-1. After the new device is created, copy the **Connection String primary key**. This is the device that is just created in Azure IoT Hub underneath.
+3. After the new device is created, copy the **Connection String primary key**. This is the device that is just created in Azure IoT Hub underneath.
   
   ![Device Connection String](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-new-device-connstring.png)
 
@@ -68,12 +68,13 @@ When the deployment for the Remote Monitoring solution finishes, open the soluti
    * Hold down button **A**.
    * Push and release the **Reset** button.
 
-1. The screen displays the DevKit ID and 'Configuration'.
+2. The screen displays the DevKit ID and 'Configuration'.
+   
   ![IoT DevKit Configuration Mode](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. Click `F1` to open the command palette, type and select **IoT Workbench: Device > Config Device Settings**.
+3. Click `F1` to open the command palette, type and select **IoT Workbench: Device > Config Device Settings**.
 
-1. Paste the connection string you just copied click `Enter` to configure it.
+4. Paste the connection string you just copied click `Enter` to configure it.
 
 ## Build and upload the device code
 
@@ -105,12 +106,14 @@ Remote Monitoring solution allows you to invoke remote method on the device. The
 Let us try change the color of one of the DevKit LEDs using the method "LedColor".
 
 1. Select the **AZ3166** from device list and click on the **Jobs**.
+
   ![Create a Job](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
 
-1. Configure the Jobs as below and click **Apply**.
+2. Configure the Jobs as below and click **Apply**.
   * Select Job: **Run method**
   * Method name: **LedColor**
   * Job Name: **ChangeLedColor**
+  
   ![Job settings](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 In several seconds, your DevKit should change the color of the RGB LED (below the button A).
