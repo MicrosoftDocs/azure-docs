@@ -176,7 +176,7 @@ Sign in to a computer with Internet connectivity and use the following scripts t
 
 ## 6. Configure PowerShell to use a proxy server
 
-In scenarios that require a proxy server to access the Internet, you must first configure the PowerShell to use an existing proxy server:
+In scenarios that require a proxy server to access the Internet, you must first configure PowerShell to use an existing proxy server:
 
 1. Open an elevated PowerShell prompt.
 2. Run the following commands:
