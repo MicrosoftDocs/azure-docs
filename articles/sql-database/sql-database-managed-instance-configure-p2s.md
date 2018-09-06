@@ -3,36 +3,35 @@ title: 'Configure P2S - Azure SQL Database Managed Instance | Microsoft Docs'
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio using a point-to-site connection from an on-premises client computer.
 keywords: 
 services: sql-database
-author: bonova
-ms.reviewer: carlrab, srbozovi
+author: srdan-bozovic-msft
+ms.reviewer: carlrab, bonova, jovanpop
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: bonova
+ms.date: 09/06/2018
+ms.author: srbozovi
 manager: craigg
 
 ---
 # Configure a point-to-site connection to connect to an Azure SQL Database Managed Instance from on-premises computer
 
-This quickstart demonstrates how to connect to an Azure SQL Database Managed Instance using SQL Server Management Studio (SSMS) from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../vpn-gateway/point-to-site-about.md)
+This quickstart demonstrates how to connect to an Azure SQL Database Managed Instance using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)  from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../vpn-gateway/point-to-site-about.md)
 
 ## Prerequisites
 
 This quickstart:
 - Uses as its starting point the resources created in this quickstart: [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 - Requires PowerShell 5.1 and Azure PowerShell 5.4.2 or higher your on-premises client computer.
-- Requires the newest version of [SQL Server Management Studio][ssms-install-latest-84g] on your on-premises client computer
+- Requires the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) on your on-premises client computer
 
 ## Attach a VPN gateway to your Managed Instance virtual network
 
 1. Open Powershell on your on-premises client computer.
-2. Copy and paste the following PowerShell script. This script attaches a VPN Gateway to the Managed Instance virtual network that you created in the [Create a Managed Instance](sql-database-managed-instance-get-started.md) quickstart. This script performs the following three steps:
+2. Copy and paste this PowerShell script. This script attaches a VPN Gateway to the Managed Instance virtual network that you created in the [Create a Managed Instance](sql-database-managed-instance-get-started.md) quickstart. This script performs the following three steps:
   - Creates and install certificates on client machine
   - Calculates the future VPN Gateway subnet IP range
-  - Creates the GetewaySubnet
+  - Creates the GatewaySubnet
   - Deploys the Azure Resource Manager template that attaches the VPN Gateway to VPN subnet
-3. Provide the requested parameters in the PowerShell script.
 
    ```powershell
    $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/attach-vpn-gateway'
@@ -47,11 +46,13 @@ This quickstart:
    Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase 
    ```
 
+3. Provide the requested parameters in the PowerShell script. The values for `<subscriptionId>`, `<resourceGroup>` and `<virtualNetworkName>` should match the ones that are used in [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart. The value for `<certificateNamePrefix>` can be a string of your choice.
+
 4. Execute the PowerShell script.
 
 ## Create a VPN connection to your Managed Instance
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Open the resource group in which you created the virtual network gateway and then open the virtual network gateway resource.
 
     ![virtual network gateway resource](./media/sql-database-managed-instance-configure-p2s/vnet-gateway.png)  
@@ -95,16 +96,6 @@ After you connect, you can view your system and user databases in the Databases 
 
 ## Next steps
 
-- To learn how to connect from an Azure virtual machine, see [Configure an Azure virtual machine connection](sql-database-managed-instance-configure-vm.md)
+- For a quickstart showing how to connect from an Azure virtual machine, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
 - For an overview of the connection options for applications, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
-- To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
-
-
-
-## Next steps
-
-- To learn how to connect from an Azure virtual machine, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
-- To learn how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
-- For an overview of the connection options for applications, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
-- To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
-
+- To restore an existing SQL Server database from on-premises to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.

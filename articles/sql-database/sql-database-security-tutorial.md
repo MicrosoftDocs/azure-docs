@@ -45,7 +45,7 @@ To complete this tutorial, make sure you have the following:
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a server-level firewall rule in the Azure portal
 

@@ -21,7 +21,7 @@ This quickstart uses as its starting point the resources created in this quickst
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a server-level firewall rule
 

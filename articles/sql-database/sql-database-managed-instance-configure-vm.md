@@ -3,13 +3,13 @@ title: 'Connect client VM - Azure SQL Database Managed Instance | Microsoft Docs
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 keywords: 
 services: sql-database
-author: bonova
-ms.reviewer: carlrab, srbozovi
+author: jovanpop-msft
+ms.reviewer: carlrab, srbozovi, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: bonova
+ms.date: 09/06/2018
+ms.author: jovanpop-msf
 manager: craigg
 
 ---
@@ -31,13 +31,9 @@ Since SQL Managed Instance is placed in your private Virtual Network, you need t
 
 The easiest way to create a client virtual machine with all nesseccary tools is to use the Azure Resource Manager templates.
 
-1. Click on the following button (make sure that you are signed-in to the Azure portal in another browser tab):
+1. Click on the following button to create a client virtual machine and install SQL Server Management Studio (make sure that you are signed-in to the Azure portal in another browser tab):
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-
-
-    > [!NOTE]
-    > This template also installs SQL Server Management Studio in the VM.
 
 2. Fill out the form with the requested information, using the information in the following table:
 
@@ -46,13 +42,13 @@ The easiest way to create a client virtual machine with all nesseccary tools is 
    |**Managed instance name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Do not use "serveradmin" as that is a reserved server-level role.| 
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Resource Group**|The resource group that you created in the [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart.|This must be the resource group in which the VNet exists.|
+   |**Resource Group**|The resource group that you specified in the [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart.|This must be the resource group in which the VNet exists.|
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|The virtual network for your managed instance| Existing VNET that you created in the [Creatie a Managed Instance](sql-database-managed-instance-get-started.md) quickstart.|
 
-    ![create client VM](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
+   ![create client VM](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
-    If you used the suggested VNet name and the default subnet in [creating your Managed Instance](sql-database-managed-instance-get-started.md), you don't need to change last two parameters. Otherwise you should change these values to the values that you entered when you set up the network environment.
+   If you used the suggested VNet name and the default subnet in [creating your Managed Instance](sql-database-managed-instance-get-started.md), you don't need to change last two parameters. Otherwise you should change these values to the values that you entered when you set up the network environment.
 
 3. Select the **I agree to terms and conditions stated above** checkbox.
 4. Click **Purchase** to deploy the Azure VM in your network.
@@ -106,7 +102,6 @@ After you connect, you can view your system and user databases in the Databases 
 
 ## Next steps
 
-- To learn how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
+- For a quickstart showing how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md)
 - For an overview of the connection options for applications, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
-- To restore an existing SQL database to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
-
+- To restore an existing SQL Server database from on-premises to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.

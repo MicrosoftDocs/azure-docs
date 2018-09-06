@@ -386,8 +386,8 @@ In this tutorial, you learned to configure an Azure SQL database and application
 > * Create and compile a Java application to query an Azure SQL database
 > * Perform a disaster recovery drill
 
-Advance to the next tutorial to learn how to create a Managed Instance.
+Advance to the next tutorial to migrate SQL Server to Azure SQL Database Managed Instance using DMS.
 
 > [!div class="nextstepaction"]
->[Create a Managed Instance](sql-database-managed-instance-get-started.md)
+>[Migrate SQL Server to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
 
