@@ -27,7 +27,9 @@ Network traffic is subjected to the configured firewall rules when you route you
 
 Application and network rules are stored in *rule collections*. A rule collection is a list of rules that share the same action and priority.  A network rule collection is a list of network rules and an application rule collection is a list of application rules.
 
-Network rule collections are always processed before application rule collections. All rules are terminating, so if a match is found in a network rule collection, the following application rule collections for the session are not processed.
+Azure Firewall does not have a concept of inbound rules and outbound rules. There are application rules and network rules, and they are applied to any traffic that comes into the firewall. Network rules are applied first, then application rules,and the rules are terminating.
+
+For example, if a network rule is matched, the packet will not be evaluated by application rules. If there is no network rule match, and the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated agains the infrastructure rule collection. If there is still no match, then the packet is denied by default.
 
 In this tutorial, you learn how to:
 

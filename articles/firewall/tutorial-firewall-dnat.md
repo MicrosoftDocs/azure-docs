@@ -15,7 +15,9 @@ ms.custom: mvc
 
 You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound traffic to your subnets. Azure Firewall does not have a concept of inbound rules and outbound rules. There are application rules and network rules, and they are applied to any traffic that comes into the firewall. Network rules are applied first, then application rules, and the rules are terminating.
 
-When you configure DNAT, the DNAT rule collection action is set to **Translate**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might configure a network rule to allow Remote Desktop traffic on TCP port 3389.
+For example, if a network rule is matched, the packet will not be evaluated by application rules. If there is no network rule match, and if the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated agains the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
+
+When you configure DNAT, the DNAT rule collection action is set to **Translate**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might configure a network rule to allow Remote Desktop traffic on TCP port 3389. Address translation happens first and then the network and application rules are applied using the translated addresses.
 
 In this tutorial, you learn how to:
 
@@ -126,16 +128,15 @@ Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 1. Under **Network**, for **Virtual network**, select **VN-Spoke**.
 2. For **Subnet**, select **SN-Workload**.
-3. For **Select public inbound ports**, select **RDP (3389)**. 
-
-    You'll want to limit the access to your public IP address, but you need to open port 3389 so you can connect a remote desktop to the workload server. 
+3. Click **Public IP address** and then click **None**.
+4. For **Select public inbound ports**, select **No public inbound ports**. 
 2. Leave the other default settings and click **OK**.
 
 **Summary**
 
 Review the summary, and then click **Create**. This will take a few minutes to complete.
 
-After deployment finishes, note the private IP address for the virtual machine. It will be used later when you deploy the firewall. Click the virtual machine name, and under **Settings**, click **Networking** to find the private IP address.
+After deployment finishes, note the private IP address for the virtual machine. It will be used later when you configure the firewall. Click the virtual machine name, and under **Settings**, click **Networking** to find the private IP address.
 
 
 ## Deploy the firewall
