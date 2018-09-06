@@ -3,7 +3,7 @@ title: How to troubleshoot Functions Runtime is unreachable.
 description: Learn how to troubleshoot an invalid storage account.
 services: functions
 documentationcenter: 
-author: alkarche
+author: alexkarcher-msft
 manager: cfowler
 editor: ''
 
@@ -15,105 +15,56 @@ ms.date: 09/05/2018
 ms.author: alkarche
 ---
 
-# How to troubleshoot *Functions Runtime is unreachable.*
-
-This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that is defined for the function. The way you do that depends on the runtime version and the programming language:
-
-* Functions 1.x
-  * Scripting languages
-  * C# class libraries
-* Functions 2.x
-  * One way for all languages
-  * Optional way for C# class libraries
-
-## Functions 1.x - scripting languages
-
-For scripting languages such as C# script and JavaScript, you use the `disabled` property of the *function.json* file to tell the runtime not to trigger a function. This property can be set to `true` or to the name of an app setting:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "queueTrigger",
-            "direction": "in",
-            "name": "myQueueItem",
-            "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionAppSetting"
-        }
-    ],
-    "disabled": true
-}
-```
-or 
-
-```json
-    "bindings": [
-        ...
-    ],
-    "disabled": "IS_DISABLED"
-```
-
-In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
-
-You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
-
-![Function state switch](media/disable-function/function-state-switch.png)
-
-## Functions 1.x - C# class libraries
-
-In a Functions 1.x class library, you use a `Disable` attribute to prevent a function from being triggered. You can use the attribute without a constructor parameter, as shown in the following example:
-
-```csharp
-public static class QueueFunctions
-{
-    [Disable]
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-The attribute without a constructor parameter requires that you recompile and redeploy the project to change the function's disabled state. A more flexible way to use the attribute is to include a constructor parameter that refers to a Boolean app setting, as shown in the following example:
-
-```csharp
-public static class QueueFunctions
-{
-    [Disable("MY_TIMER_DISABLED")]
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-This method lets you enable and disable the function by changing the app setting, without recompiling or redeploying. Changing an app setting causes the function app to restart, so the disabled state change is recognized immediately.
-
-> [!IMPORTANT]
-> The `Disabled` attribute is the only way to disable a class library function. The generated *function.json* file for a class library function is not meant to be edited directly. If you edit that file, whatever you do to the `disabled` property will have no effect.
->
-> The same goes for the **Function state** switch on the **Manage** tab, since it works by changing the *function.json* file.
->
-> Also, note that the portal may indicate the function is disabled when it isn't.
+# How to troubleshoot "Functions Runtime is unreachable"
 
 
+## Error Text
+ `Error: Azure Functions Runtime is uncreachable. Click here for details on storage configuration`
 
-## Functions 2.x - all languages
+### Summary
+This issue occurs when the Functions Runtime cannot start. The most common reason for this to occur is the Function App losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-In Functions 2.x you disable a function by using an app setting. For example, to disable a function named `QueueTrigger`, you create an app setting named `AzureWebJobs.QueueTrigger.Disabled`, and set it to `true`. To enable the function, set the app setting to `false`. You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<functionname>.Disabled` app setting.
+## Troubleshooting
+We'll walk through the 4 most common error caes, how to identiy, and how to resolve each case.
 
-![Function state switch](media/disable-function/function-state-switch.png)
+1. Storage Account deleted
+1. Storage Account application setting deleted
+1. Storage firewall enabled
+1. Storage credentialls invalid
 
-## Functions 2.x - C# class libraries
+### Storage Account deleted
 
-In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can [use the Disable attribute as in Functions 1.x](#functions-1x---c-class-libraries).
+Verification: Check to see if your storage account exists by looking up the name in your Application Settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` will contain the name of your storage account wrapped up in a connection string. Read more specifics at the [application setting reference here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 
-## Next steps
+Search for your storage account in the Azure portal to see if it still exists. If it has been deleted you will need to recreate a storage account and replace the connection strings with new connection strings generated in the new account. Your function code is lost and you will need to re-deploy it again.
 
-This article is about disabling automatic triggers. For more information about triggers, see [Triggers and bindings](functions-triggers-bindings.md).
+### Storage Account Application Settings Deleted
+
+In the previous step, if you did not have a storage account connection string they were likely deleted or overwritten. This is most commonly done when using deplyoment slots or ARM scripts to set application settings.
+
+#### Required Application Settings
+
+* Required
+    * [`AzureWebJobsStorage`](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+* Required for Consumption Plan Functions
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
+    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#websitecontentshare)
+
+[Read about these application settings here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings)
+
+#### Guidance
+
+1. Do not sticky any of these settings when using deployment slots.
+1. Do not overwrite these settings when using automated deployments.
+1. These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
+
+### Storage Account Credentials Invalid
+
+The above Storage Account connection strings must be updated if you re-generate storage keys. [Read more about storage key managment here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+
+### Storage Account Innaccesible
+
+Your Function App must be able to access the storage account. Common issues that block a Functions access to a storage account are:
+
+* Function Apps deployed to App Service Environments without the correct network rules to allow traffic to and from the storage account
+* The storage account firewall is enabled and not configured to allow traffic to and from Functions. [Read more about storage account firewall configuration here](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
