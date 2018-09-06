@@ -186,9 +186,7 @@ In this tutorial, you learned how to:
 > * Create a release definition
 > * Automatically deploy and upgrade an application
 
-Advance to the next tutorial:
-> [!div class="nextstepaction"]
-> [Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)
+In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md).
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/PublishAppProfile.png
