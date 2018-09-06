@@ -40,7 +40,7 @@ Once you have an ONNX model, you can deploy it to Azure. You can also deploy the
 
 To convert TensorFlow models, use the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
 
-## Converting Keras, ScitKit-Learn, and other models
+### Converting Keras, ScitKit-Learn, and other models
 
 Use the [WinMLTools](https://docs.microsoft.com/en-us/windows/ai/convert-model-winmltools) package if you have a model in one of the following formats:
 * Keras
@@ -53,7 +53,7 @@ Use the [WinMLTools](https://docs.microsoft.com/en-us/windows/ai/convert-model-w
 
 Azure Machine Learning services enable you to deploy, manage, and monitor your ONNX models. Using the standard [deployment pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-model-management-and-deployment) and the ONNX Runtime you can create a REST endpoint hosted in the cloud.
 
-Below is an example for deploying to AKS:
+Below is an example for deploying an ONNX model:
 
 ### Initialize the workspace
 
@@ -77,8 +77,6 @@ model = Model.register(model_path = "model.onnx",
 ```
 
 ### Create an image
-
-The following code snippet demonstrates how to create an image using the registered model.
 
 ```python
 from azureml.core.image import ContainerImage
@@ -127,76 +125,20 @@ def run(raw_data):
         return json.dumps({"error": result})
 ```
 
-### Create the AKS Cluster
-
-The following code snippet demonstrates how to create the AKS cluster:
-
-> [!IMPORTANT]
-> Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
-
-> [!NOTE]
-> This process takes approximately 20 minutes.
-
-```python
-# Use the default configuration (can also provide parameters to customize)
-prov_config = AksCompute.provisioning_configuration()
-
-aks_name = 'aml-aks-1' 
-# Create the cluster
-aks_target = ComputeTarget.create(workspace = ws, 
-                                    name = aks_name, 
-                                    provisioning_configuration = prov_config)
-
-# Wait for the create process to complete
-aks_target.wait_for_provisioning(show_output = True)
-print(aks_target.provisioning_state)
-print(aks_target.provisioning_errors)
-```
-
-#### Attach existing AKS cluster (optional)
-
-If you have existing AKS cluster in your Azure subscription, you can use it to deploy your web service. The following code snippet demonstrates how to attach a cluster to your workspace.
-
-```python
-# Get the resource id from https://portal.azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
-resource_id = '/subscriptions/<your subscription id>/resourcegroups/<your resource group>/providers/Microsoft.ContainerService/managedClusters/<your aks service name>'
-
-# Set to the name of the cluster
-cluster_name='my-existing-aks' 
-
-# Attatch the cluster to your workgroup
-aks_target = AksCompute.attach(workspace=ws, name=cluster_name, resource_id=resource_id)
-
-# Wait for the operation to complete
-aks_target.wait_for_provisioning(True)
-```
-
 ### Deploy your web service
 
-The following code snippet demonstrates how to deploy the image to the cluster:
+You can deploy your ONNX model to:
+* [Azure Container Instances (ACI)](how-to-deploy-to-aci.md)
+* [Azure Kubernetes Service (AKS)](how-to-deploy-to-aks.md)
 
-```python
-# Set configuration and service name
-aks_config = AksWebservice.deploy_configuration()
-aks_service_name ='aks-service-1'
-# Deploy from image
-aks_service = Webservice.deploy_from_image(workspace = ws, 
-                                            name = aks_service_name,
-                                            image = image,
-                                            deployment_config = aks_config,
-                                            deployment_target = aks_target)
-# Wait for the deployment to complete
-aks_service.wait_for_deployment(show_output = True)
-print(aks_service.state)	
-```
+Click the above to see the instructions for each.
 
-Your ONNX model is now hosted in the cloud and ready to be called!
-
+Once deployed, your ONNX model is hosted in the cloud and ready to be called!
 
 Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
 
 ## Next steps
 
 Learn more about ONNX or contribute to the project:
-+ [ONNX.ai project website](http://ONNX.ai)
++ [ONNX project website](http://onnx.ai)
 + [ONNX code on GitHub](https://github.com/onnx/onnx)
