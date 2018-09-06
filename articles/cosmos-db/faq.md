@@ -9,7 +9,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
 
 ---
@@ -437,15 +437,24 @@ Azure Table storage and Azure Cosmos DB Table API use the same SDKs so most of t
 Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability, and consistency guarantees. Because it is a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of tables is detected and throttled. We recommend that you look at the rate of creation of tables and lower it to less than 5 per minute. Remember that the Table API is a provisioned system. The moment you provision it, you will begin to pay for it. 
 
 ## Gremlin API
-### How can I apply the functionality of Gremlin API to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Gremlin API. This library is called Microsoft Azure Graphs, and it is available on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
-### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
-Yes, we plan to add other mechanisms for query in the future. 
+### For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET? 
 
-### How can I use the new Gremlin API offering? 
-To get started, complete the [Gremlin API](../cosmos-db/create-graph-dotnet.md) quick-start article.
+Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](http://tinkerpop.apache.org/).
 
+### How are RU/s charged when running queries on a graph database? 
+
+All graph objects, vertices and edges, are represented as JSON documents in the backend. Since one Gremlin query can modify one or many graph objects at a time, the cost associated with it isbe directly related to the objects, edges that are processed by the query. This is the same process that Azure Cosmos DB uses for all other APIs. For more information, see [Request Units in Azure Cosmos DB](request-units.md).
+
+The RU charge is based on the working data set of the traversal, and not the result set. For example, if a query aims to obtain a single vertex as a result but needs to traverse multiple other objects on the way, then the cost will be based on all the graph objects that it will take to compute the one result vertex.
+
+### What’s the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API? 
+
+Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the amount of partitions that are associated with a given collection. However, a Gremlin API collection has a specific set of guidelines to ensure a proper performance experience at scale. For more information and best practices, see [partitioning best practices](graph-partitioning.md) document. 
+
+### How can I protect against injection attacks using Gremlin drivers? 
+
+Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net]() and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ## <a id="cassandra"></a> Cassandra API
 
