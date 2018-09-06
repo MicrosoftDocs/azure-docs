@@ -11,8 +11,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/batch/batch-python-tutorial.md",
-            "redirect_url": "/azure/batch/quick-run-python",
+            "source_path": "articles/batch-ai/quickstart-python.md",
+            "redirect_url": "/azure/batch-ai/cntk-training-python",
             "redirect_document_id": true
         },
         {
@@ -1282,8 +1282,28 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-get-started-cli.md",
+            "redirect_url": "/azure/sql-database/sql-database-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-get-started-powershell.md",
+            "redirect_url": "/azure/sql-database/sql-database-powershell-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started-restore",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
             "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-create-tutorial-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started",
             "redirect_document_id": false
         },
         {
@@ -7181,6 +7201,11 @@
         {
             "source_path": "articles/cosmos-db/welcome-documentdb-customers.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/faq#moving-to-cosmos-db",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/graph-partitioning.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/partition-data#PartitionedGraph",
             "redirect_document_id": false
         },
         {
@@ -26628,6 +26653,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-application-proxy-qlik.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-qlik",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-wildcard.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-wildcard",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
@@ -27619,6 +27654,11 @@
         {
             "source_path": "articles/active-directory/managed-service-identity/services-support-msi.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-msi",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/index.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources",
             "redirect_document_id" : true
         }
     ]
