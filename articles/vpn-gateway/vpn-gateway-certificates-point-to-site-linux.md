@@ -30,7 +30,7 @@ The computer configuration used for the steps for this article was the following
 1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
 2. `apt-get install libstrongswan-standard-plugins`
 
-For more information about how to install using the GUI, see the steps in the [Client configuration](point-to-site-vpn-client-configuration-azure-cert.ms#install) article.
+For information about how to install strongSwan using the GUI, see the steps in the [Client configuration](point-to-site-vpn-client-configuration-azure-cert.md#install) article.
 
 ## Generate keys and certificate
 
