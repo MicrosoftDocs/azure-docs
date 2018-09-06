@@ -393,8 +393,6 @@
         href: key-value-store-cost.md
       - name: SQL data partitioning
         href: sql-api-partition-data.md
-      - name: Graph data partitioning
-        href: graph-partitioning.md
     - name: Integrate with other Azure services
       items: 
       - name: Change feed Ecommerce solution
