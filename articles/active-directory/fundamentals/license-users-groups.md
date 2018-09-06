@@ -51,7 +51,7 @@ You can view your available products, including the individual licenses, checkin
 4. Select a product edition name to see its licensed users and groups.
 
 ## Assign licenses to users or groups
-You must make sure that anyone needing to use a licensed Azure AD service has the appropriate license. It's up to you whether you want to add the licensing rights to individual users or to an entire group.
+Make sure that anyone needing to use a licensed Azure AD service has the appropriate license. It's up to you whether you want to add the licensing rights to individual users or to an entire group.
 
 >![Note]
 For detailed information about how to add users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). For detailed information about how to create groups and add members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
@@ -69,7 +69,7 @@ For detailed information about how to add users, see [How to add or delete users
 
     ![Assign license blade, with highlighted search and Select options](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-4. Select **Assignment options**, make sure you have the appropriate license options turned **On**, and then select **OK**.
+4. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
     ![License option blade showing all of the options available in the edition](media/license-users-groups/license-option-blade-assignments.png)
 
@@ -95,7 +95,7 @@ For detailed information about how to add users, see [How to add or delete users
 
     ![Assign license blade, with highlighted search and Select options](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
-4. Select **Assignment options**, make sure you have the appropriate license options turned **On**, and then select **OK**.
+4. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
     ![License option blade showing all of the options available in the edition](media/license-users-groups/license-option-blade-group-assignments.png)
 
