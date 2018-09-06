@@ -5,6 +5,7 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
+services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018

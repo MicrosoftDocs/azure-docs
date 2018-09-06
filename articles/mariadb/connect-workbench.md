@@ -1,10 +1,11 @@
 ---
 title: 'Connect to Azure Database for MariaDB from MySQL Workbench'
 description: This Quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MariaDB.
-author: jasonwhowell 
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 manager: kfile
-editor: seanli1988
+editor: jasonwhowell
+services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
@@ -34,7 +35,7 @@ Get the connection information needed to connect to the Azure Database for Maria
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  ![Azure Database for MariaDB server name](./media/connect-workbench/1_server-overview-name-login.png)
 
-## Connect to the server by using MySQL Workbench 
+## Connect to server using MySQL Workbench 
 To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
 
 1.	Launch the MySQL Workbench application on your computer. 
@@ -63,7 +64,7 @@ To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
         > [!NOTE]
         > By default, SSL connection security is required and enforced on your Azure Database for MariaDB server. Although typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. If you need to disable SSL, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
 
-## Create a table, insert data, read data, update data, delete data
+## Create table, insert, read, update, and delete data
 1. Copy and paste the sample SQL code into a blank SQL tab to illustrate some sample data.
 
     This code creates an empty database named quickstartdb, and then creates a sample table named inventory. It inserts some rows, then reads the rows. It changes the data with an update statement, and reads the rows again. Finally it deletes a row, and then reads the rows again.

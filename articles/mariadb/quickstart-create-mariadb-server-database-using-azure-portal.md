@@ -5,6 +5,7 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
+services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
@@ -97,7 +98,7 @@ To find these values, take the following steps:
 
 In this example, the server name is **mydemoserver.mariadb.database.azure.com**, and the server admin sign-in is **myadmin@mydemoserver**.
 
-## Connect to MariaDB by using the mysql command-line tool
+## Connect to MariaDB using mysql command-line
 There are a number of applications you can use to connect to your Azure Database for MariaDB server.
 
 Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell as described here without installing additional software. If you have the mysql utility installed locally, you can connect from there as well.
@@ -182,7 +183,7 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
 
 Now you have connected to the Azure Database for MariaDB server and created a blank user database. Continue to the next section for a similar exercise. The next exercise connects to the same server by using another common tool, MySQL Workbench.
 
-## Connect to the server by using the MySQL Workbench GUI tool
+## Connect to server using MySQL Workbench
 To connect to the server by using the GUI tool MySQL Workbench, take the following steps:
 
 1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).

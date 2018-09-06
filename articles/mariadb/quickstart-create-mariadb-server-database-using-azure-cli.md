@@ -5,6 +5,7 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
+services: mariadb
 ms.service: mariadb
 ms.devlang: azure-cli
 ms.topic: quickstart
@@ -110,7 +111,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 }
 ```
 
-## Connect to the server using the mysql command-line tool
+## Connect to server using mysql command-line
 Connect to your server using the **mysql** command-line tool. You can download the command-line tool from [here](https://dev.mysql.com/downloads/) and install it on your computer. Instead you may also click the **Try It** button on code samples, or the  `>_` button from the upper right toolbar in the Azure portal, and launch the **Azure Cloud Shell**.
 
 Type the next commands: 
@@ -171,7 +172,7 @@ mysql>
 > [!TIP]
 > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-## Connect to the server using the MySQL Workbench GUI tool
+## Connect to server using MySQL Workbench
 1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
 
 2.	In the **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
