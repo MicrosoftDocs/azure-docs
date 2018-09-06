@@ -224,5 +224,5 @@ print('Best Run :\n  Id: {0}\n  Accuracy: {1:.6f} \n  Learning rate: {2:.6f} \n 
 print(helpers.get_run_history_url(best_run))
 ```
 
-## Sample Notebook - //TODO insert link to sample notebook
-Refer to <link to sample Notebook> for a tutorial on tuning hyperparameters for a Tensorflow model.
+## Sample Notebook
+Refer to [Sample Notebook]() for a tutorial on tuning hyperparameters for a Tensorflow model.
