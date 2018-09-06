@@ -252,6 +252,8 @@ az storage blob upload \
     --name <blob_name>
 ```
 
+If you would like to upload directly into a folder inside the container in your storage account, replace `--name <blob_name>` with `--name <folder/blob_name>`.
+
  By default, the `blob upload` command uploads *.vhd files to page blobs, or block blobs otherwise. To specify another type when you upload a blob, you can use the `--type` argument--allowed values are `append`, `block`, and `page`.
 
  For more information on the different blob types, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
