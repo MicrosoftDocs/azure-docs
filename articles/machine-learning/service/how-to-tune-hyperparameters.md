@@ -68,9 +68,9 @@ param_sampling = GridParameterSampling( {
 In order to use Azure Machine Learning services for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric.
 You can update your training script to log this metric, using the following sample snippet -
 ```Python
-run_logger.log("Accuracy", float(val_accuracy))
+run_logger.log("accuracy", float(val_accuracy))
 ```
-In this example, the training script calculates the val_accuracy and logs this "Accuracy", which is used as the primary metric. It is up to the model developer to determine how frequently to report this metric.
+In this example, the training script calculates the val_accuracy and logs this "accuracy", which is used as the primary metric. It is up to the model developer to determine how frequently to report this metric.
 
 ## Early Termination Policy
 When using Azure Machine Learning services to tune hyperparameters, poorly performing runs are automatically early terminated. This reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
@@ -134,6 +134,7 @@ The primary metric is the metric that the hyperparameter tuning run will optimiz
 You can control your resource budget for your hyperparameter tuning run by either specifying the maximum total number of training runs or the maximum duration for your hyperparameter tuning run (in minutes). 
 * `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
 * `max_duration_minutes`: Maximum duration of the hyperparameter tuning run in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically cancelled.
+
 NOTE: Either one of max_total_runs or max_duration_minutes needs to be specified. If both are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
 
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
@@ -165,6 +166,17 @@ Azure Machine Learning SDK provides a Notebook widget that can be used to visual
 from azureml.train.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
+This will display a table with details about the training runs for each of the hyperparameter configurations. E.g.
+
+![hyperparameter tuning table](media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
+
+You can also visualize the performance of each of the runs as training progresses. E.g.
+
+![hyperparameter tuning plot](media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
+
+Finally, you can visually identify the correlation between performance and values of individual hyperparameters using a Parallel Coordinates PLot. E.g. 
+
+![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
 ## Find the configuration that resulted in the best performance
 Once all of the hyperparameter tuning runs have completed, you can identify the best performing configuration and the corresponding hyperparameter values using the following snippet -
