@@ -32,7 +32,7 @@ This quickstart requires preview approval and whitelisting. Managed Instance is 
 
    ![managed instance create](./media/sql-database-managed-instance-get-started/managed-instance-create-preview.png)
 
-3. Select your subscription, click **Preview terms**, and then provide the requested information.
+4. Select your subscription, click **Preview terms**, and then provide the requested information.
 
    ![managed instance preview terms](./media/sql-database-managed-instance-get-started/preview-terms.png)
 
