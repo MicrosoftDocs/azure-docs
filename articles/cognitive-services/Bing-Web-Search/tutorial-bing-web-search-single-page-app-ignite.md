@@ -75,24 +75,22 @@ The `index.html` includes a form that enables users to search and select search 
 
 ## Query options
 
-The HTML form includes options that map to query parameters in the [Bing Web Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters):
+The HTML form includes options that map to query parameters in the [Bing Web Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). This table provides a breakdown of how users can filter search results using the sample app:
 
-| | |
-|-|-|
-| `where` | A drop-down menu to select the market (location and language). |
+| Parameter | Description |
+|-----------|-------------|
 | `query` | A text field to enter a query string. |
+| `where` | A drop-down menu to select the market (location and language). |
 | `what` | Checkboxes to promote specific result types. Promoting images, for example, increases the ranking of images in search results. |
 | `when` | A drop-down menu that allows the user to limit limiting the search results to today, this week, or this month. |
 | `safe` | A checkbox to enable Bing SafeSearch, which filters out adult content. |
 | `count` | Hidden field. The number of search results to return on each request. Change this value to display fewer or more results per page. |
-| `offset` | Hidden field. The offset of the first search result in the request; used for paging. It's reset to `0` on a new request. |
-
-![[Bing Web Search form]](media/cognitive-services-bing-web-api/web-search-spa-form.png)
+| `offset` | Hidden field. The offset of the first search result in the request, which is used for paging. It's reset to `0` with each new request. |
 
 > [!NOTE]
-> Bing Web Search offers many more query parameters. We're using only a few of them here.
+> The Bing Web Search API offers additional query parameters to help refine search results. This sample only uses a few. For a complete list of available parameters, see [Bing Web Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
 
-The JavaScript function `bingSearchOptions()` converts these fields to the format required by the Bing Search API.
+The `bingSearchOptions()` function converts these fields to the format required by the Bing Search API.
 
 ```javascript
 // Build query options from selections in the HTML form.
@@ -117,9 +115,11 @@ function bingSearchOptions(form) {
 }
 ```
 
-For example, the `SafeSearch` parameter in an actual API call can be `strict`, `moderate`, or `off`, with `moderate` being the default. Our form, however, uses a checkbox, which has only two states. The JavaScript code converts this setting to either `strict` or `off` (`moderate` is not used).
+For example, `SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default. However, this form uses a checkbox, which has only two states. This code sample converts this setting to either `strict` or `off`, `moderate` is not used.
 
-If any of the **Promote** checkboxes are marked, we also add an `answerCount` parameter to the query. `answerCount` is required when using the `promote` parameter. We simply set it to `9` (the number of result types supported by the Bing Web Search API) to make sure we get the maximum possible number of result types.
+If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. We simply set it to `9` (the number of result types supported by the Bing Web Search API) to make sure we get the maximum possible number of result types.
+
+<TODO: Erik  - pick up edits from here...>
 
 > [!NOTE]
 > Promoting a result type does not *guarantee* that the search results include that kind of result. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
