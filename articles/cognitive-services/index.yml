@@ -44,6 +44,7 @@ sections:
   - type: list
     style: cards
     className: cardsF
+    columns: 3
     items:
     - title: Analyze image using Computer Vision
       html: <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">Using C#</a></p>
@@ -121,6 +122,7 @@ sections:
   - type: list
     style: cards
     className: cardsF
+    columns: 3
     items:
     - title: Vision API
       html: <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
