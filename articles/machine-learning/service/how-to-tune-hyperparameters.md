@@ -20,9 +20,12 @@ Azure Machine Learning Services allows users to automate this hyperparameter exp
 In this article, we demonstrate how to efficiently perform a hyperparameter sweep. We will show you how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
 
 ## Define the hyperparameter search space
-Azure Machine Learning services automatically tunes hyperparameters by exploring the range of values defined for each hyperparameter. Each hyperparameter can either be discrete or continuous. 
+Azure Machine Learning services automatically tunes hyperparameters by exploring the range of values defined for each hyperparameter.
 
-### Discrete hyperparameters 
+### Types of hyperparameters
+Each hyperparameter can either be discrete or continuous.
+
+#### Discrete hyperparameters 
 Discrete hyperparameters can be specified as a choice among discrete values. E.g.  
 ```Python
     {    
@@ -31,7 +34,7 @@ Discrete hyperparameters can be specified as a choice among discrete values. E.g
 ```
 In this case, batch_size can take on one of the values [16, 32, 64, 128].
 
-### Continuous hyperparameters 
+#### Continuous hyperparameters 
 Continuous hyperparameters can be specified as a distribution over a continuous range of values. Supported distributions include uniform, loguniform, quniform, qloguniform, normal, lognormal, qnormal and qlognormal. E.g.
 ```Python
     {    
@@ -39,11 +42,12 @@ Continuous hyperparameters can be specified as a distribution over a continuous 
     "keep_probability": uniform(0.05, 0.1)
     }
 ```
-In this case, learning_rate will have a normal distribution with mean value 10 and a standard deviation of 3. keep_probability will have a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
+This defines a search space with two parameters - learning_rate and keep_probability. learning_rate will have a normal distribution with mean value 10 and a standard deviation of 3. keep_probability will have a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
 
-The user also specifies the parameter sampling method to use over the specified hyperparameter space definition. Currently, Azure Machine Learning services supports Random sampling and Grid sampling.
+### Sampling the hyperparameter space
+The user also specifies the parameter sampling method to use over the specified hyperparameter space definition. Azure Machine Learning services supports Random sampling, Grid sampling and Bayesian sampling.
 
-### Random Sampling
+#### Random Sampling
 In Random sampling, hyperparameter values are randomly selected from the defined search space. Random sampling allows the search space to include both discrete and continuous hyperparameters. E.g. 
 ```Python
 param_sampling = RandomParameterSampling( {
@@ -54,7 +58,7 @@ param_sampling = RandomParameterSampling( {
 )
 ```
 
-### Grid Sampling
+#### Grid Sampling
 Grid sampling can only be used with discrete hyperparameters. Grid sampling performs a simple grid search over all feasible values in the defined search space. For example, the following space has a total of 6 samples -
 ```Python
 param_sampling = GridParameterSampling( {
@@ -64,8 +68,27 @@ param_sampling = GridParameterSampling( {
 )
 ```
 
+#### Bayesian Sampling
+Bayesian sampling tries to intelligently pick the next sample of hyperparameters, based on how the previous samples performed, such that the new sample improves the reported primary metric.
+
+Please note that when using Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence. This is because the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
+
+Bayesian sampling supports only choice, uniform and quniform distributions over the search space. E.g. 
+```Python
+param_sampling = BayesianParameterSampling( {
+        "learning_rate": uniform(0.05, 0.1),
+        "batch_size": choice(16, 32, 64, 128)
+    }
+)
+```
+NOTE: Please note that Bayesian sampling does not support any early termination policy. If using Bayesian parameter sampling, you should set policy to NoTerminationPolicy()
+```Python
+early_termination_policy = NoTerminationPolicy()
+```
+
 ## Logging metrics for hyperparameter tuning
-In order to use Azure Machine Learning services for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric.
+In order to use Azure Machine Learning services for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric. See [Primary Metric](#primary-metric)
+
 You can update your training script to log this metric, using the following sample snippet -
 ```Python
 run_logger.log("accuracy", float(val_accuracy))
@@ -124,6 +147,11 @@ early_termination_policy = NoTerminationPolicy()
 ### Default Policy
 If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
+NOTE: Please note that Bayesian sampling does not support any early termination policy. If using Bayesian parameter sampling, you should set policy to NoTerminationPolicy()
+```Python
+early_termination_policy = NoTerminationPolicy()
+```
+
 ## Configure your hyperparameter tuning run
 In addition to defining the hyperparameter search space and early termination policy, you will need to specify the metric that you want to optimize and configure resources allocated for hyperparameter tuning.
 
@@ -133,14 +161,14 @@ The primary metric is the metric that the hyperparameter tuning run will optimiz
 * `primary_metric_goal`: It can be either PrimaryMetricGoal.MAXIMIZE or PrimaryMetricGoal.MINIMIZE and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
 
 ### Resources allocated to hyperparameter tuning
-You can control your resource budget for your hyperparameter tuning run by either specifying the maximum total number of training runs or the maximum duration for your hyperparameter tuning run (in minutes). 
+You can control your resource budget for your hyperparameter tuning run by specifying the maximum total number of training runs and optionally, the maximum duration for your hyperparameter tuning run (in minutes). 
 * `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
 * `max_duration_minutes`: Maximum duration of the hyperparameter tuning run in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically cancelled.
 
-NOTE: Either one of max_total_runs or max_duration_minutes needs to be specified. If both are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
+NOTE: If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
 
-Additionally, you need to specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
-* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment.
+Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
+* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel.
 
 Finally, in order to configure your hyperparameter tuning run, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators) and the `compute_target` where you wish to run the training script (See [link](/how-to-set-up-training-targets.md) for more information on compute targets). If no `compute_target` is specified, the one defined in the `estimator` is used.
 
