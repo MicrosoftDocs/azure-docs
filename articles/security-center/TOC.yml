@@ -54,8 +54,7 @@
       href: security-center-azure-policy.md
     - name: Tenant-wide visibility
       href: security-center-management-groups.md
-    - name: Integration with Windows ATP (Preview)
-      href: security-center-wdatp.md
+
   
   - name: Implement security recommendations
     href: security-center-recommendations.md
@@ -164,7 +163,8 @@
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
-
+    - name: Integration with Windows ATP (Preview)
+      href: security-center-wdatp.md
   
   - name: Automate security workflows
     items:
