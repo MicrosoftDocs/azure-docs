@@ -76,6 +76,10 @@ The following sample *host.json* files have all possible options specified.
     "id": "9f4ea53c5136457d883d685e57164f08",
     "logging": {
         "fileLoggingMode": "debugOnly",
+        "logLevel": {
+          "Function.MyFunction": "Information",
+          "default": "None"
+        },
         "applicationInsights": {
             "sampling": {
               "isEnabled": true,
@@ -237,7 +241,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternate [task hub](durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they are using the same storage backend.|
+|HubName|DurableFunctionsHub|Alternate [task hub](durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if theyre using the same storage backend.|
 |ControlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
 |PartitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
 |ControlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
@@ -250,7 +254,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |EventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint. This property supports App Settings resolution.|
 |EventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.|
 |EventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid Topic fails.|
-|EventGridPublishRetryInterval|5 minutes|The Event Grid publish retry interval in the *hh:mm:ss* format.|
+|EventGridPublishRetryInterval|5 minutes|The Event Grid publishes retry interval in the *hh:mm:ss* format.|
 
 Many of these are for optimizing performance. For more information, see [Performance and scale](durable-functions-perf-and-scale.md).
 
@@ -268,7 +272,7 @@ Property that returns an object that contains all of the binding-specific settin
 
 ## functions
 
-A list of functions that the job host will run. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps, use the *function.json* `disabled` property rather than this property in *host.json*.
+A list of functions that the job host runs. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps in Azure, you should instead follow the steps in [How to disable functions in Azure Functions](disable-function.md) to disable specific functions rather than using this setting.
 
 ```json
 {
@@ -304,7 +308,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|enabled|true|Whether the feature is enabled. | 
+|enabled|true|Specifies whether the feature is enabled. | 
 |healthCheckInterval|10 seconds|The time interval between the periodic background health checks. | 
 |healthCheckWindow|2 minutes|A sliding time window used in conjunction with the `healthCheckThreshold` setting.| 
 |healthCheckThreshold|6|Maximum number of times the health check can fail before a host recycle is initiated.| 
@@ -364,7 +368,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 ```json
 "logging": {
     "fileLoggingMode": "debugOnly",
-    "logLevel: {
+    "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
     },
