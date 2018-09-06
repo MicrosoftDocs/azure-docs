@@ -113,7 +113,7 @@ The IoT Edge Node.js module depends on Azure IoT Node.js Device SDK. In the defa
 
 2. Navigate to `app.js`. Add a breakpoint in this file.
 
-3. Navigate to VS Code debug view. Select the debug configuration **ModuleName Local Debug (.NET Core)**. 
+3. Navigate to VS Code debug view. Select the debug configuration **ModuleName Local Debug (Node.js)**. 
 
 4. Click **Start Debugging** or press **F5**. You will start the debug session.
 
