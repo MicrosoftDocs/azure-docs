@@ -450,7 +450,7 @@ The RU charge is based on the working data set of the traversal, and not the res
 
 ### What’s the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API? 
 
-Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the amount of partitions that are associated with a given collection. However, a Gremlin API collection has a specific set of guidelines to ensure a proper performance experience at scale. For more information and best practices, see [partitioning best practices](graph-partitioning.md) document. 
+Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the amount of partitions that are associated with a given collection. However, a Gremlin API collection has a specific set of guidelines to ensure a proper performance experience at scale. For more information and best practices, see [partitioning best practices](partition-data.md#best-practices-when-choosing-a-partition-key) document. 
 
 ### How can I protect against injection attacks using Gremlin drivers? 
 
