@@ -21,8 +21,8 @@ abstract:
       height: 110
       src: ../media/index/luis-landing-page-video.png
       width: 250  
-    title: What is LUIS (6:54)
-    href: https://azure.microsoft.com/en-us/resources/videos/building-smart-apps-with-visual-studio-xamarin-and-cognitive-services/
+    title: What's new with LUIS (18:28)
+    href: https://azure.microsoft.com/en-us/resources/videos/whats-new-with-language-understanding-service-luis
     width: 250
 
 sections:
@@ -114,8 +114,8 @@ sections:
   - type: list
     style: unordered
     items: 
-    #- html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday At Build 2018 - Cognitive Services - Language (LUIS)</a>
-    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Build 2018 AI Show - What’s New with Language Understanding Service (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday At Build 2018 - Cognitive Services - Language (LUIS)</a>
+    #- html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Build 2018 AI Show - What’s New with Language Understanding Service (LUIS)</a>
     - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices</a>
 
 - title: Reference
