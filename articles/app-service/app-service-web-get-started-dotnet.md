@@ -58,7 +58,7 @@ From the menu, select **Debug > Start without Debugging** to run the web app loc
 
 ![Run app locally](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## Publish to Azure
+## Launch the publish wizard
 
 In the **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
