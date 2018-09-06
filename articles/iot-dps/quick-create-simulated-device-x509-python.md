@@ -52,10 +52,10 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 ## Create a self-signed X.509 device certificate and individual enrollment entry
 
-In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
+In this section you, will use a self-signed X.509 certificate. It is important to keep in mind the following points:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
-* The default expiration date for a self-signed certificate is 1 year.
+* Self-signed certificates are for testing only, and should not be used in production.
+* The default expiration date for a self-signed certificate is one year.
 
 You will use sample code from the Azure IoT C SDK to create the certificate to be used with the individual enrollment entry for the simulated device.
 
@@ -65,11 +65,11 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 3. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. 
     
-    Copy the first certificate to clipboard. Begin with the first occurance of:
+    Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
         
-    End you copying with the first occurance of:
+    End you copying after the first occurrence of:
     
         -----END CERTIFICATE-----
         
@@ -79,7 +79,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
  
 4. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
-5. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
+5. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
 6. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
@@ -98,7 +98,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 ## Simulate the device
 
-1. On the Device Provisioning Service summary blade, select **Overview**. Note your _Id Scope_ and _Global Service Endpoint_.
+1. On the Device Provisioning Service summary blade, select **Overview**. Note your _ID Scope_ and _Global Service Endpoint_.
 
     ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
