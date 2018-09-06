@@ -21,7 +21,7 @@ Use this SDK to quickly build, train, and deploy highly accurate machine learnin
 
 ## Install the SDK
 
-[!INCLUDE [aml-install-sdk](../../../includes/aml-install-sdk.md)]
+The SDK must be installed into your development environment. The steps are similar across the various environment options. Follow the steps in this "[How to configure your development environment](how-to-configure-environment.md)" to learn how.
 
 ## Next steps
 
