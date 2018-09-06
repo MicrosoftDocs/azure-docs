@@ -43,7 +43,9 @@ To create an AKS cluster, complete the following steps:
 
     Select **Next: Networking** when complete.
 
-1. **Networking**: Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. Virtual nodes requires a delegated subnet, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
+1. **Networking**: Configure the following options:
+    - For **HTTP application routing**, choose *No*.
+    - Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. Virtual nodes requires a delegated subnet, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
     - If you need to create a virtual network and subnet, under *Virtual network*, choose **Create new**.
         - A default virtual network is populated named *default-aks-vnet* with an **Address range** of *10.240.0.0/16*
         - Under **Subnets**, a *default* subnet is defined with the **Address range** of *10.240.0.0/17*.
@@ -147,6 +149,7 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
