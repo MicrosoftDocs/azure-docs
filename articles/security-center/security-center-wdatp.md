@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2018
+ms.date: 09/06/2018
 ms.author: barclayn
 
 ---
@@ -74,8 +74,6 @@ If you have a proxy or firewall that is blocking anonymous traffic, as Windows D
 ## How can I test the feature?
 
  The following steps will generate a benign WDATP test alert.
-
- Once you registered to the preview, your systems will onboard. This process may take up to seven hours.
 
 1. RDP into one of the Windows Server VMs (2012R2 or 2016) in the subscription and open a Command Prompt window
 
