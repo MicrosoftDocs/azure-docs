@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/16/2018
+ms.date: 09/06/2018
 ms.author: sachinp
 
 ---

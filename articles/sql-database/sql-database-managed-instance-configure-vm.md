@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.custom: managed instance
 ms.topic: quickstart
 ms.date: 09/06/2018
-ms.author: jovanpop-msf
+ms.author: jovanpop
 manager: craigg
 
 ---
