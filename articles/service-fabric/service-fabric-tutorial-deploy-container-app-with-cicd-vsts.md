@@ -1,6 +1,6 @@
 ---
 title: Deploy a container application with CI/CD to a Service Fabric cluster
-description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric container application using Visual Studio Team Services (VSTS).
+description: In this tutorial, you learn how to set up continuous integration and deployment for an Azure Service Fabric container application using Visual Studio Team Services (VSTS).
 services: service-fabric
 documentationcenter: .net
 author: rwike77

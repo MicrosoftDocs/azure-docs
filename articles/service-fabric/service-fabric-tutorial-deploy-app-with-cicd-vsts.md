@@ -180,14 +180,12 @@ The application upgrade may take several minutes. When the upgrade is complete, 
 
 In this tutorial, you learned how to:
 
-> [!div class="checklist"]
-> * Add source control to your project
-> * Create a build definition
-> * Create a release definition
-> * Automatically deploy and upgrade an application
+* Add source control to your project
+* Create a build definition
+* Create a release definition
+* Automatically deploy and upgrade an application
 
 Advance to the next tutorial:
-> [!div class="nextstepaction"]
 > [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
