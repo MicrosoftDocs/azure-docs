@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -71,8 +71,8 @@ Perform the following steps to connect and copy data from your computer to the D
     
     |Parameters/Options  |Description |
     |--------------------|------------|
-    |<Source>            | Specifies the path to the source directory.        |
-    |<Destination>       | Specifies the path to the destination directory.        |
+    |Source            | Specifies the path to the source directory.        |
+    |Destination       | Specifies the path to the destination directory.        |
     |/E                  | Copies subdirectories including empty directories. |
     |/MT[:N]             | Creates multi-threaded copies with N threads where N is an integer between 1 and 128. <br>The default value for N is 8.        |
     |/R: <N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |

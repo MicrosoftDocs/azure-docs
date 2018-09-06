@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 08/16/2018
 ms.author: jdial
 
 ---
@@ -233,6 +233,9 @@ Currently it is not possible to establish VNet Peering (whether local or global)
 
 ### My VNet peering connection is in *Initiated* state, why can't I connect?
 If your peering connection is in an Initiated state, this means you have created only one link. A bidirectional link must be created in order to establish a successfuly connection. For example, to peer VNet A to VNet B, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links will change the state to *Connected.*
+
+### My VNet peering connection is in *Disconnected* state, why can't I create a peering connection?
+If your VNet peering connection is in a Disconnected state, it means one of the links created was deleted. In order to re-establish a peering connection, you will need to delete the link and recreate.
 
 ### Can I peer my VNet with a VNet in a different subscription?
 Yes. You can peer VNets across subscriptions and across regions.

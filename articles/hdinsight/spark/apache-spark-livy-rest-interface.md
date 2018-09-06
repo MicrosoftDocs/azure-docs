@@ -4,7 +4,7 @@ description: Learn how to use Apache Spark REST API to submit Spark jobs remotel
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
