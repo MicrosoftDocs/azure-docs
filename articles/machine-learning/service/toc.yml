@@ -83,8 +83,6 @@
          href: how-to-deploy-to-aks.md
        - name: Deploy to FPGAs
          href: how-to-deploy-fpga-web-service.md  
-    - name: Consume a deployed model
-      href: how-to-consume-web-services.md
 - name: Reference
   items:    
   - name: Machine learning SDK
