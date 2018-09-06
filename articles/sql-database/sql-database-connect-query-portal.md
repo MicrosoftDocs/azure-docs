@@ -26,7 +26,7 @@ This quickstart uses as its starting point the resources created in one of these
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 
 ## Connect using SQL Authentication
