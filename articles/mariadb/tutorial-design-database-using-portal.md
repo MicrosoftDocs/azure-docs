@@ -32,11 +32,13 @@ Open your favorite web browser, and visit the [Microsoft Azure portal](https://p
 ## Create an Azure Database for MariaDB server
 An Azure Database for MariaDB server is created with a defined set of compute and storage resources <!--[compute and storage resources](./concepts-compute-unit-and-storage.md)-->. The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1. Navigate to **Databases** > **Azure Database for MariaDB**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **Azure Database for MariaDB** in the search box to quickly find the service.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
+
+2. Type **Azure Database for MariaDB** in the search box to find the service.
    
    ![Navigate to MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-2. Click **Azure Database for MariaDB** tile, and then click **Create**. Fill out the Azure Database for MariaDB form.
+3. Click **Azure Database for MariaDB** tile, and then click **Create**. Fill out the Azure Database for MariaDB form.
    
    ![Create form](./media/tutorial-design-database-using-portal/2-create-form.png)
 
@@ -55,7 +57,7 @@ An Azure Database for MariaDB server is created with a defined set of compute an
     
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
-3. Click **Create**. In a minute or two, a new Azure Database for MariaDB server is running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
+4. Click **Create**. In a minute or two, a new Azure Database for MariaDB server is running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
 ## Configure firewall
 Azure Databases for MariaDB are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Before connecting to Azure Database for MariaDB for the first time, configure the firewall to add the client machine's public network IP address (or IP address range).

@@ -28,7 +28,7 @@ Follow these steps to create an Azure Database for MariaDB server:
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
 
-2. Type **MariaDB** in the search box to find the service.
+2. Type **Azure Database for MariaDB** in the search box to find the service.
 
    ![Azure Database for MariaDB option](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
