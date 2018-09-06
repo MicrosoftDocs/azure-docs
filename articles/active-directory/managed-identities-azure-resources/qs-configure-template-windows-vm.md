@@ -64,7 +64,7 @@ In this section, you will enable and disable a system-assigned managed identity 
 3. (Optional) Add the VM managed identities for Azure resources extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
-   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
+   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements. The VM extension is planned for deprecation in January 2019.
    >
 
    ```JSON
@@ -247,7 +247,7 @@ In this section, you assign a user-assigned managed identity to an Azure VM usin
    ```
        
 
-2. (Optional) Next, under the `resources` element, add the following entry to assign the managed identity extension to your VM. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. Use the following syntax:
+2. (Optional) Next, under the `resources` element, add the following entry to assign the managed identity extension to your VM (planned for deprecation in January 2019). This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. Use the following syntax:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
