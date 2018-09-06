@@ -7184,6 +7184,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/graph-partitioning.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/partition-data#PartitionedGraph",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/20-days-of-tips.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
             "redirect_document_id": false
