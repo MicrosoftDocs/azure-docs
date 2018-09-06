@@ -69,7 +69,7 @@ ms.author: mtillman
                                                         <h3><a href="manage-apps/index">App management</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal">Add an application</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal">Configure single sign-on (SSO)</a>
+                                                            <a href="manage-apps/configure-single-sign-on-portal">Configure single sign-on (SSO)</a><br>
 												            <a href="manage-apps/application-proxy">Application Proxy for on-premises apps</a><br>
                                                         </p>
 														<br><br>
@@ -128,7 +128,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="devices/hybrid-azuread-join-managed-domains">Configure hybrid join for managed domains</a><br>
                                                             <a href="devices/hybrid-azuread-join-federated-domains">Configure hybrid join for federated domains</a><br>
-                                                            <a href="devices/azuread-joined-devices-frx">Configure join Windows 10 first-run experience</a>
+                                                            <a href="devices/azuread-joined-devices-frx">Configure Windows 10 first-run experience</a>
                                                         </p>
 														<br><br>
 														<h3><a href="/azure/active-directory-domain-services/index">Domain services</a></h3>
