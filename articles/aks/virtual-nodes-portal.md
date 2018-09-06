@@ -11,7 +11,7 @@ ms.author: iainfou
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
 
-To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
+To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have fast provisioning of pods, and only pay per second for their execution time. In a scaling scenario, you don't need to wait for the Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
 
 > [!IMPORTANT]
 > Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
@@ -19,6 +19,8 @@ To rapidly scale application workloads in an Azure Kubernetes Service (AKS) clus
 ## Before you begin
 
 To enable network communication between pods that run on virtual nodes and the AKS cluster, virtual nodes need their own virtual network subnet and delegated permissions. Virtual nodes only work with AKS clusters created using *advanced* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+
+The virtual nodes feature is currently rolling out to supported AKS regions.
 
 ## Sign in to Azure
 
@@ -48,12 +50,10 @@ To create an AKS cluster, complete the following steps:
         - An additional *virtual-node-aci* subnet is defined with the **Address range** of *10.240.252.0/22*.
         - To accept these defaults, select **Create**.
 
-        
+        ![Configure advanced networking for the virtual nodes](media/virtual-nodes-portal/create-virtual-network.png)
 
     - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *virtual-node-aci*.
     - Leave the default addresses for **Kubernetes service address range**, **Kubernetes DNS service IP address**, and **Docker Bridge address**.
-    
-    ![Configure advanced networking for the virtual nodes](media/virtual-nodes-portal/create-virtual-network.png)
 
     Select **Review + create** and then **Create** when ready.
 
@@ -119,7 +119,7 @@ spec:
         effect: NoSchedule
 ```
 
-Run the application with the [kubectl create][kubectl-create] command.
+Run the application with the [kubectl apply][kubectl-apply] command.
 
 ```console
 kubectl apply -f virtual-node.yaml
@@ -144,6 +144,7 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
