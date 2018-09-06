@@ -31,7 +31,7 @@ You can export ONNX models from many frameworks, including:
 + Microsoft Cognitive Toolkit (CNTK)
 + MXNet
 
-Converters exist other frameworks such as TensorFlow, Keras, and SciKit-Learn.
+Converters exist for other frameworks such as TensorFlow, Keras, and SciKit-Learn.
 
 There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
@@ -46,17 +46,17 @@ You can create ONNX models in several ways:
 
 + Get a pre-trained ONNX model from [Azure AI Model Gallery](https://gallery.azure.ai/models)
 
-+ Generate a customized ONNX model from [Azure Custom Vision service](https://docs.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/)
++ Generate a customized ONNX model from [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
 
 + Convert a model you got from somewhere else
 
-Once you have an ONNX model, you can deploy it to Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/en-us/windows/ai/).
+Once you have an ONNX model, you can deploy it to Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/).
 
 ## Convert to ONNX
 
 For **TensorFlow** models, you can convert to the ONNX format with the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
 
-For **Keras**, **ScitKit-Learn**, and other models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/en-us/windows/ai/convert-model-winmltools) package if you have a model in one of the following formats:
+For **Keras**, **ScitKit-Learn**, and other models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package if you have a model in one of the following formats:
 * Keras
 * SciKit-Learn
 * xgboost
@@ -65,7 +65,7 @@ For **Keras**, **ScitKit-Learn**, and other models, convert to ONNX using the [W
 
 ## Prepare to deploy
 
-With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-model-management-and-deployment) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud.
+With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud.
 
 Below is an example for deploying an ONNX model:
 
@@ -111,7 +111,7 @@ Below is an example for deploying an ONNX model:
    image.wait_for_creation(show_output = True)
    ```
 
-   The file `score.py` contains the scoring logic and is included in the image. This file is used to run the model in the image. An example file for an ONNX model is shown below:
+   The file `score.py` contains the scoring logic and needs to be included in the image. This file is used to run the model in the image. An example file for an ONNX model is shown below:
 
    ```python
    import json
@@ -139,7 +139,7 @@ Below is an example for deploying an ONNX model:
            return json.dumps({"error": result})
    ```
 
-### Deploy your web service
+## Deploy your web service
 
 You can deploy your ONNX model with Azure Machine Learning to:
 * Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
