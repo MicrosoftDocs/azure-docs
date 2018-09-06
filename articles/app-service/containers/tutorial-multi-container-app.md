@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
-[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL. You'll complete this tutorial in Cloud Shell, but you can also run these commands locally with [Cloud Shell](/cli/azure/install-azure-cli) (2.0.32 or later).
+[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL. You'll complete this tutorial in Cloud Shell, but you can also run these commands locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.32 or later).
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
