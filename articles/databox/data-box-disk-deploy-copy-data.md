@@ -164,9 +164,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
 To verify the data integrity, perform the following steps.
 
-1. Run the `AzureExpressDiskService.ps1` for checksum validation. In File Explorer, go to the *AzureImportExport* folder of the drive. Right-click and select **Run with PowerShell**. 
-
-    ![Run checksum](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
+1. Run the `AzureExpressDiskService.cmd` for checksum validation in the *AzureImportExport* folder of your drive.  
 
 2. Depending upon your data size, this step may take a while. A summary of the data integrity check process along with time to complete the process is displayed when the script has completed. You can press **Enter** to exit out of the command window.
 
