@@ -17,10 +17,7 @@ Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentic
 
 To grant permissions to a managed service identity for storage containers or queues, you assign an RBAC role encompassing storage permissions to the managed identity. For more information about RBAC roles in storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md). 
 
-> [!IMPORTANT]
-> This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. For additional information about the preview, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
->
-> During the preview, RBAC role assignments may take up to five minutes to propagate.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 This article shows how to authenticate to Azure Blob or Queue storage with a managed identity from an Azure VM.  
 

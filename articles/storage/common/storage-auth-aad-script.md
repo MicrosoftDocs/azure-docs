@@ -16,12 +16,7 @@ Azure Storage provides preview extensions for Azure CLI and PowerShell that enab
 
 When you log in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-> [!IMPORTANT]
-> This preview is intended for non-production use only. Production service-level agreements (SLAs) will not be available until Azure AD integration for Azure Storage is declared generally available. If Azure AD integration is not yet supported for your scenario, continue to use Shared Key authorization or SAS tokens in your applications. For additional information about the preview, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
->
-> During the preview, RBAC role assignments may take up to five minutes to propagate.
->
-> Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## Supported operations
 
