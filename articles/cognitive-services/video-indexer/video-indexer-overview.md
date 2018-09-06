@@ -9,7 +9,7 @@ manager: erikre
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 09/06/2018
 ms.author: nolachar
 
 ---
@@ -40,7 +40,7 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 - **Shot detection**: Determines when a scene changes in the video.
 - **Black frame detection**: Identifies black frames presented in the video.
 - **Audio effects**: Identifies audio effects such as hand claps, speech, and silence.
-- **Article inferencing**: Makes inference of the main topics from speech and visual text, based on several sources including IPTC taxonomy.
+- **Topic inference**: Makes inference of main topics from transcripts. When possible, the 1st-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included.
 - **Emotion detection**: Identifies emotions based on speech and audio cues. The emotion could be: joy, sadness, anger, or fear.
 - **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 - **Translation**: Creates translations of the audio transcript to 54 different languages.
