@@ -142,9 +142,9 @@ Below is an example for deploying an ONNX model:
 ### Deploy your web service
 
 You can deploy your ONNX model with Azure Machine Learning to:
-* Azure Container Instances (ACI): [Learn how...]](how-to-deploy-to-aci.md)
+* Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
 
-* Azure Kubernetes Service (AKS): [Learn how...]](how-to-deploy-to-aks.md)
+* Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
 
 Once deployed, your ONNX model is hosted in the cloud and ready to be called!
 
