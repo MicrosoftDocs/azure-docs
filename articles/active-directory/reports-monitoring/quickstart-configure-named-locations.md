@@ -21,8 +21,8 @@ ms.reviewer: dhanyahk
 # Quickstart: Configure named locations in Azure Active Directory
 
 With named locations, you can label trusted IP address ranges in your organization. Azure AD uses named locations to:
-- Detect false positives in [risk events](reports-monitoring/concept-risk-events.md). Signing in from a trusted location lowers a user's sign-in risk.   
-- Configure [location-based conditional access](conditional-access/location-condition.md).
+- Detect false positives in [risk events](concept-risk-events.md). Signing in from a trusted location lowers a user's sign-in risk.   
+- Configure [location-based conditional access](../conditional-access/location-condition.md).
 
 In this quickstart, you learn how to configure named locations in your environment.
 
@@ -49,15 +49,15 @@ To complete this quickstart, you need:
     * In the **Name** box, type a name for your named location.
     * In the **IP ranges** box, type the IP range in CIDR format.  
     * Click **Create**.
-	![The New blade](./media/active-directory-named-locations/61.png)
+	![The New blade](./media/quickstart-named-locations/61.png)
 
 
 ## Next steps
 
 For more information, see:
 
-- [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- [Conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
-- [Location conditions in Azure AD conditional access](conditional-access/location-condition.md)
+- [Location conditions in Azure AD conditional access](../conditional-access/location-condition.md)
 
-- [Risky sign-ins report in the Azure AD portal](reports-monitoring/concept-risky-sign-ins.md).  
+- [Risky sign-ins report in the Azure AD portal](concept-risky-sign-ins.md).  
