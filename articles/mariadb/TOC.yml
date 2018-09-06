@@ -1,0 +1,41 @@
+- name: Azure DB for MariaDB Docs
+  href: index.yml
+- name: Overview
+  items:
+  - name: Azure DB for MariaDB
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create DB - Portal
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: Create DB - Azure CLI
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Connect & query
+    items:
+    - name: MySQL Workbench
+      href: connect-workbench.md
+- name: Tutorials
+  items:
+  - name: 1 - Design a Database
+    items:
+    - name: Azure portal
+      href: tutorial-design-database-using-portal.md
+- name: Resources
+  items:
+  - name: Deployment templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: Request a feature
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Support options
+    href: https://azure.microsoft.com/support/options/
