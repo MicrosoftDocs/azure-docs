@@ -32,7 +32,7 @@ Discrete hyperparameters can be specified as a choice among discrete values. E.g
 In this case, batch_size can take on one of the values [16, 32, 64, 128].
 
 ### Continuous hyperparameters 
-Continuous hyperparameters can be specified as a distribution over a continuous range of values. Supported distributions include uniform, loguniform, normal, lognormal, etc. E.g.
+Continuous hyperparameters can be specified as a distribution over a continuous range of values. Supported distributions include uniform, loguniform, quniform, qloguniform, normal, lognormal, qnormal and qlognormal. E.g.
 ```Python
     {    
     "learning_rate": normal(10, 3),
@@ -75,24 +75,52 @@ In this example, the training script calculates the val_accuracy and logs this "
 ## Early Termination Policy
 When using Azure Machine Learning services to tune hyperparameters, poorly performing runs are automatically early terminated. This reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
+When using an early termination policy, a user can configure the following parameters that control when a policy is applied -
+* `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric.
+* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This is an optional parameter that allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
+
 Azure Machine Learning service supports the following Early Termination Policies -
 
 ### Bandit Policy
 The Bandit Policy early terminates any runs that are not within the specified slack factor / slack amount with respect to the best performing training run. It takes only 3 configuration parameters -
-* `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric.
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
     e.g. consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
-* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs.
-
+* `evaluation_interval`: the frequency for applying the policy.
+* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 Consider this example -
 ```Python
 early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=1, delay_evaluation=5)
 ```
 In this example, the early termination policy is applied at every interval when metrics are reported, starting at evaluation interval 5. Any run whose best metric is less than (1/(1+0.1) or 91% of the best performing run will be terminated.
 
+### Median Stopping Policy
+The Median Stopping policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy only requires you to specify an evaluation interval, and optionally can delay the first evaluation.
+* `evaluation_interval`: the frequency for applying the policy.
+* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
+Consider this example -
+```Python
+early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
+```
+In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5 if its best primary metric is worse than the median of the running averages of 1:5 across all training runs.
+
+### Truncation Selection Policy
+The Truncation Selection policy terminates the lowest X% runs in terms of performance. It takes the following configuration parameters -
+* `truncation_percentage`: percentage of lowest performing runs to terminate.
+* `evaluation_interval`: the frequency for applying the policy.
+* `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
+* `exclude_finished_jobs`: true or false. Determines whether or not to exclude completed runs when applying the policy.
+Consider this example -
+```Python
+early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, exclude_finished_jobs="false", delay_evaluation=5)
+```
+In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5, if its performance at interval 5 is in the lowest 20% of performance of all unfinished runs at interval 5.
+
+### No early termination policy
+If you want all training runs to run to completion, set `policy` to "None". This will have the effect of not applying any early termination policy.
+
 ### Default Policy
-If you want all training runs to run to completion, set `policy` to None. This will have the effect of not applying any early termination policy.
+If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default.
 
 ## Configure your hyperparameter tuning run
 In addition to defining the hyperparameter search space and early termination policy, you will need to specify the metric that you want to optimize and configure resources allocated for hyperparameter tuning.
@@ -132,5 +160,27 @@ hyperdrive_run = search(hyperdrive_run_config, run_name)
 where `run_name` is the name you want to assign to your hyperparameter tuning run.
 
 ## Visualize your hyperparameter tuning runs
+Azure Machine Learning SDK provides a Notebook widget that can be used to visualize the progress of your training runs. The following snippet can be used to visualize all your hyperparameter tuning runs in one place -
+```Python
+from azureml.train.widgets import RunDetails
+RunDetails(hyperdrive_run).show()
+```
 
 ## Find the configuration that resulted in the best performance
+Once all of the hyperparameter tuning runs have completed, you can identify the best performing configuration and the corresponding hyperparameter values using the following snippet -
+```Python
+best_run = hyperdrive_run.get_best_run_by_primary_metric()
+best_run_metrics = best_run.get_metrics()
+
+print('Best Run :\n  Id: {0}\n  Accuracy: {1:.6f} \n  Learning rate: {2:.6f} \n  Keep Probability: {3}\n  Mini-batch size: {5}'.format(
+        best_run.id,
+        best_run_metrics['accuracy'],
+        best_run_metrics['learning_rate'],
+        best_run_metrics['keep_probability'],
+        best_run_metrics['batch_size']
+    ))
+print(helpers.get_run_history_url(best_run))
+```
+
+## Sample Notebook - //TODO insert link to sample notebook
+Refer to <link to sample Notebook> for a tutorial on tuning hyperparameters for a Tensorflow model.
