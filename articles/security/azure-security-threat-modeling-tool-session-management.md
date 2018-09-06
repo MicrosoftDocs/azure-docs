@@ -18,7 +18,7 @@ ms.author: jegeib
 
 ---
 
-# Security Frame: Session Management | Articles 
+# Security Frame: Session Management
 | Product/Service | Article |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
@@ -378,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during a interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
 
 ### Example
-```XML code 
+```XML 
 <configuration>
   <system.web>
     <sessionState mode="InProc" cookieless="true" timeout="15" />
@@ -399,7 +399,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
-```XML code
+```XML
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>
 ```
