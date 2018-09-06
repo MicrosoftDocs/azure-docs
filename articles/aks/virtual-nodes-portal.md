@@ -1,6 +1,6 @@
 ---
-title: Create an AKS cluster configured with ACI connector in the portal
-description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses the Azure Container Instances (ACI) connector to run pods.
+title: Create an AKS cluster configured with virtual nodes in the portal
+description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 author: iainfoulds
 
@@ -9,16 +9,16 @@ ms.date: 09/24/2018
 ms.author: iainfou
 ---
 
-# Create and configure an Azure Kubernetes Services (AKS) cluster to use the Azure Container Instances (ACI) connector in the Azure portal
+# Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
 
-To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can connect to Azure Container Instances (ACI). With ACI, you have quick provisioning of container instances, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy underlying compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable the ACI connector.
+To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
 
 > [!IMPORTANT]
-> The ACI connector for AKS is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Before you begin
 
-The ACI connector enables network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created for use with ACI. The ACI connector only works with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+Virtual nodes enable network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
 
 ## Sign in to Azure
 
@@ -35,20 +35,20 @@ To create an AKS cluster, complete the following steps:
     - *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
     - *SCALE*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
         - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
-        - To use the ACI connector, under **Virtual nodes**, select *Enabled*.
+        - Under **Virtual nodes**, select *Enabled*.
     
     ![Create AKS cluster - provide basic information](media/aci-connector-portal/create-cluster.png)
 
     Select **Next: Networking** when complete.
 
-1. **Networking**: Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. The ACI connector requires a delegated subnet for ACI, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
+1. **Networking**: Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. Virtual nodes requires a delegated subnet, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
     - If you need to create a virtual network and subnet, complete the following steps:
         - Under *Virtual network*, choose **Create new**.
         - Provide a name, such as *myVnet*. Set the **Address range** as *10.0.0.0/16*
         - Under **Subnets**, provide a name, such as *myAKSSubnet*, and set the **Address range** to *10.0.0.0/24*.
-        - Provide the name for an additional subnet, such as *myACISubnet*, and set the **Address range** to *10.0.1.0/24*.
+        - Provide the name for an additional subnet, such as *myVirtualNodeSubnet*, and set the **Address range** to *10.0.1.0/24*.
         - Select **Create**.
-    - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *myACISubnet*.
+    - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *myVirtualNodeSubnet*.
     - Set the **Kubernetes service address range** to *10.0.2.0/24*.
     - Set the **Kubernetes DNS service IP address** to *10.0.2.10*.
     
@@ -78,7 +78,7 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single node created and then ACI connectors for Linux and Windows:
+The following example output shows the single VM node created and then the virtual node for Linux, *aci-connector-linux*:
 
 ```
 $ kubectl get nodes
@@ -90,7 +90,7 @@ aks-agentpool-14693408-0   Ready     agent     32m       v1.11.2
 
 ## Deploy a sample app
 
-In the Azure Cloud Shell, create a file named `aci-connector.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined.
+In the Azure Cloud Shell, create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -121,7 +121,7 @@ spec:
 Run the application with the [kubectl create][kubectl-create] command.
 
 ```console
-kubectl apply -f aci-connector.yaml
+kubectl apply -f virtual-node.yaml
 ```
 
 Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `aci-connector-linux` node.
@@ -135,7 +135,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.1
 
 ## Next steps
 
-The ACI connector is often one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
+Virtual nodes are one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]

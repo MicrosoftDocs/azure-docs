@@ -1,6 +1,6 @@
 ---
-title: Create an AKS cluster configured with ACI connector with the Azure CLI
-description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses the Azure Container Instances (ACI) connector to run pods.
+title: Create an AKS cluster configured with virtual nodes using the Azure CLI
+description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 author: iainfoulds
 
@@ -9,22 +9,16 @@ ms.date: 09/24/2018
 ms.author: iainfou
 ---
 
-# Create and configure an Azure Kubernetes Services (AKS) cluster to use the Azure Container Instances (ACI) connector with the Azure CLI
+# Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
 
-To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can connect to Azure Container Instances (ACI). With ACI, you have quick provisioning of container instances, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy underlying compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable the ACI connector.
+To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
 
 > [!IMPORTANT]
-> The ACI connector for AKS is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Before you begin
 
-The ACI connector enables network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created for use with ACI. The ACI connector only works with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you the steps to create a virtual network and subnets, delegate access for AKS to use and manage those network resources, then deploy an AKS cluster that uses advanced networking.
-
-For more information, see [AKS advanced networking][].
-
-The AKS cluster created in this article is also configured with Kubernetes role-based access controls. The ACI connector only works with RBAC-enabled clusters.
-
-For more information, see [AKS security with RBAC][].
+Virtual nodes enable network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,19 +44,19 @@ az network vnet create \
     --subnet-name myAKSSubnet
 ```
 
-Now create an additional subnet for ACI using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *myACISubnet* with the address prefix of *10.0.1.0/24*.
+Now create an additional subnet for virtual nodes using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *myVirtualNodeSubnet* with the address prefix of *10.0.1.0/24*.
 
 ```azurecli-interactive
 az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
-    --name myACISubnet \
+    --name myVirtualNodeSubnet \
     --address-prefix 10.0.1.0/24
 ```
 
 ## Create a service principal
 
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. In this article, you create a service principal, grant access to the Azure Container Registry (ACR) instance created in the previous tutorial, then create an AKS cluster.
+To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions.
 
 Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned.
 
@@ -126,17 +120,17 @@ az aks create \
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
-## Enable the ACI connector
+## Enable virtual nodes
 
-To enable the ACI connector, use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myACISubnet* created in a previous step. *Both* the Linux and Windows OS connectors are enabled.
+To enable virtual nodes, use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step. *Both* the Linux and Windows virtual nodes are enabled.
 
 ```azurecli-interactive
 az aks enable-addons \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --addons aci-connector \
+    --addons virtual-nodes \
     --os-type both \
-    --subnet-name myACISubnet
+    --subnet-name myVirtualNodeSubnet
 ```
 
 ## Connect to the cluster
@@ -153,27 +147,72 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single node created and then ACI connectors for Linux and Windows:
+The following example output shows the single VM node created and then the virtual node for Linux, *aci-connector-linux*:
 
 ```
-# Add output showing the VK node(s), I guess?
+$ kubectl get nodes
+
+NAME                       STATUS    ROLES     AGE       VERSION
+aci-connector-linux        Ready     agent     28m       v1.8.3
+aks-agentpool-14693408-0   Ready     agent     32m       v1.11.2
 ```
 
 ## Deploy a sample app
 
--- NEED SAMPLE APP TO DEPLOY THAT GENERATES STRESS TO BURST TO ACI --
+Create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined.
 
-## Remove ACI connector
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: aci-helloworld
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aci-helloworld
+    spec:
+      containers:
+      - name: aci-helloworld
+        image: microsoft/aci-helloworld
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        kubernetes.io/hostname: aci-connector-linux
+      tolerations:
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
+        effect: NoSchedule
+```
 
-If you no longer wish to use the ACI connector, you can disable the connector using the [az aks disable-addons][az aks disable-addons] command. The following example disables *both* the Linux and Windows OS connectors. To only disable one OS connector, instead specify the OS name:
+Run the application with the [kubectl create][kubectl-create] command.
+
+```console
+kubectl apply -f virtual-node.yaml
+```
+
+Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `aci-connector-linux` node.
+
+```
+$ kubectl get pods -o wide
+
+NAME                            READY     STATUS    RESTARTS   AGE       IP              NODE
+aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   aci-connector-linux
+```
+
+## Remove virtual nodes
+
+If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. The following example disables *both* the Linux and Windows virtual nodes. To only disable one OS virtual node, instead specify the OS name:
 
 ```azurecli-interactive
-az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-add-ons aci-connector --os-type both
+az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-add-ons virtual-nodes --os-type both
 ```
 
 ## Next steps
 
-The ACI connector is often one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
+Virtual nodes are often one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
