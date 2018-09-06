@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -63,7 +63,7 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **More services** > **Marketplace Management**.
+1. Select **All services**, and then under the **ADMINISTRATION** category, select **Marketplace management**.
 
 1. Select **+ Add from Azure**.
 
@@ -86,7 +86,7 @@ Add the Kubernetes Cluster from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **More services** > **Marketplace Management**.
+1. Select **ALL services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
 1. Select **+ Add from Azure**.
 
@@ -107,7 +107,7 @@ Add the Kubernetes Cluster from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **More services** > **Marketplace Management**.
+1. Select **A;; services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
 1. Select **+ Add from Azure**.
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
@@ -115,7 +115,7 @@ Now that you’ve created an offer, you can test it. You'll sign in as a user, s
 
    ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. To view the subscription, select **More services**, and then select **Subscriptions**. Select your new subscription to see which services are part of the subscription.
+   c. To view the subscription, select **All services**, and then under the **GENERAL** category select **Subscriptions**. Select your new subscription to see which services are part of the subscription.
 
    >[!NOTE]
    >After you subscribe to an offer, you might have to refresh the portal to see which services are part of the new subscription.
