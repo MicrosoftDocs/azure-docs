@@ -1,5 +1,6 @@
 ---
-title: Understand data alteration concepts in LUIS - Azure | Microsoft Docs
+title: Data alteration concepts in LUIS - Lanuage Understanding
+titleSuffix: Azure Cognitive Services
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
