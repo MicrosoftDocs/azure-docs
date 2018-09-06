@@ -184,9 +184,9 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
 Now you have connected to the Azure Database for MariaDB server and created a blank user database. Continue to the next section for a similar exercise. The next exercise connects to the same server by using another common tool, MySQL Workbench.
 
 ## Connect to server using MySQL Workbench
-To connect to the server by using the GUI tool MySQL Workbench, take the following steps:
+To connect to the server using MySQL Workbench, use the following steps:
 
-1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+1. Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
 

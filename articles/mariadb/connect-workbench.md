@@ -36,7 +36,7 @@ Get the connection information needed to connect to the Azure Database for Maria
  ![Azure Database for MariaDB server name](./media/connect-workbench/1_server-overview-name-login.png)
 
 ## Connect to server using MySQL Workbench 
-To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
+To connect to an Azure Database for MariaDB server using MySQL Workbench use the following steps:
 
 1.	Launch the MySQL Workbench application on your computer. 
 

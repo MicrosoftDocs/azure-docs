@@ -69,7 +69,7 @@ Azure Databases for MariaDB are protected by a firewall. By default, all connect
 You can now connect to the server using mysql command-line tool or MySQL Workbench GUI tool.
 
 > [!TIP]
-> Azure Database for MariaDB server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you cannot connect to Azure MySQL server unless your IT department opens port 3306.
+> Azure Database for MariaDB server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you cannot connect to the Azure Database for MariaDB server unless your IT department opens port 3306.
 
 ## Get connection information
 Get the fully qualified **Server name** and **Server admin login name** for your Azure Database for MariaDB server from the Azure portal. You use the fully qualified server name to connect to your server using mysql command-line tool. 
