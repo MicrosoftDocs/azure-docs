@@ -30,7 +30,6 @@ Direct methods are implemented on the device and may require zero or more inputs
 > To subscribe to direct methods, consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages to your desired method names.
 > 
 
-> 
 > [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
