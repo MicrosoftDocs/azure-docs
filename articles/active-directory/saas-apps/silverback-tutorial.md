@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2018
+ms.date: 09/06/2018
 ms.author: jeedes
 
 ---
@@ -104,11 +104,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Silverback Domain and URLs single sign-on information](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>.com/ssp`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>/ssp`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<YOURSILVERBACKURL>/sts/authorize/login`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Silverback Client support team](mailto:helpdesk@matrix42.com) to get these values. 
