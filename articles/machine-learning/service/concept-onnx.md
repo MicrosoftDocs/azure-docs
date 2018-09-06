@@ -24,18 +24,30 @@ Enabling interoperability makes it possible to get great ideas into production f
 
 Frameworks like PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), and MXNet support exporting ONNX format models. Converters exist for many other frameworks such as TensorFlow, Keras, and SciKit-Learn. There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
-
-Include a diagram with full model flow including AML training, deployment, and also Windows ML tools. Send a draft so that professional art resources can create something professional for you.
+![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png)
 
 ## Creating ONNX models in Azure
 
 You can create ONNX models in several ways:
 1. Obtain a pre-trained ONNX model from [Azure AI Model Gallery](https://gallery.azure.ai/models)
 2. Generate a customized ONNX model from [Azure Custom Vision Service](https://docs.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/)
-3. Convert a model you obtained from somewhere else using [WinMLTools](https://docs.microsoft.com/en-us/windows/ai/convert-model-winmltools)
-4. Train a model in Azure Machine Learning services and convert or export it to ONNX - learn more with this [tutorial](http://aka.ms/aml-onnx-training-notebook)
- 
+3. Train a model in Azure Machine Learning services and convert or export it to ONNX - learn more with this [tutorial](http://aka.ms/aml-onnx-training-notebook)
+4. Convert a model you obtained from somewhere else
+
 Once you have an ONNX model, you can deploy it to Azure. You can also deploy the same ONNX model to Windows 10 devices using Windows ML - for more information, read "[Get ONNX models for Windows ML](https://docs.microsoft.com/en-us/windows/ai/)".
+
+### Converting TensorFlow models
+
+To convert TensorFlow models, use the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
+
+## Converting Keras, ScitKit-Learn, and other models
+
+Use the [WinMLTools](https://docs.microsoft.com/en-us/windows/ai/convert-model-winmltools) package if you have a model in one of the following formats:
+* Keras
+* SciKit-Learn
+* xgboost
+* libSVM
+* CoreML
 
 ## Deploying ONNX models in Azure
 
@@ -85,7 +97,7 @@ image = ContainerImage.create(name = "myonnxmodelimage",
                               workspace = ws)
 
 image.wait_for_creation(show_output = True)
-
+```
 
 The file `score.py` contains the scoring logic and is included in the image. This file is used to run the model in the image. An example file for an ONNX model is shown below:
 
