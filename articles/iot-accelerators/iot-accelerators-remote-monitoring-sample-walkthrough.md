@@ -128,7 +128,7 @@ The [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice enables
 
 If you want to explore the source code and developer documentation, start with one the two main GitHub repositories:
 
-* [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 * [Solution accelerator for Remote Monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 Detailed solution architecture diagrams:

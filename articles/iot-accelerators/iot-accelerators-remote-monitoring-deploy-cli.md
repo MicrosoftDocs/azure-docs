@@ -49,7 +49,7 @@ When you deploy the solution accelerator, there are several options that configu
 | SKU    | `basic`, `standard`, `local` | A _basic_ deployment is intended for test and demonstrations, it deploys all the microservices to a single virtual machine. A _standard_ deployment is intended for production, it deploys the microservices to multiple virtual machines. A _local_ deployment configures a Docker container to run the microservices on your local machine, and uses Azure services, such as storage and Cosmos DB, in the cloud. |
 | Runtime | `dotnet`, `java` | Selects the language implementation of the microservices. |
 
-To learn about how to use the local deployment, see [Running the Remote Monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+To learn about how to use the local deployment, see [Running the Remote Monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## Basic vs. Standard Deployments
 
