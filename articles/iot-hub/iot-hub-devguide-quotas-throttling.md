@@ -20,7 +20,7 @@ Each IoT hub is provisioned with a certain number of units in a specific tier. T
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
 ## Operation throttles
-Operation throttles are rate limitations that are applied in minute ranges, and are intended to prevent abuse. IoT Hub tries to avoid returning errors whenever possible, but starts returning 429 exceptions if the throttle is violated for too long.
+Operation throttles are rate limitations that are applied in minute ranges, and are intended to prevent abuse. IoT Hub tries to avoid returning errors whenever possible, but starts returning `429 ThrottlingException` if the throttle is violated for too long.
 
 At any given time, you can increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
@@ -44,7 +44,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time.
 
-The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
+The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The *device connections* rate throttle depends on the number of units that are provisioned for the IoT hub.
 
 For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. Therefore, to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry.
 
