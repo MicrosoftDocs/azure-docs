@@ -130,9 +130,9 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## Configure AutoML
+## Configure automatic training
 
-Now that the remote resource is ready, specify the settings for `AutoMLConfig`.  (See a [full list of parameters]() and their possible values.)
+Specify the settings for `AutoMLConfig`.  (See a [full list of parameters]() and their possible values.)
 
 In the settings, `run_configuration` is set to the `run_config` object, which contains the settings and configuration for the DSVM.  
 
@@ -161,9 +161,9 @@ automl_config = AutoMLConfig(task = 'classification',
                             )
 ```
 
-## Automatic training
+## Submit automatic training
 
-Once configured, you can run code to automatically select the algorithm, tune, and train the model using the `submit()` method with `automl_config`. 
+Now submit the configuration to automatically select the algorithm, tune, and train the model using the `submit()` method with `automl_config`. 
 
 ```python
 remote_run = experiment.submit(automl_config, show_output=True)
@@ -174,7 +174,7 @@ remote_run = experiment.submit(automl_config, show_output=True)
 ## Explore results
 
 You can use the same Jupyter widget as the one in [this tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
-You can click on a pipeline to see run properties and output logs. 
+You can click on any bar at the top of the widget to see run properties and output logs.
 
 Find logs on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs
 
@@ -217,3 +217,7 @@ display(summary_df.T)
 
 ## Get the notebook
 You can [download the full notebook]() that shows remote automatic model training.
+
+## Next steps
+
+Learn [how to configure settings for automatic training]().
