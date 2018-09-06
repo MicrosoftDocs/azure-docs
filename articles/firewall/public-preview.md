@@ -13,6 +13,29 @@ ms.author: victorh
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
+## Enable using Azure CLI
+
+To enable the Azure Firewall public preview, use the following Azure CLI commands:
+
+```azurecli
+az feature register -name AllowRegionalGatewayManagerForSecureGateway --namespace Microsoft.Network
+
+az feature register -name AllowAzureFirewall --namespace Microsoft.Network
+```
+
+It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI commands:
+
+```azurecli
+az feature show -name AllowRegionalGatewayManagerForSecureGateway --namespace Microsoft.Network
+
+az feature show -name AllowAzureFirewall --namespace Microsoft.Network
+```
+After the registration is complete, run the following command:
+
+```azurecli
+az provider register --namespace Microsoft.Network
+```
+
 ## Enable using Azure PowerShell
 
 To enable the Azure Firewall public preview, use the following Azure PowerShell commands:
