@@ -55,7 +55,7 @@ sections:
         - href: /azure/machine-learning/studio/create-workspace
       - title: Prepare data
         values:
-        - href: 
+        - href: /azure/machine-learning/service/concept-data-preparation
         - href: /azure/machine-learning/studio/walkthrough-2-upload-data
       - title: Build and train your own machine-learning model
         values:

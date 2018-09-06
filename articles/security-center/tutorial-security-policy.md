@@ -3,7 +3,7 @@ title: Azure Security Center Tutorial - Define and assess security policies | Mi
 description: Azure Security Center Tutorial - Define and assess security policies
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
+ms.date: 08/30/2018
+ms.author: rkarlin
 ---
 
 # Tutorial: Define and assess security policies
@@ -38,8 +38,7 @@ Security Center automatically creates a default security policy for each of your
 
   ![Security Policy](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. Under **POLICY COMPONENTS**, select **Security policy**
-4. For each security configuration you want to monitor, select **On**. Security Center will continuously assess the configuration of your environment and when vulnerability exists, Security Center will generate a security recommendation. Select **Off** if the security configuration is not recommended or not relevant. For example, in a dev/test environment you might not require the same level of security as a production environment. After selecting the policies that are applicable to your environment, click **Save**.
+3. Under **Compute and apps**, **Network**, and **Data**, set each security configuration you want to monitor to **On**. Security Center will continuously assess the configuration of your environment and when vulnerability exists, Security Center will generate a security recommendation. Select **Off** if the security configuration is not recommended or not relevant. For example, in a dev/test environment you might not require the same level of security as a production environment. After selecting the policies that are applicable to your environment, click **Save**.
 
   ![Security configuration](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

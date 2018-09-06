@@ -102,14 +102,14 @@ In Node.js, the Key Vault management API and the Key Vault object API are separa
 ### Quick start guides
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Getting started with Key Vault in Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### Code examples
 
 For complete examples using Key Vault with your applications, see:
 
-- [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343) - .NET sample application *HelloKeyVault* and an Azure web service example. 
-- [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md) - tutorial to help you learn how to use Azure Key Vault from a web application in Azure. 
+- [Azure Key Vault code samples](https://azure.microsoft.com/resources/samples/?service=key-vault) - Code Samples for Azure Key Vault. 
+- [Use Azure Key Vault from a Web Application](quick-create-net.md) - tutorial to help you learn how to use Azure Key Vault from a web application in Azure. 
 
 ## How-tos
 
