@@ -74,7 +74,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.8.2"/>1.8.2
 
-* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+* Fixed bug that is hit under certain race conditions, that results in intermittent "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" errors when using Session consistency level.
 
 ### <a name="1.8.1"/>1.8.1
 
