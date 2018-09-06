@@ -55,7 +55,6 @@ For more information, see the [Azure Backup components table](https://docs.micro
 Azure AD also includes a full suite of [identity management capabilities](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 
 - [Multi-factor authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)
-- [Device registration]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview)
 - [Self-service password management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Self-service group management](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Privileged account management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)

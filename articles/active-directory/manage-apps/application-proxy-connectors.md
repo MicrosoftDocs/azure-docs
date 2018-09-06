@@ -11,8 +11,8 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -88,7 +88,6 @@ Connectors only send outbound requests. The outbound traffic is sent to the Appl
 
 For more information about configuring outbound firewall rules, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 
 ## Performance and scalability
 
@@ -100,7 +99,7 @@ The connector performance is bound by CPU and networking. CPU performance is nee
 
 In contrast, memory is less of an issue for connectors. The online service takes care of much of the processing and all unauthenticated traffic. Everything that can be done in the cloud is done in the cloud. 
 
-The load balancing happens between connectors of a given connector group. We do a variation of a round-robin to determine which connector in the group serves a particular request. After choosing a the connector, we maintain a session affinity between that user and application for the duration of the session. If for any reason that connector or machine become unavailable, the traffic will start going to another connector in the group. This resiliency is also why we recommend having multiple connectors.
+The load balancing happens between connectors of a given connector group. We do a variation of a round-robin to determine which connector in the group serves a particular request. If for any reason that connector or machine becomes unavailable, the traffic will start going to another connector in the group. This resiliency is also why we recommend having multiple connectors.
 
 Another factor that affects performance is the quality of the networking between the connectors, including: 
 
@@ -161,6 +160,6 @@ You can examine the state of the service in the Services window. The connector c
 
 * [Publish applications on separate networks and locations using connector groups](application-proxy-connector-groups.md)
 * [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
-* [Troubleshoot Application Proxy and connector errors](../active-directory-application-proxy-troubleshoot.md)
+* [Troubleshoot Application Proxy and connector errors](application-proxy-troubleshoot.md)
 * [How to silently install the Azure AD Application Proxy Connector](application-proxy-register-connector-powershell.md)
 

@@ -2,34 +2,33 @@
 title: Configure Azure AD SSO for applications | Microsoft Docs
 description: Learn how to self-service connect apps to Azure Active Directory using SAML and password-based SSO
 services: active-directory
-author: asmalser-msft
+author: barbkess
 documentationcenter: na
 manager: mtillman
-
-ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2018
-ms.author: asmalser
-ms.reviewer: luleon
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser,luleon
 
 ms.custom: H1Hack27Feb2017
 ---
 
 # Configure single sign-on to applications that are not in the Azure Active Directory application gallery
 
-This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18, 2015 and is included in [Azure Active Directory Premium](active-directory-whatis.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18, 2015 and is included in [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](develop/authentication-scenarios.md).
 
 The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](manage-apps/what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
 
-Customers with [Azure Active Directory Premium](active-directory-whatis.md) license also get these additional capabilities:
+Customers with [Azure Active Directory Premium](fundamentals/active-directory-whatis.md) license also get these additional capabilities:
 
 * Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 * Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
-* Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](active-directory-scim-provisioning.md))
+* Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](manage-apps/use-scim-to-provision-users-and-groups.md))
 * Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 This can include not only SaaS applications that you use but have not yet been on-boarded to the Azure AD application gallery, but third-party web applications that your organization has deployed to servers you control, either in the cloud or on-premises.
@@ -86,7 +85,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
+For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
 ### Review or customize the claims issued in the SAML token
@@ -120,7 +119,7 @@ Verify the certificate has:
 - A status of active. If the status is inactive, change the status to active. To change the status, check **Active** and then save the configuration. 
 - The correct notification email. When the active certificate is near the expiration date, Azure AD will send a notification to the email address configured in this field.  
 
-For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](active-directory-sso-certs.md).
+For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md).
 
 ### Set up target application
 
@@ -145,18 +144,7 @@ Assigning a user will allow Azure AD to issue a token for the user. It also caus
 
 ### Test the SAML application
 
-Before testing the SAML application, you must have set up  the application with Azure AD, and assigned users or groups to the application.
-
-  ![Testing](./media/active-directory-saas-custom-apps/testing.png)
-
-From the single sign-on page, click on **Test SAML settings** under the Domain and URLs section. This opens a content pane with instructions on how to test the application.
-
-1. Sign in to the application. If the application is configured as service provider-initiated single sign-on, you are redirected to the single sign-on URL where you can initiate the sign-in. If the application is configured as identity provider-initiated single sign-on, then you are signed-in to the application.
-2.	If you see any error in your company sign-in page, copy the error and go back to Azure AD testing single sign-on content pane. Paste the error into the box and click on **Get resolution steps**. If the error is on the application’s page, you need to contact the application vendor and share your configuration on Azure AD to validate the values. 
-3.	Based on the error, Azure AD provides specific steps on how to resolve the issue.
-
-For more information, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging/?WT.mc_id=DMC_AAD_?WT.mc_id=UI_AAD_Configure_NonGalleryApps)
-
+Before testing the SAML application, you must have set up the application with Azure AD, and assigned users or groups to the application. To test the SAML application, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md).
 
 ## Password single sign-on
 

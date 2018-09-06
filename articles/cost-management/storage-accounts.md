@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
@@ -22,7 +22,7 @@ You can save Cost Management reports in the Cloudyn portal, Azure storage, or AW
 
 You must have either an Azure storage account or an Amazon storage bucket.
 
-If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 If you don't have an AWS simple storage service (S3) bucket, you need to create one. For more information about creating an S3 bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
 
@@ -30,12 +30,12 @@ If you don't have an AWS simple storage service (S3) bucket, you need to create 
 
 Configuring you Azure storage for use by Cost Management is straightforward. Gather details about the storage account and copy them in the Cloudyn portal.
 
-1. Log in to the Azure portal at http://portal.azure.com.
+1. Sign in to the Azure portal at http://portal.azure.com.
 2. Click **All Services**, select **Storage accounts**, scroll to the storage account that you want to use, and then select the account.
 3. On your storage account page under **Settings**, click **Access Keys**.
 4. Copy your **Storage account name** and **Connection string** under key1.  
 ![Azure storage access keys](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and log in.
+5. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and sign in.
 6. Click the cog symbol and then select **Reports Storage Management**.
 7. Click **Add new +** and ensure that Microsoft Azure is selected. Paste your Azure storage account name in the **Name** area. Paste your **connection string** in the corresponding area. Enter a container name and then click **Save**.  
 ![Cloudyn storage configured for Azure](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -144,7 +144,7 @@ You can also set permission to create reports on your S3 bucket using a bucket p
 
 ### Add AWS report storage to Cloudyn
 
-1. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and log in.
+1. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and sign in.
 2. Click the cog symbol and then select **Reports Storage Management**.
 3. Click **Add new +** and ensure that AWS is selected.
 4. Select an account and storage bucket. The name of the AWS storage bucket is automatically filled-in.  

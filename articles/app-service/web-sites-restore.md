@@ -24,7 +24,7 @@ with its linked databases on-demand to a previous state, or create a new app bas
 your original app's backups. Azure App Service supports the following databases for backup and restore:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgres)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
@@ -51,6 +51,11 @@ backups to be performed than **Standard** tier.
    > [!WARNING]
    > If you choose **Overwrite**, all existing data in your current app is erased and overwritten. Before you click **OK**,
    > make sure that it is exactly what you want to do.
+   > 
+   > 
+   
+   > [!WARNING]
+   > If the App Service is writing data to the database while you are restoring it, it may result in symptoms such as violation of PRIMARY KEY and data loss. It is suggested to stop the App Service first before you start to restore the database.
    > 
    > 
    

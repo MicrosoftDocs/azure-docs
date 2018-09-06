@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
 
 ---
@@ -20,10 +20,22 @@ ms.author: tomfitz
 A group of controls with built-in validation for Windows and Linux passwords and SSH public keys.
 
 ## UI sample
-![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
+
+For Windows, users see:
+
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+
+For Linux with password selected, users see:
+
+![Microsoft.Compute.CredentialsCombo Linux password](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+
+For Linux with SSH public key selected, users see:
+
+![Microsoft.Compute.CredentialsCombo Linux key](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## Schema
-If `osPlatform` is **Windows**, then the following schema is used:
+For Windows, use the following schema:
+
 ```json
 {
   "name": "element1",
@@ -48,7 +60,8 @@ If `osPlatform` is **Windows**, then the following schema is used:
 }
 ```
 
-If `osPlatform` is **Linux**, then the following schema is used:
+For **Linux**, use the following schema:
+
 ```json
 {
   "name": "element1",
@@ -80,22 +93,13 @@ If `osPlatform` is **Linux**, then the following schema is used:
 
 ## Remarks
 - `osPlatform` must be specified, and can be either **Windows** or **Linux**.
-- If `constraints.required` is set to **true**, then the password or SSH public
-key text boxes must contain values to validate successfully. The default value
-is **true**.
-- If `options.hideConfirmation` is set to **true**, then the second text box for
-confirming the user's password is hidden. The default value is **false**.
-- If `options.hidePassword` is set to **true**, then the option to use password
-authentication is hidden. It can be used only when `osPlatform` is **Linux**. The
-default value is **false**.
-- Additional constraints on the allowed passwords can be implemented by using
-the `customPasswordRegex` property. The string in `customValidationMessage`
-is displayed when a password fails custom validation. The default value
-for both properties is **null**.
+- If `constraints.required` is set to **true**, then the password or SSH public key text boxes must have values to validate successfully. The default value is **true**.
+- If `options.hideConfirmation` is set to **true**, then the second text box for confirming the user's password is hidden. The default value is **false**.
+- If `options.hidePassword` is set to **true**, then the option to use password authentication is hidden. It can be used only when `osPlatform` is **Linux**. The default value is **false**.
+- Additional constraints on the allowed passwords can be implemented by using the `customPasswordRegex` property. The string in `customValidationMessage` is displayed when a password fails custom validation. The default value for both properties is **null**.
 
 ## Sample output
-If `osPlatform` is **Windows**, or the user provided a password instead of an SSH
-public key, then the following output is expected:
+If `osPlatform` is **Windows**, or `osPlatform` is **Linux** and the user provided a password instead of an SSH public key, the control returns the following output:
 
 ```json
 {
@@ -104,7 +108,8 @@ public key, then the following output is expected:
 }
 ```
 
-If the user provided an SSH public key, then the following output is expected:
+If `osPlatform` is **Linux** and the user provided an SSH public key, the control returns the following output:
+
 ```json
 {
   "authenticationType": "sshPublicKey",

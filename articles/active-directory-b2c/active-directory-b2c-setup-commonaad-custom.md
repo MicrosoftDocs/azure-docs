@@ -1,22 +1,18 @@
----
-title: 'Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C | Microsoft Docs'
-description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C
+﻿---
+title: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: alexsi
-editor: parakhj
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 33c64001-5261-4ed9-8f46-b09839165250
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/14/2018
-ms.author: parakhj
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -54,7 +50,7 @@ To enable sign-in for users using the multi-tenant Azure AD endpoint, you need t
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Save the application ID.

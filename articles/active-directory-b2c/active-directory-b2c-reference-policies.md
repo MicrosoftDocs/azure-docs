@@ -1,19 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Built-in policies | Microsoft Docs'
-description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
+title: Built-in policies in Azure Active Directory B2C | Microsoft Docs
+description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Built-in policies
 
 
@@ -31,7 +30,7 @@ Policies are available for use via a simple developer interface. Your applicatio
 
 ```
 
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'
@@ -45,7 +44,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'

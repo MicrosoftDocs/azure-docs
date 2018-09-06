@@ -1,5 +1,5 @@
 ---
-title: Create your first reliable Azure microservice in Java | Microsoft Docs
+title: Create your first Azure Service Fabric reliable service in Java | Microsoft Docs
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
 services: service-fabric
 documentationcenter: java
@@ -113,10 +113,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-In this tutorial, we focus on the `runAsync()` entry point method. This is where you can immediately start running your code.
+This tutorial focuses on the `runAsync()` entry point method. This is where you can immediately start running your code.
 
 ### RunAsync
-The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
+The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
 * The system moves your service instances for resource balancing.
 * Faults occur in your code.
@@ -198,16 +198,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Hashmaps, you can store data directly in your service without the need for an external persistent store. Reliable Hashmaps make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable HashMaps, you can store data directly in your service without the need for an external persistent store. Reliable HashMaps make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any Java type, including your custom types, with a couple of caveats:
 
-* Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Hashmap stores your data to local disk on each replica. This means that everything that is stored in Reliable Hashmaps must be *serializable*. 
-* Objects are replicated for high availability when you commit transactions on Reliable Hashmaps. Objects stored in Reliable Hashmaps are kept in local memory in your service. This means that you have a local reference to the object.
+* Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable HashMap stores your data to local disk on each replica. This means that everything that is stored in Reliable HashMaps must be *serializable*. 
+* Objects are replicated for high availability when you commit transactions on Reliable HashMaps. Objects stored in Reliable HashMaps are kept in local memory in your service. This means that you have a local reference to the object.
   
-   It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
+   It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must reinsert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
-The Reliable State Manager manages Reliable Hashmaps for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
+The Reliable State Manager manages Reliable HashMaps for you. You can ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommend that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
 
 ### Transactional and asynchronous operations
@@ -228,12 +228,12 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-Operations on Reliable Hashmaps are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
+Operations on Reliable HashMaps are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
-Reliable Hashmap operations are *transactional*, so that you can keep state consistent across multiple Reliable Hashmaps and operations. For example, you may get a work item from one Reliable Dictionary, perform an operation on it, and save the result in anoter Reliable Hashmap, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
+Reliable HashMap operations are *transactional*, so that you can keep state consistent across multiple Reliable HashMaps and operations. For example, you may get a work item from one Reliable Dictionary, perform an operation on it, and save the result in another Reliable HashMap, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
 
-## Run the application
+## Build the application
 
 The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and remove the
 application. To run the application, first build the application with gradle:
@@ -244,14 +244,36 @@ $ gradle
 
 This produces a Service Fabric application package that can be deployed using Service Fabric CLI.
 
-### Deploy with Service Fabric CLI
+## Deploy the application
 
-The install.sh script contains the necessary Service Fabric CLI commands to deploy the application package. Run the
-install.sh script to deploy the application.
+Once the application is built, you can deploy it to the local cluster.
 
-```bash
-$ ./install.sh
-```
+1. Connect to the local Service Fabric cluster.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Run the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
+    ```bash
+    ./install.sh
+    ```
+
+Deploying the built application is the same as any other Service Fabric application. See the documentation on
+[managing a Service Fabric application with the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) for
+detailed instructions.
+
+Parameters to these commands can be found in the generated manifests inside the application package.
+
+Once the application has been deployed, open a browser and navigate to
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
+[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+that there is now an entry for your application type and another for the first instance of that type.
+
+> [!IMPORTANT]
+> To deploy the application to a secure Linux cluster in Azure, you need to configure a certificate to validate your application with the Service Fabric runtime. Doing so enables your Reliable Services services to communicate with the underlying Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## Next steps
 

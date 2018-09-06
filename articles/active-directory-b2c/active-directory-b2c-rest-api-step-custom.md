@@ -1,17 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: REST API claims exchanges as an orchestration step | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies that integrate with an API
+title: REST API claims exchanges as an orchestration step in Azure Active Directory B2C | Microsoft Docs
+description: A topic on Azure Active Directory B2C custom policies that integrate with an API.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step
@@ -243,7 +242,7 @@ If everything is set up correctly, the token will include the new claim `city`, 
   "exp": 1493053292,
   "nbf": 1493049692,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
   "acr": "b2c_1a_trustframeworkprofileedit",

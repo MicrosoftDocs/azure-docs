@@ -7,7 +7,8 @@ manager: douge
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
@@ -25,6 +26,7 @@ At present, the Active Directory connected service does not support ASP.NET Core
 ## Prerequisites
 
 - Azure account: if you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **Visual Studio 2015** or later. [Download Visual Studio 2017 now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### Connect to Azure Active Directory using the Connected Services dialog
 
@@ -68,5 +70,5 @@ When you add the connected service the wizard, Visual Studio adds Azure Active D
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v1-aspnet-webapp.md)

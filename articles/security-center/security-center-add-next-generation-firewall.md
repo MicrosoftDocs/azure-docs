@@ -54,7 +54,7 @@ Return to the **Recommendations** blade. A new entry was generated after you add
 This document showed you how to implement the Security Center recommendation "Add a Next Generation Firewall." To learn more about NGFWs and the Check Point partner solution, see the following:
 
 * [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [Check Point vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 To learn more about Security Center, see the following:
 

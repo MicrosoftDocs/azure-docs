@@ -3,17 +3,18 @@ title: How to configure federated single sign-on for an Azure AD Gallery applica
 description: How to configure federated single sign-on for an existing Azure AD Gallery application and use tutorials to get going quickly
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -163,7 +164,7 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 8.  Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
 
-Azure AD also provides a URL to get the metadata. Follow this pattern to get the metadata URL specific to the application: https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+Azure AD also provides a URL to get the metadata. Follow this pattern to get the metadata URL specific to the application: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## Assign users to the application
 

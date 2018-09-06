@@ -1,5 +1,5 @@
 ---
-title: 'Pricing FAQ for Azure Network Performance Monitor | Microsoft Docs'
+title: Pricing FAQ for Azure Network Performance Monitor | Microsoft Docs
 description: Frequently asked questions - Azure Network Performance Monitor
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -10,13 +10,14 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-
+ms.component: na
 ---
+
 # Pricing changes for Azure Network Performance Monitor
 
 We have listened to your feedback and recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) for various monitoring services across Azure. 

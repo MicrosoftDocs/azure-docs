@@ -6,7 +6,8 @@ author: ehrlinger
 ms.author: jehrling
 manager: jhubbard 
 ms.reviewer: garyericson, jasonwhowell, mldocs 
-ms.service: machine-learning 
+ms.service: machine-learning
+ms.component: core 
 ms.workload: data-services 
 ms.topic: article 
 ms.custom: mvc 

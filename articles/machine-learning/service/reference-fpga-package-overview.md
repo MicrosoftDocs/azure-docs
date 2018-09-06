@@ -5,8 +5,8 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
 ---
 # Azure Machine Learning Hardware Acceleration package
@@ -34,18 +34,18 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 2. Install [Anaconda (Python 3.6)](https://conda.io/miniconda.html)
 
-3. To download a pre-configured Anaconda environment, use the following command from the Git prompt:
+   To download a pre-configured Anaconda environment, use the following command from the Git prompt:
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. To create the environment, open an **Anaconda Prompt** and use the following command:
+1. To create the environment, open an **Anaconda Prompt** and use the following command:
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. To activate the environment, use the following command:
+1. To activate the environment, use the following command:
 
     ```
     conda activate amlrealtimeai

@@ -1,5 +1,5 @@
 ---
-title: What is AppSource and and how does it work with Azure
+title: What is AppSource and how does it work with Azure
 description: Overview of AppSource, which enables Microsoft partners to make their technology and services discoverable to customers through a Microsoft-supported online storefront.
 services: Marketplace, AppSource, Compute, Storage, Networking, Security, SaaS
 documentationcenter:
@@ -76,7 +76,7 @@ Some AppSource storefront applications are required to integrate with Azure Acti
 | SaaS Apps (formerly Web Apps) | Preferred | Azure AD is a best practice to ensure a seamless customer experience and drives the highest-quality leads |
 ###### Table: AppSource offerings that require Azure Active Directory Integration
 
-Initially, we recommend that **you set up a dedicated subscription for your Azure Marketplace publishing*** enabling you to isolate your work from your other initiatives. Additionally, if you have not already installed the following tools, then we recommend that the following tools be added to your Development Environment: 
+Initially, we recommend that **you set up a dedicated subscription for your Azure Marketplace publishing**\* enabling you to isolate your work from your other initiatives. Additionally, if you have not already installed the following tools, then we recommend that the following tools be added to your Development Environment: 
 *   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
 *   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   Review the available tools in the [Azure Developer Tools](https://azure.microsoft.com/tools/ "Azure - Developer Tools") page

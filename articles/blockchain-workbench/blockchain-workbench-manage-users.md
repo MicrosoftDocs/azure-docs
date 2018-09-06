@@ -35,7 +35,7 @@ Blockchain Workbench users need to exist in the Azure AD tenant before you can a
 
 5.  Complete the required fields for the new user. Select **Create**.
 
-Visit [Azure AD](../active-directory/add-users-azure-active-directory.md) documentation for more details on how to manage users within Azure AD.
+Visit [Azure AD](../active-directory/fundamentals/add-users-azure-active-directory.md) documentation for more details on how to manage users within Azure AD.
 
 ## Manage Blockchain Workbench administrators
 

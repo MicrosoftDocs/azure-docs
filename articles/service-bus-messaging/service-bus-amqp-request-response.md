@@ -3,7 +3,7 @@ title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microso
 description: List of Microsoft Azure Service Bus request/response-based operations.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 
@@ -706,4 +706,4 @@ To learn more about AMQP and Service Bus, visit the following links:
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
+[AMQP in Service Bus for Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

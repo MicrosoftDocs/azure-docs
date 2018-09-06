@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure an Azure web application to read a secret from Key vault tutorial | Microsoft Docs
 description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
 services: key-vault
@@ -10,20 +10,20 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 # Tutorial: Configure an Azure web application to read a secret from Key Vault
 
-In this tutorial, you go over the necessary steps for getting an Azure web application to read information from Key vault using managed service identities. You learn how to:
+In this tutorial, you go over the necessary steps for getting an Azure web application to read information from Key vault using managed identities for Azure resources. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Key Vault.
 > * Store a secret in Key Vault.
-> * Create an Azure Web Application.
-> * Enable managed service identities
+> * Create an Azure web Application.
+> * Enable a managed identity for the web application.
 > * Grant the required permissions for the application to read data from Key vault.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -40,9 +40,9 @@ az login
 
 ## Create resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -124,8 +124,8 @@ There are two NuGet packages that your web application needs to have installed. 
 3. Select the check box next to the search box. **Include prerelease**
 4. Search for the two NuGet packages listed below and accept for them to be added to your solution:
 
-    * [Microsoft.Azure.Services.AppAuthentication (preview)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - makes it easy to fetch access tokens for Service-to-Azure-Service authentication scenarios. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - contains methods for interacting with Key Vault.
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - makes it easy to fetch access tokens for Service-to-Azure-Service authentication scenarios. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - contains methods for interacting with Key Vault.
 
 5. Use the Solution Explorer to open `Program.cs` and replace the contents of the Program.cs file with the following code. Substitute ```<YourKeyVaultName>``` with the name of your key vault:
 
@@ -138,37 +138,36 @@ There are two NuGet packages that your web application needs to have installed. 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
-        public static void Main(string[] args)
-        {
-        BuildWebHost(args).Run();
-        }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
-                }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-        }
-        }
+    namespace WebKeyVault
+    {
+       public class Program
+       {
+           public static void Main(string[] args)
+           {
+               BuildWebHost(args).Run();
+           }
+
+           public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
+
+           private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+         }
+    }
     ```
 
 6. Use Solution Explorer to navigate to the **Pages** section and open `About.cshtml`. Replace the contents of **About.cshtml.cs** with the code below:
@@ -202,7 +201,8 @@ There are two NuGet packages that your web application needs to have installed. 
 7. From the main menu, choose **Debug** > **Start without Debugging**. When the browser appears, navigate to the **About** page. The value for the AppSecret is displayed.
 
 >[!IMPORTANT]
-> If you get a HTTP Error 502.5 - Process Failure message verify the name of the Key Vault specified in `Program.cs`
+> If you get a HTTP Error 502.5 - Process Failure message
+> > then verify the name of the Key Vault specified in `Program.cs`
 
 ## Publish the web application to Azure
 
@@ -214,9 +214,9 @@ There are two NuGet packages that your web application needs to have installed. 
 >[!IMPORTANT]
 > A browser window opens and you will see a 502.5 - Process Failure message. This is expected. You will need to grant the application identity rights to read secrets from Key Vault.
 
-## Enable Managed Service Identity
+## Enable a managed identity for the web app
 
-Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 1. Return to the Azure CLI
 2. Run the assign-identity command to create the identity for this application:
@@ -226,7 +226,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->This command is the equivalent of going to the portal and switching **Managed service identity** to **On** in the web application properties.
+>This command is the equivalent of going to the portal and switching the **Identity / System assigned** setting to **On** in the web application properties.
 
 ## Grant rights to the application identity
 

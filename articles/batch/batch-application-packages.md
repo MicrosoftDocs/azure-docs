@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 06/15/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -94,7 +94,7 @@ We recommend that you create a Storage account *specifically* for use with your 
 > Currently you can't use application packages with an Azure Storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
 > 
 
-The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
+The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data, and the size of each package can't exceed the [maximum block blob size](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
 > 
 > 
 
@@ -200,8 +200,8 @@ CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>

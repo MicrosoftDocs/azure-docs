@@ -1,20 +1,15 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
-description: In this quickstart, you run a sample Python application to send simulated telemetry to an IoT hub and use a utility to read telemetry from from the IoT hub.
-services: iot-hub
+description: In this quickstart, you run a sample Python application to send simulated telemetry to an IoT hub and use a utility to read telemetry from the IoT hub.
 author: dominicbetts
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -128,7 +123,7 @@ The `iothub-explorer` CLI utility connects to the service-side **Events** endpoi
 In another terminal window, run the following commands replacing `{your hub service connection string}` with the service connection string you made a note of previously:
 
 ```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login {your hub service connection string}
+iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
 ```
 
 The following screenshot shows the output as the utility receives telemetry sent by the simulated device to the hub:
@@ -137,9 +132,7 @@ The following screenshot shows the output as the utility receives telemetry sent
 
 ## Clean up resources
 
-If you plan to complete the next quickstart, leave the resource group and IoT hub and reuse them later.
-
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the **qs-iot-hub-rg** resource group that contains your IoT hub and click **Delete**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## Next steps
 

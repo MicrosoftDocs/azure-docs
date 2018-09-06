@@ -1,23 +1,20 @@
 ---
-title: How to use Azure Table storage or Azure Cosmos DB from Node.js | Microsoft Docs
-description: Store structured data in the cloud using Azure Table storage or Azure Cosmos DB.
+title: How to use Azure Table storage or Azure Cosmos DB Table API from Node.js | Microsoft Docs
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
 ---
-# How to use Azure Table storage from Node.js
+# How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## Overview
 This article shows how to perform common scenarios using Azure Storage Table service or Azure Cosmos DB in a Node.js application.
@@ -34,7 +31,7 @@ This article shows how to perform common scenarios using Azure Storage Table ser
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## Configure your application to access Azure Storage
+## Configure your application to access Azure Storage or the Azure Cosmos DB Table API
 To use Azure Storage or Azure Cosmos DB, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the Storage REST services.
 
@@ -68,7 +65,7 @@ The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## Add an Azure Comsos DB connection
+## Add an Azure Cosmos DB connection
 To add an Azure Cosmos DB connection, create a **TableService** object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
 
 ```nodejs

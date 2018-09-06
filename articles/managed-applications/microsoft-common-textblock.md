@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
 
 ---
@@ -30,7 +30,7 @@ A control that can be used to add text to the portal interface.
   "type": "Microsoft.Common.TextBlock",
   "visible": true,
   "options": {
-    "text": "Look! Arbitrary text in templates!",
+    "text": "Please provide the configuration values for your application.",
     "link": {
       "label": "Learn more",
       "uri": "https://www.microsoft.com"
@@ -42,7 +42,7 @@ A control that can be used to add text to the portal interface.
 ## Sample output
 
 ```json
-"Look! Arbitrary text in templates! Learn more"
+"Please provide the configuration values for your application. Learn more"
 ```
 
 ## Next steps

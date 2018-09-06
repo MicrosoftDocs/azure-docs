@@ -70,7 +70,7 @@ To deploy a sample virtual machine with boot diagnostics enabled, check out our 
 
 To enable Boot diagnostics on an existing virtual machine, follow these steps:
 
-1. Log in to the [Azure portal](https://portal.azure.com), and then select the virtual machine.
+1. Sign in to the [Azure portal](https://portal.azure.com), and then select the virtual machine.
 2. In **Support + troubleshooting**, select **Boot diagnostics** > **Settings**, change the status to **On**, and then select a storage account. 
 4. Make sure that the Boot diagnostics option is selected and then save the change.
 

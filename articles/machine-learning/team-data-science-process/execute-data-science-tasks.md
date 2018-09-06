@@ -8,6 +8,7 @@ editor: cgronlun
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -76,7 +77,7 @@ After multiple models have been built, you usually need to have a system for reg
 
 1. [Azure Machine Learning - model management service](../service/index.yml)
 2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
-3. [SQL-seerver as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Deployment
@@ -91,14 +92,17 @@ There are various approaches and platforms to put models into production. Here a
 - [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+> [!NOTE]
+> Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
 >
->
->NOTE: Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
 >
 
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
-NOTE: For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+> [!NOTE]
+> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+>
+>
 
 ### A/B testing
 When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models. 
@@ -107,6 +111,7 @@ When multiple models are in production, it can be useful to perform [A/B testing
 ## Next steps
 
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.
- 
+
+[Model operation and CI/CD](ci-cd-flask.md) shows how CI/CD can be performed with developed models.
 
 

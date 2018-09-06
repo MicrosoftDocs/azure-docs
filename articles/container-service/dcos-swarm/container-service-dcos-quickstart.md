@@ -2,13 +2,13 @@
 title: Azure Container Service Quickstart - Deploy DC/OS Cluster
 description: Azure Container Service Quickstart - Deploy DC/OS Cluster
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -22,7 +22,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Log in to Azure 
 
-Log in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions.
+Log in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -30,7 +30,7 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create DC/OS cluster
 
-Create a DC/OS cluster with the [az acs create](/cli/azure/acs#az_acs_create) command.
+Create a DC/OS cluster with the [az acs create](/cli/azure/acs#az-acs-create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -48,7 +48,7 @@ The following example creates a DC/OS cluster named *myDCOSCluster* and creates 
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az_acs_create) command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
 After several minutes, the command completes, and returns information about the deployment.
 
@@ -74,7 +74,7 @@ If the SSH tunnel was successfully created, the DC/OS portal is returned.
 
 ## Install DC/OS CLI
 
-The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
+The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
 
 If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
@@ -153,7 +153,7 @@ Browsing to this address returns the default NGINX site.
 
 ## Delete DC/OS cluster
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, DC/OS cluster, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait

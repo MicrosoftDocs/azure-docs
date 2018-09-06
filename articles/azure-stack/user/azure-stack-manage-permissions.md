@@ -3,7 +3,7 @@ title: Manage permissions to resources per user in Azure Stack | Microsoft Docs
 description: As a service administrator or tenant, learn how to manage RBAC permissions.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: PatAltimore
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: patricka
 ms.reviewer: 
 
 ---
@@ -23,11 +23,11 @@ ms.reviewer:
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack supports role-based access control (RBAC), the same [security model for access management](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) that Microsoft Azure uses. You can use RBAC to manage user, group, or application access to subscriptions, resources, and services.
+Azure Stack supports role-based access control (RBAC), the same [security model for access management](https://docs.microsoft.com/azure/role-based-access-control/overview) that Microsoft Azure uses. You can use RBAC to manage user, group, or application access to subscriptions, resources, and services.
 
 ## Basics of access management
 
-Role-based access control provides fine-grained access control that you can use to secure your environment. You give users the exact permissions they need by assigning a RBAC role at a certain scope. The scope of the role assignment can be a subscription, a resource group, or a single resource. Read the [Role-Based Access Control in the Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) article to get more detailed information about access management.
+Role-based access control provides fine-grained access control that you can use to secure your environment. You give users the exact permissions they need by assigning a RBAC role at a certain scope. The scope of the role assignment can be a subscription, a resource group, or a single resource. Read the [Role-Based Access Control in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) article to get more detailed information about access management.
 
 ### Built-in roles
 
@@ -57,7 +57,7 @@ You can assign more than one role to a user and each role can be associated with
 * You assign TestUser-A the Reader role to Subscription-1.
 * You assign TestUser-A the Owner role to TestVM-1.
 
-The Azure [role assignments](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) article provides detailed information about viewing, assigning, and deleting roles.
+The Azure [role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) article provides detailed information about viewing, assigning, and deleting roles.
 
 ### Resource hierarchy and inheritance
 
@@ -79,7 +79,7 @@ You can assign more than one role to a user and each role can be associated with
 * You assign TestUser-A the Reader role to Subscription-1.
 * You assign TestUser-A the Owner role to TestVM-1.
 
-The Azure [role assignments](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) article provides detailed information about viewing, assigning, and deleting roles.
+The Azure [role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) article provides detailed information about viewing, assigning, and deleting roles.
 
 ## Set access permissions for a user
 

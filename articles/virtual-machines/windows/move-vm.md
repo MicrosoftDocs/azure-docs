@@ -32,13 +32,13 @@ This article walks you through how to move a Windows VM between resource groups 
 
 ## Use Powershell to move a VM
 
-To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To use the Move-AzureRMResource cmdlet, you need the ResourceId of each of the resources. You can get a list of the ResourceId's using the [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
+To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To use the Move-AzureRMResource cmdlet, you need the ResourceId of each of the resources. You can get a list of the ResourceId's using the [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
 
 ```azurepowershell-interactive
- Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-To move a VM we need to move multiple resources. We can use the output of Find-AzureRMResource to create a comma separated list of the ResourceIds and pass that to [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) to move them to the destination. 
+To move a VM we need to move multiple resources. We can use the output of Get-AzureRMResource to create a comma separated list of the ResourceIds and pass that to [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) to move them to the destination. 
 
 ```azurepowershell-interactive
 

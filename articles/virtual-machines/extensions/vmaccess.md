@@ -3,7 +3,7 @@ title: Reset access to an Azure Linux VM | Microsoft Docs
 description: How to manage administrative users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: danis
+ms.author: roiyz
 
 ---
 # Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
@@ -33,7 +33,7 @@ The VM Access extension can be run against these Linux distributions:
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |
 | Debian | Debian 7.9+, 8.2+ |
-| RedHat | RHEL 6.7+, 7.1+ |
+| Red Hat | RHEL 6.7+, 7.1+ |
 | Oracle Linux | 6.4+, 7.0+ |
 | Suse | 11 and 12 |
 | OpenSuse | openSUSE Leap 42.2+ |

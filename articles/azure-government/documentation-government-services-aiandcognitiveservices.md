@@ -39,14 +39,14 @@ The following variations exist for Computer Vision API from Commercial Azure:
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v1.0/
 - Available SKUs: F0, S0, S1
 
-For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, please see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
  
 ##### Face API
 The following variations exist for Face API from Commercial Azure:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
 - Available SKUs: F0, S0
  
-For more information, please see [public documentation](../cognitive-services/Face/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ##### Emotion API
 Emotion API is being deprecated and all of its technology has been incorporated to Face API.
@@ -55,11 +55,11 @@ Emotion API is being deprecated and all of its technology has been incorporated 
  
 ##### Translator Speech API (Speech Translation): 
 The following variations exist for Translator Speech API from Commercial Azure:
-- Endpoint: https://dev.microsofttranslator.us
+- Endpoint: https://docs.microsoft.com/azure/cognitive-services/translator-speech/
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Available SKUs: F0, S1, S2, S3, S4
  
-For more information, please see [public documentation](../cognitive-services/Speech/Home.md) and [public API documentation](http://docs.microsofttranslator.com/speech-translate.html) for Bing Speech API.
+For more information, please see [public documentation](../cognitive-services/Speech/Home.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference) for Bing Speech API.
  
 #### Language
  
@@ -70,7 +70,7 @@ The following variations exist for Translator Text API from Commercial Azure:
 - Available SKUs: F0, S1, S2, S3, S4
 - Translator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
  
-For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
 
 
 ### Data Considerations

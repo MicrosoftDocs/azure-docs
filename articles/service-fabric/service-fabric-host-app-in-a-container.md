@@ -142,7 +142,9 @@ You can:
 - Create a test cluster from Visual Studio. This option allows you to create a secure cluster directly from Visual Studio with your preferred configurations. 
 - [Create a secure cluster from a template](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-When creating the cluster, choose a SKU that supports running containers (such as Windows Server 2016 Datacenter with Containers). This tutorial creates a cluster from Visual Studio, which is ideal for test scenarios. If you create a cluster some other way or use an existing cluster, you can copy and paste your connection endpoint or choose it from your subscription. 
+This tutorial creates a cluster from Visual Studio, which is ideal for test scenarios. If you create a cluster some other way or use an existing cluster, you can copy and paste your connection endpoint or choose it from your subscription. 
+
+When creating the cluster, choose a SKU that supports running containers. The Windows Server OS on your cluster nodes must be compatible with the Windows Server OS of your container. To learn more, see [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). By default, this tutorial creates a Docker image based on Windows Server 2016 LTSC. Containers based on this image will run on clusters created with Windows Server 2016 Datacenter with Containers. However, if you create a cluster or use an existing cluster based on Windows Server Datacenter Core 1709 with Containers, you must change the Windows Server OS image that the container is based on. Open the **Dockerfile** in the **FabrikamFiber.Web** project, comment out the existing `FROM` statement (based on `windowsservercore-ltsc`) and uncomment the `FROM` statement based on `windowsservercore-1709`. 
 
 1. Right-click on the **FabrikamFiber.CallCenterApplication** application project in the Solution Explorer and choose **Publish**.
 
@@ -214,9 +216,13 @@ Now that the application is ready, you can deploy it to the cluster in Azure dir
 
 ![Publish application][publish-app]
 
-Follow the deployment progress in the output window.  When the application is deployed, open a browser and type in the cluster address and application port. For example, http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Follow the deployment progress in the output window.  When the application is deployed, open a browser and type in the cluster address and application port. For example, http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Fabrikam web sample][fabrikam-web-page-deployed]
+
+## Set up Continuous Integration and Deployment (CI/CD) with a Service Fabric cluster
+To learn how to use VSTS to configure CI/CD application deployment to a Service Fabric cluster, see 
+[Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). The process described in the tutorial is the same for this (FabrikamFiber) project, just skip downloading the Voting sample and substitute FabrikamFiber as the repository name instead of Voting.
 
 ## Clean up resources
 If you're done, be sure to remove all the resources you created.  The simplest way to is to remove the resources groups that contain the Service Fabric cluster, Azure SQL DB, and Azure Container Registry.

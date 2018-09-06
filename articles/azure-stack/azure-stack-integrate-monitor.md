@@ -1,4 +1,4 @@
-﻿---
+---
 title: Integrate external monitoring solution with Azure Stack | Microsoft Docs
 description: Learn how to integrate Azure Stack with an external monitoring solution in your datacenter.
 services: azure-stack

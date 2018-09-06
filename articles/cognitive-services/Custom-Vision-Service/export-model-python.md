@@ -39,7 +39,7 @@ The downloaded zip file contains a model.pb and a labels.txt. These files repres
 
 ```Python
 import tensorflow as tf
-import os  
+import os
 
 graph_def = tf.GraphDef()
 labels = []
@@ -62,6 +62,10 @@ There are a few steps for preparing the image so that it's the right shape for p
 ### Open the file and create an image in the BGR color space
 
 ```Python
+from PIL import Image
+import numpy as np
+import cv2
+
 # Load from a file
 imageFile = "<path to your image file>"
 image = Image.open(imageFile)
@@ -165,7 +169,7 @@ input_node = 'Placeholder:0'
 
 with tf.Session() as sess:
     prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-    predictions, = sess.run(prob_tensor, {input_node: [bgr_image] })
+    predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
 ```
 
 ## View the results

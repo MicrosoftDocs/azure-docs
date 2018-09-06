@@ -8,8 +8,8 @@ ms.component: B2B
 ms.topic: article
 ms.date: 04/20/2018
 
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
 
@@ -77,7 +77,7 @@ Before you use the script, make sure that you review the prerequisites and impor
 
 ## License considerations
 
-Make sure that you have the correct Client Access Licenses (CALs) for external guest users who access on-premises apps. For more information, see the "External Connectors" section of [Client Access Licenses and Management Licenses](https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license.aspx). Consult your Microsoft representative or local reseller regarding your specific licensing needs.
+Make sure that you have the correct Client Access Licenses (CALs) for external guest users who access on-premises apps. For more information, see the "External Connectors" section of [Client Access Licenses and Management Licenses](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Consult your Microsoft representative or local reseller regarding your specific licensing needs.
 
 ## Next steps
 

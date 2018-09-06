@@ -2,16 +2,13 @@
 title: 'Azure Cosmos DB: How to query using the MongoDB API? | Microsoft Docs'
 description: Learn to query with the MongoDB API for Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 03/29/2018
 ms.author: sngun
 ms.custom: mvc
@@ -27,9 +24,7 @@ This article covers the following tasks:
 > [!div class="checklist"]
 > * Querying data with MongoDB
 
-You can get started by watching this video with Azure Cosmos DB Program Manager Andy Hoh about querying MongoDB:
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+You can get started by using the examples in this document and watch the [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) video .
 
 ## Sample document
 
@@ -69,7 +64,7 @@ Given the sample family document above, the following query returns the document
 
 **Query**
     
-    db.families.find({ id: “WakefieldFamily”})
+    db.families.find({ id: "WakefieldFamily"})
 
 **Results**
 
@@ -119,7 +114,7 @@ The next query returns all the children in the family.
 
 **Query**
     
-    db.families.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **Results**
 

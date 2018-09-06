@@ -58,7 +58,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
 ## How do I create an alert when a node goes down
 
-1. Node events are tracked by your Service Fabric cluster. Navigate to the Service Fabric Analytics solution resource named **ServiceFabric<NameofResourceGroup>**
+1. Node events are tracked by your Service Fabric cluster. Navigate to the Service Fabric Analytics solution resource named **ServiceFabric(NameofResourceGroup)**
 2. Click on the graph on the bottom of the blade titled "Summary"
 
     ![OMS Solution](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
@@ -128,12 +128,12 @@ In the same view with all the graphs, you will see some tiles for the performanc
 
 For tracking performance of Reliable Services or Actors in your applications, you should add the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. You can add these counters in a similar fashion as the scenario above, here are examples of reliable service and actor performance counters to add in OMS
 
-    * `Service Fabric Service(*)\\Average milliseconds per request`
-    * `Service Fabric Service Method(*)\\Invocations/Sec`
-    * `Service Fabric Actor(*)\\Average milliseconds per request`
-    * `Service Fabric Actor Method(*)\\Invocations/Sec`
+* `Service Fabric Service(*)\\Average milliseconds per request`
+* `Service Fabric Service Method(*)\\Invocations/Sec`
+* `Service Fabric Actor(*)\\Average milliseconds per request`
+* `Service Fabric Actor Method(*)\\Invocations/Sec`
 
-    Check these links for the full list of performance counters on Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [Actors](service-fabric-reliable-actors-diagnostics.md)
+Check these links for the full list of performance counters on Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [Actors](service-fabric-reliable-actors-diagnostics.md)
 
 ## Next steps
 

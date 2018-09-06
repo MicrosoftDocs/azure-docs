@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/05/2018
 ms.author: anwestg
 
 ---
@@ -21,16 +21,14 @@ ms.author: anwestg
 
 *Applies to: Azure Stack integrated systems*
 
-With the 1802 update, Azure Stack now supports the distribution of workloads across fault domains, a feature, which is critical for high availability.
+With the 1802 update, Azure Stack now supports the distribution of workloads across fault domains, a feature that's critical for high availability.
 
-> [!IMPORTANT]
-> You must have updated your Azure Stack integrated system to 1802 to be able to take advantage of fault domain support.  This document only applies to App Service resource provider deployments that were completed prior to the 1802 update.  If you have deployed App Service on Azure Stack after the 1802 update was applied to Azure Stack, the resource provider is already distributed across fault domains.
->
->
+>[!IMPORTANT]
+>To take advantage of fault domain support, you must update your Azure Stack integrated system to 1802. This document only applies to App Service resource provider deployments that were finished before the 1802 update. If you deployed App Service on Azure Stack after the 1802 update was applied to Azure Stack, the resource provider is already distributed across fault domains.
 
 ## Rebalance an App Service resource provider across fault domains
 
-In order to redistribute the scale sets deployed for the App Service resource provider, you must perform the following steps for each scale set.  By default the scaleset names are:
+To redistribute the scale sets deployed for the App Service resource provider, you must perform the steps in this article for each scale set. By default, the scaleset names are:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -40,40 +38,40 @@ In order to redistribute the scale sets deployed for the App Service resource pr
 * MediumWorkerTierScaleSet
 * LargeWorkerTierScaleSet
 
-> [!NOTE]
-> If you have no instances deployed in some of the worker tier scale sets, you do not need to rebalance those scale sets.  The scale sets will be balanced correctly when you scale them out in future.
->
->
+>[!NOTE]
+> If you don't have instances deployed in some of the worker tier scale sets, you don't need to rebalance those scale sets. The scale sets will be balanced correctly when you scale them out in future.
 
-1. Browse to the Virtual Machine Scale Sets in the Azure Stack Administrator Portal.  Existing scale sets deployed as part of the App Service deployment will be listed with instance count information.
+To scale out the scale sets, follow these steps:
 
-    ![Azure App Service Scale Sets listed in Virtual Machine Scale Sets UX][1]
+1. Sign in to the Azure Stack Administrator Portal.
+1. Select **All services**.
+2. In the **COMPUTE** category, select **Virtual machine scale sets**. Existing scale sets deployed as part of the App Service deployment will be listed with instance count information. The following screen capture shows an example of scale sets.
 
-2. Next scale out each set.  For example, if you have three existing instances in the scale set you must scale out to 6 so that the three new instances will be provisioned across fault domains.
-    a. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin.md)
-    b. Use this example to scale out the scale set:
-        ```powershell
-                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
+      ![Azure App Service Scale Sets listed in Virtual Machine Scale Sets UX][1]
 
-                # Get current scale set
-                $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
+1. Scale out each set. For example, if you have three existing instances in the scale set you must scale out to 6 so the three new instances are deployed across fault domains. The following PowerShell example shows out to scale out the scale set.
 
-                # Set and update the capacity of your scale set
-                $vmss.sku.capacity = 6
-                Update-AzureRmVmss -ResourceGroupName "AppService.local" -Name "SmallWorkerTierScaleSet" -VirtualMachineScaleSet $vmss
-        '''
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   ```powershell
+   Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
-3. Monitor the status of the new role instances in the App Service Administration Roles blade.  Check the status of an individual role instance by clicking the role type in the list
+   # Get current scale set
+   $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
+
+   # Set and update the capacity of your scale set
+   $vmss.sku.capacity = 6
+   Update-AzureRmVmss -ResourceGroupName AppService.local" -Name "SmallWorkerTierScaleSet" -VirtualMachineScaleSet $vmss
+   ```
+
+   >[!NOTE]
+   >This step can take several of hours to finish, depending on the type of role and the number of instances.
+
+1. In **App Service Administration Roles**, monitor the status of the new role instances. To check the status of a role instance, select the role type in the list
 
     ![Azure App Service on Azure Stack Roles][2]
 
-4. One new instances are in a **Ready** state, go back to the Virtual Machine Scale Set blade and **delete**  the old instances.
+1. When the status of the new role instances is **Ready**, go back to **Virtual Machine Scale Set** and **delete** the old role instances.
 
-5. Repeat these steps for **each** virtual machine scale set.
+1. Repeat these steps for **each** virtual machine scale set.
 
 ## Next steps
 

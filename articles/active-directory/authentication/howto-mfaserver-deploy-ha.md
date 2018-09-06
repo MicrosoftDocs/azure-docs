@@ -5,13 +5,13 @@ description: Deploy multiple instances of Azure Multi-Factor Authentication Serv
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/23/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Configure Azure Multi-Factor Authentication Server for high availability

@@ -41,7 +41,10 @@ Start with a Free tier and then transition to a billable tier for production wor
 
 Billing is based on the number of transactions. You can purchase a block of transactions at a specific tier in a monthly billing cycle, and then if you go over, a small overage charge is applied per transaction. If you routinely go over the maximum limit, consider switching to a higher tier.
 
-Current rates are offered at a preview discount while the service is in preview. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+Please see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) for more information.
+
+### What constitutes a transaction in the Text Analytics API?
+Any annotation to a document counts as a transaction. Batch scoring calls will also take into consideration the number of documents that need to be scored in that transaction. So for instance, if 1,000 documents are sent for sentiment analysis in a single API call, that will count for 1,000 transactions.
 
 ## See also 
 

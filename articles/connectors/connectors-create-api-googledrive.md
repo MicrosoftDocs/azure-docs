@@ -3,7 +3,7 @@
 title: Connect to Google Drive - Azure Logic Apps | Microsoft Docs
 description: Create and manage files with Google Drive REST APIs and Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 11/07/2016
 ms.topic: article

@@ -12,7 +12,7 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
 
@@ -53,7 +53,7 @@ For managing virtual machine solutions, there are three resource-specific roles 
 * [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
+Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
 The following example creates an Azure Active Directory group named *VMDemoContributors* with a mail nickname of *vmDemoGroup*. The mail nickname serves as an alias for the group.
 
@@ -69,13 +69,9 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
+## Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) command:
+[Azure Policy](../../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) command:
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table

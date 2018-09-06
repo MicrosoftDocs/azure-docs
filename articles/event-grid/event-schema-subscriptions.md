@@ -3,11 +3,10 @@ title: Azure Event Grid subscription event schema
 description: Describes the properties that are provided for subscription events with Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
 ---
 
@@ -16,6 +15,16 @@ ms.author: tomfitz
 This article provides the properties and schema for Azure subscription events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 Azure subscriptions and resource groups emit the same event types. The event types are related to changes in resources. The primary difference is that resource groups emit events for resources within the resource group, and Azure subscriptions emit events for resources across the subscription.
+
+Resource events are created for PUT, PATCH, and DELETE operations that are sent to `management.azure.com`. POST and GET operations do not create events. Operations sent to the data plane (like `myaccount.blob.core.windows.net`) do not create events.
+
+When you subscribe to events for an Azure subscription, your endpoint receives all events for that subscription. The events can include event you want to see, such as updating a virtual machine, but also events that maybe aren't important to you, such as writing a new entry in the deployment history. You can either receive all events at your endpoint and write code that processes the events you want to handle, or you can set a filter when creating the event subscription.
+
+To programmatically handle events, you can sort events by looking at the `operationName` value. For example, your event endpoint might only process events for operations that are equal to `Microsoft.Compute/virtualMachines/write` or `Microsoft.Storage/storageAccounts/write`.
+
+The event subject is the resource ID of the resource that is the target of the operation. To filter events for a resource, provide that resource ID when creating the event subscription. To filter by a resource type, use a value in following format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+For a list of sample scripts and tutorials, see [Azure subscription event source](event-sources.md#azure-subscriptions).
 
 ## Available event types
 
@@ -32,57 +41,129 @@ Azure subscriptions emit management events from Azure Resource Manager, such as 
 
 ## Example event
 
-The following example shows the schema of a resource created event: 
-
-```json
-[
-  {
-    "topic":"/subscriptions/{subscription-id}",
-    "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
-    "eventType":"Microsoft.Resources.ResourceWriteSuccess",
-    "eventTime":"2017-08-16T03:54:38.2696833Z",
-    "id":"25b3b0d0-d79b-44d5-9963-440d4e6a9bba",
-    "data": {
-        "authorization":"{azure_resource_manager_authorizations}",
-        "claims":"{azure_resource_manager_claims}",
-        "correlationId":"54ef1e39-6a82-44b3-abc1-bdeb6ce4d3c6",
-        "httpRequest":"{request-operation}",
-        "resourceProvider":"Microsoft.EventGrid",
-        "resourceUri":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
-        "operationName":"Microsoft.EventGrid/eventSubscriptions/write",
-        "status":"Succeeded",
-        "subscriptionId":"{subscription-id}",
-        "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
-        },
-      "dataVersion": "",
-      "metadataVersion": "1"
-  }
-]
-```
-
-The schema for a resource deleted event is similar:
+The following example shows the schema for a **ResourceWriteSuccess** event. The same schema is used for **ResourceWriteFailure** and **ResourceWriteCancel** events with different values for `eventType`.
 
 ```json
 [{
-  "topic":"/subscriptions/{subscription-id}",
-  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicApp0ecd6c02-2296-4d7c-9865-01532dc99c93",
-  "eventType": "Microsoft.Resources.ResourceDeleteSuccess",
-  "eventTime": "2017-11-07T21:24:19.6959483Z",
-  "id": "7995ecce-39d4-4851-b9d7-a7ef87a06bf5",
+  "subject": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+  "eventType": "Microsoft.Resources.ResourceWriteSuccess",
+  "eventTime": "2018-07-19T18:38:04.6117357Z",
+  "id": "4db48cba-50a2-455a-93b4-de41a3b5b7f6",
   "data": {
-    "authorization": "{azure_resource_manager_authorizations}",
-    "claims": "{azure_resource_manager_claims}",
-    "correlationId": "7995ecce-39d4-4851-b9d7-a7ef87a06bf5",
-    "httpRequest": "{request-operation}",
-    "resourceProvider": "Microsoft.EventGrid",
-    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
-    "operationName": "Microsoft.EventGrid/eventSubscriptions/delete",
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+      "action": "Microsoft.Storage/storageAccounts/write",
+      "evidence": {
+        "role": "Subscription Admin"
+      }
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "_claim_names": "{\"groups\":\"src1\"}",
+      "_claim_sources": "{\"src1\":{\"endpoint\":\"{URI}\"}}",
+      "http://schemas.microsoft.com/claims/authnclassreference": "1",
+      "aio": "{token}",
+      "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "{ID}",
+      "e_exp": "{expiration}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "{last-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "{first-name}",
+      "ipaddr": "{IP-address}",
+      "name": "{full-name}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "onprem_sid": "{ID}",
+      "puid": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "{user-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "{user-name}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "resourceProvider": "Microsoft.Storage",
+    "resourceUri": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+    "operationName": "Microsoft.Storage/storageAccounts/write",
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
-    "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+    "tenantId": "{tenant-id}"
   },
-  "dataVersion": "",
-  "metadataVersion": "1"
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}"
+}]
+```
+
+The following example shows the schema for a **ResourceDeleteSuccess** event. The same schema is used for **ResourceDeleteFailure** and **ResourceDeleteCancel** events with different values for `eventType`.
+
+```json
+[{
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+  "eventType": "Microsoft.Resources.ResourceDeleteSuccess",
+  "eventTime": "2018-07-19T19:24:12.763881Z",
+  "id": "19a69642-1aad-4a96-a5ab-8d05494513ce",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+      "action": "Microsoft.Storage/storageAccounts/delete",
+      "evidence": {
+        "role": "Subscription Admin"
+      }
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "_claim_names": "{\"groups\":\"src1\"}",
+      "_claim_sources": "{\"src1\":{\"endpoint\":\"{URI}\"}}",
+      "http://schemas.microsoft.com/claims/authnclassreference": "1",
+      "aio": "{token}",
+      "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "{ID}",
+      "e_exp": "262800",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "{last-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "{first-name}",
+      "ipaddr": "{IP-address}",
+      "name": "{full-name}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "onprem_sid": "{ID}",
+      "puid": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "{user-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "{user-name}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2018-02-01"
+    },
+    "resourceProvider": "Microsoft.Storage",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+    "operationName": "Microsoft.Storage/storageAccounts/delete",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}"
 }]
 ```
 
@@ -105,10 +186,10 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| authorization | string | The requested authorization for the operation. |
-| claims | string | The properties of the claims. |
+| authorization | object | The requested authorization for the operation. |
+| claims | object | The properties of the claims. For more information, see [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | An operation ID for troubleshooting. |
-| httpRequest | string | The details of the operation. |
+| httpRequest | object | The details of the operation. This object is only included when updating an existing resource or deleting a resource. |
 | resourceProvider | string | The resource provider performing the operation. |
 | resourceUri | string | The URI of the resource in the operation. |
 | operationName | string | The operation that was performed. |

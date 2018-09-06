@@ -1,21 +1,15 @@
-﻿---
-title: Get started with Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
-description: 'Use Azure PowerShell to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
+---
+title: Get started with Azure Data Lake Analytics using Azure PowerShell
+description: Use Azure PowerShell to create an Azure Data Lake Analytics account and submit a U-SQL job.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/04/2017
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
+ms.topic: conceptual
+ms.date: 05/04/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -96,7 +90,7 @@ OUTPUT @a
 Submit the script text with the `Submit-AdlJob` cmdlet and the `-Script` parameter.
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
 ```
 
 As an alternative, you can submit a script file using the `-ScriptPath` parameter:
@@ -104,7 +98,7 @@ As an alternative, you can submit a script file using the `-ScriptPath` paramete
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
 ```
 
 Get the status of a job with `Get-AdlJob`. 

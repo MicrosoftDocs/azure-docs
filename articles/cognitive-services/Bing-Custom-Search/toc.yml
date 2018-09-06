@@ -5,7 +5,7 @@
   items:
     - name: What is Bing Custom Search?
       href: overview.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
     - name: Create first instance
@@ -18,6 +18,12 @@
       href: call-endpoint-nodejs.md 
     - name: Python
       href: call-endpoint-python.md
+- name: SDK Quickstarts
+  items:
+    - name: SDK samples overview 
+      href: sdk.md
+    - name: Custom Search SDK C# quickstart
+      href: custom-search-sdk-quickstart.md 
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -53,13 +59,7 @@
     - name: Bing Custom Search API Reference
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
     - name: Bing Search API use and display requirements
-      href: use-and-display-requirements.md
-    - name: Bing Search SDK
-      items:
-      - name: SDK samples overview 
-        href: sdk.md
-      - name: Custom Search SDK C# quickstart
-        href: custom-search-sdk-quickstart.md   
+      href: use-and-display-requirements.md  
 - name: Resources
   items:
   - name: Pricing

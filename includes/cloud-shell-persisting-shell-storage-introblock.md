@@ -19,7 +19,7 @@ When you use basic settings and select only a subscription, Cloud Shell creates 
 The file share mounts as `clouddrive` in your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions. 
 
 > [!NOTE]
-> For security, each user should provision their own storage.  For role-based access control (RBAC), users must have contributor access or above.
+> For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
 
 In Bash, the file share also contains a 5-GB image that is created for you which automatically persists data in your `$Home` directory. 
 
@@ -27,7 +27,7 @@ In Bash, the file share also contains a 5-GB image that is created for you which
 
 By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
 
-In Bash, existing file shares receive a 5-GB image created for you to persist your `$Home` directory.
+File shares receive a 5-GB image created for you to persist your `$Home` directory.
 
 ![The Resource group setting](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
@@ -42,7 +42,7 @@ To find your assigned region you may:
 * Refer to the name of the storage account created for you (ex: `cloud-shell-storage-westus`)
 * Run `env` and locate the variable `ACC_LOCATION`
 
-Cloud Shell machine exist in the following regions:
+Cloud Shell machines exist in the following regions:
 |Area|Region|
 |---|---|
 |Americas|East US, South Central US, West US|

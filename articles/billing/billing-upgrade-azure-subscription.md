@@ -32,3 +32,8 @@ Upgrade your [Free Trial](https://azure.microsoft.com/free/) or [Microsoft Imagi
     ![Screenshot that shows what to select to confirm that you want to upgrade your subscription](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
  When you upgrade from a Free Trial subscription, you keep your remaining credit for the full 30 days after you created the subscription. You also have access to free services for 12 months.
+ 
+ If you want to [transfer the subscription](billing-subscription-transfer.md) after upgrading, you must wait until the subscription offer ID changes to **MS-AZR-003P**. The offer ID changes when
+
+* You consume all the remaining credit, or
+* 30 days pass since the start of the free trial

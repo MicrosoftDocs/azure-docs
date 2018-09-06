@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/12/2017
-ms.author: mbullwin; daviste
+ms.reviewer: daviste
+ms.author: mbullwin
 ---
 
 # Investigate and share usage data with interactive workbooks in Application Insights

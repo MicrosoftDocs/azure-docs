@@ -1,23 +1,15 @@
 ---
 title: Remote Monitoring solution accelerator FAQ | Microsoft Docs
 description: Frequently asked questions for Remote Monitoring solution accelerator
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for Remote Monitoring solution accelerator
 
 See also, the general [FAQ](iot-accelerators-faq.md).
@@ -45,7 +37,7 @@ For more information, see [Upgrade map key to see devices on a dynamic map](http
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](securing-iot-ground-up.md)
+* [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
+* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

@@ -12,10 +12,10 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: asteen
 
 ---
 
@@ -107,7 +107,7 @@ Now open a browser and try to access the application again. You should be prompt
 
 If you continue to see the error, go to the machine where the Connector is installed, open a browser and attempt to reach the internal URL used for the application. The Connector acts like another client from the same machine. If you can’t reach the application, investigate why that machine is unable to reach the application, or use a connector on a server that is able to access the application.
 
-If you can reach the application from that machine, to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](active-directory-application-proxy-troubleshoot.md#connector-errors). You can also look directly at the Connector logs to identify any errors. Many of our error messages be able to share more specific recommendations for fixes. To learn how to view the logs, see [our connectors documentation](manage-apps/application-proxy-connectors.md#under-the-hood).
+If you can reach the application from that machine, to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](manage-apps/application-proxy-troubleshoot.md#connector-errors). You can also look directly at the Connector logs to identify any errors. Many of our error messages be able to share more specific recommendations for fixes. To learn how to view the logs, see [our connectors documentation](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## Next steps
 [Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md)

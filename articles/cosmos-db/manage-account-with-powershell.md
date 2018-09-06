@@ -6,14 +6,10 @@ author: dmakwana
 manager: kfile
 editor: ''
 tags: azure-resource-manager
-documentationcenter: ''
 
-ms.assetid:
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
 
@@ -129,8 +125,8 @@ The following example describes how to set [Azure resource tags][azure-resource-
 
 Example:
 
-    $tags = @{"dept" = "Finance”; environment = “Production”}
-    Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
+    $tags = @{"dept" = "Finance"; environment = "Production"}
+    Set-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts"  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
 ## <a id="list-account-keys-powershell"></a> List Account Keys
 

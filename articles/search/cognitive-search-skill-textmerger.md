@@ -18,7 +18,7 @@ ms.author: luisca
 The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
 ## @odata.type  
-Microsoft.Skills.Util.TextMerger
+Microsoft.Skills.Text.MergeSkill
 
 ## Skill parameters
 
@@ -97,7 +97,7 @@ The following example skillset uses the OCR skill to extract text from images em
         ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Util.TextMerger",
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
@@ -140,4 +140,4 @@ The example above assumes that a normalized-images field exists. To get normaliz
 
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](ref-create-indexer.md)
++ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

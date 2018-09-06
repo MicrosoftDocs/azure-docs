@@ -1,23 +1,15 @@
 ---
-title: Back up Azure VMs in Azure at scale | Microsoft Docs
+title: Back up Azure VMs in Azure at scale
 description: This tutorial details backing up multiple Azure virtual machines to a Recovery Services vault.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery
-
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/06/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: trinadhk
 ms.custom: mvc
-
 ---
 # Back up Azure virtual machines in Azure at scale
 
