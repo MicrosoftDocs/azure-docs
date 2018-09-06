@@ -9,7 +9,7 @@
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
     href: how-to-migrate.md             
-  - name: Choose an ML solution
+  - name: Choose a machine learning product
     href: overview-more-machine-learning.md    
 - name: Quickstarts
   items:
@@ -36,7 +36,7 @@
   - name: ONNX
     href: concept-onnx.md   
   - name: Data prep
-    href: data-prep-overview.md    
+    href: concept-data-preparation.md    
 - name: How-to guides
   items:  
   - name: Manage workspaces
@@ -52,11 +52,11 @@
   - name: Prepare data for modeling
     items:
     - name: Load data
-      href: load-data-with-data-prep.md
+      href: how-to-load-data.md
     - name: Transform data
-      href: transform-data-with-data-prep.md
+      href: how-to-transform-data.md
     - name: Write data
-      href: write-data-with-data-prep.md
+      href: how-to-write-data.md
   - name: Train and tune models
     items:    
     - name: Choose an ML algorithm	

@@ -49,7 +49,6 @@
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
@@ -84,7 +83,6 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)

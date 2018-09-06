@@ -37,7 +37,9 @@
   items:
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Set Security policy
+  - name: Set security policies
+    href: security-center-azure-policy.md
+  - name: Security policy settings
     href: security-center-policies-overview.md
     items:
     - name: Data collection
@@ -50,8 +52,6 @@
       href: security-center-pricing.md
     - name: Security configurations
       href: security-center-customize-os-security-config.md
-    - name: Security policy using Azure policy
-      href: security-center-azure-policy.md
     - name: Tenant-wide visibility
       href: security-center-management-groups.md  
   
