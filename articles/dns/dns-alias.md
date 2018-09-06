@@ -13,7 +13,7 @@ ms.author: victorh
 
 Azure DNS alias records are qualification on a DNS record set that allows you to reference other Azure resources from within your DNS zone. For example, you can create an alias recordset that references an Azure Public IP address instead an A record. Since your alias recordset points to an Azure Public IP address service instance dynamically, the alias record set seamlessly updates itself during DNS resolution.
 
-An alias set is supported for the following record types in an Azure DNS zone: A, AAAA, CNAME, MX, PTR, SRV, and TXT. However, except for A, AAAA and CNAME, an alias is only supported for pointing to another recordset of the same type in the same DNS zone. 
+An alias record set is supported for the following record types in an Azure DNS zone: A, AAAA, and CNAME. 
 
 > [!NOTE]
 > Alias records for the A or AAAA record types for Traffic Manager are only supported for External Endpoint types. You must provide the IPv4 or IPv6 address (ideally static IPs) as appropriate for external endpoints in Traffic Manager.

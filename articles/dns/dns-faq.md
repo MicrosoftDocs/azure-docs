@@ -107,7 +107,7 @@ This support is currently not available for TXT records created from the Azure p
 See the scenarios section in [Azure DNS alias records overview](dns-alias.md).
 
 ### What record types are supported for alias record sets?
-Alias records sets are supported for the following record types in an Azure DNS zone: A, AAAA, CNAME, MX, PTR, SRV, and TXT.  However, except for A, AAAA and CNAME, alias record sets are only supported for pointing to another record set of the same type in the same DNS zone.
+Alias records sets are supported for the following record types in an Azure DNS zone: A, AAAA, and CNAME. 
 
 ### What resources are supported as targets for alias record sets?
 - **Point to a Public IP resource from a DNS A/AAAA record set**. You can create an A/AAAA record set, and make it an alias record set to point to a Public IP resource.
