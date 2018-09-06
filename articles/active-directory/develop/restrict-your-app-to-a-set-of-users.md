@@ -19,9 +19,9 @@ ms.reviewer: ''
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to restrict an application that I have registred in Azure AD to a select set of users available in my Azure AD tenant
 ---
-# How to restrict your app to a set of users
+# How to: Restrict your app to a set of users
 
-## Feature description
+## Prerequisite
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are by default available to all users of the tenant who authenticate successfully.
 
@@ -31,7 +31,7 @@ Tenant administrators and developers often have requirements where an app is to 
 
 Azure AD allows Tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
 
-### This option works with the following types of application
+## This option works with the following types of application
 
 1. Applications configured for Federated Single Sign-on with SAML-based Authentication
 
@@ -40,9 +40,7 @@ Azure AD allows Tenant administrators and developers to restrict an app to a spe
 1. Applications built directly on the Azure AD application platform that use OAuth2.0/OpenID Connect Authentication after a user or admin has consented to that application.
      >This feature is available for Web App/Api and Enterprise applications only. Apps that are registered as [native](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) cannot be restricted to a set of users or security groups in the tenant.
 
-## Quickstart: Restrict your app to a set of users
-
-### Update the app's properties to enable user assignment
+## Update the app's properties to enable user assignment
 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign-in as a **Global Administrator.**
 
