@@ -35,7 +35,7 @@ To create an AKS cluster, complete the following steps:
     - *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
     - *SCALE*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
         - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
-        - To enable the ACI connector, under **Node pools**, check the box for either, or both, of the *Linux* and *Windows* OSes.
+        - To use the ACI connector, under **Virtual nodes**, select *Enabled*.
     
     ![Create AKS cluster - provide basic information](media/aci-connector-portal/create-cluster.png)
 
@@ -48,7 +48,7 @@ To create an AKS cluster, complete the following steps:
         - Under **Subnets**, provide a name, such as *myAKSSubnet*, and set the **Address range** to *10.0.0.0/24*.
         - Provide the name for an additional subnet, such as *myACISubnet*, and set the **Address range** to *10.0.1.0/24*.
         - Select **Create**.
-    - Under **ACI connector subnet**, choose the subnet created in the previous step, such as *myACISubnet*.
+    - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *myACISubnet*.
     - Set the **Kubernetes service address range** to *10.0.2.0/24*.
     - Set the **Kubernetes DNS service IP address** to *10.0.2.10*.
     
