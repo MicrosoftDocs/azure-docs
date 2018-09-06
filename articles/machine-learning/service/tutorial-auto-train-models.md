@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Automatically train a classification model with Azure Automated Machine Learning service"
-description: In this tutorial, you'll learn how to automatically generate a tuned machine learning model which can then be deployed with Azure Machine Learning service.
+description: In this tutorial, you'll learn how to automatically generate a  machine learning model which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-# As an app developer or data scientist I can automatically generate a tuned machine learning model.
+# As an app developer or data scientist I can automatically generate a  machine learning model.
 ---
 
 # Tutorial: Automatically train a classification model with Azure Automated Machine Learning
 
-In this tutorial, you'll learn how to automatically generate a tuned machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+In this tutorial, you'll learn how to automatically generate a  machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
@@ -32,8 +32,6 @@ You'll learn how to:
 > * Register the best model
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## Prerequisites
 
@@ -69,7 +67,6 @@ Import Python packages you need in this tutorial.
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl import AutoMLClassifier, AutoMLRegressor
 from azureml.train.automl.run import AutoMLRun
 import time
 import logging
@@ -85,7 +82,7 @@ import numpy as np
 
 Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified run history.
+Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment.
 
 ```python
 ws = Workspace.from_config()
@@ -96,9 +93,6 @@ project_folder = './automl-classifier'
 
 import os
 from azureml.core.project import Project
-project = Project.attach(ws,
-                         experiment_name,
-                         project_folder)
 
 output = {}
 output['SDK version'] = azureml.core.VERSION
@@ -106,8 +100,7 @@ output['Subscription ID'] = ws.subscription_id
 output['Workspace'] = ws.name
 output['Resource Group'] = ws.resource_group
 output['Location'] = ws.location
-output['Project Directory'] = project.project_directory
-output['Run History Name'] = project.history.name
+output['Project Directory'] = project_folder
 pd.set_option('display.max_colwidth', -1)
 pd.DataFrame(data=output, index=['']).T
 ```
@@ -177,9 +170,6 @@ Define the experiment parameters and models settings for autogeneration and tuni
 
 ```python
 from azureml.train.automl import AutoMLConfig
-from azureml.core import RunConfiguration
-import time
-import logging
 
 ##Local compute 
 Automl_config = AutoMLConfig(task = 'classification',
@@ -253,7 +243,7 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if not isinstance(v, list)}    
+    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}   
     metricslist[int(properties['iteration'])] = metrics
 
 import pandas as pd
@@ -264,7 +254,7 @@ s = rundata.style.background_gradient(cmap = cm)
 s
 ```
 
-This table shows the results.  In the notebook the table has varying shades of green to highlight high/low values.
+This table shows the results.  In the notebook you will see varying shades of green to highlight high/low values.
 
 
 <!-- hello world -->
