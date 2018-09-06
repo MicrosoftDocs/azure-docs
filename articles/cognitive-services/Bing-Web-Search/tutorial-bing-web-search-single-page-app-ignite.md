@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Create a Bing Web Search single-page app
+title: "Tutorial: Create a Bing Web Search single-page app"
 titleSuffix: Azure Cognitive Services
 description: This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results in a single-page app.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.date: 09/06/2018
 ms.author: erhopf
 ---
+
 # Tutorial: Create a single-page app using the Bing Web Search API
 
 This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results based on a user's query. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript logic required to call the Bing Web Search API, handle the response, and display the results. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples) with quickstart instructions.  
@@ -28,7 +29,7 @@ To use this app, an [Azure Cognitive Services account](https://docs.microsoft.co
 
 ## Prerequisites
 
-Here are a few things that you'll to run the app:
+Here are a few things that you'll need to run the app:
 
 * Node.js 8 or later
 * A subscription key
@@ -55,26 +56,34 @@ The sample app we're building is made up of 4 parts:
 * `app.js` - Our Express.js app. It handles request/response logic and routing.
 * `public/index.html` - The skeleton of our app; it defines how data is presented to the user.
 * `public/css/styles.css` - Defines page styles, such as fonts, colors, text size.
-* `public/js/scripts.js` - Contains the logic to makes requests to the Bing Web Search API, manage subscription keys, handle and parse responses, and display results.
+* `public/js/scripts.js` - Contains the logic to make requests to the Bing Web Search API, manage subscription keys, handle and parse responses, and display results.
 
 This tutorial focuses on `scripts.js` and the logic required to call the Bing Web Search API and handle the response.
 
 ## HTML form
 
-`index.html` includes a form that enables users to search and select search options. The `onsubmit` attribute fires when the form is submitted, calling the JavaScript method defined in `scripts.js`:
+The `index.html` includes a form that enables users to search and select search options. The `onsubmit` attribute fires when the form is submitted, calling the JavaScript method defined in `scripts.js`:
 
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this.query.value,
     bingSearchOptions(this), getSubscriptionKey())">
 ```
 
-The `onsubmit` handler returns `false`, which keeps the form from being submitted to a server. The JavaScript does the work of collecting the information from the form and performing the search.
+This method calls the Bing Web Search API and takes three arguments:
 
-## Managing subscription key
+* Search query
+* Selected options
+* Subscription key
 
-To avoid having to include the Bing Search API subscription key in the code, we use the browser's persistent storage to store the key. If no key is stored, we prompt for the user's key and store it for later use. If the key is later rejected by the API, we invalidate the stored key so the user will be prompted again.
+// Something about... in the following sections...
 
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
+## Manage subscription keys
+
+To avoid including the Bing Search API subscription key in the code, this sample app uses the browser's persistent storage to store the subscription key. If no subscription key is stored, the user is prompted to enter one. If the subscription key is rejected by the API, the user is prompted to re-enter a subscription key.
+
+//Re-write this section.
+
+The `storeValue` and `retrieveValue` functions use either the `localStorage` object (if the browser supports it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
 
 ```javascript
 // cookie names for data we store
