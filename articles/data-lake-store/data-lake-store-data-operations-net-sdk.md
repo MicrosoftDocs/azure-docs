@@ -80,7 +80,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
+                private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";        
             }
         }
 
@@ -96,13 +96,13 @@ In the remaining sections of the article, you can see how to use the available .
 The following snippet creates the Data Lake Storage Gen1 filesystem client object, which is used to issue requests to the service.
 
     // Create client objects
-    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## Create a file and directory
 Add the following snippet to your application. This snippet adds a file as well as any parent directory that do not exist.
 
     // Create a file - automatically creates any parent directories that don't exist
-    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
+    // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
     using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
     {
         byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
@@ -165,7 +165,7 @@ The definition of the `PrintDirectoryEntry` method is available as part of the s
 ## Delete directories recursively
 The following snippet deletes a directory, and all its sub-directories, recursively.
 
-    // Delete a directory and all it's subdirectories and files
+    // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");
 
 ## Samples

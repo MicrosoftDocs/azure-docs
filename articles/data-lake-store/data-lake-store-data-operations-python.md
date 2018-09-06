@@ -39,8 +39,8 @@ In this article, you learn how to use Python SDK to perform filesystem operation
 To work with Data Lake Storage Gen1 using Python, you need to install three modules.
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory, etc.
-* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see [Azure Data Lake Storage Gen1 Management module reference](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see [Azure Data Lake Storage Gen1 Filesystem module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
+* The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see the [azure-mgmt-datalake-store module reference](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see the [azure-datalake-store file-system module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use the following commands to install the modules.
 
@@ -96,32 +96,32 @@ The following snippet first creates the Data Lake Storage Gen1 account client. I
 
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
-	adlsg1AccountName = 'FILL-IN-HERE'
+	adlsAccountName = 'FILL-IN-HERE'
 
 	## Create a filesystem client object
-    adlsg1FileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsg1AccountName)
+    adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
 
 ## Create a directory
 
 	## Create a directory
-    adlsg1FileSystemClient.mkdir('/mysampledirectory')
+    adlsFileSystemClient.mkdir('/mysampledirectory')
 
 ## Upload a file
 
 
     ## Upload a file
-    multithread.ADLUploader(adlsg1FileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+    multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
 
 ## Download a file
 
     ## Download a file
-    multithread.ADLDownloader(adlsg1FileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+    multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
 ## Delete a directory
 
 	## Delete a directory
-	adlsg1FileSystemClient.rm('/mysampledirectory', recursive=True)
+	adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
 ## Next steps
 * [Account management operations on Data Lake Storage Gen1 using Python](data-lake-store-get-started-python.md).

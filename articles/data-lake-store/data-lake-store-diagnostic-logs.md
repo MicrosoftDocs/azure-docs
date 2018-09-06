@@ -26,12 +26,12 @@ Organizations can enable diagnostic logging for their Azure Data Lake Storage Ge
 
 ## Enable diagnostic logging for your Data Lake Storage Gen1 account
 1. Sign on to the new [Azure portal](https://portal.azure.com).
-2. Open your Data Lake Storage Gen1 account, and from your Data Lake Storage Gen1 account blade, click **Diagnostic logs**.
-3. In the **Diagnostics logs** blade, click **Turn on diagnostics**.
+2. Open your Data Lake Storage Gen1 account, and from your Data Lake Storage Gen1 account blade, click **Diagnostic settings**.
+3. In the **Diagnostics settings** blade, click **Turn on diagnostics**.
 
 	![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
 
-3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
+3. In the **Diagnostics settings** blade, make the following changes to configure diagnostic logging.
    
     ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
    
@@ -59,8 +59,8 @@ There are two ways to view the log data for your Data Lake Storage Gen1 account.
 ### Using the Data Lake Storage Gen1 Settings view
 1. From your Data Lake Storage Gen1 account **Settings** blade, click **Diagnostic Logs**.
    
-    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
-2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
+    ![View diagnostic logs](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+2. In the **Diagnostics Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
    
    * Request logs capture every API request made on the Data Lake Storage Gen1 account.
    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Storage Gen1 account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.

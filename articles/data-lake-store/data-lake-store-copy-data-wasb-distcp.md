@@ -69,7 +69,7 @@ Because DistCp’s lowest granularity is a single file, setting the maximum numb
 
 **Example**
 
-	hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder -m 100
+	hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
 
 ### How do I determine the number of mappers to use?
 
