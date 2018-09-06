@@ -147,13 +147,13 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single VM node created and then the virtual node for Linux, *aci-connector-linux*:
+The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-linux*:
 
 ```
 $ kubectl get nodes
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aci-connector-linux        Ready     agent     28m       v1.8.3
+virtual-node-linux        Ready     agent     28m       v1.8.3
 aks-agentpool-14693408-0   Ready     agent     32m       v1.11.2
 ```
 
@@ -179,7 +179,7 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: aci-connector-linux
+        kubernetes.io/hostname: virtual-node-linux
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -193,13 +193,13 @@ Run the application with the [kubectl create][kubectl-create] command.
 kubectl apply -f virtual-node.yaml
 ```
 
-Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `aci-connector-linux` node.
+Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `virtual-node-linux` node.
 
 ```
 $ kubectl get pods -o wide
 
 NAME                            READY     STATUS    RESTARTS   AGE       IP              NODE
-aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   aci-connector-linux
+aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   virtual-node-linux
 ```
 
 ## Remove virtual nodes
