@@ -35,7 +35,7 @@
     href: concept-ml-pipelines.md        
   - name: ONNX
     href: concept-onnx.md   
-  - name: Data prep
+  - name: Data preparation
     href: concept-data-preparation.md    
 - name: How-to guides
   items:  

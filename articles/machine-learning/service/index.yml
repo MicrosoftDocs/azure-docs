@@ -40,7 +40,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models.'
+    text: 'Learn how to set up an experiment and operationalize your models.'
   - type: list
     style: unordered
     items:
