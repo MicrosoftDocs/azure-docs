@@ -1,6 +1,6 @@
 ---
-title: Debug Node.js modules for Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio Code to develop and debug Node.js modules for Azure IoT Edge
+title: Debug Java modules for Azure IoT Edge | Microsoft Docs
+description: Use Visual Studio Code to develop and debug Java modules for Azure IoT Edge
 services: iot-edge
 keywords: 
 author: shizn
@@ -13,23 +13,25 @@ ms.service: iot-edge
 
 ---
 
-# Use Visual Studio Code to develop and debug Node.js modules for Azure IoT Edge
+# Use Visual Studio Code to develop and debug Java modules for Azure IoT Edge
 
-You can send your business logic to operate at the edge by turning it into modules for Azure IoT Edge. This article provides detailed instructions for using Visual Studio Code (VS Code) as the main development tool to develop Node.js modules.
+You can send your business logic to operate at the edge by turning it into modules for Azure IoT Edge. This article provides detailed instructions for using Visual Studio Code (VS Code) as the main development tool to develop Java modules.
 
 ## Prerequisites
 This article assumes that you use a computer or virtual machine running Windows, macOS or Linux as your development machine. Your IoT Edge device can be another physical device.
 
 > [!NOTE]
-> This debugging article demonstrates two typical ways to debug your Node.js module in VS Code. One way is to attach a process in a module container, while the other is to lanuch the module code in debug mode. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+> This debugging article demonstrates two typical ways to debug your Java module in VS Code. One way is to attach a process in a module container, while the other is to lanuch the module code in debug mode. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
 Since this article uses Visual Studio Code as the main development tool, install VS Code and then add the necessary extensions:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 * [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
-To create a module, you need Node.js which includes npm to build the project folder, Docker to build the module image, and a container registry to hold the module image:
-* [Node.js](https://nodejs.org)
+To create a module, you need Java and Maven to build and run module code, Docker to build the module image, and a container registry to hold the module image:
+* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+* [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * You can use a local Docker registry for prototype and testing purposes, instead of a cloud registry. 
@@ -45,14 +47,10 @@ To test your module on a device, you need an active IoT hub with at least one Io
 
 ## Create a new solution template
 
-The following steps show you how to create an IoT Edge module based on Node.js using Visual Studio Code and the Azure IoT Edge extension. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules. 
+The following steps show you how to create an IoT Edge module based on Java using Visual Studio Code and the Azure IoT Edge extension. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules. 
 
 1. In Visual Studio Code, select **View** > **Integrated Terminal**.
-2. In the integrated terminal, enter the following command to install (or update) the latest version of the Azure IoT Edge module template for Node.js:
 
-   ```cmd/sh
-   npm install -g yo generator-azure-iot-edge-module
-   ```
 3. In Visual Studio Code, select **View** > **Command Palette**. 
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge Solution**.
 
@@ -60,8 +58,9 @@ The following steps show you how to create an IoT Edge module based on Node.js u
 
 5. Browse to the folder where you want to create the new solution, and click **Select folder**. 
 6. Provide a name for your solution. 
-7. Choose **Node.js Module** as the template for the first module in the solution.
+7. Choose **Java Module** as the template for the first module in the solution.
 8. Provide a name for your module. Choose a name that's unique within your container registry. 
+8. Provide a value for groupId or accept the default **com.edgemodule**.
 9. Provide the image repository for the module. VS Code autopopulates the module name, so you just have to replace **localhost:5000** with your own registry information. If you use a local Docker registry for testing, then localhost is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name.
 
    ![Provide Docker image repository](./media/how-to-develop-node-module/repository.png)
@@ -80,14 +79,14 @@ Within the solution you have three items:
 
 ## Develop your module
 
-The default Node.js code that comes with the solution is located at **modules** > [your module name] > **app.js**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
+The default Java code that comes with the solution is located at **modules > [your module name] > src > main > java > com > edgemodulemodules > App.java**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
 
-When you're ready to customize the Node.js template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability. 
+When you're ready to customize the Java template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability. 
 
-Visual Studio Code has support for Node.js. Learn more about [how to work with Node.js in VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+Visual Studio Code has support for Java. Learn more about [how to work with Java in VS Code](https://code.visualstudio.com/docs/java/java-tutorial).
 
 ## Launch and debug module code without container
-The IoT Edge Node.js module depends on Azure IoT Node.js Device SDK. In the default module code, you initialize a **ModuleClient** with environment settings and input name, which means the IoT Edge Node.js module requires the environment settings to start and run, and you also need to send or route messages to the input channels. Your default Node.js module only contains one input channel and the name is **input1**.
+The IoT Edge Java module depends on Azure IoT Java Device SDK. In the default module code, you initialize a **ModuleClient** with environment settings and input name, which means the IoT Edge Java module requires the environment settings to start and run, and you also need to send or route messages to the input channels. Your default Java module only contains one input channel and the name is **input1**.
 
 ### Setup IoT Edge simulator for single module app
 
@@ -103,17 +102,11 @@ The IoT Edge Node.js module depends on Azure IoT Node.js Device SDK. In the defa
 
 2. In VS Code command palette, type and select **Azure IoT Edge: Set Module Credentials to User Settings** to set the module environment settings into `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` in user settings. You can find these environment settings are referenced in **.vscode** > **launch.json** and [VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings).
 
-### Debug Node.js module in launch mode
+### Debug Java module in launch mode
 
-1. In integrated terminal, change directory to **NodeModule** folder, run the following command to install Node packages
+2. Navigate to `App.java`. Add a breakpoint in this file.
 
-   ```cmd
-   npm install
-   ```
-
-2. Navigate to `app.js`. Add a breakpoint in this file.
-
-3. Navigate to VS Code debug view. Select the debug configuration **ModuleName Local Debug (Node.js)**. 
+3. Navigate to VS Code debug view. Select the debug configuration **ModuleName Local Debug (java)**. 
 
 4. Click **Start Debugging** or press **F5**. You will start the debug session.
 
@@ -136,7 +129,7 @@ The IoT Edge Node.js module depends on Azure IoT Node.js Device SDK. In the defa
 
 ## Build module container for debugging and debug in attach mode
 
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the Node.js pipe module. The simulated temperature sensor keeps sending messages to Node.js pipe module, and then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, Node.js modules only support debugging in linux-amd64, windows-amd64 and linux-arm32v7 containers.
+Your default solution contains two modules, one is a simulated temperature sensor module and the other is the Java pipe module. The simulated temperature sensor keeps sending messages to Java pipe module, and then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, Java modules only support debugging in linux-amd64 and linux-arm32v7 containers.
 
 ### Setup IoT Edge simulator for IoT Edge solution
 
@@ -150,12 +143,12 @@ In your development machine, you can start IoT Edge simulator instead of install
 
 1. In VS Code, navigate to the `deployment.template.json` file. Update your module image URL by adding **.debug** to the end.
 
-2. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
+2. Replace the Java module createOptions in **deployment.template.json** with below content and save this file: 
     ```json
-    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
+    "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5005/tcp\":[{\"HostPort\":\"5005\"}]}}}"
     ```
 
-5. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (Node.js)** or **ModuleName Remote Debug (Node.js in Windows Container)**, which depends on your container type on development machine.
+5. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (Java)**.
 
 6. Select **Start Debugging** or select **F5**. Select the process to attach to.
 
@@ -164,7 +157,7 @@ In your development machine, you can start IoT Edge simulator instead of install
 8. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
 
 > [!NOTE]
-> The preceding example shows how to debug Node.js IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Node.js modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+> The preceding example shows how to debug Java IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Java modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 
 ## Next steps
 
