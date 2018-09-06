@@ -30,7 +30,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mariadb/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMariaDB
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature
