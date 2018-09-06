@@ -69,11 +69,11 @@ The screen displays the DevKit ID and 'Configuration'.
 
   ![look for the connection string](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-connection-string-of-a-device.png)
 
-Now you have successfully connected and verified your MXChip device to the IoT Hub. In order to see your new physical device in the VS Code section of "Azure IoT Hub Devices", you must download the [Azure IoT Toolkit extension.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 
+  Now you have successfully connected and verified your MXChip device to the IoT Hub. In order to see your new physical device in the VS Code section of "Azure IoT Hub Devices", you must download the [Azure IoT Toolkit extension.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 
 
-Now, you can see your new physical device in the VS Code section "Azure IoT Hub Devices":
+  Now, you can see your new physical device in the VS Code section "Azure IoT Hub Devices":
 
-![Notice the new IoT Hub Device](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-new-iot-hub-device.png)
+  ![Notice the new IoT Hub Device](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-new-iot-hub-device.png)
 
 4. Finally, you will upload the RemoteMonitoringV2.ino code onto your MxChip to begin sending data to your IoT solution accelerator. Use `Ctrl + Shift + P` (macOS: `Cmd + Shift + P`) and type **Arduino Upload**. VS Code will then start uploading the code onto your MXChip and notify you when complete. 
 
