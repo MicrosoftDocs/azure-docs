@@ -47,7 +47,7 @@ The sku-name parameter value follows the convention {pricing tier}\_{compute gen
 + `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
 + `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
-Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
+<!-- Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.-->
 
 ## Configure firewall rule
 Create an Azure Database for MariaDB server-level firewall rule using the **[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create)** command. A server-level firewall rule allows an external application, such as the **mysql** command-line tool or MySQL Workbench to connect to your server through the Azure MariaDB service firewall. 
@@ -64,7 +64,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 
 ## Configure SSL settings
-By default, SSL connections between your server and client applications are enforced. This default ensures security of "in-motion" data by encrypting the data stream over the internet. To make this quick start easier, disable SSL connections for your server. Disabling SSL is not recommended for production servers. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).
+By default, SSL connections between your server and client applications are enforced. This default ensures security of "in-motion" data by encrypting the data stream over the internet. To make this quick start easier, disable SSL connections for your server. Disabling SSL is not recommended for production servers. <!--For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).-->
 
 The following example disables enforcing SSL on your MariaDB server.
  
