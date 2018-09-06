@@ -46,7 +46,8 @@ The security alerts map is based on alerts. These alerts are based on activities
 The map provides alerts across any subscriptions you previously selected in Azure. 
 
 The alerts on the map are displayed according to the geographical location where they are detected as originating from, and they are color coded by severity. 
- 
+ 	![Threat intelligence information](./media/security-center-threat-intel/security-center-alert-map.png)
+
 ## Viewing the event-based Threat intelligence dashboard
 To view the Threat intelligence map based on raw security events, you can follow this procedure. This map displays only events that involve an IP address that is considered risk, for example an IP address of a known botnet.
 
