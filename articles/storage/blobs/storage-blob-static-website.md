@@ -24,8 +24,10 @@ Files in the *$web* container are:
 - served through anonymous access requests
 - only available through object read operations
 - case-sensitive
-- available to the public web following this pattern: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/FILE_NAME`
-- available through a Blob storage endpoint following this pattern: `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/FILE_NAME`
+- available to the public web following this pattern: 
+    - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
+- available through a Blob storage endpoint following this pattern: 
+    - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 You use the Blob storage endpoint to upload files. For instance, the file uploaded to this location:
 
@@ -85,6 +87,9 @@ Upload objects to the $web container:
 ```azurecli-interactive
 az storage blob upload-batch -s deploy -d $web --account-name <account-name>
 ```
+
+## Pricing example
+Static website hosting is often paired with CDN and DNS support. The following scenario will help you to get a clear understanding to how billing is calculated for static websites.
 
 ## FAQ
 **Is the static websites feature available for all storage account types?**  
