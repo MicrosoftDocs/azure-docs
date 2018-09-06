@@ -477,7 +477,7 @@ sp_add_job must be run from the job agent database specified when creating the j
 After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job’s initial version number is 0, which will be incremented to 1 when the first step is added.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 
 - jobs_reader
 
@@ -539,7 +539,7 @@ Date on which job execution can stop. schedule_end_time is DATETIME2, with the d
 After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job’s initial version number is 0, which will be incremented to 1 when the first step is added.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -571,7 +571,7 @@ Specifies whether to delete if the job has any executions in progress and cancel
 Job history is automatically deleted when a job is deleted.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -696,7 +696,7 @@ The maximum level of parallelism per elastic pool. If set, then the job step wil
 When sp_add_jobstep succeeds, the job’s current version number is incremented. The next time the job is executed, the new version will be used. If the job is currently executing, that execution will not contain the new step.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:  
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:  
 
 - jobs_reader
 
@@ -820,7 +820,7 @@ The maximum level of parallelism per elastic pool. If set, then the job step wil
 Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job’s version number is incremented. The next time the job is executed, the new version will be used.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 
 - jobs_reader
 
@@ -865,7 +865,7 @@ Any in-progress executions of the job will not be affected. When sp_update_jobst
 The other job steps will be automatically renumbered to fill the gap left by the deleted job step.
  
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -901,7 +901,7 @@ Output parameter that will be assigned the job execution's id. job_version is un
 None.
  
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -929,7 +929,7 @@ The identification number of the job execution to stop. job_execution_id is uniq
 None.
  
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -962,7 +962,7 @@ The name of the target group to create. target_group_name is nvarchar(128), with
 Target groups provide an easy way to target a job at a collection of databases.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -990,7 +990,7 @@ The name of the target group to delete. target_group_name is nvarchar(128), with
 None.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -1047,7 +1047,7 @@ Return Code Values
 A job executes on all databases within a server or Elastic pool at time of execution, when a logical server or Elastic pool is included in the target group.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -1104,7 +1104,7 @@ Arguments
 The name of the target group from which to remove the target group member. target_group_name is nvarchar(128), with no default.
 
 [ @target_id = ] target_id  
- The target identification number assigned to the target group member to be removed. target_id is an uniqueidentifier, with a default of NULL.
+ The target identification number assigned to the target group member to be removed. target_id is a uniqueidentifier, with a default of NULL.
 
 #### Return Code Values
 0 (success) or 1 (failure)
@@ -1113,7 +1113,7 @@ The name of the target group from which to remove the target group member. targe
 Target groups provide an easy way to target a job at a collection of databases.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -1166,7 +1166,7 @@ Remarks
 Target groups provide an easy way to target a job at a collection of databases.
 
 #### Permissions
-By default, members of the sysadmin fixed server role can execute this stored procedure. The restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
+By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
 - jobs_reader
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
@@ -1336,7 +1336,7 @@ Shows all members of all target groups.
 
 ## Resources
 
- - ![Topic link icon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Topic link icon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## Next steps
