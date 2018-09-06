@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 
 ---
@@ -35,7 +35,7 @@ To access the administrator portal, browse to the portal URL and sign in by usin
 | Integrated systems | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
- ![The administrator portal](media/azure-stack-manage-portals/image1.png)
+ ![The administrator portal](media/azure-stack-manage-portals/admin-portal.png)
 
 In the administrator portal, you can do things such as:
 

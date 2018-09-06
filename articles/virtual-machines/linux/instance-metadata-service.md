@@ -308,7 +308,7 @@ subnet/prefix | Subnet prefix, example 24 | 2017-04-02
 ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02 
 macAddress | VM mac address | 2017-04-02 
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
-identity | (Preview) Managed Service Identity. See [acquire an access token](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01 
+identity | (Preview) Managed Service Identity. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
 
 ## Example scenarios for usage  
 
