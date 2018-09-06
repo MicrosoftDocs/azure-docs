@@ -95,7 +95,7 @@ There are many methods for deploying templates.  In this quickstart, you use Azu
 
     ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-    Cloud Shell is opened on the bottom of the screen.
+    Cloud Shell is opened on the bottom of the window.
 
 3. On the upper left corner of the Cloud shell, it shows either **PowerShell** or **Bash**. To use CLI, you need to open a Bash session. To run PowerShell, you need to open a PowerShell session. Select the down arrow to toggle between the Bash and PowerShell. The following image shows switching from PowerShell to Bash.
 

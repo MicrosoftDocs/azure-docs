@@ -24,7 +24,6 @@ Learn how to iterate in your Azure Resource Manager template to create multiple 
 > * Open a quickstart template
 > * Edit the template
 > * Deploy the template
-> * Clean up resources
 
 ## Prerequisites
 
@@ -57,7 +56,7 @@ From Visual Studio Code, make the following four changes:
 1. Add a `copy` element to the storage account resource definition. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and can't exceed 800.
 2. The `copyIndex()` function returns the current iteration in the loop. `copyIndex()` is zero-based. To offset the index value, you can pass a value in the copyIndex() function. For example, *copyIndex(1)*.
 3. Delete the **variables** element, because it is not used anymore.
-4. Delete the **outputs** element.  `copyIndex()` is not supported in `outputs`.
+4. Delete the **outputs** element.
 
 The completed template looks like:
 

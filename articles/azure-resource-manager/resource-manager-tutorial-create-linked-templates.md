@@ -18,7 +18,7 @@ ms.author: jgao
 
 # Tutorial: create linked Azure Resource Manager templates
 
-Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. This is great for modularizing  templates, simplifying templates, and reusing templates.
+Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. It is great for modularizing templates. In this tutorial, you use the same template used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md), which creates a virtual machine, a virtual network, and other dependent resource including a storage account. You separate the storage account resource to a linked template.
 
 This tutorial covers the following tasks:
 
@@ -30,7 +30,6 @@ This tutorial covers the following tasks:
 > * Configure dependency
 > * Get values from linked template
 > * Deploy the template
-> * Clean up resources
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -47,8 +46,8 @@ To complete this article, you need:
 
 Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). This is the same template used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md). You save two copies of the same template to be used as:
 
-- Main template: create all the resources except the storage account.
-- Linked template: create the storage account. 
+- **The main template**: create all the resources except the storage account.
+- **The linked template**: create the storage account.
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
@@ -78,9 +77,9 @@ The linked template creates a storage account. The linked template is almost ide
               }
         }
         ```
-        storageUri is required by the virtual machine resource definition in the main template.  You pass the value back to the main template as an output value.
+        **storageUri** is required by the virtual machine resource definition in the main template.  You pass the value back to the main template as an output value.
     - Remove the parameters that are never used. These parameters have a green wave line underneath them. You shall only have one parameter left called **location**.
-    - Remove the **variables** element.
+    - Remove the **variables** element. They are no needed in this tutorial.
     - Add a parameter called **storageAccountName**. The storage account name is passed from the main template to the linked template as a parameter.
 
     When you are done, the template shall look like:
@@ -125,6 +124,7 @@ The linked template creates a storage account. The linked template is almost ide
         }
     }
     ```
+3. Save the changes.
 
 ## Upload the linked template
 
@@ -159,10 +159,11 @@ The main template is called azuredeploy.json.
     Pay attention to these details:
 
     - A `Microsoft.Resources/deployments` resource in the main template is used to link to another template.
-    - The 'deployments' resource has a name called **linkedTemplate**. This name is used for [configuring dependency](#configure-dependency).  
+    - The `deployments` resource has a name called `linkedTemplate`. This name is used for [configuring dependency](#configure-dependency).  
     - You can only use [Incremental](./deployment-modes.md) deployment mode when calling linked templates.
-    - `templateLink/uri` contains the linked template URI. The template is uploaded to a share storage account. You can update the URI if you upload the template another location on the Internet.
+    - `templateLink/uri` contains the linked template URI. The linked template has been uploaded to a shared storage account. You can update the URI if you upload the template another location on the Internet.
     - Use `parameters` to pass values from the main template to the linked template.
+4. Save the changes.
 
 ## Configure dependency
 
@@ -173,7 +174,7 @@ Recall from [Tutorial: create multiple resource instances using Resource Manager
 Because the storage account is defined in the linked template now, you must update the following two elements of the `Microsoft.Compute/virtualMachines` resource.
 
 - Reconfigure the `dependOn` element. The storage account definition is moved to the linked template.
-- Reconfigure the `properties/diagnosticsProfile/bootDiagnostics/storageUri' element. In [Create the linked template](#create-the-linked-template), you added an output value:
+- Reconfigure the `properties/diagnosticsProfile/bootDiagnostics/storageUri` element. In [Create the linked template](#create-the-linked-template), you added an output value:
 
     ```json
     "outputs": {
