@@ -96,7 +96,7 @@ The service provides a RESTful endpoint for CRUD operations on key-value pairs. 
 
 ### Cosmos DB
 
-The standard deployment of the solution accelerator uses [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) as its main storage service.
+Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alarms, configuration settings, and all other cold storage.
 
 ### Azure Stream Analytics manager microservice
 
@@ -106,7 +106,7 @@ The ASA job is supported by two reference data sets. One data set defines rules 
 
 The device groups reference data is used to identify which group of rules to apply to an incoming telemetry message. The device groups are managed by the configuration microservice and use Azure IoT Hub device twin queries.
 
-The ASA jobs deliver the device telemetry to TimeSeries Insights for storage and analysis.
+The ASA jobs deliver the telemetry from the connected devices to Time Series Insights for storage and analysis.
 
 ### Azure Stream Analytics
 
@@ -126,7 +126,7 @@ The [authentication and authorization microservice](https://github.com/Azure/rem
 
 ### Azure Active Directory
 
-The standard deployment of the solution accelerator uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) as an OpenID Connect provider. Azure Active Directory stores user information and provides certificates to validate JWT token signatures. 
+Solution accelerator deployments use [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) as an OpenID Connect provider. Azure Active Directory stores user information and provides certificates to validate JWT token signatures.
 
 ## Presentation
 
