@@ -111,11 +111,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.slack.com`
 
-	b. In the **Identifier** textbox, type the URL: `https://slack.com`
+    b. In the **Identifier** textbox, update the value with the Sign On URL. This is your workspace domain. For example: `https://contoso.slack.com`
 
-	> [!NOTE] 
-	> The value is not real. You have to update the value with the actual Sign On URL. Contact [Slack support team](https://slack.com/help/contact) to get the value.
-	 
 1. Slack application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_attribute.png)
