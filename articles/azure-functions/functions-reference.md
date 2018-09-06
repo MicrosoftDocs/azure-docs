@@ -5,13 +5,24 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
+<<<<<<< HEAD
+=======
+editor: ''
+tags: ''
+>>>>>>> fc83df5ddcb... More v2 clean up
 keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
+<<<<<<< HEAD
 ms.date: 10/12/2017
+=======
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 09/05/2018
+>>>>>>> fc83df5ddcb... More v2 clean up
 ms.author: glenga
 
 ---
@@ -51,34 +62,33 @@ The `bindings` property is where you configure both triggers and bindings. Each 
 | `name` |string |The name that is used for the bound data in the function. For C#, this is an argument name; for JavaScript, it's the key in a key/value list. |
 
 ## Function app
-A function app is comprised of one or more individual functions that are managed together by Azure App Service. All of the functions in a function app share the same pricing plan, continuous deployment and runtime version. Functions written in multiple languages can all share the same function app. Think of a function app as a way to organize and collectively manage your functions. 
+A function app provides an execution context in Azure in which your functions run. A function app is comprised of one or more individual functions that are managed together by Azure App Service. All of the functions in a function app share the same pricing plan, continuous deployment and runtime version. Think of a function app as a way to organize and collectively manage your functions. 
 
-## Runtime (script host and web host)
-The runtime, or script host, is the underlying WebJobs SDK host that listens for events, gathers and sends data, and ultimately runs your code. 
+> [!NOTE]
+> Starting with [version 2.x](functions-versions.md) of the Azure Functions runtime, all functions in a function app must be authored in the same language.
 
-To facilitate HTTP triggers, there is also a web host that is designed to sit in front of the script host in production scenarios. Having two hosts helps to isolate the script host from the front end traffic managed by the web host.
+## Runtime
+The Azure Functions runtime, or script host, is the underlying host that listens for events, gathers and sends data, and ultimately runs your code. This same host is used by the WebJobs SDK.
 
-## Folder Structure
+There is also a web host that handles HTTP trigger requests for the runtime. Having two hosts helps to isolate the runtime from the front end traffic managed by the web host.
+
+## Folder structure
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 When setting-up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
 
 > [!NOTE]
 > Make sure to deploy your `host.json` file and function folders directly to the `wwwroot` folder. Do not include the `wwwroot` folder in your deployments. Otherwise, you end up with `wwwroot\wwwroot` folders. 
-> 
-> 
 
 ## <a id="fileupdate"></a> How to update function app files
 The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function. To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.
 
 Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/app-service-deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
 
-#### Use local tools and publishing
-Function apps can be authored and published using many tools including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and the [local core tools](./functions-develop-local.md).
+#### Tools for local development and publishing
+Function apps can be created and published using popular development environments, including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and [local command line tools](./functions-develop-local.md). For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
-
-#### To use continuous deployment
+#### Continuous deployment
 Follow the instructions in the topic [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
 ## Parallel execution
