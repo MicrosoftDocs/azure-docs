@@ -19,18 +19,18 @@ ms.author: alkarche
 
 
 ## Error Text
- `Error: Azure Functions Runtime is uncreachable. Click here for details on storage configuration`
+ `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### Summary
 This issue occurs when the Functions Runtime cannot start. The most common reason for this to occur is the Function App losing access to its storage account. [Read more about the storage account requirements here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ## Troubleshooting
-We'll walk through the 4 most common error caes, how to identiy, and how to resolve each case.
+We'll walk through the 4 most common error cases, how to identify, and how to resolve each case.
 
 1. Storage Account deleted
 1. Storage Account application setting deleted
 1. Storage firewall enabled
-1. Storage credentialls invalid
+1. Storage credentials invalid
 
 ### Storage Account deleted
 
@@ -40,7 +40,7 @@ Search for your storage account in the Azure portal to see if it still exists. I
 
 ### Storage Account Application Settings Deleted
 
-In the previous step, if you did not have a storage account connection string they were likely deleted or overwritten. This is most commonly done when using deplyoment slots or ARM scripts to set application settings.
+In the previous step, if you did not have a storage account connection string they were likely deleted or overwritten. This is most commonly done when using deployment slots or ARM scripts to set application settings.
 
 #### Required Application Settings
 
@@ -60,9 +60,9 @@ In the previous step, if you did not have a storage account connection string th
 
 ### Storage Account Credentials Invalid
 
-The above Storage Account connection strings must be updated if you re-generate storage keys. [Read more about storage key managment here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+The above Storage Account connection strings must be updated if you re-generate storage keys. [Read more about storage key management here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
 
-### Storage Account Innaccesible
+### Storage Account Inaccessible
 
 Your Function App must be able to access the storage account. Common issues that block a Functions access to a storage account are:
 
