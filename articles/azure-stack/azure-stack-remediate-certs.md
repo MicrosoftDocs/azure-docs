@@ -24,8 +24,8 @@ ms.reviewer:
 The information in this article can help you understand and resolve common issues for Azure Stack PKI certificates. You can discover issues when you use Azure Stack Readiness Checker tool to [validate Azure Stack PKI certificates](azure-stack-validate-pki-certs.md). The tool checks to ensure that certificates meet the PKI requirements of an Azure Stack deployment and Azure Stack Secret Rotation, and logs the results in a [report.json file](azure-stack-validation-report.md).  
 
 ## PFX Encryption
-**Failure** - PFX encryption not TripleDES-SHA1.   
-**Remediation** - Export PFX files with **TripleDES-SHA1** encryption. This is default for all Windows 10 Clients when exporting from Certificate Snap in or using Export-PFXCertificate. 
+**Failure** - PFX encryption is not TripleDES-SHA1.   
+**Remediation** - Export PFX files with **TripleDES-SHA1** encryption. This is the default for all Windows 10 Clients when exporting from Certificate Snap in or using Export-PFXCertificate. 
 
 ## Read PFX
 **Warning** - Password only protects the private information in the certificate.  
