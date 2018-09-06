@@ -10,7 +10,7 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
 ---
- 
+
 # Write a C# user-defined function for an Azure Stream Analytics Edge job (Preview)
 
 C# user-defined functions (UDF) allow you to extend Azure Stream Analytics query language with your own functions. With UDF, you can reuse existing code (including DLLs), implement custom logic to manipulate complex strings, and run mathematical or complex logic. UDF can be implemented in three different ways: CodeBehind files in an ASA project, UDF from a local C# project, or an existing package from a storage account. This tutorial demonstrates how to use a basic C# function written in CodeBehind. UDF for Azure Stream Analytics Edge jobs is currently in preview and should not be used in production workloads.

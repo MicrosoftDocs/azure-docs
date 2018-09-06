@@ -108,3 +108,5 @@ The UDF preview currently has the following limitations:
 * The Azure portal query editor shows an error when using UDF C# functions in the portal. 
 
 * Because the custom code shares context with Azure Stream Analytics engine, custom code cannot reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you cannot reference *Newtonsoft Json*.
+
+## Next steps
