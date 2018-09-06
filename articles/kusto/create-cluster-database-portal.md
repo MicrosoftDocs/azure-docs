@@ -1,6 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure Kusto cluster and database'
 description: 'In this quickstart, you learn how to create an Azure Kusto cluster and database, and ingest (load) data.'
+services: kusto
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
