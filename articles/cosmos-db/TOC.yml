@@ -110,6 +110,8 @@
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
+    - name: Prepay for reserved capacity
+      href: cosmos-db-reserved-capacity.md
     - name : Backup and restore
       href: online-backup-and-restore.md
     - name : High availability
