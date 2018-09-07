@@ -73,3 +73,8 @@ For a downloadable infographic that describes algorithms and provides examples, 
 * Several methods, including logistic regression and the Bayes point machine, assume **linear class boundaries**. That is, they assume that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks.
 
 * Neural networks can be used with categorical variables by creating a **dummy variable** for each category, setting it to 1 in cases where the category applies, 0 where it doesn’t.
+
+## Next steps
+
+* Get a more detailed look at [how to choose machine learning algorithms](algorithm-choice.md).
+* Learn how to [automatically train a classification model with Azure Automated Machine Learning service](tutorial-auto-train-models.md).
