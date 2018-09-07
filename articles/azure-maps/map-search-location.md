@@ -26,9 +26,9 @@ There are two ways to search for a location of interest, one is by making a sear
 
 In the above code, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
 
-The second code block adds search results layer to the map. The search results layer will display the search results as pins in the map.
+The second code block adds search results layer to the map. The search results layer will display the search results as pins on the map.
 
-The third block of code sends an sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for the point of interest. Fuzzy search API can handle any combination of fuzzy inputs.
+The third block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for the point of interest. Fuzzy search API can handle any combination of fuzzy inputs.
 
 The last block of code parses the response and adjusts the adjusts the camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) to render the result pins.
 
