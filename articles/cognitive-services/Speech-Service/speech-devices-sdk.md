@@ -1,7 +1,7 @@
 ---
 title: About the Speech Devices SDK
 description: Get an introduction to the Speech Devices SDK.
-titleSuffix: "Microsoft Cognitive Services"
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 
