@@ -100,6 +100,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 
 ## Option 1: Deploy from model file
+<<<<<<< Updated upstream
 
 The option to deploy from a model file requires the least amount of code to write, but offers the least amount of control over the naming of outputs. This option is a convenient way to deploy a model file without first registering it.  However, you can't name the model or associate tags or a description for it.  
 
@@ -107,6 +108,15 @@ This option uses the SDK method, Webservice.deploy().
 
 **Time estimate**: Deploying takes approximately 6-7 minutes.
 
+=======
+
+The option to deploy from a model file requires the least amount of code to write, but offers the least amount of control over the naming of outputs. This option is a convenient way to deploy a model file without first registering it.  However, you can't name the model or associate tags or a description for it.  
+
+This option uses the SDK method, Webservice.deploy().  
+
+**Time estimate**: Deploying takes approximately 6-7 minutes.
+
+>>>>>>> Stashed changes
 1. Make sure the model file is in your local working directory.
 
 1. Open the prerequisite model file, score.py, and change the  `init()` section to:
@@ -139,6 +149,7 @@ This option uses the SDK method, Webservice.deploy().
 
 ## Option 2: Deploy from registered model
 
+<<<<<<< Updated upstream
 The option to deploy a registered model file takes a few more lines of code and allows some control over the naming of outputs. This option is a convenient way to deploy a registered model you already have.  However, you can't name the Docker image.  
 
 This option uses the SDK method, Webservice.deploy_from_model().
@@ -169,6 +180,36 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
 1. Build and register the Docker image under the workspace using `ContainerImage.create()`
 
 This method gives you more control over the image by creating it in a separate step.  The registered model (`model`) is included in the image.
+=======
+You can now [test the web service](#test-web-service).
+
+## Option 2: Deploy from registered model
+
+The option to deploy a registered model file takes a few more lines of code and allows some control over the naming of outputs. This option is a convenient way to deploy a registered model you already have.  However, you can't name the Docker image.  
+
+This option uses the SDK method, Webservice.deploy_from_model().
+
+**Time estimate**:  Deploying with this option takes approximately 8 minutes.
+
+1. Run the code to configure the Docker container and the ACI container and specify the registered model.
+
+    ```python
+    from azureml.core.webservice import Webservice
+
+    service_name = 'aci-mnist-2'
+    service = Webservice.deploy_from_model(deployment_config = aciconfig,
+                                           image_config = image_config,
+                                           models = [model], # this is the registered model object
+                                           name = service_name,
+                                           workspace = ws)
+    service.wait_for_deployment(show_output = True)
+    print(service.state)
+    ```
+
+1. You can now [test the web service](#test-web-service).
+
+## Option 3: Deploy from image
+>>>>>>> Stashed changes
 
 ```python
 from azureml.core.image import ContainerImage
@@ -200,7 +241,7 @@ print(service.state)
  
 **Time estimate**: Approximately 3 minutes.
 
-Proceed to test the web service.
+You can now test the web service.
 
 ## Test the web service
 
