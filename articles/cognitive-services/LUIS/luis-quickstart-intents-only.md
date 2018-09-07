@@ -1,30 +1,25 @@
 ---
-title: Tutorial - 1 - Create an app with two intents to learn how to  determine user intentions - Azure Cognitive Services | Microsoft Docs
-description: In this tutorial, create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. It only determines the user's overall intention of the utterance.
+title: "Tutorial 1: Find intentions in custom LUIS app"
+titleSuffix: Azure Cognitive Services
+description: Create a custom app that predicts a user's intention. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. 
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---
 
-# Tutorial: 1. Build custom app to determine user intentions
+# Tutorial 1: Build custom app to determine user intentions
 
 In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud.
 
-This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. It only determines the user's overall intention of the utterance.
-
-By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows the client application to find an appropriate answer in the JSON response. 
-
 The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky because both are about a job.
 
-After LUIS returns the JSON response, LUIS is done with this request. The client application, such as a chat bot, can take the **topScoringIntent** in the JSON response and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the client application. LUIS doesn't do that work. LUIS only determines what is the user's intention.
-
-LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
+After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
 
 **In this tutorial, you learn how to:**
 

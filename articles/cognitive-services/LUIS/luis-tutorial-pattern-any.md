@@ -1,16 +1,14 @@
 ---
-title: Tutorial - pattern.any entity - longer entity - improve LUIS predictions - Azure Cognitive Services| Microsoft Docs 
-titleSuffix: Cognitive Services
-description: In this tutorial, use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance. The pattern.any entity allows you to find free-form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance. 
+title: "Tutorial 5: Pattern.any entity for free-form text"
+titleSuffix: Azure Cognitive Services
+description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
 services: cognitive-services
 author: diberry
 manager: cjgronlund
-
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---

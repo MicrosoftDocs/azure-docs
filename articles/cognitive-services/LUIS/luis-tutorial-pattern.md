@@ -1,16 +1,14 @@
 ---
-title: Tutorial using patterns to improve LUIS predictions - Azure Cognitive Services | Microsoft Docs 
-titleSuffix: Cognitive Services
-description: In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent.
+title: "Tutorial 3: Patterns to improve LUIS predictions" 
+titleSuffix: Azure Cognitive Services
+description: Use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
-
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
@@ -18,47 +16,6 @@ ms.author: diberry
 # Tutorial: 3. Add common utterance formats
 
 In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent. 
-
-Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
-
-|Utterances|
-|--|
-|Who does Jill Jones report to?|
-|Who reports to Jill Jones?|
-
-These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples. 
-
-Template utterance examples for this intent include:
-
-|Template utterances examples|syntax meaning|
-|--|--|
-|Who does {Employee} report to[?]|interchangeable {Employee}, ignore [?]}|
-|Who reports to {Employee}[?]|interchangeable {Employee}, ignore [?]}|
-
-The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
-
-While the syntax looks like regular expressions, it is not regular expressions. Only the curly bracket, `{}`, and square bracket, `[]`, syntax is supported. They can be nested up to two levels.
-
-In order for a pattern to be matched to an utterance, the entities within the utterance have to match the entities in the template utterance first. However, the template doesn't help predict entities, only intents. 
-
-**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
-
-In this tutorial, add two new intents: `OrgChart-Manager` and `OrgChart-Reports`. 
-
-|Intent|Utterance|
-|--|--|
-|OrgChart-Manager|Who does Jill Jones report to?|
-|OrgChart-Reports|Who reports to Jill Jones?|
-
-Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
-
-```Javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
 
 **In this tutorial, you learn how to:**
 
@@ -235,6 +192,46 @@ Use patterns to make the correct intent's score significantly higher in percenta
 Leave this second browser window open. You use it again later in the tutorial. 
 
 ## Template utterances
+Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
+
+|Utterances|
+|--|
+|Who does Jill Jones report to?|
+|Who reports to Jill Jones?|
+
+These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples. 
+
+Template utterance examples for this intent include:
+
+|Template utterances examples|syntax meaning|
+|--|--|
+|Who does {Employee} report to[?]|interchangeable {Employee}, ignore [?]}|
+|Who reports to {Employee}[?]|interchangeable {Employee}, ignore [?]}|
+
+The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+
+While the syntax looks like regular expressions, it is not regular expressions. Only the curly bracket, `{}`, and square bracket, `[]`, syntax is supported. They can be nested up to two levels.
+
+In order for a pattern to be matched to an utterance, the entities within the utterance have to match the entities in the template utterance first. However, the template doesn't help predict entities, only intents. 
+
+**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
+
+In this tutorial, add two new intents: `OrgChart-Manager` and `OrgChart-Reports`. 
+
+|Intent|Utterance|
+|--|--|
+|OrgChart-Manager|Who does Jill Jones report to?|
+|OrgChart-Reports|Who reports to Jill Jones?|
+
+Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
 
 1. Select **Build** in the top menu.
 

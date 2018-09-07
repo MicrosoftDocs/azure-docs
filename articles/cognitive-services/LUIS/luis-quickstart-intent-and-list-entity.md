@@ -1,14 +1,14 @@
 ---
-title: Tutorial - 4 - Exact text match - list entity - Azure Cognitive Services | Microsoft Docs 
-description: In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. For the human resources app, an employee can be identified be several key pieces of information such as name, email, phone number, and U.S. federal tax ID. 
+title: "Tutorial 4: Exact text match - LUIS list entity"
+titleSuffix: Azure Cognitive Services
+description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
 author: diberry
 manager: cjgronlund
-
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
@@ -19,18 +19,6 @@ In this tutorial, understand how to get data that matches a predefined list of i
 The Human Resources app needs to determine which employee is moving from one building to a different building. For an utterance about an employee move, LUIS determines the intent, and extracts the employee so that a standard order to move the employee can be created by the client application.
 
 This app uses a list entity to extract the employee. The employee can be referred to using name, company phone extension, mobile phone number, email, or U.S. federal social security number. 
-
-A list entity can hold many items with synonyms for each item. For a small to medium size company, the list entity can extract the employee information. 
-
-The primary, _canonical_, name for each item is the employee number. For this domain, examples of the synonyms of each canonical name are: 
-
-|Synonym purpose|Synonym value|
-|--|--|
-|Name|John W. Smith|
-|Email address|john.w.smith@mycompany.com|
-|Phone extension|x12345|
-|Personal mobile phone number|425-555-1212|
-|U.S. federal social security number|123-45-6789|
 
 A list entity is a good choice for this type of data when:
 
@@ -96,6 +84,17 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## Employee list entity
 Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what an employee is. 
+
+The primary, _canonical_, name for each item is the employee number. For this domain, examples of the synonyms of each canonical name are: 
+
+|Synonym purpose|Synonym value|
+|--|--|
+|Name|John W. Smith|
+|Email address|john.w.smith@mycompany.com|
+|Phone extension|x12345|
+|Personal mobile phone number|425-555-1212|
+|U.S. federal social security number|123-45-6789|
+
 
 1. Select **Entities** in the left panel.
 

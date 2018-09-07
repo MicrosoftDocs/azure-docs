@@ -1,20 +1,21 @@
 ---
-title: Tutorial - 9 - sentiment analysis including positive, negative, and neutral- - Azure Cognitive Services| Microsoft Docs 
+title: "Tutorial 9: Sentiment analysis including positive, negative, and neutral in LUIS"
+titleSuffix: Azure Cognitive Services
 description: In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
 --- 
 
-# Tutorial: 9.  Extract sentiment
+# Tutorial 9:  Extract sentiment of overall utterance
 In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 
 Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 

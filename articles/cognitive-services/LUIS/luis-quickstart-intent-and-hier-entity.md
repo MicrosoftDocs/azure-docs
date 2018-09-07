@@ -1,38 +1,30 @@
 ---
-title: Tutorial - 5- Parent/Child relationships - Hierarchical entity - contextually learned data - Azure Cognitive Services | Microsoft Docs 
-description: In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. To generate a work order both pieces of data may be required and they are related to each other.   
+title: "Tutorial 5: Parent/Child relationships - LUIS Hierarchical entity - contextually learned data"
+ titleSuffix: Azure Cognitive Services
+description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
 author: diberry
 manager: cjgronlund
-
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 --- 
 
-# Tutorial: 5. Extract contextually-related data
+# Tutorial 5: Extract contextually-related data
 In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. To generate a work order both pieces of data may be required and they are related to each other.  
 
 This app determines where an employee is to be moved from the origin location (building and office) to the destination location (building and office). It uses the hierarchical entity to determine the locations within the utterance. The purpose of the **hierarchical** entity is to find related data within the utterance based on context. 
 
 The hierarchical entity is a good fit for this type of data because the two pieces of data:
 
+* Are simple entities.
 * Are related to each other in the context of the utterance.
 * Use specific word choice to indicate each location. Examples of these words include: from/to, leaving/headed to, away from/toward.
 * Both locations are frequently in the same utterance. 
-
-Consider the following utterance:
-
-```JSON
-mv Jill Jones from a-2349 to b-1298
-```
-
-The utterance has two locations specified, `a-2349` and `b-1298`. Assume that the letter corresponds to a building name and the number indicates the office within that building. It makes sense that they are both grouped as children of a hierarchical entity, `Locations`, because both pieces of data need to be extracted from the utterance to complete the request in the client application and they are related to each other. 
- 
-If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
+* Need to be grouped and processed by client app as a unit of information.
 
 **In this tutorial, you learn how to:**
 
@@ -91,6 +83,16 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 ## Create a location entity
 LUIS needs to understand what a location is by labeling the origin and destination in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**. After you toggle the switch, the control is labeled **Tokens View**.
+
+Consider the following utterance:
+
+```JSON
+mv Jill Jones from a-2349 to b-1298
+```
+
+The utterance has two locations specified, `a-2349` and `b-1298`. Assume that the letter corresponds to a building name and the number indicates the office within that building. It makes sense that they are both grouped as children of a hierarchical entity, `Locations`, because both pieces of data need to be extracted from the utterance to complete the request in the client application and they are related to each other. 
+ 
+If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
 1. In the utterance, `Displace 425-555-0000 away from g-2323 toward hh-2345`, select the word `g-2323`. A drop-down menu appears with a text box at the top. Enter the entity name `Locations` in the text box then select **Create new entity** in the drop-down menu. 
 

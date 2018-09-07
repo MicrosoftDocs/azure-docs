@@ -1,49 +1,32 @@
 ---
-title: Tutorial - 7 - simple entity - phrase list - extract name data - Azure Cognitive Service | Microsoft Docs 
-description: In this tutorial, extract machine-learned data from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity. This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
+title: "Tutorial 7: Simple entity with phrase list in LUIS"
+titleSuffix: Azure Cognitive Services
+description: Extract machine-learned data from an utterance 
 services: cognitive-services
 author: diberry
 manager: cjgronlund 
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Tutorial: 7. Extract names
+# Tutorial 7: Extract names with simple entity and phrase list
+
 In this tutorial, extract machine-learned data of employment job name from an utterance using the **Simple** entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 
 This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
 
-Consider the following utterances from a chat bot:
+The simple entity is a good fit for this type of data when:
 
-|Utterance|Extractable job name|
-|:--|:--|
-|I want to apply for the new accounting job.|accounting|
-|Submit my resume for the engineering position.|engineering|
-|Fill out application for job 123456|123456|
-
-The job name is difficult to determine because a name can be a noun, verb, or a phrase of several words. For example:
-
-|Jobs|
-|--|
-|engineer|
-|software engineer|
-|senior software engineer|
-|engineering team lead |
-|air traffic controller|
-|motor vehicle operator|
-|ambulance driver|
-|tender|
-|extruder|
-|millwright|
-
-This LUIS app has job names in several intents. By labeling these words in all the intents' utterances, LUIS learns more about what a job name is and where it is found in utterances.
-
-Once the entities are marked in the example utterances, it is important to add a phrase list to boost the signal of the simple entity. A phrase list is **not** used as an exact match and does not need to be every possible value you expect. 
+* Data is a single concept.
+* Data is not well-formatted such as a regular expression.
+* Data is not common such as a prebuilt entity of phone number or data.
+* Data is not matched exactly to a list of known words, such as a list entity.
+* Data does not contain other data items such as a composite entity or hierarchical entity.
 
 **In this tutorial, you learn how to:**
 
@@ -71,6 +54,34 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Simple entity
+The simple entity detects a single data concept contained in words or phrases.
+
+Consider the following utterances from a chat bot:
+
+|Utterance|Extractable job name|
+|:--|:--|
+|I want to apply for the new accounting job.|accounting|
+|Submit my resume for the engineering position.|engineering|
+|Fill out application for job 123456|123456|
+
+The job name is difficult to determine because a name can be a noun, verb, or a phrase of several words. For example:
+
+|Jobs|
+|--|
+|engineer|
+|software engineer|
+|senior software engineer|
+|engineering team lead |
+|air traffic controller|
+|motor vehicle operator|
+|ambulance driver|
+|tender|
+|extruder|
+|millwright|
+
+This LUIS app has job names in several intents. By labeling these words in all the intents' utterances, LUIS learns more about what a job name is and where it is found in utterances.
+
+Once the entities are marked in the example utterances, it is important to add a phrase list to boost the signal of the simple entity. A phrase list is **not** used as an exact match and does not need to be every possible value you expect. 
 
 [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 

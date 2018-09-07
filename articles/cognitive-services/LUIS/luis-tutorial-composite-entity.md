@@ -1,22 +1,54 @@
 ---
-title: Tutorial - 6 - extract composite data - composite entity - Azure Cognitive Services | Microsoft Docs 
-description: In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
+title: "Tutorial 6: Extract composite data with LUIS composite entity"
+titleSuffix: Azure Cognitive Services
+description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
 manager: cjgronlund 
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 --- 
 
-# Tutorial: 6. Group and extract related data
+# Tutorial 6: Group and extract related data
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
 The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain different types of entities. 
 
+The composite entity is a good fit for this type of data because the data:
+
+* Are related to each other. 
+* Use a variety of entity types.
+* Need to be grouped and processed by client app as a unit of information.
+
+**In this tutorial, you learn how to:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Add composite entity 
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
+
+## Composite entity
 Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the client application. 
 
 In this app, the employee name is defined in the **Employee** list entity and includes synonyms of name, email address, company phone extension, mobile phone number, and U.S. Federal tax ID. 
@@ -60,32 +92,6 @@ The extracted data from the endpoint should contain this information and return 
   }
 ]
 ```
-
-**In this tutorial, you learn how to:**
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Use existing tutorial app
-> * Add composite entity 
-> * Train
-> * Publish
-> * Get intents and entities from endpoint
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
-Continue with the app created in the last tutorial, named **HumanResources**. 
-
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
-
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
-
-2. Import the JSON into a new app.
-
-3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
-
-
-## Composite entity
 
 [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 

@@ -1,21 +1,22 @@
 ---
-title: Tutorial - 2 - Prebuilt intents and entities - use prebuilt common utterances - extract common data - Language Understanding - Azure Cognitive Services | Microsoft Docs 
+title: "Tutorial 2: Prebuilt intents and entities - use prebuilt common utterances - extract common data in LUIS"
+titleSuffix: Azure Cognitive Services
 description: Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically. 
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 --- 
 
-# Tutorial: 2. Identify common intents
-In this tutorial,  modify the Human Resources app. Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
+# Tutorial 2: Identify common intents and entities
+In this tutorial,  modify the Human Resources app. Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities because the entity is detected automatically.
 
-Prebuilt models include an entire subject domain, including intents with example utterances labeled with entities, just intents, or just entities. These prebuilt units of the model of common subject domains and data types help you build your model quickly as well as have an example of what a model looks like. 
+Prebuilt models of common subject domains and data types help you build your model quickly as well as provide an example of what a model looks like. 
 
 **In this tutorial, you learn how to:**
 

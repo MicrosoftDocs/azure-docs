@@ -1,14 +1,15 @@
 ---
-title: Tutorial - 3 - Regular-expression matched data - extract well-formated data - Azure Cognitive Services| Microsoft Docs 
-description: In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the Regular Expression entity. The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
+title: "Tutorial 3: Regular-expression matched data - extract well-formated data"
+titleSuffix: Azure Cognitive Services
+description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
@@ -18,7 +19,7 @@ In this tutorial, modify the Human Resources app to extract consistently-formatt
 
 The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
 
-Example utterances include:
+**Example utterances include:**
 
 ```
 Where is HRF-123456?
@@ -29,15 +30,9 @@ HRF-456098 date?
 HRF-456098 title?
 ```
  
-The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
-
 A regular expression is a good choice for this type of data when:
 
 * the data is well-formatted.
-
-HRF stands for `human resources form`.
-
-LUIS tokenizes the utterance when it is added to an intent. The tokenization for these utterances adds spaces before and after the hyphen, `Where is HRF - 123456?`  The regular expression is applied to the utterance in its raw form, before it is tokenized. Because it is applied to the _raw_ form, the regular expression doesn't have to deal with word boundaries. 
 
 **In this tutorial, you learn how to:**
 
@@ -95,6 +90,12 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
     [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Regular expression entity 
+The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
+
+HRF stands for `human resources form`.
+
+LUIS tokenizes the utterance when it is added to an intent. The tokenization for these utterances adds spaces before and after the hyphen, `Where is HRF - 123456?`  The regular expression is applied to the utterance in its raw form, before it is tokenized. Because it is applied to the _raw_ form, the regular expression doesn't have to deal with word boundaries. 
+
 Create a regular expression entity to tell LUIS what an HRF-number format is in the following steps:
 
 1. Select **Entities** in the left panel.
