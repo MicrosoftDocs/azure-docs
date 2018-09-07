@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2018
+ms.date: 09/05/2018
 ms.author: magoedte
 ---
 
 ## View performance utilization of your AKS cluster
-Viewing the performance of your Azure Kubernetes Service (AKS) clusters and container instances can be observed in two ways with Container Insights, from a AKS cluster or across all AKS clusters in a subscription from Azure Monitor. This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
+Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed in two ways with Container Insights, from a AKS cluster or across all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances (ACI) is viewed when you you drill-down to a specific AKS cluster.
+
+This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
 
 For information about configuring Container Insights, see [Configuring solution in Azure](monitoring-container-insights-onboard.md).
 
@@ -28,7 +30,11 @@ Azure Monitor provides a multi-cluster view showing the health status of all mon
 Sign in to the [Azure portal](https://portal.azure.com). 
 
 ## Multi-cluster view from Azure Monitor 
-To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section select **Containers (preview)**.  On the **Monitored clusters** tab, you are able to learn the following:
+To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section select **Containers (preview)**.  
+
+![Azure Monitor multi-cluster dashbaord example](./media/monitoring-container-insights-analyze/azure-monitor-multicluster-view-01.png)
+
+On the **Monitored clusters** tab, you are able to learn the following:
 
 1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
 2. How many nodes, user and system pods are deployed per cluster.  
@@ -42,17 +48,17 @@ The health states defined are:
 
 Health state calculates overall cluster status as *worst of*” the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
 
-From the list of clusters, you can drill-down to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
+From the list of clusters, you can drill-down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
 ## View performance directly from an AKS cluster
-When you open Container Insights, the page presents performance charts showing the performance utilization of your entire cluster. Viewing information about your AKS cluster is organized into four perspectives:
+Access to Container Insights is available directly from an AKS cluster by selecting **Health (preview)** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
 
 - Cluster
 - Nodes 
 - Controllers  
 - Containers
 
-On the **Cluster** tab, the four line performance charts display key performance metrics of your cluster. 
+The default page opened when you click on **Health (preview)** is **Cluster**, and it includes four line performance charts displaying key performance metrics of your cluster. 
 
 ![Example performance charts on the Cluster tab](./media/monitoring-container-insights-analyze/container-health-cluster-perfview.png)
 
@@ -73,15 +79,19 @@ Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object 
 
 ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-insights-analyze/container-health-nodes-view.png)
 
+Azure Container Instances Virtual Nodes running the Linux OS are shown after the last AKS cluster node in the list.  Expanding a AKS node shows When you expand an ACI Virtual Node, and you can view one or more ACI pods and containers.  Metrics are not collected and reported for nodes, only pods.
+
+![Example Node hierarchy with Container Instances listed](./media/monitoring-container-insights-analyze/container-health-nodes-view-aci.png)
+  
 You can select controllers or containers at the top of the page and review the status and resource utilization for those objects. Use the drop-down boxes at the top to filter by namespace, service, and node. If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value. 
 
-![Container nodes performance view](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
+![Container nodes performance view](./media/monitoring-container-insights-analyze/container-health-node-metric-dropdown.png)
 
-By default, Performance data is based on the last six hours, but you can change the window by using the **Time Range** drop-down list at the upper right. At this time, the page does not auto-refresh, so you need to manually refresh it. You can also filter the results within the time range by selecting **Avg**, **Min**, **Max**, **50th**, **90th**, and **95th** in the percentile selector. 
+By default, Performance data is based on the last six hours, but you can change the window by using the **Time Range** option at the upper left. You can also filter the results within the time range by selecting **Avg**, **Min**, **Max**, **50th**, **90th**, and **95th** in the percentile selector. 
 
 ![Percentile selection for data filtering](./media/monitoring-container-insights-analyze/container-health-metric-percentile-filter.png)
 
-In the following example, note for node *aks-nodepool-3977305*, the value for **Containers** is 5, which is a roll-up of the total number of containers deployed.
+In the following example, note for node *aks-nodepool-3977305*, the value for **Containers** is 21, which is a roll-up of the total number of containers deployed.
 
 ![Roll-up of containers per node example](./media/monitoring-container-insights-analyze/container-health-nodes-containerstotal.png)
 
@@ -100,16 +110,17 @@ The information that's presented when you view Nodes is described in the followi
 | Controllers | Only for containers and pods. It shows which controller it is residing in. Not all pods are in a controller, so some might display **N/A**. | 
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Bar graph trend presenting the percentile metric percentage of the controller. |
 
-
 In the selector, select **Controllers**.
 
 ![Select controllers view](./media/monitoring-container-insights-analyze/container-health-controllers-tab.png)
 
-Here you can view the performance health of your controllers.
+Here you can view the performance health of your controllers and ACI Virtual Node controllers or Virtual Node pods not connected to a controller.
 
 ![<Name> controllers performance view](./media/monitoring-container-insights-analyze/container-health-controllers-view.png)
 
-The row hierarchy starts with a controller and expands the controller. You view one or more containers. Expand a pod, and the last row displays the container grouped to the pod. 
+The row hierarchy starts with a controller and expands the controller. You view one or more containers. Expand a pod, and the last row displays the container grouped to the pod.  ACI pods not connected to a controller are listed last in the list.   
+
+![Example Controllers hierarchy with Container Instances pods listed](./media/monitoring-container-insights-analyze/container-health-controllers-view-aci.png)
 
 The information that's displayed when you view controllers is described in the following table:
 
@@ -140,7 +151,7 @@ In the selector, select **Containers**.
 
 ![Select containers view](./media/monitoring-container-insights-analyze/container-health-containers-tab.png)
 
-Here you can view the performance health of your containers.
+Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers.  
 
 ![<Name> controllers performance view](./media/monitoring-container-insights-analyze/container-health-containers-view.png)
 
@@ -169,11 +180,11 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Failed status icon](./media/monitoring-container-insights-analyze/container-health-failed-icon.png) | Failed state |
 
 ## Container data-collection details
-Container health collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
+Container Insights collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
 
 ### Container records
 
-Examples of records that are collected by container health and the data types that appear in log search results are displayed in the following table:
+Examples of records that are collected by Container Insights and the data types that appear in log search results are displayed in the following table:
 
 | Data type | Data type in Log Search | Fields |
 | --- | --- | --- |
@@ -198,7 +209,7 @@ You can perform interactive analysis of data in the workspace by selecting the *
 
 ![Analyze data in Log Analytics](./media/monitoring-container-insights-analyze/container-health-log-search-example.png)   
 
-The container logs output that's forwarded to Log Analytics are STDOUT and STDERR. Because container health is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
+The container logs output that's forwarded to Log Analytics are STDOUT and STDERR. Because Container Insights is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
 
 ### Example log search queries
 It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample queries:
