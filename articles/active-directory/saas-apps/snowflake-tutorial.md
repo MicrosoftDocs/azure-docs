@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: jeedes
 
 ---
@@ -107,13 +107,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Snowflake Domain and URLs single sign-on information](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL.
