@@ -37,8 +37,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type the *myResourceGroup* for the name. 
 
+	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name* and choose *East US* for your your **Location**. Leave the other defaults.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your your **Location**. Leave the other defaults.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
@@ -46,7 +47,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Enter your username and password](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules**, in the **Select inbound port rules** drop-down, unselect **No public inbound ports** and then select **RDP (3389)** and **HTTP**.
+1. Under **Inbound port rules**, in the select **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
 
 	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
