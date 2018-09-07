@@ -39,12 +39,14 @@ Before accessing Azure Cognitive Services, you must create and subscribe to at l
 
 3. On the **Create** page, provide the following information:
 
-|    |    |
-|--|--|
-| **Name** | A descriptive name for your cognitive services resource. We recommend using a descriptive name, for example *MyNameFaceAPIAccount*. |
-| **Subscription:** | Select one of your available Azure subscriptions. |
-| **Pricing tier:** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
-| **Location:** | The location of your cognitive service instance. Different location may introduce latency, but has no impact on the runtime availability of your resource. |
+    |    |    |
+    |--|--|
+    | **Name** | A descriptive name for your cognitive services resource. We recommend using a descriptive name, for example *MyNameFaceAPIAccount*. |
+    | **Subscription:** | Select one of your available Azure subscriptions. |
+    | **Pricing tier:** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Location:** | The location of your cognitive service instance. Different location may introduce latency, but has no impact on the runtime availability of your resource. |
+
+    ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 ## Access your resource 
 
