@@ -3,7 +3,7 @@ title: Show search results with Azure Maps | Microsoft Docs
 description: How to perform a search request with Azure Maps then display the results on a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -15,7 +15,7 @@ ms.custom: codepen
 
 This article shows you how to search for location of interest and show the search results on the map. 
 
-There are two ways to search for a location of interest, one is by making a search request through a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) and other is by using a service module to make a search request. We discuss both below.
+There are two ways to search for a location of interest, one is by making a search request through a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) and other is by using a service module to make a search request. We discuss both below.
 
 ## Search by XMLHttpRequest
 
