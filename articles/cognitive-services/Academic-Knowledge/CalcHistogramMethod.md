@@ -31,6 +31,7 @@ Name  |Value | Required?  |Description
 **attributes** | Text string | No<br>default: | A comma-delimited list that specifies the attribute values that are included in the response. Attribute names are case-sensitive.
 **count** |Number | No<br>Default: 10 |Number of results to return.
 **offset**  |Number | No<br>Default: 0 |Index of the first result to return.
+**timeout**  |Number | No<br>Default: 1000 |Timeout in milliseconds. Only interpretations found before the timeout has elapsed are returned.
 <br>
 ## Response (JSON)
 Name | Description
