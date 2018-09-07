@@ -24,7 +24,7 @@ Azure Monitor maximizes the availability and performance of your applications by
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## Overview
-The following diagram gives a high level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs which are the two fundamental types of data use by Azure Monitor . On the left are the [sources that collect telemetry from different monitored resources](../monitoring/monitoring-data-sources.md) and populate the [data stores](../monitoring/monitoring-data-collection.md). On the right are the variety of different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
+The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs which are the two fundamental types of data use by Azure Monitor. On the left are the [sources that collect telemetry from different monitored resources](../monitoring/monitoring-data-sources.md) and populate the [data stores](../monitoring/monitoring-data-collection.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
 
 
 ![Azure Monitor overview](media/overview/overview.png)
@@ -33,7 +33,7 @@ The following diagram gives a high level view of Azure Monitor. At the center of
 ## Monitoring data platform
 All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](../monitoring/monitoring-data-collection.md). [Metrics](../monitoring/monitoring-data-collection.md#metrics) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](../monitoring/monitoring-data-collection.md#logs) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
-For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [Metric explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) in the Azure portal which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
+For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [Metric explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
 ![Metrics](media/overview/metrics.png)
 
@@ -76,12 +76,12 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ![Container Health](../monitoring/media/monitoring-container-health/container-health-containers-view.png)
 
 ### VM Insights
-Azure Monitor VM insights monitors your Windows and Linux virtual machines (VM) at scale by analyzing their performance and health, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.
+Azure Monitor VM Insights monitors your Windows and Linux virtual machines (VM) at scale by analyzing their performance and health, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.
 
 ![VM Insights](media/overview/vminsights.png)
 
 ### Monitoring solutions
-[Monitoring solutions](../monitoring/monitoring-solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data,using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../monitoring/monitoring-solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
+[Monitoring solutions](../monitoring/monitoring-solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../monitoring/monitoring-solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
 
 ![Monitoring solutions](../monitoring/media/monitoring-solutions/overview.png)
 
@@ -92,12 +92,12 @@ In addition to allowing you to interactively analyze monitoring data, an effecti
 ### Alerts
 [Alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively notify you of critical conditions and potentially attempt to take corrective action. Alert rules based on metrics provide near real time alerting based on numeric values, while rules based on logs allow for complex logic across data from multiple sources.
 
-Alert rules in Azure Monitor use [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md), which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform succ actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.
+Alert rules in Azure Monitor use [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md), which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform such actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.
 
 ![Alerts](media/overview/alerts.png)
 
 ### Autoscale
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to create rules that use metrics collected by Azure Monitor to determnine when to automatically add resources to handle increases in load and also save money by removing resources that are sitting idle. You specify a minimum and maximum number of instances and the logic for when to increase or decrease resources.
+Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to create rules that use metrics collected by Azure Monitor to determine when to automatically add resources to handle increases in load and also save money by removing resources that are sitting idle. You specify a minimum and maximum number of instances and the logic for when to increase or decrease resources.
 
 ![Autoscale](media/overview/autoscale.png)
 
