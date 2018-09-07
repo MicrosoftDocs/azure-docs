@@ -54,7 +54,7 @@ ms.technology: cognitive-services
             </a>
         </li>
         <li>
-            <a href="/azure/cosmos-db/graph-introduction/">
+            <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
                     <div class="cardPadding">
                         <div class="card">
