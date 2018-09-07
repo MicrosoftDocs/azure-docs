@@ -14,7 +14,7 @@ ms.date: 9/24/2018
 
 # What is FPGA and Project Brainwave?
 
-This article provides an introduction to field-programmable gate arrays (FPGA) and how FPGA is integrated with Azure Machine Learning to provide real-time AI.
+This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning provides real-time AI with FPGA.
 
 FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways post-manufacturing. FPGAs provide a combination of programmability and performance compared to other chips.
 
@@ -26,7 +26,7 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 |---|:-------:|------|
 |Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency but are inflexible.|
 |Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs, but are flexible and reconfigurable over time.|
-|Graphics processing units|GPUs|A popular choice for AI computations offering parallel processing capabilities that is faster at image rendering than CPUs.|
+|Graphics processing units|GPUs|A popular choice for AI computations offering parallel processing capabilities making it faster at image rendering than CPUs.|
 |Central processing units|CPUs|General-purpose processors whose performance is not ideal for graphics and video processing.|
 
 ## Project Brainwave on Azure
