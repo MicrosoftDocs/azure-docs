@@ -71,7 +71,7 @@ ms.custom: H1Hack27Feb2017
 
 ### <a name="1.20.2"/>1.20.2
 
-* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+* Fixed bug that is hit under certain race conditions, that results in intermittent "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" errors when using Session consistency level.
 
 ### <a name="1.20.1"/>1.20.1
 
