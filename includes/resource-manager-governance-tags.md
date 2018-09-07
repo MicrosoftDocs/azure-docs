@@ -10,9 +10,11 @@
  ms.custom: include file
 ---
 
-You apply tags to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+You apply tags to your Azure resources giving metadata to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
 After you apply tags, you can retrieve all the resources in your subscription with that tag name and value. Tags enable you to retrieve related resources from different resource groups. This approach is helpful when you need to organize resources for billing or management.
+
+Your taxonomy should consider a self-service metadata tagging strategy in addition to an auto-tagging strategy to reduce the burden on users and increase accuracy.
 
 The following limitations apply to tags:
 
