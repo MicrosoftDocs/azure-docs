@@ -1,5 +1,5 @@
 ---
-title: Analyzing Log Analytics data in Azure Monitor | Microsoft Docs
+title: Analyze Log Analytics data in Azure Monitor | Microsoft Docs
 description: You require a log search to retrieve any data from Log Analytics.  This article describes how new log searches are used in Log Analytics and provides concepts that you need to understand before creating one.
 services: log-analytics
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: bwren
 ms.component: na
 ---
 
-# Analyzing Log Analytics data in Azure Monitor
+# Analyze Log Analytics data in Azure Monitor
 
 Log data collected by Azure Monitor is stored in Log Analytics which collects telemetry and other data from a variety of sources and provides a query language for advanced analytics.
 
@@ -46,7 +46,7 @@ The different ways that you will use queries in Log Analytics include the follow
 
 ![Log searches](media/log-analytics-queries/queries-overview.png)
 
-## Writing a query
+## Write a query
 Log Analytics includes [an extensive query language](query-language/get-started-queries.md) that lets you retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
 The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
