@@ -29,7 +29,7 @@ The Speech to Text REST API supports only short utterances. Requests may contain
 
 ## Text to Speech
 
-The new Text to Speech API supports 24-KHz audio output. The `X-Microsoft-OutputFormat` header may now contain the following values.
+The new Text to Speech API supports 24-kHz audio output. The `X-Microsoft-OutputFormat` header may now contain the following values.
 
 |||
 |-|-|
@@ -40,7 +40,7 @@ The new Text to Speech API supports 24-KHz audio output. The `X-Microsoft-Output
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-The Speech service now provides two 24-KHz voices:
+The Speech service now provides two 24-kHz voices:
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
