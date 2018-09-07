@@ -9304,6 +9304,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-overview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
             "redirect_document_id": false
@@ -25881,6 +25891,16 @@
             "source_path": "articles/iot-hub/iot-hub-get-started.md",
             "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/index.md",
