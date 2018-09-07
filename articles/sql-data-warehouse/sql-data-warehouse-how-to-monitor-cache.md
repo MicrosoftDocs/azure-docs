@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ---
 
 # How to monitor the Gen2 cache
-The Gen2 storage architecture automatically tiers your most frequently queried columnstore segments in a cache residing on NVMe based SSDs specifically designed for Gen2 data warehouses. Greater performance is realized when your queries retrieve segments that are residing in the cache. This article describes how to monitor and troubleshoot slow query performance by determining whether your workload is optimally leveraging the Gen2 cache.  
+The Gen2 storage architecture automatically tiers your most frequently queried columnstore segments in a cache residing on NVMe based SSDs designed for Gen2 data warehouses. Greater performance is realized when your queries retrieve segments that are residing in the cache. This article describes how to monitor and troubleshoot slow query performance by determining whether your workload is optimally leveraging the Gen2 cache.  
 ## Troubleshoot using the Azure portal
 You can use Azure Monitor to view Gen2 cache metrics to troubleshoot query performance. First go to the Azure portal and click on Monitor:
 
@@ -34,15 +34,15 @@ The matrix below describes scenarios based on the values of the cache metrics:
 | **High Cache used percentage** |          Scenario 1           |          Scenario 2          |
 | **Low Cache used percentage**  |          Scenario 3           |          Scenario 4          |
 
-**Scenario 1:** You are optimally using your cache. [Troubleshoot](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) other areas which may slowing down your queries.
+**Scenario 1:** You are optimally using your cache. [Troubleshoot](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) other areas which may be slowing down your queries.
 
 **Scenario 2:** Your current working data set cannot fit into the cache which causes a low cache hit percentage due to physical reads. Consider scaling up your performance level and rerun your workload to populate the cache.
 
-**Scenario 3:** It is likely that your query is running slow due to reasons unrelated to the cache. [Troubleshoot](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) other areas which may slowing down your queries. You can also consider [scaling down your instance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) to reduce your cache size to save costs. 
+**Scenario 3:** It is likely that your query is running slow due to reasons unrelated to the cache. [Troubleshoot](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) other areas which may be slowing down your queries. You can also consider [scaling down your instance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) to reduce your cache size to save costs. 
 
-**Scenario 4:** You had a cold cache which could be the reason why your query was slow. Please consider rerunning your query as your working dataset should now be in cached. 
+**Scenario 4:** You had a cold cache which could be the reason why your query was slow. Consider rerunning your query as your working dataset should now be in cached. 
 
-**Important: If the cache hit percentage or cache used percentage is not updating after re-running your workload, your working set can already be residing in memory. Note only clustered columnstore tables are cached.**
+**Important: If the cache hit percentage or cache used percentage is not updating after rerunning your workload, your working set can already be residing in memory. Note only clustered columnstore tables are cached.**
 
 ## Next steps
 For more information on general query performance tuning, see [Monitor query execution](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).
