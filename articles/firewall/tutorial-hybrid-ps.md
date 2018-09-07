@@ -106,7 +106,7 @@ Now, create the firewall hub VNet:
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
-Request a public IP address to be allocated to the gateway you will create for your VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
+Request a public IP address to be allocated to the VPN gateway you will create for your VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your VPN gateway. 
 
   ```azurepowershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -222,7 +222,7 @@ Create the VPN gateway configuration. The VPN gateway configuration defines the 
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 
-Now create the VPN gateway for the hub VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+Now create the VPN gateway for the hub VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway SKU.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
@@ -232,7 +232,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
 
 ### Create a VPN gateway for the OnPrem VNet
 
-Create the VPN gateway configuration. The gateway configuration defines the subnet and the public IP address to use.
+Create the VPN gateway configuration. The VPN gateway configuration defines the subnet and the public IP address to use.
 
   ```azurepowershell
 $vnet2 = Get-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
@@ -241,7 +241,7 @@ $gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem 
   -Subnet $subnet2 -PublicIpAddress $gwOnprempip
   ```
 
-Now create the VPN gateway for the OnPrem VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+Now create the VPN gateway for the OnPrem VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway SKU.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
