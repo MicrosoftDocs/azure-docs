@@ -74,5 +74,6 @@ After a restore from either recovery mechanism, you should perform the following
 ## Next steps
 
 - To learn more about business continuity, see the [business continuity overview](concepts-business-continuity.md).
+
 <!--- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
 - To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).-->

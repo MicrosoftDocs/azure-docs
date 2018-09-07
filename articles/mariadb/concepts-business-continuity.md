@@ -49,5 +49,8 @@ The other option is to use the Azure Database for MariaDB's geo-restore feature 
 ## Next steps
 
 - To learn more about the automated backups, see [Backups in Azure Database for MariaDB](concepts-backup.md).
-<!-- - To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). -->
+
+<!-- 
+- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
+- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 
+-->

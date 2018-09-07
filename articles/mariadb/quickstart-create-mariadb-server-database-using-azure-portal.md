@@ -231,9 +231,5 @@ To delete only the newly created server, take the following steps:
 
 3.	Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **mydemoserver**). Select **Delete**.
 
-<!-- ## Next steps
-
-> [!div class="nextstepaction"]
-> [Design your first Azure Database for MariaDB database](./tutorial-design-database-using-portal.md)
-
--->
+## Next steps
+- [Design your first Azure Database for MariaDB database](./tutorial-design-database-using-portal.md)

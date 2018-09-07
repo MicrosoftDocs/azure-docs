@@ -84,7 +84,8 @@ The storage you provision is the amount of storage capacity available to your Az
 
 You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
-You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
+You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are storage limit, storage percentage, storage used, and IO percent.
+<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
 
 ### Reaching the storage limit
 
@@ -111,7 +112,7 @@ Scaling storage and changing the backup retention period are true online operati
 For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/mariadb/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MariaDBServer) shows the monthly cost on the **Pricing tier** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, and choose **Azure Database for MariaDB** to customize the options.
 
 ## Next steps
-
+- Learn about the [service limitations](concepts-limits.md).
+- 
 <!--- Learn how to [create a MariaDB server in the portal](howto-create-manage-server-portal.md).
 - Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md). -->
-- Learn about the [service limitations](concepts-limits.md).
