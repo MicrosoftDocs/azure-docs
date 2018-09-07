@@ -1,5 +1,5 @@
 ---
-layout: LandingPage
+layout: Hubpage
 title: Azure Cognitive Services Documentation
 description: Learn how to build intelligent algorithms into apps, websites, and bots so they see, hear, speak, understand and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how to use the APIs.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 09/06/2018
-ms.topic: landing-page
+ms.topic: hub-page
 ms.prod: cognitive-services
 ms.technology: cognitive-services
 ---
