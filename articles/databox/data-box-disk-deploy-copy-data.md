@@ -169,7 +169,9 @@ To verify the data integrity, perform the following steps.
 
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 
-    >[!TIP]
+    If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
+
+    > [!TIP]
     > - Reset the tool beween two runs.
     > - Use option 1 to validate the files only dealing with large data set containing small files (~KBs). In these instances, checksum generation may take a very long time and the performance could be very slow.
 
