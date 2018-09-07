@@ -6,7 +6,7 @@ metadata:
   description: Documentation, videos, and example models for Machine Learning, a cloud service for data scientists and developers using predictive analytics in applications.
   services: machine-learning
   author: j-martens
-  manager: jhubbard
+  manager: cgronlund
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -57,7 +57,7 @@ sections:
         values:
         - href: /azure/machine-learning/service/concept-data-preparation
         - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-      - title: Build and train your own machine-learning model
+      - title: Build your own machine learning model
         values:
         - href: /azure/machine-learning/service/tutorial-train-models-with-aml
         - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
