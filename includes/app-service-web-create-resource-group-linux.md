@@ -5,7 +5,7 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 03/12/2018
+ms.date: 08/20/2018
 ms.author: cephalin
 ms.custom: "include file"
 ---
