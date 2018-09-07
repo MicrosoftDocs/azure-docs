@@ -29,7 +29,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
     |Circular|Any direction from the device|
     |Linear|In front of the device|
 
-* Get the latest version of the Speech Devices SDK, which includes an Android sample app, from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). Extract the .zip file to a local folder like C:\SDSDK.
+* Get the latest version of the Speech Devices SDK, which includes an Android sample app, from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). Extract the .zip file to a local folder, like C:\SDSDK.
 
 * Install [Android Studio](https://developer.android.com/studio/) and [Vysor](http://vysor.io/download/) on your PC.
 
@@ -41,13 +41,13 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 ## Set up the development kit
 
-1. Turn on the dev kit by using a mini USB cable connected to a PC or power adapter. A green power indicator lights up under the top board.
+1. Connect the dev kit to a PC or power adapter by using a mini USB cable. When the dev kit is connected, a green power indicator lights up under the top board.
 
 1. Connect the development kit to a computer by using a second mini USB cable.
 
     ![Connecting the dev kit](media/speech-devices-sdk/qsg-1.png)
 
-1. Orient your development kit.
+1. Orient your development kit for either the circular or linear configuration.
 
     |Development kit configuration|Orientation|
     |-----------------------------|------------|
@@ -68,7 +68,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
    ```
 
     > [!NOTE]
-    > These commands use the Android Debug Bridge, adb.exe, which is part of the Android Studio installation. This tool is in located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
+    > These commands use the Android Debug Bridge, adb.exe, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
 
     > [!TIP]
     > Mute your PC's microphone and speaker to be sure you are working with the development kit's microphones. This way, you won't accidentally trigger the device with audio from the PC.
@@ -77,14 +77,16 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.	Your device should be listed under **Choose a device**. Select the **View** button next to it. 
+1.	Your device should be listed under **Choose a device**. Select the **View** button next to the device. 
  
-1.	Connect to your wireless network by selecting the folder icon, and then **Settings** > **WLAN**.
+1.	Connect to your wireless network by selecting the folder icon, and then select **Settings** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
  
     > [!NOTE]
-    > If your company has policies about connecting devices to its Wi-Fi system, you need to obtain the MAC address and contact your IT department about how to connect it to Wi-Fi. To find the MAC address of the dev kit, select the file folder icon on the desktop of the dev kit.
+    > If your company has policies about connecting devices to its Wi-Fi system, you need to obtain the MAC address and contact your IT department about how to connect it to your company's Wi-Fi. 
+    >
+    > To find the MAC address of the dev kit, select the file folder icon on the desktop of the dev kit.
     >
     >  ![Vysor file folder](media/speech-devices-sdk/qsg-10.png)
     >
@@ -92,7 +94,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
     >
     > ![Vysor MAC address](media/speech-devices-sdk/qsg-11.png)
     >
-    > Some companies might have a time limit of how long a device can be connected to their Wi-Fi system. You might need to extend the dev kit's registration with your Wi-Fi system after a specific number of days.
+    > Some companies might have a time limit on how long a device can be connected to their Wi-Fi system. You might need to extend the dev kit's registration with your Wi-Fi system after a specific number of days.
     > 
     > If you want to attach a speaker to the dev kit, you can connect it to the audio line out. You should choose a good-quality, 3.5-mm speaker.
     >
@@ -110,9 +112,9 @@ To run the ROOBO tests and validate your development kit setup, build and instal
  
 1.	Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
  
-1.	Add your Speech subscription key to the source code. If you want to try out intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID. 
+1.	Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID. 
 
-    Your keys and application information goes in the following lines in the source file MainActivity.java:
+    Your keys and application information go in the following lines in the source file MainActivity.java:
 
     ```java
     // Subscription
@@ -138,7 +140,7 @@ To run the ROOBO tests and validate your development kit setup, build and instal
         exit
         ```
 
-    * Copy the files kws.table, kws_g.fst, kws_k.fst, and words_kw.txt to the device's \data\keyword folder. Run the following commands in a Command Prompt window. If you created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is in the same directory as the kws.table, kws_g.fst, kws_k.fst, and words_kw.txt files. Instead, use the `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` command to push the kws.table file to the dev kit:
+    * Copy the files kws.table, kws_g.fst, kws_k.fst, and words_kw.txt to the device's \data\keyword folder. Run the following commands in a Command Prompt window. If you created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is in the same directory as the kws.table, kws_g.fst, kws_k.fst, and words_kw.txt files. For a custom wake word, use the `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` command to push the kws.table file to the dev kit:
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -180,7 +182,9 @@ To run the ROOBO tests and validate your development kit setup, build and instal
     |||For a linear dev kit that uses two mics: `Linear2`|
 
 
-1.	To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears. Select your device, and then select **OK** to deploy the application to the device.
+1.	To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears. 
+
+1. Select your device, and then select **OK** to deploy the application to the device.
 
     ![Select Deployment Target dialog box](media/speech-devices-sdk/qsg-7.png)
  
@@ -188,7 +192,7 @@ To run the ROOBO tests and validate your development kit setup, build and instal
 
     ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
 
-1. Experiment with it!
+1. Experiment!
 
 ## Troubleshooting
 
@@ -206,8 +210,8 @@ If you get certificate failures when you use the Speech service, make sure that 
 
     When you see that the dev kit's time matches the time on your PC, the dev kit is connected to the internet. 
     
-    For more development information, see ROOBO's [development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+    For more development information, see the [ROOBO development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
 ### Audio
 
-ROOBO provides a tool that captures all audio to flash memory, which might help you troubleshoot audio issues. A version of the tool is provided for each development kit configuration. On the  [ROOBO site](http://ddk.roobo.com/), select your device, and then select the **ROOBO Tools** link at the bottom of the page.
+ROOBO provides a tool that captures all audio to flash memory. It might help you troubleshoot audio issues. A version of the tool is provided for each development kit configuration. On the  [ROOBO site](http://ddk.roobo.com/), select your device, and then select the **ROOBO Tools** link at the bottom of the page.
