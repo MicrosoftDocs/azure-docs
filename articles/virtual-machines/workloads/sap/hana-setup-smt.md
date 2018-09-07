@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Setting up SMT server for SUSE Linux
-SAP HANA Large Instances don't have direct connectivity to the Internet. Hence it is not a straightforward process to register such a unit with the OS provider and to download and apply patches. In the case of SUSE Linux, one solution could be to set up an SMT server in an Azure VM. Whereas the Azure VM needs to be hosted in an Azure VNet, which is connected to the HANA Large Instance. With such an SMT server, the HANA Large Instance unit could register and download patches. 
+SAP HANA Large Instances don't have direct connectivity to the Internet. Hence it is not a straightforward process to register such a unit with the OS provider and to download and apply patches. If SUSE Linux, one solution could be to set up an SMT server in an Azure VM. Whereas the Azure VM needs to be hosted in an Azure VNet, which is connected to the HANA Large Instance. With such an SMT server, the HANA Large Instance unit could register and download patches. 
 
 SUSE provides a larger guide on their [Subscription Management Tool for SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
 
@@ -29,22 +29,22 @@ As precondition for the installation of an SMT server that fulfills the task for
 
 ## Installation of SMT server on Azure VM
 
-In this step, you install the SMT server in an Azure VM. The first measure is to log in to the [SUSE Customer Center](https://scc.suse.com/)
+In this step, you install the SMT server in an Azure VM. The first measure is to sign in to the [SUSE Customer Center](https://scc.suse.com/)
 
 As you are logged in, go to Organization--> Organization Credentials. In that section you should find the credentials that are necessary to set up the SMT server.
 
-The third step is to install a SUSE Linux VM in the Azure VNet. To deploy the VM, take a SLES 12 SP2 gallery image of Azure. In the deployment process, don't define a DNS name and do not use static IP addresses as seen in this screen shot
+The third step is to install a SUSE Linux VM in the Azure VNet. To deploy the VM, take a SLES 12 SP2 gallery image of Azure. In the deployment process, don't define a DNS name and do not use static IP addresses as seen in this screenshot
 
 ![vm deployment for SMT server](./media/hana-installation/image3_vm_deployment.png)
 
 The deployed VM was a smaller VM and got the internal IP address in the Azure VNet of 10.34.1.4. Name of the VM was smtserver. After the installation, the connectivity to the HANA Large instance unit(s) was checked. Dependent on how you organized name resolution you might need to configure resolution of the HANA Large Instance units in etc/hosts of the Azure VM. 
-Add an additional disk to the VM that is going to be used to hold the patches. The boot disk itself could be too small. In the case demonstrated, the disk got mounted to /srv/www/htdocs as shown in the following screenshot. A 100 GB disk should suffice.
+Add an additional disk to the VM that is going to be used to hold the patches. The boot disk itself could be too small. In the case demonstrated, the disk got mounted to /srv/www/htdocs as shown in the following screenshot. A 100-GB disk should suffice.
 
 ![vm deployment for SMT server](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
-Log in to the HANA Large Instance unit(s), maintain /etc/hosts and check whether you can reach the Azure VM that is supposed to run the SMT server over the network.
+Sign in to the HANA Large Instance unit(s), maintain /etc/hosts and check whether you can reach the Azure VM that is supposed to run the SMT server over the network.
 
-After this check is done successfully, you need to log in to the Azure VM that should run the SMT server. If you are using putty to log in to the VM, you need to execute this sequence of commands in your bash window:
+After this check is done successfully, you need to sign in to the Azure VM that should run the SMT server. If you are using putty to sign in to the VM, you need to execute this sequence of commands in your bash window:
 
 ```
 cd ~
@@ -74,7 +74,7 @@ The next interaction you have is when a certificate gets created. Go through the
 
 ![Create certificate for SMT server](./media/hana-installation/image9_certificate_creation.PNG)
 
-There might be some minutes spent in the step of 'Run synchronization check' at the end of the configuration. After the installation and configuration of the SMT server, you should find the directory repo under the mount point /srv/www/htdocs/ plus some sub-directories under repo. 
+There might be some minutes spent in the step of 'Run synchronization check' at the end of the configuration. After the installation and configuration of the SMT server, you should find the directory repo under the mount point /srv/www/htdocs/ plus some subdirectories under repo. 
 
 Restart the SMT server and its related services with these commands.
 
