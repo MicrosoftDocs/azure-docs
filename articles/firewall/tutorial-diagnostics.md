@@ -38,8 +38,8 @@ It can take a few minutes for the data to appear in your logs after you complete
 
    For Azure Firewall, two service-specific logs are available:
 
-   * Application rule log
-   * Network rule log
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. To start collecting data, click **Turn on diagnostics**.
 4. The **Diagnostics settings** page provides the settings for the diagnostic logs. 
@@ -97,7 +97,7 @@ You can also connect to your storage account and retrieve the JSON log entries f
 > If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 ## View metrics
-- procedures to view firewall metrics and alerts.
+Browse to an Azure Firewall, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
 
 ## Next steps
 

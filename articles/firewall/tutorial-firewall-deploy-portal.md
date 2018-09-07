@@ -77,9 +77,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 7. For **Subscription**, select your subscription.
 8. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
 9. For **Location**, select the same location that you used previously.
-10. Under **Subnet**, for **Name** type **AzureFirewallSubnet**.
-
-    The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+10. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
 11. For **Address range**, type **10.0.1.0/24**.
 12. Use the other default settings, and then click **Create**.
 
@@ -201,17 +199,16 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 
 
 1. Open the **Test-FW-RG**, and click the **Test-FW01** firewall.
-1. On the **Test-FW01** page, under **Settings**, click **Rules**.
-2. Click **Add application rule collection**.
-3. For **Name**, type **App-Coll01**.
-1. For **Priority**, type **200**.
-2. For **Action**, select **Allow**.
-
-6. Under **Rules**, for **Name**, type **AllowGH**.
-7. For **Source Addresses**, type **10.0.2.0/24**.
-8. For **Protocol:port**, type **http, https**. 
-9. For **Target FQDNS**, type **github.com**
-10. Click **Add**.
+2. On the **Test-FW01** page, under **Settings**, click **Rules**.
+3. Click **Add application rule collection**.
+4. For **Name**, type **App-Coll01**.
+5. For **Priority**, type **200**.
+6. For **Action**, select **Allow**.
+7. Under **Rules**, for **Name**, type **AllowGH**.
+8. For **Source Addresses**, type **10.0.2.0/24**.
+9. For **Protocol:port**, type **http, https**. 
+10. For **Target FQDNS**, type **github.com**
+11. Click **Add**.
 
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).

@@ -24,7 +24,7 @@ You can access some of these logs through the portal. Logs can be sent to [Log A
    The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
-   Category: access logs are either application or network rule logs.
+   Category: application rule logs.
    Time: log timestamp.
    Properties: currently contains the full message. 
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
@@ -47,7 +47,7 @@ You can access some of these logs through the portal. Logs can be sent to [Log A
    The Network rule log is saved to a storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
-   Category: access logs are either application or network rule logs.
+   Category: network rule logs.
    Time: log timestamp.
    Properties: currently contains the full message. 
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
