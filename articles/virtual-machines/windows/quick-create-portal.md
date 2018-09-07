@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/06/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -40,15 +40,20 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Under **Instance details**, type *myVM* for the **Virtual machine name* and choose *East US* for your your **Location**. Leave the other defaults.
 
+	![Instance details section](./media/quick-create-portal/instance-details.png)
+
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-    ![Enter your username and password](./media/quick-create-portal/username.png)
+    ![Enter your username and password](./media/quick-create-portal/administrator-account.png)
 
 1. Under **Inbound port rules**, in the **Select inbound port rules** drop-down, unselect **No public inbound ports** and then select **RDP (3389)** and **HTTP**.
 
-	![Open ports for RDP and HTTP](./media/quick-create-portal/ports-3389-80.png)
+	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
+
+	![Review and create](./media/quick-create-portal/review-create.png)
+
 
 There are lots of other settings on the other tabs, but this is all we need to create a basic Windows VM. 
 

@@ -45,25 +45,26 @@ Log in to the Azure portal at http://portal.azure.com
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
+1. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
 
-3. Provide a VM name, such as *myVM*, leave the disk type as *SSD*, then provide a username, such as *azureuser*.
+1. Provide a VM name, such as *myVM*, leave the disk type as *SSD*, then provide a username, such as *azureuser*.
 
-4. For **Authentication type**, select **SSH public key**, then paste your public key into the text box. Take care to remove any leading or trailing white space in your public key.
+1. For **Authentication type**, select **SSH public key**, then paste your public key into the text box. Take care to remove any leading or trailing white space in your public key.
 
-    ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+    ![Administrator account](./media/quick-create-portal/administrator account.png)
+	![Inbound port rules to open ports 22 and 80](./media/quick-create-portal/inbound-port-rules.png)
+	![Instance details](./media/quick-create-portal/instance-details.png)
+	![Project details](./media/quick-create-portal/project-details.png)
 
-5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your desired **Location**, then select **OK**.
+1. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your desired **Location**, then select **OK**.
 
-4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*.
+1. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*.
 
-    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+1. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**.
 
-5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**.
+1. On the summary page, select **Create** to start the VM deployment.
 
-6. On the summary page, select **Create** to start the VM deployment.
-
-7. The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
+1. The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
 
 ## Connect to virtual machine
 
