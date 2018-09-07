@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/20/2018
+ms.date: 09/07/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -49,10 +49,18 @@ git pull origin built-in
 Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the commands below to install the required dependencies and launch the built-in development server. 
 
 ```bash
+# In Bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
+
+# In PowerShell
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+$env:FLASK_APP=application.py
+flask run
 ```
 
 Open a web browser, and navigate to the sample app at `http://localhost:5000/`.
