@@ -14,7 +14,7 @@ manager: douge
 # Azure Dev Spaces
 Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal dev machine setup, you can iteratively run and debug containers directly in Azure Kubernetes Service (AKS). Develop on Windows, Mac, or Linux using familiar tools like Visual Studio, Visual Studio Code, or the command line.
 
-[!INCLUDE[](includes/dev-spaces-preview.md)]
+[!INCLUDE [](includes/dev-spaces-preview.md)]
 
 ## How Azure Dev Spaces simplifies Kubernetes development 
 
@@ -24,7 +24,7 @@ Azure Dev Spaces helps development teams be more productive on Kubernetes in the
 - Generate Docker and Kubernetes configuration-as-code assets for you to use from development through to production. 
 - Share a managed Kubernetes cluster with your team and collaboratively work together. Develop your code in isolation, and do end-to-end testing with other components without replicating or mocking up dependencies.
 
-[!INCLUDE[](includes/get-started.md)]
+[!INCLUDE [](includes/get-started.md)]
 
 ![](media/azure-dev-spaces/vscode-overview.png)
 
