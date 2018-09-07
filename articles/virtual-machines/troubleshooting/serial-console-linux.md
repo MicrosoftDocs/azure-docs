@@ -34,12 +34,12 @@ For serial console documentation for Windows VMs, [click here](../windows/serial
 * You must be using the resource management deployment model. Classic deployments are not supported. 
 * Your virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled - see screenshot below.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * The Azure account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 * The virtual machine for which you are acessing serial console must also have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionality of the VM access extension - see the screenshot below.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+    ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 * For settings specific to Linux distros, see [Access the serial console for Linux](#access-serial-console-for-linux)
 
@@ -53,7 +53,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   3. Click on the VM in the list. The overview page for the VM will open.
   4. Scroll down to the Support + Troubleshooting section and click on serial console (Preview) option. A new pane with the serial console will open and start the connection.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 
@@ -88,7 +88,7 @@ By default, all subscriptions have serial console access enabled for all VMs. Yo
 ### Subscription-level disable
 Serial console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+![](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
 Alternatively, you may use the set of commands below in Cloud Shell (bash commands shown) to disable, enable, and view the disbled status of serial console for a subscription. 
 
