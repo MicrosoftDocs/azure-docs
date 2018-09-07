@@ -34,25 +34,25 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual network
 
-Create a virtual network using the [az network vnet create][az-network-vnet-create] command. The following example creates a virtual network name *myVnet* with an address prefix of *10.240.0.0/16*, and a subnet named *myAKSSubnet*. The address prefix of this subnet defaults to *10.240.0.0/17*:
+Create a virtual network using the [az network vnet create][az-network-vnet-create] command. The following example creates a virtual network name *myVnet* with an address prefix of *10.0.0.0/8*, and a subnet named *myAKSSubnet*. The address prefix of this subnet defaults to *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefixes 10.240.0.0/16 \
+    --address-prefixes 10.8.0.0/8 \
     --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/17
+    --subnet-prefix 10.240.0.0/16
 ```
 
-Now create an additional subnet for virtual nodes using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *myVirtualNodeSubnet* with the address prefix of *10.240.252.0/22*.
+Now create an additional subnet for virtual nodes using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *myVirtualNodeSubnet* with the address prefix of *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
-    --address-prefix 10.240.252.0/22
+    --address-prefix 10.241.0.0/16
 ```
 
 ## Create a service principal
