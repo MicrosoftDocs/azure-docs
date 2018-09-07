@@ -30,6 +30,7 @@ Try from Azure portal using the Cloud Shell icon.
 ![Portal launch](media/overview/portal-launch-icon.png)
 
 ## Features
+
 ### Browser-based shell experience
 Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.
 Leverage Cloud Shell to work untethered from a local machine in a way only the cloud can provide.
@@ -64,7 +65,7 @@ Cloud Shell machines are temporary and require a new or existing Azure Files sha
 
 On first launch Cloud Shell prompts to create a resource group, storage account, and Azure Files share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell (Preview).
 
-Read more to learn how to mount a [new storage account/file share](media/overview/basic-storage.png) or [select an existing one](media/overview/advanced-storage.png).
+Read more to learn how to mount a [new or existing storage account](../../includes/cloud-shell-persisting-shell-storage-introblock.md).
 
 ## Concepts
 * Cloud Shell runs on a temporary host provided on a per-session, per-user basis
