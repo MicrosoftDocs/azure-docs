@@ -67,7 +67,7 @@ The following diagram is a taxonomy of the workspace:
 
 ## Model
 
-At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. This is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
+At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
 A model is produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under an Azure Machine Learning workspace and version-managed. 
 
@@ -103,7 +103,7 @@ For an example of creating an image, see the [Deploy an image classification mod
 
 ### Image registry
 
-The image registry keeps track of images created from your models. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
+The image registry keeps track of images created from your models. You can provide additional metadata tags when creating the image, which are stored by the image registry and can be queried to find your image.
 
 ## Deployment
 

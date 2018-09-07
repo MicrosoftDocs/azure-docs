@@ -58,7 +58,7 @@ For more information on the IoT Edge service, see the [Azure IoT Edge documentat
 
 ## Field-programmable gate arrays (FPGA)
 
-Hardware Accelerated Models powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerats deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning or customizable with weights trained from your own data.
+Hardware Accelerated Models powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning or customizable with weights trained from your own data.
 
 For more information, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
