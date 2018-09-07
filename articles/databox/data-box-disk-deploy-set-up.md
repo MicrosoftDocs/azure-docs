@@ -73,11 +73,12 @@ Perform the following steps to connect and unlock your disks.
 1. In the Azure portal, go to **General > Device details**. 
 2. Download the Data Box Disk toolset corresponding to the Windows client. 
 
-    ![Data Box Disk unlock tool download](media/data-box-disk-deploy-set-up/data-box-disk-download-unlock-windows.png)     
+    > [!div class="nextstepaction"]
+    > [Download Data Box Disk toolset for Windows](http://aka.ms/DiskToolsetWindowsDownload)         
 
-4. Extract the tool on the same computer that you will use to copy the data.
-5. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
-6. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below. 
+3. Extract the tool on the same computer that you will use to copy the data.
+4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
+5. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below. 
 
     ```powershell
     Windows PowerShell
@@ -88,7 +89,7 @@ Perform the following steps to connect and unlock your disks.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-8. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#Connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
+6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#Connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -102,7 +103,7 @@ Perform the following steps to connect and unlock your disks.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```
 
-9. Repeat the unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.   
+7. Repeat the unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.   
 
     ```powershell
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
@@ -119,7 +120,7 @@ Perform the following steps to connect and unlock your disks.
     
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```  
-10. Once the disk is unlocked, you can view the contents of the disk.    
+8. Once the disk is unlocked, you can view the contents of the disk.    
 
     ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
 
@@ -128,7 +129,8 @@ Perform the following steps to connect and unlock your disks.
 1. In the Azure portal, go to **General > Device details**. 
 2. Download the Data Box Disk toolset corresponding to the Linux client.  
 
-    ![Data Box Disk unlock tool download](media/data-box-disk-deploy-set-up/data-box-disk-download-unlock-linux.png)  
+        > [!div class="nextstepaction"]
+        > [Download Data Box Disk toolset for Linux](http://aka.ms/DiskToolsetLinuxDownload) 
 
 3. On your Linux client, open a terminal. Navigate to the folder where you downloaded the software. Change the file permissions so that you can execute these files. Type the following command: 
 
