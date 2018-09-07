@@ -334,7 +334,6 @@ Throughout the document, we use the following terms:
 * IaaS: Infrastructure as a Service
 * PaaS: Platform as a Service
 * SaaS: Software as a Service
-* ARM: Azure Resource Manager
 * SAP Component: an individual SAP application such as ECC, BW, Solution Manager, or EP.  SAP components can be based on traditional ABAP or Java technologies or a non-NetWeaver based application such as Business Objects.
 * SAP Environment: one or more SAP components logically grouped to perform a business function such as Development, QAS, Training, DR, or Production.
 * SAP Landscape: This term refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and non-production environments.
@@ -669,7 +668,7 @@ The MAC address of the virtual network card may change, for example after resize
 It is possible to assign fixed or reserved IP addresses to VMs within an Azure Virtual Network. Running the VMs in an Azure Virtual Network opens a great possibility to leverage this functionality if needed or required for some scenarios. The IP assignment remains valid throughout the existence of the VM, independent of whether the VM is running or shutdown. As a result, you need to take the overall number of VMs (running and stopped VMs) into account when defining the range of IP addresses for the Virtual Network. The IP address remains assigned either until the VM and its Network Interface is deleted or until the IP address gets de-assigned again. For more information, read [this article][virtual-networks-static-private-ip-arm-pportal].
 
 > [!NOTE]
-> You should assign static IP addresses through Azure means to individual vNICs. You should NOT assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). If you need to assign multiple static IP addresses to a VM, you need to assign multiple vNICs to a VM.
+> You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). If you need to assign multiple static IP addresses to a VM, you need to assign multiple vNICs to a VM.
 >
 >
 
@@ -1319,7 +1318,7 @@ For Cloud-Only scenarios, you might want to connect to those SAP systems across 
 Later in the document we will discuss the other major scenario, connecting to SAP systems in cross-premises deployments, which have a site-to-site connection (VPN tunnel) or Azure ExpressRoute connection between the on-premises systems and Azure systems.
 
 ### Remote Access to SAP systems
-With Azure Resource Manager, there are no default endpoints anymore like in the former classic model. All ports of an Azure ARM VM are open as long as:
+With Azure Resource Manager, there are no default endpoints anymore like in the former classic model. All ports of an Azure Resource Manager VM are open as long as:
 
 1. No Network Security Group is defined for the subnet or the network interface. Network traffic to Azure VMs can be secured via so-called "Network Security Groups". For more information, see [What is a Network Security Group (NSG)?][virtual-networks-nsg]
 2. No Azure Load Balancer is defined for the network interface   
@@ -1923,7 +1922,7 @@ Deploying a few SAP application server instances in their dedicated VMs and assu
 More details can be found in this documentation: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### High Availability for SAP Central Services on Azure
-For High availability architecture of SAP Central Services on Azure, check the article [High-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) as entry information. The article points to more detailed descriptions for the particular operating systems.
+For High availability architecture of SAP Central Services on Azure, check the article [High-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) as entry information. The article points to more detailed descriptions for the particular operating systems.
 
 #### High Availability for the SAP database instance
 The typical SAP DBMS HA setup is based on two DBMS VMs where DBMS high-availability functionality is used to replicate data from the active DBMS instance to the second VM into a passive DBMS instance.
@@ -1983,7 +1982,7 @@ High-Availability aspects of 3-Tier SAP configurations got discussed in earlier 
 #### Location of 3-Tier SAP configurations
 It is not supported to split the application tier itself or the application and DBMS tier between on-premises and Azure. An SAP system is either completely deployed on-premises OR in Azure. It is also not supported to have some of the application servers run on-premises and some others in Azure. That is the starting point of the discussion. We also are not supporting to have the DBMS components of an SAP system and the SAP application server layer deployed in two different Azure Regions. For example, DBMS in West US and SAP application layer in Central US. Reason for not supporting such configurations is the latency sensitivity of the SAP NetWeaver architecture.
 
-However, over the course of last year data center partners developed co-locations to Azure Regions. These co-locations often are in close proximity to the physical Azure data centers within an Azure Region. The short distance and connection of assets in the co-location through ExpressRoute into Azure can result in a latency that is less than 2ms. In such cases, to locate the DBMS layer (including storage SAN/NAS) in such a co-location and the SAP application layer in Azure is possible. [HANA Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
+However, over the course of last year data center partners developed co-locations to Azure Regions. These co-locations often are in close proximity to the physical Azure data centers within an Azure Region. The short distance and connection of assets in the co-location through ExpressRoute into Azure can result in a latency that is less than 2ms. In such cases, to locate the DBMS layer (including storage SAN/NAS) in such a co-location and the SAP application layer in Azure is possible. [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 
 ### Offline Backup of SAP systems
 Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a need to back up. The content of the VM itself plus to have a backup of the database. The DBMS-related backups are expected to be done with database methods. A detailed description for the different databases, can be found in [DBMS Guide][dbms-guide]. On the other hand, the SAP data can be backed up in an offline manner (including the database content as well) as described in this section or online as described in the next section.
@@ -2051,9 +2050,10 @@ The key points of High Availability for SAP systems in Azure are:
 * Backing up SAP Dialog instances makes little sense since it is usually faster to redeploy simple dialog instances.
 * Backing up the VM which contains the global directory of the SAP system and with it all the profiles of the different instances, does make sense and should be performed with Windows Backup or, for example, tar on Linux. Since there are differences between Windows Server 2008 (R2) and Windows Server 2012 (R2), which make it easier to back up using the more recent Windows Server releases, we recommend running Windows Server 2012 (R2) as Windows guest operating system.
 
-##Next Steps
+##Next steps
 Read the articles:
 
-- [Azure Virtual Machines deployment for SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Azure Virtual Machines deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/
+- azure/virtual-machines/workloads/sap/hana-vm-operations)

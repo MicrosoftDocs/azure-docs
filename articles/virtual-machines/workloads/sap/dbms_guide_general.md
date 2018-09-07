@@ -271,7 +271,7 @@ There are several best practices, which resulted out of hundreds of customer dep
 - For the purpose of separating and isolating traffic to the DBMS VM, you assign different NICs to the VM. Where every NIC has a different IP address and every NIC is an assigned to a different VNet subnet, which again has different NSG rules. Keep in mind that the isolation or separation of network traffic is just a measure for routing and does not allow setting quotas for network throughput.
 
 > [!NOTE]
-> You should assign static IP addresses through Azure means to individual vNICs. You should NOT assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). If you need to assign multiple static IP addresses to a VM, you need to assign multiple vNICs to a VM.
+> You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). If you need to assign multiple static IP addresses to a VM, you need to assign multiple vNICs to a VM.
 >
 >
 
