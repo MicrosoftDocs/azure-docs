@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ---
 
 # LinkedIn account connections
+
 In this article, you can learn how to enable or disable LinkedIn account connections for your tenant in the Azure Active Directory (Azure AD) admin center.
 
 > [!IMPORTANT]
