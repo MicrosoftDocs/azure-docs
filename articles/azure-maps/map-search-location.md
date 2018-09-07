@@ -24,7 +24,7 @@ There are two ways to search for a location of interest, one is by making a sear
 <iframe height='500' scrolling='no' title='Show search results on a map' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show search results on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the above code, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
 
 The second code block adds search results layer to the map. The search results layer will display the search results as pins on the map.
 
