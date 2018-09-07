@@ -6,12 +6,10 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, compute, serverless architecture
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
 ms.devlang: java
-ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
