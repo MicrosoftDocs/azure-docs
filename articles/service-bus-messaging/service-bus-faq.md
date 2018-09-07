@@ -2,13 +2,13 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Service Bus.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Service Bus FAQ
