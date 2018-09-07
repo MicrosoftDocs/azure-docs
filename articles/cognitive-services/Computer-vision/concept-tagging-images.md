@@ -22,7 +22,7 @@ After uploading an image or specifying an image URL, Computer Vision algorithms 
 
 The following JSON response illustrates what Computer Vision returns when tagging visual features detected in the example image.
 
-![House_Yard](./Images/house_yard.jpg).
+![House_Yard](./Images/house_yard.png).
 
 ```json
 {

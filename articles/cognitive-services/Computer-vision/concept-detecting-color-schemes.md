@@ -20,7 +20,7 @@ Computer Vision extracts colors from an image. The colors are then analyzed in t
 
 The following example illustrates the JSON response returned by Computer Vision when detecting the color scheme of the example image. In this case, the example image is not a black & white image, but the dominant foreground and background colors are black, and the dominant colors for the image as a whole are black and white.
 
-![Outdoor Mountain](./Images/mountain_vista.jpg)
+![Outdoor Mountain](./Images/mountain_vista.png)
 
 ```json
 {
@@ -46,8 +46,8 @@ The following table describes the dominant foreground, background, and image col
 
 | Image | Dominant colors |
 |-------|-----------------|
-|![Vision Analyze Flower](./Images/flower.jpg)| Foreground: Black<br/>Background: White<br/>Colors: Black, White, Green|
-![Vision Analyze Train Station](./Images/train_station.jpg) | Foreground: Black<br/>Background: Black<br/>Colors: Black |
+|![Vision Analyze Flower](./Images/flower.png)| Foreground: Black<br/>Background: White<br/>Colors: Black, White, Green|
+![Vision Analyze Train Station](./Images/train_station.png) | Foreground: Black<br/>Background: Black<br/>Colors: Black |
 
 ### Accent color examples
 
@@ -55,9 +55,9 @@ The following table describes the dominant foreground, background, and image col
 
 | Image | Accent color |
 |-------|--------------|
-|![Outdoor Mountain](./Images/mountain_vista.jpg) | #BB6D10 |
-|![Vision Analyze Flower](./Images/flower.jpg) | #C6A205 |
-|![Vision Analyze Train Station](./Images/train_station.jpg) | #474A84 |
+|![Outdoor Mountain](./Images/mountain_vista.png) | #BB6D10 |
+|![Vision Analyze Flower](./Images/flower.png) | #C6A205 |
+|![Vision Analyze Train Station](./Images/train_station.png) | #474A84 |
 
 ### Black & white detection examples
 
@@ -65,8 +65,8 @@ The following table indicates whether each example image is black & white, as re
 
 | Image | Black & white? |
 |-------|----------------|
-|![Vision Analyze Building](./Images/bw_buildings.jpg) | true |
-|![Vision Analyze House Yard](./Images/house_yard.jpg) | false |
+|![Vision Analyze Building](./Images/bw_buildings.png) | true |
+|![Vision Analyze House Yard](./Images/house_yard.png) | false |
 
 ## Next steps
 

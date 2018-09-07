@@ -20,13 +20,13 @@ In addition to tagging and descriptions, Computer Vision returns the taxonomy-ba
 
 Based on a list of 86 concepts seen in the following diagram, an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
 
-![Analyze Categories](./Images/analyze_categories.jpg)
+![Analyze Categories](./Images/analyze_categories.png)
 
 ## Image categorization examples
 
 The following JSON response illustrates what Computer Vision returns when categorizing the example image based on its visual features.
 
-![Woman Roof](./Images/woman_roof.jpg)
+![Woman Roof](./Images/woman_roof.png)
 
 ```json
 {
@@ -49,10 +49,10 @@ The following table illustrates a typical image set and the category returned by
 
 | Image | Category |
 |-------|----------|
-| ![Family Photo](./Images/family_photo.jpg) | people_group |
-| ![Cute Dog](./Images/cute_dog.jpg) | animal_dog |
-| ![Outdoor Mountain](./Images/mountain_vista.jpg) | outdoor_mountain |
-| ![Vision Analyze Food Bread](./Images/bread.jpg) | food_bread |
+| ![Family Photo](./Images/family_photo.png) | people_group |
+| ![Cute Dog](./Images/cute_dog.png) | animal_dog |
+| ![Outdoor Mountain](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Vision Analyze Food Bread](./Images/bread.png) | food_bread |
 
 ## Next steps
 

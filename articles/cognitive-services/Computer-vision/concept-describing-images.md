@@ -20,7 +20,7 @@ Computer Vision's algorithms analyze the content in an image. This analysis form
 
 The following JSON response illustrates what Computer Vision returns when describing the example image based on its visual features.
 
-![B&W Buildings](./Images/bw_buildings.jpg)
+![B&W Buildings](./Images/bw_buildings.png)
 
 ```json
 {

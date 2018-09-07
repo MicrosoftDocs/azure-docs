@@ -16,7 +16,7 @@ ms.author: v-deken
 
 Computer Vision detects human faces within a picture and generates the age, gender, and rectangle for each detected face. Computer Vision provides a subset of the functionality that can be found in [Face](/azure/cognitive-services/face/), and you can use the Face service for more detailed analysis, such as facial identification and pose detection.  
 
-# Face detection examples
+## Face detection examples
 
 The first example demonstrates the JSON response returned by Computer Vision for an image containing a single human face.
 
