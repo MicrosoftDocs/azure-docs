@@ -3,7 +3,7 @@ title: REST tutorial using Azure Relay | Microsoft Docs
 description: Build a simple Azure Service Bus Relay host application that exposes a REST-based interface.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Azure WCF Relay REST tutorial

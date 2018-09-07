@@ -7,7 +7,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
@@ -171,8 +171,8 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 - See these quickstarts to get you started:
 
   - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  
-  - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
-  - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
+  - [Create a SQL database with the Azure CLI](sql-database-cli-samples.md)
+  - [Create a SQL database using PowerShell](sql-database-powershell-samples.md)
 
 - For a set of Azure CLI and PowerShell samples, see:
   - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)
