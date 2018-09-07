@@ -380,6 +380,8 @@ offsets.
 ```Kusto
 range offset from -1 to 1 step 1
 | project weekStart = startofweek(now(), offset),offset
+```
+
 This query uses the **range** operator, which generates a single-column
 table of values. See also:
 [**startofday()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofdayfunction.html?q=start%20of)*,*
