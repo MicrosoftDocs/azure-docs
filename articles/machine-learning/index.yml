@@ -84,7 +84,7 @@ sections:
     className: cardsM
     columns: 2
     items:
-    - href: /azure/#pivot=products&panel=cognitive
+    - href: /azure/cognitive-services/
       html: <p>APIs that supply intelligent algorithms for your apps, websites, and bots.</p>
       image:
         src: /azure/machine-learning/media/index/cognitive-services.png
