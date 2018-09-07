@@ -113,9 +113,7 @@ The following query returns a specific set of columns.
 
 ```Kusto
 StormEvents
-
 | take 5
-
 | project StartTime, EndTime, State, EventType, DamageProperty,
 EpisodeNarrative
 ```
@@ -127,11 +125,8 @@ The following query filters the data by `EventType` and `State`.
 
 ```Kusto
 StormEvents
-
 | where EventType == 'Flood' and State == 'WASHINGTON'
-
 | take 5
-
 | project StartTime, EndTime, State, EventType, DamageProperty,
 EpisodeNarrative
 ```
@@ -144,13 +139,9 @@ The following query sorts the data in descending order by
 
 ```Kusto
 StormEvents
-
 | where EventType == 'Flood' and State == 'WASHINGTON'
-
 | sort by DamageProperty desc
-
 | take 5
-
 | project StartTime, EndTime, State, EventType, DamageProperty,
 EpisodeNarrative
 ```
@@ -167,11 +158,8 @@ operator.
 
 ```Kusto
 StormEvents
-
 | where EventType == 'Flood' and State == 'WASHINGTON'
-
 | top 5 by DamageProperty desc
-
 | project StartTime, EndTime, State, EventType, DamageProperty,
 EpisodeNarrative
 ```
@@ -184,13 +172,9 @@ row.
 
 ```Kusto
 StormEvents
-
 | where EventType == 'Flood' and State == 'WASHINGTON'
-
 | top 5 by DamageProperty desc
-
 | extend Duration = EndTime - StartTime
-
 | project StartTime, EndTime, Duration, State, EventType,
 DamageProperty, EpisodeNarrative
 ```
@@ -205,7 +189,6 @@ The following query returns the count of events by `State`.
 
 ```Kusto
 StormEvents
-
 | summarize event_count = count() by State
 ```
 
@@ -223,10 +206,8 @@ storm-affected states.
 
 ```Kusto
 StormEvents
-
 | summarize StormCount = count(), TypeOfStorms = dcount(EventType) by
 State
-
 | top 5 by StormCount desc
 ```
 
@@ -245,10 +226,8 @@ The following query calculates the count with a bucket size of 1 day.
 
 ```Kusto
 StormEvents
-
 | where StartTime > datetime(2007-02-14) and StartTime <
 datetime(2007-02-21)
-
 | summarize event_count = count() by bin(StartTime, 1d)
 ```
 
@@ -259,15 +238,10 @@ The following query displays a column chart.
 
 ```Kusto
 StormEvents
-
 | summarize event_count=count(), mid = avg(BeginLat) by State
-
 | sort by mid
-
 | where event_count > 1800
-
 | project State, event_count
-
 | render columnchart
 ```
 
@@ -275,9 +249,7 @@ The following query displays a simple time chart.
 
 ```Kusto
 StormEvents
-
 | summarize event_count=count() by bin(StartTime, 1d)
-
 | render timechart
 ```
 
@@ -285,13 +257,9 @@ The following query counts events by the time modulo one day, binned into hours,
 
 ```Kusto
 StormEvents
-
 | extend hour = floor(StartTime % 1d , 1h)
-
 | summarize event_count=count() by hour
-
 | sort by hour asc
-
 | render timechart
 ```
 
@@ -299,15 +267,11 @@ The following query compares multiple daily series on a time chart.
 
 ```Kusto
 StormEvents
-
 | extend hour= floor( StartTime % 1d , 1h)
-
 | where State in ("GULF OF
 MEXICO","MAINE","VIRGINIA","WISCONSIN","NORTH DAKOTA","NEW
 JERSEY","OREGON")
-
 | summarize event_count=count() by hour, State
-
 | render timechart
 ```
 
@@ -324,16 +288,12 @@ The following query returns a new column `deaths_bucket` and groups the deaths b
 
 ```Kusto
 StormEvents
-
 | summarize deaths = sum(DeathsDirect) by State
-
 | extend deaths_bucket = case (
-
     deaths > 50, "large",
     deaths > 10, "medium",
     deaths > 0, "small",
     "N/A")
-
 | sort by State asc
 ```
 
@@ -350,9 +310,7 @@ The following query extracts specific attribute values from a trace.
 ```Kusto
 let MyData = datatable (Trace: string) ["A=1, B=2, Duration=123.45,
 ...", "A=1, B=5, Duration=55.256, ..."];
-
 MyData
-
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace,
 typeof(real)) * time(1s)
 ```
@@ -369,17 +327,11 @@ The following query extracts the JSON elements from an array.
 
 ```Kusto
 let MyData = datatable (Trace: string)
-
 ['{"duration":[{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0}]}'];
-
 MyData
-
 | extend Value= extractjson("$.duration[0].value",Trace)
-
 | extend Count= extractjson("$.duration[0].count",Trace)
-
 | extend Min= extractjson("$.duration[0].min",Trace)
-
 | extend StdDev= extractjson("$.duration[0].stdDev",Trace)
 ```
 
@@ -388,15 +340,10 @@ The following query extracts the JSON elements.
 ```Kusto
 let MyData = datatable (Trace: string)
 ['{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0}'];
-
 MyData
-
 | extend Value= extractjson("$.value",Trace)
-
 | extend Count= extractjson("$.count",Trace)
-
 | extend Min= extractjson("$.min",Trace)
-
 | extend StdDev= extractjson("$.stdDev",Trace)
 ```
 
@@ -405,9 +352,7 @@ The following query extracts the JSON values with dynamic datatype.
 ```Kusto
 let MyData = datatable (Trace: dynamic)
 [dynamic({"value":118.0,"counter":5.0,"min":100.0,"max":150.0,"stdDev":0.0})];
-
 MyData
-
 | project Trace.value, Trace.counter, Trace.min, Trace.max,
 Trace.stdDev
 ```
@@ -420,11 +365,8 @@ The following query returns data for the last 12 hours.
 ```Kusto
 //The first two lines generate sample data, and the last line uses
 the ago() operator to get records for last 12 hours.
-
 print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
-
 | mvexpand TimeStamp, SomeCounter
-
 | where TimeStamp > ago(12h)
 ```
 
@@ -437,9 +379,7 @@ offsets.
 
 ```Kusto
 range offset from -1 to 1 step 1
-
 | project weekStart = startofweek(now(), offset),offset
-
 This query uses the **range** operator, which generates a single-column
 table of values. See also:
 [**startofday()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofdayfunction.html?q=start%20of)*,*
@@ -460,10 +400,8 @@ The following query filters the data by a given date range.
 
 ```Kusto
 StormEvents
-
 | where StartTime between (datetime(2007-07-27) ..
 datetime(2007-07-30))
-
 | count
 ```
 
@@ -472,9 +410,7 @@ slight variation of three days (`3d`) from the start date.
 
 ```Kusto
 StormEvents
-
 | where StartTime between (datetime(2007-07-27) .. 3d)
-
 | count
 ```
 
@@ -484,42 +420,32 @@ The following query parses a trace and extracts the relevant values, using a def
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
-
 [
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01,
 releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
 08:39:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00,
 releaseTime=02/17/2016 08:40:00, previousLockTime=02/17/2016
 08:39:00)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01,
 releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
 08:39:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01,
 releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016
 08:40:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00,
 releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)'
-
 ];
-
 MyTrace
-
 | parse EventTrace with * "resourceName=" resourceName ",
 totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long *
 "lockTime=" lockTime ", releaseTime=" releaseTime:date "," *
 "previousLockTime=" previousLockTime:date ")" *
-
 | project resourceName ,totalSlices , sliceNumber , lockTime ,
 releaseTime , previousLockTime
 ```
@@ -528,81 +454,63 @@ The following query parses a trace and extracts the relevant values, using `kind
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
-
 [
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01,
 releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
 08:39:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00,
 releaseTime=02/17/2016 08:40:00, previousLockTime=02/17/2016
 08:39:00)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01,
 releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
 08:39:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01,
 releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016
 08:40:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00,
 releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)'
-
 ];
-
 MyTrace
-
 | parse kind = regex EventTrace with "(.*?)[a-zA-Z]*="
 resourceName @", totalSlices=\s*\d+\s*.*?sliceNumber="
 sliceNumber:long ".*?(previous)?lockTime=" lockTime
 ".*?releaseTime=" releaseTime ".*?previousLockTime="
 previousLockTime:date "\\)"
-
 | project resourceName , sliceNumber , lockTime , releaseTime ,
 previousLockTime
+```
 
 The following query parses a trace and extracts the relevant values, using `kind = relaxed`. The StringConstant is a regular string value and the match is relaxed: extended columns can partially match the required types.
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string) 
-
 [
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01,
 releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
 08:39:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00,
 releaseTime=02/17/2016 08:40:00, previousLockTime=02/17/2016
 08:39:00)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01,
 releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
 08:39:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01,
 releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016
 08:40:01)',
-
 'Event: NotifySliceRelease (resourceName=PipelineScheduler,
 totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00,
 releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)'
-
 ];
-
 MyTrace
-
 | parse kind = relaxed "Event: NotifySliceRelease
 (resourceName=PipelineScheduler, totalSlices=NULL, sliceNumber=23,
 lockTime=02/17/2016 08:40:01, releaseTime=NULL,
@@ -611,7 +519,6 @@ resourceName ", totalSlices=" totalSlices:long * "sliceNumber="
 sliceNumber:long * "lockTime=" lockTime ", releaseTime="
 releaseTime:date "," * "previousLockTime=" previousLockTime:date
 ")" *
-
 | project resourceName ,totalSlices , sliceNumber , lockTime ,
 releaseTime , previousLockTime
 ```
@@ -635,11 +542,8 @@ top level, followed by `Sources`.
 
 ```Kusto
 StormEvents
-
 | top-nested 2 of State by sum(BeginLat),
-
 top-nested 3 of Source by sum(BeginLat),
-
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
@@ -654,13 +558,9 @@ The following query applies a filter and pivots the rows into columns.
 
 ```Kusto
 StormEvents
-
 | project State, EventType
-
 | where State startswith "AL"
-
 | where EventType has "Wind"
-
 | evaluate pivot(State)
 ```
 
@@ -674,7 +574,6 @@ The following query counts distinct `Source` by `State`.
 
 ```Kusto
 StormEvents
-
 | summarize Sources = dcount(Source) by State
 ```
 
@@ -687,7 +586,6 @@ The following query counts the distinct values of `Source` where
 
 ```Kusto
 StormEvents | take 100
-
 | summarize Sources = dcountif(Source, DamageProperty < 5000) by State
 ```
 
@@ -699,11 +597,8 @@ The following query uses the HLL algorithm to generate the count.
 
 ```Kusto
 StormEvents
-
 | summarize hllRes = hll(DamageProperty) by bin(StartTime,10m)
-
 | summarize hllMerged = hll_merge(hllRes)
-
 | project dcount_hll(hllMerged)
 ```
 
@@ -716,11 +611,8 @@ state.
 
 ```Kusto
 StormEvents
-
 | where EventType == "Flood"
-
 | summarize arg_max(StartTime, *) by State
-
 | project State, StartTime, EndTime, EventType
 ```
 
@@ -733,11 +625,8 @@ each state and creates an array from the set of distinct values.
 
 ```Kusto
 StormEvents
-
 | where EventType == "Flood"
-
 | summarize FloodReports = makeset(StartTime) by State
-
 | project State, FloodReports
 ```
 
@@ -753,15 +642,10 @@ using it to demonstrate the **mvexpand** capabilities.
 
 ```Kusto
 let FloodDataSet = StormEvents
-
 | where EventType == "Flood"
-
 | summarize FloodReports = makeset(StartTime) by State
-
 | project State, FloodReports;
-
 FloodDataSet
-
 | mvexpand FloodReports
 ```
 
@@ -777,13 +661,9 @@ The following query calculates percentiles for storm duration.
 
 ```Kusto
 StormEvents
-
 | extend duration = EndTime - StartTime
-
 | where duration > 0s
-
 | where duration < 3h
-
 | summarize percentiles(duration, 5, 20, 50, 80, 95)
 ```
 
@@ -792,15 +672,10 @@ and normalizes the data by five minute bins (`5m`).
 
 ```Kusto
 StormEvents
-
 | extend duration = EndTime - StartTime
-
 | where duration > 0s
-
 | where duration < 3h
-
 | summarize event_count = count() by bin(duration, 5m), State
-
 | summarize percentiles(duration, 5, 20, 50, 80, 95) by State
 ```
 
@@ -823,20 +698,13 @@ The following example creates a tabular type variable and uses it in a subsequen
 
 ```Kusto
 let LightningStorms =
-
 StormEvents
 | where EventType == "Lightning";
-
 let AvalancheStorms =
-
 StormEvents
-
 | where EventType == "Avalanche";
-
 LightningStorms
-
 | join (AvalancheStorms) on State
-
 | distinct State
 ```
 
@@ -855,27 +723,19 @@ The following example joins two tables with an inner join.
 
 ```Kusto
 let X = datatable(Key:string, Value1:long)
-
 [
-
     'a',1,
     'b',2,
     'b',3
     'c',4
-
 ];
-
 let Y = datatable(Key:string, Value2:long)
-
 [
-
     'b',10,
     'c',20,
     'c',30,
     'd',40
-
 ];
-
 X | join kind=inner Y on Key
 ```
 
@@ -895,9 +755,7 @@ The following query fails, because the data is not serialized.
 
 ```Kusto
 StormEvents
-
 | summarize count() by State
-
 | extend row_number = row_number()
 ```
 
@@ -905,11 +763,8 @@ Once the data is serialized, the query succeeds.
 
 ```Kusto
 StormEvents
-
 | summarize count() by State
-
 | serialize
-
 | extend row_number = row_number()
 ```
 
@@ -920,11 +775,8 @@ The row set is also considered as serialized if it's a result of:
 
 ```Kusto
 StormEvents
-
 | summarize count() by State
-
 | sort by State asc
-
 | extend row_number = row_number()
 ```
     
@@ -935,9 +787,7 @@ The following query is called from one cluster and queries data from
 
 ```Kusto
 cluster("MyCluster").database("Wiki").PageViews
-
 | where Views < 2000
-
 | take 1000;
 ```
 
@@ -958,47 +808,26 @@ counts.
 
 ```Kusto
 let start=datetime(2017-08-01);
-
 let end=datetime(2017-08-04);
-
 let window=1d;
-
 let T = datatable(UserId:string, Timestamp:datetime)
-
 [
-
 'A', datetime(2017-08-01),
-
 'D', datetime(2017-08-01),
-
 'J', datetime(2017-08-01),
-
 'B', datetime(2017-08-01),
-
 'C', datetime(2017-08-02),
-
 'T', datetime(2017-08-02),
-
 'J', datetime(2017-08-02),
-
 'H', datetime(2017-08-03),
-
 'T', datetime(2017-08-03),
-
 'T', datetime(2017-08-03),
-
 'J', datetime(2017-08-03),
-
 'B', datetime(2017-08-03),
-
 'S', datetime(2017-08-03),
-
 'S', datetime(2017-08-04),
-
 ];
-
 T
-
 | evaluate activity_counts_metrics(UserId, Timestamp, start, end,
 window)
 ```
@@ -1013,28 +842,17 @@ The following query returns the ratio of total distinct users using an applicati
 
 ```Kusto
 // Generate random data of user activities
-
 let _start = datetime(2017-01-01);
-
 let _end = datetime(2017-01-31);
-
 range _day from _start to _end step 1d
-
 | extend d = tolong((_day - _start)/1d)
-
 | extend r = rand()+1
-
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+100*r-1), 1)
-
 | mvexpand id=_users to typeof(long) limit 1000000
-
 // Calculate DAU/WAU ratio
-
 | evaluate activity_engagement(['id'], _day, _start, _end, 1d,
 7d)
-
 | project _day, Dau_Wau=activity_ratio*100
-
 | render timechart
 ```
 
@@ -1052,31 +870,18 @@ dataset.
 
 ```Kusto
 // Generate random data of user activities
-
 let _start = datetime(2017-01-02);
-
 let _end = datetime(2017-05-31);
-
 range _day from _start to _end step 1d
-
 | extend d = tolong((_day - _start)/1d)
-
 | extend r = rand()+1
-
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-
 | mvexpand id=_users to typeof(long) limit 1000000
-
 | where _day > datetime(2017-01-02)
-
 | project _day, id
-
 // Calculate weekly retention rate
-
 | evaluate activity_metrics(['id'], _day, _start, _end, 7d)
-
 | project _day, retention_rate*100, churn_rate*100
-
 | render timechart
 ```
 
@@ -1094,26 +899,16 @@ the first week).
 
 ```Kusto
 // Generate random data of user activities
-
 let _start = datetime(2017-05-01);
-
 let _end = datetime(2017-05-31);
-
 range Day from _start to _end step 1d
-
 | extend d = tolong((Day - _start)/1d)
-
 | extend r = rand()+1
-
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-
 | mvexpand id=_users to typeof(long) limit 1000000
-
 // Take only the first week cohort (last parameter)
-
 | evaluate new_activity_metrics(['id'], Day, _start, _end, 7d,
 _start)
-
 | project from_Day, to_Day, retention_rate, churn_rate
 ```
 
@@ -1125,22 +920,14 @@ The following query returns the count of sessions. A session is considered activ
 
 ```Kusto
 let _data = range Timeline from 1 to 9999 step 1
-
 | extend __key = 1
-
 | join kind=inner (range Id from 1 to 50 step 1 | extend __key=1) on
 __key
-
 | where Timeline % Id == 0
-
 | project Timeline, Id;
-
 // End of data definition
-
 _data
-
 | evaluate session_count(Id, Timeline, 1, 10000, 100, 41)
-
 | render linechart
 ```
 
@@ -1155,13 +942,9 @@ Tornado events in 2007.
 
 ```Kusto
 // Looking on StormEvents statistics:
-
 // Q1: What happens before Tornado event?
-
 // Q2: What happens after Tornado event?
-
 StormEvents
-
 | evaluate funnel_sequence(EpisodeId, StartTime, datetime(2007-01-01),
 datetime(2008-01-01), 1d,365d, EventType, dynamic(['Tornado']))
 ```
@@ -1177,18 +960,12 @@ times of one hour, four hours, and one day (`[1h, 4h, 1d]`).
 
 ```Kusto
 let _start = datetime(2007-01-01);
-
 let _end = datetime(2008-01-01);
-
 let _windowSize = 365d;
-
 let _sequence = dynamic(['Hail', 'Tornado', 'Thunderstorm
 Wind']);
-
 let _periods = dynamic([1h, 4h, 1d]);
-
 StormEvents
-
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start,
 _end, _windowSize, EventType, _sequence, _periods)
 ```
@@ -1205,15 +982,10 @@ The following example creates a function that takes a state name
 
 ```Kusto
 .create function with (folder="Demo")
-
 MyFunction (MyState: string)
-
 {
-
 StormEvents
-
 | where State =~ MyState
-
 }
 ```
 
@@ -1222,7 +994,6 @@ of Texas.
 
 ```Kusto
 MyFunction ("Texas")
-
 | summarize count()
 ```
 
@@ -1234,4 +1005,7 @@ first step.
 ```
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [What is Kusto?](https://docs.microsoft.com/azure)
 
