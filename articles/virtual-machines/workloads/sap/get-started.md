@@ -315,8 +315,7 @@ Documentation around SAP HANA Scale-out on Azure VM M128s got added to:
 A series of documentation leads you through SAP HANA on Azure (Large Instances) or in short HANA Large Instances. The documents cover the listed areas of HANA Large Instances:
 
 - [Overview of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/
-- /azure/virtual-machines/workloads/sap/hana-architecture)
+- [Architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
 - [Infrastructure and Connectivity to SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
 - [Install SAP HANA on SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
 - [High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)

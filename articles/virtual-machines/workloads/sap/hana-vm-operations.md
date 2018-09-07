@@ -23,8 +23,7 @@ ms.custom: H1Hack27Feb2017
 # SAP HANA infrastructure configurations and operations on Azure
 This document provides guidance for configuring Azure infrastructure and operating SAP HANA systems that are deployed on Azure native virtual machines (VMs). The document also includes configuration information for SAP HANA scale-out for the M128s VM SKU. This document is not intended to replace the standard SAP documentation, which includes the following content:
 
-- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/
-- /330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP installation guides](https://service.sap.com/instguides)
 - [SAP notes](https://sservice.sap.com/notes)
 
