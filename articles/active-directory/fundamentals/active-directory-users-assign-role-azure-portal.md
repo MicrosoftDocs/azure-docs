@@ -29,28 +29,28 @@ You can also assign roles using Privileged Identity Management (PIM). For more d
 
 2. Select **Azure Active Directory**, select **Users**, and then search for and select the user getting the role assignment. For example, _Alain Charon_.
 
-IMAGE
+3. On the **Alain Charon - Profile** blade, select **Directory role**.
 
-3. Select **Directory role**, and then select **Add role**.
+    The **Alain Charon - Directory role** blade appears.
 
-IMAGE
+4. Select **Add role**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
 
-4. On the **Alain Charon - Directory role** blade, select the role to assign, and then choose **Select**. For example, select the role _Application administrator_.
+    ![Directory roles blade, showing the selected role](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-IMAGE
+    The Application administrator role is assigned to Alain Charon and it appears on the **Alain Charon - Directory role** blade.
 
-Removing a role assignment
+## Remove a role assignment
 If you need to remove the role assignment from a user, you can also do that from the **Alain Charon - Directory role** blade.
 
 ### To remove a role assignment from a user
 
 1. Select **Azure Active Directory**, select **Users**, and then search for and select the user getting the role assignment removed. For example, _Alain Charon_.
 
-IMAGE
-
 2. Select **Directory role**, select **Application administrator**, and then select **Remove role**.
 
-IMAGE
+    ![Directory roles blade, showing the selected role and the remove option](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+
+    The Application administrator role is removed from Alain Charon and it no longer appears on the **Alain Charon - Directory role** blade.
 
 ## Next steps
 - [Add or delete users](add-users-azure-active-directory.md)
