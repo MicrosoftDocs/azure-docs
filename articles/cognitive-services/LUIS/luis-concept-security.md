@@ -1,5 +1,6 @@
 ---
-title: Understand access to LUIS applications - Azure Cognitive Services | Microsoft Docs
+title: Understand access to LUIS applications
+titleSuffix: Azure Cognitive Services
 description: Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. For a public app, endpoint access is available to everyone that has their own LUIS account and has the public app's ID.  
 services: cognitive-services
 author: diberry

@@ -1,5 +1,6 @@
 ---
-title: Understand the prediction score returned by LUIS - Azure Cognitive Services| Microsoft Docs
+title: Understand the prediction score returned by LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn what the prediction score means in LUIS
 services: cognitive-services
 author: diberry

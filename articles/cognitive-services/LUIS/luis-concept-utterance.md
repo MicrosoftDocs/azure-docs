@@ -1,6 +1,7 @@
 ---
-title: Utterances in LUIS apps in Azure Cognitive Services| Microsoft Docs
-description: Utterances are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different inputs for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
+title: Utterances in LUIS apps
+titleSuffix: Azure Cognitive Services
+description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
 manager: cjgronlund

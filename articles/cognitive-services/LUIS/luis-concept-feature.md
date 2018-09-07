@@ -1,6 +1,7 @@
 ---
-title: Understand features in LUIS apps in Azure Cognitive Services | Microsoft Docs
-description: In machine learning, a feature is a distinguishing trait or attribute of data that your system observes. Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities, but features are not intents or entities themselves. Instead, features might provide examples of related terms.
+title: Features in LUIS apps in Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services
+description: Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities.
 services: cognitive-services
 author: diberry
 manager: cjgronlund

@@ -1,6 +1,6 @@
 ---
-title: Learn how Patterns increase prediction accuracy - Azure Cognitive Services| Microsoft Docs 
-titleSuffix: Azure
+title: Learn how Patterns increase prediction accuracy
+titleSuffix: Azure Cognitive Services
 description: Patterns are designed to improve accuracy when several utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 services: cognitive-services
 author: diberry
