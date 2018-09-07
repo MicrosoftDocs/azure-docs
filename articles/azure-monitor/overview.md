@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/06/2018
 ms.author: bwren
 
 ---
@@ -76,9 +76,9 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ![Container Health](../monitoring/media/monitoring-container-health/container-health-containers-view.png)
 
 ### VM Insights
-[VM Insights](../operations-management-suite/operations-management-suite-service-map.md) provides insight into your IaaS environment by analyzing virtual machines with their different processes and dependencies on other computers and external processes. It integrates events, performance data, and management solutions in Log Analytics. You can then view this data in the context of each computer and its relation to the rest of your environment. 
+Azure Monitor VM insights monitors your Windows and Linux virtual machines (VM) at scale by analyzing their performance and health, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.
 
-![Service Map](../monitoring/media/monitoring-data-collection/service-map.png)
+![VM Insights](media/overview/vminsights.png)
 
 ### Monitoring solutions
 [Monitoring solutions](../monitoring/monitoring-solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data and use the same tools for analysis and visualization. Monitoring solutions are [available from Microsoft](../monitoring/monitoring-solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
