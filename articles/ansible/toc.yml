@@ -1,8 +1,8 @@
-- name: Ansible in Azure
+- name: Ansible on Azure documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: About Ansible in Azure
+  - name: About Ansible on Azure
     href: ./ansible-overview.md
 - name: Quickstarts
   expanded: true
