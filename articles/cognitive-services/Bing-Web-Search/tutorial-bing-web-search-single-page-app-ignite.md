@@ -161,9 +161,9 @@ function getSubscriptionKey() {
 
 As we saw earlier, when the form is submitted, `onsubmit` fires, calling `bingWebSearch`. This function constructs the query and returns a response with applicable search results based on the options selected by the user. `getSubscriptionKey` is called on each submission to authenticate the request.
 
-## Performing the request
+## Perform the request and handle the response
 
-Given the query, the options string, and the API key, the `BingWebSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Web Search endpoint.
+Given the query, the options string, and the subscription key, the `BingWebSearch` function creates an `XMLHttpRequest` object to call the Bing Web Search endpoint.
 
 ```javascript
 // perform a search given query, options string, and API key
@@ -213,17 +213,16 @@ function bingWebSearch(query, options, key) {
 }
 ```
 
-Upon successful completion of the HTTP request, JavaScript calls our `load` event handler, the `handleBingResponse()` function, to handle a successful HTTP GET request to the API.
+Following a successful request, the `load` event handler fires and calls the `handleBingResponse` function. `handleBingResponse` parses the result object, attempts to display the results, and contains error logic for failed requests.
 
 ```javascript
-// handle Bing search request results
 function handleBingResponse() {
     hideDivs("noresults");
 
     var json = this.responseText.trim();
     var jsobj = {};
 
-    // try to parse JSON results
+    // Try to parse results object.
     try {
         if (json.length) jsobj = JSON.parse(json);
     } catch(e) {
@@ -231,12 +230,12 @@ function handleBingResponse() {
         return;
     }
 
-    // show raw JSON and HTTP request
+    // Show raw JSON and the HTTP request.
     showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
     showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " +
         this.statusText + "\n" + this.getAllResponseHeaders()));
 
-    // if HTTP response is 200 OK, try to render search results
+    // If the HTTP response is 200 OK, try to render the results.
     if (this.status === 200) {
         var clientid = this.getResponseHeader("X-MSEdge-ClientID");
         if (clientid) retrieveValue(CLIENT_ID_COOKIE, clientid);
@@ -251,87 +250,79 @@ function handleBingResponse() {
         }
     }
 
-    // Any other HTTP response is an error
+    // Any other HTTP response is considered an error.
     else {
-        // 401 is unauthorized; force re-prompt for API key for next request
+        // 401 is unauthorized; force a re-prompt for the user's subscription
+        // key on the next request.
         if (this.status === 401) invalidateSubscriptionKey();
 
-        // some error responses don't have a top-level errors object, so gin one up
+        // Some error responses don't have a top-level errors object, if absent
+        // create one.
         var errors = jsobj.errors || [jsobj];
         var errmsg = [];
 
-        // display HTTP status code
+        // Display the HTTP status code.
         errmsg.push("HTTP Status " + this.status + " " + this.statusText + "\n");
 
-        // add all fields from all error responses
+        // Add all fields from all error responses.
         for (var i = 0; i < errors.length; i++) {
             if (i) errmsg.push("\n");
             for (var k in errors[i]) errmsg.push(k + ": " + errors[i][k]);
         }
 
-        // also display Bing Trace ID if it isn't blocked by CORS
+        // Display Bing Trace ID if it isn't blocked by CORS.
         var traceid = this.getResponseHeader("BingAPIs-TraceId");
         if (traceid) errmsg.push("\nTrace ID " + traceid);
 
-        // and display the error message
+        // Display the error message.
         renderErrorMessage(errmsg.join("\n"));
     }
 }
 ```
 
 > [!IMPORTANT]
-> A successful HTTP request does *not* necessarily mean that the search itself succeeded. If an error occurs in the search operation, the Bing Web Search API returns a non-200 HTTP status code and includes error information in the JSON response. Additionally, if the request was rate-limited, the API returns an empty response.
+> A successful HTTP request does *not* mean that the search itself succeeded. If an error occurs in the search operation, the Bing Web Search API returns a non-200 HTTP status code and includes error information in the JSON response. If the request was rate-limited, the API returns an empty response.
 
 Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
 
-|Stage|Potential error(s)|Handled by|
-|-|-|-|
-|Building JavaScript request object|Invalid URL|`try`/`catch` block|
-|Making the request|Network errors, aborted connections|`error` and `abort` event handlers|
-|Performing the search|Invalid request, invalid JSON, rate limits|tests in `load` event handler|
+| Stage | Potential error(s) | Handled by |
+|-------|--------------------|------------|
+| Building the request object | Invalid URL | `try` / `catch` block |
+| Making the request | Network errors, aborted connections | `error` and `abort` event handlers |
+| Performing the search | Invalid request, invalid JSON, rate limits | Tests in `load` event handler |
 
-Errors are handled by calling `renderErrorMessage()` with any details known about the error. If the response passes the full gauntlet of error tests, we call `renderSearchResults()` to display the search results in the page.
+Errors are handled by calling `renderErrorMessage()`. If the response passes all of the error tests, `renderSearchResults()` is called to display the search results.
 
-## Displaying search results
+## Display the search results // Change header title
 
-The Bing Web Search API [requires you to display results in a specified order](useanddisplayrequirements.md). Since the API may return different kinds of responses, it is not enough to iterate through the top-level `WebPages` collection in the JSON response and display those results. (If you want only one kind of results, use the `responseFilter` query parameter or another Bing Search endpoint.)
-
-Instead, we use the `rankingResponse` in the search results to order the results for display. This object refers to items in the `WebPages` `News`, `Images`, and/or `Videos` collections, or in other top-level answer collections in the JSON response.
-
-`rankingResponse` may contain up to three collections of search results, designated `pole`, `mainline`, and `sidebar`.
-
-`pole`, if present, is the most relevant search result and should be displayed prominently. `mainline` refers to the bulk of the search results. Mainline results should be displayed immediately after `pole` (or first, if `pole` is not present).
-
-Finally. `sidebar` refers to auxiliary search results. Often, these results are related searches or images. If possible, these results should be displayed in an actual sidebar. If screen limits make a sidebar impractical (for example, on a mobile device), they should appear after the `mainline` results.
-
-Each item in a `rankingResponse` collection refers to the actual search result items in two different, but equivalent, ways.
-
-| | |
-|-|-|
-|`id`|The `id` looks like a URL, but should not be used for links. The `id` type of a ranking result matches the `id` of either a search result item in an answer collection, *or* an entire answer collection (such as `Images`).
-|`answerType`, `resultIndex`|The `answerType` refers to the top-level answer collection that contains the result (for example, `WebPages`). The `resultIndex` refers to the result's index within that collection. If `resultIndex` is omitted, the ranking result refers to the entire collection.
+There are [use and display requirements](useanddisplayrequirements.md) for results returned by the Bing Web Search API. Since a response may contain various result types, it is not enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results.
 
 > [!NOTE]
-> For more information on this part of the search response, see [Rank Results](rank-results.md).
+> If you only want a single result type, use the `responseFilter` query parameter, or consider using one of the other Bing Search endpoints, such as Bing Image Search.
 
-You may use whichever method of locating the referenced search result item is most convenient for your application. In our tutorial code, we use the `answerType` and `resultIndex` to locate each search result.
+Each response includes a `RankingResponse` object that may contain up to three collections: `pole`, `mainline`, and `sidebar`. `pole`, if present, is the most relevant search result and should be prominently displayed. `mainline` is the bulk of search results, and should be displayed immediately after `pole` (or first, if `pole` isn't included). `sidebar` includes auxiliary search results. If possible, these results should be displayed in the sidebar. If screen limits make a sidebar impractical, these results should appear after the `mainline` results.
 
-Finally, it's time to look at our function `renderSearchResults()`. This function iterates over the three `rankingResponse` collections that represent the three sections of the search results. For each section, we call `renderResultsItems()` to render the results for that section.
+Each `RankingResponse` includes a `RankingItem` array that specifies how results must be ordered. Our sample app uses the `answerType` and `resultIndex` parameters to identify the result.
+
+> [!NOTE]
+> There are additional ways to identify and rank results. For more information, see [Using ranking to display results](rank-results.md).
+
+Let's take a look at the `renderSearchResults()` function. It iterates over the `RankingResponse` collections and calls `renderResultsItems()` to render the results.
 
 ```javascript
-// render the search results given the parsed JSON response
+// Render the search results from the JSON response.
 function renderSearchResults(results) {
 
-    // if spelling was corrected, update search field
+    // If spelling was corrected, update the search field.
     if (results.queryContext.alteredQuery)
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // add Prev / Next links with result count
+    // Add Prev / Next links with result count.
     var pagingLinks = renderPagingLinks(results);
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
 
-    // for each possible section, render the resuts from that section
+    // Render the results for each section.
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));
@@ -339,10 +330,9 @@ function renderSearchResults(results) {
 }
 ```
 
-`renderResultsItems()` in turn iterates over the items in each `rankingResponse` section, maps each ranking result to a search result using the `answerType` and `resultIndex` fields, and calls the appropriate rendering function to generate the result's HTML.
+The `renderResultsItems()` function iterates through the items in each `RankingResponse` collection, maps each ranking result to a search result using the `answerType` and `resultIndex` values, and calls the appropriate rendering function to generate the HTML. If `resultIndex` is not specified for an item, `renderResultsItems()` iterates over all results of that type and calls the rendering function for each item.
 
-If `resultIndex` is not specified for a given ranking item, `renderResultsItems()` iterates over all results of that type and calls the rendering function for each item.
-
+<< FIX >>
 Either way, the resulting HTML is inserted into the appropriate `<div>` element in the page.
 
 ```javascript
@@ -375,7 +365,7 @@ function renderResultsItems(section, results) {
 }
 ```
 
-## Rendering result items
+## Display search results
 
 In our JavaScript code is an object, `searchItemRenderers`, that contains *renderers:* functions that generate HTML for each kind of search result.
 
@@ -400,7 +390,7 @@ The context arguments are:
 | | |
 |-|-|
 |`section`|The results section (`pole`, `mainline`, or `sidebar`) in which the item appears.
-|`index`<br>`count`|Available when the `rankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection. You can this information to number the results, to generate different HTML for the first or last result, and so on.|
+|`index`<br>`count`|Available when the `RankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection. You can this information to number the results, to generate different HTML for the first or last result, and so on.|
 
 In our tutorial app, both the `images` and `relatedSearches` renderers use the context arguments to customize the HTML they generate. Let's take a closer look at the `images` renderer:
 
