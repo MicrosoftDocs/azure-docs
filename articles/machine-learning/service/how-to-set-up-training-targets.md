@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 With the Azure Machine Learning service, you can train your model in several different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
-A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
+A compute target is the resource that runs your training script or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
 
 You can start with local runs on your machine, and then scaling up and out to other environments such as remote Data Science virtual machines with GPU or Azure Batch AI. 
 
@@ -34,8 +34,8 @@ Us
 The key differentiators between the computer targets are:
 * __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware that is installed.
 * __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model.
-* __Automated model selection__: Azure Machine Learning can intelligently recommend algorithm and hyperparameter selection when building a model. This helps you converge to a high quality model faster than manually trying different combinations.
-* __Pipelines__: Azure Machine Learning enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism.
+* __Automated model selection__: Azure Machine Learning can intelligently recommend algorithm and hyperparameter selection when building a model. Automated model selection helps you converge to a high-quality model faster than manually trying different combinations. For more information, see the [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) document.
+* __Pipelines__: Azure Machine Learning enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) document.
 
 You can use the Azure Machine Learning SDK, Azure CLI, or Azure portal to create compute targets. You can also use existing compute targets by adding (attaching) them to your workspace.
 
@@ -57,6 +57,12 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 > [!IMPORTANT]
 > Your training script isn't tied to a specific compute target. You can train initially on your local computer, then switch compute targets without having to rewrite the training script.
+
+Switching from one compute target to another involves creating a [run configuration](concept-azure-machine-learning-architecture.md#run-configuration). The run configuration defines how to run the script on the compute target.
+
+## Training scripts
+
+When you start a training run, the entire directory that contains your training scripts is submitted. A snapshot is created and sent to the compute target. For more information, see [snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 ## Local computer
 
@@ -81,7 +87,7 @@ In a user-managed environment, you are responsible for ensuring that all the nec
     #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/pytho
     ```
 
-2. Submit the script to run in the user-managed environment. The whole project folder is submitted for execution.
+2. Submit the script to run in the user-managed environment.
 
     ```python
     from azureml.core.run import Run
@@ -118,7 +124,7 @@ cd.add_conda_package('scikit-learn')
 cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
 ```
 
-You can submit the run the same way as in the user-managed example. The folder containing your code is submitted as part of the training process.
+You can submit the run the same way as in the user-managed example. 
 
 ```python 
 from azureml.core.run import Run
@@ -361,3 +367,4 @@ The Web Portal makes it easy to attach existing compute targets from your subscr
 * [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
 * [Quickstart: Create a workspace with Python](quickstart-get-started.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
+* [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md)

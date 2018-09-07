@@ -15,7 +15,7 @@ ms.date: 08/29/2018
 
 The Azure Machine Learning service provides several ways you can deploy your trained model. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT edge devices.
 
-The following are the compute targets that you can deploy a model to:
+You can deploy models to the following compute targets:
 
 - Azure Container Instances (ACI)
 - Azure Kubernetes Service (AKS)
@@ -46,21 +46,25 @@ For more information, see the [Deploy a model to Azure Kubernetes Service](how-t
 
 ## Azure IoT Edge
 
-With IoT devices, it is faster to perform scoring on the device instead of sending data to the cloud and waiting on a cloud-hosted model to return data. With [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/), you can host your model on edge devices. Deploy your model to IoT Edge if you need one or more of the following capabilities:
+With IoT devices, it is faster to perform scoring on the device instead of sending data to the cloud and waiting on a cloud-hosted model to return data. With Azure IoT Edge, you can host your model on edge devices. Deploy your model to IoT Edge if you need one or more of the following capabilities:
 - Handle priority tasks locally, even without a cloud connection
 - Work with generated data that is too large to pull rapidly from the cloud
 - Enable real-time processing through intelligence in or near local devices
 - Accommodate data privacy-related requirements 
 
-For more information, see [Deploy to Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
+For more information, see the [Deploy to Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) document.
+
+For more information on the IoT Edge service, see the [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/).
 
 ## Field-programmable gate arrays (FPGA)
 
-Azure Machine Learning Hardware Accelerated Models Powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests by accelerating deep neural networks (DNN) on FPGAs. This service is an Azure offering that hosts your model on FPGAs in the Azure cloud.  Commonly used DNNs are available as featurizers for transfer learning or customizable with weights trained from your own data.
+Hardware Accelerated Models powered by Project Brainwave make it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning or customizable with weights trained from your own data.
 
 For more information, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
 ## Next steps
+
+To learn information on how to deploy a model to a specific compute target, see the following documents:
 
 * [Deploy a model to Azure Container Instances](how-to-deploy-to-aci.md)
 * [Deploy a model to Azure Kubernetes Service](how-to-deploy-to-aks.md)
