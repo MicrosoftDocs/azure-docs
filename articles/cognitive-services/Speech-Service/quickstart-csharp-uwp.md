@@ -20,7 +20,7 @@ In this article, you learn how to create a Universal Windows Platform (UWP) appl
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 > [!NOTE]
-> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices. Apps using the Speech SDK do not yet pass the Windows App Certification Kit (WACK). It is possible to sideload your app, but it may not currently be submitted to the Windows Store.
+> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
    ```
 
 ## Add the sample code

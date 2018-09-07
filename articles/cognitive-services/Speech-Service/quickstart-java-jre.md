@@ -73,7 +73,7 @@ We use Eclipse as an Integrated Development Environment (IDE).
 
     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Also, add afterwards a dependencies section with the Speech SDK version 0.6.0 as a dependency:
+  * Also, add afterwards a dependencies section with the Speech SDK version 1.0.0 as a dependency:
 
     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
