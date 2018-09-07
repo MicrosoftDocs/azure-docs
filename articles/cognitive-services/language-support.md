@@ -22,18 +22,19 @@ This article is broken into two sections. The first lists core languages commonl
 
 These core languages are supported across Azure Cognitive Services:
 
-* Chinese
+* Chinese¹
 * English
 * French
 * German
 * Italian
 * Japanese
-* Korean¹
+* Korean²
 * Portuguese
 * Spanish
 
 > [!NOTE]
-> ¹ Speech-to-Text and Video Indexer are not supported.
+> ¹ Text Analytics is not supported.
+> ² LUIS, Speech-to-Text, and Video Indexer are not supported.
 
 ## Additional language availability by service
 
