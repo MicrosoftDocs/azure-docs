@@ -72,36 +72,41 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Handwriting recognition')
 ```
 
-## Registered model
+## Register a model
 
->Skip this prerequisite if you are [deploying from a model file](#deploy-from-model-file) (`Webservice.deploy()`).
+> Skip this prerequisite if you are [deploying from a model file](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Register a model to use `Webservice.deploy_from_model(#deploy-from-registered-model)` or ``Webservice.deploy_from_image(#deploy-from-image)`. If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
+Register a model to use [`Webservice.deploy_from_model`](#deploy-from-registered-model) or [`Webservice.deploy_from_image`](#deploy-from-image). Or if you already have a registered model, retrieve it now.
 
-```python
-from azureml.core.model import Model
+### Retrieve a registered model
+If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
 
-model_name = "sklearn_mnist"
-model=Model(ws, model_name)
-```
+    ```python
+    from azureml.core.model import Model
+    
+    model_name = "sklearn_mnist"
+    model=Model(ws, model_name)
+    ```
+  
+### Register a model file
 
 If your model was built elsewhere, you can still register it into your workspace.  To register a model, the model file (`sklearn_mnist_model.pkl` in this example) must be in the current working directory. Then register that file as a model called `sklearn_mnist` in the workspace with `Model.register()`.
-
-```python
-from azureml.core.model import Model
-
-model_name = "sklearn_mnist"
-model = Model.register(model_path = "sklearn_mnist_model.pkl",
-                       model_name = model_name,
-                       tags = ['mnist','classification'],
-                       description = "Mnist handwriting recognition",
-                       workspace = ws)
-```
+    
+    ```python
+    from azureml.core.model import Model
+    
+    model_name = "sklearn_mnist"
+    model = Model.register(model_path = "sklearn_mnist_model.pkl",
+                           model_name = model_name,
+                           tags = ['mnist','classification'],
+                           description = "Mnist handwriting recognition",
+                           workspace = ws)
+    ```
 
 
 ## Option 1: Deploy from model file
 
-The option to deploy from a model file requires the least amount of code to write, but offers the least amount of control over the naming of outputs. This option is a convenient way to deploy a model file without first registering it.  However, you can't name the model or associate tags or a description for it.  
+The option to deploy from a model file requires the least amount of code to write, but also offers the least amount of control over the naming of components. This option starts with a model file and registers it into the workspace for you.  However, you can't name the model or associate tags or a description for it.  
 
 This option uses the SDK method, Webservice.deploy().  
 
@@ -164,41 +169,43 @@ This option uses the SDK method, Webservice.deploy_from_model().
 
 ## Option 3: Deploy from image
 
-Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This method allows you to create the Docker image separately and deploy from that image.  You have more flexibility to name and reuse the Docker image for new models in the future.  
+Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This method allows you to create the Docker image separately and then deploy from that image.
 
 1. Build and register the Docker image under the workspace using `ContainerImage.create()`
 
-This method gives you more control over the image by creating it in a separate step.  The registered model (`model`) is included in the image.
-
-```python
-from azureml.core.image import ContainerImage
-
-image = ContainerImage.create(name = "myimage1",
-                              models = [model], # this is the registered model object
-                              image_config = image_config,
-                              workspace = ws)
-
-image.wait_for_creation(show_output = True)
-```
+    This method gives you more control over the image by creating it in a separate step.  The registered model (`model`) is included in the image.
+    
+    ```python
+    from azureml.core.image import ContainerImage
+    
+    image = ContainerImage.create(name = "myimage1",
+                                  models = [model], # this is the registered model object
+                                  image_config = image_config,
+                                  workspace = ws)
+    
+    image.wait_for_creation(show_output = True)
+    ```
 **Time estimate**: Approximately 3 minutes.
 
-2 Deploy the Docker image as a service using `Webservice.deploy_from_image()`
+1. Deploy the Docker image as a service using `Webservice.deploy_from_image()`
 
 Now deploy the image to ACI.  
 
-```python
-from azureml.core.webservice import Webservice
-
-service_name = 'aci-mnist-3'
-service = Webservice.deploy_from_image(deployment_config = aciconfig,
-                                           image = image,
-                                           name = service_name,
-                                           workspace = ws)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-```   
+    ```python
+    from azureml.core.webservice import Webservice
+    
+    service_name = 'aci-mnist-3'
+    service = Webservice.deploy_from_image(deployment_config = aciconfig,
+                                               image = image,
+                                               name = service_name,
+                                               workspace = ws)
+    service.wait_for_deployment(show_output = True)
+    print(service.state)
+    ```   
  
 **Time estimate**: Approximately 3 minutes.
+
+This method gives you the most control over creating and naming the components in the deployment.
 
 You can now test the web service.
 
