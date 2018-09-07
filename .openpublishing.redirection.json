@@ -11,8 +11,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/batch/batch-python-tutorial.md",
-            "redirect_url": "/azure/batch/quick-run-python",
+            "source_path": "articles/batch-ai/quickstart-python.md",
+            "redirect_url": "/azure/batch-ai/cntk-training-python",
             "redirect_document_id": true
         },
         {
@@ -1282,8 +1282,28 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-get-started-cli.md",
+            "redirect_url": "/azure/sql-database/sql-database-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-get-started-powershell.md",
+            "redirect_url": "/azure/sql-database/sql-database-powershell-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started-restore",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
             "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-create-tutorial-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started",
             "redirect_document_id": false
         },
         {
@@ -4755,8 +4775,13 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-clarizen-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/clarizen-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-clarizen-tutorial.md",
@@ -6105,8 +6130,13 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-replicon-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/replicon-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/replicon-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-replicon-tutorial.md",
@@ -6810,8 +6840,13 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-xmatters-ondemand-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/xmatters-ondemand-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/xmatters-ondemand-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-xmatters-ondemand-tutorial.md",
@@ -7181,6 +7216,11 @@
         {
             "source_path": "articles/cosmos-db/welcome-documentdb-customers.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/faq#moving-to-cosmos-db",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/graph-partitioning.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/partition-data#PartitionedGraph",
             "redirect_document_id": false
         },
         {
@@ -25853,6 +25893,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
@@ -26538,26 +26588,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-extension-host-prepare.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/user/azure-stack-metrics-azure-data.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/user/azure-stack-metrics-monitor.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/user/azure-stack-metrics-supported.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/application-proxy-teams.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-teams",
             "redirect_document_id": true
@@ -26645,6 +26675,16 @@
         {
             "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
             "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-qlik.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-qlik",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-wildcard.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-wildcard",
             "redirect_document_id": true
         },
         {
@@ -27444,6 +27484,206 @@
         {
             "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
             "redirect_url": "/azure/azure-government/documentation-government-get-started-connect-with-vs",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/overview.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-arm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-arm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-arm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-datalake",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-vm-windows-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-storage",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-storage-sas",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-sql.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-cosmos-db",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-ua-arm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-datalake",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-access-key",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-cosmos-db",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/msi-tutorial-linux-vm-access-arm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-portal-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-cli-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-template-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-rest-vm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-portal-windows-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-cli-windows-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-powershell-windows-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vmss",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-template-windows-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/qs-configure-rest-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vmss",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-use-vm-token.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-use-vm-sign-in.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-use-vm-sdk.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sdk",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/how-to-manage-ua-identity-rest.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/known-issues.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/known-issues",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/services-support-msi.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-msi",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/active-directory/managed-service-identity/index.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources",
             "redirect_document_id" : true
         }
     ]
