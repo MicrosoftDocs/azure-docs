@@ -90,39 +90,47 @@ The HTML form includes options that map to query parameters in the [Bing Web Sea
 > [!NOTE]
 > The Bing Web Search API offers additional query parameters to help refine search results. This sample only uses a few. For a complete list of available parameters, see [Bing Web Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
 
-The `bingSearchOptions()` function converts these options to the format required by the Bing Search API.
+The `bingSearchOptions()` function converts these options to match the format required by the Bing Search API.
 
 ```javascript
 // Build query options from selections in the HTML form.
 function bingSearchOptions(form) {
 
     var options = [];
+    // Where option.
     options.push("mkt=" + form.where.value);
+    // SafeSearch option.
     options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
     for (var i = 0; i < form.what.length; i++)
         if (form.what[i].checked) what.push(form.what[i].value);
+    // Promote option.
     if (what.length) {
         options.push("promote=" + what.join(","));
         options.push("answerCount=9");
     }
+    // Count option.
     options.push("count=" + form.count.value);
+    // Offset option.
     options.push("offset=" + form.offset.value);
+    // Hardcoded text decoration option.
     options.push("textDecorations=true");
+    // Hardcoded text format option.
     options.push("textFormat=HTML");
     return options.join("&");
 }
 ```
 
-For example, `SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default. However, this form uses a checkbox, which has only two states. This code sample converts this setting to either `strict` or `off`, `moderate` is not used.
+`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. However, this form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` is not used.
 
-If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. We simply set it to `9` (the number of result types supported by the Bing Web Search API) to make sure we get the maximum number of result types.
+If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9`. This ensures that the maximum number of result types are returned.
 
 > [!NOTE]
 > Promoting a result type does not *guarantee* that it will be included in the search results. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
 
-In this tutorial, the `textDecoration` and `textFormat` query parameters are hardcoded into the script, and cause the search term to be boldfaced in the search results.
+The `textDecoration` and `textFormat` query parameters are hardcoded into the script, and cause the search term to be boldfaced in the search results. These parameters are not required.
 
 ## Manage subscription keys
 
