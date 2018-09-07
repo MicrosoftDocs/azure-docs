@@ -9,6 +9,9 @@
     href: create-cluster-database-portal.md
 - name: Tutorials
 - name: Concepts
+  items:
+  - name: Data ingestion
+    href: ingest-data.md
 - name: How-to guides
   items:
   - name: Write Kusto queries
