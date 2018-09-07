@@ -38,27 +38,30 @@ This script performs the following actions:
 
 2. Run the following script to download the automation script:
 
-    ````PowerShell  
+    ```PowerShell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
-    Invoke-WebRequest -Uri https://vaastestpacksprodeastus.blob.core.windows.net/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
+    Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
     Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
-    ````
+    ```
 
 3. Run the following script with the appropriate parameter values:
 
-    ````PowerShell  
-    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>"  -AsPlainText -Force)
-    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<ServiceAdminUser>", (ConvertTo-SecureString "<ServiceAdminPassword>" -AsPlainText -Force)
-    $TenantAdminCreds = New-Object System.Management.Automation.PSCredential "<TenantAdminUser>", (ConvertTo-SecureString "<TenantAdminPassword>" -AsPlainText -Force)
+    ```PowerShell
+    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
     .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
-        -VaaSAccountTenantId <VaaSAccountTenantId> `
-        -VaaSSolutionName <VaaSSolutionName> `
-        -VaaSTestPassName <VaaSTestPassName> `
-        -VaaSTestCategories Integration,Functional `
-        -MaxScriptWaitTimeInHours 12 `
-        -ServiceAdminCreds $ServiceAdminCreds `
-    ````
+                          -VaaSAccountTenantId <VaaSAccountTenantId> `
+                          -VaaSSolutionName <VaaSSolutionName> `
+                          -VaaSTestPassName <VaaSTestPassName> `
+                          -VaaSTestCategories Integration,Functional `
+                          -MaxScriptWaitTimeInHours 12 `
+                          -ServiceAdminUserName <AzSServiceAdminUser> `
+                          -ServiceAdminUserPassword <AzSServiceAdminPassword> `
+                          -TenantAdminUserName <AzSTenantAdminUser> `
+                          -TenantAdminUserPassword <AzSTenantAdminPassword> `
+                          -CloudAdminUserName <AzSCloudAdminUser> `
+                          -CloudAdminUserPassword <AzSCloudAdminPassword>
+    ```
 
     **Parameters**
 
@@ -66,11 +69,16 @@ This script performs the following actions:
     | --- | --- |
     | VaaSUserld | Your VaaS user ID. |
     | VaaSUserPassword | Your VaaS password. |
-    | ServiceAdminUser | Your Azure Stack service admin account.  |
+    | VaaSAccountTenantId | Your VaaS tenant GUID. |
+    | VaaSSolutionName | The name of the VaaS solution under which the test pass will run. |
+    | VaaSTestPassName | The name of the VaaS test pass workflow to create. |
+    | VaaSTestCategories | `Integration`, `Functional`, or. `Reliability`. If you use multiple values, separate each value by a comma.  |
+    | ServiceAdminUserName | Your Azure Stack service admin account.  |
     | ServiceAdminPassword | Your Azure Stack service password.  |
-    | TenantAdminUser | The administrator for the primary tenant.  |
+    | TenantAdminUserName | The administrator for the primary tenant.  |
     | TenantAdminPassword | The password for the primary tenant.  |
-    | FunctionalCategory| Integration, Functional, or. Reliability. If you use multiple values, separate each value by a comma.  |
+    | CloudAdminUserName | The cloud administrator username.  |
+    | CloudAdminPassword | The password for the cloud administrator.  |
 
 4. Review the results of your test. For other options, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
 
