@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/24/2018
+ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -35,19 +35,20 @@ order by run_id desc
 ```
 
 ## User-Defined Restore Points
-This feature enables you to manually trigger snapshots to create restore points  of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. Only 42 user-defined restore points are supported at any point in time so they must be [deleted](https://go.microsoft.com/fwlink/?linkid=875299) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) or the Azure Portal.
+This feature enables you to manually trigger snapshots to create restore points  of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guranteed at any point in time so they must be [deleted](https://go.microsoft.com/fwlink/?linkid=875299) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) or the Azure Portal.
 
 
 > [!NOTE]
 > If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
 >
 
-### Snapshot retention when a data warehouse is paused
-SQL Data Warehouse does not create snapshots and does not expire restore points while a data warehouse is paused. Restore points do not change while the data warehouse is paused. Restore point retention is based on the number of days the data warehouse is online, not calendar days.
-
-For example, if a snapshot starts October 1 at 4 pm and the data warehouse is paused October 3 at 4 pm, the restore points are up to two days old. When the data warehouse comes back online the restore point is two days old. If the data warehouse comes online October 5 at 4 pm, the restore point is two days old and remains for five more days.
-
-When the data warehouse comes back online, SQL Data Warehouse resumes creating new restore points and expires them when they have more than seven days of data.
+### Restore point retention
+The following describes details on restore point retention periods:
+1. SQL Data Warehouse deletes a restore point when it hits the 7 day retention period **and** when there are at least 42 total restore points (including both user-defined and automatic)
+2. Snapshots are not taken when a data warehouse is paused
+3. The age of a restore point is measured by the absolute calendar days from the time the restore point is taken including when the data warehouse is paused
+4. At any point in time, a data warehouse is guranteed to be able to store up to 42 user-defined restore points and 42 automatic restore points as long as these restore points have not reached the 7 day retention period
+5. If a snapshot is taken, the data warehouse is then paused for greater than 7 days, and then resumes, it is possible for restore point to persist until there are 42 total restore points (including both user-defined and automatic)
 
 ### Snapshot retention when a data warehouse is dropped
 When you drop a data warehouse, SQL Data Warehouse creates a final snapshot and saves it for seven days. You can restore the data warehouse to the final restore point created at deletion. 
