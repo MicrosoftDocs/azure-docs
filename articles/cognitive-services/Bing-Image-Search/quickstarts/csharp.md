@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Send search queries using the Bing Image Search API and C#"
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search and find images on the web using the Bing Web Search API.
 services: cognitive-services
 documentationcenter: ''
@@ -7,7 +8,7 @@ author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 8/28/2018
+ms.date: 9/07/2018
 ms.author: aahi
 ---
 # Quickstart: Send search queries using the Bing Image Search API and C#
@@ -141,7 +142,7 @@ In the `BingImageSearch` method, perform the following steps.
     ```
 
 2. Get the first returned image from `jsonObj`, and print out the title and a URL to the image. 
-    ```
+    ```csharp
     var firstJsonObj = jsonObj["value"][0];
     Console.WriteLine("Title for the first image result: " + firstJsonObj["name"]+"\n");
     //After running the application, copy the output URL into a browser to see the image. 
@@ -154,47 +155,45 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 ```json
 {
-  {
-   "_type":"Images",
-   "instrumentation":{
-      "_type":"ResponseInstrumentation"
-   },
-   "readLink":"images\/search?q=tropical ocean",
-   "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
-   "totalEstimatedMatches":842,
-   "nextOffset":47,
-   "value":[
-      {
-         "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
-         "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
-         "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
-         "datePublished":"2017-11-03T08:51:00.0000000Z",
-         "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
-         "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
-         "contentSize":"897388 B",
-         "encodingFormat":"jpeg",
-         "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
-         "width":1920,
-         "height":1200,
-         "thumbnail":{
-            "width":474,
-            "height":296
-         },
-         "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
-         "insightsMetadata":{
-            "recipeSourcesCount":0,
-            "bestRepresentativeQuery":{
-               "text":"Tropical Beaches Desktop Wallpaper",
-               "displayText":"Tropical Beaches Desktop Wallpaper",
-               "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
-            },
-            "pagesIncludingCount":115,
-            "availableSizesCount":44
-         },
-         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
-         "accentColor":"0050B2"
-      }
-  }
+"_type":"Images",
+"instrumentation":{
+    "_type":"ResponseInstrumentation"
+},
+"readLink":"images\/search?q=tropical ocean",
+"webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
+"totalEstimatedMatches":842,
+"nextOffset":47,
+"value":[
+    {
+        "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
+        "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
+        "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
+        "datePublished":"2017-11-03T08:51:00.0000000Z",
+        "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
+        "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
+        "contentSize":"897388 B",
+        "encodingFormat":"jpeg",
+        "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
+        "width":1920,
+        "height":1200,
+        "thumbnail":{
+        "width":474,
+        "height":296
+        },
+        "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
+        "insightsMetadata":{
+        "recipeSourcesCount":0,
+        "bestRepresentativeQuery":{
+            "text":"Tropical Beaches Desktop Wallpaper",
+            "displayText":"Tropical Beaches Desktop Wallpaper",
+            "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
+        },
+        "pagesIncludingCount":115,
+        "availableSizesCount":44
+        },
+        "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
+        "accentColor":"0050B2"
+    }
 }
 ```
 
