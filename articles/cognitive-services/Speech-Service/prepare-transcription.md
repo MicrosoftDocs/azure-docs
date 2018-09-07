@@ -36,9 +36,9 @@ Avoid the use of extended (Latin-1) or Unicode punctuation characters. These cha
 
 The Speech Service carries out the following normalization rules:
 
-* Lower-casing all text
+* Using lowercase letters for all text
 * Removing all punctuation except word-internal apostrophes
-* Expansion of numbers to spoken form, including dollar amounts
+* Expanding numbers to spoken form, including dollar amounts
 
 Here are some examples:
 
@@ -58,8 +58,8 @@ Apply the following normalization to your text transcripts:
 * Abbreviations should be written out in words.
 * Non-standard numeric strings (such as some date or accounting forms) should be written out in words.
 * Words with non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
-* Leave abbreviations pronounced as words untouched. For example, radar, laser, RAM, NATO.
-* Write abbreviations pronounced as separate letters, with letters separated by spaces. For example, IBM, CPU, FBI, TBD, NaN. 
+* Leave abbreviations that are pronounced as words untouched (for example, "radar," "laser," "RAM," or "NATO").
+* Write abbreviations that are pronounced as separate letters, with letters separated by spaces (for example, "IBM," "CPU," "FBI," "TBD," or "NaN"). 
 
 Here are some examples:
 
@@ -78,7 +78,7 @@ Here are some examples:
 
 ## Chinese (zh-cn)
 
-Text data uploaded to the Custom Speech Service should use UTF-8 encoding with a byte-order marker. The file should be written one utterance per line.
+Text data that's uploaded to the Custom Speech Service should use UTF-8 encoding with a byte-order marker. The file should be written one utterance per line.
 
 Avoid the use of half-width punctuation characters. These characters can be included inadvertently when you prepare the data in a word-processing program or scrape data from webpages. Replace them with appropriate full-width substitutions. For example:
 
@@ -94,7 +94,7 @@ The Speech Service carries out the following normalization rules:
 * Removing all punctuation
 * Expanding numbers to spoken form
 * Converting full-width letters to half-width letters
-* Upper-casing all English words
+* Using uppercase letters for all English words
 
 Here are some examples:
 
@@ -108,7 +108,7 @@ Here are some examples:
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-Apply the following normalization to your text before importing it:
+Before you import your text, apply the following normalization to it:
 
 * Abbreviations should be written out in words (as in spoken form).
 * Write out numeric strings in spoken form.
@@ -131,11 +131,11 @@ Text data uploaded to the **Speech to Text** service must use UTF-8 encoding wit
 
 The Speech Service carries out the following normalization rules:
 
-* Lower-casing all text
-* Removing all punctuation, including various types of quotes ("test", 'test', "test„ or «test» are OK)
+* Using lowercase letters for all text
+* Removing all punctuation, including various types of quotation marks ("test", 'test', "test„ and «test» are OK)
 * Discarding rows with any special character from the set  ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
-* Expansion of numbers to word form, including dollar or euro amounts
-* Umlauts are accepted only for a, o, u; others will be replaced by "th" or be discarded
+* Expanding numbers to word form, including dollar or Euro amounts
+* Accepting umlauts only for a, o, and u; others will be replaced by "th" or be discarded
 
 Here are some examples
 
@@ -145,17 +145,17 @@ Here are some examples
 | ¡Eine Frage! | eine frage |
 | wir, haben | wir haben |
 
-Apply the following normalization to your text before importing it:
+Before you import your text, apply the following normalization to it:
 
-* Decimal point should be "," and not ".".
-* Time separator between hours and minutes should be ":" and not ".": for example, 12:00 Uhr.
-* Abbreviations such as 'ca.' aren't replaced. We recommend that you use the full form.
-* The four main mathematical operators (+, -, \*, /) are removed. We recommend replacing them with their literal form: plus, minus, mal, geteilt.
-* Same applies to comparison operators (=, <, >). We recommend replacing them with gleich, kleiner als, grösser als.
-* Use fractions, such as 3/4, in word form (such as 'drei viertel' instead of ¾).
-* Replace the € symbol with the word form "Euro".
+* Decimal points should be "," and not ".".
+* Time separators between hours and minutes should be ":" and not "." (for example, 12:00 Uhr).
+* Abbreviations such as "ca." aren't replaced. We recommend that you use the full form.
+* The four main mathematical operators (+, -, \*, and /) are removed. We recommend replacing them with their literal form: "plus," "minus," "mal," and "geteilt."
+* The same rule applies to comparison operators (=, <, and >). We recommend replacing them with "gleich," "kleiner als," and "grösser als."
+* Use fractions, such as 3/4, in word form (for example, "drei viertel" instead of ¾).
+* Replace the € symbol with the word form "Euro."
 
-Here are some examples.
+Here are some examples:
 
 | Original text | After user's normalization | After system normalization
 |--------  | ----- | -------- |
