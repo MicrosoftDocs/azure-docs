@@ -21,7 +21,7 @@
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Create multiple storage account instances
     href: resource-manager-tutorial-create-multiple-instances.md
-  - name: Create multiple Azure resources
+  - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Create linked templates
     href: resource-manager-tutorial-create-linked-templates.md
