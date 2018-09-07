@@ -78,6 +78,8 @@ Kubernetes uses *pods* to run an instance of your application. A pod represents 
 
 When you create a pod, you can define *resource limits* to request a certain amount of CPU or memory resources. The Kubernetes Scheduler tries to schedule the pods to run on a node with available resources to meet the request. You can also specify maximum resource limits that prevents a given pod from consuming too much compute resource from the underlying node. A best practice is to include resource limits for all pods to help the Kubernetes Scheduler understand what resources are needed and permitted.
 
+For more information, see [Kubernetes pods][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
+
 A pod is a logical resource, but the container(s) are where the application workloads run. Pods are typically ephemeral, disposable resources, and individually scheduled pods miss out on some of the high availability and redundancy features Kubernetes provides. Instead, pods are usually deployed and managed by Kubernetes *Controllers*, such as the Deployment Controller.
 
 ## Deployments
@@ -120,6 +122,8 @@ spec:
 
 More complex applications can be created by also including services such as load balancers within the YAML manifest.
 
+For more information, see [Kubernetes deployments][kubernetes-deployments].
+
 ## StatefulSets and DaemonSets
 
 The Deployment Controller uses the Kubernetes Scheduler to run a given number of replicas on any available node with available resources. This approach of using deployments may be sufficient for stateless applications, but not for applications that require a persistent naming convention or storage. For applications that require a replica to exist on each node, or selected nodes, within a cluster, the Deployment Controller doesn't look at how replicas are distributed across the nodes.
@@ -129,6 +133,8 @@ The Deployment Controller uses the Kubernetes Scheduler to run a given number of
 Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet, the naming convention, network names, and storage persist as replicas are rescheduled.
 
 You define the application in YAML format using `kind: StatefulSet`, and the StatefulSet Controller then handles the deployment and management of the required replicas. Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. A feature of StatefulSets is that the underlying persistent storage remains when the StatefulSet is deleted.
+
+For more information, see [Kubernetes StatefulSets][kubernetes-statefulsets].
 
 Replicas in a StatefulSet are scheduled and run across any available node in an AKS cluster. If you need to ensure that at least one pod in your Set runs on a node, you can instead use a DaemonSet.
 
@@ -140,6 +146,8 @@ The DaemonSet Controller can schedule pods on nodes early in the cluster boot pr
 
 Like StatefulSets, a DaemonSet is defined as part of a YAML definition using `kind: DaemonSet`.
 
+For more information, see [Kubernetes DaemonSets][kubernetes-daemonset].
+
 ## Namespaces
 
 Kubernetes resources, such as pods and Deployments, are logically grouped into a *namespace*. These groupings provide a way to logically divide an AKS cluster and restrict access to create, view, or manage resources. You can create namespaces to separate business groups, for example. Users can only interact with resources within their assigned namespaces.
@@ -150,22 +158,30 @@ When you create an AKS cluster, the following namespaces are available:
 - *kube-system* - This namespace is where core resources exist, such as network features like DNS and proxy, or the Kubernetes dashboard. You typically don't deploy your own applications into this namespace.
 - *kube-public* - This namespace is typically not used, but can be used for resources to be visible across the whole cluster, and can viewed by any users.
 
+For more information, see [Kubernetes namespaces][kubernetes-namespaces].
+
 ## Next steps
 
 This article covers some of the core Kubernetes components and how they apply to AKS clusters. For additional information on core Kubernetes and AKS concepts, see the following articles:
 
-- Kubernetes management
-- Kubernetes security and identity
-- [Kubernetes scale][aks-concepts-scale]
-- Kubernetes storage
-- Kubernetes virtual networks
+- [Kubernetes / AKS access and identity][aks-concepts-identity]
+- [Kubernetes / AKS security][aks-concepts-security]
+- [Kubernetes / AKS virtual networks][aks-concepts-network]
+- [Kubernetes / AKS storage][aks-concepts-storage]
+- [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [acs-engine]: https://github.com/Azure/acs-engine
+[kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
+[kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
+[kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+[kubernetes-statefulsets]: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+[kubernetes-namespaces]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 
 <!-- INTERNAL LINKS -->
-[aks-concepts-management]: concepts-scale.md
-[aks-concepts-security]: concepts-scale.md
+[aks-concepts-identity]: concepts-identity.md
+[aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md
-[aks-concepts-storage]: concepts-scale.md
-[aks-concepts-network]: concepts-scale.md
+[aks-concepts-storage]: concepts-storage.md
+[aks-concepts-network]: concepts-network.md
