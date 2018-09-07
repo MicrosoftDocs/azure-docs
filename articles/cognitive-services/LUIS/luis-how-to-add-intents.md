@@ -15,7 +15,7 @@ ms.service: cognitive-services
 # Manage intents 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
 
-You add and manage your intents from the **Intents** page, available from **Intents** in LUIS's left panel. 
+Intents are managed from the **Build** Section in the top toolbar. You add and manage your intents from the **Intents** page, available in the left panel. 
 
 The following procedure demonstrates how to add the "Bookflight" intent in the TravelAgent app.
 
@@ -100,7 +100,7 @@ To delete several utterances:
 2. Select **Done** in the **Delete utterances?** pop-up dialog.
 
 ## Search in utterances on intent page
-In an intent, you can search for utterances that contain text (words or phrases). For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
+You can search for utterances that contain text (words or phrases) within the intent's utterance list. For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
 
 1. Select the magnifying glass icon in the toolbar.
 

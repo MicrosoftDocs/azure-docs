@@ -12,9 +12,9 @@ ms.date: 09/09/2018
 ms.author: diberry
 ---
 
-# Add LUIS endpoint keys to app
+# Add Azure LUIS resource to app
 
-After you create a LUIS endpoint key in the Azure portal, assign the key to the LUIS app and get the correct endpoint URL. Use this endpoint URL to get LUIS predictions.
+After you create a LUIS resource in the Azure portal, assign the resource to the LUIS app and get the correct endpoint URL. Use this endpoint URL to get LUIS predictions.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -27,7 +27,7 @@ After you create a LUIS endpoint key in the Azure portal, assign the key to the 
 <a name="authoring-key"></a>
 <a name="create-and-use-an-endpoint-key"></a>
 
-## Assign endpoint key
+## Assign resource
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating an endpoint key using Azure](luis-how-to-azure-subscription.md).
  
@@ -35,30 +35,26 @@ After you create a LUIS endpoint key in the Azure portal, assign the key to the 
 
     [ ![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
-3. In order to add the LUIS key created in the previous step, select **Assign Key +** to open the **Assign a key to your app** dialog.
+3. In order to add the LUIS, select **Assign Resource +**.
 
-    ![Assign a key to your app](./media/luis-manage-keys/assign-key.png)
+    ![Assign a resource to your app](./media/luis-manage-keys/assign-key.png)
+
 4. Select a Tenant in the dialog associated with the email address you login with to the LUIS website.  
-<!-- 
-    > [!Note]
-    > In Azure, a tenant represents the Azure Active Directory ID of the client or organization associated with a service. If you previously signed up for an Azure subscription with your individual Microsoft Account, you already have a tenant! When you log in to the Azure portal, you are automatically logged in to [your default tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant). You are free to use this tenant but you may want to create an Organizational administrator account.-->
 
-5. Choose the **Subscription Name** associated with the Azure LUIS key you want to add.
+5. Choose the **Subscription Name** associated with the Azure resource you want to add.
 
-6. Select the **LUIS resource name**. The region of the resource is displayed in parentheses. 
+6. Select the **LUIS resource name**. 
 
-7. Select the **Region Time Zone**. See [Change time zone of prebuilt datetimeV2 entity](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for more information.
+7. Select **Assign resource**. 
 
-8. Select **Assign Keys**. 
-
-9. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
+8. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
 <a name="publishing-to-europe"></a>
 <a name="publishing-to-australia"></a>
 
-## Unassign key
+## Unassign resource
 When you unassign the endpoint key, it is not deleted from Azure. It is only unlinked from LUIS. 
 
 When an endpoint key is unassigned, or not assigned to the app, any request to the endpoint URL returns an error: `401 This application cannot be accessed with the current subscription`. 
