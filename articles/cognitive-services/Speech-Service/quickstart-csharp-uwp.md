@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in a UWP app using the Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a Universal Windows Platform (UWP) application using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
@@ -108,7 +108,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/csharp-uwp` folder.
 
 ## Next steps

@@ -123,9 +123,9 @@ Build the code in Visual Studio.
 
 In the project's /bin/Debug directory, run the application from a command line. 
 
-````
+```CMD
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
-````
+```
 
 This command-line displays the results of calling the add utterances API. 
 

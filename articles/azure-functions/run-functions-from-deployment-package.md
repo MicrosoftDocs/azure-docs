@@ -5,13 +5,10 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.workload: na 
 ms.date: 08/22/2018
 ms.author: glenga
 
@@ -60,7 +57,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 ## Adding the WEBSITE_RUN_FROM_ZIP setting
 
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 ## Next steps
 

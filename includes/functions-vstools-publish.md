@@ -5,7 +5,7 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
 ---
@@ -15,6 +15,8 @@ ms.custom: include file
 2. Select **Azure Function App**, choose **Create New**, and then select **Publish**.
 
     ![Pick a publish target](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+
+    When you enable **Run from Zip**, your function app in Azure is run directly from the deployment package. For more information, see [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md).
 
 3. If you haven't already connected Visual Studio to your Azure account, select **Add an account...**.
 
