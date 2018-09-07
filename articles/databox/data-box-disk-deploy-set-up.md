@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -129,8 +129,8 @@ Perform the following steps to connect and unlock your disks.
 1. In the Azure portal, go to **General > Device details**. 
 2. Download the Data Box Disk toolset corresponding to the Linux client.  
 
-        > [!div class="nextstepaction"]
-        > [Download Data Box Disk toolset for Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [!div class="nextstepaction"]
+    > [Download Data Box Disk toolset for Linux](http://aka.ms/databoxdisktoolslinux) 
 
 3. On your Linux client, open a terminal. Navigate to the folder where you downloaded the software. Change the file permissions so that you can execute these files. Type the following command: 
 
