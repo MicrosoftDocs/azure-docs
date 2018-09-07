@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/23/2018
 ms.author: bonova
 ---
 
-# What is a Managed Instance (preview)?
+# What is a Managed Instance?
 
-Azure SQL Database Managed Instance (preview) is a new deployment model of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) Database Engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduces management overhead and TCO.
+Azure SQL Database Managed Instance is a new deployment model of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) Database Engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduces management overhead and TCO.
 
 > [!IMPORTANT]
 > For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -65,6 +65,9 @@ The following table helps you understand how to select the optimal configuration
 Managed Instance is available in two service tiers:
 - **General Purpose**: Designed for applications with typical performance and IO latency requirements.
 - **Business Critical**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
+
+> [!IMPORTANT]
+> The **Business Critical** service tier is in preview.
 
 Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
 
@@ -135,6 +138,9 @@ The following list outlines the key characteristics of the Business Critical ser
 |||
 
 For more information see [Premium/Business Critical availability and architecture](sql-database-high-availability.md#premiumbusiness-critical-availability) in Azure SQL Database.
+
+> [!IMPORTANT]
+> The **Business Critical** service tier is in preview.
 
 ## Advanced security and compliance 
 
@@ -221,7 +227,7 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
 - Managed Instance does not allow specifying full physical paths so all corresponding scenarios have to be supported differently: RESTORE DB does not support WITH MOVE, CREATE DB doesn’t allow physical paths, BULK INSERT works with Azure Blobs only, etc. 
 - Managed Instance supports [Azure AD authentication](sql-database-aad-authentication.md) as cloud alternative to Windows authentication. 
 - Managed Instance automatically manages XTP filegroup and files for databases containing In-Memory OLTP objects
-- Managed Instance supports SQL Server Integration Services (SSIS) and can host SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). To compare the SSIS features in SQL Database and Managed Instance, see [Compare SQL Database and Managed Instance (Preview)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Managed Instance supports SQL Server Integration Services (SSIS) and can host SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). To compare the SSIS features in SQL Database and Managed Instance, see [Compare SQL Database and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### Managed Instance administration features  
 

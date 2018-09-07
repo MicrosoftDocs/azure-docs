@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/23/2018
 ms.author: carlrab
 ---
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)
@@ -25,7 +25,7 @@ In Azure, you can have your SQL Server workloads running in a hosted infrastruct
       The following illustration shows these deployment options:
 
       ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
-  - You can deploy to a [Azure SQL Database Managed Instances (preview)](sql-database-managed-instance.md). 
+  - You can deploy to a [Azure SQL Database Managed Instances](sql-database-managed-instance.md). 
 
       > [!NOTE]
       > With both versions, Azure SQL Database adds additional features that are not available in SQL Server, such as built-in intelligence and management. With the first version,  With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change.

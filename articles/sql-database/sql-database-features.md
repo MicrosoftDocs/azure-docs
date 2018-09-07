@@ -6,7 +6,7 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/23/2018
 ms.author: jovanpop
 manager: craigg
 ---
@@ -24,7 +24,7 @@ Microsoft continues to add features to Azure SQL Database. Visit the Service Upd
 
 The following table lists the major features of SQL Server and provides information about whether the feature is partially or fully supported and a link to more information about the feature. 
 
-| **SQL Feature** | **Supported in Azure SQL Database/Logical Server** | **Supported in Azure SQL Database/Managed Instance (preview)** |
+| **SQL Feature** | **Supported in Azure SQL Database/Logical Server** | **Supported in Azure SQL Database/Managed Instance** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |

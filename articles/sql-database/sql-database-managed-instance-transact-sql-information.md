@@ -7,13 +7,13 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: conceptual 
-ms.date: 0813/2018 
+ms.date: 09/23/2018 
 ms.author: jovanpop 
 manager: craigg 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
-Azure SQL Database Managed Instance (preview) provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
+Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
  - [T-SQL differences and unsupported features](#Differences)
  - [Features that have different behavior in Managed Instance](#Changes)
  - [Temporary limitations and known issues](#Issues)

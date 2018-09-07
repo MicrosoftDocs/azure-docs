@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 09/06/2018
+ms.date: 09/23/2018
 ms.author: jovanpop
 
 ---
@@ -22,12 +22,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Prerequisite - whitelist your subscription
+## Prerequisite - whitelist your subscription (Business Critical tier only)
 
-This quickstart requires preview approval and whitelisting. Managed Instance is being released initially as a gated public preview that requires your subscription to be whitelisted. If your subscription is not already whitelisted, use the following steps to be offered and accept preview terms and send a request for whitelisting.
+This quickstart requires preview approval and whitelisting only if you wish to choose the Business Critical service tier. The Business Critical service tier in Managed Instance is in preview and is a gated public preview that requires your subscription to be whitelisted. If your subscription is not already whitelisted, use the following steps to be offered and accept preview terms and send a request for whitelisting.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
+2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance**.
 3. Click **Create**.
 
    ![managed instance create](./media/sql-database-managed-instance-get-started/managed-instance-create-preview.png)
@@ -70,7 +70,7 @@ The Managed Instance subnet is dedicated to Managed Instances and you cannot cre
 The following steps show you how to create your Managed Instance after your preview has been approved.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
+2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance**.
 3. Click **Create**.
 
    ![Create managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
