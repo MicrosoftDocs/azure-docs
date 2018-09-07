@@ -25,6 +25,12 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 In this article, you learn how to use the [Azure Functions extension for Microsoft Visual Studio Code] to create and test a "hello world" function on your local computer. You then publish the function code to Azure.
 
+The flow below will work for the following supported languages, given you adjust the necessary parameters/steps:
+
+- Javascript
+- C#
+- Java
+
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
 ## Prerequisites
@@ -35,9 +41,11 @@ To complete this quickstart:
 
 * Install [version 2.x of the Core Tools](functions-run-local.md#v2), which is still in preview.
 
+* Install extensions for your language of choice.
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Install the extension
+## Install the Azure Function extension
 
 The Azure Functions extension is used to create, test, and deploy functions to Azure.
 
