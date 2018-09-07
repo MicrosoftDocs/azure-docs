@@ -44,13 +44,13 @@ ms.author: mtillman
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="fundamentals/index">Learn the fundamentals</a></h3> 
+                                                                    <h3><a href="fundamentals/index.yml">Learn the fundamentals</a></h3> 
 																	<p>
-																	    <a href="fundamentals/active-directory-whatis">Azure Active Directory overview</a><br>
-                                                                        <a href="fundamentals/understand-azure-identity-solutions">Basic concepts and terms</a><br>
-                                                                        <a href="fundamentals/active-directory-get-started-premium">Sign up for Azure AD Premium</a><br>
-                                                                        <a href="fundamentals/get-started-azure-ad">Access Azure AD Portal</a><br>
-																	    <a href="fundamentals/get-started-azure-ad">Create your Azure AD environment</a><br>
+																	    <a href="fundamentals/active-directory-whatis.md">Azure Active Directory overview</a><br>
+                                                                        <a href="fundamentals/understand-azure-identity-solutions.md">Basic concepts and terms</a><br>
+                                                                        <a href="fundamentals/active-directory-get-started-premium.md">Sign up for Azure AD Premium</a><br>
+                                                                        <a href="fundamentals/get-started-azure-ad.md">Access Azure AD Portal</a><br>
+																	    <a href="fundamentals/get-started-azure-ad.md">Create your Azure AD environment</a><br>
                                                                         <a href="">Build your directory</a>
 																    </p>
   															    </div>
@@ -66,25 +66,25 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="manage-apps/index">App management</a></h3>
+                                                        <h3><a href="manage-apps/index.yml">App management</a></h3>
                                                         <p>
-                                                            <a href="manage-apps/add-application-portal">Add an application</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal">Configure single sign-on (SSO)</a><br>
-												            <a href="manage-apps/application-proxy">Application Proxy for on-premises apps</a><br>
+                                                            <a href="manage-apps/add-application-portal.md">Add an application</a><br>
+                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on (SSO)</a><br>
+												            <a href="manage-apps/application-proxy.md">Application Proxy for on-premises apps</a><br>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="authentication/index">Authentication methods</a></h3>
+                                                        <h3><a href="authentication/index.yml">Authentication methods</a></h3>
                                                         <p>
-                                                            <a href="authentication/tutorial-mfa-applications">Enable MFA for Azure portal</a><br>
-                                                            <a href="authentication/quickstart-sspr">Enable self-service password reset</a><br>
-                                                            <a href="authentication/concept-registration-mfa-sspr-converged">Converged registration for MFA and SSPR</a>
+                                                            <a href="authentication/tutorial-mfa-applications.md">Enable MFA for Azure portal</a><br>
+                                                            <a href="authentication/quickstart-sspr.md">Enable self-service password reset</a><br>
+                                                            <a href="authentication/concept-registration-mfa-sspr-converged.md">Converged registration for MFA and SSPR</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="b2b/index">Business to business (B2B)</a></h3>
+                                                        <h3><a href="b2b/index.yml">Business to business (B2B)</a></h3>
                                                         <p>
-                                                            <a href="b2b/b2b-quickstart-add-guest-users-portal">Add guest users in the portal</a><br>
-                                                            <a href="b2b/bulk-invite">Bulk invite guest users</a><br>
-                                                            <a href="b2b/b2b-tutorial-require-mfa">Require MFA for guest users</a>
+                                                            <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Add guest users in the portal</a><br>
+                                                            <a href="b2b/bulk-invite.md">Bulk invite guest users</a><br>
+                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a>
                                                         </p>
 														<br><br>
                                                         <h3><a href="/azure/azure-active-directory-b2c/index">Business to consumer (B2C)</a></h3>
@@ -94,11 +94,11 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="">Compliance</a></h3>
+                                                        <h3><a href="compliance/index.yml">Compliance</a></h3>
                                                         <p>
-                                                            <a href="active-directory-azure-ad-controls-create-access-review">Create an access review</a><br>
-                                                            <a href="active-directory-azure-ad-controls-manage-user-access-with-access-reviews">Manage user access</a><br>
-                                                            <a href="active-directory-tou">Terms of use</a>
+                                                            <a href="compliance/active-directory-azure-ad-controls-create-access-review.md">Create an access review</a><br>
+                                                            <a href="compliance/active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md">Manage user access</a><br>
+                                                            <a href="compliance/active-directory-tou.md">Terms of use</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -110,39 +110,39 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="conditional-access/index">Conditional access</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">Conditional access</a></h3>
                                                         <p>
-                                                            <a href="conditional-access/app-based-mfa">Require MFA for specific apps</a><br>
-                                                            <a href="conditional-access/require-tou">Require terms of use to be accepted</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk">Block access when a session risk is detected</a>
+                                                            <a href="conditional-access/app-based-mfa.md">Require MFA for specific apps</a><br>
+                                                            <a href="conditional-access/require-tou.md">Require terms of use to be accepted</a><br>
+                                                            <a href="conditional-access/app-sign-in-risk.md">Block access when a session risk is detected</a>
                                                         </p>
 														<br><br>
-														<h3><a href="develop/index">Developers</a></h3>
+														<h3><a href="develop/index.yml">Developers</a></h3>
                                                         <p>
-                                                            <a href="develop/v2-app-types">Application types</a><br>
-                                                            <a href="develop/protocols-oauth-openid-connect">OAuth and OpenID Connect protocol</a><br>
-                                                            <a href="develop/v2-id-and-access-tokens">ID and access tokens</a>
+                                                            <a href="develop/v2-app-types.md">Application types</a><br>
+                                                            <a href="develop/protocols-oauth-openid-connect.md">OAuth and OpenID Connect protocol</a><br>
+                                                            <a href="develop/v2-id-and-access-tokens.md">ID and access tokens</a>
                                                         </p>
 														<br><br>
-														<h3><a href="devices/index">Device management</a></h3>
+														<h3><a href="devices/index.yml">Device management</a></h3>
                                                         <p>
-                                                            <a href="devices/hybrid-azuread-join-managed-domains">Configure hybrid join for managed domains</a><br>
-                                                            <a href="devices/hybrid-azuread-join-federated-domains">Configure hybrid join for federated domains</a><br>
-                                                            <a href="devices/azuread-joined-devices-frx">Configure Windows 10 first-run experience</a>
+                                                            <a href="devices/hybrid-azuread-join-managed-domains.md">Configure hybrid join for managed domains</a><br>
+                                                            <a href="devices/hybrid-azuread-join-federated-domains.md">Configure hybrid join for federated domains</a><br>
+                                                            <a href="devices/azuread-joined-devices-frx.md">Configure Windows 10 first-run experience</a>
                                                         </p>
 														<br><br>
 														<h3><a href="/azure/active-directory-domain-services/index">Domain services</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Enable Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Join Windows Server VM to managed domain</a><br>
-                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Configure secure LDAP</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started.md">Enable Azure AD Domain Services</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md">Join Windows Server VM to managed domain</a><br>
+                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md">Configure secure LDAP</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="users-groups-roles/index">Enterprise users</a></h3>
+                                                        <h3><a href="users-groups-roles/index.yml">Enterprise users</a></h3>
                                                         <p>
-                                                            <a href="users-groups-roles/directory-assign-admin-roles">Assign administrator roles</a><br>
-                                                            <a href="users-groups-roles/licensing-groups-assign">Assign licenses to groups</a><br>
-                                                            <a href="users-groups-roles/authentication/groups-create-rule">Create a dynamic group</a>
+                                                            <a href="users-groups-roles/directory-assign-admin-roles.md">Assign administrator roles</a><br>
+                                                            <a href="users-groups-roles/licensing-groups-assign.md">Assign licenses to groups</a><br>
+                                                            <a href="users-groups-roles/authentication/groups-create-rule.md">Create a dynamic group</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -154,38 +154,39 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="hybrid/index">Hybrid identity</a></h3>
+                                                        <h3><a href="hybrid/index.yml">Hybrid identity</a></h3>
                                                         <p>
-                                                            <a href="hybrid/tutorial-password-hash-sync">Azure AD Connect</a><br>
-                                                            <a href="hybrid/tutorial-passthrough-authentication">Integrate an AD forest to cloud</a><br>
-                                                            <a href="hybrid/tutorial-federation">Federate an AD forest to the cloud</a>
+                                                            <a href="hybrid/tutorial-password-hash-sync.md">Azure AD Connect</a><br>
+                                                            <a href="hybrid/tutorial-passthrough-authentication.md">Integrate an AD forest to cloud</a><br>
+                                                            <a href="hybrid/tutorial-federation.md">Federate an AD forest to the cloud</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="identity-protection/index">Identity protection</a></h3>
+                                                        <h3><a href="identity-protection/index.yml>Identity protection</a></h3>
                                                         <p>
-                                                            <a href="identity-protection/enable">Enable</a><br>
-                                                            <a href="identity-protection/playbook">Simulate risk events</a><br>
-                                                            <a href="identity-protection/howto-unblock-user">Unblock users</a>
+                                                            <a href="identity-protection/enable.md">Enable</a><br>
+                                                            <a href="identity-protection/playbook.md">Simulate risk events</a><br>
+                                                            <a href="identity-protection/howto-unblock-user.md">Unblock users</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="managed-service-identity/index">Managed identity</a></h3>
+                                                        <h3><a href="managed-service-identity/index.yml">Managed identity</a></h3>
                                                         <p>
-                                                            <a href="managed-service-identity/tutorial-windows-vm-access-sql">Use Windows VM to access Azure SQL</a><br>
-                                                            <a href="managed-service-identity/how-to-use-vm-token">Use Azure VM for token acquisition</a><br>
-                                                            <a href="managed-service-identity/services-support-msi">Services that support managed identity</a>
+                                                            <a href="managed-service-identity/tutorial-windows-vm-access-sql.md">Use Windows VM to access Azure SQL</a><br>
+                                                            <a href="managed-service-identity/how-to-use-vm-token.md">Use Azure VM for token acquisition</a><br>
+                                                            <a href="managed-service-identity/services-support-msi.md">Services that support managed identity</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="privileged-identity-management/index">PIM</a></h3>
+                                                        <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
                                                         <p>
-                                                            <a href="privileged-identity-management/pim-getting-started">Start using PIM</a><br>
-                                                            <a href="privileged-identity-management/pim-how-to-activate-role">Activate your directory role</a><br>
-                                                            <a href="privileged-identity-management/pim-how-to-activate-role">Assign a directory role</a>
+                                                            <a href="privileged-identity-management/pim-getting-started.md">Start using PIM</a><br>
+                                                            <a href="privileged-identity-management/pim-how-to-activate-role.md">Activate your directory role</a><br>
+                                                            <a href="privileged-identity-management/pim-how-to-activate-role.md">Assign a directory role</a>
                                                         </p>
-														<br><br>                                                        <h3><a href="reports-monitoring/index">Reporting and monitoring</a></h3>
+														<br><br>
+														<h3><a href="reports-monitoring/index.yml">Reporting and monitoring</a></h3>
                                                         <p>
-                                                            <a href="reports-monitoring/quickstart-download-sign-in-report">Download sign-in report</a><br>
-                                                            <a href="reports-monitoring/quickstart-download-audit-report">Download audit report</a><br>
-                                                            <a href="reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Route logs to Azure storage account</a>
+                                                            <a href="reports-monitoring/quickstart-download-sign-in-report.md">Download sign-in report</a><br>
+                                                            <a href="reports-monitoring/quickstart-download-audit-report.md">Download audit report</a><br>
+                                                            <a href="reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md">Route logs to Azure storage account</a>
                                                         </p>
                                                     </div>
                                                 </div>
