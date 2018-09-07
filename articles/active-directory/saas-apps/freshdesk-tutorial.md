@@ -105,9 +105,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
 
-3. On the **FreshDesk Domain and URLs** section, please enter the **Sign-on URL** as: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
+3. On the **FreshDesk Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
+
+	a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
 	> [!NOTE]
 	> Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.  
@@ -132,12 +134,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> Here **FreshDesk.cer** is the certificate which you have downloaded from the Azure portal.
 
-	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` value in the command prompt.
+	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` value in the command prompt. **certificate.crt** is the output certificate which is generated in the previous step.
 
-	c. Copy the **Thumbprint** value and paste it into the Notepad.
-
-	> [!NOTE]
-	> Remove colons from Thumbprint.
+	c. Copy the **Thumbprint** value and paste it into the Notepad. Remove colons from Thumbprint and obtain the final Thumbprint value.
 
 8. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
 
@@ -165,7 +164,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     d. In the **Logout URL** textbox, paste **Sign-Out URL** value, which you have copied from the Azure portal.
 
-    e. In the **Security Certificate Fingerprint** textbox, paste **Thumbprint** value, which you have copied from the Azure portal.
+    e. In the **Security Certificate Fingerprint** textbox, paste **Thumbprint** value which you have obtained earlier after removing the colons.
   
 	f. Click **Save**.
 
