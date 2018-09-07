@@ -137,7 +137,7 @@ The Speech Service carries out the following normalization rules:
 * Expanding numbers to word form, including dollar or Euro amounts
 * Accepting umlauts only for a, o, and u; others will be replaced by "th" or be discarded
 
-Here are some examples
+Here are some examples:
 
 | Original text | After normalization |
 |----- | ----- |
@@ -159,7 +159,7 @@ Here are some examples:
 
 | Original text | After user's normalization | After system normalization
 |--------  | ----- | -------- |
-| Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
+| Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
