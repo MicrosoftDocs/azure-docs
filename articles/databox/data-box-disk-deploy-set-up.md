@@ -37,7 +37,7 @@ Before you begin, make sure that:
 2. You have received your disks and the job status in the portal is updated to **Delivered**.
 3. You have a client computer on which you can install the Data Box Disk unlock tool. Your client computer must:
     - Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-Windows-clients) installed if it is a Windows client.  
+    - Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.  
 
 ## Unpack your disks
 
