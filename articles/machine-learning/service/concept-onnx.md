@@ -1,6 +1,6 @@
 ---
-title: ONNX for AI models with Azure Machine Learning service
-description: Learn how to use ONNX and Azure Machine Learning together. 
+title: ONNX and Azure Machine Learning - create and deploy models
+description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,20 +10,17 @@ author: prasanthpul
 ms.date: 09/24/2018
 ---
 
-# ONNX and Azure Machine Learning: Open and Interoperable AI
+# ONNX and Azure Machine Learning: Create and deploy interoperable AI models
 
-The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a community of partners, including Microsoft, who create compatible frameworks and tools. 
-
-Microsoft is committed to open and interoperable AI so that data scientists and developers can:
+The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a community of partners, including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
 
 + Use the framework of their choice to create and train models
 + Deploy models cross-platform with minimal integration work
 
 Microsoft supports ONNX across its products including Azure and Windows to help you achieve these goals.  
 
-## Benefits of ONNX
-
-Interoperability makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
+## Why choose the ONNX
+The interoperability you get with ONNX makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
 
 You can export ONNX models from many frameworks, including:
 + PyTorch
@@ -37,7 +34,6 @@ There is also an ecosystem of tools for visualizing and accelerating ONNX models
 
 [ ![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
 (./media/concept-onnx/onnx.png#lightbox)
-
 
 ## Create ONNX models in Azure
 
