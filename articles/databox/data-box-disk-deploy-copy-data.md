@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -161,11 +161,17 @@ Perform the following steps to connect and copy data from your computer to the D
 
 To verify the data integrity, perform the following steps.
 
-1. Run the `AzureExpressDiskService.cmd` for checksum validation in the *AzureImportExport* folder of your drive.  
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *AzureImportExport* folder of your drive. 
+    
+    ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-2. Depending upon your data size, this step may take a while. A summary of the data integrity check process along with time to complete the process is displayed when the script has completed. You can press **Enter** to exit out of the command window.
+2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. A summary of the data integrity check process along with time to complete the process is displayed when the script has completed. You can press **Enter** to exit out of the command window.
 
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    >[!TIP]
+    > - Reset the tool beween two runs.
+    > - Use option 1 to validate the files only dealing with large data set containing small files (~KBs). In these instances, checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
 
