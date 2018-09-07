@@ -1,6 +1,6 @@
 ﻿---
 title: Create linked Azure Resource Manager templates | Microsoft Docs
-description: Learn how to create linked Azure Resource Manager templates for creating virtula machine
+description: Learn how to create linked Azure Resource Manager templates for creating virtual machine
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
