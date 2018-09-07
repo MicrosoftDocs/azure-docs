@@ -325,7 +325,7 @@ A series of documentation leads you through SAP HANA on Azure (Large Instances) 
 - [High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
 - [Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
-Next Step
+Next steps:
 
 - Read [Overview and Architecture of SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
