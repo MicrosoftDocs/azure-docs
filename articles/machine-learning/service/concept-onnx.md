@@ -48,7 +48,7 @@ You can create ONNX models in several ways:
 
 Once you have an ONNX model, you can deploy it to Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/).
 
-## Convert to ONNX
+## Convert your models to ONNX
 
 For **TensorFlow** models, you can convert to the ONNX format with the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
 
@@ -59,11 +59,15 @@ For **Keras**, **ScitKit-Learn**, and other models, convert to ONNX using the [W
 * libSVM
 * CoreML
 
-## Prepare to deploy
+## Deploy ONNX models in Azure
 
 With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud.
 
-Below is an example for deploying an ONNX model:
+Once deployed, your ONNX model is hosted in the cloud and ready to be called!
+
+Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
+
+Here is an example for deploying an ONNX model:
 
 1. Initialize your Azure Machine Learning Workspace.
 
@@ -134,17 +138,11 @@ Below is an example for deploying an ONNX model:
            result = str(e)
            return json.dumps({"error": result})
    ```
+4. Deploy your ONNX model with Azure Machine Learning to:
+   + Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
 
-## Deploy your web service
+   + Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
 
-You can deploy your ONNX model with Azure Machine Learning to:
-* Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
-
-* Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
-
-Once deployed, your ONNX model is hosted in the cloud and ready to be called!
-
-Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
 
 ## Next steps
 
