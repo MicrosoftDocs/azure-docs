@@ -26,10 +26,10 @@ Learn how to use the Validation as a Service (VaaS) local agent to check your ha
 > [!Note]  
 > You must make sure that the machine on which the local agent is running doesn't lose out-bound access to the internet. This machine must be accessible only to users who you have authorized to use VaaS on behalf of your tenant.
 
-To test your virtual machines:
+To deploy the local agent:
 
 1. Install the local agent
-2. Inject faults into your system
+2. Perform sanity checks
 3. Run the local agent
 
 ## Download and start the local agent
