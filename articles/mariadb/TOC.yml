@@ -15,6 +15,40 @@
     items:
     - name: MySQL Workbench
       href: connect-workbench.md
+- name: Concepts
+  items:
+  - name: DB & Servers
+    items:
+    - name: Servers
+      href: concepts-servers.md
+    - name: Supported versions
+      href: concepts-supported-versions.md
+    - name: Server logs
+      href: concepts-server-logs.md
+    - name: High availability
+      href: concepts-high-availability.md
+  - name: Resources
+    items:
+    - name: Pricing tiers
+      href: concepts-pricing-tiers.md
+    - name: Limits
+      href: concepts-limits.md
+  - name: Data access & security
+    items:
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
+    - name: Configuring SSL
+      href: concepts-ssl-connection-security.md
+  - name: Business continuity
+    items:
+    - name: Overview
+      href: concepts-business-continuity.md
+    - name: Backup and restore
+      href: concepts-backup.md
+  - name: Replication
+    items:
+    - name: Data-in replication
+      href: concepts-data-in-replication.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
