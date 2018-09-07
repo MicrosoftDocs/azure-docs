@@ -147,7 +147,7 @@ Before you train a model, you need to understand the data that you are using to 
 
 ### Download the MNIST dataset
 
-Download the MNIST dataset and save them in a `data` directory locally.  Images and labels for both training and testing are downloaded.  
+Download the MNIST dataset and save the files into a `data` directory locally.  Images and labels for both training and testing are downloaded.  
 
 
 ```python
