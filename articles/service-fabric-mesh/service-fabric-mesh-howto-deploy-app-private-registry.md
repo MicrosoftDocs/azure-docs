@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location eastus
 
 ### Create a container registry
 
-Create an Azure container registry (ACR) instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. In the following example, the name *myContainerRegistry007* is used. If you get an error that the registry name is in use, choose a different name. Use that name everywhere `<acrName>` appears in these instructions.
+Create an Azure container registry (ACR) instance using the `az acr create` command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. In the following example, the name *myContainerRegistry007* is used. If you get an error that the registry name is in use, choose a different name. Use that name everywhere `<acrName>` appears in these instructions.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -109,7 +109,7 @@ When the registry is created, you'll see output similar to the following:
 
 ### Push the image to Azure Container Registry
 
-To push an image to an Azure container registry (ACR), you must first have a container image. If you don't yet have any local container images, run the following command to pull the an image from Docker Hub (you may need to switch Docker to work with Linux images by right-clicking the docker icon and selecting **Switch to Linux containers...**).
+To push an image to an Azure container registry (ACR), you must first have a container image. If you don't yet have any local container images, run the following command to pull the an image from Docker Hub (you may need to switch Docker to work with Linux images by right-clicking the docker icon and selecting **Switch to Linux containers**).
 
 ```bash
 docker pull seabreeze/azure-mesh-helloworld:1.1-alpine
@@ -205,7 +205,7 @@ az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-The values provided by preceding commands are referenced as `<acrLoginServer>`, `<acrUserName>`, and `<acrPassword>` in the following command.
+The values provided by preceding commands are referenced as `<acrLoginServer>`, `<acrUserName>`, and `<acrPassword>` below.
 
 ## Deploy the template
 
@@ -213,8 +213,16 @@ Create the application and related resources using the following command, and pr
 
 The `registry-password` parameter in the template is a secure string. It will not be displayed in the deployment status and `az mesh service show` commands.
 
+If you're using a Bash console, run the following:
+
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}"
+```
+
+If you're using a PowerShell console, run the following:
+
+```azurecli-interactive
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{'location': {'value': 'eastus'}, 'registry-server': {'value': '<acrLoginServer>'}, 'registry-username': {'value': '<acrUserName>'}, 'registry-password': {'value': '<acrPassword>'}}"
 ```
 
 In a few minutes, you should see:
@@ -240,6 +248,8 @@ Frequently delete the resources you are no longer using in Azure. To delete the 
 ```azurecli-interactive
 az group delete --resource-group myResourceGroup
 ```
+
+If you switched Docker to work with Linux images for this exercise, and need to go back to working with Windows images, right-click the docker icon and select **Switch to Windows containers**
 
 ## Next steps
 
