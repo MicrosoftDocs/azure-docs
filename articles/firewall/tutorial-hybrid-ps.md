@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 For this tutorial, you create three VNets:
 - **VNet-Hub** - the firewall is in this VNet.
 - **VNet-Spoke** - the spoke VNet represents the workload located on Azure.
-- **VNet-Onprem** - The On-prem VNet represents an on-premise network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN connection, and an Azure-located VNet is used to represent an on-premise network.
+- **VNet-Onprem** - The OnPrem VNet represents an on-premise network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located VNet is used to represent an on-premise network.
 
 <!-- Network diagram here -->
 
@@ -69,7 +69,7 @@ $VNetSpokePrefix = "10.6.0.0/16"
 $SNSpokePrefix = "10.6.0.0/24"
 $SNSpokeGWPrefix = "10.6.1.0/24"
 
-# Variables for the On-prem VNet
+# Variables for the OnPrem VNet
 
 $VNetnameOnprem = "Vnet-Onprem"
 $SNNameOnprem = "SN-Corp"
@@ -84,17 +84,14 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-## Set up the network environment
-
-First, create all the required network infrastructure.
-
-### Create a resource group
+## Create a resource group
 Create a resource group to contain all the resources required for this tutorial:
 
 ```azurepowershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-### Create and configure the firewall hub Vnet
+
+## Create and configure the firewall hub Vnet
 
 Define the subnets to be included in the VNet:
 
@@ -115,25 +112,7 @@ Request a public IP address to be allocated to the gateway you will create for y
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
-### Create a gateway
-
-Create the gateway configuration. The gateway configuration defines the subnet and the public IP address to use.
-
-  ```azurepowershell
-  $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1
-  $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-  $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameHub `
-  -Subnet $subnet1 -PublicIpAddress $gwpip1
-  ```
-
-Now create the virtual network gateway for the hub VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
-
-```azurepowershell
-New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
--Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
--VpnType RouteBased -GatewaySku basic
-```
-### Create and configure the spoke Vnet
+## Create and configure the spoke Vnet
 
 Define the subnets to be included in the spoke VNet:
 
@@ -148,7 +127,8 @@ Create the spoke VNet:
 $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
-### Peer the hub and spoke VNets
+
+## Peer the hub and spoke VNets
 
 Now peer the spoke and hub VNets.
 
@@ -158,87 +138,6 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 
 # Peer spoke to hub
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
-```
-
-### Create and configure the on-prem VNet
-
-Define the subnets to be included in the VNet:
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Now, create the on-prem VNet:
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-Request a public IP address to be allocated to the gateway you will create for the VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
-### Create a gateway
-
-Create the gateway configuration. The gateway configuration defines the subnet and the public IP address to use.
-
-  ```azurepowershell
-$vnet2 = Get-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
-$subnet2 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
-$gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem `
-  -Subnet $subnet2 -PublicIpAddress $gwOnprempip
-  ```
-
-Now create the virtual network gateway for the on-prem VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
-
-```azurepowershell
-New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
--Location $Location1 -IpConfigurations $gwipconf2 -GatewayType Vpn `
--VpnType RouteBased -GatewaySku basic
-```
-### Create the VPN connections
-Now you can create the VPN connections between the hub and on-prem gateways
-
-#### Get the gateways
-```azurepowershell
-$vnetHubgw = Get-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
-$vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
-```
-
-#### Create the connections
-
-In this step, you create the connection from the hub VNet to the On-prem VNet. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
-
-```azurepowershell
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
--VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
--ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
-```
-Create the On-prem to hub VNet connection. This step is similar to the previous one, except you create the connection from Vnet-Onprem to VNet-hub. Make sure the shared keys match. The connection will be established after a few minutes.
-
-  ```azurepowershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
-  -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
-  -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
-  ```
-#### Verify the connection
- 
-You can verify a successful connection by using the *Get-AzureRmVirtualNetworkGatewayConnection* cmdlet, with or without *-Debug*. 
-Use the following cmdlet example, configuring the values to match your own. If prompted, select **A** to run **All**. In the example, *-Name* refers to the name of the connection that you want to test.
-
-```azurepowershell
-Get-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
-```
-
-After the cmdlet finishes, view the values. In the following example, the connection status shows as *Connected* and you can see ingress and egress bytes.
-
-```
-"connectionStatus": "Connected",
-"ingressBytesTransferred": 33509044,
-"egressBytesTransferred": 4142431
 ```
 
 ## Configure and deploy the firewall
@@ -285,6 +184,110 @@ $AppRuleCollection = New-AzureRmFirewallApplicationRuleCollection -Name RCApp01 
 $Azfw.ApplicationRuleCollections = $AppRuleCollection
 Set-AzureRmFirewall -AzureFirewall $Azfw
 
+```
+
+## Create and configure the OnPrem VNet
+
+Define the subnets to be included in the VNet:
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+Now, create the OnPrem VNet:
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+Request a public IP address to be allocated to the gateway you will create for the VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+## Create and connect the VPN gateways
+
+The hub and OnPrem VNets are connected via a VPN gateways.
+
+### Create a VPN gateway for the hub VNet
+
+Create the VPN gateway configuration. The VPN gateway configuration defines the subnet and the public IP address to use.
+
+  ```azurepowershell
+  $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1
+  $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+  $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameHub `
+  -Subnet $subnet1 -PublicIpAddress $gwpip1
+  ```
+
+Now create the VPN gateway for the hub VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+
+```azurepowershell
+New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku basic
+```
+
+### Create a VPN gateway for the OnPrem VNet
+
+Create the VPN gateway configuration. The gateway configuration defines the subnet and the public IP address to use.
+
+  ```azurepowershell
+$vnet2 = Get-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
+$subnet2 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
+$gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem `
+  -Subnet $subnet2 -PublicIpAddress $gwOnprempip
+  ```
+
+Now create the VPN gateway for the OnPrem VNet. VNet-to-VNet configurations require a RouteBased VpnType. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+
+```azurepowershell
+New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gwipconf2 -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku basic
+```
+### Create the VPN connections
+Now you can create the VPN connections between the hub and OnPrem gateways
+
+#### Get the VPN gateways
+```azurepowershell
+$vnetHubgw = Get-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
+$vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
+```
+
+#### Create the connections
+
+In this step, you create the connection from the hub VNet to the OnPrem VNet. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
+
+```azurepowershell
+New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
+-VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
+-ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+```
+Create the OnPrem to hub VNet connection. This step is similar to the previous one, except you create the connection from Vnet-Onprem to VNet-hub. Make sure the shared keys match. The connection will be established after a few minutes.
+
+  ```azurepowershell
+  New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
+  -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
+  -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  ```
+#### Verify the connection
+ 
+You can verify a successful connection by using the *Get-AzureRmVirtualNetworkGatewayConnection* cmdlet, with or without *-Debug*. 
+Use the following cmdlet example, configuring the values to match your own. If prompted, select **A** to run **All**. In the example, *-Name* refers to the name of the connection that you want to test.
+
+```azurepowershell
+Get-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
+```
+
+After the cmdlet finishes, view the values. In the following example, the connection status shows as *Connected* and you can see ingress and egress bytes.
+
+```
+"connectionStatus": "Connected",
+"ingressBytesTransferred": 33509044,
+"egressBytesTransferred": 4142431
 ```
 
 ## Create routes
@@ -351,7 +354,7 @@ Set-AzureRmVirtualNetwork
 ```
 ## Create virtual machines
 
-Now create the spoke workload and on-prem virtual machines, and place them in the appropriate subnets.
+Now create the spoke workload and OnPrem virtual machines, and place them in the appropriate subnets.
 
 ### Create the workload virtual machine
 Create a virtual machine in the spoke VNet, running IIS, with no public IP address, and allows pings in.
@@ -402,8 +405,8 @@ Set-AzureRmVMExtension `
     -Location $Location1
 ```
 
-### Create the on-prem virtual machine
-This is a simple virtual machine that you can connect to using Remote Desktop to the public IP address. From there, you can then connect to the on-prem server through the firewall. When prompted, type a user name and password for the virtual machine.
+### Create the OnPrem virtual machine
+This is a simple virtual machine that you can connect to using Remote Desktop to the public IP address. From there, you can then connect to the OnPrem server through the firewall. When prompted, type a user name and password for the virtual machine.
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
