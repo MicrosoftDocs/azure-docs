@@ -13,7 +13,7 @@
     href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
-  - name: Create function - VS Code
+  - name: Create function - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md

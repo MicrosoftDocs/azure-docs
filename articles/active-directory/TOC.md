@@ -170,7 +170,7 @@
 ##### [Silent install](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Custom home page](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Translate inline links](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
-##### [Wildcards](active-directory-application-proxy-wildcard.md)
+##### [Wildcards](manage-apps/application-proxy-wildcard.md)
 ##### [Remove personal data](manage-apps/application-proxy-remove-personal-data.md)
 
 
@@ -179,7 +179,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](manage-apps/application-proxy-integrate-with-teams.md)
 ##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
-##### [Qlik](active-directory-application-proxy-qlik.md)
+##### [Qlik](manage-apps/application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)
