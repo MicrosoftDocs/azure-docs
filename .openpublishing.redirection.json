@@ -25883,6 +25883,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
