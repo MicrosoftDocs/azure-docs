@@ -36,9 +36,6 @@
     href: azure-stack-vaas-parameters.md
   - name: Troubleshoot validation as a service
     href: azure-stack-vaas-troubleshoot.md
-- name: Reference
-  items:
-  - name: (Item coming from JH)
 - name: Related
   items:
   - name: Azure Stack Documentation
