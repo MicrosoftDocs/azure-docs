@@ -1,4 +1,5 @@
 ﻿---
+
 title: Use a Windows troubleshooting VM with Azure PowerShell | Microsoft Docs
 description: Learn how to troubleshoot Windows VM issues in Azure by connecting the OS disk to a recovery VM using Azure PowerShell
 services: virtual-machines-windows
@@ -12,26 +13,32 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 08/09/2018
 ms.author: genli
+
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using Azure PowerShell
+If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect the disk to another Windows VM to fix any errors, then repair your original VM. 
 
-If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+> [!Important]
+> The scripts in this article only apply to the VMs that use [Managed Disk](../windows/managed-disks-overview.md). 
 
 
 ## Recovery process overview
+We can now use Azure PowerShell to change the OS disk for a VM. We no longer need to delete and recreate the VM.
+
 The troubleshooting process is as follows:
 
-1. Delete the VM encountering issues, keeping the virtual hard disks.
-2. Attach and mount the virtual hard disk to another Windows VM for troubleshooting purposes.
-3. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
-4. Unmount and detach the virtual hard disk from the troubleshooting VM.
-5. Create a VM using the original virtual hard disk.
+1. Stop the affected VM.
+2. Create a snapshot from the OS Disk of the VM.
+3. Create a disk from the OS disk snapshot.
+4. Attach the disk as a data disk to a recovery VM.
+5. Connect to the recovery VM. Edit files or run any tools to fix issues on the copied OS disk.
+6. Unmount and detach disk from recovery VM.
+7. Change the OS disk for the affected VM.
 
-For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
-
+You can use the VM recovery scripts to automate steps 1, 2, 3, 4, 6, and 7. For more documentation and instructions, see [VM Recovery Scripts for Resource Manager VM](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
 
 Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview) installed and logged in to your subscription:
 
@@ -39,8 +46,7 @@ Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview
 Connect-AzureRmAccount
 ```
 
-In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
-
+In the following examples, replace the parameter names with your own values. 
 
 ## Determine boot issues
 You can view a screenshot of your VM in Azure to help troubleshoot boot issues. This screenshot can help identify why a VM fails to boot. The following example gets the screenshot from the Windows VM named `myVM` in the resource group named `myResourceGroup`:
@@ -52,88 +58,125 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
 
 Review the screenshot to determine why the VM is failing to boot. Note any specific error messages or error codes provided.
 
+## Stop the VM
 
-## View existing virtual hard disk details
-Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD).
-
-The following example gets information for the VM named `myVM` in the resource group named `myResourceGroup`:
+The following example stops the VM named `myVM` from the resource group named `myResourceGroup`:
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
-Look for `Vhd URI` within the `StorageProfile` section from the output of the preceding command. The following truncated example output shows the `Vhd URI` towards the end of the code block:
+Wait until the VM has finished deleting before you process to the next step.
+
+
+## Create a snapshot from the OS Disk of the VM
+
+The following example creates a snapshot with name `mySnapshot` from the OS disk of the VM named `myVM'. 
 
 ```powershell
-RequestId                     : 8a134642-2f01-4e08-bb12-d89b5b81a0a0
-StatusCode                    : OK
-ResourceGroupName             : myResourceGroup
-Id                            : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
-Name                          : myVM
-Type                          : Microsoft.Compute/virtualMachines
-...
-StorageProfile                :
-  ImageReference              :
-    Publisher                 : MicrosoftWindowsServer
-    Offer                     : WindowsServer
-    Sku                       : 2016-Datacenter
-    Version                   : latest
-  OsDisk                      :
-    OsType                    : Windows
-    Name                      : myVM
-    Vhd                       :
-      Uri                     : https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
-    Caching                   : ReadWrite
-    CreateOption              : FromImage
+$resourceGroupName = 'myResourceGroup' 
+$location = 'eastus' 
+$vmName = 'myVM'
+$snapshotName = 'mySnapshot'  
+
+#Get the VM
+$vm = get-azurermvm `
+-ResourceGroupName $resourceGroupName `
+-Name $vmName
+
+#Create the snapshot configuration for the OS disk
+$snapshot =  New-AzureRmSnapshotConfig `
+-SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+-Location $location `
+-CreateOption copy
+
+#Take the snapshot
+New-AzureRmSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
 
+A snapshot is a full, read-only copy of a VHD. It cannot be attached to a VM. In the next step, we will create a disk from this snapshot.
 
-## Delete existing VM
-Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard disk is where the operating system itself, applications, and configurations are stored. The VM itself is just metadata that defines the size or location, and references resources such as a virtual hard disk or virtual network interface card (NIC). Each virtual hard disk has a lease assigned when attached to a VM. Although data disks can be attached and detached even while the VM is running, the OS disk cannot be detached unless the VM resource is deleted. The lease continues to associate the OS disk with a VM even when that VM is in a stopped and deallocated state.
+## Create a disk from the snapshot
 
-The first step to recover your VM is to delete the VM resource itself. Deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
-
-The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
+This script creates a managed disk with name `newOSDisk` from the snapshot named `mysnapshot`.  
 
 ```powershell
-Remove-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+#Set the context to the subscription Id where Managed Disk will be created
+#You can skip this step if the subscription is already selected
+
+$subscriptionId = 'yourSubscriptionId'
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+#Provide the name of your resource group
+$resourceGroupName ='myResourceGroup'
+
+#Provide the name of the snapshot that will be used to create Managed Disks
+$snapshotName = 'mySnapshot' 
+
+#Provide the name of the Managed Disk
+$diskName = 'newOSDisk'
+
+#Provide the size of the disks in GB. It should be greater than the VHD file size.
+$diskSize = '128'
+
+#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
+$storageType = 'StandardLRS'
+
+#Provide the Azure region (e.g. westus) where Managed Disks will be located.
+#This location should be same as the snapshot location
+#Get all the Azure location using command below:
+#Get-AzureRmLocation
+$location = 'eastus'
+
+$snapshot = Get-AzureRmSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+ 
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+ 
+New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 ```
+Now you have a copy of the original OS disk. You can mount this disk to another Windows VM for troubleshooting purposes.
 
-Wait until the VM has finished deleting before you attach the virtual hard disk to another VM. The lease on the virtual hard disk that associates it with the VM needs to be released before you can attach the virtual hard disk to another VM.
+## Attach the disk to another Windows VM for troubleshooting
 
-
-## Attach existing virtual hard disk to another VM
-For the next few steps, you use another VM for troubleshooting purposes. You attach the existing virtual hard disk to this troubleshooting VM to browse and edit the disk's content. This process allows you to correct any configuration errors or review additional application or system log files, for example. Choose or create another VM to use for troubleshooting purposes.
-
-When you attach the existing virtual hard disk, specify the URL to the disk obtained in the preceding `Get-AzureRmVM` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
-
-```powershell
-$myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMRecovery"
-Add-AzureRmVMDataDisk -VM $myVM -CreateOption "Attach" -Name "DataDisk" -DiskSizeInGB $null `
-    -VhdUri "https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd"
-Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
-```
+Now we attach the copy of the original OS disk to a VM as a data disk. This process allows you to correct configuration errors or review additional application or system log files in the disk. The following example attaches the disk named `newOSDisk` to the VM named `RecoveryVM`.
 
 > [!NOTE]
-> Adding a disk requires you to specify the size of the disk. As we attach an existing disk, the `-DiskSizeInGB` is specified as `$null`. This value ensures the data disk is correctly attached, and without the need to determine the true size of data disk.
+> To attach the disk, the copy of the original OS disk and the recovery VM must be in the same location.
 
+```powershell
+$rgName = "myResourceGroup"
+$vmName = "RecoveryVM"
+$location = "eastus" 
+$dataDiskName = "newOSDisk"
+$disk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
 
-## Mount the attached data disk
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
 
-1. RDP to your troubleshooting VM using the appropriate credentials. The following example downloads the RDP connection file for the VM named `myVMRecovery` in the resource group named `myResourceGroup`, and downloads it to `C:\Users\ops\Documents`"
+$vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+```
+
+## Connect to the recovery VM and fix issues on the attached disk
+
+1. RDP to your recovery VM using the appropriate credentials. The following example downloads the RDP connection file for the VM named `RecoveryVM` in the resource group named `myResourceGroup`, and downloads it to `C:\Users\ops\Documents`"
 
     ```powershell
-    Get-AzureRMRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "myVMRecovery" `
+    Get-AzureRMRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
         -LocalPath "C:\Users\ops\Documents\myVMRecovery.rdp"
     ```
 
-2. The data disk is automatically detected and attached. View the list of attached volumes to determine the drive letter as follows:
+2. The data disk should be automatically detected and attached. View the list of attached volumes to determine the drive letter as follows:
 
     ```powershell
     Get-Disk
     ```
 
-    The following example output shows the virtual hard disk connected a disk **2**. (You can also use `Get-Volume` to view the drive letter):
+    The following example output shows the disk connected a disk **2**. (You can also use `Get-Volume` to view the drive letter):
 
     ```powershell
     Number   Friendly Name   Serial Number   HealthStatus   OperationalStatus   Total Size   Partition
@@ -141,15 +184,13 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
     ------   -------------   -------------   ------------   -----------------   ----------   ----------
     0        Virtual HD                                     Healthy             Online       127 GB MBR
     1        Virtual HD                                     Healthy             Online       50 GB MBR
-    2        Msft Virtu...                                  Healthy             Online       127 GB MBR
+    2        newOSDisk                                  Healthy             Online       127 GB MBR
     ```
 
-## Fix issues on original virtual hard disk
-With the existing virtual hard disk mounted, you can now perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
+After the copy of the original OS disk is mounted, you can perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
 
-
-## Unmount and detach original virtual hard disk
-Once your errors are resolved, you unmount and detach the existing virtual hard disk from your troubleshooting VM. You cannot use your virtual hard disk with any other VM until the lease attaching the virtual hard disk to the troubleshooting VM is released.
+## Unmount and detach original OS disk
+Once your errors are resolved, you unmount and detach the existing disk from your recovery VM. You cannot use your disk with any other VM until the lease attaching the disk to the recovery VM is released.
 
 1. From within your RDP session, unmount the data disk on your recovery VM. You need the disk number from the previous `Get-Disk` cmdlet. Then, use `Set-Disk` to set the disk as offline:
 
@@ -168,33 +209,43 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
     2        Msft Virtu...                                  Healthy             Offline      127 GB MBR
     ```
 
-2. Exit your RDP session. From your Azure PowerShell session, remove the virtual hard disk from the troubleshooting VM.
+2. Exit your RDP session. From your Azure PowerShell session, remove the disk named `newOSDisk` from the VM named 'RecoveryVM'.
 
     ```powershell
-    $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMRecovery"
-    Remove-AzureRmVMDataDisk -VM $myVM -Name "DataDisk"
+    $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "RecoveryVM"
+    Remove-AzureRmVMDataDisk -VM $myVM -Name "newOSDisk"
     Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
     ```
 
+## Change the OS disk for the affected VM
 
-## Create VM from original hard disk
-To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The actual JSON template is at the following link:
+You can use Azure PowerShell to swap the OS disks. You don't have to delete and recreate the VM.
 
-- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
-
-The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
+This example stops the VM named `myVM` and assigns the disk named `newOSDisk` as the new OS disk. 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
+# Get the VM 
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM 
+
+# Make sure the VM is stopped\deallocated
+Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
+
+# Get the new disk that you want to swap in
+$disk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name newDisk
+
+# Set the VM configuration to point to the new disk  
+Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name 
+
+# Update the VM with the new OS disk
+Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm 
+
+# Start the VM
+Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup
 ```
 
-Answer the prompts for the template such as VM name, OS type, and VM size. The `osDiskVhdUri` is the same as previously used when attaching the existing virtual hard disk to the troubleshooting VM.
+## Verify and enable boot diagnostics
 
-
-## Re-enable boot diagnostics
-
-When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. The following example enables the diagnostic extension on the VM named `myVMDeployed` in the resource group named `myResourceGroup`:
+The following example enables the diagnostic extension on the VM named `myVMDeployed` in the resource group named `myResourceGroup`:
 
 ```powershell
 $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
@@ -202,14 +253,7 @@ Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enabl
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
-## Troubleshoot a Managed Disk VM by attaching a new OS disk
-1. Stop the effected Managed Disk Windows VM.
-2. [Create a managed disk snapshot](../windows/snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
-3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attach the managed disk as a data disk of the VM](../windows/attach-disk-ps.md).
-5. [Change the data disk from step 4 to OS disk](../windows/os-disk-swap.md).
-
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
+If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
