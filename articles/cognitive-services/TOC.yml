@@ -1,6 +1,6 @@
 
 - name: Azure Cognitive Services Documentation
-  href: index.yml
+  href: index.md
 - name: Overview
   expanded: true
   items:
