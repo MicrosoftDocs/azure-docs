@@ -1,6 +1,6 @@
 ---
-title: Copy data from Google AdWords service using Azure Data Factory (Beta) | Microsoft Docs
-description: Learn how to copy data from Google AdWords service to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from Google AdWords using Azure Data Factory (Preview) | Microsoft Docs
+description: Learn how to copy data from Google AdWords to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -16,16 +16,16 @@ ms.date: 09/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from Google AdWords service using Azure Data Factory (Beta)
+# Copy data from Google AdWords using Azure Data Factory (Preview)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Google AdWords service. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Google AdWords. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and provide feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
-You can copy data from Google AdWords service to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Google AdWords to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
@@ -33,11 +33,11 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Google AdWords service connector.
+The following sections provide details about properties that are used to define Data Factory entities specific to Google AdWords connector.
 
 ## Linked service properties
 
-The following properties are supported for Google AdWords service linked service:
+The following properties are supported for Google AdWords linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -91,9 +91,9 @@ The following properties are supported for Google AdWords service linked service
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Google AdWords service dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Google AdWords dataset.
 
-To copy data from Google AdWords service, set the type property of the dataset to **GoogleAdWordsObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Google AdWords, set the type property of the dataset to **GoogleAdWordsObject**. There is no additional type-specific property in this type of dataset.
 
 **Example**
 
@@ -113,11 +113,11 @@ To copy data from Google AdWords service, set the type property of the dataset t
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google AdWords service source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google AdWords source.
 
-### Google AdWords service as source
+### Google AdWords as source
 
-To copy data from Google AdWords service, set the source type in the copy activity to **GoogleAdWordsSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Google AdWords, set the source type in the copy activity to **GoogleAdWordsSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
