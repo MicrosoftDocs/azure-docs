@@ -155,7 +155,7 @@ In RBAC, to grant access, you assign a role. Follow these steps to grant access 
 
    After a few moments, the security principal is assigned the role at the subscription scope.
 
-### Make a user an administrator of a subscription
+### Assign a user as an administrator of a subscription
 
 To make a user an administrator of an Azure subscription, assign them the [Owner](built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others. These steps are the same as any other role assignment.
 
