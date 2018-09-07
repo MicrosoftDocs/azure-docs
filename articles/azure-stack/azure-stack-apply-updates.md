@@ -62,7 +62,7 @@ The following procedure shows how to import and install update packages in the a
 6. Under **Upload blob**, click the folder icon, browse to the update package's .exe file, and then click **Open** in the file explorer window.
   
 7. Under **Upload blob**, click **Upload**. 
- 
+  
     ![Shows where to upload each package file](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. Do not import the Supplemental Notice.txt file if included.
