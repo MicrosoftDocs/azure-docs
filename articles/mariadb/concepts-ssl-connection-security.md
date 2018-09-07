@@ -23,6 +23,5 @@ Connection strings for various programming languages are shown in the Azure port
 
 <!-- To learn how to enable or disable SSL connection when developing application, refer to [How to configure SSL](howto-configure-ssl.md).-->
 
-<!-- ## Next steps
-[Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md)
--->
+## Next steps
+[Learn more about server firewall rules](concepts-firewall-rules.md)
