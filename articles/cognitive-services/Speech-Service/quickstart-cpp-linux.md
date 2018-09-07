@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech in C++ on Linux using the Cognitive Services Speech SDK'
+title: 'Quickstart: Recognize speech in C++ on Linux by using the Cognitive Services Speech SDK'
 titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in C++ on Linux using the Cognitive Services Speech SDK
+description: Learn how to recognize speech in C++ on Linux by using the Cognitive Services Speech SDK
 services: cognitive-services
 author: wolfma61
 
@@ -12,17 +12,17 @@ ms.date: 07/16/2018
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech in C++ on Linux using the Speech SDK
+# Quickstart: Recognize speech in C++ on Linux by using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you learn how to create a C++ console application on Linux (Ubuntu 16.04) using the Cognitive Services Speech SDK to transcribe speech to text.
+In this article, you learn how to create a C++ console application on Linux (Ubuntu 16.04) by using the Cognitive Services Speech SDK to transcribe speech to text.
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech service for free](get-started.md).
 * An Ubuntu 16.04 PC with a working microphone.
-* To install packages needed to build and run this sample run the following:
+* To install packages needed to build and run this sample, run the following:
 
   ```sh
   sudo apt-get update
@@ -65,25 +65,25 @@ Download and install the SDK as follows:
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   It should show third-party notice and license files, as well as an `include`
-   directory for headers and a `lib` directory for libraries.
+   It should show a third-party notice and license files, as well as an `include`
+   directory for headers, and a `lib` directory for libraries.
 
    [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## Add the sample code
 
-1. Add the following code into a file named `helloworld.cpp`:
+Add the following code into a file named `helloworld.cpp`:
 
   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Replace the string `YourSubscriptionKey` with your subscription key.
+- Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+- Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 ## Building
 
 > [!NOTE]
-> Make sure to copy and paste the build commands below as a _single line_.
+> Make sure to copy and paste the following build commands as a _single line_.
 
 * On an **x64** machine, run the following command to build the application:
 
@@ -99,7 +99,7 @@ Download and install the SDK as follows:
 
 ## Run the sample
 
-1. Configure the configure the loader's library path to point to the Speech SDK library.
+1. Configure the loader's library path to point to the Speech SDK library.
 
    * On an **x64** machine, run:
 
