@@ -97,7 +97,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
     
 1. Edit the JSON file to add the `"Microsoft.Support/*"` operation to the `Actions` property. Be sure to include a comma after the read operation. This action will allow the user to create support tickets.
 
-1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
+1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) command.
 
     ```azurepowershell
     Get-AzureRmSubscription

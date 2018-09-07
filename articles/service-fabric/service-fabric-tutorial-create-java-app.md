@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
 
@@ -51,13 +51,13 @@ Before you begin this tutorial:
 
 First, create the web front end of the Voting application. The Java stateless service stands up a lightweight HTTP server that hosts a web UI powered by AngularJS. Requests from a user are processed by this stateless service and sent as a remote procedure call to the stateful service to store the votes. 
 
-1. Launch Eclipse
+1. Launch Eclipse.
 
-2. Create a project with **File**->**New**->**Other**->**Service Fabric**->**Service Fabric Project**
+2. Create a project with **File**->**New**->**Other**->**Service Fabric**->**Service Fabric Project**.
 
     ![New project dialog in Eclipse](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 
-3. In the **ServiceFabric Project Wizard** dialog, name the Project **Voting** and press **Next**
+3. In the **ServiceFabric Project Wizard** dialog, name the Project **Voting** and press **Next**.
 
     ![Choosing Java stateless service in the new service dialog](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
@@ -85,9 +85,9 @@ To add UI that can be rendered by the stateless service, add an HTML file in the
 
 1. Expand the *VotingApplication* directory to reach the *VotingApplication/VotingWebPkg/Code* directory.
 
-2. Right-click on the *Code* directory and click **New**->**Other**
+2. Right-click on the *Code* directory and click **New**->**Folder**.
 
-3. Create a folder named *wwwroot* and click **Finish**
+3. Name the folder *wwwroot* and click **Finish**.
 
     ![Eclipse create wwwroot folder](./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png)
 
@@ -201,9 +201,9 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 </html>
 ```
 
-### Update the VotingWebService.java file
+### Update the VotingWeb.java file
 
-In the **VotingWeb** subproject, open the *VotingWeb/src/statelessservice/VotingWebService.java* file. The **VotingWebService** is the gateway into the stateless service and is responsible for setting up the communication listener for the front-end API.
+In the **VotingWeb** subproject, open the *VotingWeb/src/statelessservice/VotingWeb.java* file. The **VotingWeb** service is the gateway into the stateless service and is responsible for setting up the communication listener for the front-end API.
 
 Replace the contents of the **createServiceInstanceListeners** method in the file with the following and save your changes.
 
@@ -222,7 +222,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### Add the HTTPCommunicationListener.java file
 
-The HTTP communication listener acts as a controller that sets up the HTTP server and exposes the APIs defining voting actions. Right-click on the *statelessservice* package in the *VotingWeb/src/statelessservice* folder, then select **New->Other...->General->File** and click **Next**.  Name the file *HttpCommunicationListener.java* and click **Finish**.
+The HTTP communication listener acts as a controller that sets up the HTTP server and exposes the APIs defining voting actions. Right-click on the *statelessservice* package in the *VotingWeb/src/statelessservice* folder, then select **New->File**.  Name the file *HttpCommunicationListener.java* and click **Finish**.
 
 Replace the file contents with the following, then save your changes.  Later, in [Update the HttpCommunicationListener.java file](#updatelistener_anchor), this file is modified to render, read, and write voting data from the back-end service.  For now, the listener simply returns the static HTML for the Voting app.
 
@@ -383,7 +383,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
 ### Configure the listening port
 
-When the VotingWebService front-end service is created, Service Fabric selects a port for the service to listen on.  The VotingWebService acts as the front end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Package Explorer, open  *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 8080, or to another port. To deploy and run the application locally, the application listening port must be open and available on your computer. Paste the following code snippet under the **ServiceManifest** tag.
+When the VotingWeb service front-end service is created, Service Fabric selects a port for the service to listen on.  The VotingWeb service acts as the front end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Package Explorer, open  *VotingApplication/VotingWebPkg/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 8080, or to another port. To deploy and run the application locally, the application listening port must be open and available on your computer. Paste the following code snippet within the **ServiceManifest** element (i.e. just below the ```<DataPackage>``` element).
 
 ```xml
 <Resources>
@@ -404,19 +404,17 @@ Service Fabric allows you to consistently and reliably store your data right ins
 
 1. In Package Explorer, right-click **Voting** within the application project and choose **Service Fabric > Add Service Fabric Service**.
 
-2. In the **Add Service** dialog, choose **Stateful Service** and name the service **VotingData** and click **Add Service**.
-
-    ![Adding a new service to an existing application](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
+2. In the **Add Service** dialog, choose **Stateful Service** and name the service **VotingDataService** and click **Add Service**.
 
     Once your service project is created, you have two services in your application. As you continue to build your application, you can add more services in the same way. Each can be independently versioned and upgraded.
 
-3. Eclipse creates a service project and displays them in Package Explorer.
+3. Eclipse creates a service project and displays it in Package Explorer.
 
     ![Solution Explorer](./media/service-fabric-tutorial-create-java-app/packageexplorercompletejava.png)
 
 ### Add the VotingDataService.java file
 
-The *VotingDataService.java* file contains the methods that contain logic to retrieve, add, and remove votes from the reliable collections. Add the following methods to the **VotingDataService** class in the *VotingDataService/src/statefulservice/VotingDataService.java* file created.
+The *VotingDataService.java* file contains the methods that contain logic to retrieve, add, and remove votes from the reliable collections. Add the following **VotingDataService** class methods to the *VotingDataService/src/statefulservice/VotingDataService.java* file.
 
 ```java
 package statefulservice;
@@ -549,9 +547,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 The skeleton for the front-end stateless service and the backend service is now created. The next step is connecting the two services. Both the frontend and backend services utilize an interface called the VotingRPC that defines the operations of the Voting application. This interface is implemented by both the front-end and back-end services to enable remote procedure calls (RPC) between the two services. Since Eclipse does not support the adding of Gradle subprojects, the package that contains this interface has to be added manually.
 
-1. Right click on the **Voting** project in the Package Explorer and click **New -> Other ...**
-
-2. In the wizard, click **General -> Folder** and name the folder **VotingRPC/src/rpcmethods** 
+1. Right click on the **Voting** project in the Package Explorer and click **New -> Folder**. Name the folder **VotingRPC/src/rpcmethods**.
 
     ![Create VotingRPC Package](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
@@ -576,7 +572,7 @@ The skeleton for the front-end stateless service and the backend service is now 
     }
     ``` 
 
-4. Create a file named *build.gradle* under *Voting/VotingRPC* directory and paste the following inside it. This gradle file is used to build and create the jar file that is imported by the other services. 
+4. Create a file named *build.gradle* in the *Voting/VotingRPC* directory and paste the following inside it. This gradle file is used to build and create the jar file that is imported by the other services. 
 
     ```gradle
     apply plugin: 'java'
@@ -628,7 +624,7 @@ The skeleton for the front-end stateless service and the backend service is now 
     include ':VotingRPC'
     ```
 
-6. In the *Voting/VotingWebService/src/statelessservice/HttpCommunicationListener.java* file, replace the comment block with the following.  
+6. In the *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* file, replace the comment block with the following.  
 
     ```java
     server.createContext("/getStatelessList", new HttpHandler() {
@@ -742,7 +738,7 @@ In this section, the Gradle scripts for the project are configured.
     defaultTasks 'clean', 'jar', 'copyDeps'
     ```
 
-2. Replace the contents of *Voting/VotingWeb/build.gradle* file.
+2. Replace the contents of *Voting/VotingWeb/build.gradle* file with the following.
 
     ```gradle
     apply plugin: 'java'
@@ -812,7 +808,7 @@ In this section, the Gradle scripts for the project are configured.
     defaultTasks 'clean', 'jar', 'copyDeps'
     ``` 
 
-3. Replace the contents of *Voting/VotingData/build.gradle* file. 
+3. Replace the contents of *Voting/VotingDataService/build.gradle* file. 
 
     ```gradle
     apply plugin: 'java'

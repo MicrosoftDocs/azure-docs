@@ -26,7 +26,7 @@ To use a Google account as an identity provider in Azure Active Directory (Azure
 4. Select **Configure consent screen**.
 5. Select or specify a valid **Email address**, provide a **Product name shown to users**, and click **Save**.
 6. Under **Application type**, select **Web application**.
-7. Enter a **Name** for your application, enter `https://login.microsoftonline.com` in **Authorized JavaScript origins**, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Authorized redirect URIs**. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
+7. Enter a **Name** for your application, enter `https://{tenant}.b2clogin.com` in **Authorized JavaScript origins**, and `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **Authorized redirect URIs**. Replace **{tenant}** with your tenant's name (for example, contosob2c).
 8. Click **Create**.
 9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
 
