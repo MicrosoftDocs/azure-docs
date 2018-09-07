@@ -17,7 +17,7 @@ Azure Blog Storage works with Azure IoT Edge to provide an unstructured data sto
 This article provides instructions for deploying an Azure Blob Storage container that runs a blob service on your IoT Edge device. 
 
 >[!NOTE]
->Azure Blob Storage modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). While in public preview, not all SDK methods or API calls are supported by the blob storage modules. For more details, see [supported methods](#supported-azure-storage-sdk-methods) and [supported calls](#supported-azure-storage-api-calls).
+>Azure Blob Storage modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). While in public preview, not all SDK methods or API calls are supported by the blob storage modules. For more details, see [supported storage operations](#supported-storage-operations).
 
 ## Prerequisites
 
@@ -163,63 +163,58 @@ You can use the account name and account key that you configured for your module
 
 When you send requests to Azure Storage, the blob endpoint is `http://<accountName>.blob.core.windows.net`. For a blob storage module running on an IoT Edge device, the blob endpoint is `https://<IoT Edge device IP address>:11002/<accountName>`. Use this information to [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint). 
 
-## Supported Azure Storage SDK methods
+## Supported storage operations
 
-Blob storage modules on IoT Edge use the same language SDKs as their cloud counterparts in Azure. However, not all methods are available during public preview. 
+Blob storage modules on IoT Edge use the same language SDKs as their cloud counterparts in Azure. 
 
-Supported methods: 
-* Create containers and get container properties
-* List containers
-* List blobs
-* Upload and download block blobs
-* Get and set block blob properties
-* Check for existing blobs
-* Get and set block lists
-* Set metadata on blobs
-* Delete block blobs
+Blob storage modules on IoT Edge are consistent with the 2018-03-28 version of the Azure Storage API for block blob endpoints. Later releases are dependent on customer needs. 
 
-Unsupported methods: 
-* Delete containers
-* Get and set container ACLs
-* Set public access on containers
-* Lease blobs and containers
-* Take snapshots of blobs
-* Undelete blobs
-* Archive blobs
-* Move blobs between hot and cold tiers
-* Server-side copy operations
-* Upload blocks from a URL
-* Set blob service properties
-
-## Supported Azure Storage API calls
-
-Blob storage modules on IoT Edge are consistent with the 2018-03-28 version of the Azure Storage API for block blob endpoints. Later releases are dependent on customer needs. However, not all API calls are available during public preview. 
+However, not all SDK methods or API calls are available during public preview. The following sections list supported and unsupported operations
 
 ### Account
 
-Supported calls: 
+Supported: 
 * List containers
 
-Unsupported calls: 
-* Set blob service properties
-* Get blob service properties
+Unsupported: 
+* Get and set blob service properties
 * Preflight blob request
 * Get blob service stats
 * Get account information
 
 ### Containers
 
-Supported calls: 
+Supported: 
 * Create container
-* Get container properties
-* Get container metadata
+* Get container properties and metadata
 * List blobs
 
-Unsupported calls: 
-* Get container ACL
-* Set container ACL
+Unsupported: 
+* Get and set container ACL
 * Lease container
 * Delete container
 * Set container metadata
 
+### Blobs
+
+Supported: 
+* Put, get, and delete blob
+* Get and set blob properties
+* Get and set blob metadata
+
+Unsupported: 
+* Lease blob
+* Snapshot blob
+* Copy and abort copy blob
+* Undelete blob
+* Set blob tier
+
+### Block blobs
+
+Supported: 
+* Put block
+* Put and get block list
+
+Unsupported:
+* Put block from URL
 
