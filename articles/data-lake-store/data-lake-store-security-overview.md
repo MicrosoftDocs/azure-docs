@@ -70,7 +70,7 @@ Use Data Lake Store to help control access to your data store at the network lev
 ![Firewall settings and IP access](./media/data-lake-store-security-overview/firewall-ip-access.png "Firewall settings and IP address")
 
 ## Data protection
-Azure Data Lake Store protects your data throughout its life cycle. For data in transit, Data Lake Store uses the industry-standard Transport Layer Security (TLS) protocol to secure data over the network.
+Azure Data Lake Store protects your data throughout its life cycle. For data in transit, Data Lake Store uses the industry-standard Transport Layer Security (TLS 1.2) protocol to secure data over the network.
 
 ![Encryption in Data Lake Store](./media/data-lake-store-security-overview/adls-encryption.png "Encryption in Data Lake Store")
 
