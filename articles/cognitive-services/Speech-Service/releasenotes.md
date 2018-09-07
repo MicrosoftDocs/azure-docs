@@ -18,7 +18,7 @@ ms.author: wolfma
 
 **New features**
 
-* Support for Objective-C on IOS.
+* Support for Objective-C on iOS.
 * Support for JavaScript in browser.
 
 **Breaking changes**
