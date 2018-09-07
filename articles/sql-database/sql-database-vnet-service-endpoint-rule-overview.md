@@ -180,7 +180,7 @@ If you choose to use this feature with a Storage account that is being used by a
 PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact Microsoft support for more information.
 
 #### Azure SQLDB Blob Auditing
-Blob auditing pushes audit logs to your own storage account. If this storage account uses the VENT Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
+Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
 ## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
 
