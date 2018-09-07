@@ -3,7 +3,7 @@ title: Show directions with Azure Maps | Microsoft Docs
 description: How to display directions between two locations on a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 08/31/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
