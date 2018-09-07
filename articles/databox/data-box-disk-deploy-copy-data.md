@@ -31,11 +31,8 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
-- Your disks are unpacked and turned on.
-- You have a host computer to copy data to the disks. Your host computer must
-    - Run a [Supported operating system](data-box-disk-system-requirements.md).
-    - Have [Windows PowerShell 4 installed](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Have [.NET Framework 4.5 installed](https://www.microsoft.com/download/details.aspx?id=30653).
+- Your disks are unlocked and connected to a client computer.
+- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md).
 
 
 ## Copy data to disks

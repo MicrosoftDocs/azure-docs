@@ -35,12 +35,9 @@ Before you begin, make sure that:
 
 1. You have completed the [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 2. You have received your disks and the job status in the portal is updated to **Delivered**.
-3. You have a host computer on which you can install the Data Box Disk unlock tool. Your host computer must:
-    - Run a [Supported operating system](data-box-disk-system-requirements.md).
-    - Have [Windows PowerShell 4 installed](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Have [.NET Framework 4.5.1 installed](https://www.microsoft.com/download/details.aspx?id=30653).
-    - Have [BitLocker enabled](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server).
-    - Have [Windows Management Framework 4 installed](https://www.microsoft.com/en-us/download/details.aspx?id=40855). 
+3. You have a client computer on which you can install the Data Box Disk unlock tool. Your client computer must:
+    - Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-Windows-clients) installed if it is a Windows client.  
 
 ## Unpack your disks
 
@@ -170,7 +167,7 @@ Perform the following steps to connect and unlock your disks.
     
  
 5. Type `y` to continue the install. The packages that the script installs are: 
-    - **epel-release** - Repository that contains the other three packages. 
+    - **epel-release** - Repository that contains the following three packages. 
     - **dislocker and fuse-dislocker** - This utility helps decrypting BitLocker encrypted disks. 
     - **ntfs-3g** - Package that helps mount NTFS volumes. 
  
@@ -208,15 +205,17 @@ Perform the following steps to connect and unlock your disks.
 
     Type the following command.
  
-    `sudo ./DataBoxDiskUnlock /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
 
     The sample output is shown below. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
     
     START: Mon Aug 13 14:25:49 2018 
-    Volumes: /dev/sdbl Passkey: qwerqwerqwer 
+    Volumes: /dev/sdbl 
+    Passkey: qwerqwerqwer 
+    
     Volumes for data copy : 
     /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
     END: Mon Aug 13 14:26:02 2018
@@ -225,12 +224,12 @@ Perform the following steps to connect and unlock your disks.
 
 7. Repeat unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool. 
     
-    `sudo ./DataBoxDiskUnlock /Help` 
+    `sudo ./DataBoxDiskUnlock_x86_64 /Help` 
 
     The sample output is shown below. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock /Help  
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Help  
     START: Mon Aug 13 14:29:20 2018 
     USAGE: 
     sudo DataBoxDiskUnlock /PassKey:’<passkey from Azure_portal>’ 

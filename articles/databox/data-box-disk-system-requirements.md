@@ -30,11 +30,13 @@ The system requirements include the supported platforms for clients connecting t
 
 Here is a list of the supported operating systems for the disk unlock and data copy operation via the clients connected to the Data Box Disk.
 
-| **Operating system** | **Versions** |
+| **Operating system** | **Tested versions** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
+
+## Other required software for Windows clients
 
 For Windows client, following should also be installed.
 
@@ -45,6 +47,12 @@ For Windows client, following should also be installed.
 | Windows Management Framework |5.0|
 | BitLocker| - |
 
+## Other required software for Linux clients
+
+For Linux client, the Data Box Disk toolset installs the following required software:
+
+- dislocker
+- OpenSSL
 
 ## Supported storage accounts
 
