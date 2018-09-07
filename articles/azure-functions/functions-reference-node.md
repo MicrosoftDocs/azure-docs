@@ -102,7 +102,7 @@ Informs the runtime that your code has finished. If your function uses the JavaS
 
 If your function is not an async function, **you must call `context.done`** to inform the runtime that your function is complete. The execution will time out if it is missing.
 
-The `context.done` method allows you to pass back both a user-defined error to the runtime and a property bag of output binding data. Properties passed to `context.done` will overwrite anything set on the `context.bindings` object.
+The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` will overwrite anything set on the `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -155,7 +155,7 @@ Options for `dataType` are: `binary`, `stream`, and `string`.
 
 ## Writing trace output to the console 
 
-In Functions, you use the `context.log` methods to write trace output to the console. In Functions v1.x, you cannot use `console.log` to write to the console. In Functions v2.x, trace ouput via `console.log` is captured at the Function App level. This means that, output from `console.log` will not be tied to a specific function invocation.
+In Functions, you use the `context.log` methods to write trace output to the console. In Functions v1.x, you cannot use `console.log` to write to the console. In Functions v2.x, trace ouputs via `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation.
 
 When you call `context.log()`, your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
 
