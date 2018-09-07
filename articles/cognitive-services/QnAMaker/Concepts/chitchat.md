@@ -12,6 +12,7 @@ ms.date: 09/24/2018
 ms.author: tulasim
 ---
 
+
 # Adding Chit-chat personas to knowledgebase answers
 
 Adding chit-chat to your bot makes it more conversational and engaging. QnA Maker allows you to easily add a pre-populated set of the top chit-chat personas, into your knowledgebase. This can be a starting point for your bot's conversational chit-chat, which saves you the time and cost of writing them yourself. 
