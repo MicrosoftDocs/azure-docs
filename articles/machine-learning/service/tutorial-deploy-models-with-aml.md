@@ -166,7 +166,7 @@ plt.show()
 
 Once you've tested the model and are satisfied with the results, deploy the model as a web service hosted in ACI. 
 
-To build the correct environment for ACI, provide the following items:
+To build the correct environment for ACI, provide the following:
 * A scoring script to show how to use the model
 * An environment file to show what packages need to be installed
 * A configuration file to build the ACI
@@ -176,11 +176,10 @@ To build the correct environment for ACI, provide the following items:
 
 Create the scoring script, called score.py, used by the web service call to show how to use the model.
 
-The script defines the following required functions:
+You must include two required functions into the scoring script:
+* The `init()` function, which typically loads the model into a global object. This function is executed only once when the Docker container is started. 
 
-* `init()`: Loads the model into a global object. This function is executed only once when the Docker container is started. 
-
-* `run(input_data)`: Uses the model to predict a value based on the input data. You define the inputs and outputs to the function. For example, JSON.
+* The `run(input_data)` function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization, but other formats are supported.
 
 ```python
 %%writefile score.py
@@ -226,7 +225,7 @@ dependencies:
 
 ### Create configuration file
 
-Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is sufficient for many models. If you feel you need more later, you would have to recreate the image and redeploy the service.
+Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for many models. If you feel you need more later, you would have to recreate the image and redeploy the service.
 
 ```python
 from azureml.core.webservice import AciWebservice
