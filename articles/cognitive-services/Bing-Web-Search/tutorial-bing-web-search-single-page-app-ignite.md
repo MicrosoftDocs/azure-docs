@@ -161,7 +161,7 @@ function getSubscriptionKey() {
 
 As we saw earlier, when the form is submitted, `onsubmit` fires, calling `bingWebSearch`. This function constructs the query and returns a response with applicable search results based on the options selected by the user. `getSubscriptionKey` is called on each submission to authenticate the request.
 
-## Perform the request and handle the response
+## Make a request
 
 Given the query, the options string, and the subscription key, the `BingWebSearch` function creates an `XMLHttpRequest` object to call the Bing Web Search endpoint.
 
@@ -293,7 +293,7 @@ Much of the code in both of the preceding functions is dedicated to error handli
 
 Errors are handled by calling `renderErrorMessage()`. If the response passes all of the error tests, `renderSearchResults()` is called to display the search results.
 
-## Display the search results // Change header title
+## Display search results
 
 There are [use and display requirements](useanddisplayrequirements.md) for results returned by the Bing Web Search API. Since a response may contain various result types, it is not enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results.
 
@@ -330,29 +330,26 @@ function renderSearchResults(results) {
 }
 ```
 
-The `renderResultsItems()` function iterates through the items in each `RankingResponse` collection, maps each ranking result to a search result using the `answerType` and `resultIndex` values, and calls the appropriate rendering function to generate the HTML. If `resultIndex` is not specified for an item, `renderResultsItems()` iterates over all results of that type and calls the rendering function for each item.
-
-<< FIX >>
-Either way, the resulting HTML is inserted into the appropriate `<div>` element in the page.
+The `renderResultsItems()` function iterates through the items in each `RankingResponse` collection, maps each ranking result to a search result using the `answerType` and `resultIndex` values, and calls the appropriate rendering function to generate the HTML. If `resultIndex` is not specified for an item, `renderResultsItems()` iterates through all results of that type and calls the rendering function for each item. The resulting HTML is inserted into the appropriate `<div>` element in `index.html`.
 
 ```javascript
-// render search results from rankingResponse object in specified order
+// Render search results from the RankingResponse object per rank response and
+// use and display requirements.
 function renderResultsItems(section, results) {
 
     var items = results.rankingResponse[section].items;
     var html = [];
     for (var i = 0; i < items.length; i++) {
         var item = items[i];
-        // collection name has lowercase first letter while answerType has uppercase
-        // e.g. `WebPages` rankingResult type is in the `webPages` top-level collection
+        // Collection name has lowercase first letter while answerType has uppercase
+        // e.g. `WebPages` RankingResult type is in the `webPages` top-level collection.
         var type = item.answerType[0].toLowerCase() + item.answerType.slice(1);
-        // must have results of the given type AND a renderer for it
         if (type in results && type in searchItemRenderers) {
             var render = searchItemRenderers[type];
-            // this ranking item refers to ONE result of the specified type
+            // This ranking item refers to ONE result of the specified type.
             if ("resultIndex" in item) {
                 html.push(render(results[type].value[item.resultIndex], section));
-            // this ranking item refers to ALL results of the specified type
+            // This ranking item refers to ALL results of the specified type.
             } else {
                 var len = results[type].value.length;
                 for (var j = 0; j < len; j++) {
@@ -365,12 +362,14 @@ function renderResultsItems(section, results) {
 }
 ```
 
-## Display search results
+## Rendering functions // << TODO: ERIK - Figure out a better title >>
+
+<<TODO: ERIK - Review section and re-order where possible. >>
 
 In our JavaScript code is an object, `searchItemRenderers`, that contains *renderers:* functions that generate HTML for each kind of search result.
 
 ```javascript
-// render functions for various types of search results
+// Render functions for each result type.
 searchItemRenderers = {
     webPages: function(item) { ... },
     news: function(item) { ... },
@@ -432,41 +431,42 @@ Images appear as shown here in the mainline search results.
 
 ![[Bing image results]](media/cognitive-services-bing-web-api/web-search-spa-images.png)
 
-## Persisting client ID
+## Persist the client ID
 
-Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with successive requests. If multiple Bing Search APIs are being used, the same client ID should be used with all of them, if possible.
+Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with each successive request. If multiple Bing Search APIs are being used, the same client ID should be used with all of them, if possible.
 
-Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate all of a user's searches, which has two important benefits.
+Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate all of a user's searches, which has two important benefits. First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the user. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing. Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
 
-First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the user. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing.
-
-Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
+<< TODO: ERIK - VERIFY/REVIEW >>
 
 Browser security policies (CORS) may prevent the `X-MSEdge-ClientID` header from being available to JavaScript. This limitation occurs when the search response has a different origin from the page that requested it. In a production environment, you should address this policy by hosting a server-side script that does the API call on the same domain as the Web page. Since the script has the same origin as the Web page, the `X-MSEdge-ClientID` header is then available to JavaScript.
 
 > [!NOTE]
 > In a production Web application, you should perform the request server-side anyway. Otherwise, your Bing Search API key must be included in the Web page, where it is available to anyone who views source. You are billed for all usage under your API subscription key, even requests made by unauthorized parties, so it is important not to expose your key.
 
-For development purposes, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+For development purposes, you can make a request through a CORS proxy. The response from this type of proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
 
-It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
+It's easy to install a CORS proxy to allow our sample app to access the client ID header. Run this command:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Web Search endpoint in the HTML file to:
+Next, change the Bing Web Search endpoint in the `index.html` file to: << TODO: Erik - VERIFY >>
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+```html
+http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+```
 
-Finally, start the CORS proxy with the following command:
+Start the CORS proxy with this command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
-Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
+Leave the command window open while you use the sample app. Closing the window stops the proxy. In the expandable HTTP Headers section below the search results, the `X-MSEdge-ClientID` header should be available. Verify that it is the same for each request.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Visual Search mobile app tutorial](computer-vision-web-search-tutorial.md)
 
 > [!div class="nextstepaction"]
 > [Bing Web Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
