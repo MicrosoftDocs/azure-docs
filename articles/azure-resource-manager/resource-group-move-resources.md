@@ -206,7 +206,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - see [Public IP limitations](#pip-limitations)
-* Redis Cache - if the Redis Cache is deployed into a subnet, see [Virtual Networks limitations](#virtual-networks-limitations).
+* Redis Cache - if the Redis Cache instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
 * Search
 * Service Bus
