@@ -55,7 +55,7 @@ This group policy affects only Office 2016 apps for a local computer. Users can 
 
 ## Learn more
 
-* [Integrate LinkedIn in your organization](integrate-linkedin-in-your-organization.md)
+* [Integrate LinkedIn in your organization](linkedin-user-consent.md)
 
 * [LinkedIn information and features in your Microsoft apps](https://go.microsoft.com/fwlink/?linkid=850740)
 
