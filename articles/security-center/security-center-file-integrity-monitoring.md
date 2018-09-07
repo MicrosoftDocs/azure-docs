@@ -1,5 +1,5 @@
 ---
-title: File Integrity Monitoring in Azure Security Center (Preview) | Microsoft Docs
+title: File Integrity Monitoring in Azure Security Center | Microsoft Docs
 description: " Learn how to enable File Integrity Monitoring in Azure Security Center. "
 services: security-center
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
+ms.date: 09/06/2018
 ms.author: terrylan
 
 ---
-# File Integrity Monitoring in Azure Security Center (Preview)
+# File Integrity Monitoring in Azure Security Center
 Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
 
 ## What is FIM in Security Center?
