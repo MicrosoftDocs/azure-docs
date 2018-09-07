@@ -23,7 +23,7 @@ For models to consume the data that has been cleaned, it is easier to be able to
 ## The steps for data preparation with Azure Machine Learning 
 - [Load Data](how-to-load-data.md )
 - [Transform Data](how-to-transform-data.md )
-- [Write Data](how-to-wrtie-data.md )
+- [Write Data](how-to-write-data.md )
 
 [ ![Machine learning pipelines](./media/concept-data-preparation/data-prep-process.png) ]
 (./media/concept-data-preparation/data-prep-process.png#lightbox)
