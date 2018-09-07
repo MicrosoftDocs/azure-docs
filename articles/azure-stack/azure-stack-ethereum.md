@@ -19,14 +19,14 @@ With a handful of user inputs and a single-click deployment through the Azure St
 
 ## Prerequisites
 
-Download the following [from the Marketplace](azure-stack-download-azure-marketplace-item.md):
+Download the latest items [from the Marketplace](azure-stack-download-azure-marketplace-item.md):
 
-* Latest version of Ubuntu Server 16.04 LTS
+* Ubuntu Server 16.04 LTS
 * Windows Server 2016
 * Custom Script for Linux 2.0
 * Custom Script Extension for Windows
 
-For more information about blockchain scenarios on Azure, see [Ethereum proof-of-work consortium solution template](../blockchain-workbench/ethereum-deployment-guide.md).
+For more information about blockchain scenarios, see [Ethereum proof-of-work consortium solution template](../blockchain-workbench/ethereum-deployment-guide.md).
 
 ## Deployment architecture
 
