@@ -81,7 +81,8 @@ Once the Azure Database for MariaDB server is created, you can use the first ser
    ```
 For more information regarding user account management, see MariaDB documentation for [User account management](https://mariadb.com/kb/en/library/user-account-management/), [GRANT Syntax](https://mariadb.com/kb/en/library/grant/), and [Privileges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
-<!--
 ## Next steps
 Open the firewall for the IP addresses of the new users' machines to enable them to connect:
-[Create and manage Azure Database for MariaDB firewall rules by using the Azure portal](howto-manage-firewall-using-portal.md)  or [Azure CLI](howto-manage-firewall-using-cli.md).-->
+[Create and manage Azure Database for MariaDB firewall rules by using the Azure portal](howto-manage-firewall-using-portal.md)  
+
+<!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

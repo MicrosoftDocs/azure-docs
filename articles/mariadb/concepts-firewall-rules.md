@@ -57,7 +57,8 @@ Consider the following points when access to the Microsoft Azure Database for Ma
 
 * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
-<!--## Next steps
-
+## Next steps
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
- - [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->
+
+<!--
+- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->

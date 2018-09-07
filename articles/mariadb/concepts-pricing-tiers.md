@@ -113,8 +113,7 @@ For the most up-to-date pricing information, see the service [pricing page](http
 
 ## Next steps
 - Learn about the [service limitations](concepts-limits.md).
+- Learn how to [create a MariaDB server in the portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 <!--
-- Learn how to [create a MariaDB server in the portal](howto-create-manage-server-portal.md).
-- Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).
-- -->
+- Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->

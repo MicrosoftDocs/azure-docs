@@ -119,8 +119,9 @@ Importing your database is similar to exporting. Do the following actions:
 5. Use the **browse** button to find the database file. 
 6. Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
-<!-- 
 ## Next steps
 - [Connect applications to Azure Database for MariaDB](./howto-connection-string.md).
+ 
+<!--
 - For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](http://aka.ms/datamigration).
 -->

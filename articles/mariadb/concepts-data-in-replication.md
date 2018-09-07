@@ -37,6 +37,5 @@ The [*mysql system database*](https://mariadb.com/kb/en/library/the-mysql-databa
 - Data-in replication is only supported in General Purpose and Memory Optimized pricing tiers.
 - Global transaction identifiers (GTID) are not supported.
 
-<!-- ## Next steps
-- Learn how to [set up data-in replication](howto-data-in-replication.md)
-- -->
+## Next steps
+- Learn how to [set up data-in replication](howto-data-in-replication.md).
