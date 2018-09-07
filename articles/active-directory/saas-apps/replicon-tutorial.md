@@ -175,7 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a Replicon test user
 
-The objective of this section is to create a user called Britta Simon in Replicon. Replicon supports automatic user provisioning, which is by default enabled. You can find more details [here](replicon-provisioning-tutorial.md) on how to configure automatic user provisioning.
+The objective of this section is to create a user called Britta Simon in Replicon.
 
 **If you need to create user manually, perform following steps:**
 
@@ -247,7 +247,6 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure User Provisioning](replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 
