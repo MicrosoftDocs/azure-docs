@@ -163,6 +163,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
 |emotions| The [emotions](#emotions) dimension.|
+|topics|The [topics](#topics) dimension.|
 
 Example:
 
@@ -751,8 +752,21 @@ Video Indexer identifies emotions based on speech and audio cues. The identified
       "start": "0:28:08.88",
       "end": "0:28:18.16"
     }]
-  }],
-````
+  }
+],
+```
+
+#### topics
+
+Video Indexer makes inference of main topics from transcripts. When possible, the 1st-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
+
+|Name|Description|
+|---|---|
+|id|The topic ID.|
+|name|The topic name, for example: "Pharmaceuticals".|
+|referenceId|Breadcrumbs reflecting the topics hierarchy. For example: "Health and wellbeing / Medicine and healthcare / Pharmaceuticals".|
+|confidence|The confidence score in the range [0,1]. Higher is more confident.|
+|language|The language used in the topic.|
 
 ## Next steps
 
