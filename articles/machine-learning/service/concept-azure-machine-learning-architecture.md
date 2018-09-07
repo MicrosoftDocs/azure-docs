@@ -158,7 +158,7 @@ A run configuration can be persisted into a file inside the directory that conta
 
 ## Compute target
 
-A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targeted in Azure. The supported compute targets are: 
+A compute target is the compute resource used to execute your training script or host your web service deployment. You can create compute targets by using the Azure Machine Learning SDK and CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can add (attach) them to your workspace. The supported compute targets are: 
 
 * Your local computer
 * A Linux VM in Azure (such as the Data Science Virtual Machine)
