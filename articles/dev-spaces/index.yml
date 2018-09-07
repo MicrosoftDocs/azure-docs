@@ -38,7 +38,7 @@ sections:
       text: .NET and Visual Studio
       href: quickstart-netcore-visualstudio.md
     - image: 
-        src: https://docs.microsoft.com/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
       text: Node.js
       href: quickstart-js.md
 - title: How Azure Dev Spaces simplifies Kubernetes development
