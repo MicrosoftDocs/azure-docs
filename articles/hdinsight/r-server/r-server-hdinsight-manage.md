@@ -62,7 +62,7 @@ The following screenshot shows the outputs.
 
 ![Concurrent user 3](./media/r-server-hdinsight-manage/concurrent-users-2.png)
 
-When prompted for “Current Kerberos password:”, just press **Enter** to ignore it. The `-m` option in `useradd` command indicates that the system will create a home folder for the user, which is required for RStudio Community version.
+When prompted for "Current Kerberos password:", just press **Enter** to ignore it. The `-m` option in `useradd` command indicates that the system will create a home folder for the user, which is required for RStudio Community version.
 
 ### Step 3: Use RStudio Community version with the user created
 

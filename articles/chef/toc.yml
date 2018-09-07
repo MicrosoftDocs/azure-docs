@@ -1,4 +1,4 @@
-- name: Chef Software on Azure Documentation
+- name: Chef Software on Azure documentation
   href: ./index.yml
 - name: Overview
   items:

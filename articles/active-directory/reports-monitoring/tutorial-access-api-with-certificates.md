@@ -34,7 +34,7 @@ This involves the following steps:
 
 1. First, make sure that you have completed the [prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
 
-2. Download and install Azure AD Powershell V2, following the instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md)
+2. Download and install Azure AD Powershell V2, following the instructions at [Azure Active Directory PowerShell(https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md)
 
 3. Install the MSCloudIDUtils from the [PowerShellGallery - MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). This module provides several utility cmdlets including:
     - The ADAL libraries needed for authentication

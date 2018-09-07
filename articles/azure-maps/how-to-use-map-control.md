@@ -3,7 +3,7 @@ title: How to use the Azure Maps Map Control | Microsoft Docs
 description: Learn how to use the Azure Maps Map Control client-side Javascript library.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -22,8 +22,8 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 2. Add the Azure Maps stylesheet and script source references to the `<head>` element of the file:
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
     
 3. In order to render a new map in your browser, add a **#map** reference in the `<style>` element.

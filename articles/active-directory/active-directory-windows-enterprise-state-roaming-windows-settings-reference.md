@@ -40,10 +40,11 @@ The following settings groups are available for end-users to enable/disable sett
 
 * Theme: desktop background, user tile, taskbar position, etc. 
 * Internet Explorer Settings: browsing history, typed URLs, favorites, etc. 
-* Passwords: [Windows credential locker](https://technet.microsoft.com/library/jj554668.aspx), including Wi-Fi profiles 
+* Passwords: Windows credential manager, including Wi-Fi profiles 
 * Language Preferences: spelling dictionary, system language settings 
 * Ease of Access: narrator, on-screen keyboard, magnifier 
 * Other Windows Settings: see Windows Settings details
+* Edge browser setting: Microsoft Edge favorites, reading list, and other settings
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -69,7 +70,7 @@ Settings that don't roam or sync will not belong to a group.
 | **App data**: individual apps can sync data |sync backup |sync backup |internal |
 | **App list**: list of installed apps |X |backup |Other |
 | **Bluetooth**: all Bluetooth settings |X |X | |
-| **Command prompt**: Command prompt "Defaults" settings |sync |X | |
+| **Command prompt**: Command prompt "Defaults" settings |sync |X |internal |
 | **Credentials**: Credential Locker |sync |sync |password |
 | **Date, Time, and Region**: automatic time (Internet time sync) |sync |sync |language |
 | **Date, Time, and Region**: 24-hour clock |sync |X |language |

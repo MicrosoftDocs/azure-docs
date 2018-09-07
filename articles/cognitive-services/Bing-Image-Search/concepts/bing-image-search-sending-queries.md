@@ -1,5 +1,5 @@
 ---
-title: Sending queries to the Bing Image Search API | Microsoft Docs
+title: Send queries to the Bing Image Search API | Microsoft Docs
 description: Learn about sending and customizing search queries sent to the Bing Image Search API.
 services: cognitive-services
 author: aahill
@@ -12,19 +12,19 @@ ms.date: 8/8/2018
 ms.author: aahi
 ---
 
-# Sending queries to the Bing Image Search API
+# Send queries to the Bing Image Search API
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+The Bing Image Search API provides an experience similar to Bing.com/Images. You can use it to send a search query to Bing and get back a list of relevant images.
 
-## Using and suggesting search terms
+## Use and suggest search terms
 
-After a search term is entered, URL-encode the term before setting the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if a user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
+After a search term is entered, URL-encode the term before you set the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if you enter *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
 
-If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience by displaying suggested search terms in real time. The API returns suggested query strings based on partial search terms and Azure cognitive services.
+If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API can display suggested search terms in real time. The API returns suggested query strings based on partial search terms and Cognitive Services.
 
-## Pivoting the query
+## Pivot the query
 
-If Bing can segment the original search query, the returned [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object will contain `pivotSuggestions` which can be displayed as optional search terms to the user. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface* and provide suggested pivots for each. These can be displayed as optional query terms to the user.
+If Bing can segment the original search query, the returned [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object contains `pivotSuggestions`. Pivot suggestions can be displayed as optional search terms to the user. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface* and provide suggested pivots for each. These suggestions can be displayed as optional query terms to the user.
 
 The following example shows the pivot suggestions for *Microsoft Surface*:  
 
@@ -85,9 +85,9 @@ The following example shows the pivot suggestions for *Microsoft Surface*:
 }
 ```
 
-The `pivotSuggestions` field contains the list of segments (pivots) that the original query was broken into. For each pivot, the response contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query and the `displayText` field contains the term that replaces the pivot in the original query. For example, Release Date of Surface.
+The `pivotSuggestions` field contains the list of segments (pivots) that the original query was broken into. For each pivot, the response contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query. The `displayText` field contains the term that replaces the pivot in the original query. An example is Release Date of Surface.
 
-You can use the `text` and `thumbnail` fields to display the pivot query strings to the user in case the pivot query string is really what they're looking for. Make the thumbnail and text clickable using the `webSearchUrl` URL or `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results, or `searchLink` if you provide your own results page.
+If the pivot query string is what the user is looking for, use the `text` and `thumbnail` fields to display the pivot query strings. Make the thumbnail and text clickable by using the `webSearchUrl` URL or the `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results. If you provide your own results page, use `searchLink`.
 
 <!-- Need a sanitized version of the image
 The following shows an example of the pivot queries.
@@ -95,9 +95,13 @@ The following shows an example of the pivot queries.
 ![Pivot suggestions](./media/cognitive-services-bing-images-api/bing-image-pivotsuggestion.GIF)
 -->
 
-## Expanding the query
+## Expand the query
 
-If Bing can expand the query to narrow the original search, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object contains the `queryExpansions` field. For example, if the query was *Microsoft Surface*, the expanded queries might be: Microsoft Surface **Pro 3**, Microsoft Surface **RT**, Microsoft Surface **Phone**, and Microsoft Surface **Hub**.
+If Bing can expand the query to narrow the original search, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object contains the `queryExpansions` field. For example, if the query was *Microsoft Surface*, the expanded queries might be: 
+- Microsoft Surface **Pro 3**.
+- Microsoft Surface **RT**.
+- Microsoft Surface **Phone**.
+- Microsoft Surface **Hub**.
 
 The following example shows the expanded queries for *Microsoft Surface*.
 
@@ -139,7 +143,7 @@ The following example shows the expanded queries for *Microsoft Surface*.
 }
 ```
 
-The `queryExpansions` field contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects. The `text` field contains the expanded query and the `displayText` field contains the expansion term. You can use the `text` and `thumbnail` fields to display the expanded query strings to the user in case the expanded query string is really what they're looking for. Make the thumbnail and text clickable using the `webSearchUrl` URL or `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results, or `searchLink` if you provide your own results page.
+The `queryExpansions` field contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects. The `text` field contains the expanded query. The `displayText` field contains the expansion term. If the expanded query string is what the user is looking for, use the `text` and `thumbnail` fields to display the expanded query strings. Make the thumbnail and text clickable by using the `webSearchUrl` URL or the `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results. if you provide your own results page, use `searchLink`.
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.
@@ -154,4 +158,4 @@ The following shows an example Bing implementation that uses expanded queries. I
 
 ## Next steps
 
-If you haven't tried the Bing Image Search API before, try a [quickstart](../quickstarts/csharp.md). If you're looking for something more complex, try the tutorial for creating a [single-page web app](../tutorial-bing-image-search-single-page-app.md).
+If you haven't tried the Bing Image Search API before, try a [quickstart](../quickstarts/csharp.md). If you're looking for something more complex, try the tutorial to create a [single-page web app](../tutorial-bing-image-search-single-page-app.md).
