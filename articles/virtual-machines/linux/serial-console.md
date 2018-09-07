@@ -85,6 +85,9 @@ Interacting with bootloader | Access GRUB via the serial console. Go to [Using S
 ## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
 
+> [!Note] 
+> In order to enable or disable serial console for a subscription, you must have write permissions to the subscription. This includes, but is not limited to, administrator or owner roles. Custom roles may also have write permissions.
+
 ### Subscription-level disable
 Serial console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
 

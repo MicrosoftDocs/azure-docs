@@ -96,7 +96,10 @@ The Serial Console can be used to send a NMI to an Azure virtual machine using t
 For information on configuring Windows to create a crash dump when it receives an NMI, see: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## Disable Serial Console
-By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
+By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level. 
+
+> [!Note] 
+> In order to enable or disable serial console for a subscription, you must have write permissions to the subscription. This includes, but is not limited to, administrator or owner roles. Custom roles may also have write permissions.
 
 ### Subscription-level disable
 Serial Console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
