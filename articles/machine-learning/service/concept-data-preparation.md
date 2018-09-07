@@ -26,4 +26,4 @@ For models to consume the data that has been cleaned, it is easier to be able to
 - [Write Data](how-to-wrtie-data.md )
 
 ## Next Steps
-Here is an [example notebook]( https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/NYTaxiCab/01.new_york_taxi.ipynb) of data preparation.
+Here is an [example notebook](https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation.
