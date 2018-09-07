@@ -21,14 +21,12 @@ With a handful of user inputs and a single-click deployment through the Azure St
 
 Download the following [from the Marketplace](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS version 16.04.201802220
-* Windows Server 2016 
-* Custom Script for Linux 2.0 
-* Custom Script Extension 
+* Latest version of Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Custom Script for Linux 2.0
+* Custom Script Extension for Windows
 
 For more information about blockchain scenarios on Azure, see [Ethereum proof-of-work consortium solution template](../blockchain-workbench/ethereum-deployment-guide.md).
-
-An Azure subscription that can support deploying several virtual machines is required. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Deployment architecture
 
@@ -37,6 +35,7 @@ This solution template can deploy single or multi member Ethereum consortium net
 ## Deployment use cases
 
 The template can deploy Ethereum consortium for leader and member join in a variety of ways, here are the ones we have tested:
+
 - On a multi-node Azure Stack, with Azure AD or AD FS, deploy lead and member using the same subscription or with different subscriptions.
 - On a single-node Azure Stack (with Azure AD) deploy lead and member using the same subscription.
 
