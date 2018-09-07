@@ -20,7 +20,7 @@ ms.author: genli
 
 #  Network virtual appliance issues in Azure
 
-You may experience VM or VPN connectivity issues and errors that affect a Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
+You may experience VM or VPN connectivity issues and errors when using a third party Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
 
 Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly.
 
@@ -129,5 +129,5 @@ Capture a simultaneous network trace on the source VM, the NVA, and the destinat
 
 If you do not see the packets incoming to the backend VM trace, there is likely an NSG or UDR interfering or the NVA routing tables are incorrect.
 
-If you do see the packets coming in but no response, then you may need to address a VM application or a firewall issue. For either of these issues, [contact the NVA vendor for assistance as needed](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+If you do see the packets coming in but no response, then you may need to address a VM application or a firewall issue. For either of these issues, [contact the NVA vendor for assistance as needed](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 

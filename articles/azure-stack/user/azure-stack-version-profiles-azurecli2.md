@@ -3,7 +3,7 @@ title: Connect to Azure Stack with CLI | Microsoft Docs
 description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,8 +11,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
 
 ---
@@ -90,7 +90,7 @@ $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
 $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
 $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
 $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-$sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
+$sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
 $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
 $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
 

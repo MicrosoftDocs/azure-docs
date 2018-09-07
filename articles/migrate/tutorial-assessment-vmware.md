@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -78,6 +78,14 @@ Check that the .OVA file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings.
 
+  For OVA version 1.0.9.14
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+
   For OVA version 1.0.9.12
 
     **Algorithm** | **Hash value**
@@ -147,7 +155,7 @@ will be hosted.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) about the internet connectivity requirements and the list of URLs that the collector accesses.
 
     > [!NOTE]
-    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported.
+    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initally fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
 
     - The collector checks that the collector service is running. The service is installed by default on the collector VM.
     - Download and install VMware PowerCLI.

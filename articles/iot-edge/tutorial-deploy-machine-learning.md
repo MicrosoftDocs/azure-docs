@@ -4,7 +4,7 @@ description: In this tutorial, you deploy Azure Machine Learning as a module to 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -41,10 +41,10 @@ An Azure IoT Edge device:
 Cloud resources:
 
 * A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 
 Development resources:
 
-* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 * Model Management for Azure ML. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md). During deployment setup, it is recommended to choose the local steps instead of cluster, where possible.
 
 ### Disable process identification
@@ -52,11 +52,11 @@ Development resources:
 >[!NOTE]
 >
 > While in preview, Azure Machine Learning does not support the process identification security feature enabled by default with IoT Edge. 
-> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux, as you will have completed this during the Windows Edge runtime setup steps.
+> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux, as you will have completed this during the Windows Edge runtime installation.
 
 To disable process identification on your IoT edge device, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
 
-Get the IP address first. Enter `ifconfig` in your command line and copy the IP address of the **docker0** interface.
+Get the IP address first. Enter `ipconfig` in your command line and copy the IP address of the **docker0** interface.
 
 Edit the IoT Edge daemon configuration file:
 
@@ -89,7 +89,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## Create the Azure ML container
 In this section, you download the trained model files and convert them into an Azure ML container.
 
-On the machine running Module Management for Azure ML, download and save [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) and [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) from the Azure ML IoT Toolkit on GitHub. These files define the trained machine learning model that you will deploy to your Iot Edge device.
+On the machine running Model Management for Azure ML, download and save [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) and [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) from the Azure ML IoT Toolkit on GitHub. These files define the trained machine learning model that you will deploy to your Iot Edge device.
 
 Use the trained model to create a container that can be deployed to IoT Edge devices. Use the following command to:
 
@@ -203,35 +203,14 @@ The following steps show you how to set up Visual Studio Code to monitor device-
 
 ## Clean up resources 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-> [!IMPORTANT]
-> Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
->
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-To delete only the IoT Hub execute the following command using your hub name and resource group name:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-To delete the entire resource group by name:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
-
-2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
-
-3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
-
-<!--
-   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
-4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 

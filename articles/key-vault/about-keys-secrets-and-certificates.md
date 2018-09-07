@@ -3,7 +3,7 @@ title: About keys, secrets and certificates
 description: Overview of REST interface and KV developer details
 services: key-vault
 documentationcenter:
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -12,9 +12,9 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
+ms.topic: conceptual
+ms.date: 08/14/2018
+ms.author: bryanla
 
 ---
 
@@ -25,26 +25,26 @@ For more general information about Azure Key Vault, see [What is Azure Key Vault
 
 **Key Vault general details**
 
--   [Supporting standards](about-keys-secrets-and-certificates.md#BKMK_Standards)
--   [Data types](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
--   [Objects, identifiers and, versioning](about-keys-secrets-and-certificates.md#BKMK_ObjId)  
+-   [Supporting standards](#BKMK_Standards)
+-   [Data types](#BKMK_DataTypes)  
+-   [Objects, identifiers and, versioning](#BKMK_ObjId)  
 
 **About keys**
 
--   [Keys and key types](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)  
--   [RSA algorithms](about-keys-secrets-and-certificates.md#BKMK_RSAAlgorithms)  
--   [RSA-HSM algorithms](about-keys-secrets-and-certificates.md#BKMK_RSA-HSMAlgorithms)  
--   [Cryptographic protection](about-keys-secrets-and-certificates.md#BKMK_Cryptographic)
--   [Key operations](about-keys-secrets-and-certificates.md#BKMK_KeyOperations)  
--   [Key attributes](about-keys-secrets-and-certificates.md#BKMK_KeyAttributes)  
--   [Key tags](about-keys-secrets-and-certificates.md#BKMK_Keytags)  
+-   [Keys and key types](#BKMK_KeyTypes)  
+-   [RSA algorithms](#BKMK_RSAAlgorithms)  
+-   [RSA-HSM algorithms](#BKMK_RSA-HSMAlgorithms)  
+-   [Cryptographic protection](#BKMK_Cryptographic)
+-   [Key operations](#BKMK_KeyOperations)  
+-   [Key attributes](#BKMK_KeyAttributes)  
+-   [Key tags](#BKMK_Keytags)  
 
 **About secrets** 
 
--   [Working with Secrets](about-keys-secrets-and-certificates.md#BKMK_WorkingWithSecrets)  
--   [Secret attributes](about-keys-secrets-and-certificates.md#BKMK_SecretAttrs)  
--   [Secret tags](about-keys-secrets-and-certificates.md#BKMK_SecretTags)  
--   [Secret Access Control](about-keys-secrets-and-certificates.md#BKMK_SecretAccessControl)  
+-   [Working with Secrets](#BKMK_WorkingWithSecrets)  
+-   [Secret attributes](#BKMK_SecretAttrs)  
+-   [Secret tags](#BKMK_SecretTags)  
+-   [Secret Access Control](#BKMK_SecretAccessControl)  
 
 **About certificates**
 
@@ -130,7 +130,7 @@ Azure Key Vault supports RSA keys of sizes 2048, 3072 and 4096, and Elliptic Cur
 
 ### <a name="BKMK_Cryptographic"></a> Cryptographic protection
 
-The cryptographic modules that Azure Key Vault uses, whether HSM or software, are FIPS validated. You don’t need to do anything special to run in FIPS mode. If you **create** or **import** keys as HSM-protected, they are guaranteed to be processed inside HSMs validated to FIPS 140-2 Level 2 or higher. If you **create** or **import** keys as software-protected then they are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+The cryptographic modules that Azure Key Vault uses, whether HSM or software, are FIPS validated. You don’t need to do anything special to run in FIPS mode. If you **create** or **import** keys as HSM-protected, they are guaranteed to be processed inside HSMs validated to FIPS 140-2 Level 2 or higher. If you **create** or **import** keys as software-protected then they are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#BKMK_KeyTypes).
 
 ###  <a name="BKMK_ECAlgorithms"></a> EC algorithms
  The following algorithm identifiers are supported with EC and EC-HSM keys in Azure Key Vault. 
@@ -171,7 +171,7 @@ Azure Key Vault supports the following operations on key objects:
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
 
-For more information, see [Key operations](/rest/api/keyvault/key-operations).  
+For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
 Once a key has been created in Azure Key Vault, the following cryptographic operations may be performed using the key:  
 
@@ -192,22 +192,22 @@ For more information on JWK objects, see [JSON Web Key (JWK)](http://tools.ietf.
 
 In addition to the key material, the following attributes may be specified. In a JSON Request, the attributes keyword and braces, ‘{‘ ‘}’, are required even if there are no attributes specified.  
 
-- *enabled*: boolean, optional, default is **true**. Specifies whether the key is enabled and useable for cryptographic operations. The *enabled* attribute is used in conjunction with *nbf* and *exp*. When an operation occurs between *nbf* and *exp*, it will only be permitted if *enabled* is set to **true**. Operations outside the *nbf* / *exp* window are automatically disallowed, except for certain operation types under [particular conditions](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops).
-- *nbf*: IntDate, optional, default is now. The *nbf* (not before) attribute identifies the time before which the key MUST NOT be used for cryptographic operations, except for certain operation types under [particular conditions](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
-- *exp*: IntDate, optional, default is "forever". The *exp* (expiration time) attribute identifies the expiration time on or after which the key MUST NOT be used for cryptographic operation, except for certain operation types under [particular conditions](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
+- *enabled*: boolean, optional, default is **true**. Specifies whether the key is enabled and useable for cryptographic operations. The *enabled* attribute is used in conjunction with *nbf* and *exp*. When an operation occurs between *nbf* and *exp*, it will only be permitted if *enabled* is set to **true**. Operations outside the *nbf* / *exp* window are automatically disallowed, except for certain operation types under [particular conditions](#BKMK_key-date-time-ctrld-ops).
+- *nbf*: IntDate, optional, default is now. The *nbf* (not before) attribute identifies the time before which the key MUST NOT be used for cryptographic operations, except for certain operation types under [particular conditions](#BKMK_key-date-time-ctrld-ops). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
+- *exp*: IntDate, optional, default is "forever". The *exp* (expiration time) attribute identifies the expiration time on or after which the key MUST NOT be used for cryptographic operation, except for certain operation types under [particular conditions](#BKMK_key-date-time-ctrld-ops). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
 
 There are additional read-only attributes that are included in any response that includes key attributes:  
 
 - *created*: IntDate, optional. The *created* attribute indicates when this version of the key was created. This value is null for keys created prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
 - *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. This value is null for keys that were last updated prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
 
-For more information on IntDate and other data types, see [Data types](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
+For more information on IntDate and other data types, see [Data types](#BKMK_DataTypes)  
 
 #### <a name="BKMK_key-date-time-ctrld-ops"></a> Date-time controlled operations
 
 Not-yet-valid and expired keys, those outside the *nbf* / *exp* window, will work for **decrypt**, **unwrap** and **verify** operations (won’t return 403, Forbidden). The rationale for using the not-yet-valid state is to allow a key to be tested before production use. The rationale for using the expired state is to allow recovery operations on data that was created when the key was valid. Also, you can disable access to a key using Key Vault policies, or by updating the *enabled* key attribute to **false**.
 
-For more information on data types see, [Data types](about-keys-secrets-and-certificates.md#BKMK_DataTypes).
+For more information on data types see, [Data types](#BKMK_DataTypes).
 
 For further information on other possible attributes, see the [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
@@ -254,9 +254,9 @@ Azure Key Vault also supports a contentType field for secrets. Clients may speci
 
 In addition to the secret data, the following attributes may be specified:  
 
-- *exp*: IntDate, optional, default is **forever**. The *exp* (expiration time) attribute identifies the expiration time on or after which the secret data MUST NOT be retrieved, except in [particular situations](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
-- *nbf*: IntDate, optional, default is **now**. The *nbf* (not before) attribute identifies the time before which the secret data MUST NOT be retrieved, except in [particular situations](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
-- *enabled*: boolean, optional, default is **true**. This attribute specifies whether or not the secret data can be retrieved. The enabled attribute is used in conjunction with and *exp* when an operation occurs between and exp, it will only be permitted if enabled is set to **true**. Operations outside the *nbf* and *exp* window are automatically disallowed, except in [particular situations](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops).  
+- *exp*: IntDate, optional, default is **forever**. The *exp* (expiration time) attribute identifies the expiration time on or after which the secret data SHOULD NOT be retrieved, except in [particular situations](#BKMK_secret-date-time-ctrld-ops). This field is for **informational** purposes only as it informs users of key vault service that a particular secret may not be used. Its value MUST be a number containing an IntDate value.   
+- *nbf*: IntDate, optional, default is **now**. The *nbf* (not before) attribute identifies the time before which the secret data SHOULD NOT be retrieved, except in [particular situations](#BKMK_secret-date-time-ctrld-ops). This field is for **informational** purposes only. Its value MUST be a number containing an IntDate value. 
+- *enabled*: boolean, optional, default is **true**. This attribute specifies whether or not the secret data can be retrieved. The enabled attribute is used in conjunction with and *exp* when an operation occurs between and exp, it will only be permitted if enabled is set to **true**. Operations outside the *nbf* and *exp* window are automatically disallowed, except in [particular situations](#BKMK_secret-date-time-ctrld-ops).  
 
 There are additional read-only attributes that are included in any response that includes secret attributes:  
 
@@ -267,7 +267,7 @@ There are additional read-only attributes that are included in any response that
 
 A secret's **get** operation will work for not-yet-valid and expired secrets, outside the *nbf* / *exp* window. Calling a secret's **get** operation, for a not-yet-valid secret, can be used for test purposes. Retrieving (**get**ing) an expired secret, can be used for recovery operations.
 
-For more information on data types see, [Data types](about-keys-secrets-and-certificates.md#BKMK_DataTypes).  
+For more information on data types see, [Data types](#BKMK_DataTypes).  
 
 ###  <a name="BKMK_SecretAccessControl"></a> Secret Access Control
 
@@ -281,7 +281,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 -   *delete*: Delete the secret  
 -   *all*: All permissions  
 
-For more information on working with secrets, see [Secret operations](/rest/api/keyvault/secret-operations).  
+For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Secret tags  
 You can specify additional application-specific metadata in the form of tags. Azure Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
@@ -434,18 +434,14 @@ If a certificate's policy is set to auto-renewal, then a notification is sent on
 -   *create*: allows create of a Key Vault certificate.  
 -   *import*: allows import of certificate material into a Key Vault Certificate.  
 -   *update*: allows update of a certificate.  
--   *manageconnects*: allows management of Key Vault certificate contacts  
+-   *managecontacts*: allows management of Key Vault certificate contacts  
 -   *getissuers*: allows get of a certificate's issuers  
 -   *listissuers*: allows list of certificate's issuers  
 -   *setissuers*: allows create or update of Key Vault certificate issuers  
 -   *deleteissuers*: allows delete of Key Vault certificate issuers  
 -   *all*: grants all permissions  
 
-## Additional information for certificates
-
-- [Certificates and policies](/rest/api/keyvault/certificates-and-policies)
-- [Certificate issuers](/rest/api/keyvault/certificate-issuers)
-- [Certificate contacts](/rest/api/keyvault/certificate-contacts)
+For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). 
 
 ## See Also
 

@@ -121,7 +121,7 @@ Next, make some changes to the code base and rapidly deploy those changes. You w
 12. Move back to the tools blade and under the Develop category, click on Performance Test.
     
     ![image28][image28]
-13. You need to set a team services account. See here for more details: [Create a Team Services Account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. You need to set a team services account. See here for more details: [Create a Team Services Account](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Click on New to create a performance test.
     
     ![image29][image29]

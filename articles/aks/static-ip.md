@@ -119,8 +119,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
-
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create

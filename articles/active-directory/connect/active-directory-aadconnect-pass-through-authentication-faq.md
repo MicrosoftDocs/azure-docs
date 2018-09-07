@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -43,7 +43,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 
-No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
 
@@ -51,17 +51,17 @@ Yes. The rebranded versions of the Pass-through Authentication Agent, version 1.
 
 ## What versions of Azure AD Connect and Pass-through Authentication Agent do you need?
 
-For this feature to work, you need version 1.1.486.0 or later for Azure AD Connect and 1.5.58.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
+For this feature to work, you need version 1.1.750.0 or later for Azure AD Connect and 1.5.193.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
 
 ## What happens if my user's password has expired and they try to sign in by using Pass-through Authentication?
 
-If you have configured [password writeback](../user-help/active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
+If you have configured [password writeback](../authentication/concept-sspr-writeback.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
 
 If you have not configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
 
 ## How does Pass-through Authentication protect you against brute-force password attacks?
 
-Read [Azure Active Directory Pass-through Authentication: Smart Lockout](../authentication/howto-password-smart-lockout.md) for more information.
+[Read information about Smart Lockout](../authentication/howto-password-smart-lockout.md).
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
@@ -77,7 +77,7 @@ Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environme
 
 ## Can I install two or more Pass-through Authentication Agents on the same server?
 
-No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, follow the instructions in [Azure Active Directory Pass-through Authentication: Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, [follow the instructions here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## How do I remove a Pass-through Authentication Agent?
 
@@ -111,6 +111,10 @@ For most customers, two or three Authentication Agents in total are sufficient f
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 
 No, this scenario is _not_ supported.
+
+## Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
+
+It is recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing it this way ensures that you don't get locked out of your tenant.
 
 ## How can I disable Pass-through Authentication?
 

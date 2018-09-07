@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -25,7 +25,7 @@ ms.reviewer: calebb
 
 # What are conditions in Azure Active Directory conditional access? 
 
-You can control how authorized users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response to the reason for triggering your policy. An example response is **Then do this**. An example reason is **When this happens**.
+You can control how authorized users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens"). 
 
 ![Reason and response](./media/conditions/10.png)
 
@@ -63,15 +63,17 @@ Targeting specific sets of users is useful for the deployment of a new policy. I
 
 ## Cloud apps 
 
-A cloud app is a website or service. Websites protected by the Azure AD Application Proxy are also cloud apps. For a detailed description of supported cloud apps, see [cloud apps assignments](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+A cloud app is a website or service. Websites protected by the Azure AD Application Proxy are also cloud apps. For a detailed description of supported cloud apps, see [cloud apps assignments](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
 
 The **cloud apps** condition is mandatory in a conditional access policy. In your policy, you can either select **All cloud apps** or select specific apps.
 
 ![Include cloud apps](./media/conditions/03.png)
 
-- Select **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select apps** list. 
+Select:
 
-- Select individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
+- **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select apps** list. 
+
+- Individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
 
 You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access. 
 
@@ -79,18 +81,19 @@ You can exclude specific apps from a policy. However, these apps are still subje
 
 ## Sign-in risk
 
-A sign-in risk is an indicator of the high, medium, or low likelihood that a sign-in attempt wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. The calculated sign-in risk level can be a condition in a conditional access policy. 
+A sign-in risk is an indicator of the likelihood (high, medium, or low) that a sign-in attempt wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. 
+You can use the calculated sign-in risk level as condition in a conditional access policy.
 
 ![Sign-in risk levels](./media/conditions/22.png)
 
-To use this condition, you need to have [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable) enabled.
+To use this condition, you need to have [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable) enabled.
  
 Common use cases for this condition are policies that have the following protections: 
 
 - Block users with a high sign-in risk. This protection prevents potentially non-legitimate users from accessing your cloud apps. 
 - Require multifactor authentication for users with a medium sign-in risk. By enforcing multifactor authentication, you can provide additional confidence that the sign-in is done by the legitimate owner of an account.
 
-For more information, see [Risky sign-ins](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+For more information, see [Risky sign-ins](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
 
 ## Device platforms
 
@@ -99,10 +102,10 @@ The device platform is characterized by the operating system that runs on your d
 
 ![Configure device platforms](./media/conditions/24.png)
 
-For a list of the supported device platforms, see [device platform condition](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#device-platform-condition).
+For a list of the supported device platforms, see [device platform condition](technical-reference.md#device-platform-condition).
 
 
-A common use case for this condition is a policy that restricts access to your cloud apps to [managed devices](require-managed-devices.md). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](../active-directory-conditional-access-mam.md).
+A common use case for this condition is a policy that restricts access to your cloud apps to [managed devices](require-managed-devices.md). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](app-based-conditional-access.md).
 
 
 
@@ -113,7 +116,7 @@ The device state condition excludes hybrid Azure AD joined devices and devices m
 
 ![Configure device state](./media/conditions/112.png)
 
-If you want to block access for unmanaged devices, implement [device-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+If you want to block access for unmanaged devices, implement [device-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 
 ## Locations
@@ -147,7 +150,7 @@ For a list of the client apps you can use in your conditional access policy, see
 
 Common use cases for this condition are policies with the following protections: 
 
-- Require a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
+- Require a [compliant device](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
 
 - Block access from web applications but allow access from mobile and desktop applications.
 
@@ -162,7 +165,7 @@ Selecting **Exchange ActiveSync** as a client apps condition is supported only i
  
 ![Apply policy only to supported platforms](./media/conditions/33.png)
 
-Applying this condition only to supported platforms is equal to all device platforms in a [device platform condition](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Applying this condition only to supported platforms is equal to all device platforms in a [device platform condition](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 ![Configure device platforms](./media/conditions/34.png)
 
@@ -171,7 +174,7 @@ Applying this condition only to supported platforms is equal to all device platf
 
 - [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
-- [Azure Active Directory app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). 
+- [Azure Active Directory app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
 ### Legacy authentication  

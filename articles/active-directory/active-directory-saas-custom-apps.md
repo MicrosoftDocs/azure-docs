@@ -85,7 +85,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
+For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
 ### Review or customize the claims issued in the SAML token

@@ -331,14 +331,14 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Value example: 1024 |
 
 ### Blob storage
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | The total of Blob storage used in the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
-| BlobCount    | The number of blob objects stored in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCapacity | The total of Blob storage used in the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCount    | The number of blob objects stored in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Value example: 1024 <br/> Dimension: BlobType ([Definition](#metrics-dimensions)) |
 | ContainerCount    | The number of containers in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 ### Table storage

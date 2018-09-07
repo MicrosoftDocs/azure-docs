@@ -30,7 +30,7 @@ The examples require Azure PowerShell module version 4.4.0 or later. In a PowerS
 
 ## Log in to Azure
 
-Run the [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet to see the available Azure environments:
+Run the [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) cmdlet to see the available Azure environments:
    
 ```powershell
 Get-AzureRmEnvironment

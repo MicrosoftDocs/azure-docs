@@ -68,7 +68,7 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## Install DC/OS CLI
 
-Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
+Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
 ```azurecli
 az acs dcos install-cli
@@ -234,7 +234,7 @@ Browsing to this address returns the default NGINX site.
 
 ## Scale DC/OS cluster
 
-In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale](/cli/azure/acs#az-acs-scale) command. 
 
 To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#az-acs-show) command.
 

@@ -96,6 +96,8 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -112,6 +114,8 @@
     href: infrastructure-automation.md
   - name: Security and policy
     href: security-policy.md
+  - name: States and lifecycle
+    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -216,9 +220,9 @@
       href: nested-virtualization.md
   - name: Manage costs
     items:
-    - name: Prepay for VMs - reserved instances
+    - name: Prepay for VMs - Azure Reservations
       href: prepay-reserved-vm-instances.md
-    - name: What are reserved instances?
+    - name: What are Azure Reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
@@ -390,6 +394,9 @@
       href: boot-diagnostics.md
     - name: Serial console 
       href: serial-console.md
+      items:
+        - name: CMD and PowerShell commands
+          href: serial-console-cmd-ps-commands.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues
@@ -428,6 +435,13 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
+    - name: Troubleshoot boot errors
+      items:
+      - name: BitLocker errors 
+        href: troubleshoot-bitlocker-boot-error.md  
+      - name: Checking file system errors
+        href: troubleshoot-check-disk-boot-error.md
+
 - name: Reference
   items:
   - name: Azure CLI

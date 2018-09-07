@@ -53,8 +53,6 @@
       href: app-insights-asp-net-core.md
     - name: Console
       href: application-insights-console.md
-    - name: Application dashboard
-      href: app-insights-overview-dashboard.md
   - name: Monitor Java apps
     items:
     - name: Web apps
@@ -129,7 +127,7 @@
       items:
       - name: Profiler for Linux App services
         href: app-insights-profiler-aspnetcore-linux.md
-    - name: J2EE
+    - name: Java
       items:
       - name: Log traces
         href: app-insights-java-trace-logs.md
@@ -246,6 +244,10 @@
       href: app-insights-api-filtering-sampling.md
     - name: Sampling
       href: app-insights-sampling.md
+  - name: Visualize
+    items:
+    - name: Application dashboard
+      href: app-insights-overview-dashboard.md
   - name: Manage
     items:
     - name: Manage pricing and data volume
@@ -300,6 +302,8 @@
   items:
   - name: Analytics query language
     href: https://docs.loganalytics.io/
+  - name: Dependency auto-collection
+    href: auto-collect-dependencies.md
   - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/?view=azurermps-5.7.0#monitor
   - name: .NET
@@ -331,6 +335,8 @@
       href: application-insights-data-model-context.md
   - name: Telemetry correlation
     href: application-insights-correlation.md
+  - name: Correlate custom data sources
+    href: app-insights-custom-data-correlation.md
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=application-insights
 - name: Resources
