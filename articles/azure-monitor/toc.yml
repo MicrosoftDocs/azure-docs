@@ -107,8 +107,8 @@
     items: 
     - name: Metrics explorer
       href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=/azure/azure-monitor/toc.json
-    - name: Log queries
-      href: ../log-analytics/log-analytics-log-search.md?toc=/azure/azure-monitor/toc.json
+    - name: Log Analytics
+      href: ../log-analytics/log-analytics-queries.md?toc=/azure/azure-monitor/toc.json
     - name: Log query portals
       href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
     - name: OMS portal transition
