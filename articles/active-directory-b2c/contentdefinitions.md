@@ -25,7 +25,7 @@ The following example shows the content definition identifier and the definition
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
-  <LoadUri>~/tenant/default/SelfAsserted.cshtml</LoadUri>
+  <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
   <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0</DataUri>
   <Metadata>
