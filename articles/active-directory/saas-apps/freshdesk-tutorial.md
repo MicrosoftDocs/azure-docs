@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 09/07/2018
 ms.author: jeedes
 ms.reviewer: jeedes
 
@@ -47,7 +47,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding FreshDesk from the gallery
@@ -71,11 +71,7 @@ To configure the integration of FreshDesk into Azure AD, you need to add FreshDe
 
 	![Applications][3]
 
-4. In the search box, type **FreshDesk**.
-
-	![Creating an Azure AD test user](./media/freshdesk-tutorial/tutorial_freshdesk_search.png)
-
-5. In the results panel, select **FreshDesk**, and then click **Add** button to add the application.
+4. In the search box, type **FreshDesk**. Select **FreshDesk** from the results panel, and then select the **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
 
@@ -116,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.  
 
-4. On the **SAML Signing Certificate** section, copy **THUMBPRINT** value and then save on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
 
@@ -127,21 +123,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
+6. Install **OpenSSL** in your system, if you have not installed in your system.
+
+7. Open **Command Prompt** and run the following commands:
+
+	a. Enter `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` value in the command prompt.
+
+	> [!NOTE]
+	> Here **FreshDesk.cer** is the certificate which you have downloaded from the Azure portal.
+
+	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` value in the command prompt.
+
+	c. Copy the **Thumbprint** value and paste it into the Notepad.
+
+	> [!NOTE]
+	> Remove colons from Thumbprint.
+
+8. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-7. In a different web browser window, log into your Freshdesk company site as an administrator.
+9. In a different web browser window, log into your Freshdesk company site as an administrator.
 
-8. In the menu on the top, click **Admin**.
+10. In the menu on the top, click **Admin**.
 
-   ![Admin](./media/freshdesk-tutorial/IC776768.png "Admin")
+	![Admin](./media/freshdesk-tutorial/IC776768.png "Admin")
 
-9. In the **General Settings** tab, click **Security**.
+11. In the **General Settings** tab, click **Security**.
   
-   ![Security](./media/freshdesk-tutorial/IC776769.png "Security")
+	![Security](./media/freshdesk-tutorial/IC776769.png "Security")
 
-10. In the **Security** section, perform the following steps:
+12. In the **Security** section, perform the following steps:
 
 	![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
   
