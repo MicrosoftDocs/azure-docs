@@ -203,6 +203,7 @@ The following technical profile deletes claims:
     <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
   </InputClaims>
   <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="objectId" />
     <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" PartnerClaimType="strongAuthenticationPhoneNumber" />
   </PersistedClaims>
   <OutputClaims />
