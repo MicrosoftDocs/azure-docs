@@ -1,5 +1,5 @@
 ---
-title: Lists Azure resources that support move operation | Microsoft Docs
+title: Move operation support by Azure resource type | Microsoft Docs
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 services: azure-resource-manager
 documentationcenter: ''
@@ -16,128 +16,144 @@ ms.author: tomfitz
 ---
 # Move operation support for resources
 
-This article lists whether an Azure resource type supports the move operation. 
+This article lists whether an Azure resource type supports the move operation.
 
-RP	Resource	MoveTracked	MoveAvailable	SupportCrossRGMove	CrossRGMoveValidate	SupportCrossSubMove	CrossSubMoveValidate
+## Find resource provider and resource type
+
+To determine if a resource can be moved, you must find its resource provider and resource type.
+
+For PowerShell, use:
+
+```azurepowershell-interactive
+Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+```
+
+For Azure CLI, use:
+
+```azurecli-interactive
+az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+```
+
+The resource type is returned in the format `<resource-provider>/<resource-type-name>`. So, the value `Microsoft.OperationalInsights/workspaces` has a resource provider of **Microsoft.OperationalInsights** and resource type name of **workspaces**. Use the tables in this article to determine whether the resource type supports the move operation.
 
 ## Microsoft.AAD
 
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | --------------- | ----------- |
 | domainservices | No | No |
 
 ## Microsoft.AnalysisServices
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | servers | Yes | Yes |
 
 ## Microsoft.ApiManagement
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | --------------- | ----------- |
 | service | Yes | Yes |
 
 ## Microsoft.Authorization
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | --------------- | ----------- |
 | policyassignments | No | No |
 
 ## Microsoft.Automation
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | automationaccounts | Yes | Yes |
 | automationaccounts/configurations	| Yes | Yes |
 | automationaccounts/runbooks | Yes | Yes |
 
 ## Microsoft.AzureActiveDirectory
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | b2cdirectories | Yes | Yes |
 
 ## Microsoft.AzureStack
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | registrations | Yes | Yes |
 
 ## Microsoft.Backup
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | backupvault | No | No |
 
 ## Microsoft.Batch
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | batchaccounts	| Yes | Yes |
 
 ## Microsoft.BatchAI
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | clusters | No | No |
 | fileservers | No | No |
 | jobs | No | No |
 | workspaces | No | No |
 
 ## Microsoft.BingMaps
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | mapapis | No | No |
 
 ## Microsoft.BizTalkServices
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | biztalk | Yes | Yes |
 
 ## Microsoft.Blueprint
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | blueprintassignments | No | No |
 
 ## Microsoft.BotService
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | botservices | Yes | Yes |
 
 ## Microsoft.Cache
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | redis | Yes | Yes |
 
 ## Microsoft.Cdn
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | profiles | Yes | Yes |
 | profiles/endpoints | Yes | Yes |
 
 ## Microsoft.CertificateRegistration
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | certificateorders	| Yes | Yes |
 
 ## Microsoft.ClassicCompute
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | domainnames | Yes | No |
 | virtualmachines | Yes | No |
 
 ## Microsoft.ClassicNetwork
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | networksecuritygroups | No | No |
 | reservedips | No | No |
 | virtualnetworks | No | No |
 
 ## Microsoft.ClassicStorage
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | storageaccounts | Yes | No |
 
 ## Microsoft.CognitiveServices
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | accounts | Yes | Yes |
 
 ## Microsoft.Compute
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | availabilitysets | Yes | Yes |
 | disks | Yes | Yes |
 | galleries | No | No |
@@ -153,117 +169,117 @@ RP	Resource	MoveTracked	MoveAvailable	SupportCrossRGMove	CrossRGMoveValidate	Sup
 | virtualmachinescalesets | Yes | Yes |
 
 ## Microsoft.Container
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | containergroups | No | No |
 
 ## Microsoft.ContainerInstance
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | containergroups | No | No |
 
 ## Microsoft.ContainerRegistry
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | registries | Yes | Yes |
 | registries/buildtasks	| Yes | Yes |
 | registries/replications | No | No |
 | registries/webhooks | Yes | Yes |
 
 ## Microsoft.ContainerService
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | containerservices | No | No |
 | managedclusters | No | No |
 
 ## Microsoft.ContentModerator
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | applications | Yes | Yes |
 
 ## Microsoft.CostManagement
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | connectors | Yes | Yes |
 
 ## Microsoft.CustomerInsights
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | hubs | Yes | Yes |
 
 ## Microsoft.DataBox
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | jobs | No | No |
 
 ## Microsoft.DataBoxEdge
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | databoxedgedevices | No | No |
 
 ## Microsoft.Databricks
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | workspaces | No | No |
 
 ## Microsoft.DataCatalog
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | catalogs | Yes | Yes |
 
 ## Microsoft.DataFactory
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | datafactories | Yes | Yes |
 | factories | Yes | Yes |
 
 ## Microsoft.DataLake
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | datalakeaccounts | No | No |
 
 ## Microsoft.DataLakeAnalytics
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | accounts | Yes | Yes |
 
 ## Microsoft.DataLakeStore
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | accounts | Yes | Yes |
 
 ## Microsoft.DataMigration
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | services | No | No |
 | services/projects | No | No |
 | slots | No | No |
 
 ## Microsoft.DBforMariaDB
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | servers | No | No |
 
 ## Microsoft.DBforMySQL
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | servers | No | No |
 
 ## Microsoft.DBforPostgreSQL
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | servergroups | No | No |
 | servers | No | No |
 
 ## Microsoft.Devices
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | iothubs | Yes | Yes |
 | provisioningservices | Yes | Yes |
 
 ## Microsoft.DevTestLab
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | labcenters | No | No |
 | labs | Yes | No |
 | labs/servicerunners | Yes | Yes |
@@ -271,8 +287,8 @@ RP	Resource	MoveTracked	MoveAvailable	SupportCrossRGMove	CrossRGMoveValidate	Sup
 | schedules | No | No |
 
 ## microsoft.dns
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | dnszones | No | No |
 | dnszones/a | No | No |
 | dnszones/aaaa | No | No |
@@ -284,23 +300,23 @@ RP	Resource	MoveTracked	MoveAvailable	SupportCrossRGMove	CrossRGMoveValidate	Sup
 | trafficmanagerprofiles | No | No |
 
 ## Microsoft.DocumentDB
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | databaseaccounts | Yes | Yes |
 
 ## Microsoft.DomainRegistration
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | domains | Yes | Yes |
 
 ## Microsoft.EventGrid
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | topics | Yes | Yes |
 
 ## Microsoft.EventHub
-| Resource type | Resource group move | Subscription move |
-| ------------- | ------------------- | ----------------- |
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
 | clusters | Yes | Yes |
 | namespaces | Yes | Yes |
 
