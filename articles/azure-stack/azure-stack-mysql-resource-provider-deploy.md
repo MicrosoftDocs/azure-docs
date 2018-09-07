@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 09/04/2018 
+ms.date: 09/05/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo
 ---
@@ -19,6 +19,9 @@ ms.reviewer: jeffgo
 # Deploy the MySQL resource provider on Azure Stack
 
 Use the MySQL Server resource provider to expose MySQL databases as an Azure Stack service. The MySQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
+
+> [!IMPORTANT]
+> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.
 
 ## Prerequisites
 
@@ -145,6 +148,7 @@ When the resource provider installation script finishes, refresh your browser to
 2. Select **Resource Groups**
 3. Select the **system.\<location\>.mysqladapter** resource group.
 4. On the summary page for Resource group Overview, there should be no failed deployments.
+5. Finally, select **Virtual machines** in the admin portal to verify that the MySQL resource provider VM was successfully created and is running.
 
 ## Next steps
 

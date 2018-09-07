@@ -435,7 +435,7 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
-    - name: Troubleshoot boot errrors
+    - name: Troubleshoot boot errors
       items:
       - name: BitLocker errors 
         href: troubleshoot-bitlocker-boot-error.md  

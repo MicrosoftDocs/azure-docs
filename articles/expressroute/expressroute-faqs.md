@@ -77,7 +77,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Visual Studio Team Services Load Testing
+* Azure DevOps Services Load Testing
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>The following services are **not supported**:
     * CDN
     * Azure DevOps Services Load Testing

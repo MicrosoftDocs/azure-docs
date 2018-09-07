@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: raynew
 
 ---
@@ -14,6 +14,7 @@ ms.author: raynew
 
 This article shows how Contoso are refactoring their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. Contoso's development team have used TFS for team collaboration and source control for the past five years. Now, they want to move to a cloud-based solution for dev and test work, and for source control. Azure DevOps Services will play a role as they move to an Azure DevOps model, and develop new cloud-native apps.
 
+This document is one in a series of articles that show how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity. We'll add additional articles over time.
 
 **Article** | **Details** | **Status**
 --- | --- | ---
@@ -92,8 +93,8 @@ Here's how Contoso will complete the migration:
 
 ## Step 1: Create a storage account
 
-1. In the Azure portal, Contoso creates a storage account (**contosodevmigration**).
-2. They place the account in their secondary region they use for failover - Central US. They use a general-purpose standard account with locally-redundant storage.
+1. In the Azure portal, Contoso admins create a storage account (**contosodevmigration**).
+2. They place the account in their secondary region they use for failover - Central US. They use a general-purpose standard account with locally-redudant storage.
 
     ![Storage account](./media/contoso-migration-tfs-vsts/storage1.png) 
 

@@ -69,6 +69,8 @@
       href: devtest-lab-get-started-with-lab-policies.md 
     - name: Store secrets in Azure Key Vault
       href: devtest-lab-store-secrets-in-key-vault.md
+    - name: Test your app in Azure
+      href: test-app-azure.md
     - name: Use VMs in a lab
       items: 
       - name: Create VMs
