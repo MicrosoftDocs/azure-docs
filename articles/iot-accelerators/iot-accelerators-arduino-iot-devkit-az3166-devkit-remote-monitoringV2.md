@@ -30,7 +30,7 @@ Go through the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/
 
 ## Create an Azure IoT Remote Monitoring solution accelerator
 
-The AZ3166 device you create in this tutorial sends data to an instance of the Remote Monitoring solution accelerator. If you haven't yet provisioned an instance in your Azure account, follow the [Quickstart](https://docs.microsoft.com/en-us/azure/iot-accelerators/quickstart-remote-monitoring-deploy) guide to do so.
+The AZ3166 device you create in this tutorial sends data to an instance of the Remote Monitoring solution accelerator. If you haven't yet provisioned an instance in your Azure account, follow the [Quickstart](https://docs.microsoft.com/azure/iot-accelerators/quickstart-remote-monitoring-deploy) guide to do so.
 
 When the deployment for the Remote Monitoring solution finishes, open the solution dashboard.
 

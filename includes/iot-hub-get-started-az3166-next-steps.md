@@ -1,3 +1,16 @@
+---
+title: IoT DevKit to cloud -- Next steps after finishing get started tutorial with IoT DevKit | Microsoft Docs
+description: Next steps after finishing get started tutorial with IoT DevKit.
+author: liydu
+manager: jeffya
+ms.service: iot-hub
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 06/09/2018
+ms.author: liydu
+---
+
 To continue to get started with Azure IoT Hub and to explore other IoT scenarios using IoT DevKit, see the following:
 
 - [Connect IoT DevKit to your Azure IoT Central application](../articles/iot-central/howto-connect-devkit.md)
