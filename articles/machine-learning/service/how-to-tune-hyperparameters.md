@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # Tune Hyperparameters for your model
 
-In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations and to find a 'good' configuration, that result in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
+In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations and to find a 'good' configuration, that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
 
 Azure Machine Learning Services allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources, and these resources are instead used to explore other hyperparameter configurations.
 
@@ -35,14 +35,14 @@ Discrete hyperparameters can be specified as a choice among discrete values. for
 In this case, batch_size can take on one of the values [16, 32, 64, 128].
 
 #### Continuous hyperparameters 
-Continuous hyperparameters can be specified as a distribution over a continuous range of values. Supported distributions include `uniform`, `loguniform`, `quniform`, `qloguniform`, `normal`, `lognormal`, `qnormal` and `qlognormal`. for example
+Continuous hyperparameters can be specified as a distribution over a continuous range of values. Supported distributions include `uniform`, `loguniform`, `quniform`, `qloguniform`, `normal`, `lognormal`, `qnormal`, and `qlognormal`. For example
 ```Python
     {    
     "learning_rate": normal(10, 3),
     "keep_probability": uniform(0.05, 0.1)
     }
 ```
-This defines a search space with two parameters - learning_rate and keep_probability. learning_rate will have a normal distribution with mean value 10 and a standard deviation of 3. keep_probability will have a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
+This example defines a search space with two parameters - learning_rate and keep_probability. learning_rate will have a normal distribution with mean value 10 and a standard deviation of 3. keep_probability will have a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
 
 ### Sampling the hyperparameter space
 The user also specifies the parameter sampling method to use over the specified hyperparameter space definition. Azure Machine Learning service supports Random sampling, Grid sampling, and Bayesian sampling.
@@ -73,7 +73,7 @@ Bayesian sampling tries to intelligently pick the next sample of hyperparameters
 
 Note that when using Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence. This is because the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
-Bayesian sampling supports only choice, `uniform` and `quniform` distributions over the search space. For example 
+Bayesian sampling supports only choice, `uniform`, and `quniform` distributions over the search space. For example 
 ```Python
 param_sampling = BayesianParameterSampling( {
         "learning_rate": uniform(0.05, 0.1),
@@ -108,7 +108,7 @@ Azure Machine Learning service supports the following Early Termination Policies
 Bandit Policy is a termination policy based on slack factor/slack amount and evaluation interval. This policy early terminates any runs where the primary metric is not within the specified slack factor / slack amount with respect to the best performing training run. It takes the following configuration parameters -
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
-    e.g.,  consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
+    For example,  consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
 * `evaluation_interval`: the frequency for applying the policy.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 Consider this example -
