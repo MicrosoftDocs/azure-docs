@@ -26,6 +26,7 @@ After you create a LUIS resource in the Azure portal, assign the resource to the
 <a name="key-concepts"></a>
 <a name="authoring-key"></a>
 <a name="create-and-use-an-endpoint-key"></a>
+<a name="assign-endpoint-key"></a>
 
 ## Assign resource
 
