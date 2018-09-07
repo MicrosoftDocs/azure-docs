@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 09/07/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Create a device identity
 
 In this section, you use the Azure CLI to create a device identity for this tutorial. The Azure CLI is preinstalled in the [Azure Cloud Shell](https://docs.microsoft.com/zure/cloud-shell/overview), or you can [install it locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Device IDs are case sensitive.

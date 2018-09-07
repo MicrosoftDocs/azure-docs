@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 09/07/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 To continue to get started with Azure IoT Hub and to explore other IoT scenarios, see the following:
 
 - [Manage cloud device messaging with Azure IoT Toolkit extension for Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)

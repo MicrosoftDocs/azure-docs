@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-hub
+ author: dominicbetts
+ ms.service: iot-hub
+ ms.topic: include
+ ms.date: 09/07/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Extended IoT scenarios
 
 Use other Azure services and tools. When you have connected your device to IoT Hub, you can explore additional scenarios that use other Azure tools and services:
