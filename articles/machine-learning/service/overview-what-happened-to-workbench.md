@@ -38,9 +38,7 @@ Most of the artifacts created in the earlier version of Azure Machine Learning s
 
 ## What's the support timeline?
 
-You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018.
-
-Support for these resources will be incrementally deprecated over the next 3 - 4 months.
+You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release.
 
 |Phase|Support details for earlier features|
 |:---:|----------------|
