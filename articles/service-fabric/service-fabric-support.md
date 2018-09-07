@@ -42,7 +42,7 @@ Learn more about:
 - [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
-## Report Azure Service Fabric issues 
+## Report Azure Service Fabric issues
 
 We have set up a GitHub repo for reporting Service Fabric issues.  We are also actively monitoring the following forums.
 
@@ -58,7 +58,7 @@ The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric
 
 The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting big feature ideas you have for the product as we review the most popular requests are part of our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
 
-## Service Fabric Preview Versions - unsupported for production use.
+## Service Fabric Preview Versions - unsupported for production use
 
 From time to time, we release versions that have significant features we want feedback on, which are released as previews. These preview versions should only be used for test purposes. Your production cluster should always be running a supported, stable, Service Fabric version. A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, that release version is only to be used in test clusters and is in preview. These preview releases are also announced on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric) and will have details on the features included.
 There is no paid support option for these preview releases. Use one of the options listed under [Report Azure Service Fabric issues](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) to ask questions or provide feedback.
