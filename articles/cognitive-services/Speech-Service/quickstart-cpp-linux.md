@@ -18,6 +18,8 @@ ms.author: wolfma
 
 In this article, you create a C++ console application for Ubuntu Linux 16.04 using the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (e.g., `g++`).
 
+## Prerequisites
+
 You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the speech service for free](get-started.md) for details.
 
 ## Install Speech SDK

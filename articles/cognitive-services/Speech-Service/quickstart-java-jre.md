@@ -21,6 +21,8 @@ In this article, you create a Java console application using the [Speech SDK](sp
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
 
+## Prerequisites
+
 You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the speech service for free](get-started.md) for details.
 
 
