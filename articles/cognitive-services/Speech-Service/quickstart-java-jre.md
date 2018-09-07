@@ -14,7 +14,7 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech in Java on Windows or Linux using the Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you create a Java console application using the [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package and the Eclipse Java IDE (v4.8) on 64-bit Windows or Ubuntu Linux 16.04. It runs on a 64-bit Java 8 runtime environment (JRE).
 
@@ -91,17 +91,22 @@ If you are using Ubuntu 16.04, before starting Eclipse, run the following comman
 
 1. Save changes to the project.
 
-## Build and run
+## Build and run the app
 
 Press F11, or select **Run** \> **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
 ![Console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
 
-[!include[Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/java-jre` folder.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+
+## See also
 
 - [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)

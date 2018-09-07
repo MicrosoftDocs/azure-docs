@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in a UWP app using the Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you create a C# Universal Windows Platform (UWP) application using the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your device's microphone. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
@@ -87,7 +87,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 1. Save all changes to the project.
 
-## Build and run
+## Build and run the app
 
 1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now.
 
@@ -105,10 +105,15 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!include[Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/csharp-uwp` folder.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+
+## See also
 
 - [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)

@@ -14,7 +14,7 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech in Java on Android using the Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you create a Java application for Android 6.0 Marshmallow (API 23) or later using the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your device's microphone. The application is built with the Speech SDK Maven package and [Android Studio](https://developer.android.com/studio/) 3.1 running on a PC. The Speech SDK libraries are currently compatible with Android devices having 64-bit ARM processors.
 
@@ -47,7 +47,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 Android Studio takes a moment to prepare your new Android project. Next, configure the project to know about the Speech SDK and to use Java 8.
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and the Android permissions needed to use it. It is hosted in a Maven repository and so is automatically downloaded by Android Studio for use in your application.
 
@@ -113,7 +113,7 @@ The text and graphical representation of your UI should now look like this.
 
 1. Also replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-## Build and run
+## Build and run the app
 
 1. Connect your Android device to your development PC. Make sure you have enabled [development mode and USB debugging](https://developer.android.com/studio/debug/dev-options) on the device.
 
@@ -129,10 +129,15 @@ Press the button in the application to begin a speech recognition section. The n
 
 ![UI after successful recognition](media/sdk/qs-java-android-13-gui-on-device.png)
 
-[!include[Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/java-android` folder.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+
+## See also
 
 - [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
