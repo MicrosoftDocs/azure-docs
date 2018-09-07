@@ -1,5 +1,5 @@
-# [Azure Dev Spaces](index.yml)
-## [Overview](azure-dev-spaces.md)
+# Azure Dev Spaces
+## [Overview](index.yml)
 
 ## Quickstarts
 ### [.NET Core (VS Code & CLI)](quickstart-netcore.md)
