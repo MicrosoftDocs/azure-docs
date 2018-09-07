@@ -182,8 +182,7 @@ DamageProperty, EpisodeNarrative
 Expressions can include all the usual operators (+, -, *, /, %), and
 there's a range of useful functions that you can call.
 
-[**summarize**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html):
-Aggregate groups of rows.
+[**summarize**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html): Aggregates groups of rows.
 
 The following query returns the count of events by `State`.
 
@@ -347,7 +346,7 @@ MyData
 | extend StdDev= extractjson("$.stdDev",Trace)
 ```
 
-The following query extracts the JSON values with dynamic datatype.
+The following query extracts the JSON elements with a dynamic data type.
 
 ```Kusto
 let MyData = datatable (Trace: dynamic)
@@ -357,7 +356,7 @@ MyData
 Trace.stdDev
 ```
 
-[**[ago]{.underline}**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_agofunction.html?q=ago):
+[**[ago]**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_agofunction.html?q=ago):
 Subtracts the given timespan from the current UTC clock time.
 
 The following query returns data for the last 12 hours.
@@ -418,7 +417,7 @@ StormEvents
 
 [**parse**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_parseoperator.html?q=parse): Evaluates a string expression and parses its value into one or more calculated columns. There are three ways to parse: simple (the default), regex, and relaxed.
 
-The following query parses a trace and extracts the relevant values, using a default kind of simple. The expression (referred to as StringConstant) is a regular string value and the match is strict: extended columns must match the required types.
+The following query parses a trace and extracts the relevant values, using a default of simple parsing. The expression (referred to as StringConstant) is a regular string value and the match is strict: extended columns must match the required types.
 
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
@@ -535,9 +534,9 @@ Produces hierarchical top results, where each level is a drill-down
 based on previous level values.
 
 This operator is useful for dashboard visualization scenarios, or when
-it is necessary to answer a question like the following: *Find the top-N
+it is necessary to answer a question like the following: "Find the top-N
 values of K1 (using some aggregation); for each of them, find what are
-the top-M values of K2 (using another aggregation); . . .*
+the top-M values of K2 (using another aggregation); ..."
 
 The following query returns a hierarchical table with `State` at the
 top level, followed by `Sources`.
@@ -549,12 +548,12 @@ top-nested 3 of Source by sum(BeginLat),
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
-[pivot
-plugin](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_pivotplugin.html?q=pivot):
+[**pivot
+plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_pivotplugin.html?q=pivot):
 Rotates a table by turning the unique values from one column in the
 input table into multiple columns in the output table. The operator
 performs aggregations where they are required on any remaining column
-values that are required in the final output.
+values in the final output.
 
 The following query applies a filter and pivots the rows into columns.
 
@@ -710,10 +709,6 @@ LightningStorms
 | distinct State
 ```
 
-> [!TIP]
-> In the Kusto client, don't put blank lines between the parts of
-> this. Make sure to execute all of it.
-
 [**join**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_joinoperator.html):
 Merge the rows of two tables to form a new table by matching values of
 the specified column(s) from each table. Kusto supports a full range of
@@ -834,8 +829,8 @@ T
 window)
 ```
 
-**[activity_engagement
-plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html):
+[**activity_engagement
+plugin**)(https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html):
 Calculates activity engagement ratio based on ID column over a sliding
 timeline window. **activity_engagement plugin** can be used for
 calculating DAU, WAU, and MAU (daily, weekly, and monthly active users).
