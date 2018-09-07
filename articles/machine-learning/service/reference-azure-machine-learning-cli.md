@@ -6,8 +6,8 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 
-ms.author: roastala
-author: rastala
+ms.author: jordane
+author: jpe316
 ms.reviewer: jmartens
 ms.date: 09/24/2018
 ---
@@ -23,9 +23,26 @@ This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
-## CLI commands 
+# CLI commands 
 
 Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.  
 
-Look up commands in [the CLI reference documentation]().
+## Workspace interaction
+
+```az ml workspace create -n myws -g myrg```
+
+## Experiment interaction
+
+```az ml experiment submit```
+
+## Operationalization interaction
+
+### Model Registration
+```az ml model register```
+
+### Image Creation
+```az ml image create```
+
+### Service Creation
+```az ml service create```
 
