@@ -34,4 +34,4 @@ Having suboptimal statistics can severely impact query performance as it can cau
 
 - [Creating and updating table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
 
-For these two recommendations, the advisor is continuously running the following [T-SQL script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables) to identify tables impacted by skew and statistics recommendations.
+To see the list of impacted tables by these recommendations, run the following following [T-SQL script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). The advisor continuously runs the same T-SQL script to generate thse recommendations.
