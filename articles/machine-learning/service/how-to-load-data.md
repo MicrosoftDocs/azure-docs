@@ -10,7 +10,7 @@ author: cforbe
 ms.date: 08/30/2018
 ---
 
-#Load data with the data prep SDK
+#Load data with the data preparation SDK
 
 Data preparation has the ability to load different types of input data. While it is possible to use our smart reading functionality to detect the type of a file, it is also possible to specify a file type and its parameters.
 
@@ -122,7 +122,7 @@ df
 |4|ALABAMA|Hale County|1.017100e+10|23.0|
 
 ## Read Excel
-DataPrep also can load excel files using `read_excel` function.
+Data preparation also can load excel files using `read_excel` function.
 ```
 dataflow = dprep.read_excel(path='./data/excel.xlsx')
 dataflow.head(5)
