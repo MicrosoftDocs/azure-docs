@@ -5,14 +5,10 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na 
 ms.date: 08/12/2018
 ms.author: glenga
 
