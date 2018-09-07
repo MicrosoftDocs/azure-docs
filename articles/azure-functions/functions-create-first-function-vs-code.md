@@ -31,7 +31,7 @@ To complete this quickstart:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).
 
-* Install [version 2.x of the Core Tools](functions-run-local.md#v2), which is still in preview.
+* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2), which is still in preview.
 
 * Install the specific requirements for your chosen language:
 
@@ -61,7 +61,7 @@ The Azure Functions extension is used to create, test, and deploy functions to A
 
 ## Create an Azure Functions project
 
-The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
+The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
 
 1. In Visual Studio Code, select the Azure logo to display the **Azure: Functions** area, and then select the Create New Project icon.
 
@@ -77,7 +77,7 @@ The Azure Functions project template in Visual Studio creates a project that can
 
 1. When prompted, choose **Add to workspace**.
 
-Visual Studio creates the function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
+Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
 
 ## Create an HTTP triggered function
 
@@ -93,7 +93,7 @@ Visual Studio creates the function app project in a new workspace. This project 
 
     ![Choose anonymous authentication](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
 
-    A function is created in your chosen language using the template for an HTTP triggered function.
+    A function is created in your chosen language using the template for an HTTP-triggered function.
 
     ![HTTP triggered function template in Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
 
@@ -103,11 +103,11 @@ Now that you've created your function project and an HTTP-triggered function, yo
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio.  
+Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
 
 1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP triggered function.
+1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
     ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
@@ -169,7 +169,7 @@ This article assumes that you are creating a new function app. Publishing to an 
 
     ![Function app creation output](./media/functions-create-first-function-vs-code/function-create-output.png)
 
-1. Back in the **Azure: Functions** area, you see the new function app displayed under your subscription. When you expand this node, you see the functions in the function app, as well as  application settings and and function proxies.
+1. Back in the **Azure: Functions** area, you see the new function app displayed under your subscription. When you expand this node, you see the functions in the function app, as well as application settings and function proxies.
 
     ![Function app settings](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
 
@@ -179,7 +179,7 @@ This article assumes that you are creating a new function app. Publishing to an 
 
 1. Copy the URL of the HTTP trigger from the **Output** panel. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
 
-    The URL that calls your HTTP triggered function should be in the following format:
+    The URL that calls your HTTP-triggered function should be in the following format:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
@@ -189,12 +189,12 @@ This article assumes that you are creating a new function app. Publishing to an 
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
 
 Next you may want to learn more about local testing and debugging from the Terminal or command prompt using the Azure Functions Core Tools.
 
 > [!div class="nextstepaction"]
-> [Code and test locally](functions-run-local.md).
+> [Code and test locally](functions-run-local.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
