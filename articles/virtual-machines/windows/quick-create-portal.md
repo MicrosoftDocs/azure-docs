@@ -47,7 +47,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Enter your username and password](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules**, in the select **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
+1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
 
 	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -55,8 +55,6 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 	![Review and create](./media/quick-create-portal/review-create.png)
 
-
-There are lots of other settings on the other tabs, but this is all we need to create a basic Windows VM. 
 
 ## Connect to virtual machine
 

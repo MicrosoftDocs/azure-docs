@@ -59,14 +59,13 @@ Log in to the Azure portal at http://portal.azure.com
 
     ![Administrator account](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules**, in the select **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
+1. Under **Inbound port rules**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
 
 	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
-	![Review and create](./media/quick-create-portal/review-create.png)
-
+	
 ## Connect to virtual machine
 
 Create an SSH connection with the VM.
