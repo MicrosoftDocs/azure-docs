@@ -26,19 +26,19 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/logos/logo_java.svg
+        src: https://docs.microsoft.com/media/logos/logo_java.svg
       text: Java
       href: quickstart-java.md
     - image: 
-        src: /media/logos/logo_NETcore.svg
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
       text: .NET and VS Code
       href: quickstart-netcore.md
     - image: 
-        src: /media/logos/logo_visual-studio.svg
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       text: .NET and Visual Studio
       href: quickstart-netcore-visualstudio.md
     - image: 
-        src: /media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/media/index/logo_nodejs.svg
       text: Node.js
       href: quickstart-js.md
 - title: How Azure Dev Spaces simplifies Kubernetes development
