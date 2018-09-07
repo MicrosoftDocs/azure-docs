@@ -19,11 +19,12 @@ ACI is generally cheaper than AKS and can be set up in 4-6 lines of code. ACI is
 
 This article shows three different ways to deploy a model on ACI. They differ in the number of lines of code and the control you have in naming parts of the deployment. From the method with the least amount of code and control to the method with the most code and control, the ACI options are:
 
-* Deploy from model file using 'Webservice.deploy()' 
-* Deploy from registered model using 'Webservice.deploy_from_model()'
-* Deploy registered model from image using 'Webservice.deploy_from_image()'
+* Deploy from model file using `Webservice.deploy()` 
+* Deploy from registered model using `Webservice.deploy_from_model()`
+* Deploy registered model from image using `Webservice.deploy_from_image()`
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 
 ## Prerequisites
 
@@ -81,27 +82,27 @@ Register a model to use [`Webservice.deploy_from_model`](#deploy-from-registered
 ### Retrieve a registered model
 If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
 
-    ```python
-    from azureml.core.model import Model
-    
-    model_name = "sklearn_mnist"
-    model=Model(ws, model_name)
-    ```
+```python
+from azureml.core.model import Model
+
+model_name = "sklearn_mnist"
+model=Model(ws, model_name)
+```
   
 ### Register a model file
 
 If your model was built elsewhere, you can still register it into your workspace.  To register a model, the model file (`sklearn_mnist_model.pkl` in this example) must be in the current working directory. Then register that file as a model called `sklearn_mnist` in the workspace with `Model.register()`.
     
-    ```python
-    from azureml.core.model import Model
-    
-    model_name = "sklearn_mnist"
-    model = Model.register(model_path = "sklearn_mnist_model.pkl",
-                           model_name = model_name,
-                           tags = ['mnist','classification'],
-                           description = "Mnist handwriting recognition",
-                           workspace = ws)
-    ```
+```python
+from azureml.core.model import Model
+
+model_name = "sklearn_mnist"
+model = Model.register(model_path = "sklearn_mnist_model.pkl",
+                        model_name = model_name,
+                        tags = ['mnist','classification'],
+                        description = "Mnist handwriting recognition",
+                        workspace = ws)
+```
 
 
 ## Option 1: Deploy from model file
