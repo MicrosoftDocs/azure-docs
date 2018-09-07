@@ -33,6 +33,8 @@
     href: concepts-clusters-workloads.md
   - name: Access and identity
     href: concepts-identity.md
+  - name: Security
+    href: concepts-security.md
   - name: Networking
     href: concepts-network.md
   - name: Storage

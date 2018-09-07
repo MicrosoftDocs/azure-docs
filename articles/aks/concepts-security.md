@@ -20,7 +20,7 @@ By default, the Kubernetes API server uses a public IP address and with fully qu
 
 ## Node security
 
-AKS nodes are Azure virtual machines that you manage and maintain. The nodes run an optimized Ubuntu Linux distribution with the Docker container runtime. When an AKS cluster is created or scales up, the nodes are automatically deployed with the latest OS security updates and configurations.
+AKS nodes are Azure virtual machines that you manage and maintain. The nodes run an optimized Ubuntu Linux distribution with the Docker container runtime. When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
 
 The Azure platform automatically applies OS security patches to the nodes on a nightly basis. If an OS security update requires a host reboot, that reboot is not automatically performed. You can manually reboot the nodes, or a common approach is to use [Kured][kured], an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonset] and monitors each node for the presence of a file indicating that a reboot is required. Reboots are managed across the cluster using the same [cordon and drain process](#cordon-and-drain) as a cluster upgrade.
 
@@ -30,7 +30,6 @@ To provide storage, the nodes use Azure Managed Disks. The data stored on manage
 
 *** CAN / SHOULD THE FOLLOWING BE USED?? ARE THEY SUPPORTED ?? ***
 
-- [Azure VM encryption](../virtual-machines/linux/encrypt-disks.md)
 - [Azure Active Directory integration for Linux VMs](../virtual-machines/linux/login-using-aad.md)
 - [Just-in-time VM access](../security-center/security-center-just-in-time.md)
 
@@ -51,9 +50,20 @@ For more information, see [Upgrade and AKS cluster][aks-upgrade-cluster].
 
 ## Network security
 
-To filter the flow of traffic in virtual networks, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources.
+For connectivity and security with on-premises networks, you can deploy your AKS cluster into existing Azure virtual network subnets. These virtual networks may have an Azure Site-to-Site VPN or Express Route connection back to your on-premises network. Kubernetes ingress controllers can be defined with private, internal IP addresses so services are only accessible over this internal network connection.
 
-For more information, see [Kubernetes / AKS network policies][aks-network-policies].
+Network traffic can be secured with two types of traffic filtering and policy:
+
+- Ingress and egress traffic for the AKS cluster - Azure network security groups
+- Pod to pod communication within the AKS cluster - Kubernetes network policies
+
+### Azure network security groups
+
+To filter the flow of traffic in virtual networks, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server and for SSH access to the nodes. As you create services with load balancers, port mappings, or ingress routes, AKS automatically modifies the network security group for traffic to flow appropriately.
+
+### Kubernetes network policies
+
+Kubernetes *network policies* can be used to secure communication between pods. By default, pods can send and receive traffic from any source. A NetworkPolicy defines the ingress and egress network ranges and ports that are allowed.
 
 ## Secrets
 
