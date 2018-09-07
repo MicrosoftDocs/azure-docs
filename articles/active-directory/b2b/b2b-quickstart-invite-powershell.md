@@ -19,7 +19,7 @@ ms.reviewer: mal
 
 # Quickstart: Add a guest user with PowerShell
 
-There are many ways you can invite external partners to your apps and services with Azure Active Directory B2B collaboration. You’ve seen how to add people outside your organization as guest users directly in the Azure Active Directory admin portal. You can also use PowerShell to add guest users, either one at a time or in bulk. In this quickstart, you’ll use the New-AzureADMSInvitation command to add one guest user to your Azure tenant.
+There are many ways you can invite external partners to your apps and services with Azure Active Directory B2B collaboration. In the previous quickstart, you saw how to add guest users directly in the Azure Active Directory admin portal. You can also use PowerShell to add guest users, either one at a time or in bulk. In this quickstart, you’ll use the New-AzureADMSInvitation command to add one guest user to your Azure tenant.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -104,7 +104,7 @@ For example: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmi
 
 
 ## Next steps
-In this tutorial, you invited and added a single guest user to your directory using PowerShell. Next, learn how to invite guest users in bulk using PowerShell.
+In this quickstart, you invited and added a single guest user to your directory using PowerShell. Next, learn how to invite guest users in bulk using PowerShell.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Bulk invite Azure AD B2B collaboration users](tutorial-bulk-invite.md)
