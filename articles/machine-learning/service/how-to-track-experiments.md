@@ -38,7 +38,7 @@ You can add tracking through Azure Machine Learning services to your training ex
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
-2. Create the Experiment
+2. Create the Experiment.
   ```python
   from azureml.core import Experiment
 
@@ -46,7 +46,7 @@ You can add tracking through Azure Machine Learning services to your training ex
   experiment_name = 'train-in-notebook'
   exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
-3.Start a training run in a local Jupyter Notebook. 
+3. Start a training run in a local Jupyter Notebook. 
   ``` python
   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
   from sklearn.datasets import load_diabetes
@@ -132,6 +132,7 @@ For longer running experiments, you can watch the progress of the run with a Jup
 
       preds = reg.predict(data["test"]["X"])
       mse = mean_squared_error(preds, data["test"]["y"])
+      # log the alpha and mse values
       run.log('alpha', alpha)
       run.log('mse', mse)
 
@@ -144,13 +145,12 @@ For longer running experiments, you can watch the progress of the run with a Jup
       run.upload_file(name = model_file_name, path_or_stream = model_file_name)
 
       # register the model
-      # commented out for now until a bug is fixed
       #run.register_model(file_name = model_file_name)
 
       print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
   
   ```
-2. ```train.py``` references a ```mylib.py``` file. This file allows you to get the list of alpha values to use in the ridge model.
+2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
   ```python
   %%writefile $script_folder/mylib.py
   import numpy as np
@@ -172,7 +172,7 @@ For longer running experiments, you can watch the progress of the run with a Jup
   #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
   ```
 4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for execution, including the ```mylib.py``` file.
-  ```
+  ```python
   from azureml.core import ScriptRunConfig
 
   src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
@@ -180,6 +180,7 @@ For longer running experiments, you can watch the progress of the run with a Jup
   ```
 5. View the Jupyter widget while waiting for the run to complete.
   ```python
+  
   from azureml.train.widgets import RunDetails
   RunDetails(run).show()
   ```
@@ -192,7 +193,7 @@ You can view the metrics of a trained model using ```run.get_metrics()```.
 
 ### Select best model from run history  
 We can now get all of the metrics that were logged in the parameter sweep example above to determine the best model. 
-1. 
+1. Start off by determining what the best alpha value is in the list of metrics from above.
   ```python
   import numpy as np
 
@@ -212,8 +213,8 @@ We can now get all of the metrics that were logged in the parameter sweep exampl
   ```
 3. You can add tags to your runs to make them easier to catalog. In this case, we add a tag for the best run so that we can 
   ```python
-  best_run.tag("Description","The best one")
-  best_run.get_tags()
+    best_run.tag("Description","The best one")
+    best_run.get_tags()
   ```
 
 ## List file names 
