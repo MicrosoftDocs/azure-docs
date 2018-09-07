@@ -1,6 +1,6 @@
 ---
-title: Detect unoccupied spaces with good air quality in Azure Digital Twins quickstart (C#) | Microsoft Docs
-description: In this quickstart, you run two .NET Core sample applications to send simulated motion and CO2 telemetry to a space in Azure Digital Twins and to detect unoccupied spaces with good air quality from management APIs after computed processing in the cloud.
+title: Find availale rooms with fresh air with Azure Digital Twins quickstart (C#) | Microsoft Docs
+description: In this quickstart, you run two .NET Core sample applications to send simulated motion and CO2 telemetry to a space in Azure Digital Twins. The goal is to find availale rooms with fresh air from Management APIs after computed processing in the cloud.
 author: alinamstanciu
 manager: bertv
 ms.service: digital-twins
@@ -10,67 +10,53 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/30/2018
 ms.author: alinast
-# As a developer new to Digital Twins, I need to see how to send motion and CO2 telemetry to a space in a Azure Digital Twins and how to detect unoccupied spaces with good air quality using a back-end application. 
+# As a developer new to Digital Twins, I need to see how to send motion and CO2 telemetry to a space in a Azure Digital Twins and how to find availale rooms with fresh air using a back-end application. 
 ---
 
-# Quickstart: Detect unoccupied spaces with good air quality using Azure Digital Twins (C#)
+# Quickstart: Use Azure Digital Twins to find availale rooms with fresh air (C#)
 
-This article demonstrates the capabilities of Azure Digital Twins to run custom computation on the telemetry data that is sent from devices and sensors. It walks you through the basic steps of sending motion and CO2 from a simulated device living in a space and detecting unoccupied spaces with good air quality. 
+In a busy office scenario, it's important to find out available rooms, preferably with the fresh air. This article shows how you can do this using Azure Digital Twins. 
 
-The quickstart uses two pre-written .NET Core console applications
-- One to send the motion and CO2 telemetry to Digital Twins service
-- One to provision topology and read unoccupied spaces with good air quality from Digital Twins Management API. 
+The quickstart uses two sample .NET Core console applications that use the Digital Twins APIs. The first one will send motion and CO2 telemetry to your service, and the second one will provision topology as well as find availale rooms with fresh air. 
 
-Before you run these two applications, you create a Azure Digital Twins and grant permissions to the applications to read from Azure Digital Twins Management APIs.
+Before you run these two applications, you create an Azure Digital Twins service and grant permissions to the applications to read from its Management APIs.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
 ## Prerequisites
 
-- The two console applications you run in this quickstart are written using C#. You need the [.NET Core SDK 2.1.0](https://www.microsoft.com/net/download) or greater on your development machine.
+- The two console applications you run in this quickstart are written using C#. You need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
 
-- You can verify the current version of C# on your development machine using the following command:
-
-  ```cmd/sh
-  dotnet --version
-  ```
-
-- Clone the sample C# projects from https://github.com/Azure-Samples/azure-iot-samples-csharp/
+- Clone the sample C# projects from https://github.com/Azure-Samples/digital-twins-samples-csharp
   ```
   git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
   ```
 
-## Create a Digital Twins in Azure Portal
+## Create a Digital Twins instance in Azure Portal
 
->TODO: Move Create a Digital Twins in Azure Portal in its own file, it will be shared across documentaton.
+> TODO: Move Create a Digital Twins in Azure Portal in its own file, it will be shared across documentaton.
 1. Sign in to the [Azure portal](http://portal.azure.com).
-
-1. Select **Create a resource** > **Internet of Things** > **Digital Twins** (or just search by **Digital Twins**)
-
+1. Select **Create a resource** > **Internet of Things** > **Digital Twins** (or search by **Digital Twins**)
     ![Select to install Digital Twins][1]
-
 1. In the **Digital Twins** pane, enter the following information for your Digital Twins:
-
    * **Subscription**: Choose the subscription that you want to use to create this Digital Twins instance. 
-   * **Resource group**: Create a resource group to contain the Digital Twins or use an existing one. By putting all related resources in a group together, such as **TestResources**, you can manage them all together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources][lnk-resource-groups].
-   * **Region**: Select the closest location to your devices.
+   * **Resource group**: Select or create a resource group for the Digital Twins instance. For more information on resource groups, see [Use resource groups to manage your Azure resources][lnk-resource-groups].
+   * **Location**: Select the closest location to your devices.
    * **Name**: Create a unique name for your Digital Twins. If the name you enter is available, a green check mark appears.
-
    ![Create Digital Twins][2]
-
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
-1. Digital Twins creates Digital Twins Management APIs which are the REST API to interact wity topology. The url is generated in portal in **Overview section** and has following format https://{resourceName}.{location}.azuresmartspaces.net/management/swagger. Enter this URL in your Chrom or Edge browser and make sure it works.
+1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in portal in **Overview** section and has the following format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
 
-## Grant permissions to the console applications to interact with Digital Twins
-* Follow [these steps](/digital-twins-permissions.md) to grant permissions to your console applications to interact with Digital Twins Management APIs.
+## Grant permissions to the console applications to interact with Digital Twins Management APIs
+[!INCLUDE [digital-twins-permissions](digital-twins-permissions.md)]
 
 ## Provision topology
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy) to provision spaces, IoT Hub resource, devices, sensors and custom functions in Digital Twins topology
 >TODO: Show screenshot
 
 ## Create a custom function
-* This is [the step](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy#function) to create a custom user-defined-function that allows to process your sensor telemetry. The function will compute motion and CO2 signals from multiple sensors in order to detect if space is unoccupied and it has good air quality (CO2 level less than 1000 ppm).
+* This is [the step](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy#function) to create a custom user-defined-function that allows to process your sensor telemetry. The function will compute motion and CO2 signals from multiple sensors in order to find if space is available and it has fresh air (CO2 level less than 1000 ppm).
 >TODO: Show screenshot
 
 ## Send motion and CO2 telemetry
@@ -78,7 +64,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 >TODO: Show screenshot
 
 ## Observe and read unoccupied spaces with good air quality
-* Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy#readoccupancy) to detect if there are unoccupied spaces with good air quality
+* Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy#readoccupancy) to find if there are available spaces with fresh air
 >TODO: Show screenshot
 
 ## Clean up resources
