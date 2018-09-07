@@ -27,11 +27,6 @@ Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt 
 Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`) or through AMQP links (`IoThub-methodname` and `IoThub-status` application properties). 
 
 > [!NOTE]
-> To subscribe to direct methods, consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages to your desired method names.
-> 
-
-> 
-> [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
@@ -112,7 +107,7 @@ For this purpose, use the `ServiceClient.InvokeDeviceMethodAsync()` method and p
 ## Handle a direct method on a device
 ### MQTT
 #### Method invocation
-Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`
+Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}` (to subscribe to direct methods, consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages based on your desired method names).
 
 The body that the device receives is in the following format:
 
