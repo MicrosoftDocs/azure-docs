@@ -125,7 +125,7 @@ As the installation finishes, you should a picture like the following one
 At this point, the SAP HANA instance should be up and running and ready for usage. You should be able to connect to it from SAP HANA Studio. Also make sure that you check for the latest patches of SAP HANA and apply those patches.
 
 
-**Next Steps**
+**Next steps**
 
-- Refer [High availability of SAP HANA on Azure virtual machines](sap-hana-high-availability.md).
+- Refer [SAP HANA Large Instances high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
 

@@ -81,6 +81,6 @@ To remove an additional SAP HANA on Azure (Large Instances) ExpressRoute circuit
 
 If you also want to remove a VNet, follow the guidance on Deleting a VNet in the section above.
 
-**Next Steps**
+**Next steps**
 
 - Refer [How to install and configure SAP HANA (large instances) on Azure](hana-installation.md).

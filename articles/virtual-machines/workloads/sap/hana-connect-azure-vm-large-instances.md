@@ -132,6 +132,6 @@ At the end of the deployment process, Microsoft delivers the following data to y
 
 You can also find the sequence of connecting HANA Large Instances in the document [End to End Setup for SAP HANA Large Instances](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Many of the following steps are shown in an example deployment in that document. 
 
-**Next Steps**
+**Next steps**
 
 - Refer [Connecting a VNet to HANA Large Instance ExpressRoute](hana-connect-vnet-express-route.md).

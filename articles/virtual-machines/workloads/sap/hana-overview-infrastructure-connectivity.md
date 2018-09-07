@@ -50,7 +50,7 @@ You can use the following sequence to connect to the HANA Large Instances after 
 2. [Connecting a VNet to HANA Large Instances ExpressRoute](hana-connect-vnet-express-route.md)
 3. [Additional network requirements (optional)](hana-additional-network-requirements.md)
 
-**Next Steps**
+**Next steps**
 
 - Refer [Connecting Azure VMs to HANA Large Instances](hana-connect-azure-vm-large-instances.md).
 - Refer [Connecting a VNet to HANA Large Instance ExpressRoute](hana-connect-vnet-express-route.md).

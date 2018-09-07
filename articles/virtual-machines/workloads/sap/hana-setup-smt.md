@@ -128,7 +128,7 @@ If you ran into the issue that you needed to fix based on the steps of the SUSE 
 
 With this step, you configured the SMT client of the HANA Large Instance unit to connect against the SMT server you installed in the Azure VM. You now can take 'zypper up' or 'zypper in' to install OS patches to HANA Large Instances or install additional packages. It is understood that you only can get patches that you downloaded before on the SMT server.
 
-**Next Steps**
+**Next steps**
 - Refer [HANA Installation on HLI](hana-example-installation.md).
 
 

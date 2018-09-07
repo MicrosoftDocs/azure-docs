@@ -190,7 +190,7 @@ With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result the p
 Refer [HLI supported scenarios](hana-supported-scenario.md) to learn storage layout for your architecture.
 
 
-**Next Steps**
+**Next steps**
 
 - Refer [HANA Installation on HLI](hana-example-installation.md)
 

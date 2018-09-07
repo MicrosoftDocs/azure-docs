@@ -91,6 +91,6 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 
 If you want to connect the gateway to multiple ExpressRoute circuits that are associated with your subscription, you may need to execute this step more than once. For example, you are likely going to connect the same VNet Gateway to the ExpressRoute circuit that connects the VNet to your on-premises network.
 
-**Next Steps**
+**Next steps**
 
 - Refer [Additional network requirements for HLI](hana-additional-network-requirements.md).
