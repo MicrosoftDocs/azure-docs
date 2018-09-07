@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
 ---
@@ -120,6 +120,16 @@ Set-AzureRmStorageSyncServerEndpoint `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
 ```
+<a id="server-endpoint-noactivity"></a>**Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”**  
+
+This issue can occur if the Storage Sync Monitor process is not running or the server is unable to communicate with the Azure File Sync service due to a proxy or firewall.
+
+To resolve this issue, perform the following steps:
+
+1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, uninstall and reinstall the Azure File Sync agent (Note: Server settings are retained when uninstalling and reinstalling the agent).
+2. Verify Firewall and Proxy settings are configured correctly:
+	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
+	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 ## Sync
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
