@@ -20,7 +20,7 @@ ms.author: daveba
 
 # What is managed identities for Azure resources?
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping the credentials secure is an important task. Ideally, the credentials never appear on developer workstations and aren't checked into source control. Azure Key Vault provides a way to securely store credentials, secrets, and other keys, but your code has to authenticate to Key Vault to retrieve them. 
 
