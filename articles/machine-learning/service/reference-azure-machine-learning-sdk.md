@@ -17,8 +17,6 @@ The Azure Machine Learning SDK for Python is used by data scientists and AI deve
 
 Use this SDK to quickly build, train, and deploy highly accurate machine learning and deep learning models for various domains. 
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
-
 ## Install the SDK
 
 The SDK must be installed into your development environment. The steps are similar across the various environment options. Follow the steps in this "[How to configure your development environment](how-to-configure-environment.md)" to learn how.
