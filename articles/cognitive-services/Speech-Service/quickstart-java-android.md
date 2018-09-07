@@ -37,7 +37,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
    ![](media/sdk/qs-java-android-03-target-android-devices.png)
 
-1. In the **Add an Activity to Mobile** screen, select **Empty Activity** and click **Next**.
+1. In the **Add an Activity to Mobile** screen, select **Empty Activity**, and click **Next**.
 
    ![](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
 
@@ -49,8 +49,7 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the
-The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as the Android permissions needed to use it. It is hosted in a Maven repository and so is automatically downloaded by Android Studio for use in your application.
+The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and the Android permissions needed to use it. It is hosted in a Maven repository and so is automatically downloaded by Android Studio for use in your application.
 
 To set up your project to use the Speech SDK, open the Project Structure window by choosing **File** \> **Project Structure** from the Android Studio menu bar.
 In the Project Structure window, make the following changes. 
@@ -67,7 +66,7 @@ In the Project Structure window, make the following changes.
 
    ![](media/sdk/qs-java-android-08-dependency-added.png)
 
-1. Click the **Properties** tab. Select **1.8** both for **Source Compability** and **Target Compatibility**.
+1. Click the **Properties** tab. Select **1.8** both for **Source Compatibility** and **Target Compatibility**.
 
    ![](media/sdk/qs-java-android-09-dependency-added.png)
 
@@ -75,13 +74,13 @@ In the Project Structure window, make the following changes.
 
 ## Create user interface
 
-We will create a simple user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name and a TextView containing the text "Hello World!."
+We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name and a TextView containing the text "Hello World!"
 
 * Click the TextView element. Change its ID attribute in the upper-right corner to `hello`.
 
 * From the Palette in the upper left of the `activity_main.xml` window, drag a Button into the empty space above the text.
 
-* In the button's attributes on the right, in the value for the `onClick` attribute, enter `onSpeechButtonClicked`. This is the name of the method we'll write to handle the button event.  Change its ID attribute in the upper-right corner to `button`.
+* In the button's attributes on the right, in the value for the `onClick` attribute, enter `onSpeechButtonClicked`. We'll write a method with this name to handle the button event.  Change its ID attribute in the upper-right corner to `button`.
 
 * Use the magic wand icon at the top of the designer if to infer layout constraints.
 
@@ -108,7 +107,7 @@ The text and graphical representation of your UI should now look like this.
 
    * The `onCreate` method includes code that requests microphone and Internet permissions and initializes the native platform binding. Configuring the native platform bindings is only required once, that is, it should be done early during application initialization.
    
-   * The method `onSpeechButtonClicked` was is, as noted earlier, the button click handler. A button press triggers speech-to-text transcription.
+   * The method `onSpeechButtonClicked` is, as noted earlier, the button click handler. A button press triggers speech-to-text transcription.
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
@@ -126,7 +125,7 @@ The text and graphical representation of your UI should now look like this.
 
    ![Launch the app into debugging](media/sdk/qs-java-android-12-deploy.png)
 
-Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech service and transcribed. The result appears in the Android application as well as in the logcat window in Android Studio.
+Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech service and transcribed. The result appears in the Android application and in the logcat window in Android Studio.
 
 ![UI after successful recognition](media/sdk/qs-java-android-13-gui-on-device.png)
 
