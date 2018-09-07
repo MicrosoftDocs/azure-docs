@@ -32,7 +32,7 @@ Once you have used Ansible to define your infrastructure, you can apply your app
 
 ## Automate cloud-native application in Azure
 
-Ansible enables you to automate cloud-native applications in Azure using Azure microservices such as [Azure Functions](https://azure.microsoft.com//services/functions/) and [Kubernetes on Azure](https://azure.microsoft.com/services/container-service/kubernetes/)).  
+Ansible enables you to automate cloud-native applications in Azure using Azure microservices such as [Azure Functions](https://azure.microsoft.com//services/functions/) and [Kubernetes on Azure](https://azure.microsoft.com/services/container-service/kubernetes/).  
 
 ## Manage deployments with dynamic inventory
 Via its [dynamic inventory](http://docs.ansible.com/ansible/intro_dynamic_inventory.html) feature, Ansible provides the ability to pull inventory from Azure resources. You can then tag your existing Azure deployments and manage those tagged deployments through Ansible.
