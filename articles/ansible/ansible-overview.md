@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, overview, cloud provision, configuration manag
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 09/02/2018
 ms.topic: article
 ---
 
@@ -39,6 +39,10 @@ Via its [dynamic inventory](http://docs.ansible.com/ansible/intro_dynamic_invent
 
 ## Additional Azure Marketplace options
 The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Marketplace image by Red Hat helps organizations scale IT automation and manage complex deployments across physical, virtual, and cloud infrastructures. Ansible Tower includes capabilities that provide additional levels of visibility, control, security, and efficiency necessary for today's enterprises. Ansible Tower encrypts credentials such as Azure and SSH keys so that you can delegate jobs to less experienced employees without the risk of exposing your credentials.
+
+## Ansible module and version matrix for Azure
+Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
+The [Ansible module and version matrix](./ansible-matrix.md) lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. 
 
 ## Next steps
 - [Configure Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
