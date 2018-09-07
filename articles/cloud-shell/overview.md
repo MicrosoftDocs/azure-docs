@@ -65,7 +65,7 @@ Cloud Shell machines are temporary and require a new or existing Azure Files sha
 
 On first launch Cloud Shell prompts to create a resource group, storage account, and Azure Files share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell (Preview).
 
-Read more to learn how to mount a [new or existing storage account](../../includes/cloud-shell-persisting-shell-storage-introblock.md).
+Read more to learn how to mount a [new or existing storage account](persisting-shell-storage.md).
 
 ## Concepts
 * Cloud Shell runs on a temporary host provided on a per-session, per-user basis
