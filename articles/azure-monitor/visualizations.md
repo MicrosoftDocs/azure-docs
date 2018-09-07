@@ -69,10 +69,10 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 ### Advantages
 - Support both metrics and logs.
-- Supports parameters.
+- Supports parameters  enabling interactive reports where selecting an element in a table will dynamically update associated charts and visualizations.
 - Document-like flow.
 - Option for personal or shared workbooks.
-- Easy, interactive, collaborative-friendly authoring experience.
+- Easy, collaborative-friendly authoring experience.
 - Templates support public GitHub-based template gallery.
 
 ### Limitations
