@@ -22,7 +22,7 @@ The following services are included in the built-in rule collection:
 
 ## Overriding 
 
-You can override this build-in infrastructure rule collection by creating a deny all application rule collection that is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
+You can override this built-in infrastructure rule collection by creating a deny all application rule collection that is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
 
 ## Next steps
 
