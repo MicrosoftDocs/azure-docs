@@ -8,10 +8,10 @@ ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: cfowler
+manager: jeconnoc
 ---
 
 # Create your first function using the Azure CLI
