@@ -10,6 +10,9 @@
 - name: Tutorials
 - name: Concepts
 - name: How-to guides
+  items:
+  - name: Write Kusto queries
+    href: write-queries.md  
 - name: Samples
 - name: Reference
 - name: Resources
