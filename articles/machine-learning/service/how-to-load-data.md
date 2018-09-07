@@ -257,7 +257,7 @@ dtype: object
 ```
 
 ## Read from ADLS
-There are two ways data preparation can acquire the necessary OAuth token to access Azure DataLake Storage:
+There are two ways the data preparation API can acquire the necessary OAuth token to access Azure DataLake Storage:
 -	Retrieve the access token from a recent login session of the user's Azure CLI login
 -	Using a ServicePrincipal (SP) and a certificate as secret
 
