@@ -137,28 +137,28 @@ Proceed to [test the web service](#test-web-service).
 
 ## Option 2: Deploy from registered model
 
-Deploy a registered model (`model`) using `Webservice.deploy_from_model()`.  You provide the configuration for the Docker container and the ACI container, along with the registered model.
+The option to deploy a registered model file takes a few more lines of code and allows some control over the naming of outputs. This option is a convenient way to deploy a registered model you already have.  However, you can't name the Docker image.  
 
+This option uses the SDK method, Webservice.deploy_from_model().
 
-```python
-from azureml.core.webservice import Webservice
+**Time estimate**:  Deploying with this option takes approximately 8 minutes.
 
-service_name = 'aci-mnist-2'
-service = Webservice.deploy_from_model(deployment_config = aciconfig,
-                                       image_config = image_config,
-                                       models = [model], # this is the registered model object
-                                       name = service_name,
-                                       workspace = ws)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-```
+1. Run the code to configure the Docker container and the ACI container and specify the registered model.
 
-**Time estimate**: Approximately 8 minutes.
+    ```python
+    from azureml.core.webservice import Webservice
 
-This method is a convenient way to deploy a registered model you have now.  It doesn't allow you to name the Docker image.
+    service_name = 'aci-mnist-2'
+    service = Webservice.deploy_from_model(deployment_config = aciconfig,
+                                           image_config = image_config,
+                                           models = [model], # this is the registered model object
+                                           name = service_name,
+                                           workspace = ws)
+    service.wait_for_deployment(show_output = True)
+    print(service.state)
+    ```
 
-Proceed to [test the web service](#test-web-service).
-
+1. You can now [test the web service](#test-web-service).
 
 ## Option 3: Deploy from image
 
