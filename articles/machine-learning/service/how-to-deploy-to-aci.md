@@ -13,13 +13,11 @@ ms.date: 09/24/2018
 
 # Deploy web services to Azure Container Instances
 
-You can deploy your trained model as a web service on [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS). You can also deploy to IoT or FPGA. 
+You can deploy your trained model as a web service on [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI), [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS), IoT, or FPGA. 
 
-ACI is generally cheaper than AKS and can be set up in 4-6 lines of code. ACI is the perfect option for testing deployments. When you're ready to use your models and web services for high-scale, production usage, [deploy them to AKS](how-to-deploy-to-aks.md).
+ACI is generally cheaper than AKS and can be set up in 4-6 lines of code. ACI is the perfect option for testing deployments. Later, when you're ready to use your models and web services for high-scale, production usage, you can [deploy them to AKS](how-to-deploy-to-aks.md).
 
-This article shows three different ways to deploy a model on ACI. They differ in the number of lines of code and the control you have in naming parts of the deployment. 
-
-From the method with the least amount of code and control to the method with the most code and control, the ACI options are:
+This article shows three different ways to deploy a model on ACI. They differ in the number of lines of code and the control you have in naming parts of the deployment. From the method with the least amount of code and control to the method with the most code and control, the ACI options are:
 
 * Deploy from model file using 'Webservice.deploy()' 
 * Deploy from registered model using 'Webservice.deploy_from_model()'
@@ -29,39 +27,41 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-- An Azure Machine Learning Workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md).
-- The workspace object
+- An Azure Machine Learning Workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Get started with Azure Machine Learning quickstart](quickstart-get-started.md).
+
+- The Azure Machine Learning workspace object
 
     ```python
     from azureml.core import Workspace
     ws = Workspace.from_config()
     ```
 
-- A model to deploy. The examples in this document use the model created in the [train a model](tutorial-train-models-with-aml.md) tutorial. If you do not use this model, modify the steps to refer to your model name.  You also need to write your own scoring script to run your model.
+- A model to deploy. The examples in this document use the model created when you follow the "[Train a model](tutorial-train-models-with-aml.md)" tutorial. If you do not use this model, modify the steps to refer to your model name.  You also need to write your own scoring script to run your model.
 
 
 ## Configure an image
 
-Configure the Docker image:
-1. Create the [scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
-1. Create [an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
-1. Use these two files to configure the Docker image
+Configure the Docker image that is used to store all the model files.
+1. Create a scoring script (score.py) [using these instructions](tutorial-deploy-models-with-aml.md#create-scoring-script)
 
+1. Create an environment file (myenv.yml) [using these instructions](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
-```python
-from azureml.core.image import ContainerImage
+1. Use these two files to configure the Docker image in Python using the SDK as follows:
 
-image_config = ContainerImage.image_configuration(execution_script = "score.py",
-                                                  runtime = "python",
-                                                  conda_file = "myenv.yml",
-                                                  description = "Image with mnist model",
-                                                  tags = ["mnist","classification"]
-                                                 )
-```
+    ```python
+    from azureml.core.image import ContainerImage
+
+    image_config = ContainerImage.image_configuration(execution_script = "score.py",
+                                                      runtime = "python",
+                                                      conda_file = "myenv.yml",
+                                                      description = "Image with mnist model",
+                                                      tags = ["mnist","classification"]
+                                                     )
+    ```
 
 ## Configure the ACI container
 
-Configure the ACI container.  Specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of one core and 1 gigabyte of RAM is sufficient for many models. If you feel you need more later, recreate the image and redeploy the service.  
+Configure the ACI container by specify the number of CPUs and gigabyte of RAM needed for your ACI container. The default of one core and 1 gigabyte of RAM is sufficient for many models. If you feel you need more later, recreate the image and redeploy the service.  
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -74,7 +74,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 ## Registered model
 
->Skip this prerequisite if you are [deploying from a file](#deploy-from-model-file) (`Webservice.deploy()`).
+>Skip this prerequisite if you are [deploying from a model file](#deploy-from-model-file) (`Webservice.deploy()`).
 
 Register a model to use `Webservice.deploy_from_model(#deploy-from-registered-model)` or ``Webservice.deploy_from_image(#deploy-from-image)`. If you use Azure Machine Learning to train your model, the model might already be registered in your workspace.  For example, the last step of the [train a model](tutorial-train-models-with-aml.md) tutorial] registered the model.  You then retrieve the registered model to deploy.
 
@@ -101,9 +101,15 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 ## Option 1: Deploy from model file
 
-Deploy a model file using  `Webservice.deploy()`.  The model file must be present in your local working directory. You don't need a registered model for this method.
+The option to deploy from a model file requires the least amount of code to write, but offers the least amount of control over the naming of outputs. This option is a convenient way to deploy a model file without first registering it.  However, you can't name the model or associate tags or a description for it.  
 
-1. Edit the prerequisite file score.py and change the  `init()` section to:
+This option uses the SDK method, Webservice.deploy().  
+
+**Time estimate**: Deploying takes approximately 6-7 minutes.
+
+1. Make sure the model file is in your local working directory.
+
+1. Open the prerequisite model file, score.py, and change the  `init()` section to:
 
     ```python
     def init():
@@ -129,11 +135,7 @@ Deploy a model file using  `Webservice.deploy()`.  The model file must be presen
     print(service.state)
     ```
 
-**Time estimate**: Approximately 6-7 minutes.
-
-This method is a convenient way to deploy a model file without first registering it.  You can't name the model or associate tags or a description for it.  
-
-Proceed to [test the web service](#test-web-service).
+1. You can now [test the web service](#test-web-service).
 
 ## Option 2: Deploy from registered model
 
