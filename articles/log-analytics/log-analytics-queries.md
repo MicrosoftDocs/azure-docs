@@ -44,19 +44,10 @@ The different ways that you will use queries in Log Analytics include the follow
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
 - **Log Analytics API.**  The [Log Analytics log search API](log-analytics-log-search-api.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
 
-![Log searches](media/log-analytics-log-search-new/log-search-overview.png)
-
-## How Log Analytics data is organized
-When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace]
-().  Documentation for different sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
-
-![Tables](media/log-analytics-log-search-new/queries-tables.png)
-
-## Application Insights data
-While Application Insights stores application data such as requests, exceptions, traces, and usage in Log Analytics, this data is stored in a different partition than the other log data. You use the same query language to access this data but must the [Application Insights console](../application-insights/app-insights-analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access this data. You can use [cross-resources queries](log-analytics-cross-workspace-search.md) to combine Application Insights data with other data in Log Analytics.
+![Log searches](media/log-analytics-queries/queries-overview.png)
 
 ## Writing a query
-Log Analytics includes [an extensive query language]() that lets you retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
+Log Analytics includes [an extensive query language](query-language/get-started-queries.md) that lets you retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
 The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
 
@@ -90,6 +81,17 @@ You can also query data across Log Analytics workspaces within your subscription
 	union Update, workspace("contoso-workspace").Update
 	| where TimeGenerated >= ago(1h)
 	| summarize dcount(Computer) by Classification 
+
+## How Log Analytics data is organized
+When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](log-analytics-quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
+
+While [Application Insights](../application-insights/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Log Analytics, this data is stored in a different partition than the other log data. You use the same query language to access this data but must the [Application Insights console](../application-insights/app-insights-analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](log-analytics-cross-workspace-search.md) to combine Application Insights data with other data in Log Analytics.
+
+
+![Tables](media/log-analytics-queries/queries-tables.png)
+
+
+
 
 
 
