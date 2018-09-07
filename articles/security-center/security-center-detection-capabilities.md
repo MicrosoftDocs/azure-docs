@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -23,7 +23,7 @@ This document discusses Azure Security Center’s advanced detection capabilitie
 Advanced detections are available in the Standard Tier of Azure Security Center. A free 60-day trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-policies.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing. 
 
 > [!NOTE]
-> Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
+> Security Center has released to limited preview a new set of detections that leverage audited records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
 
 ## Responding to today’s threats
 There have been significant changes in the threat landscape over the last 20 years. In the past, companies typically only had to worry about web site defacement by individual attackers who were mostly interested in seeing “what they could do". Today’s attackers are much more sophisticated and organized. They often have specific financial and strategic goals. They also have more resources available to them, as they may be funded by nation states or organized crime.
