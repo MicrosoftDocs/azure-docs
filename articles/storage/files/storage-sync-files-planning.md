@@ -65,8 +65,49 @@ Cloud tiering is an optional feature of Azure File Sync in which infrequently us
 ## Azure File Sync system requirements and interoperability 
 This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
 
+### Evaluation Tool
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an AzureRM PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
+
+#### Download Instructions
+1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. Restart PowerShell
+3. Install the modules
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
+
+#### Usage  
+You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+To test only your dataset:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+To test system requirements only:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+To display the results in CSV:
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
 ### System Requirements
-- A server running Windows Server 2012 R2 or Windows Server 2016 
+- A server running Windows Server 2012 R2 or Windows Server 2016:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
@@ -75,15 +116,15 @@ This section covers Azure File Sync agent system requirements and interoperabili
 
     Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
 
-- A server with a minimum of 2GB of memory
+    > [!Important]  
+    > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
+
+- A server with a minimum of 2 GiB of memory.
 
     > [!Important]  
-    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048MB of memory.
+    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
     
-- A locally attached volume formatted with the NTFS file system
-
-> [!Important]  
-> We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
+- A locally attached volume formatted with the NTFS file system.
 
 ### File system features
 | Feature | Support status | Notes |

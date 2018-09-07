@@ -38,9 +38,9 @@
 ### [Manage a server](analysis-services-manage.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
 ### [Setup diagnostic logging](analysis-services-logging.md)
-### [Create service principle - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Create service principle - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [Add a service principle to server administrator role](analysis-services-addservprinc-admins.md)
+### [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Add a service principal to server administrator role](analysis-services-addservprinc-admins.md)
 
 ## Model
 ### [Import a Power BI Desktop file](analysis-services-import-pbix.md)

@@ -1,6 +1,6 @@
 ---
-title: Extract handwritten text - REST, C#
-titleSuffix: "Computer Vision - Cognitive Services - Azure"
+title: "Quickstart: Extract handwritten text - REST, C# - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract handwritten text from an image using Computer Vision with C# in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Extract handwritten text - REST, C&#35;
+# Quickstart: Extract handwritten text - REST, C&#35; - Computer Vision
 
 In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) methods, you can detect handwritten text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -415,7 +415,7 @@ When no longer needed, delete the Visual Studio solution. To do so, open File Ex
  
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API C&#35; Tutorial](../Tutorials/CSharpTutorial.md)
