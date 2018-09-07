@@ -43,7 +43,7 @@ If you are using Ubuntu 16.04, before starting Eclipse, run the following comman
 
 1. Create a new project by choosing **File** \> **New** \> **Project** from the Eclipse menu bar.
 
-1. The **New Project** dialog apears. In this window, select **Java Project**, and click **Next**.
+1. The **New Project** dialog appears. In this window, select **Java Project**, and click **Next**.
 
    ![Select a wizard](media/sdk/qs-java-jre-02-select-wizard.png)
 
