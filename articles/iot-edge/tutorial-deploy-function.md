@@ -4,7 +4,7 @@ description: In this tutorial, you deploy an Azure function as a module to an ed
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -166,7 +166,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 In this section, you provide the credentials for your container registry twice. The first is to sign in locally from your development machine so that Visual Studio Code can push images to your registry. The second is in the **.env** file of your IoT Edge solution, which gives your IoT Edge device permissions to pull images from your registry. 
 
-1. Open the VS Code integrated terminal by selecting **View** > **Integrated Terminal**. 
+1. Open the VS Code integrated terminal by selecting **View** > **Terminal**. 
 
 1. Sign in to your container registry by entering the following command in the integrated terminal. Then you can push your module image to your Azure container registry: 
      
@@ -215,7 +215,7 @@ You can use the Azure portal to deploy your function module to an IoT Edge devic
 
 5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-6. Right-click the name of your IoT Edge device, and then select **Create Deployment for IoT Edge device**. 
+6. Right-click the name of your IoT Edge device, and then select **Create Deployment for single device**. 
 
 7. Browse to the solution folder that contains the **CSharpFunction**. Open the config folder, select the deployment.json file, and then choose **Select Edge Deployment Manifest**.
 

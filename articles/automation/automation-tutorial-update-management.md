@@ -6,7 +6,7 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
 ---
@@ -76,9 +76,19 @@ Click anywhere else on the update to open the **Log Search** pane for the select
 
 ## Configure alerts
 
-In this step, you set an alert to let you know when updates have been successfully deployed. The alert you create is based on a Log Analytics query. You can write a custom query for additional alerts to cover many different scenarios. In the Azure portal, go to **Monitor**, and then select **Create Alert**. 
+In this step, you learn to set up an alert to let you know when updates have been successfully deployed through a Log Analytics query or by tracking the master runbook for Update Management for deployments that failed.
 
-Under **Create rule**, under **1. Define alert condition**, select **Select target**. Under **Filter by resource type**, select **Log Analytics**. Select your Log Analytics workspace, and then select **Done**.
+### Alert conditions
+
+For each type of alert, there are different alert conditions that need to be defined.
+
+#### Log Analytics query alert
+
+For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments, you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrators update deployments fails. You can write a custom query for additional alerts to cover many different scenarios.
+
+In the Azure portal, go to **Monitor**, and then select **Create Alert**.
+
+Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Log Analytics**. Select your Log Analytics workspace, and then select **Done**.
 
 ![Create alert](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -98,7 +108,22 @@ Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, sel
 
 ![Configure signal logic](./media/automation-tutorial-update-management/signal-logic.png)
 
-Under **2. Define alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)** because the alert is for a successful run.
+#### Runbook alert
+
+For failed deployments you must alert of the failure of the master run
+In the Azure portal, go to **Monitor**, and then select **Create Alert**.
+
+Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
+
+For **Runbook Name**, click the **\+** sign and enter **Patch-MicrosoftOMSComputers** as a custom name. For **Status**, choose **Failed** or click the **\+** sign to enter **Failed**.
+
+![Configure signal logic for runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, select **Done**.
+
+### Alert details
+
+Under **2. Define alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)** for a successful run, or **Informational(Sev 1)** for a failed run.
 
 ![Configure signal logic](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -120,9 +145,6 @@ To customize the subject of the alert email,  under **Create rule**, under **Cus
 
 Next, schedule a deployment that follows your release schedule and service window to install updates. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
-> [!WARNING]
-> When updates require a restart, the VM is restarted automatically.
-
 To schedule a new update deployment for the VM, go to **Update management**, and then select **Schedule update deployment**.
 
 Under **New update deployment**, specify the following information:
@@ -131,7 +153,7 @@ Under **New update deployment**, specify the following information:
 
 * **Operating system**: Select the OS to target for the update deployment.
 
-* **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+* **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Update classification**: Select the types of software that the update deployment included in the deployment. For this tutorial, leave all types selected.
 
@@ -151,7 +173,7 @@ Under **New update deployment**, specify the following information:
 * **Maintenance window (minutes)**: Leave the default value. You can set the window of time that you want the update deployment to occur within. This setting helps ensure that changes are performed within your defined service windows.
 
 * **Reboot options**: This setting
-detemines how reboots should be handled. Available options are:
+determines how reboots should be handled. Available options are:
   * Reboot if required (Default)
   * Always reboot
   * Never reboot

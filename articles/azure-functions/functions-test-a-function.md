@@ -4,17 +4,13 @@ description: Test your Azure functions by using Postman, cURL, and Node.js.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing
 
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/02/2017
 ms.author: glenga
 
@@ -31,9 +27,9 @@ This topic demonstrates the various ways to test functions, including using the 
 + Timer-triggered function
 + Testing application or framework
 
-All these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function in the first section.
+All these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function using the Azure portal in the first section.
 
-## Create a function for testing
+## Create a simple function for testing using the Azure portal
 For most of this tutorial, we use a slightly modified version of the HttpTrigger JavaScript function template that is available when you create a function. If you need help creating a function, review this [tutorial](functions-create-first-azure-function.md). Choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure portal].
 
 The default function template is basically a "hello world" function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We'll update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function echoes these back to the client when available.   

@@ -148,10 +148,6 @@ After the device boots, the following actions take place:
 5. On successful connection to the hub, you see the device appear in the IoT Hub Device Explorer.
   ![Device registered](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
-## Change the device ID
-
-The default device ID registered with Azure IoT Hub is *AZ3166*. If you want to modify the ID, follow the instructions in [Customize device ID](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
-
 ## Problems and feedback
 
 If you encounter problems, refer to the Iot DevKit [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/), or reach out to the following channels for support:
