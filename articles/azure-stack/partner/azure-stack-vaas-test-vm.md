@@ -54,7 +54,7 @@ Azure Stack is the system under test. The machine should not be part of Azure St
 1. Open Windows PowerShell in an elevated prompt on the machine you will use to run the tests.
 2. Run the following command to download the local agent:
 
-    ```PowerShell  
+    ```PowerShell
         Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
         Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent.3.2.0 -Force
         Set-Location VaaSOnPremAgent.3.2.0\lib\net46
@@ -62,14 +62,16 @@ Azure Stack is the system under test. The machine should not be part of Azure St
 
 3. Run the following command to install the local agent dependencies:
 
-    ```PowerShell  
-        $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
-        Import-Module .\VaaSPreReqs.psm1 -Force
-        Install-VaaSPrerequisites -AadTenantId <AadTenantId> `
-        -ServiceAdminCreds <ServiceAdminCreds> `
-        -ArmEndpoint https://adminmanagement.<ExternalFqdn> `
-        -Region <Region>
-    ````
+    ```PowerShell
+    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
+    $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
+    Import-Module .\VaaSPreReqs.psm1 -Force
+    Install-VaaSPrerequisites -AadTenantId $AadTenantId `
+                              -ServiceAdminCreds $ServiceAdminCreds `
+                              -ArmEndpoint https://adminmanagement.$ExternalFqdn `
+                              -Region $Region `
+                              -CloudAdminCredentials $CloudAdminCreds
+    ```
 
     **Parameters**
 
@@ -85,23 +87,24 @@ The command downloads a public image repository (PIR) image (OS VHD) and copy fr
 
 ![Download prerequisites](media/installingprereqs.png)
 
-> [!Note]  
+> [!Note]
 > If you're experiencing slow network speed when downloading these images, download them separately to a local share and specify the parameter **-LocalPackagePath** *FileShareOrLocalPath*. You can find more guidance on your PIR download in the section [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) of [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md).
 
-## Fault injection
+## Checks before starting the tests
 
-Microsoft designed Azure Stack for resilience and to tolerate multiple types of software and hardware faults. Fault injection increases the rate of faults in the system. This increase helps you uncover issues earlier so that you can reduce the number of incidents that bring the system down.
+The tests perform remote operations. The machine that runs the tests must have access to the Azure Stack endpoints, otherwise the tests will not work. If you are using the VaaS local agent, use the machine where the agent will run. You can verify that your machine has access to the Azure Stack endpoints by running the following checks:
 
-Run the following commands to inject faults into your system.
+1. Check that the Base URI can be reached. Open a CMD prompt or bash shell, and run the following command, replacing `<EXTERNALFQDN>` with the External FQDN of your environment:
 
-1. Open Windows PowerShell in an elevated prompt.
-
-2. Run the following command:
-
-    ```PowerShell  
-        Import-Module .\VaaSPreReqs.psm1 -Force
-        Install-ServiceFabricSDK Install-ServiceFabricSDK
+    ```bash
+    nslookup adminmanagement.<EXTERNALFQDN>
     ```
+
+2. Open a web browser and navigate to `https://adminportal.<EXTERNALFQDN>` in order to check that the MAS Portal can be reached.
+
+3. Sign in using the Azure AD service administrator name and password values provided when creating the test pass.
+
+4. Check the system's health by running the **Test-AzureStack** PowerShell cmdlet as described in [Run a validation test for Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-diagnostic-test). Fix any warnings and errors before launching any tests.
 
 ## Run the agent
 
@@ -109,7 +112,7 @@ Run the following commands to inject faults into your system.
 
 2. Run the following command:
 
-    ````PowerShell  
+    ````PowerShell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ````
 
@@ -133,6 +136,6 @@ An agent is uniquely identified by its name. By default, it uses the fully quali
 
 ## Next steps
 
-- [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)  
-- If you have slow or intermittent Internet connectivity, you can download the PIR images. For more information, see [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
-- To learn more about [Azure Stack Validation as a Service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md)
+- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)
+- [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md)
