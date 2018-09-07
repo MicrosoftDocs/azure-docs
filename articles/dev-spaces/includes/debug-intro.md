@@ -15,4 +15,4 @@ In this section, you'll use VS Code to directly debug our container running in A
 
 ![](../media/common/edit-refresh-see.png)
 
-[!INCLUDE[](see-troubleshooting.md)]
+[!INCLUDE [](see-troubleshooting.md)]
