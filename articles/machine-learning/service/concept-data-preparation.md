@@ -21,9 +21,9 @@ Then when it becomes time to clean the data, using transforms makes it simple to
 For models to consume the data that has been cleaned, it is easier to be able to access it in known formats like CSV or Parquet files. 
 
 ## The steps for data preparation with Azure Machine Learning 
--[Load Data](how-to-load-data.md )
--[Transform Data](how-to-transform-data.md )
--[Write Data](how-to-wrtie-data.md )
+- [Load Data](how-to-load-data.md )
+- [Transform Data](how-to-transform-data.md )
+- [Write Data](how-to-wrtie-data.md )
 
 ## Next Steps
 Here is an [example notebook]( https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/NYTaxiCab/01.new_york_taxi.ipynb) of data preparation.
