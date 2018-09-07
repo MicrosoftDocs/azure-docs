@@ -63,7 +63,7 @@ Create a remote desktop connection to the virtual machine. These directions tell
 
 1. Click the **Connect** button on the virtual machine properties page. 
 
-    ![Connect to an Azure VM from the portal](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    ![Connect to an Azure VM from the portal](./media/quick-create-portal/portal-quick-start-9.png)
 	
 2. In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 3389 and click **Download RDP file**.
 
