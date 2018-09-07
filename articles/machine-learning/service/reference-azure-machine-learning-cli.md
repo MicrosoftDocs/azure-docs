@@ -20,33 +20,41 @@ The Azure Machine Learning CLI extension enables data scientists and developers 
 
 This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) and was built on top of the [Python-based SDK for Azure Machine Learning service](reference-azure-machine-learning-sdk.md).
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+## Common machine learning CLI commands
 
-# CLI commands 
+Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
-Use the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.  
+Here is a sample of common commands:
 
-## Workspace interaction
++ Create an Azure Machine Learning Workspace, the top level resource for machine learning.
 
-```az ml workspace create -n myws -g myrg```
+    ```AzureCLI
+    ## Create a workspace
+    az ml workspace create -n myworkspace -g myresourcegroup
+    ```
 
-## Experiment interaction
++ Submit an experiment against the Azure Machine Learning service on the compute target of your choice
 
-```az ml experiment submit```
-Enables you to submit an experiment against Azure ML experimentation services, across a variety of supported compute targets.
+    ```AzureCLI
+    ## Run your experiment
+    az ml experiment submit
+    ```
 
-## Operationalization interaction
++ Prepare for deployment by registering a model produced locally or in a training run. Create an image to contain your machine learning model and dependencies. Currently the CLI only supports creating WebApiContainer images. Supported deployment targets include ACI and AKS.
 
-### Model Registration
-```az ml model register```
-Register a model produced locally or in an AML training run for operationalization.
+    ```AzureCLI
+    ## Prepare to deploy your model as a web service
+    
+    ## - Register a model 
+    az ml model register
+    
+    ## - Create an image 
+    az ml image create
+    
+    ## - Deploy the model as a web service
+    az ml service create
+    ```
 
-### Image Creation
-```az ml image create```
-Create an image for your ML model.
-Currently the CLI only supports creating WebApiContainer images.
+## Next steps
 
-### Service Creation
-```az ml service create```
-Creates a service from your ML model.
-Supported targets include ACI and AKS.
+For the full set of CLI commands, look through [the CLI reference documentation]().	
