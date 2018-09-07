@@ -32,6 +32,14 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.882.0 
+
+9/7/2018: released for download, will not be release for auto upgrade
+
+### Fixed issues 
+
+AADConnect Upgrade fails if SQL AOA is configured for the ADSync DB. This hotfix addresses this issue and allows Upgrade to succeed.
+
 ## 1.1.880.0
 
 ### Release status
