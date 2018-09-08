@@ -1,6 +1,6 @@
 ---
-title: Learn about Azure Service Fabric cluster versions and VM SKUs | Microsoft Docs
-description: Supported Azure Service Fabric cluster versions and VM SKUs
+title: Learn about Azure Service Fabric cluster versions | Microsoft Docs
+description: Supported Azure Service Fabric cluster versions
 services: service-fabric
 documentationcenter: .net
 author: twhitney
