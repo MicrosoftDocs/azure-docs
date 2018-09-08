@@ -23,35 +23,33 @@ This article is an introduction to developing Azure Functions using Python. The 
 
 ## Programming model
 
-An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects this to be implemented as a global method called `main()` in the `__init__.py` file. You can change the default  configuration using the `scriptFile` property in the function.json file to specify the name of your Python file. Similarly, the name of the file can be configured as well by specifying the `scriptFile` property, also in function.json.
+An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects this to be implemented as a global method called `main()` in the `__init__.py` file.
+
+You can change the default  configuration by specifying the `scriptFile` and `entryPoint` properties in the `function.json` file. For example, the _function.json_ below tells the runtime to use the _customentry()_ method in the _main.py_ file, as the entry point for your Azure Function.
 
 ```json
 {
-  "scriptFile": "__init__.py",
-  "entryPoint": "main",
+  "scriptFile": "main.py",
+  "entryPoint": "customentry",
   ...
 }
 ```
 
-Data from triggers and bindings is bound to the function via method attributes using the `name` property in the function.json file. Optionally, the function parameter types and the return type may also be declared as Python type annotations. The annotations must match the types expected by the bindings declared in function.json.
-
-The following  _function.json_ file describes a simple function triggered by an HTTP request:
+Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the `function.json` configuration file. For example,the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
 ```json
 {
-  "scriptFile": "__init__.py",
-  "disabled": false,
   "bindings": [
     {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
+      "name": "req",
       "direction": "in",
-      "name": "req"
+      "type": "httpTrigger",
+      "authLevel": "anonymous"
     },
     {
-      "type": "http",
+      "name": "$return",
       "direction": "out",
-      "name": "$return"
+      "type": "http"
     }
   ]
 }
@@ -60,64 +58,150 @@ The following  _function.json_ file describes a simple function triggered by an 
 The `__init__.py` file contains the following function code:
 
 ```python
-import azure.functions
-
 def main(req):
-    user = req.params.get('user', 'User')
+    user = req.params.get('user')
     return f'Hello, {user}!'
 ```
 
-The same function can be written using annotations, as follows:
+Optionally, you can also declare the parameter types and the return type in the function using Python type annotations. For example, the same function can be written using annotations, as follows:
 
 ```python
+import azure.functions
+
 def main(req: azure.functions.HttpRequest) -> str:
-    user = req.params.get('user', 'User')
+    user = req.params.get('user')
     return f'Hello, {user}!'
 ```  
 
 ## Inputs
 
-Inputs are divided into two categories in Azure Functions: one is the trigger input and the other is the additional input. Although they are different in `function.json`, the usage is identical in Python code. Let's take the following code snippet as an example:
+Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in `function.json`, the usage is identical in Python code. Let's take the following code snippet as an example:
 
 ```json
-TBD
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "req",
+      "direction": "in",
+      "type": "httpTrigger",
+      "authLevel": "anonymous",
+      "route": "items/{id}"
+    },
+    {
+      "name": "obj",
+      "direction": "in",
+      "type": "blob",
+      "path": "samples/{id}",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
 ```
 
 ```python
-TBD
+import azure.functions as func
+import logging
+
+def main(req: func.HttpRequest,
+         obj: func.InputStream):
+
+    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-When this function is triggered, the HTTP request is passed to the function as `in`. An entry will be retrieved from the Azure Blob Storage based on the ID in the route URL and made available as `obj` in the function body.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _id_ in the route URL and made available as `obj` in the function body.
 
 ## Outputs
 
-Output can be expressed both in return value and/or output parameters. If there is only one output, we recommend using the return value. For multiple outputs, you will have to use output parameters.
+Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you will have to use output parameters.
 
-To use the return value of the function as the value of an output binding, the name of the property should be `$return` in `function.json`.
+To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in `function.json`.
 
-To produce multiple output values, use the `set()` method provided by the `azure.functions.Out` interface to set the value of the output parameter. For example, the following function can push a message to a queue and also return an HTTP response.
+To produce multiple output values, use the `set()` method provided by the `azure.functions.Out` interface to assign a value to the output parameter. For example, the following function can push a message to a queue and also return an HTTP response.
 
 ```json
-TBD
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "req",
+      "direction": "in",
+      "type": "httpTrigger",
+      "authLevel": "anonymous"
+    },
+    {
+      "name": "msg",
+      "direction": "out",
+      "type": "queue",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "$return",
+      "direction": "out",
+      "type": "http"
+    }
+  ]
+}
 ```
 
 ```python
-TBD
-```
+import azure.functions as func
 
-To write multiple values to a single output binding, or if a successful function invocation might not result in anything to pass to the output binding, use a Python tuple. For example, the following function writes multiple messages into the same queue. 
+def main(req: func.HttpRequest,
+         msg: func.Out[func.QueueMessage]) -> str:
 
-```python
-TBD
+    message = req.params.get('body')
+    msg.set(message)
+    return message
 ```
 
 ## Logging
 
-Azure Functions adds a root [`logging`](https://docs.python.org/3/library/logging.html#module-logging) handler automatically, and any log output produced using the standard logging output is captured by the Functions runtime. To learn more about monitoring your function, see [Monitor Azure Functions](functions-monitoring.md).
+Access to the Functions runtime logger is available via a root [`logging`](https://docs.python.org/3/library/logging.html#module-logging) handler in your function app. This logger is tied to Application Insights and allows you to flag warnings and errors encountered during the function execution.
+
+The following example code logs an info message when the function is invoked via an HTTP trigger.
+
+```python
+import logging
+
+def main(req):
+    logging.info('Python HTTP trigger function processed a request.')
+```
+
+Additional logging methods are available that let you write to the console at different trace levels:
+
+| Method                 | Description                                |
+| ---------------------- | ------------------------------------------ |
+| logging.**critical(_message_)**   | Writes a message with level CRITICAL on the root logger.  |
+| logging.**error(_message_)**   | Writes a message with level ERROR on the root logger.    |
+| logging.**warning(_message_)**    | Writes a message with level WARNING on the root logger.  |
+| logging.**info(_message_)**    | Writes a message with level INFO on the root logger.  |
+| logging.**debug(_message_)** | Writes a message with level CRITICAL on the root logger.  |
+
+## Async
+
+Since only a single Python process can exist per function app, it is recommended to implement your Azure Function as an asynchronous coroutine using the `async def` statement.
+
+```python
+# Will be run with asyncio directly
+async def main():
+    await some_nonblocking_socket_io_op()
+```
+
+If the main() function is synchronous (no `async` qualifier) we automatically run it in an `asyncio` thread-pool:
+
+```python
+# Would be run in an asyncio thread-pool
+def main():
+    some_blocking_socket_io()
+```
 
 ## Context
 
-To get the invocation context of a function during execution, include the `context` argument in its signature. The context is passed as a **Context** instance, as in the following example:
+To get the invocation context of a function during execution, include the `context` argument in its signature. 
+
+For example:
 
 ```python
 import azure.functions
@@ -137,6 +221,41 @@ Name of the function.
 
 `invocation_id`  
 ID of the current function invocation.
+
+## Python version and package management
+
+Currently, Azure Functions only supports Python 3.6.x (official CPython distribution).
+
+When developing locally using the Azure Functions Core Tools or Visual Studio Code, install the required packages to your virtual environment using `pip`.
+
+For example, the following command installs the latest version of the `requests` package from PyPI.
+
+```bash
+pip install requests
+```
+
+When you're ready for publishing, ensure that all your dependencies are listed in the `requirements.txt` file. You can use the `pip freeze` command to automatically generate the requirements file.
+
+```bash
+pip freeze > requirements.txt
+```
+
+To successfully execute your Azure Functions, the `requirements.txt` file should contain a minimum of the following packages:
+
+```txt
+azure-functions
+azure-functions-worker
+grpcio==1.14.1
+grpcio-tools==1.14.1
+protobuf==3.6.1
+six==1.11.0
+```
+
+If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using `pip`, publishing to Azure will fail. To build the required binaries locally, you will need to install [Docker](https://docs.docker.com/install/) and run the following command to publish:
+
+```bash
+func azure functionapp <app name> --build-native-deps
+```
 
 ## Next steps
 For more information, see the following resources:

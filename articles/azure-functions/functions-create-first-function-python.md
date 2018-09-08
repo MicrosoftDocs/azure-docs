@@ -104,32 +104,6 @@ Writing C:\functions\MyFunctionProj\HttpTrigger\__init__.py
 Writing C:\functions\MyFunctionProj\HttpTrigger\function.json
 ```
 
-## Edit the function
-
-Go to the new function.json file for your function, open it in a text editor, update the **authLevel** property in the **bindings.httpTrigger** to `anonymous`, and save your changes.
-
-```json
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-```
-
-This change lets you call the function in Azure without having to supply the function key. The function key is never required when running locally.
-
 ## Run the function locally
 
 The following command starts the function app. The app runs using the same Azure Functions runtime that is in Azure.
