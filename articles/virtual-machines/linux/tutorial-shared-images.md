@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: cynthn
 ms.custom: mvc
 
@@ -146,21 +146,21 @@ az image create \
 
 ## Create an image gallery 
 
-An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. Create an image gallery using az image gallery create. The following example creates a gallery named *myGallery* in *myResourceGroup*.
+An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. Create an image gallery using [az sig create](/cli/azure). The following example creates a gallery named *myGallery* in *myGalleryRG*.
 
 ```azurecli-interactive
-az image gallery create -g myGalleryRG --gallery-name myGallery
+az sig create -g myGalleryRG --gallery-name myGallery
 ```
 
 ## Create an image definition
 
-Create an initial image in the gallery using az image gallery create-image.
+Create an initial image in the gallery using [az sig image-definition create](/cli/azure).
 
 ```azurecli-interactive 
-az image gallery create-image \
+az sig image-definition create \
    -g myGalleryRG \
    --gallery-name myGallery \
-   --gallery-image-name myImage \
+   --gallery-image-definition myImageDefinition \
    --publisher myPublisher \
    --offer myOffer \
    --sku 16.04-LTS \
@@ -172,10 +172,10 @@ az image gallery create-image \
 Create versions of the image as needed using az image gallery create-image-version.
 
 ```azurecli-interactive 
-az image gallery create-image-version \
+az sig image-version create \
    -g myGalleryRG \
    --gallery-name myGallery \
-   --gallery-image-name myImage \
+   --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
    --managed-image myImage
 ```
@@ -189,25 +189,30 @@ Create a VM from the image in the image gallery using [az vm create](/cli/azure/
 az vm create\
    -g myGalleryRG \
    -n myVM \
-   --image /subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImage/versions/1.0.0 \
+   --image /subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0 \
    --generate-ssh-keys
 ```
 
 
 ## List information
 
-Get the location, status and other information about the available image galleries using [az image gallery list](/cli/azure/)
+Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/)
 
 ```azurecli-interactive 
-az image gallery list -o table
+az sig list -o table
 ```
 
-List the image definitions in a gallery, including information about OS type and status, using [az gallery list images](/cli/azure/).
+List the image definitions in a gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/).
 
 ```azurecli-interactive 
-az image gallery list-images -g myGalleryRG -r myGallery -o table
+az sig image-definition list -g myGalleryRG -r myGallery -o table
 ```
 
+List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/).
+
+```azurecli-interactive
+az sig image-version list -g myGalleryRG -r myGallery -i myGalleryImage -o table
+```
 
 ## Next steps
 
