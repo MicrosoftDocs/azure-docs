@@ -108,6 +108,9 @@
       href: resource-group-using-tags.md
     - name: Move resources to new group or subscription
       href: resource-group-move-resources.md
+      items:
+      - name: Move support per resource type
+        href: move-support-resources.md
     - name: Create EA subscriptions
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions

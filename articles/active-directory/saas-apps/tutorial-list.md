@@ -295,6 +295,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-jdacloud-tutorial.png)| [JDA Cloud](jdacloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jiramicrosoft-tutorial.png)| [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jira52microsoft-tutorial.png)| [JIRA SAML SSO by Microsoft (V5.2)](jira52microsoft-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jitbit-helpdesk-tutorial.png)| [Jitbit Helpdesk](jitbit-helpdesk-tutorial.md)|
@@ -511,6 +512,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-showpad-tutorial.png)| [Showpad](showpad-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-signalfx-tutorial.png)| [SignalFx](signalfx-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-silkroad-life-suite-tutorial.png)| [SilkRoad Life Suite](silkroad-life-suite-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-silverback-tutorial.png)| [Silverback](silverback-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-simplenexus-tutorial.png)| [SimpleNexus](simplenexus-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skilljar-tutorial.png)| [Skilljar](skilljar-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skillport-tutorial.png)| [Skillport](skillport-tutorial.md)|
