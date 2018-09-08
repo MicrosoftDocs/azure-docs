@@ -79,6 +79,7 @@ You can add tracking through Azure Machine Learning services to your training ex
   preds = reg.predict(data['test']['X'])
   run.log('mse', mean_squared_error(preds, data['test']['y']))
   joblib.dump(value = reg, filename = 'model.pkl')
+  # Upload file directly to the outputs folder
   run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
   run.complete()
@@ -89,14 +90,14 @@ When an experiment is done running, you can  browse to the recorded experiment r
 1. Get the URL to the run directly ```print(run.get_portal_url())```
 2. You can also view the run details by submitting the name of the run, in this case, ```run```. This will point you to the Experiment name, Id, Type, Status, Datils Page, a link to the Web Portal and a link to documentation.
 
-The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case we logged MSE and the alpha values. 
+The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values. 
 
-Under the logs tab, you can see all of the pkl files that were saved.
+Under the outputs tab, you can view and download the model.pkl that we uploaded in the code above. This example did not save anything to logs, but if it had, you could see these under the logs tab. 
 
-You can also download the snapshot of the experiment you submitt
+You can also download the snapshot of the experiment you submitted. 
 
 ## Monitor progress using Jupyter widgets
-For longer running experiments, you can watch the progress of the run with a Jupyter Notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes. This example runs locally against a user-managed environment. We can now expand on the basic ridge model from above and do a simple parameter sweep to sweep over alpha values of a sklearn ridge model, capture metrics and trained model as runs under the experiment.
+For longer running experiments, you can watch the progress of the run with a Jupyter Notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes. This example runs locally against a user-managed environment. We can now expand on the basic ridge model from above and do a simple parameter sweep to sweep over alpha values of a sklearn ridge model to capture metrics and trained models in runs under the experiment.
 
 1. Create a training script. This uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
   ```python
@@ -150,6 +151,8 @@ For longer running experiments, you can watch the progress of the run with a Jup
       print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
   
   ```
+  The script uses the Ridge model example and adds several logs, uploads the model file, and also registers each model. In this case we uploaded the models to the logs folder due to the missing ```outputs/``` preface to the name in the line ```run.upload_file)```.
+  
 2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
   ```python
   %%writefile $script_folder/mylib.py
@@ -186,13 +189,10 @@ For longer running experiments, you can watch the progress of the run with a Jup
   ```
   
 ## Get log results upon completion
-Model training and monitoring happen in the background. You can also wait until the model has completed training before running more code. Use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
+Model training and monitoring happen in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. Use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
   
 ## Query run metrics
-You can view the metrics of a trained model using ```run.get_metrics()```.
-
-### Select best model from run history  
-We can now get all of the metrics that were logged in the parameter sweep example above to determine the best model. 
+You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the parameter sweep example above to determine the best model. 
 1. Start off by determining what the best alpha value is in the list of metrics from above.
   ```python
   import numpy as np
