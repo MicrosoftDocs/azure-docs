@@ -13,14 +13,16 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
 
 ---
-# Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint
+# Permissions and consent in the Azure Active Directory v2.0 endpoint
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Apps that integrate with Azure Active Directory (Azure AD) follow an authorization model that gives users control over how an app can access their data. The v2.0 implementation of the authorization model has been updated, and it changes how an app must interact with Azure AD. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 

@@ -20,22 +20,23 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-# v2.0 Protocols - OAuth 2.0 Authorization Code Flow
+# v2.0 Protocols - OAuth 2.0 authorization code flow
+
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. Using the app model v2.0 's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps. This guide is language-independent, and describes how to send and receive HTTP messages without using any of the [Azure open-source authentication libraries](active-directory-authentication-libraries.md).
 
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-> 
-> 
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). It is used to perform authentication and authorization in the majority of app types, including [web apps](v2-app-types.md#web-apps) and [natively installed  apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the v2.0 endpoint. 
 
 ## Protocol diagram
+
 At a high level, the entire authentication flow for a native/mobile application looks a bit like this:
 
 ![OAuth Auth Code Flow](./media/v2-oauth2-auth-code-flow/convergence_scenarios_native.png)
 
 ## Request an authorization code
+
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user:
 
 ```
@@ -53,8 +54,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Click the link below to execute this request! After signing in, your browser should be redirected to `https://localhost/myapp/` with a `code` in the address bar.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | Parameter             |             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -76,6 +75,7 @@ At this point, the user will be asked to enter their credentials and complete th
 Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
 #### Successful response
+
 A successful response using `response_mode=query` looks like:
 
 ```
@@ -90,6 +90,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | state     | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical.                                            |
 
 #### Error response
+
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -104,6 +105,7 @@ error=access_denied
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.          |
 
 #### Error codes for authorization endpoint errors
+
 The following table describes the various error codes that can be returned in the `error` parameter of the error response.
 
 | Error Code                | Description                                                                                                           | Client Action                                                                                                                                                                                                                               |
@@ -119,6 +121,7 @@ The following table describes the various error codes that can be returned in th
 |interaction_required       | The request requires user interaction. | An additional authentication step or consent is required. Retry the request without `prompt=none`. |
 
 ## Request an access token
+
 Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource. Do this by sending a `POST` request to the `/token` endpoint:
 
 ```
@@ -139,8 +142,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Try executing this request in Postman! (Don't forget to replace the `code`)
 > [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
-> 
-> 
 
 | Parameter     |                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |---------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -152,7 +153,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri  | required              | The same redirect_uri value that was used to acquire the authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app. It should not be used in a native app, because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  The client secret must be URL-encoded before being sent.                                                                                                                    |
 | code_verifier | optional              | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+
 #### Successful response
+
 A successful token response will look like:
 
 ```json
@@ -199,6 +202,7 @@ Error responses will look like:
 | correlation_id    | A unique identifier for the request that can help in diagnostics across components.                             |
 
 #### Error codes for token endpoint errors
+
 | Error Code              | Description                                                                                                           | Client Action                                                                                                                                                                                                                               |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | invalid_request         | Protocol error, such as a missing required parameter.                                                               | Fix and resubmit the request                                                                                                                                                                                                                |
@@ -211,6 +215,7 @@ Error responses will look like:
 | temporarily_unavailable | The server is temporarily too busy to handle the request.                                                            | Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition.                                                                                                                |
 
 ## Use the access token
+
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
 
 > [!TIP]
@@ -226,6 +231,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## Refresh the access token
+
 Access_tokens are short lived, and you must refresh them after they expire to continue accessing resources. You can do so by submitting another `POST` request to the `/token` endpoint, this time providing the `refresh_token` instead of the `code`:
 
 ```
@@ -260,6 +266,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app. It should not be used in a native  app, because client_secrets cannot be reliably stored on devices. It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.                                                                                                                                                    |
 
 #### Successful response
+
 A successful token response will look like:
 
 ```json

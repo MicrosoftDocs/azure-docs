@@ -1,6 +1,6 @@
 ---
 title: Migrate from the Azure Access Control service | Microsoft Docs
-description: Options for moving apps and services from the Azure Access Control service
+description: Learn about the options for moving apps and services from the Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ---
 
-# Migrate from the Azure Access Control service
+# How to: Migrate from the Azure Access Control service
 
 Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 
@@ -33,7 +33,7 @@ Use cases for Access Control can be broken down into three main categories:
 - Adding authentication to web applications, both custom and prepackaged (like SharePoint). By using Access Control "passive" authentication, web applications can support sign-in with a Microsoft account (formerly Live ID), and with accounts from Google, Facebook, Yahoo, Azure AD, and Active Directory Federation Services (AD FS).
 - Securing custom web services with tokens issued by Access Control. By using "active" authentication, web services can ensure that they allow access only to known clients that have authenticated with Access Control.
 
-Each of these use cases and their recommended migration strategies are discussed in the following sections. 
+Each of these use cases and their recommended migration strategies are discussed in the following sections.
 
 > [!WARNING]
 > In most cases, significant code changes are required to migrate existing apps and services to newer technologies. We recommend that you immediately begin planning and executing your migration to avoid any potential outages or downtime.

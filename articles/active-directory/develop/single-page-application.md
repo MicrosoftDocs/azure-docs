@@ -1,49 +1,76 @@
 ---
-title: App types for the Azure Active Directory v2.0 endpoint | Microsoft Docs
-description: The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
+title: Application types in Azure Active Directory | Microsoft Docs
+description: Describes the types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
 
-ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
 ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/17/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ---
 
-# App types for the Azure Active Directory v2.0 endpoint
+# Single-page applications
 
-The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
+Single-page applications (SPAs) are typically structured as a JavaScript presentation layer (front end) that runs in the browser, and a web API back end that runs on a server and implements the application’s business logic.
 
-> [!NOTE]
-> The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+Many modern apps have a single-page app front end that is primarily written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
 
-## The basics
+In the OAuth 2.0 implicit flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
 
-You must register each app that uses the v2.0 endpoint in the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com). The app registration process collects and assigns these values for your app:
+![Implicit authentication flow](./media/v2-app-types/convergence_scenarios_implicit.png)
 
-* An **Application ID** that uniquely identifies your app
-* A **Redirect URI** that you can use to direct responses back to your app
-* A few other scenario-specific values
+In this scenario, when the user signs in, the JavaScript front end uses [Microsoft Authentication Library for JavaScript (MSAL.JS)](https://github.com/AzureAD/microsoft-authentication-library-for-js) and the implicit authorization grant to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its Web API back end, which is secured using the OWIN middleware.
 
-For details, learn how to [register an app](quickstart-v2-register-an-app.md).
+## Diagram
 
-After the app is registered, the app communicates with Azure AD by sending requests to the Azure AD v2.0 endpoint. We provide open-source frameworks and libraries that handle the details of these requests. You also have the option to implement the authentication logic yourself by creating requests to these endpoints:
+![Single Page Application diagram](./media/authentication-scenarios/single_page_app.png)
 
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
-```
-<!-- TODO: Need a page for libraries to link to -->
+## Protocol flow
+
+1. The user navigates to the web application.
+1. The application returns the JavaScript front end (presentation layer) to the browser.
+1. The user initiates sign in, for example by clicking a sign-in link. The browser sends a GET to the Azure AD authorization endpoint to request an ID token. This request includes the application ID and reply URL in the query parameters.
+1. Azure AD validates the Reply URL against the registered Reply URL that was configured in the Azure portal.
+1. The user signs in on the sign-in page.
+1. If authentication is successful, Azure AD creates an ID token and returns it as a URL fragment (#) to the application’s Reply URL. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
+1. The JavaScript client code running in the browser extracts the token from the response to use in securing calls to the application’s web API back end.
+1. The browser calls the application’s web API back end with the ID token in the authorization header. The Azure AD authentication service issues an ID token that can be used as a bearer token if the resource is the same as the client ID (in this case, this is true as the web API is the app's own backend).
+
+## Code samples
+
+See the [code samples for single-page application scenarios](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples). Be sure to check back frequently as new samples are added frequently.
+
+## Registering
+
+To register a single-page app, see [Register an app with the Azure AD v2.0 endpoint](quickstart-v2-register-an-app.md).
+
+* Single tenant - If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure portal.
+* Multi-tenant - If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application. To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application. When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent. Depending on the required permissions, an administrator in the other organization may be required to give consent. When the user or administrator consents, the application is registered in their directory.
+
+After registering the application, it must be configured to use OAuth 2.0 implicit grant protocol. By default, this protocol is disabled for applications. To enable the OAuth2 implicit grant protocol for your application, edit its application manifest from the Azure portal and set the “oauth2AllowImplicitFlow” value to true. For more info, see [Application manifest](reference-app-manifest.md).
+
+## Token expiration
+
+Using MSAL.js helps with:
+
+* refreshing an expired token
+* requesting an access token to call a web API resource
+
+After a successful authentication, Azure AD writes a cookie in the user's browser to establish a session. Note the session exists between the user and Azure AD (not between the user and the web application). When a token expires, MSAL.js uses this session to silently obtain another token. MSAL.js uses a hidden iFrame to send and receive the request using the OAuth implicit grant protocol. MSAL.js can also use this same mechanism to silently obtain access tokens for other web API resources the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.
+
+
+
+
 
 ## Web apps
 
@@ -98,22 +125,15 @@ To learn how to secure a Web API by using OAuth2 access tokens, check out the We
 In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory. To do so, web APIs can take advantage of Azure AD's **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests. The v2.0 endpoint's On Behalf Of flow is described in [detail here](v2-oauth2-on-behalf-of-flow.md).
 
 ## Mobile and native apps
+
 Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user. These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 In this flow, the app receives an authorization code from the v2.0 endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to Web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
 ![Native app authentication flow](./media/v2-app-types/convergence_scenarios_native.png)
 
-## Single-page apps (JavaScript)
-Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
-
-In this flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
-
-![Implicit authentication flow](./media/v2-app-types/convergence_scenarios_implicit.png)
-
-To see this scenario in action, try one of the single-page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
-
 ## Daemons and server-side apps
+
 Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow.
 
 In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:
