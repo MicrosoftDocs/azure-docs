@@ -225,15 +225,7 @@ def access_check( user, desired_perms, path ) :
 
 ## The mask and "effective permissions"
 
-The **mask** is an RWX value that is used to limit access for **named users**, the **owning group**, and **named groups** when you're performing the access check algorithm. Here are the key concepts for the mask.
-
-* The mask creates "effective permissions." That is, it modifies the permissions at the time of access check.
-* The mask can be directly edited by the file owner and any super-users.
-* The mask can remove permissions to create the effective permission. The mask *cannot* add permissions to the effective permission.
-
-Let's look at some examples. In the following example, the mask is set to **RWX**, which means that the mask does not remove any permissions. The effective permissions for the named user, owning group, and named group are not altered during the access check.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
+As illustrated in the Access Check Algorithm, the RWX creates limits access for **named users**, the **owning group**, and **named groups**.  
 
 In the following example, the mask is set to **R-X**. This means that it **turns off the Write permissions** for **named user**, **owning group**, and **named group** at the time of access check.
 
