@@ -34,7 +34,7 @@ Before you add a SQL hosting server, review the following mandatory and general 
 
 * Dedicate the SQL instance for use by the resource provider and user workloads. You can't use a SQL instance that's being used by any other consumer. This restriction also applies to App Services.
 * Configure an account with the appropriate privilege levels for the resource provider (described below).
-* You're are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
+* You are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
 
 ### SQL Server virtual machine images
 
@@ -124,7 +124,7 @@ To enable automatic seeding on all instances, edit and then run the following SQ
   GO
   ```
 
-Note that the availability group must be enclosed in square brackets.
+The availability group must be enclosed in square brackets.
 
 On the secondary nodes, run the following SQL command:
 
