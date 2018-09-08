@@ -18,21 +18,14 @@ In this quickstart, you'll use the Azure portal to create a Azure Machine Learni
 In this tutorial, you will:
 
 * Create a workspace in your Azure subscription
-* Create a configuration file with the details needed to communicate with your workspace
 * Try it out with a Python script that logs values across multiple iterations
 * View the logged values in your workspace
-
 
 For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
 
 The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
-## Prerequisites
-
-Make sure you have the following prerequisites before starting the quickstart steps:
-
-+ An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-+ A package manager installed, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html).
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
 ## Create a workspace 
@@ -43,82 +36,72 @@ On the workspace page, click on `Explore your Azure Machine Learning Workspace`
 
  ![explore workspace](./media/quickstart-get-started/explore_aml.png)
 
-In a moment, you will use this page.  For now, leave the browser open and move on to configure a project.
 
+## Use the workspace
 
-## Create a configuration file
+Now see how a workspace helps you manage your machine learning scripts. In this section you:
 
-Create a configuration file with the connection details needed to communicate with your workspace.  
-
-On the workspace page, click on `Explore your Azure Machine Learning Workspace`
-
- ![explore workspace](./media/quickstart-get-started/explore_aml.png)
-
-In the middle of the page is the configuration code for your workspace. It will look something like:
-
-```json
-{
-"subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-"resource_group": "docs-aml",
-"workspace_name": "docs-ws"
-}
-```
-
-Copy this code into a file named **config.json**.  Put this file into a directory named **aml_config**.
-
-## Try it out
-
-Now see how the workspace displays results from your Python code.  In this section you:
-
-* Install the Azure Machine Learning SDK
-* Create a Python script that includes `log_row` to log values you want to track
-* Run the script
+* Open a notebook in Azure Notebooks
+* Run code that creates some logged values
 * View the logged values in your workspace
 
-### Install the Azure Machine Learning SDK
+This is one example of how the workspace can help you keep track of information generated in a script. 
 
-[!INCLUDE [aml-install-sdk](../../../includes/aml-install-sdk.md)]
+### Open a notebook 
 
-### Create a Python script
+Azure Notebooks provides a free cloud platform for Jupyter notebooks, pre-configured with everything you need to run Azure Machine Learning service.  
 
-[!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
+Click on the `Open Azure Notebooks` button to try your first experiment.
 
-### Run the script
+ ![Launch Azure Notebook](./media/quickstart-get-started/explore_ws.png)
 
-Run the script with this Python code, also placed in the same directory as the **aml_config/config.json** configuration file.  In this code, `Workspace.from_config()` reads the configuration file to find your workspace.
+A new tab opens and a `Clone Library` prompt appears.  Click on `Clone`
 
-```python
-from azureml.core import Workspace, Project, Run
+### Run the notebook
 
-ws = Workspace.from_config()
+Click on `01.run-experiment.ipynb` to open the notebook.
 
-proj = Project.attach(workspace_object = ws,
-    history_name = "myhistory",
-    directory = ".")
+You can run the cells one at a time by using `Shift`+`Enter`.  Or use the menu `Cells` > `Run All` to run the entire notebook.
 
-run = Run.submit(project_object = proj,
-                    run_config = "local",
-                    script_to_run = "pi.py")
+You may be prompted to log in.  Copy the code in the message, then click on the link and paste the code into the new window.  Be sure not to copy a space before or after the code.
+
+ ![login](./media/quickstart-get-started/login.png)
+
+The third cell of code starts an experiment with the name of "my-first-experiment".  You will use this name to look up information about the run back in your workspace.
+
 ```
+experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
+```
+
+Notice in the last cell of the notebook the values that are written to a log file.
+
+```
+# Log final results
+run.log("Final estimate: ",pi_estimate)
+run.log("Final error: ",math.pi-pi_estimate)
+```
+
+You can view these values in your workspace after the code has run.
 
 ## View logged values
 
-Go back to the portal page in your browser and refresh the page.
+After all the cells in the notebook have completed, go back to the portal page.  
 
-Click again on  `Explore your Azure Machine Learning Workspace`
+Click  on  `View Experiments`.
 
- ![explore workspace](./media/quickstart-get-started/explore_aml.png)
+![view experiments](./media/quickstart-get-started/view_exp.png)
 
-This time you will see a list of experiments for the workspace.
+Close the `Reports` pop-up.
 
-Click on the `myhistory` link, then on the `pi.py` entry on the left. Finally, scroll down the page to find the table of runs and click on the run number link.
+Click on `my-first-experiment`.
 
- ![run history link](./media/quickstart-get-started/run.png)
+See information about the run you just performed.  Scroll down the page to find the table of runs and click on the run number link.
 
+ ![run history link](./media/quickstart-get-started/report.png)
 
-You can now view the values that were logged in your script:
+You see plots that were automatically created of the logged values:
 
-   ![view history](./media/quickstart-get-started/web-results.png)
+   ![view history](./media/quickstart-get-started/plots.png)
 
 ## Clean up resources 
 
