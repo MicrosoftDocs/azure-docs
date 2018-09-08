@@ -10,7 +10,7 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 08/25/2018
+ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 
@@ -21,13 +21,9 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 In this article, you learn how to use the [Azure Functions extension for Microsoft Visual Studio Code] to create and test a "hello world" function on your local computer. You then publish the function code to Azure.
 
-The flow below will work for the following supported languages, given you adjust the necessary parameters/steps:
-
-- Javascript
-- C#
-- Java
-
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
+
+The extension currently lets you write functions in C#, JavaScript, and Java functions. Your choices may vary depending on your choice of language for your Azure Functions project.  
 
 ## Prerequisites
 
@@ -37,7 +33,13 @@ To complete this quickstart:
 
 * Install [version 2.x of the Core Tools](functions-run-local.md#v2), which is still in preview.
 
-* Install extensions for your language of choice.
+* Install language-specific requirements:
+
+| Language | Extension |
+| -------- | --------- |
+| **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+| **Java** | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br />[JDK 1.8    ](http://www.oracle.com/technetwork/java/javase/downloads/index.html)<br />[Maven 3+](https://maven.apache.org/) |
+| **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
