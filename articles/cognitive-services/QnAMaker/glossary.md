@@ -1,12 +1,12 @@
 ---
-title: Glossary - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Glossary - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: Glossary
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
