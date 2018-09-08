@@ -251,7 +251,7 @@ protobuf==3.6.1
 six==1.11.0
 ```
 
-If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using `pip`, publishing to Azure will fail. To build the required binaries locally, you will need to install [Docker](https://docs.docker.com/install/) and run the following command to publish:
+If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using `pip`, publishing to Azure will fail. To build the required binaries locally, install [Docker](https://docs.docker.com/install/) and run the following command to publish using the Azure Functions Core Tools:
 
 ```bash
 func azure functionapp <app name> --build-native-deps
