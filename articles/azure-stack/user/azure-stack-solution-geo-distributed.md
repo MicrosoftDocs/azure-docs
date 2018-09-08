@@ -64,7 +64,7 @@ Before building out a distributed app footprint, it helps to have the following 
 
 -   **Custom domain for the app:** What is the custom domain name that customers will use to access the app? For the sample app, the custom domain name is *www.scalableasedemo.com.*
 
--   **Traffic Manager domain:** A domain name needs to be chosen when creating an [Azure Traffic Manager profile](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-manage-profiles). This name will be combined with the *trafficmanager.net* suffix to register a domain entry that is managed by Traffic Manager. For the sample app, the name chosen is *scalable-ase-demo*. As a result, the full domain name that is managed by Traffic Manager is *scalable-ase-demo.trafficmanager.net*.
+-   **Traffic Manager domain:** A domain name needs to be chosen when creating an [Azure Traffic Manager profile](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). This name will be combined with the *trafficmanager.net* suffix to register a domain entry that is managed by Traffic Manager. For the sample app, the name chosen is *scalable-ase-demo*. As a result, the full domain name that is managed by Traffic Manager is *scalable-ase-demo.trafficmanager.net*.
 
 -   **Strategy for scaling the app footprint:** Will the application footprint be distributed across multiple App Service Environments in a single region? Multiple regions? A mix of both approaches? The decision should be based on expectations of where customer traffic will originate, as well as how well the rest of an app's supporting back-end infrastructure can scale. For example, with a 100% stateless application, an app can be massively scaled using a combination of multiple App Service Environments per Azure region, multiplied by App Service Environments deployed across multiple Azure regions. With 15+ global Azure regions available to choose from, customers can truly build a world-wide hyper-scale application footprint. For the sample app used for this article, three App Service Environments were created in a single Azure region (South Central US).
 
@@ -95,7 +95,7 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
 1. Sign in to Visual Studio with an **account that has project creation rights** on VSTS.
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [ARM templates](https://azure.microsoft.com/en-us/resources/templates/) for both private and hosted cloud development.
+Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image1.JPG)
 
@@ -103,9 +103,9 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [AR
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image2.png)
 
-## Create self-contained web app deployment for App Services in both clouds
+## Createweb app deployment in both clouds
 
-1.  Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and add **win10-x64**. (See [Self-contained Deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd) documentation.)
+1.  Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and add **win10-x64**. (See [Self-contained Deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.)
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image3.png)
 
@@ -121,13 +121,13 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [AR
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image4.png)
 
-3. **Run the build**. The [self-contained deployment build](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
+3. **Run the build**. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 
 **Using an Azure Hosted Agent**
 
 Using a hosted agent in VSTS is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
 
-## Manage and configure the Continuous Deployment (CD) process
+## Manage and configure the CD process
 
 Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
 
@@ -221,13 +221,13 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 21. Save all changes.
 
 > [!Note]  
->  Some settings for the tasks may have been automatically defined as[environment variables](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables)when you created a release definition from a template. These settings cannot be modified in the task settings; instead you must select the parent environment item to edit these settings.
+>  Some settings for the tasks may have been automatically defined as[environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables)when you created a release definition from a template. These settings cannot be modified in the task settings; instead you must select the parent environment item to edit these settings.
 
 ## Update Web app options
 
 ## Map an existing custom DNS name to Azure Web Apps
 
-[Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview)provides a highly scalable, self-patching web hosting service. This tutorial shows how to map an existing custom DNS name to Azure Web Apps.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)provides a highly scalable, self-patching web hosting service. This tutorial shows how to map an existing custom DNS name to Azure Web Apps.
 
 ![Alt text](media\azure-stack-solution-geo-distributed\image27.png)
 
@@ -236,13 +236,13 @@ Use a **CNAME recorder an**A record** to map a custom DNS name to App Service.
 > [!Note]  
 >  Use a CNAME for all custom DNS names except a root domain (for example,northwind.com).
 
-To migrate a live site and its DNS domain name to App Service, see[Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-custom-domain-name-migrate).
+To migrate a live site and its DNS domain name to App Service, see[Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
 
 ## Prerequisites
 
 To complete this tutorial:
 
--   [Create an App Service app](https://docs.microsoft.com/en-us/azure/app-service/), or use an app created for another tutorial.
+-   [Create an App Service app](https://docs.microsoft.com/azure/app-service/), or use an app created for another tutorial.
 
 -   Purchase a domain name and ensure access to the DNS registry for the domain provider.
 
@@ -257,14 +257,14 @@ To complete this tutorial:
 For example, to add DNS entries fornorthwindcloud.comandwww.northwindcloud.com, configure DNS settings for thenorthwindcloud.com root domain.
 
 > [!Note]  
->  A domain name may be purchased using the [Azure portal.](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app)  -   To map a custom DNS name to a web app, the web app's[App Service plan](https://azure.microsoft.com/pricing/details/app-service/)must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).
+>  A domain name may be purchased using the [Azure portal.](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)  -   To map a custom DNS name to a web app, the web app's[App Service plan](https://azure.microsoft.com/pricing/details/app-service/)must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).
 
 ## Create and map CNAME and A records
 
 ### Access DNS records with domain provider
 
 > [!Note]  
->  Use Azure DNS to configure a custom DNS name for Azure Web Apps. For more information, see[Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/en-us/azure/dns/dns-custom-domain).
+>  Use Azure DNS to configure a custom DNS name for Azure Web Apps. For more information, see[Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain).
 
 1.  Sign in to the website of the main provider.
 
@@ -344,15 +344,15 @@ In this tutorial:
 -   Automate SSL certificate binding with scripts
 
 > [!Note]  
-> If needed, obtain a customer SSL certificate in the Azure portal and bind it to the web app. Follow the[App Service Certificates tutorial](https://docs.microsoft.com/en-us/azure/app-service/web-sites-purchase-ssl-web-site).
+> If needed, obtain a customer SSL certificate in the Azure portal and bind it to the web app. Follow the[App Service Certificates tutorial](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
 ## Prerequisites
 
 To complete this tutorial:
 
--   [Create an App Service app](https://docs.microsoft.com/en-us/azure/app-service/)
+-   [Create an App Service app](https://docs.microsoft.com/azure/app-service/)
 
--   [Map a custom DNS name to your web app](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain)
+-   [Map a custom DNS name to your web app](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
 
 -   Acquire an SSL certificate from a trusted certificate authority and use the key to sign the request
 
@@ -393,7 +393,7 @@ To bind a custom SSL certificate to the web app, the [App Service plan](https://
 
 ![Check pricing tier](media\azure-stack-solution-geo-distributed\image35.png)
 
-Custom SSL is not supported in the **Free**or**Shared** tier. To upscale, follow the steps in the next section, or **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl).
+Custom SSL is not supported in the **Free**or**Shared** tier. To upscale, follow the steps in the next section, or **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ### Scale up your App Service plan
 
@@ -499,13 +499,13 @@ When App Service finishes uploading the certificate, it appears in the **SSL bin
 
 ### Remap the A record for IP SSL
 
-If IP-based SSL is not used in the web app, skip to[Test HTTPS for your custom domain](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl).
+If IP-based SSL is not used in the web app, skip to[Test HTTPS for your custom domain](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 By default, the web app uses a shared public IP address. When the certificate is bound with IP-based SSL, App Service creates a new and dedicated IP address for the web app.
 
 When an A record is mapped to the web app, the domain registry must be updated with the dedicated IP address.
 
-The **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain), then remap the A record](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain)to this new IP address.
+The **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain), then remap the A record](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)to this new IP address.
 
 ### Test HTTPS
 

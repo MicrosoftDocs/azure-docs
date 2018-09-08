@@ -45,11 +45,11 @@ In this tutorial, you will build a sample environment to:
 
 -   Azure Stack installation. Use the Azure Stack Integrated System or deploy Azure Stack Development Kit:: <https://github.com/mattmcspirit/azurestack/blob/master/deployment/>ConfigASDK.ps1 (Installation usually takes a few hours to complete.) 
 
--   Deploy [App Service](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
+-   Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
 
--   [Create Plan/Offers](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-plan-offer-quota-overview) within the Azure Stack environment.
+-   [Create Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) within the Azure Stack environment.
 
--   [Create tenant subscription](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) within the Azure Stack environment.
+-   [Create tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) within the Azure Stack environment.
 
 -   Create a Web App within the tenant subscription. Make note of the new Web App URL for later use.
 
@@ -57,7 +57,7 @@ In this tutorial, you will build a sample environment to:
 
 -   Windows Server 2016 VM with .NET 3.5 required. This VM will be built > in the tenant subscription on Azure Stack as the private build > agent.
 
--   [Windows Server 2016 with SQL 2017 VM > Image](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image#add-a-vm-image-through-the-portal) > is available in the Azure Stack Marketplace. If this image is not > available, work with an Azure Stack Operator to ensure it is added > to the environment.
+-   [Windows Server 2016 with SQL 2017 VM > Image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image#add-a-vm-image-through-the-portal) > is available in the Azure Stack Marketplace. If this image is not > available, work with an Azure Stack Operator to ensure it is added > to the environment.
 
 ## Issues and considerations
 
@@ -96,7 +96,7 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
 1. Sign in to Visual Studio with an account that has project creation rights on VSTS~~.~~
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [ARM templates](https://azure.microsoft.com/en-us/resources/templates/) for both private and hosted cloud development.
+Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 
   ![Alt text](media\azure-stack-solution-cloud-burst\image1.JPG) {width="2.90625in" height="4.130311679790026in"}
 
@@ -106,7 +106,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [AR
 
 ### Create self-contained web app deployment for App Services in both clouds
 
-1.  Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and add **win10-x64**. (See [Self-contained Deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd) documentation.) 
+1.  Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and add **win10-x64**. (See [Self-contained Deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.) 
 
   ![Alt text](media\azure-stack-solution-cloud-burst\image3.png)
 
@@ -122,7 +122,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [AR
 
   ![Alt text](media\azure-stack-solution-cloud-burst\image4.png)
 
-3. Run the build. The [self-contained deployment build](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
+3. Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 
 ## Using an Azure hosted agent
 
@@ -221,7 +221,7 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 21. Save all changes.
 
 > [!Note]  
-> Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when creating a release definition from a template. These settings cannot be modified in the task settings; instead, the parent environment item must be selected to edit these settings
+> Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when creating a release definition from a template. These settings cannot be modified in the task settings; instead, the parent environment item must be selected to edit these settings
 
 ## Publish to Azure Stack via Visual Studio
 

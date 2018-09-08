@@ -1241,7 +1241,7 @@ Give the service principal access to the subscription so it may create resources
 
     ![Deploy Solution Template](media\azure-stack-solution-machine-learning\image61.png)
 
-2.  Enter the **Tenant Arm Endpoint**. This is the Azure Resource Manager endpoint to connect to create the resource group for the Kubernetes cluster. The endpoint from the Azure Stack operator is needed for an integrated system. For the Azure Stack Development Kit (ASDK), use `https://management.local.azurestack.external`.
+2.  Enter the **Tenant Azure Resource Manager Endpoint**. This is the Azure Resource Manager endpoint to connect to create the resource group for the Kubernetes cluster. The endpoint from the Azure Stack operator is needed for an integrated system. For the Azure Stack Development Kit (ASDK), use `https://management.local.azurestack.external`.
 
 3.  Enter the **Tenant ID** for the tenant. See [*Get tenant ID*](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) to find the tenant ID value.
 
@@ -1490,7 +1490,7 @@ A Git repository for YAML code is needed.
 
 ### Prerequisites
 
-VSTS authenticates against ARM using a Service Principal. For VSTS to be able to provision resources in an Azure Stack subscription it requires Contributor status.\ **The following are the high-level steps that need to be configured to enable such authentication:**
+VSTS authenticates against Azure Resource Manager using a Service Principal. For VSTS to be able to provision resources in an Azure Stack subscription it requires Contributor status.\ **The following are the high-level steps that need to be configured to enable such authentication:**
 
 1.  Service Principal should be created or an existing one may be used.
 
