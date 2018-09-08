@@ -89,15 +89,21 @@ If you are using a Windows Server host computer, perform the following steps to 
 
 5. You should now be able to see the shares as folders. Create a folder for the files that you intend to copy (in this case templates). Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
 ### Connect via NFS 
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
 
-1. Supply the IP addresses of the allowed clients that can access the share.
+1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
-2. Ensure that the Linux host has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
+    ![Configure NFS client access 1](media/data-box-deploy-copy-data/nfs-client-access.png)
+
+2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
+
+    ![Configure NFS client access 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
+
+2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
 
 3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
 
@@ -139,8 +145,8 @@ You can use any SMB compatible file copy tool such as Robocopy to copy your data
 |/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
 |/fft     | Use to reduce the time stamp granularity for any file system.        |
 |/b     | Copies files in Backup mode.        |
-|/z    | Copies files in Restart mode, use this if the environment is unstable.       |
-| /zb     | Uses Restart mode. If access is denied, this option uses Backup mode.         |
+|/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
+| /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
 |/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
 |log+:<LogFile>| Appends the output to the existing log file.|    
  
@@ -254,7 +260,7 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 
      where j specifies the number of parallelization,  X = number of parallel copies
 
-     We recommend that you start with 16 starts and increase the number of threads depending on the resources available.
+     We recommend that you start with 16 parallel copies and increase the number of threads depending on the resources available.
 
 ## Prepare to ship
 
