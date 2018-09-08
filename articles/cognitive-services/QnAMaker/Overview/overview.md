@@ -1,12 +1,12 @@
 ---
-title: Learn about QnA Maker - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: What is QnA Maker?
+titleSuffix: Azure Cognitive Services
 description: QnA Maker enables you to power a question and answer service from your semi-structured content like FAQ documents or URLs and product manuals.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: overview
 ms.date: 06/15/2018
 ms.author: nolachar

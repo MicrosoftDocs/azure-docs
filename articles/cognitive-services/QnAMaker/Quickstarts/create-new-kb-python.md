@@ -1,9 +1,10 @@
 ---
-title: Create a new knowledge base - quickstart Python - for Microsoft QnA Maker API (V4) - Azure Cognitive Services | Microsoft Docs
-description: Create a knowledge base in Python to hold your FAQs or product manuals, so you can get started with QnA Maker.
+title:  "Quickstart: API Python - Create knowledge base - QnA Maker"
+titlesuffix: Azure Cognitive Services 
+description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker
