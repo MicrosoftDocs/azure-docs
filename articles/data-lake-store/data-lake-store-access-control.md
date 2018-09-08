@@ -325,15 +325,6 @@ A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this ha
 
 No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
 
-### What is the difference between mask and umask?
-
-| mask | umask|
-|------|------|
-| The **mask** property is available on every file and folder. | The **umask** is a property of the Data Lake Storage Gen1 account. So there is only a single umask in the Data Lake Storage Gen1.    |
-| The mask property on a file or folder can be altered by the owning user or owning group of a file or a super-user. | The umask property cannot be modified by any user, even a super-user. It is an unchangeable, constant value.|
-| The mask property is used during the access check algorithm at runtime to determine whether a user has the right to perform on operation on a file or folder. The role of the mask is to create "effective permissions" at the time of access check. | The umask is not used during access check at all. The umask is used to determine the Access ACL of new child items of a folder. |
-| The mask is a 3-bit RWX value that applies to named user, owning group, and named group at the time of access check.| The umask is a 9-bit value that applies to the owning user, owning group, and **other** of a new child.|
-
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
