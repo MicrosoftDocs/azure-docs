@@ -38,7 +38,7 @@ For your convenience, this tutorial is available as a Jupyter notebook.
 
 ## Prerequisites
 
-Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml) notebook.  
+Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) notebook.  
 
 * Start a new notebook or place the downloaded notebook into the same directory as the Tutorial #1 notebook.
 
