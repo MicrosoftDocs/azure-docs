@@ -7,7 +7,7 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/24/2018
 ms.author: saneppal
 ---
 
@@ -48,4 +48,4 @@ QnA Maker makes it very simple to onboard your existing data sources to create a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import a knowledge base](../Tutorials/migrate-knowledge-base.md)
+> [Add chit-chat personal](./chit-chat.md)

@@ -8,7 +8,7 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/24/2018
 ms.author: saneppal
 ---
 
@@ -66,7 +66,7 @@ If you do not have pre-existing content to populate the knowledge base, you can 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+> [Add personality to answers with chit-chat personas](./chitchat.md)
 
 ## See also 
 
