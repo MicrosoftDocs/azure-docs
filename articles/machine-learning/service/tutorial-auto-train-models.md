@@ -33,6 +33,12 @@ You'll learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Get the notebook
+
+For your convenience, this tutorial is available as a Jupyter notebook.
+
+[**Launch samples in Azure Notebooks**](https://aka.ms/aml-notebooks) and navigate to `tutorials/auto-train-models.ipynb`.  From Azure Notebooks, you can also download the notebook to use on your own Jupyter server.
+
 ## Prerequisites
 
 Use [these instructions](how-to-configure-environment.md) to:  
@@ -42,18 +48,11 @@ Use [these instructions](how-to-configure-environment.md) to:
     ```shell
     conda install -y matplotlib scikit-learn pandas seaborn
     ``` 
-
-
-### Start the notebook
-
-(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config**.  
-
-Or start your own notebook from the same directory as **aml_config** and copy the code from the sections below.
-
+* Start a new notebook or place the downloaded notebook into the same directory as **config.json**.
 
 ## Set up your development environment
 
-All the setup for your development work can be accomplished in a Python notebook.  Setup includes:
+All the setup for your development work can be accomplished in the Python notebook.  Setup includes:
 
 * Import Python packages
 * Configure a workspace to enable communication between your local computer and remote resources
@@ -92,7 +91,7 @@ experiment_name = 'automl-classifier'
 project_folder = './automl-classifier'
 
 import os
-from azureml.core.project import Project
+
 
 output = {}
 output['SDK version'] = azureml.core.VERSION
@@ -166,7 +165,7 @@ Define the experiment parameters and models settings for autogeneration and tuni
 |**preprocess**|True| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
 |**exit_score**|0.994|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
 |**blacklist_algos**|['kNN','LinearSVM']|*Array* of *strings* indicating algorithms to ignore.
-|**concurrent_iterations**|5|Max number of iterations that would be executed in parallel. This number should be less than the number of cores on the DSVM. Used in remote training.|
+|**concurrent_iterations**|5|Max number of iterations that would be run in parallel. This number should be less than the number of cores on the DSVM. Used in remote training.|
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -175,13 +174,14 @@ from azureml.train.automl import AutoMLConfig
 Automl_config = AutoMLConfig(task = 'classification',
                              primary_metric = 'AUC_weighted',
                              max_time_sec = 12000,
-                             iterations = 50,
+                             iterations = 20,
                              n_cross_validations = 3,
                              blacklist_algos = ['kNN','LinearSVM'],
                              X = X_digits,
                              y = y_digits,
                              path=project_folder)
 ```
+
 ### Run the automatic classifier
 
 Start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
