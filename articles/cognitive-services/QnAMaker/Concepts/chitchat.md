@@ -33,6 +33,9 @@ Choose the persona that most closely resembles your bot's desired tone. Consider
 > [!NOTE]
 > Chit-chat support is currently available in English only. 
 
+## Change existing questions and answers
+You can modify chit-chat QnA in the predefined list in the same way you modify any question and answer in a knowledgebase. 
+
 ## Add additional chit-chat questions and answers
 You can add new chit-chat QnA that is not in a predefined set. Ensure that you are not duplicating a QnA pair that is already covered in the chit-chat set.
 
