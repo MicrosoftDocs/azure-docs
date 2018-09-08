@@ -17,7 +17,7 @@ ms.author: bwren
 
 ---
 # Data ingestion time in Log Analytics
-Azure Log Analytics is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. There are often questions about the time it takes for data to become available in Log Analytics after it's collected. This article explains the different factors that affect this latency.
+Azure Log Analytics is a high scale data service in Azure Monitor that serves thousands of customers sending terabytes of data each month at a growing pace. There are often questions about the time it takes for data to become available in Log Analytics after it's collected. This article explains the different factors that affect this latency.
 
 ## Typical latency
 Latency refers to the time that data is created on the monitored system and the time that it comes available for analysis in Log Analytics. The typical latency to ingest data into Log Analytics is between 3 and 10 minutes, with 95% of data ingested in less than 7 minutes. The specific latency for any particular data will vary depending on a variety of factors explained below.
