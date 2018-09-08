@@ -25,7 +25,7 @@ For models to consume the data that has been cleaned, it is easier to be able to
 - [Transform Data](how-to-transform-data.md )
 - [Write Data](how-to-write-data.md )
 
-[ ![Machine learning pipelines](./media/concept-data-preparation/data-prep-process.png) ]
+[ ![Data preparation process](./media/concept-data-preparation/data-prep-process.png) ]
 (./media/concept-data-preparation/data-prep-process.png#lightbox)
 
 ## Next Steps
