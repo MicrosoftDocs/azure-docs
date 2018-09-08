@@ -94,11 +94,11 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="compliance/index.yml">Compliance</a></h3>
+                                                        <h3>Compliance</h3>
                                                         <p>
-                                                            <a href="compliance/active-directory-azure-ad-controls-create-access-review.md">Create an access review</a><br>
-                                                            <a href="compliance/active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md">Manage user access</a><br>
-                                                            <a href="compliance/active-directory-tou.md">Terms of use</a>
+                                                            <a href="active-directory-azure-ad-controls-create-access-review.md">Create an access review</a><br>
+                                                            <a href="active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md">Manage user access</a><br>
+                                                            <a href="active-directory-tou.md">Terms of use</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -119,9 +119,9 @@ ms.author: mtillman
 														<br><br>
 														<h3><a href="develop/index.yml">Developers</a></h3>
                                                         <p>
-                                                            <a href="develop/v2-app-types.md">Application types</a><br>
-                                                            <a href="develop/protocols-oauth-openid-connect.md">OAuth and OpenID Connect protocol</a><br>
-                                                            <a href="develop/v2-id-and-access-tokens.md">ID and access tokens</a>
+                                                            <a href="develop/authentication-scenarios.md">Application scenarios</a><br>
+                                                            <a href="develop/active-directory-authentication-libraries.md">Azure AD v1.0 auth libraries</a><br>
+                                                            <a href="develop/reference-v2-libraries.md">Azure AD v2.0 auth libraries</a>
                                                         </p>
 														<br><br>
 														<h3><a href="devices/index.yml">Device management</a></h3>
@@ -161,25 +161,25 @@ ms.author: mtillman
                                                             <a href="hybrid/tutorial-federation.md">Federate an AD forest to the cloud</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="identity-protection/index.yml>Identity protection</a></h3>
+                                                        <h3><a href="identity-protection/index.yml">Identity protection</a></h3>
                                                         <p>
                                                             <a href="identity-protection/enable.md">Enable</a><br>
                                                             <a href="identity-protection/playbook.md">Simulate risk events</a><br>
                                                             <a href="identity-protection/howto-unblock-user.md">Unblock users</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="managed-service-identity/index.yml">Managed identity</a></h3>
+                                                        <h3><a href="managed-identities-azure-resources/index.yml">Managed identities for Azure resources</a></h3>
                                                         <p>
-                                                            <a href="managed-service-identity/tutorial-windows-vm-access-sql.md">Use Windows VM to access Azure SQL</a><br>
-                                                            <a href="managed-service-identity/how-to-use-vm-token.md">Use Azure VM for token acquisition</a><br>
-                                                            <a href="managed-service-identity/services-support-msi.md">Services that support managed identity</a>
+                                                            <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Use Windows VM to access Azure SQL</a><br>
+                                                            <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Use Azure VM for token acquisition</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-msi.md">Services that support managed identity</a>
                                                         </p>
 														<br><br>
                                                         <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
                                                         <p>
                                                             <a href="privileged-identity-management/pim-getting-started.md">Start using PIM</a><br>
-                                                            <a href="privileged-identity-management/pim-how-to-activate-role.md">Activate your directory role</a><br>
-                                                            <a href="privileged-identity-management/pim-how-to-activate-role.md">Assign a directory role</a>
+                                                            <a href="privileged-identity-management/pim-how-to-activate-role.md">Activate my directory roles</a><br>
+                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Assign a directory roles</a>
                                                         </p>
 														<br><br>
 														<h3><a href="reports-monitoring/index.yml">Reporting and monitoring</a></h3>
