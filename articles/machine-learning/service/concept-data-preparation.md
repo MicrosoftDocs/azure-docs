@@ -1,4 +1,4 @@
----
+-
 title: What is the Azure Data Prep SDK?
 description: Learn about the Azure Data Prep SDK
 services: machine-learning
@@ -24,9 +24,6 @@ For models to consume the data that has been cleaned, it is easier to be able to
 - [Load Data](how-to-load-data.md )
 - [Transform Data](how-to-transform-data.md )
 - [Write Data](how-to-write-data.md )
-
-[ ![Data preparation process](./media/concept-data-preparation/data-prep-process.png) ]
-(./media/concept-data-preparation/data-prep-process.png#lightbox)
 
 ## Next Steps
 Here is an [example notebook](https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation.
