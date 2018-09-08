@@ -142,7 +142,7 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="users-groups-roles/directory-assign-admin-roles.md">Assign administrator roles</a><br>
                                                             <a href="users-groups-roles/licensing-groups-assign.md">Assign licenses to groups</a><br>
-                                                            <a href="users-groups-roles/authentication/groups-create-rule.md">Create a dynamic group</a>
+                                                            <a href="users-groups-roles/groups-create-rule.md">Create a dynamic group</a>
                                                         </p>
                                                     </div>
                                                 </div>
