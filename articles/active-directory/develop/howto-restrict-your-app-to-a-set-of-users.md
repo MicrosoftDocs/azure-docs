@@ -1,5 +1,5 @@
 ---
-title: How to restrict your app to a set of users | Microsoft Docs 
+title: How to restrict your Azure Active Directory-registered app to a set of users
 description: Learn how to restrict access to your apps registered in Azure AD to a selected set of users.
 services: active-directory
 documentationcenter: ''
@@ -73,3 +73,4 @@ Once you've configured your app to enable user assignment, you can go ahead and 
 1. Once you are done selecting the users and groups, press the **Select** button on bottom to move to the next part.
 1. Press the **Assign** button on the bottom to finish the assignments of users and groups to the app. 
 1. Confirm that the users and groups you added are showing up in the updated **Users and groups** list.
+
