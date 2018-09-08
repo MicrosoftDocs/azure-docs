@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/08/2018
 ms.author: glenga
 ---
 
@@ -278,7 +278,7 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all functions. In Consumption plans, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes. In App Service plans, there is no limit and the default value is null, which indicates no timeout.
+Indicates the timeout duration for all functions. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes. In an App Service plan, there is no overall limit and the default depends on the runtime version. In version 2.x, the default value for an App Service plan is 30 minutes. In version 1.x, it's *null*, which indicates no timeout.
 
 ```json
 {
