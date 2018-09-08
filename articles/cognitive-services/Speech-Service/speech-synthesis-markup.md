@@ -71,6 +71,17 @@ The following examples show how to use SSML for common speech synthesis needs.
 </prosody></voice> </speak>
 ```
 
+## Use multiple voices
+```xml
+<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+    Good morning!
+</voice>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+    Good morning to you too Jessa!
+</voice> </speak>
+```
+
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
