@@ -44,7 +44,7 @@ To allow applications from Azure to connect to your Azure Database for MariaDB s
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-## Manage existing server-level firewall rules by using the Azure portal
+## Manage existing firewall rules in the Azure portal
 Repeat the steps to manage the firewall rules.
 * To add the current computer, click **+ Add My IP**. Click **Save** to save the changes.
 * To add additional IP addresses, type in the **RULE NAME**, **START IP**, and **END IP**. Click **Save** to save the changes.

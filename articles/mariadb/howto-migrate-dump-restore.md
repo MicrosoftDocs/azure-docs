@@ -49,8 +49,8 @@ To optimize performance, take notice of these considerations when dumping large 
 -	Use the `defer-table-indexes` option in mysqlpump when dumping databases, so that index creation happens after tables data is loaded.
 -   Copy the backup files to an Azure blob/store and perform the restore from there, which should be a lot faster than performing the restore across the Internet.
 
-## Create a backup file from the command-line using mysqldump
-To back up an existing MariaDB database on the local on-premises server or in a virtual machine, run the following command: 
+## Create a backup file
+To back up an existing MariaDB database on the local on-premises server or in a virtual machine, run the following command using mysqldump: 
 ```bash
 $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
@@ -80,7 +80,7 @@ To back up all the databases in the server at one time, you should use the --all
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## Create a database on the target Azure Database for MariaDB server
+## Create a database on the target server
 Create an empty database on the target Azure Database for MariaDB server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
 
 To get connected, locate the connection information in the **Overview** of your Azure Database for MariaDB.
@@ -91,7 +91,7 @@ Add the connection information into your MySQL Workbench.
 
 ![MySQL Workbench Connection String](./media/howto-migrate-dump-restore/2_setup-new-connection.png)
 
-## Restore your MariaDB database using command-line or MySQL Workbench
+## Restore your MariaDB database
 Once you have created the target database, you can use the mysql command or MySQL Workbench to restore the data into the specific newly created database from the dump file.
 ```bash
 mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]

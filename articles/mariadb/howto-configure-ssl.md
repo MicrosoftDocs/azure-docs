@@ -13,11 +13,11 @@ ms.date: 09/24/2018
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
 Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
-## Step 1: Obtain SSL certificate
+## Obtain SSL certificate
 Download the certificate needed to communicate over SSL with your Azure Database for MariaDB server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
 
-## Step 2: Bind SSL
+## Bind SSL
 ### Connecting to server using the MySQL Workbench over SSL
 Configure the MySQL Workbench to connect securely over SSL. From the Setup New Connection dialogue, navigate to the **SSL** tab. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**. 
 ![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
@@ -29,7 +29,7 @@ Another way to bind the SSL certificate is to use the MySQL command-line interfa
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
-## Step 3:  Enforcing SSL connections in Azure 
+## Enforcing SSL connections in Azure 
 ### Using the Azure portal
 Using the Azure portal, visit your Azure Database for MariaDB server, and then click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then click **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
@@ -40,7 +40,7 @@ You can enable or disable the **ssl-enforcement** parameter by using Enabled or 
 az mariadb server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
-## Step 4: Verify the SSL connection
+## Verify the SSL connection
 Execute the mysql **status** command to verify that you have connected to your MariaDB server using SSL:
 ```dos
 mysql> status
