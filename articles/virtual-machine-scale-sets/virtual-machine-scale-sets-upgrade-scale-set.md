@@ -122,7 +122,7 @@ These properties provide a summary of the current runtime state of the VMs in th
 
 
 ### The scale set VM model view
-Similar to how a scale set has a model view, each VM in the scale set has its own model view. To query the model view for a scale set, you can use:
+Similar to how a scale set has a model view, each VM in the scale set has its own model view. To query the model view for a particular VM in a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) as follows:
 
@@ -162,7 +162,7 @@ These properties describe the configuration of the VM itself, not the configurat
 
 
 ### The scale set VM instance view
-Similar to how a scale set has an instance view, each VM in the scale set has its own instance view. To query the instance view for a scale set, you can use:
+Similar to how a scale set has an instance view, each VM in the scale set has its own instance view. To query the instance view for a particular VM in a scale set, you can use:
 
 - REST API with [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) as follows:
 
