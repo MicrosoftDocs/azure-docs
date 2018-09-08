@@ -108,7 +108,7 @@ sk-SK | Slovak|Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Fili
 sl-SI | Slovenian|Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Swedish|Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
 ta-IN | Tamil (India) |Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
-te-IN | Telagu (India) |Male | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)"
+te-IN | Telugu (India) |Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)"
 th-TH | Thai|Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
 tr-TR |Turkish| Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
 vi-VN | Vietnamese|Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
