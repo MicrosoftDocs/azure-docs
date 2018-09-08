@@ -13,6 +13,9 @@ ms.prod: cognitive-services
 ms.technology: cognitive-services
 ---
 
+<h1>Power BI Documentation</h1>
+        <p style="font-size: 1.12rem;margin-bottom: 1rem;">Power BI amplifies your insights and the value of your data. With Power BI documentation, you get expert information and answers to address your needs, regardless of how you use Power BI.</p>
+
 # Azure Cognitive Services Documentation
 
 Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
