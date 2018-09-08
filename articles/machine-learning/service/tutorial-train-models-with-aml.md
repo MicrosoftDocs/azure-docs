@@ -32,8 +32,11 @@ You'll learn how to select a model and deploy it in [part two of this tutorial](
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+## Get the notebook
 
+For your convenience, this tutorial is available as a Jupyter notebook.
+
+[**Launch samples in Azure Notebooks**](https://aka.ms/aml-notebooks) and navigate to `tutorials/deploy-models.ipynb`.  From Azure Notebooks, you can also download the notebook to use on your own Jupyter server.
 
 ## Prerequisites
 
@@ -47,11 +50,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Copy the file [utils.py](https://aka.ms/aml-file-utils-py) into the same directory as **config.json**.
 
-### Start the notebook
+* Start a new notebook or place the downloaded notebook into the same directory as **utils.py** and **config.json**.
 
-(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-train) into the same directory as **config.json** and **utils.py**.  
-
-Or start your own notebook from the same directory as **config.json** and **utils.py** and copy the code from the sections below.
 
 ## Set up your development environment
 
@@ -73,7 +73,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 import azureml
-from azureml.core import Workspace, Project, Run
+from azureml.core import Workspace, Run
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -356,7 +356,7 @@ script_params = {
     '--regularization': 0.8
 }
 
-est = Estimator(folder=project_folder,
+est = Estimator(source_directory = project_folder,
                 script_params = script_params,
                 compute_target = compute_target,
                 entry_script = 'train.py',
@@ -369,7 +369,7 @@ est = Estimator(folder=project_folder,
 Run the experiment by submitting the estimator object.
 
 ```python
-run = exp.submit(method=est)
+run = exp.submit(config = est)
 print(run.get_details().status)
 ```
 
@@ -385,7 +385,7 @@ Here is what's happening while you wait:
 
   This stage happens once for each Python environment since the container is cached for subsequent runs.  During image creation, logs are streamed to the run history. You can monitor the image creation progress using these logs.
 
-- **Scaling**: If the remote cluster requires more nodes to execute the run than currently available, additional nodes are added automatically. Scaling typically takes **about 5 minutes.**
+- **Scaling**: If the remote cluster requires more nodes than currently available, additional nodes are added automatically. Scaling typically takes **about 5 minutes.**
 
 - **Running**: In this stage, the necessary scripts and files are sent to the compute target, then data stores are mounted/copied, then the entry_script is run. While the job is running, stdout and the ./logs directory are streamed to the run history. You can monitor the run's progress using these logs.
 
