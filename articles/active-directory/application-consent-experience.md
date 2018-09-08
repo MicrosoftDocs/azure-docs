@@ -1,5 +1,5 @@
 ---
-title: Understanding application consent experiences | Microsoft Docs
+title: Understanding Azure AD application consent experiences | Microsoft Docs
 description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: Zawad
 
 ---
 
-# Understanding application consent experiences
+# Understanding Azure AD application consent experiences
 
 Learn more about the Azure Active Directory (Azure AD) application consent user experience. So you can intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
 
