@@ -56,6 +56,7 @@ The following diagram and table provide information about the building blocks of
 Here are the consent experiences that a user may see in the common consent scenarios:
 
 1. Individuals accessing an app that directs them to the user consent flow while requiring a permission set that is within their scope of authority.
+    
     1. Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. As of today, this check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
 
         ![Consent prompt for scenario 1a](./media/application-consent/consent_prompt_1a.png)
@@ -64,19 +65,19 @@ Here are the consent experiences that a user may see in the common consent scena
 
         ![Consent prompt for scenario 1b](./media/application-consent/consent_prompt_1b.png)
 
-1. Individuals accessing an app that requires at least one permission that is outside their scope of authority.
+2. Individuals accessing an app that requires at least one permission that is outside their scope of authority.
     1. Admins will see the same prompt as 1.i shown above.
     2. Users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app. 
                 
         ![Consent prompt for scenario 1b](./media/application-consent/consent_prompt_2b.png)
 
-1. Individuals that navigate or are directed to the admin consent flow.
+3. Individuals that navigate or are directed to the admin consent flow.
     1. Admin users will see the admin consent prompt. The title and the permission descriptions changed on this prompt, the changes highlight the fact that accepting this prompt will grant the app access to the requested data on behalf of the entire tenant.
         
         ![Consent prompt for scenario 1b](./media/application-consent/consent_prompt_3a.png)
         
     1. Non-admin users will see the same screen as 2.ii shown above.
 
-## Recommended reading
+## Next steps
 - Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
 - For more depth, learn [how a multi-tenant application can use the consent framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
