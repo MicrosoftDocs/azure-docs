@@ -38,7 +38,7 @@ sections:
         image:
           src: ./media/index/i_get-started.svg
         title: Authentication basics
-      - href: /azure/active-directory/develop/v2-app-types/
+      - href: /azure/active-directory/develop/app-types/
         html: <p>Learn about the app types supported by Azure AD and understand the basics on protocol flows, registration, and token expiration for each app type.</p>
         image:
           src: ./media/index/i_web-apps.svg
