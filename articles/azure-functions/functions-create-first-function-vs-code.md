@@ -19,11 +19,11 @@ ms.custom: mvc, devcenter
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
-In this article, you learn how to use the [Azure Functions extension for Microsoft Visual Studio Code] to create and test a "hello world" function on your local computer. You then publish the function code to Azure.
+In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to create and test a "hello world" function on your local computer using Microsoft Visual Studio Code. You then publish the function code to Azure from Visual Studio Code.
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently lets you write functions in C#, JavaScript, and Java functions. Your choices may vary depending on your choice of language for your Azure Functions project.  
+The extension currently supports C#, JavaScript, and Java functions. The steps in this article may vary depending on your choice of language for your Azure Functions project. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 ## Prerequisites
 
@@ -33,13 +33,15 @@ To complete this quickstart:
 
 * Install [version 2.x of the Core Tools](functions-run-local.md#v2), which is still in preview.
 
-* Install language-specific requirements:
+* Install the specific requirements for your chosen language:
 
-| Language | Extension |
-| -------- | --------- |
-| **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
-| **Java** | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br />[JDK 1.8    ](http://www.oracle.com/technetwork/java/javase/downloads/index.html)<br />[Maven 3+](https://maven.apache.org/) |
-| **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
+    | Language | Extension |
+    | -------- | --------- |
+    | **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
+    | **Java** | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)<br/>[Maven 3+](https://maven.apache.org/) |
+    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
+
+    \* Also required by Core Tools.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,8 +58,6 @@ The Azure Functions extension is used to create, test, and deploy functions to A
 1. Restart Visual Studio Code and select the Azure icon on the Activity bar. You should see an Azure Functions area in the Side Bar.
 
     ![Azure Functions area in the Side Bar](./media/functions-create-first-function-vs-code/azure-functions-window-vscode.png)
-
-The Azure Functions extension for Visual Studio Code is in preview. To learn more, see [Azure Functions extension for Visual Studio Code].
 
 ## Create an Azure Functions project
 
@@ -139,7 +139,9 @@ Before you can publish your app, you must sign in to Azure.
 
 ## Publish the project to Azure
 
-Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
+Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription. 
+
+This article assumes that you are creating a new function app. Publishing to an existing function app overwrites the content of that app in Azure.
 
 1. In the **Azure: Functions** area, select the Deploy to Function App icon.
 
@@ -157,9 +159,9 @@ Visual Studio Code lets you publish your functions project directly to Azure. In
 
 1. Choose a location in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access.
 
-    Function app creation starts after you choose your location. Notifications are displayed after your function app is created and after the project files are deployed.
+    Function app creation starts after you choose your location. A notification is displayed after your function app is created and the deployment package is applied.
 
-1. Select **View Logs** in the notifications to view the creation and deployment results, including the Azure resources that you created.
+1. Select **View Output** in the notifications to view the creation and deployment results, including the Azure resources that you created.
 
     ![Function app creation output](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
