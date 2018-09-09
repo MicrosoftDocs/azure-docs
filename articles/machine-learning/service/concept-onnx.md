@@ -158,7 +158,6 @@ Here is an example for deploying an ONNX model:
        global model_path
        model_path = Model.get_model_path(model_name = 'MyONNXmodel')
 
-   # note you can pass in multiple rows for scoring
    def run(raw_data):
        try:
            data = json.loads(raw_data)['data']
