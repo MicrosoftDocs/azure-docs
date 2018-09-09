@@ -92,9 +92,10 @@ first_input_name = session.get_inputs()[0].name
 first_output_name = session.get_outputs()[0].name
 ```
 
-To inference your model, use `run` and pass in the list of outputs and a map of the input values:
+To inference your model, use `run` and pass in the list of outputs you want returned (leave empty if you want all of them) and a map of the input values. The result is a list of the outputs.
 ```python
 results = session.run(["output1", "output2"], {"input1": indata1, "input2": indata2})
+results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
 For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
