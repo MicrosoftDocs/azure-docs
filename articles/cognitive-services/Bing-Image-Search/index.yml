@@ -32,7 +32,7 @@ sections:
           html: <p>Learn how to send Image search queries to Bing</p>
           image:
             src: ../media/index/i_guidelines.svg
-          title: Working with Image Search queries
+          title: Image Search queries
         - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-image
           html: <p>Understand the Image Search response</p>
           image:
@@ -85,7 +85,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search">REST Samples</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search">Code Samples</a>
 - title: Reference
   items:
   - type: list
