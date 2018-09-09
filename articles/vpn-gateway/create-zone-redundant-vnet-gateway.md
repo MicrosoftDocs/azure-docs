@@ -1,13 +1,13 @@
 ---
-title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones - Preview | Microsoft Docs'
-description: Deploy VPN Gateway and ExpressRoute gateways in Availability Zones - Preview.
+title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones | Microsoft Docs'
+description: Deploy VPN Gateway and ExpressRoute gateways in Availability Zones
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 08/24/2018
+ms.topic: conceptual
+ms.date: 09/21/2018
 ms.author: cherylmc
 
 ---
