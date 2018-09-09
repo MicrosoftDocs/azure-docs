@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) is a cloud identity service that allows develo
 | | |
 | --- | --- |
 |[Authentication basics](authentication-scenarios.md) | An introduction to authentication with Azure AD. |
-|[Types of applications](authentication-scenarios.md#application-types-and-scenarios) | An overview of the authentication scenarios that are supported by Azure AD. |      
+|[Types of applications](app-types.md) | An overview of the authentication scenarios that are supported by Azure AD. |      
 | | |
 
 ## Get started
@@ -37,10 +37,10 @@ The following guided setups walk you through building an app on your preferred p
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Mobile and desktop apps](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobile and desktop apps</center> | [Overview](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
-| <center>![Web apps](./media/azure-ad-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
-| <center>![Single page apps](./media/azure-ad-developers-guide/SPA.png)<br />Single page apps</center> | [Overview](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![Web APIs](./media/azure-ad-developers-guide/Web_API.png)<br />Web APIs</center> | [Overview](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
+| <center>![Mobile and desktop apps](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobile and desktop apps</center> | [Overview](web-api.md)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
+| <center>![Web apps](./media/azure-ad-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](web-app.md)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
+| <center>![Single page apps](./media/azure-ad-developers-guide/SPA.png)<br />Single page apps</center> | [Overview](single-page-application.md)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
+| <center>![Web APIs](./media/azure-ad-developers-guide/Web_API.png)<br />Web APIs</center> | [Overview](web-api.md)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
 | <center>![Service-to-service](./media/azure-ad-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 |  |  |  |  |  |
 

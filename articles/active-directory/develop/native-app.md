@@ -56,7 +56,7 @@ To register an application with the Azure AD v1.0 endpoint, see [Register an app
 
 When the native application uses its authorization code to get a JWT access token, it also receives a JWT refresh token. When the access token expires, the refresh token can be used to re-authenticate the user without requiring them to sign in again. This refresh token is then used to authenticate the user, which results in a new access token and refresh token.
 
-## Native apps based on Azure AD v2.0 endpoint
+## Native apps that use the Azure AD v2.0 endpoint
 
 Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user. These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
