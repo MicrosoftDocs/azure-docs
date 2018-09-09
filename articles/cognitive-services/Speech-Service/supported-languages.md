@@ -8,7 +8,7 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
 ---
 # Supported languages for Speech service
@@ -43,6 +43,7 @@ ar-SA | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech V
 bg-BG | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
 ca-ES | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
 cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
+cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)"
 da-DK | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
@@ -58,6 +59,7 @@ en-GB | English (UK) | Female | "Microsoft Server Speech Text to Speech Voice (e
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)"
 en-IE | English (Ireland) |Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
+en-IE | English (Ireland) |Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)"
 en-IN | English (India) | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
@@ -106,6 +108,7 @@ sk-SK | Slovak|Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Fili
 sl-SI | Slovenian|Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Swedish|Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
 ta-IN | Tamil (India) |Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
+te-IN | Telugu (India) |Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)"
 th-TH | Thai|Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
 tr-TR |Turkish| Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
 vi-VN | Vietnamese|Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
