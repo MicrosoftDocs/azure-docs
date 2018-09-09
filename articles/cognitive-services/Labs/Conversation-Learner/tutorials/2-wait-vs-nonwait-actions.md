@@ -28,7 +28,7 @@ This tutorial requires that the general tutorial bot is running
 ## Details
 
 - Wait action: After the system takes a "wait" action, it will stop taking actions and wait for user input.
-- Non-wait action: After the system takes a "non-wait" action, it will immediately choose another action (without waiting for user inpu first).
+- Non-wait action: After the system takes a "non-wait" action, it will immediately choose another action (without waiting for user input first).
 
 ## Steps
 
