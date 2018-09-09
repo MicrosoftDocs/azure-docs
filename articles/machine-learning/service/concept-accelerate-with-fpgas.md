@@ -14,7 +14,7 @@ ms.date: 9/24/2018
 
 # What is FPGA and Project Brainwave?
 
-This article provides an introduction to field-programmable gate arrays (FPGA) and how FPGA is integrated with Azure Machine Learning to provide real-time AI.
+This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning provides real-time AI with FPGA.
 
 FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways post-manufacturing. FPGAs provide a combination of programmability and performance compared to other chips.
 
@@ -26,14 +26,14 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 |---|:-------:|------|
 |Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency but are inflexible.|
 |Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs, but are flexible and reconfigurable over time.|
-|Graphics processing units|GPUs|A popular choice for AI computations offering parallel processing capabilities that is faster at image rendering than CPUs.|
+|Graphics processing units|GPUs|A popular choice for AI computations offering parallel processing capabilities making it faster at image rendering than CPUs.|
 |Central processing units|CPUs|General-purpose processors whose performance is not ideal for graphics and video processing.|
 
 ## Project Brainwave on Azure
 
 Project Brainwave is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale**.
 
-FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means breaking up a request into smaller pieces and feeding them to a processor to improve hardware utilization. Batching can cause latency. Project Brainwave doesn't require batching; therefore the latency is 10 times lower compared to CPU and GPU.
+FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means collecting a large amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
 
 FPGAs can be reconfigured for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used.
 
@@ -62,11 +62,11 @@ The following scenarios use FPGA on Project Brainwave architecture:
 
 Here is the workflow for creating an image recognition service in Azure using a supported DNNs as a featurizer:
 
-1. Build graphs (input, classification, and so on) with TensorFlow, and define a pipeline (input -> featurize -> classify) using a service definition JSON file. Compress the definition and graphs into a ZIP file, and upload the ZIP file to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
+1. Use the Azure Machine Learning SDK for Python to create a service definition, which is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command will automatically compress the definition and graphs into a ZIP file and upload the ZIP to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
 
-1. Register the model using Azure ML Model Management API with the ZIP file in Azure Blob storage.
+1. Register the model using the SDK with the ZIP file in Azure Blob storage.
 
-1. Deploy the service with the registered model using Azure ML Model Management API.
+1. Deploy the service with the registered model using SDK.
 
 You can get started deploying trained DNN models to FPGAs in the Azure cloud with this article, **"[Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)"**.
 

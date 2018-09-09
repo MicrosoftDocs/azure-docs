@@ -14,11 +14,14 @@ ms.date: 8/6/2018
 
 # How to configure a development environment for the Azure Machine Learning service
 
-You'll learn about configuring following develop environments:
+You'll learn how to create a workspace configuration file to use in any environment.
+
+You'll also learn about configuring the following develop environments:
 
 * Jupyter Notebooks on your own computer
 * Visual Studio Code
 * Code editor of your choice
+
 
 The recommended approach is to use Continuum Anaconda [conda virtual environments](https://conda.io/docs/user-guide/tasks/manage-environments.html) to isolate your working environment so as to avoid dependency conflicts between packages. This article shows the steps of setting up a conda environment and using it for Azure Machine Learning.
 
@@ -30,7 +33,32 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
  * For Visual Studio Code environment, [Python Extension installed](https://code.visualstudio.com/docs/python/python-tutorial)
 
-## Jupyter Notebooks on your own computer
+## Create workspace configuration file
+
+Create a configuration file, so your code can interact with your workspace in the cloud.
+
+1. [Create a workspace](quickstart-get-started.md)
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com).
+
+    ![Azure portal](./media/how-to-configure-environment/configure.png) 
+
+3. In a text editor, create a file called **config.json**.  Add the following content to that file, inserting your values from the portal:
+
+    ```json
+    {
+    "subscription_id": "<subscription-id>",
+    "resource_group": "<resource-group>",
+    "workspace_name": "<workspace-name>"
+    }
+    ```
+
+    >[!NOTE] 
+    >Later in your code, you read this file with:  `ws = Workspace.from_config()`
+
+4. Be sure to save **config.json** into the same directory as the scripts or notebooks that reference it.
+
+## Configure Jupyter Notebooks on your own computer
 
 1. Open a command-prompt or shell.
 
@@ -50,7 +78,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 3. To install Azure Machine Learning SDK with notebook extras, use the following command:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks]
+    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
     ```
 
 4. To install packages for your machine learning experimentation, use the following command and replace `<new package>` with the package you want to install:
@@ -59,16 +87,16 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
     conda install <new package>
     ```
 
-5. To install a conda-aware Jupyter Notebook server and enable run history widgets, use the following commands:
+5. To install a conda-aware Jupyter Notebook server and enable experiment widgets (to view run information), use the following commands:
 
     ```shell
     # install Jupyter 
     conda install nb_conda
 
-    # install run history widget
+    # install experiment widget
     jupyter nbextension install --py --user azureml.train.widgets
 
-    # enable run history widget
+    # enable experiment widget
     jupyter nbextension enable --py --user azureml.train.widgets
     ```
 
@@ -85,7 +113,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
     azureml.core.VERSION
     ```
 
-## Visual Studio Code
+## Configure Visual Studio Code
 
 1. Open a command-prompt or shell.
 
@@ -105,7 +133,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 2. To install the Azure Machine Learning SDK, use the following command:
  
     ```shell
-    pip install --upgrade azureml-sdk
+    pip install --upgrade azureml-sdk[automl,contrib]
     ```
 
 4. To install the Visual Studio code Tools for AI, see the Visual Studio marketplace entry for [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 
@@ -128,15 +156,14 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
     azureml.core.VERSION
     ```
 
-## Code editor of your choice
+## Configure code editor of your choice
 
 To use a custom code editor with Azure Machine Learning SDK, first create conda environment as described above. Then follow the instructions for each editor to use the conda environment. For example, the instructions for PyCharm are located at [https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html](https://www.jetbrains.com/help/pycharm/2018.2/conda-support-creating-conda-virtual-environment.html).
 
-## Azure Notebooks and Data Science Virtual Machine
+## Configure Azure Notebooks and Data Science Virtual Machine
 
 [!INCLUDE [aml-pre-installed](~/includes/aml-pre-installed.md)]
  
 ## Next steps
 
-* [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md)
-* [Train a model on Azure Machine Learning with the MNIST dataset and TensorFlow](tutorial-train-models-with-aml.md)
+* [Train a model on Azure Machine Learning with the MNIST dataset](tutorial-train-models-with-aml.md)

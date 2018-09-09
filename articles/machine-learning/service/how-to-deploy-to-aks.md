@@ -21,21 +21,15 @@ Deploying to AKS provides auto-scaling, logging, model data collection, and fast
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An Azure Machine Learning Workspace, a local project directory and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md).
+- An Azure Machine Learning Workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md).
 
 - A trained ML model. If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
-## Install libraries and initialize the workspace
-
-Why do we need these specific imports?
+## Initialize the workspace
+Use the saved config.json file created as part of the prerequisites steps.
 
 ```python
-from azureml.coreazureml  import Workspace
-from azureml.core.compute import AksCompute, ComputeTarget
-from azureml.core.webservice import Webservice, AksWebservice
-from azureml.core.image import Image
-from azureml.core.model import Model
-from azureml.core.workspace import Workspace
+from azureml.coreazureml import Workspace
 
 # Load existing workspace from the config file info.
 ws = Workspace.from_config()
@@ -47,6 +41,7 @@ Register an existing trained model, add description and tags.
 
 ```python
 from azureml.core.model import Model
+
 model = Model.register(model_path = "model.pkl", # this points to a local file
                         model_name = "best_model", # this is the name the model is registered as
                         tags = ["diabetes", "regression"],
@@ -54,12 +49,18 @@ model = Model.register(model_path = "model.pkl", # this points to a local file
                         workspace = ws)
 ```
 
-## Create an image
+## Create a Docker image
 
-The following code snippet demonstrates how to create an image using the registered model. The file `score.py` contains the scoring logic, and is included in the image. This file is used to run the model in the image.
+The following steps show how to create a Docker image using the registered model. 
+
+### Configure the image:
+
+1. Create the [scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Create [an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
+1. Use these two files to configure the Docker image
 
 ```bash
-from  azureml.core.imageazureml  import ContainerImage
+from azureml.core.image import ContainerImage
 
 # Image configuration
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
@@ -68,8 +69,13 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                     description = "Image with ridge regression model",
                                                     tags = ["diabetes","regression"]
                                                     )
+```
 
-# Create the image
+### Create the image
+
+This may take a few minutes. Time estimate ~5 minutes.
+
+```bash
 image = ContainerImage.create(name = "myimage1",
                                 # this is the model object
                                 models = [model],
@@ -91,7 +97,9 @@ The following code snippet demonstrates how to create the AKS cluster:
 > This process takes approximately 20 minutes.
 
 ```python
-# Use the default configuration (can also provide parameters to customize)
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Use the default configuration (you can also provide parameters to customize this)
 prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'aml-aks-1' 
@@ -108,7 +116,10 @@ print(aks_target.provisioning_errors)
 
 ### Attach existing AKS cluster (optional)
 
-If you have existing AKS cluster in your Azure subscription, you can use it to deploy your web service. The following code snippet demonstrates how to attach a cluster to your workspace.
+If you have existing AKS cluster in your Azure subscription, you can use it to deploy your web service. The following code snippet demonstrates how to attach a cluster to your workspace. 
+
+> [!IMPORTANT]
+> AKS versions 1.8.7 and later are supported (need to check this!!)
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
@@ -129,6 +140,8 @@ aks_target.wait_for_provisioning(True)
 The following code snippet demonstrates how to deploy the image to the cluster:
 
 ```python
+from azureml.core.webservice import Webservice, AksWebservice
+
 # Set configuration and service name
 aks_config = AksWebservice.deploy_configuration()
 aks_service_name ='aks-service-1'

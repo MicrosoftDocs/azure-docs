@@ -3,13 +3,11 @@ title: Microsoft Graph bindings for Azure Functions
 description: Understand how to use Microsoft Graph triggers and bindings in Azure Functions.
 services: functions
 author: mattchenderson
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
 ---

@@ -30,16 +30,17 @@ In this part of the tutorial, you use Azure Machine Learning service (Preview) t
 
 ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
 
+## Get the notebook
+
+For your convenience, this tutorial is available as a Jupyter notebook.
+
+[**Launch samples in Azure Notebooks**](https://aka.ms/aml-notebooks) and navigate to `tutorials/train-models.ipynb`.  From Azure Notebooks, you can also download the notebook to use on your own Jupyter server.
+
 ## Prerequisites
 
-Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](https://aka.ms/aml-notebook-train-model) notebook.  
+Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) notebook.  
 
-### Start the notebook
-
-(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-deploy) into the same directory as **aml_config** and **utils.py**.  
-
-Or start your own notebook from the same directory as **aml_config** and **utils.py** and copy the code from the sections below.
-
+* Start a new notebook or place the downloaded notebook into the same directory as the Tutorial #1 notebook.
 
 ## Set up the environment
 
@@ -56,7 +57,7 @@ import matplotlib
 import matplotlib.pyplot as plt
  
 import azureml
-from azureml.core import Workspace, Project, Run
+from azureml.core import Workspace, Run
 
 # display the core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -177,7 +178,7 @@ To build the correct environment for ACI, provide the following:
 Create the scoring script, called score.py, used by the web service call to show how to use the model.
 
 You must include two required functions into the scoring script:
-* The `init()` function, which typically loads the model into a global object. This function is executed only once when the Docker container is started. 
+* The `init()` function, which typically loads the model into a global object. This function is run only once when the Docker container is started. 
 
 * The `run(input_data)` function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization, but other formats are supported.
 
@@ -225,14 +226,14 @@ dependencies:
 
 ### Create configuration file
 
-Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for typical models. If you feel you need more later, you would have to recreate the image and redeploy the service.
+Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for many models. If you feel you need more later, you would have to recreate the image and redeploy the service.
 
 ```python
 from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
                                                memory_gb = 1, 
-                                               tags = ['MNIST sklearn'], 
+                                               tags = {"data": "MNIST",  "method" : "sklearn"},
                                                description = 'Predict MNIST with sklearn')
 ```
 
@@ -348,7 +349,5 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Test the model locally
 > * Deploy the model to ACI
 > * Test the deployed model
-
-Now that you have a deployed model, find out how an application can [consume a deployed web service](how-to-consume-web-services.md).
  
 You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning can auto-select and tune the best algorithm for your model and build that model for you.

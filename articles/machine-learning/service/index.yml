@@ -36,12 +36,11 @@ sections:
     style: unordered
     items:
     - html: <a href="quickstart-get-started.md">Get started in the Azure portal </a>
-    - html: <a href="quickstart-get-started-with-cli.md">Get started using the Azure CLI</a>
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models.'
+    text: 'Learn how to set up an experiment and operationalize your models.'
   - type: list
     style: unordered
     items:
@@ -51,7 +50,7 @@ sections:
 
 - title: Reference
   items:
-  - html: <p><a href="reference-python-package-overview#amlpcv">Azure Machine Learning SDK for Python</a></p>
+  - html: <p><a href="https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py">Azure Machine Learning SDK for Python</a></p>
 
 - title: Other Azure Machine Learning Technologies
   items:

@@ -107,7 +107,7 @@ The Mobility service coordinates replication between on-premises VMware servers 
 
 **Update** | **Details** 
 --- | --- 
-Scout updates | [Learn about and download](/vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates | Scout updates are cumulative.
+Scout updates | [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates | Scout updates are cumulative.
 Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

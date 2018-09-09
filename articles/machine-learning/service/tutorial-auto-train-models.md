@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Automatically train a classification model with Azure Automated Machine Learning service"
-description: In this tutorial, you'll learn how to automatically generate a tuned machine learning model which can then be deployed with Azure Machine Learning service.
+description: In this tutorial, you'll learn how to automatically generate a  machine learning model which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-# As an app developer or data scientist I can automatically generate a tuned machine learning model.
+# As an app developer or data scientist I can automatically generate a  machine learning model.
 ---
 
 # Tutorial: Automatically train a classification model with Azure Automated Machine Learning
 
-In this tutorial, you'll learn how to automatically generate a tuned machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+In this tutorial, you'll learn how to automatically generate a  machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
@@ -33,30 +33,26 @@ You'll learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+## Get the notebook
+
+For your convenience, this tutorial is available as a Jupyter notebook.
+
+[**Launch samples in Azure Notebooks**](https://aka.ms/aml-notebooks) and navigate to `tutorials/auto-train-models.ipynb`.  From Azure Notebooks, you can also download the notebook to use on your own Jupyter server.
 
 ## Prerequisites
 
-* A development environment [configured to run Azure Machine Learning service in Jupyter notebooks](how-to-configure-environment.md) (approximately 2 minutes).  
-    * In step 4 the new packages you need are matplotlib, scikit-learn, pandas, and seaborn:
+Use [these instructions](how-to-configure-environment.md) to:  
+* Create a workspace and its configuration file (**config.json**)  
+* Configure a development environment for Jupyter notebooks. In step 4 the new packages you need are matplotlib, scikit-learn, pandas, and seaborn:
 
-        ```shell
-        conda install -y matplotlib scikit-learn pandas seaborn
-        ``` 
-
-* An Azure Machine Learning Workspace and its accompanying  **aml_config** directory created by following the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) quickstart (approximately 3 minutes).
-
-
-### Start the notebook
-
-(Optional) Download [this tutorial as a notebook](https://aka.ms/aml-notebook-auto-train) into the same directory as **aml_config**.  
-
-Or start your own notebook from the same directory as **aml_config** and copy the code from the sections below.
-
+    ```shell
+    conda install -y matplotlib scikit-learn pandas seaborn
+    ``` 
+* Start a new notebook or place the downloaded notebook into the same directory as **config.json**.
 
 ## Set up your development environment
 
-All the setup for your development work can be accomplished in a Python notebook.  Setup includes:
+All the setup for your development work can be accomplished in the Python notebook.  Setup includes:
 
 * Import Python packages
 * Configure a workspace to enable communication between your local computer and remote resources
@@ -70,7 +66,6 @@ Import Python packages you need in this tutorial.
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl import AutoMLClassifier, AutoMLRegressor
 from azureml.train.automl.run import AutoMLRun
 import time
 import logging
@@ -86,7 +81,7 @@ import numpy as np
 
 Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified run history.
+Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment.
 
 ```python
 ws = Workspace.from_config()
@@ -96,10 +91,7 @@ experiment_name = 'automl-classifier'
 project_folder = './automl-classifier'
 
 import os
-from azureml.core.project import Project
-project = Project.attach(ws,
-                         experiment_name,
-                         project_folder)
+
 
 output = {}
 output['SDK version'] = azureml.core.VERSION
@@ -107,8 +99,7 @@ output['Subscription ID'] = ws.subscription_id
 output['Workspace'] = ws.name
 output['Resource Group'] = ws.resource_group
 output['Location'] = ws.location
-output['Project Directory'] = project.project_directory
-output['Run History Name'] = project.history.name
+output['Project Directory'] = project_folder
 pd.set_option('display.max_colwidth', -1)
 pd.DataFrame(data=output, index=['']).T
 ```
@@ -174,25 +165,23 @@ Define the experiment parameters and models settings for autogeneration and tuni
 |**preprocess**|True| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
 |**exit_score**|0.994|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
 |**blacklist_algos**|['kNN','LinearSVM']|*Array* of *strings* indicating algorithms to ignore.
-|**concurrent_iterations**|5|Max number of iterations that would be executed in parallel. This number should be less than the number of cores on the DSVM. Used in remote training.|
+|**concurrent_iterations**|5|Max number of iterations that would be run in parallel. This number should be less than the number of cores on the DSVM. Used in remote training.|
 
 ```python
 from azureml.train.automl import AutoMLConfig
-from azureml.core import RunConfiguration
-import time
-import logging
 
 ##Local compute 
 Automl_config = AutoMLConfig(task = 'classification',
                              primary_metric = 'AUC_weighted',
                              max_time_sec = 12000,
-                             iterations = 50,
+                             iterations = 20,
                              n_cross_validations = 3,
                              blacklist_algos = ['kNN','LinearSVM'],
                              X = X_digits,
                              y = y_digits,
                              path=project_folder)
 ```
+
 ### Run the automatic classifier
 
 Start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
@@ -254,7 +243,7 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if not isinstance(v, list)}    
+    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}   
     metricslist[int(properties['iteration'])] = metrics
 
 import pandas as pd
@@ -265,7 +254,7 @@ s = rundata.style.background_gradient(cmap = cm)
 s
 ```
 
-This table shows the results.  In the notebook the table has varying shades of green to highlight high/low values.
+This table shows the results.  In the notebook you will see varying shades of green to highlight high/low values.
 
 
 <!-- hello world -->

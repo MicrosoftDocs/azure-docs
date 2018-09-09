@@ -6,8 +6,8 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.author: yahajiza
-author: YasinMSFT
+ms.author: shipatel
+author: shivp950
 ms.date: 09/24/2018
 ---
 
