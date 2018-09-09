@@ -8,7 +8,7 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
 ---
 # Use "Text to Speech" in Speech service
