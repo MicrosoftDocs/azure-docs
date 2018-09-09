@@ -27,8 +27,9 @@ You can export ONNX models from many frameworks, including:
 + Chainer
 + Microsoft Cognitive Toolkit (CNTK)
 + MXNet
++ ML.Net
 
-Converters exist for other frameworks such as TensorFlow, Keras, and SciKit-Learn.
+Converters exist for other frameworks such as TensorFlow, Keras, SciKit-Learn, and more.
 
 There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
@@ -52,31 +53,51 @@ Once you have an ONNX model, you can deploy it to Azure Machine Learning. You ca
 
 ### Export/convert your models to ONNX
 
-For PyTorch models, see https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb
+For **PyTorch** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
+
+For **Microsoft Cognitive Toolkit (CNTK)** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
+
+For **Chainer** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)
+
+For **MXNet** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)
+
 For **TensorFlow** models, you can convert to the ONNX format with the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
 
-For **Keras**, **ScitKit-Learn**, and other models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package if you have a model in one of the following formats:
-* Keras
-* SciKit-Learn
-* xgboost
-* libSVM
-* CoreML
+For **Keras**, **ScitKit-Learn**, **CoreML**, **XGBoost**, and **libSVM** models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package.
+
+You can find the latest list of supported frameworks and converters at the [ONNX Tutorials site](https://github.com/onnx/tutorials).
 
 ## Deploy ONNX models in Azure
 
-With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud. Once deployed, your ONNX model is hosted in the cloud and ready to be called!
-
-Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
+With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud. Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
 
 ### ONNX Runtime
 
-The ONNX Runtime is a high performance inference engine. It comes with a Python API and provides hardware acceleration on both CPU and GPU.
+The ONNX Runtime is a high performance inference engine for ONNX models. It comes with a Python API and provides hardware acceleration on both CPU and GPU. It currently supports ONNX 1.2 models (ONNX opset version 7 and ONNX-ML opset version 1) and runs on Ubuntu 16.04 Linux.
 
-Installing ONNX Runtime
-
+To install ONNX Runtime, use:
 `pip install onnxruntime`
 
+To instantiate the runtime, call:
+```python
+import onnxruntime
 
+session = onnxruntime.InferenceSession("path to model")
+```
+
+The documentation accompanying the model usually tells you the inputs and outputs for using the model. You can also use a visualization tool such as [Netron](https://github.com/lutzroeder/Netron) to view the model. ONNX Runtime also lets you query the model metadata, inputs, and outputs:
+```python
+session.get_modelmeta()
+first_input_name = session.get_inputs()[0].name
+first_output_name = session.get_outputs()[0].name
+```
+
+To run inference, use `run` and pass in the list of outputs and a map of the input values:
+```python
+results = session.run(["output1", "output2"], {"input1": indata1, "input2": indata2})
+```
+
+For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
 
 ### Deployment steps
 
