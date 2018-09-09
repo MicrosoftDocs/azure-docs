@@ -3,15 +3,11 @@ title: Disaster recovery and geo-distribution in Durable Functions - Azure
 description: Learn about disaster recovery and geo-distribution in Durable Functions.
 services: functions
 author: MS-Santi
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ---
