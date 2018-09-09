@@ -75,10 +75,10 @@ With Azure Machine Learning service, you can deploy, manage, and monitor your ON
 
 The ONNX Runtime is a high performance inference engine for ONNX models. It comes with a Python API and provides hardware acceleration on both CPU and GPU. It currently supports ONNX 1.2 models (ONNX opset version 7 and ONNX-ML opset version 1) and runs on Ubuntu 16.04 Linux.
 
-To install ONNX Runtime, use:
+To install the ONNX Runtime, use:
 `pip install onnxruntime`
 
-To instantiate the runtime, call:
+To instantiate the ONNX Runtime in your Python script, call:
 ```python
 import onnxruntime
 
@@ -92,7 +92,7 @@ first_input_name = session.get_inputs()[0].name
 first_output_name = session.get_outputs()[0].name
 ```
 
-To run inference, use `run` and pass in the list of outputs and a map of the input values:
+To inference your model, use `run` and pass in the list of outputs and a map of the input values:
 ```python
 results = session.run(["output1", "output2"], {"input1": indata1, "input2": indata2})
 ```
@@ -145,12 +145,12 @@ Here is an example for deploying an ONNX model:
    image.wait_for_creation(show_output = True)
    ```
 
-   The file `score.py` contains the scoring logic and needs to be included in the image. This file is used to run the model in the image. An example file for an ONNX model is shown below:
+   The file `score.py` contains the scoring logic and needs to be included in the image. This file is used to run the model in the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-scoring-script) for instructions on how to create a scoring script. An example file for an ONNX model is shown below:
 
    ```python
+   import onnxruntime
    import json
    import numpy as np
-   import onnxruntime
    import sys
    from azureml.core.model import Model
 
@@ -172,6 +172,21 @@ Here is an example for deploying an ONNX model:
            result = str(e)
            return json.dumps({"error": result})
    ```
+
+   The file `myenv.yml` describes the dependencies needed for the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) for instructions on how to create an environment file. An example file for an ONNX model is shown below:
+
+   ```
+   name: myenv
+   channels:
+     - defaults
+   dependencies:
+     - pip:
+       - onnxruntime
+       # Required packages for AzureML
+       - --extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+       - azureml-core
+   ```
+
 4. Deploy your ONNX model with Azure Machine Learning to:
    + Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
 
