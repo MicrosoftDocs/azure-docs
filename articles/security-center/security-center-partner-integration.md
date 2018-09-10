@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/20/2018
 ms.author: terrylan
 
 ---
@@ -34,7 +34,11 @@ Currently, integrated security solutions include:
 - Next-generation firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html), and [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Vulnerability assessment ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) and [Rapid7](https://www.rapid7.com/products/insightvm/))
 
-The endpoint protection integration experience may vary according to the solution. The following table has more details about each solution's experience:
+> [!NOTE]
+> Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliance.
+>
+>
+
 
 | Endpoint Protection               | Platforms                             | Security Center Installation | Security Center Discovery |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
@@ -64,9 +68,9 @@ Azure security solutions that are deployed from Security Center are automaticall
 
 2. On the **Microsoft Azure menu**, select **Security Center**. **Security Center - Overview** opens.
 
-  ![Security Center Overview](./media/security-center-partner-integration/overview.png)
+3. Under the Security Center menu, select **Security solutions**.
 
-3. Under **Overview**, select **Security solutions**.
+  ![Security Center Overview](./media/security-center-partner-integration/overview.png)
 
 Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks. You can also connect other types of security data sources, such as Azure Active Directory Identity Protection alerts and firewall logs in Common Event Format (CEF).
 

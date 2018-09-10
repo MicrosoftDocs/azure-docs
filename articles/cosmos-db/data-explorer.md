@@ -8,7 +8,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: Deborah.Chen
+ms.author: dech
 
 ---
 

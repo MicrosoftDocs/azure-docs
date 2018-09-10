@@ -19,7 +19,7 @@ Graphical Processing Unit (GPU) is widely used to process computationally intens
 - To step through this how-to guide, you need to first [install Azure ML Workbench](../service/quickstart-installation.md).
 - You need to have access to computers equipped with NVidia GPUs.
     - You can run your scripts directly on local machine (Windows or macOS) with GPUs.
-    - You can also run scripts in a Docker container on a machine with GPUs.
+    - You can also run scripts in a Docker container on a Linux machine with GPUs..
 
 ## Execute in _local_ Environment with GPUs
 You can install Azure ML Workbench on a computer equipped with GPUs and execute against _local_ environment. This can be:
@@ -80,7 +80,7 @@ C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "m
 ### Configure Azure ML Workbench to Access GPU
 Go back to the project and open **File View**, and hit the **Refresh** button. Now you see two new configuration files `my_dsvm.compute` and `my_dsvm.runconfig`.
  
-Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:plus-gpu-0.7.9` and add a new line `nvidiaDocker: true`. So the file should have these two lines:
+Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:plus-gpu-0.9.9` and add a new line `nvidiaDocker: true`. So the file should have these two lines:
  
 ```yaml
 ...

@@ -52,7 +52,7 @@ Here are the typical steps to create a data factory pipeline with a Spark activi
 * Create a pipeline with Spark activity that refers to the HDInsight linked service you created. The activity is configured with the dataset you created in the previous step as an output dataset. The output dataset is what drives the schedule (hourly, daily). Therefore, you must specify the output dataset even though the activity doesn't really produce an output.
 
 ### Prerequisites
-1. Create a general-purpose storage account by following the instructions in [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Create a general-purpose storage account by following the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
 
 1. Create a Spark cluster in HDInsight by following the instructions in the tutorial [Create a Spark cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associate the storage account you created in step 1 with this cluster.
 

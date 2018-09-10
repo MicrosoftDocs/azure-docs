@@ -337,7 +337,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 | Step | Resources |
 | --- | --- |
 | Remove the user from the group the app is assigned to | [Manage group membership for users in your Azure Active Directory tenant](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | On a separate browser session, log in as the information worker to my apps portal and confirm that tile is missing | http://myapps.microsoft.com |
 
 
@@ -477,7 +477,7 @@ Approximate time to Complete: 15 minutes
 | Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let's call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
 | Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let's call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Now, log in as GA2 to https://portal.azure.com and try changing "User Settings". Notice, some options are grayed out. | |
-| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [Start using PIM](privileged-identity-management/pim-getting-started.md) |
 | Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Note, that if GA2 never signed up for MFA, registration for Azure MFA will be necessary |  |
 | Go back to the original tab in step 3, and click the refresh button in the browser. Note that you now have access to change "User settings" | |
@@ -557,7 +557,7 @@ Approximate time to complete: 20 minutes
 | Step | Resources |
 | --- | --- |
 | Enable "Certificate Authentication" on ADFS | [Configure Authentication Policies: To configure primary authentication globally in Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
+| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | Navigate to Access Panel and authenticate using User Certificate | https://myapps.microsoft.com |
 
 ### Considerations

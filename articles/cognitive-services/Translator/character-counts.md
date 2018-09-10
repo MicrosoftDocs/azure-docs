@@ -17,6 +17,4 @@ Microsoft Translator counts every character of the input. Characters in the Unic
 
 Calls to the Detect and BreakSentence methods are not counted in the character consumption. However, we do expect that the calls to the Detect and BreakSentence methods are in a reasonable proportion to the use of other functions that are counted. Microsoft reserves the right to start counting Detect and BreakSentence. 
 
-Translate offers automatic detection if you omit the From language parameter. 
-
 More information about character counts is in the [Microsoft Translator FAQ](https://www.microsoft.com/en-us/translator/faq.aspx).

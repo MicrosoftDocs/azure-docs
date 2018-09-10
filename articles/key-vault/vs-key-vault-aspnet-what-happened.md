@@ -7,6 +7,7 @@ manager: douge
 tags: azure-resource-manager
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
@@ -46,10 +47,22 @@ Affects the project file *.NET references and `packages.config` (NuGet reference
 - Added the following configuration entries:
 
     ```xml
-    <appSettings>
-       <add key="vaultName" value="<your Key Vault name>" />
-       <add key="vaultUri" value="<the URI to your Key Vault in Azure>" />
-    </appSettings>
+    <configSections>
+      <section
+           name="configBuilders"
+           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+           restartOnExternalChanges="false"
+           requirePermission="false" />
+    </configSections>
+    <configBuilders>
+      <builders>
+        <add 
+             name="AzureKeyVault"
+             vaultName="vaultname"
+             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" 
+             vaultUri="https://vaultname.vault.azure.net" />
+      </builders>
+    </configBuilders>
     ```
 
 ## Changes on Azure

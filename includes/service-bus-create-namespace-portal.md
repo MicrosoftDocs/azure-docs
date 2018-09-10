@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: service-bus-messaging
- author: sethmanheim
+ author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
  ms.date: 07/03/2018
- ms.author: sethm
+ ms.author: spelluru
  ms.custom: include file
 ---
 
@@ -34,7 +34,7 @@ Creating a new namespace automatically generates an initial Shared Access Signat
 3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
+4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
     ![connection-string][connection-string]
 
