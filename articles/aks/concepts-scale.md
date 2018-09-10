@@ -47,7 +47,7 @@ You may need to tune these cooldown values. The default cooldown values may give
 
 ## Cluster autoscaler
 
-To respond to changing pod demands, Kubernetes has a cluster autoscaler that adjust the number of nodes based on the requested compute resources in the node pool. By default, the cluster autoscaler checks the API server every 10 seconds for any required changes in node count. If the cluster autoscale determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly. The cluster autoscaler works with RBAC-enabled AKS clusters that run Kubernetes 1.10.x or higher.
+To respond to changing pod demands, Kubernetes has a cluster autoscaler that adjusts the number of nodes based on the requested compute resources in the node pool. By default, the cluster autoscaler checks the API server every 10 seconds for any required changes in node count. If the cluster autoscale determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly. The cluster autoscaler works with RBAC-enabled AKS clusters that run Kubernetes 1.10.x or higher.
 
 Cluster autoscaler is typically used alongside the horizontal pod autoscaler. When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes as needed to run those additional pods accordingly.
 
@@ -81,6 +81,14 @@ To get started with scaling applications, follow the [quickstart to create an AK
 - Use the [horizontal pod autoscaler][aks-hpa]
 - Use the [cluster autoscaler][aks-cluster-autoscaler]
 
+For additional information on core Kubernetes and AKS concepts, see the following articles:
+
+- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS access and identity][aks-concepts-identity]
+- [Kubernetes / AKS security][aks-concepts-security]
+- [Kubernetes / AKS virtual networks][aks-concepts-network]
+- [Kubernetes / AKS storage][aks-concepts-storage]
+
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
@@ -90,3 +98,8 @@ To get started with scaling applications, follow the [quickstart to create an AK
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
 [aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
 [aks-cluster-autoscaler]: autoscaler.md
+[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
+[aks-concepts-security]: concepts-security.md
+[aks-concepts-storage]: concepts-storage.md
+[aks-concepts-identity]: concepts-identity.md
+[aks-concepts-network]: concepts-network.md

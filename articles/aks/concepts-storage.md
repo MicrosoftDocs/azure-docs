@@ -30,7 +30,7 @@ Applications often need to be able to store and retrieve data. As Kubernetes typ
 Traditional volumes to store and retrieve data are created as Kubernetes resources backed by Azure Storage. You can manually create these data volumes to be assigned to pods directly, or have Kubernetes automatically create them. These data volumes can use Azure Disks or Azure Files:
 
 - *Azure Disks* can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium storage, backed by high-performance SSDs, or Azure Standard storage, backed by regular HDDs. For most production and development workloads, use Premium storage. Azure Disks are mounted as *ReadWriteOnce*, so are only available to a single node. For storage volumes that can be accessed by multiple nodes simultaneously, use Azure Files.
-- *Azure Files* can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Currently, Files can only used Azure Standard storage backed by regular HDDs.
+- *Azure Files* can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Currently, Files can only use Azure Standard storage backed by regular HDDs.
 
 In Kubernetes, volumes can represent more than just a traditional disk where information can be stored and retrieved. Kubernetes volumes can also be used as a way to inject data into a pod for use by the containers. Common additional volume types in Kubernetes include:
 
@@ -91,7 +91,7 @@ spec:
       storage: 5Gi
 ```
 
-When you create a pod definition, the persistent volume claim is specified to request the desired storage. You also then specify the *volumeMount* for your applications to read and write data. The following example YAML manifest shows how the the previous persistent volume claim can be used to mount a volume at */mnt/azure*:
+When you create a pod definition, the persistent volume claim is specified to request the desired storage. You also then specify the *volumeMount* for your applications to read and write data. The following example YAML manifest shows how the previous persistent volume claim can be used to mount a volume at */mnt/azure*:
 
 ```yaml
 kind: Pod
@@ -120,6 +120,14 @@ To see how to create dynamic and static volumes that use Azure Disks or Azure Fi
 - [Create a dynamic volume using Azure Disks][aks-dynamic-disks]
 - [Create a dynamic volume using Azure Files][aks-dynamic-files]
 
+For additional information on core Kubernetes and AKS concepts, see the following articles:
+
+- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS identity][aks-concepts-identity]
+- [Kubernetes / AKS security][aks-concepts-security]
+- [Kubernetes / AKS virtual networks][aks-concepts-network]
+- [Kubernetes / AKS scale][aks-concepts-scale]
+
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
@@ -127,3 +135,8 @@ To see how to create dynamic and static volumes that use Azure Disks or Azure Fi
 [aks-static-files]: azure-files-volume.md
 [aks-dynamic-disks]: azure-disks-dynamic-pv.md
 [aks-dynamic-files]: azure-files-dynamic-pv.md
+[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
+[aks-concepts-identity]: concepts-identity.md
+[aks-concepts-scale]: concepts-scale.md
+[aks-concepts-security]: concepts-security.md
+[aks-concepts-network]: concepts-network.md

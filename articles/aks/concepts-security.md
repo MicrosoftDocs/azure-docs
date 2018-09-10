@@ -26,7 +26,7 @@ This article introduces the core concepts that secure your applications in AKS:
 
 In AKS, the Kubernetes master components are part of the managed service provided my Microsoft. Each AKS cluster has their own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. This master is managed and maintained by Microsoft
 
-By default, the Kubernetes API server uses a public IP address and with fully qualified domain name (FQDN). You can control access to the API server using Kubernetes role-based access controls and Azure Active Directory.
+By default, the Kubernetes API server uses a public IP address and with fully qualified domain name (FQDN). You can control access to the API server using Kubernetes role-based access controls and Azure Active Directory. For more information, see [Azure AD integration with AKS][aks-aad].
 
 ## Node security
 
@@ -82,6 +82,14 @@ The use of Secrets reduces the sensitive information that is defined in the pod 
 
 To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks-upgrade-cluster].
 
+For additional information on core Kubernetes and AKS concepts, see the following articles:
+
+- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS identity][aks-concepts-identity]
+- [Kubernetes / AKS virtual networks][aks-concepts-network]
+- [Kubernetes / AKS storage][aks-concepts-storage]
+- [Kubernetes / AKS scale][aks-concepts-scale]
+
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
@@ -89,3 +97,9 @@ To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
+[aks-aad]: aad-integration.md
+[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
+[aks-concepts-identity]: concepts-identity.md
+[aks-concepts-scale]: concepts-scale.md
+[aks-concepts-storage]: concepts-storage.md
+[aks-concepts-network]: concepts-network.md

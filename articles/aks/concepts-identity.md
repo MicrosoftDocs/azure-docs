@@ -17,7 +17,7 @@ There are different ways to authenticate with and secure Kubernetes clusters. Us
 This article introduces the core concepts that help you authenticate and assign permissions in AKS:
 
 - [Kubernetes service accounts](#kubernetes-service-accounts)
-- [Azure Active Directory (AAD) integration](#azure-active-directory-aad-integration)
+- [Azure Active Directory integration](#azure-active-directory-integration)
 - [Role-based access controls (RBAC)](#role-based-access-controls-rbac)
 - [Roles and ClusterRoles](#roles-and-clusterroles)
 - [RoleBindings and ClusterRoleBindings](#rolebindings-and-clusterrolebindings)
@@ -30,13 +30,13 @@ Normal user accounts allow more traditional access for administrators or develop
 
 For more information on the identity options in Kubernetes, see [Kubernetes authentication][kubernetes-authentication].
 
-## Azure Active Directory (AAD) integration
+## Azure Active Directory integration
 
-The security of AKS clusters can be enhanced with the integration of Azure Active Directory (AAD). Built on decades of enterprise identity management, AAD is a multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection. With AAD, you can integrate on-premises identities into AKS clusters to provide a single source for account management and security.
+The security of AKS clusters can be enhanced with the integration of Azure Active Directory (AD). Built on decades of enterprise identity management, Azure AD is a multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection. With Azure AD, you can integrate on-premises identities into AKS clusters to provide a single source for account management and security.
 
-With AAD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. To obtain a `kubectl` configuration context, a user can run the [az aks get-credentials][az-aks-get-credentials] command. When a user then interacts with the AKS cluster with `kubectl`, they are prompted to sign in with their AAD credentials. This approach provides a single source for user account management and password credentials. The user can only access the resources as defined by the cluster administrator.
+With Azure AD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. To obtain a `kubectl` configuration context, a user can run the [az aks get-credentials][az-aks-get-credentials] command. When a user then interacts with the AKS cluster with `kubectl`, they are prompted to sign in with their Azure AD credentials. This approach provides a single source for user account management and password credentials. The user can only access the resources as defined by the cluster administrator.
 
-AAD authentication in AKS clusters uses OpenID Connect, an identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use access tokens to access protected resources, and OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. For more information on OpenID Connect, see the [Open ID Connect documentation][openid-connect]. To verify the authentication tokens obtained from AAD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
+Azure AD authentication in AKS clusters uses OpenID Connect, an identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use access tokens to access protected resources, and OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. For more information on OpenID Connect, see the [Open ID Connect documentation][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
 
 ## Role-based access controls (RBAC)
 
@@ -59,7 +59,7 @@ A ClusterRole works in the same way to grant permissions to resources, but can b
 
 ## RoleBindings and ClusterRoleBindings
 
-Once roles are defined to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster integrates with Azure Active Directory, bindings are how those AAD users are granted permissions to perform actions within the cluster.
+Once roles are defined to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster integrates with Azure Active Directory, bindings are how those Azure AD users are granted permissions to perform actions within the cluster.
 
 Role bindings are used to assign roles for a given namespace. This approach lets you logically segregate a single AKS cluster, with users only able to access the application resources in their assigned namespace. If you need to bind roles across the entire cluster, or to cluster resources outside a given namespace, you can instead use *ClusterRoleBindings*.
 
@@ -67,7 +67,15 @@ A ClusterRoleBinding works in the same way to bind roles to users, but can be ap
 
 ## Next steps
 
-To get started with AAD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
+To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
+
+For additional information on core Kubernetes and AKS concepts, see the following articles:
+
+- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS security][aks-concepts-security]
+- [Kubernetes / AKS virtual networks][aks-concepts-network]
+- [Kubernetes / AKS storage][aks-concepts-storage]
+- [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kubernetes-authentication]: https://kubernetes.io/docs/reference/access-authn-authz/authentication
@@ -79,3 +87,8 @@ To get started with AAD and Kubernetes RBAC, see [Integrate Azure Active Directo
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: aad-integration.md
+[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
+[aks-concepts-security]: concepts-security.md
+[aks-concepts-scale]: concepts-scale.md
+[aks-concepts-storage]: concepts-storage.md
+[aks-concepts-network]: concepts-network.md
