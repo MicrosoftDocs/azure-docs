@@ -428,7 +428,7 @@ Here's an example of how images are displayed in the sample app:
 
 ## Persist the client ID
 
-Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with each successive request. If more than one of the Bing Search APIs are used by your app, make sure the same client ID is sent with each request across services.
+Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with each successive request. If more than one of the Bing Search APIs is used by your app, make sure the same client ID is sent with each request across services.
 
 Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate a user's searches. First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the request. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing. Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature will always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
 
