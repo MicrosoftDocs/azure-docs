@@ -6,7 +6,7 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.component: speech-service
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: panosper
@@ -16,7 +16,7 @@ Learn how to migration from the Custom Speech service to the unified Speech Serv
 
 Custom Speech Service and its corresponding Client libraries and APIs are being deprecated on September 24th. We highly recommend customers to switch to the new unified Speech Service and SDK as soon as possible to benefit from the latest quality and feature updates. 
  
-# Migration for new customers
+## Migration for new customers
 
 The pricing model is simpler, moving to an hour-based pricing model for the new Speech Service. Visit the Speech Service Pricing page for details.  
 
@@ -37,7 +37,7 @@ The pricing model is simpler, moving to an hour-based pricing model for the new 
 
 4. Update the client application to use the Speech service and APIs. 
   
-# Migration for existing customers
+## Migration for existing customers
 Existing customers are required to migrate their existing resource keys to the new service. They can do this on the Speech Service portal. Note that resource keys can only be migrated within the same region. Use the following steps:
 
 1. Sign in to the [cris.ai](http://www.cris.ai) portal and select the subscription in the top right menu. 
