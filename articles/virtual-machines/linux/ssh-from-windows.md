@@ -44,7 +44,7 @@ You can also use the SSH utilities available in Bash in the [Azure Cloud Shell](
 * Access Cloud Shell as a terminal from within Visual Studio Code by installing the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## Create an SSH key pair
-The following sections describe two options to create an SSH key pair on Windows. You can use a shell command (ssh-keygen) or a GUI tool (PuTTYgen).
+The following sections describe two options to create an SSH key pair on Windows. You can use a shell command (`ssh-keygen`) or a GUI tool (PuTTYgen).
 
 ### Create SSH keys with ssh-keygen
 
@@ -66,19 +66,19 @@ To create an SSH RSA key pair with PuTTYgen:
 
 2. Click **Generate**. By default PuTTYgen generates a 2048-bit SSH-2 RSA key.
 
-4. Move the mouse over the blank area to provide randomness for the key.
+4. Move the mouse around in the blank area to provide randomness for the key.
 
 5. After the public key is generated, optionally enter and confirm a passphrase. You will be prompted for the passphrase when you authenticate to the VM with your private SSH key. Without a passphrase, if someone obtains your private key, they can log in to any VM or service that uses that key. We recommend you create a passphrase. However, if you forget the passphrase, there is no way to recover it.
 
-6. The public key is displayed at the top of the window. You can copy this entire public key and then paste it into the Azure portal or an Azure Resource Manager template when you create a Linux VM. You can also click **Save public key** to save a copy to your computer:
+6. The public key is displayed at the top of the window. You can copy this entire public key and then paste it into the Azure portal or an Azure Resource Manager template when you create a Linux VM. You can also select **Save public key** to save a copy to your computer:
 
     ![Save PuTTY public key file](./media/ssh-from-windows/save-public-key.png)
 
-7. Optionally, to save the private key in PuTTy private key format (.ppk file), click **Save private key**. You will need the .ppk file later to use PuTTY to make an SSH connection to the VM.
+7. Optionally, to save the private key in PuTTy private key format (.ppk file), select **Save private key**. You will need the .ppk file later to use PuTTY to make an SSH connection to the VM.
 
     ![Save PuTTY private key file](./media/ssh-from-windows/save-ppk-file.png)
 
-    If you want to save the private key in the OpenSSH format, the private key format used by many SSH clients, click **Conversions** > **Export OpenSSH key**.
+    If you want to save the private key in the OpenSSH format, the private key format used by many SSH clients, select **Conversions** > **Export OpenSSH key**.
 
 ## Provide an SSH public key when deploying a VM
 
