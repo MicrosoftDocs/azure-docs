@@ -65,10 +65,10 @@ If you’re not going to continue to use this application, you can delete the te
     ![Azure Active Directory Create blade](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## Next steps
-- Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain)
+- Change or add additional domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
 
 - Add users, see [Add or delete a new user](add-users-azure-active-directory.md)
 
-- Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal)
+- Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-- Learn about [role-based access using Privileged Identity Management](../role-based-access-control/pim-azure-resource) and [Conditional access](../role-based-access-control/conditional-access-azure-management) to help manage your organization's application and resource access.
+- Learn about [role-based access using Privileged Identity Management](../role-based-access-control/pim-azure-resource.md) and [Conditional access](../role-based-access-control/conditional-access-azure-management.md) to help manage your organization's application and resource access.
