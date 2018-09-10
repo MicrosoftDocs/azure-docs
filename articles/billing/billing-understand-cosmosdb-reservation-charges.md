@@ -16,8 +16,6 @@ ms.reviewer: sngun
 
 After you buy an Azure Cosmos DB reserved capacity, the reservation discount is automatically applied to Azure Cosmos DB resources that match the attributes and quantity of the reservation. A reservation covers the throughput provisioned for Azure Cosmos DB resources and it doesn’t cover software, networking, storage, or pre-defined container charges.
 
-For reserved Virtual Machine Instances see [Understand Azure Reserved VM Instances discount](../billing/billing-understand-vm-reservation-charges.md).
-
 ## Reservation discount applied to Azure Cosmos DB accounts
 
 A reservation discount is applied to provisioned throughput (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
