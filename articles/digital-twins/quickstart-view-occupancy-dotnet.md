@@ -55,10 +55,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy) to provision spaces, IoT Hub resource, devices, sensors and custom functions in Digital Twins topology
 >TODO: Show screenshot
 
-## Create a custom function
-* This is [the step](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy#function) to create a custom user-defined-function that allows to process your sensor telemetry. The function will compute motion and CO2 signals from multiple sensors in order to find if space is available and it has fresh air (CO2 level less than 1000 ppm).
->TODO: Show screenshot
-
 ## Send motion and CO2 telemetry
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/device-connectivity) to simulate device motion and CO2 telemetry in order to be processed by Digital Twins engine which evaluates the custom function.
 >TODO: Show screenshot
