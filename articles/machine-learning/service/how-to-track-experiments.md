@@ -27,9 +27,9 @@ The below items can be added to a run while training an experiment. To view a mo
   - Give the run a name
   - Upload a file or directory
 
-## Add Experiment tracking
-You can add tracking through Azure Machine Learning services to your training experiment. This example trains a simple sklearn Ridge model locally in a local Jupyter notebook. Learn more about submitting experiments to different environments [here](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets). 
-1. Load the workspace. To learn more about setting the workspace configuration, follow this [Quickstart guide](https://.docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-get-started).
+## Add experiment tracking
+You can add tracking through Azure Machine Learning services to your training experiment. This example trains a simple sklearn Ridge model locally in a local Jupyter notebook. Learn more about submitting experiments to different environments [here](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets). 
+1. Load the workspace. To learn more about setting the workspace configuration, follow this [Quickstart guide](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
   ```python
   from azureml.core import Workspace, Run
   import azureml.core
@@ -85,10 +85,10 @@ You can add tracking through Azure Machine Learning services to your training ex
   run.complete()
 ```
 
-## View the experiment in the Web Portal
+## View the experiment in the web portal
 When an experiment is done running, you can  browse to the recorded experiment run record. You can do this in two ways:
-1. Get the URL to the run directly ```print(run.get_portal_url())```
-2. You can also view the run details by submitting the name of the run, in this case, ```run```. This will point you to the Experiment name, Id, Type, Status, Datils Page, a link to the Web Portal and a link to documentation.
+  - Get the URL to the run directly ```print(run.get_portal_url())```
+  - You can also view the run details by submitting the name of the run, in this case, ```run```. This will point you to the Experiment name, Id, Type, Status, Datils Page, a link to the Web Portal and a link to documentation.
 
 The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values. 
 
