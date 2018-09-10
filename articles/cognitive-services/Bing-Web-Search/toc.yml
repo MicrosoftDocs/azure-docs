@@ -4,10 +4,10 @@
   items:
   - name: What is Bing Web Search?
     href: overview.md
+    expanded: true
 - name: Quickstarts
   items:
   - name: REST APIs
-    expanded: true
     items:
     - name: C#
       href: quickstarts/csharp.md

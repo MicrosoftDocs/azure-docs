@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Tutorial: Create a single-page app using the Bing Web Search API
 
-This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results based on a user's query. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript logic required to call the Bing Web Search API, handle the response, and display the results. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples) with quickstart instructions.  
+This single-page app demonstrates how to retrieve, parse, and display search results from the Bing Web Search API. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript code. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples) with quickstart instructions.
 
 This sample app can:
 
@@ -123,10 +123,9 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. However, this form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` isn't used.
+`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. This form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` isn't used.
 
-If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9`, which ensures that the maximum number of result types are returned.
-
+If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9` to return all available result types.
 > [!NOTE]
 > Promoting a result type doesn't *guarantee* that it will be included in the search results. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
 
@@ -159,9 +158,9 @@ function getSubscriptionKey() {
 }
 ```
 
-As we saw earlier, when the form is submitted, `onsubmit` fires, calling `bingWebSearch`. This function constructs the query and returns a response with applicable search results based on the options selected by the user. `getSubscriptionKey` is called on each submission to authenticate the request.
+As we saw earlier, when the form is submitted, `onsubmit` fires, calling `bingWebSearch`. This function initializes and sends the request. `getSubscriptionKey` is called on each submission to authenticate the request.
 
-## Perform a search
+## Call Bing Web Search
 
 Given the query, the options string, and the subscription key, the `BingWebSearch` function creates an `XMLHttpRequest` object to call the Bing Web Search endpoint.
 
@@ -211,7 +210,7 @@ function bingWebSearch(query, options, key) {
 }
 ```
 
-Following a successful request, the `load` event handler fires and calls the `handleBingResponse` function. `handleBingResponse` parses the result object, attempts to display the results, and contains error logic for failed requests.
+Following a successful request, the `load` event handler fires and calls the `handleBingResponse` function. `handleBingResponse` parses the result object,  displays the results, and contains error logic for failed requests.
 
 ```javascript
 function handleBingResponse() {
@@ -293,12 +292,12 @@ Errors are handled by calling `renderErrorMessage()`. If the response passes all
 
 ## Display search results
 
-There are [use and display requirements](useanddisplayrequirements.md) for results returned by the Bing Web Search API. Since a response may contain various result types, it isn't enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results to spec.
+There are [use and display requirements](useanddisplayrequirements.md) for results returned by the Bing Web Search API. Since a response may include various result types, it isn't enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results to spec.
 
 > [!NOTE]
 > If you only want a single result type, use the `responseFilter` query parameter, or consider using one of the other Bing Search endpoints, such as Bing Image Search.
 
-Each response includes a `RankingResponse` object that may contain up to three collections: `pole`, `mainline`, and `sidebar`. `pole`, if present, is the most relevant search result and should be prominently displayed. `mainline` is the bulk of search results, and should be displayed immediately after `pole` (or first, if `pole` isn't included). `sidebar` includes auxiliary search results. If possible, these results should be displayed in the sidebar. If screen limits make a sidebar impractical, these results should appear after the `mainline` results.
+Each response has a `RankingResponse` object that may include up to three collections: `pole`, `mainline`, and `sidebar`. `pole`, if present, is the most relevant search result and must be prominently displayed. `mainline` contains most of the search results, and is displayed immediately after `pole`. `sidebar` includes auxiliary search results. If possible, these results should be displayed in the sidebar. If screen limits make a sidebar impractical, these results should appear after the `mainline` results.
 
 Each `RankingResponse` includes a `RankingItem` array that specifies how results must be ordered. Our sample app uses the `answerType` and `resultIndex` parameters to identify the result.
 
@@ -378,14 +377,14 @@ searchItemRenderers = {
 > [!IMPORTANT]
 > The sample app has renderers for web pages, news, images, videos, and related searches. Your application will need renderers for any type of results it may receive, which could include computations, spelling suggestions, entities, time zones, and definitions.
 
-Some of the rendering functions accept only the `item` parameter, an object that represents a single search result. Others accept additional parameters, which can be used to render items differently based on context. A renderer that doesn't use this information doesn't need to accept these parameters.
+Some of the rendering functions accept only the `item` parameter. Others accept additional parameters, which can be used to render items differently based on context. A renderer that doesn't use this information doesn't need to accept these parameters.
 
 The context arguments are:
 
 | Parameter  | Description |
 |------------|-------------|
 | `section` | The results section (`pole`, `mainline`, or `sidebar`) in which the item appears. |
-| `index`<br>`count` | Available when the `RankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection. You can use this information to number the results, to generate different HTML for the first or last result, and so on. |
+| `index`<br>`count` | Available when the `RankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. The index of the item within its collection and the total number of items in that collection. You can use this information to number the results, to generate different HTML for the first or last result, and so on. |
 
 In the sample app, both the `images` and `relatedSearches` renderers use the context arguments to customize the generated HTML. Let's take a closer look at the `images` renderer:
 
@@ -416,10 +415,10 @@ The image renderer:
 
 * Calculates the image thumbnail size (width varies, while height is fixed at 60 pixels).
 * Inserts the HTML that precedes the image result based on context.
-* Builds the HTML `<a>` tag that links to the page containing the image.
+* Builds the HTML `<a>` tag that links to the page that contains the image.
 * Builds the HTML `<img>` tag to display the image thumbnail.
 
-The image renderer uses the `section` and `index` variables to display results differently depending on where they appear. A line break (`<br>` tag) is inserted between image results in the sidebar, to ensure that the sidebar displays a column of images. In other sections, the first image result `(index === 0)` is preceded by a `<p>` tag.
+The image renderer uses the `section` and `index` variables to display results differently depending on where they appear. A line break (`<br>` tag) is inserted between image results in the sidebar, so that the sidebar displays a column of images. In other sections, the first image result `(index === 0)` is preceded by a `<p>` tag.
 
 The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The `title` and `alt` attributes (a textual description of the image) are constructed from the image's name and the hostname in the URL.
 
@@ -429,7 +428,7 @@ Here's an example of how images are displayed in the sample app:
 
 ## Persist the client ID
 
-Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with each successive request. If multiple Bing Search APIs are being used, the same client ID should be used with all of them.
+Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with each successive request. If more than one of the Bing Search APIs are used by your app, make sure the same client ID is sent with each request across services.
 
 Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate a user's searches. First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the request. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing. Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature will always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
 
@@ -458,7 +457,7 @@ Start the CORS proxy with this command:
 cors-proxy-server
 ```
 
-Leave the command window open while you use the sample app. Closing the window stops the proxy. In the expandable HTTP Headers section below the search results, the `X-MSEdge-ClientID` header should be available. Verify that it is the same for each request.
+Leave the command window open while you use the sample app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, the `X-MSEdge-ClientID` header should be visible. Verify that it's the same for each request.
 
 ## Next steps
 
