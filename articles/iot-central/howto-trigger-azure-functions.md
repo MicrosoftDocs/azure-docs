@@ -27,7 +27,7 @@ Use Azure Functions to run serverless code on the webhook output from IoT Centra
 5. Add a webhook action. Enter a **Display name** and paste in the function URL you copied earlier.
 6. Save the rule. Now when the rule is triggered, the webhook will invoke the function app to run. In your function app, you can observe the Logs and see each time the function is triggered.
 
-For more information, visit the Azure Functions article about [creating a function triggered by a generic webhook](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-generic-webhook-triggered-function). 
+For more information, visit the Azure Functions article about [creating a function triggered by a generic webhook](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function). 
 
 ## Next steps
 Now that you have learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow.md).
