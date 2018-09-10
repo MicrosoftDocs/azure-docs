@@ -211,17 +211,9 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## The mask and "effective permissions"
+## The mask
 
-As illustrated in the Access Check Algorithm, the RWX creates limits access for **named users**, the **owning group**, and **named groups**.  
-
-In the following example, the mask is set to **R-X**. This means that it **turns off the Write permissions** for **named user**, **owning group**, and **named group** at the time of access check.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-For reference, here is where the mask for a file or folder appears in the Azure portal.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+As illustrated in the Access Check Algorithm, the mask limits access for **named users**, the **owning group**, and **named groups**.  
 
 > [!NOTE]
 > For a new Data Lake Storage Gen1 account, the mask for the Access ACL of the root folder ("/") defaults to RWX.
