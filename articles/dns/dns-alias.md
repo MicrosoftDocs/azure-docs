@@ -47,7 +47,7 @@ Similar to the previous scenario, if an application is moved or if the underlyin
 The DNS protocol prevents the assignment of anything other than an A or AAAA record at the zone apex (for example: contoso.com). This presents a problem for application owners who have load balanced applications behind a Traffic Manager, as it was not possible to point at the Traffic Manager profile from the zone apex record. As a result, application owners were forced to use a workaround. For example, a redirect at the application layer to redirect from the zone apex to another domain (from contoso.com to www.contoso.com). This presents a single point of failure in terms of the redirect functionality.
 
 With alias records, this problem no longer exists. Application owners can now point their zone apex record to a Traffic Manager profile that has external endpoints. With this capability, application owners can point to the same Traffic Manager profile that is used for any other domain within their DNS zone. 
-for example, contoso.com and www.contoso.com can both point to the same Traffic Manager profile as long as the Traffic Manager profile has only external endpoints configured.
+For example, contoso.com and www.contoso.com can both point to the same Traffic Manager profile as long as the Traffic Manager profile has only external endpoints configured.
 
 ## Next steps
 
