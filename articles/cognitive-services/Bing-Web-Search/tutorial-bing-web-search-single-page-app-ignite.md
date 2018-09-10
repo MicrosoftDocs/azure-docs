@@ -1,4 +1,4 @@
----
+aren't---
 title: "Tutorial: Create a Bing Web Search single-page app"
 titleSuffix: Azure Cognitive Services
 description: This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results in a single-page app.
@@ -123,14 +123,14 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. However, this form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` is not used.
+`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. However, this form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` isn't used.
 
 If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9`, which ensures that the maximum number of result types are returned.
 
 > [!NOTE]
 > Promoting a result type doesn't *guarantee* that it will be included in the search results. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
 
-The `textDecoration` and `textFormat` query parameters are hardcoded into the script, and cause the search term to be boldfaced in the search results. These parameters are not required.
+The `textDecoration` and `textFormat` query parameters are hardcoded into the script, and cause the search term to be boldfaced in the search results. These parameters aren't required.
 
 ## Manage subscription keys
 
@@ -147,7 +147,7 @@ BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/search";
 
 // See source code for storeValue and retrieveValue definitions.
 
-// Get stored subscription key, or prompt if it's not found.
+// Get stored subscription key, or prompt if it isn't found.
 function getSubscriptionKey() {
     var key = retrieveValue(API_KEY_COOKIE);
     while (key.length !== 32) {
@@ -279,7 +279,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> A successful HTTP request does *not* mean that the search itself succeeded. If an error occurs in the search operation, the Bing Web Search API returns a non-200 HTTP status code and includes error information in the JSON response. If the request was rate-limited, the API returns an empty response.
+> A successful HTTP request *doesn't* mean that the search itself succeeded. If an error occurs in the search operation, the Bing Web Search API returns a non-200 HTTP status code and includes error information in the JSON response. If the request was rate-limited, the API returns an empty response.
 
 Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
 
@@ -293,7 +293,7 @@ Errors are handled by calling `renderErrorMessage()`. If the response passes all
 
 ## Display search results
 
-There are [use and display requirements](useanddisplayrequirements.md) for results returned by the Bing Web Search API. Since a response may contain various result types, it is not enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results to spec.
+There are [use and display requirements](useanddisplayrequirements.md) for results returned by the Bing Web Search API. Since a response may contain various result types, it isn't enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results to spec.
 
 > [!NOTE]
 > If you only want a single result type, use the `responseFilter` query parameter, or consider using one of the other Bing Search endpoints, such as Bing Image Search.
@@ -328,7 +328,7 @@ function renderSearchResults(results) {
 }
 ```
 
-The `renderResultsItems()` function iterates through the items in each `RankingResponse` collection, maps each ranking result to a search result using the `answerType` and `resultIndex` values, and calls the appropriate rendering function to generate the HTML. If `resultIndex` is not specified for an item, `renderResultsItems()` iterates through all results of that type and calls the rendering function for each item. The resulting HTML is inserted into the appropriate `<div>` element in `index.html`.
+The `renderResultsItems()` function iterates through the items in each `RankingResponse` collection, maps each ranking result to a search result using the `answerType` and `resultIndex` values, and calls the appropriate rendering function to generate the HTML. If `resultIndex` isn't specified for an item, `renderResultsItems()` iterates through all results of that type and calls the rendering function for each item. The resulting HTML is inserted into the appropriate `<div>` element in `index.html`.
 
 ```javascript
 // Render search results from the RankingResponse object per rank response and
@@ -432,8 +432,6 @@ Here's an example of how images are displayed in the sample app:
 Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with each successive request. If multiple Bing Search APIs are being used, the same client ID should be used with all of them.
 
 Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate a user's searches. First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the request. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing. Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature will always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
-
-<< TODO: ERIK - VERIFY/REVIEW >>
 
 Browser security policies, such as Cross-Origin Resource Sharing (CORS), may prevent the sample app from accessing the `X-MSEdge-ClientID` header. This limitation occurs when the search response has a different origin from the page that requested it. In a production environment, you should address this policy by hosting a server-side script that does the API call on the same domain as the Web page. Since the script has the same origin as the Web page, the `X-MSEdge-ClientID` header is then available to JavaScript.
 
