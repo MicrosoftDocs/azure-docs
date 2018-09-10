@@ -69,10 +69,12 @@ A. If you encounter any issues with Data Box Disks, please contact [Data Box Dis
 A.  No. You get 8 TB disks (a maximum of up to 5 disks) depending upon your data size and availability of the disks.  
 
 ### Q. How do I unlock the Data Box Disks? 
-A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal and run *DataBoxDiskUnlock.exe* on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks.
+A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal for your operating system. Run the tool on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks. 
+
+For step-by-step instructions, go to [Unlock disks on a Windows client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) or [Unlock disks on a Linux client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### Q. Can I use a Linux host computer to connect and copy the data on to the Data Box Disks?
-A.  No. Only the Windows computers are supported. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
+A.  Yes. Both the Linux and Windows clinet can be used to connect and copy data on to the Data Box Disks. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
 
 ### Q. My disks are dispatched but now I want to cancel this order. Why is the cancel button not available?
 A.  You can only cancel the order after the disks are ordered and before the shipment. Once the disks are dispatched, you can no longer cancel the order. In the preview timeframe, you can return your disks at no charge though this will likely change when the solution is generally available. 

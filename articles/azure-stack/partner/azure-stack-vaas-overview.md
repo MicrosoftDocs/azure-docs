@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # What is validation as a service for Azure Stack?
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Validation as a service (VaaS) is a native Azure service designed for solution partners who are co-engineering Azure Stack offerings with Microsoft. Solution partners can use the service to check that their solutions meet Microsoft's requirements and work as expected with Azure Stack.
 
