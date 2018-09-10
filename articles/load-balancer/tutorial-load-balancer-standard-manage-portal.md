@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Tutorial: Create and manage Standard Load Balancer using the Azure portal
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure Standard Load Balancer that distribute traffic and provide high availability. You learn how to:
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. In this tutorial, you will learn about the different components of the Azure Standard Load Balancer that distribute traffic and provide high availability. You will learn how to:
 
 
 > [!div class="checklist"]
@@ -40,7 +40,7 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
 
 ## Create a Standard Load Balancer
 
-In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
+In this section, you will create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
@@ -60,7 +60,7 @@ In this section, you create a public load balancer that helps load balance virtu
    
 ## Create backend servers
 
-In this section, you create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
+In this section, you will create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
 
 ### Create a virtual network
 1. On the top left-hand side of the Azure portal, select **Create a resource** > **Networking** > **Virtual network** and then enter these values for the virtual network:
@@ -133,7 +133,7 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool, a health probe, and specify a  balancer rule.
+In this section, you will configure load balancer settings for a backend address pool, a health probe, and specify a  balancer rule.
 
 ### Create a backend address pool
 
@@ -200,11 +200,11 @@ To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When they are no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also, removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
