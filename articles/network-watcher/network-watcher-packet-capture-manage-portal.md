@@ -48,15 +48,15 @@ If a network security group is associated to the network interface, or subnet th
      > [!NOTE]
      > Premium storage accounts are currently not supported for storing packet captures.
 
-- **Maximum bytes per packet**: The number of bytes from each packet that are captured. If left blank, all bytes are captured.
-  - **Maximum bytes per session**: The total number of bytes that are captured. Once the value is reached the packet capture stops.
-  - **Time limit (seconds)**: The time limit before the packet capture is stopped. The default is 18,000 seconds.
-  - Filtering (Optional). Select **+ Add filter**
-    - **Protocol**: The protocol to filter for the packet capture. The available values are TCP, UDP, and Any.
-    - **Local IP address**: Filters the packet capture for packets where the local IP address matches this value.
-    - **Local port**: Filters the packet capture for packets where the local port matches this value.
-    - **Remote IP address**: Filters the packet capture for packets where the remote IP address matches this value.
-    - **Remote port**: Filters the packet capture for packets where the remote port matches this value.
+   - **Maximum bytes per packet**: The number of bytes from each packet that are captured. If left blank, all bytes are captured.
+   - **Maximum bytes per session**: The total number of bytes that are captured. Once the value is reached the packet capture stops.
+   - **Time limit (seconds)**: The time limit before the packet capture is stopped. The default is 18,000 seconds.
+   - Filtering (Optional). Select **+ Add filter**
+     - **Protocol**: The protocol to filter for the packet capture. The available values are TCP, UDP, and Any.
+     - **Local IP address**: Filters the packet capture for packets where the local IP address matches this value.
+     - **Local port**: Filters the packet capture for packets where the local port matches this value.
+     - **Remote IP address**: Filters the packet capture for packets where the remote IP address matches this value.
+     - **Remote port**: Filters the packet capture for packets where the remote port matches this value.
     
     > [!NOTE]
     > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
@@ -72,15 +72,15 @@ After the time limit set on the packet capture has expired, the packet capture i
 
 ## Delete a packet capture
 
-1. In the packet capture view, select **...** or right-click an existing packet capture, and select **Delete**.
-2. You are asked to confirm you want to delete the packet capture, select **Yes**.
+1. In the packet capture view, select **...** on the right-side of the packet capture, or right-click an existing packet capture, and select **Delete**.
+2. You are asked to confirm you want to delete the packet capture. Select **Yes**.
 
 > [!NOTE]
 > Deleting a packet capture does not delete the capture file in the storage account or on the virtual machine.
 
 ## Stop a packet capture
 
-In the packet capture view, select **...** or right-click an existing packet capture, and select **Stop**.
+In the packet capture view, select **...** on the right-side of the packet capture, or right-click an existing packet capture, and select **Stop**.
 
 ## Download a packet capture
 
