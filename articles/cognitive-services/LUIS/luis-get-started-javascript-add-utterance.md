@@ -3,12 +3,12 @@ title: JavaScript Quickstart - change model and train LUIS app
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you learn to call a LUIS app using JavaScript.
 services: cognitive-services
-author: diberry
+author: nitinme
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Java.
 ---
