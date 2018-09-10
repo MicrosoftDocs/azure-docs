@@ -2,7 +2,7 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
@@ -14,3 +14,4 @@ ms.author: wolfma
 > - [C++ - Linux](~/articles/cognitive-services/speech-service/quickstart-cpp-linux.md)
 > - [Java - Android](~/articles/cognitive-services/speech-service/quickstart-java-android.md)
 > - [Java - JRE](~/articles/cognitive-services/speech-service/quickstart-java-jre.md)
+> - [JavaScript - Browser](~/articles/cognitive-services/speech-service/quickstart-js-browser.md)

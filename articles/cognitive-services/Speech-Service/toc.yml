@@ -34,7 +34,7 @@
     - name: 'Using Java (Windows or Linux)'
       href: quickstart-java-jre.md
       displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
-    - name: 'Using JavaScript (browser)'
+    - name: 'Using JavaScript (Browser)'
       href: quickstart-js-browser.md
       displayName: recognize speech, speech recognition, speech to text, stt
   - name: Get started with Speech Devices SDK
