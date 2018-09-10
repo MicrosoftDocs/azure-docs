@@ -44,7 +44,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    ![Additional settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. For service principal integration, select **Auto(MSI)** to have [Azure Managed Service Identity][managed-service-identity] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
+4. For service principal integration, select **Auto(MSI)** to have [Azure Managed Service Identity][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
 
 5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
 
