@@ -246,19 +246,17 @@ When a child folder is created under a parent folder, the parent folder's Defaul
 
 Following are some advanced topics to help you understand how ACLs are determined for Data Lake Storage Gen1 files or folders.
 
-### Umask’s role in creating the Access ACL for new files and folders
+### umask
 
-In a POSIX-compliant system, the general concept is that umask is a 9-bit value on the parent folder that's used to transform the permission for **owning user**, **owning group**, and **other** on the Access ACL of a new child file or folder. The bits of a umask identify which bits to turn off in the child item’s Access ACL. Thus it is used to selectively prevent the propagation of permissions for **owning user**, **owning group**, and **other**.
+When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on  parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
-In an HDFS system, the umask is typically a sitewide configuration option that is controlled by administrators. Data Lake Storage Gen1 uses an **account-wide umask** that cannot be changed. The following table shows the unmask for Data Lake Storage Gen1.
+The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-| User group  | Setting | Effect on new child item's Access ACL |
-|------------ |---------|---------------------------------------|
-| Owning user | ---     | No effect                             |
-| Owning group| ---     | No effect                             |
-| Other       | RWX     | Remove Read + Write + Execute         |
+* umask.owning_user =  0 # ---
+* umask.owning_group = 0 # ---
+* umask.other =        7 # RWX
 
-The following illustration shows this umask in action. The net effect is to remove **Read + Write + Execute** for **other** user. Because the umask did not specify bits for **owning user** and **owning group**, those permissions are not transformed.
+This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
 The following psuedocode shows how the umask is applied when creating the ACLs for a child item.
 
