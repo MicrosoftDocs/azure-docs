@@ -49,7 +49,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in portal in **Overview** section and has the following format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
 
 ## Grant permissions to the console applications to interact with Digital Twins Management APIs
-[!INCLUDE [digital-twins-permissions](digital-twins-permissions.md)]
+[!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 ## Provision topology
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy) to provision spaces, IoT Hub resource, devices, sensors and custom functions in Digital Twins topology
