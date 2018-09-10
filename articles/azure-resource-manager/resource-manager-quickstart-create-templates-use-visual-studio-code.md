@@ -11,11 +11,11 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/24/2018
+ms.date: 09/07/2018
 ms.topic: quickstart
 ms.author: jgao
 
-#Customer intent: As a developer new to Azure deployment, I want to learn how to create a resource manager template using Visual Studio Code, so I can deploy Azure resources.
+#Customer intent: As a developer new to Azure deployment, I want to learn how to create a Resource Manager template using Visual Studio Code, so I can deploy Azure resources.
 
 ---
 
@@ -95,22 +95,38 @@ There are many methods for deploying templates.  In this quickstart, you use Azu
 
     ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-    Cloud Shell is opened on the bottom of the screen.
+    Cloud Shell is opened on the bottom of the window.
 
-3. On the upper left corner of the Cloud shell, it shows either **PowerShell** or **Bash**. To use CLI, you need to open a Bash session. To run PowerShell, you need to open a PowerShell session. To switch, select the down arrow, and then select the interpreter. The following image shows switching from PowerShell to Bash.
+3. On the upper left corner of the Cloud shell, it shows either **PowerShell** or **Bash**. To use CLI, you need to open a Bash session. To run PowerShell, you need to open a PowerShell session. Select the down arrow to toggle between the Bash and PowerShell. The following image shows switching from PowerShell to Bash.
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
 
     Restarting the shell is required when you switch.
 4. Select **Upload/download files**, and then select **Upload**.
 
+    # [CLI](#tab/CLI)
+
     ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
+   
+    # [PowerShell](#tab/PowerShell)
+    
+    ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
+    
+    ---
 
     You must upload the template file before you can deploy it from the shell.
 5. Select the file you saved earlier in the quickstart. The default name is **azuredeploy.json**.
 6. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content. The following image shows running the command from Bash.  You use the same commands from a PowerShell session.
 
+    # [CLI](#tab/CLI)
+
     ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
+   
+    # [PowerShell](#tab/PowerShell)
+    
+    ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
+    
+    ---
 7. From the Cloud shell, run the following commands. Select the tab to show the PowerShell code or the CLI code.
 
     # [CLI](#tab/CLI)
@@ -130,9 +146,17 @@ There are many methods for deploying templates.  In this quickstart, you use Azu
     
     ---
 
-    The following screenshot shows a sample CLI deployment:
+    The following screenshot shows a sample deployment:
+
+    # [CLI](#tab/CLI)
 
     ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
+   
+    # [PowerShell](#tab/PowerShell)
+    
+    ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
+    
+    ---
 
     On the screenshot, these values are used:
 
@@ -169,7 +193,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-The primary focus of this tutorial is to use Visual Studio Code to edit an existing template from Azure Quickstart templates. You also learned how to deploy the template using either CLI or PowerShell from Azure Cloud Shell. The templates from Azure Quickstart templates might not give you everything you need. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
+The main focus of this quickstart is to use Visual Studio Code to edit an existing template from Azure Quickstart templates. You also learned how to deploy the template using either CLI or PowerShell from Azure Cloud Shell. The templates from Azure Quickstart templates might not give you everything you need. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
 
 > [!div class="nextstepaction"]
 > [Create an encrypted storage account](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 
@@ -38,17 +38,17 @@ These capabilities, also known as *app integration templates*, provide standards
 ## Adding an unlisted application
 To connect an application using an app integration template, sign in to the Azure portal using your Azure Active Directory administrator account. Browse to the **Active Directory > Enterprise Applications > New application > Non-gallery application** section, select **Add**, and then **Add an application from the gallery**.
 
-  ![](./media/active-directory-saas-custom-apps/customapp1.png)
+  ![Add application](./media/active-directory-saas-custom-apps/customapp1.png)
 
 In the app gallery, you can add an unlisted app by selecting the **Non-gallery application** tile that is shown in the search results if your desired app wasn't found. After entering a Name for your application, you can configure the single sign-on options and behavior. 
 
 **Quick tip**:  As a best practice, use the search function to check to see if the application already exists in the application gallery. If the app is found and its description mentions single sign-on, then the application is already supported for federated single sign-on.
 
-  ![](./media/active-directory-saas-custom-apps/customapp2.png)
+  ![Search](./media/active-directory-saas-custom-apps/customapp2.png)
 
 Adding an application this way provides a similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On** or click on **Single sign-on** from the application’s left-hand navigation menu. The next screen presents the options for configuring single sign-on. The options are described in the next sections of this article.
   
-![](./media/active-directory-saas-custom-apps/customapp3.png)
+![Configuration options](./media/active-directory-saas-custom-apps/customapp3.png)
 
 ## SAML-based single sign-on
 Select this option to configure SAML-based authentication for the application. This requires that the application support SAML 2.0. You should collect information on how to use the SAML capabilities of the application before continuing. Complete the following sections to configure single sign-on between the application and Azure AD.
@@ -94,7 +94,7 @@ When a user authenticates to the application, Azure AD will issue a SAML token t
 
 You can view or edit the claims sent in the SAML token to the application under the **Attributes** tab.
 
-  ![](./media/active-directory-saas-custom-apps/customapp7.png)
+  ![Attributes](./media/active-directory-saas-custom-apps/customapp7.png)
 
 There are two reasons why you might need to edit the claims issued in the SAML token:
 
@@ -134,7 +134,7 @@ Once your application has been configured to use Azure AD as a SAML-based identi
 
 To assign a user or group to your application, click the **Assign Users** button. Select the user or group you wish to assign, and then select the **Assign** button.
 
-  ![](./media/active-directory-saas-custom-apps/customapp6.png)
+  ![Assign users](./media/active-directory-saas-custom-apps/customapp6.png)
 
 Assigning a user will allow Azure AD to issue a token for the user. It also causes a tile for this application to appear in the user's Access Panel. An application tile will also appear in the Office 365 application launcher if the user is using Office 365. 
 
@@ -171,5 +171,5 @@ After selecting **Next**, you will be prompted to enter the URL of the applicati
 
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 - [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)
-- [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
+- [Troubleshooting SAML-Based Single Sign-On](develop/howto-v1-debug-saml-sso-issues.md)
 
