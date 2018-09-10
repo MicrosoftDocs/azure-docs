@@ -37,7 +37,7 @@ When using an app other than this tutorial, do *not* use the example utterances 
 > * Fix errors 
 > * Retest the batch
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Use existing app
 
@@ -224,7 +224,7 @@ Adding a [pattern](luis-concept-patterns.md) before the entity is correctly pred
 
 ## Clean up resources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
