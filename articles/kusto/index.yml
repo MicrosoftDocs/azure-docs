@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Kusto Documentation
+metadata:
+  title: Kusto Documentation - Quickstarts, tutorials, and language and API references | Microsoft Docs
+  description: Kusto is a log analytics cloud platform optimized for ad-hoc big data queries.
+  author: mgblythe
+  manager: kfile
+  ms.service: kusto
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/24/2018
+  ms.author: mblythe
+abstract:
+  description: Kusto is a log analytics cloud platform optimized for ad-hoc big data queries.</p>
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to provision and use Kusto:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/kusto/media/index/portal.svg
+      text: Create a cluster and database
+      href: /azure/kusto/create-cluster-database-portal
+    - image: 
+        src: /azure/kusto/media/index/portal.svg
+      text: Explore data with Query Explorer
+      href: /azure/kusto/explore-data
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to build and manage end-to-end data solutions:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/kusto/write-queries">Write queries in Kusto Query Language</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Kusto Query Language (KQL)
+      href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+      image: 
+        src: /azure/kusto/media/index/logo-pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Languages
+      html: <p><a href="https://kusdoc2.azurewebsites.net/docs/query/essentials/overview.html">Kusto Query Language (KQL)</a><p><a href="https://kusdoc2.azurewebsites.net/docs/controlCommands/controlcommands.html">Control commands</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/getting_the_kusto_client_libraries.html">.NET Framework</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/python/kusto_python_client_library.html">Python</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/javascript/kusto_javascript_intellisense.html">JavaScript</a></p>
+    - title: REST
+      html: <p><a href="https://kusdoc2.azurewebsites.net/docs/api/rest/api_rest.html">REST API Reference</a></p>
