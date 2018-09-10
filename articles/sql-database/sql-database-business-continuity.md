@@ -39,7 +39,7 @@ Then, you can learn about the additional mechanisms that you can use to recover 
  - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
  - You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **logical server has not been deleted**.
  - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
- - [Geo-replication](sql-database-geo-replication-overview.md) allows the application to perform quick disaster recovery in case of a data center scale outage.
+ - [Auto-failover group](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) allows the application to automatically recovery in case of a data center scale outage.
 
 Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
@@ -50,7 +50,7 @@ The following table compares the ERT and RPO for each service tier for the three
 | Point in Time Restore from backup |Any restore point within seven days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
 | Geo-restore from geo-replicated backups |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
 | Restore from SQL long-term retention |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk|ERT < 12 h, RPO < 1 wk|
-| Active geo-replication |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
+| Auto-failover groups |RTO = 1 h, RPO < 5s |RTO = 1 h, RPO < 5 s |RTO = 1 h, RPO < 5 s |RTO = 1 h, RPO < 5 s|RTO = 1 h, RPO < 5 s|
 
 ## Recover a database to the existing server
 
@@ -77,7 +77,7 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 
 * One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
 * Another option is to restore a database on any server in any Azure region using [geo-redundant database backups](sql-database-recovery-using-backups.md#geo-restore) (geo-restore). Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage.
-* Finally, you can quickly recover from an outage if you have configured a [auto-failover group](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) for your database or databases. You can customize the failover policy to use automatic or manual failover. In all cases, users experience some amount of downtime and need to reconnect. While failover itself takes only a few seconds, the service will take at least 1 hour to activate it. This is necessary to ensure that teh failover is justified by the scale of teh outage. Also, the failover may result in small data loss due to the nature of asynchronous replication. See the earlier table in this article for details of the RPO.   
+* Finally, you can quickly recover from an outage if you have configured a [auto-failover group](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) for your database or databases. You can customize the failover policy to use automatic or manual failover. In all cases, users experience some amount of downtime and need to reconnect. While failover itself takes only a few seconds, the service will take at least 1 hour to activate it. This is necessary to ensure that teh failover is justified by the scale of teh outage. Also, the failover may result in small data loss due to the nature of asynchronous replication. See the earlier table in this article for details of the RTO and RPO.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -87,12 +87,12 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 > To use active geo-replication and auto-failover groups, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and fail over using the Azure portal, PowerShell, or the REST API using Azure subscription permissions or using Transact-SQL with SQL Server permissions.
 > 
 
-This feature is used to protect against business disruption if a data center outage occurs or during an application upgrade. To enable automated and transparent failover you should organize your geo-replicated databases into groups using the [auto-failover group](sql-database-geo-replication-overview.md) feature of SQL Database. Use active geo-replication and auto-failover groups if your application meets any of these criteria:
+Use active auto-failover groups if your application meets any of these criteria:
 
 * Is mission critical.
-* Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
+* Has a service level agreement (SLA) that does not allow for 12 hours or more of downtime.
 * Downtime may result in financial liability.
-* Has a high rate of data change is high and losing an hour of data is not acceptable.
+* Has a high rate of data change and 1 hour of data loss is not acceptable.
 * The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
 
 When you take action, how long it takes you to recover, and how much data loss you incur depends upon how you decide to use these business continuity features in your application. Indeed, you may choose to use a combination of database backups and active geo-replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
