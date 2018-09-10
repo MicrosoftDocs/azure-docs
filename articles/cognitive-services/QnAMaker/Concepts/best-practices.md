@@ -2,13 +2,13 @@
 title: Best practices - QnA Maker - Azure Cognitive Services | Microsoft Docs
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: pchoudh
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
+ms.date: 09/11/2018
+ms.author: tulasim
 ---
 
 # Best practices
@@ -19,8 +19,27 @@ QnA Maker is continually improving the algorithms that extract QnAs from content
 
 In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page. 
 
-## Ranking/Matching
+## Chit-Chat
+Add chit-chat to your bot, to make your bot more conversational and engaging, with low effort. You can add easily chit-chat data sets for 3 pre-defined personalities  when creating your KB, and change them at any time. Learn how to [Add chit-chat to your KB](../How-To/chit-chat.md). 
+
+### Choosing a personality
+Today, Chit-chat is supported for 3 pre-defined personalities: "The Professional", "The Friend", "The Comic". Their responses range from very formal to very informal and irreverent. You should select the personality that is closest aligned with the desired tone of your bot. You can view the datasets, and choose one that can serve as a base for you bot, and then customize the responses. 
+
+### Edit bot specific questions
+There are some bot-specific questions that are part of the chit-chat data set, and have been filled in with generic answers. You should change these to best reflect your bot details. Some chit-chat QnAs we recommend making more specific are:
+	• Who are you?
+	• What can you do?
+	• How old are you?
+    • Who created you?
+    • Hello
+   
+
+## Ranking/Scoring
 Make sure you are making the best use of the ranking features QnA Maker supports. Doing so will improve the likelihood that a given user query is answered with an appropriate response.
+
+### Choosing a threshold
+The default confidence score that is used as a threshold is 50, however you can change it for your KB and based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. Read more about the [confidence score](../Concepts/confidence-score.md). 
+
 
 ### Add alternate questions
 [Alternate questions](../How-To/edit-knowledge-base.md) improve the likelihood of a match with a user query. Alternate questions are useful when there are multiple ways in which the same question may be asked. This can include changes in the sentence structure (for example, *"Is parking available?"* versus *"Do you have car park?"*) or changes in the word-style and slang (for example, *"Hi"* versus *"Yo"*, *"Hey there!"*).
@@ -41,4 +60,3 @@ QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md)
 
 > [!div class="nextstepaction"]
 > [Edit a knowledge base](../How-to/edit-knowledge-base.md)
-
