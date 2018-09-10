@@ -58,7 +58,7 @@ Both the application identity and delegated user identity types are discussed in
 1. The authorization code and information about the web application and web API are validated by Azure AD. Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token.
 1. Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API. The web API then validates the JWT token, and if validation is successful, returns the desired resource.
 
-## Code Samples
+## Code samples
 
 See the code samples for Web Application to Web API scenarios. And, check back frequently -- new samples are added frequently. Web [Application to Web API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
@@ -96,3 +96,8 @@ A web API can receive access tokens from all types of apps, including web server
 To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
 In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory. To do so, web APIs can take advantage of the **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests. The v2.0 endpoint's On Behalf Of flow is described in [detail here](v2-oauth2-on-behalf-of-flow.md).
+
+## Next steps
+
+- Learn more about other [Application types and scenarios](app-types.md)
+- Learn about the Azure AD [authentication basics](authentication-scenarios.md)

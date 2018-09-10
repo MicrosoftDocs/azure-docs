@@ -67,3 +67,8 @@ Using MSAL.js helps with:
 * requesting an access token to call a web API resource
 
 After a successful authentication, Azure AD writes a cookie in the user's browser to establish a session. Note the session exists between the user and Azure AD (not between the user and the web application). When a token expires, MSAL.js uses this session to silently obtain another token. MSAL.js uses a hidden iFrame to send and receive the request using the OAuth implicit grant protocol. MSAL.js can also use this same mechanism to silently obtain access tokens for other web API resources the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.
+
+## Next steps
+
+- Learn more about other [Application types and scenarios](app-types.md)
+- Learn about the Azure AD [authentication basics](authentication-scenarios.md)

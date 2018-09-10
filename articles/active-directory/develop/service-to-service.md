@@ -74,3 +74,8 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain en
 ![Daemon app authentication flow](./media/v2-app-types/convergence_scenarios_daemon.png)
 
 To build a daemon app, see the [client credentials documentation](v2-oauth2-client-creds-grant-flow.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## Next steps
+
+- Learn more about other [Application types and scenarios](app-types.md)
+- Learn about the Azure AD [authentication basics](authentication-scenarios.md)

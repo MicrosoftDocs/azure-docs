@@ -75,3 +75,8 @@ In web server apps, the sign-in authentication flow takes these high-level steps
 You can ensure the user's identity by validating the ID token with a public signing key that is received from the v2.0 endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
 
 In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+
+## Next steps
+
+- Learn more about other [Application types and scenarios](app-types.md)
+- Learn about the Azure AD [authentication basics](authentication-scenarios.md)

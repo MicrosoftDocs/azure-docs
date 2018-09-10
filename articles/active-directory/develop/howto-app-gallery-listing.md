@@ -47,7 +47,7 @@ Apps listed in the application gallery get the following benefits:
 
 ## Implementing SSO using federation protocol
 
-To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD and agree with Azure AD application Gallery terms and conditions. Read the terms and conditions of the Azure AD application gallery from [here](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
+To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD and agree with Azure AD application Gallery terms and conditions. Read the terms and conditions of the Azure AD application gallery from [here](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
 - **OpenID Connect**: To integrate your application with Azure AD using the Open ID Connect protocol, follow the [developers' instructions](authentication-scenarios.md).
 

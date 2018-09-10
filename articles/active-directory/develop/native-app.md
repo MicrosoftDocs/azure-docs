@@ -63,3 +63,8 @@ Device-installed apps, such as mobile and desktop apps, often need to access bac
 In this flow, the app receives an authorization code from the v2.0 endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to Web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
 ![Native app authentication flow](./media/v2-app-types/convergence_scenarios_native.png)
+
+## Next steps
+
+- Learn more about other [Application types and scenarios](app-types.md)
+- Learn about the Azure AD [authentication basics](authentication-scenarios.md)

@@ -89,3 +89,7 @@ Some additional considerations arise when developing a multi-tenant application 
 If you are currently developing a single tenant application but want to make it available to many organizations, you can easily make changes to the application and its configuration in Azure AD to make it multi-tenant capable. In addition, Azure AD uses the same signing key for all tokens in all directories, whether you are providing authentication in a single tenant or multi-tenant application.
 
 Each scenario listed in this document includes a subsection that describes its provisioning requirements. For more in-depth information about provisioning an application in Azure AD and the differences between single and multi-tenant applications, see [Integrating applications with Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) for more information. Continue reading to understand the common application scenarios in Azure AD.
+
+## Next steps
+
+- Learn more about other Azure AD [authentication basics](authentication-scenarios.md)
