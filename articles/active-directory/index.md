@@ -53,7 +53,13 @@ ms.author: mtillman
 																	    <a href="fundamentals/get-started-azure-ad.md">Create your Azure AD environment</a><br>
                                                                         <a href="">Build your directory</a>
 																    </p>
-  															    </div>
+																	<br><br>
+                                                                    <h3>Build your skills with Microsoft Learn</a></h3> 
+																	<p>
+																	    <a href="">Secure your Azure resources with conditional access</a><br>
+                                                                        <a href="">More interactive learning ...</a><br>
+																    </p>
+																</div>
                                                             </div>
                                                         </div>
                                                     </div>
