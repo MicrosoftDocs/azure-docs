@@ -24,7 +24,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor VM 
 ## Can I onboard to an existing workspace?
 If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to VM Insights, provided it is in one of the supported regions listed [here](monitoring-vminsights-onboard.md#prerequisites).
 
-When onboarding to VM Insights, we configure performance counters for the workspace that will cause all of the VMs reporting data to the workspace to begin logging this information for display and analysis in VM Insights.  This means that you will see performance data from all of the VMs connected to the selected workspace.  The Health and Map features will only be enabled for the VMs that you have specified to onboard to VM Insights.
+When onboarding to VM Insights, we configure performance counters for the workspace that will cause all of the VMs reporting data to the workspace to begin collecting this information for display and analysis in VM Insights.  This means that you will see performance data from all of the VMs connected to the selected workspace.  The Health and Map features will only be enabled for the VMs that you have specified to onboard to VM Insights.
 
 For more information on which performance counters are enabled, please refer to our [onboarding](monitoring-vminsights-onboard.md) article.
 
@@ -65,14 +65,14 @@ The VM Insights Map feature is based on Service Map, but has the following diffe
 * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored vs unmonitored machines in the group.  It can also be used to filter the list of machines when the group is expanded.
 * The map style has been updated to be more consistent with App Map from Application Insights.
 * The side panels have been updated, but do not yet have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
-* The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, VM scale sets, Service fabric clusters, and Cloud services.
+* The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, Service fabric clusters, and Cloud services.
 * You cannot create new Service Map machine groups in the VM Insights Map feature.  
  
 ## Are groups supported with VM Insights?
-The Performance feature supports groups based on Subscription, Resource Group, Computer Group, Service Map machine group, as well as grouping based on a particular Azure VM scale set, Service Fabric cluster, and Cloud service.
+The Performance feature supports groups based on Subscription, Resource Group, Computer Group, Service Map machine group, as well as grouping based on a particular Azure virtual machine scale set, Service Fabric cluster, and Cloud service.
 
 ## How do I see the details for what is driving the 95th percentile line in the aggregate performance charts?
-We are improving the drill down process for this, but in the near term we recommend that you select the **List** tab and then choose the metric that you are interested in. By default, the list will be sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric.
+We are improving the drill-down process for this, but in the near term we recommend that you select the **List** tab and then choose the metric that you are interested in. By default, the list will be sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric.
 
 ## Why do some rows in the list view have more icons that other rows?
 The icons are displayed dynamically, based on what features from VM Insights the particular VM has enabled.
@@ -82,7 +82,7 @@ The icons are displayed dynamically, based on what features from VM Insights the
 * Map icon – when the dependency agent is installed
 
 ## How does the Map feature handle duplicate IPs across different vnets and subnets?
-If you are duplicating IP ranges either with VMs or Azure VM scale sets across subnets and vnets, it can cause VM Insights Map to display incorrect information. This is a known issue and we are investigating options to improve this experience.
+If you are duplicating IP ranges either with VMs or Azure virtual machine scale sets across subnets and vnets, it can cause VM Insights Map to display incorrect information. This is a known issue and we are investigating options to improve this experience.
 
 ## Does Map feature support IPv6?
 Map feature currently only supports IPv4 and we are investigating support for IPv6. 
