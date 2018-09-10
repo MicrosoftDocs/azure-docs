@@ -250,10 +250,10 @@ A failed orchestration instance can be *rewound* into a previously healthy state
 > [!NOTE]
 > This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more details on error handling and retry policies, please see the [Error handling](durable-functions-error-handling.md) topic.
 
-One example use case for rewind is a workflow involving a series of [human approvals](durable-functions-overview.md#pattern-5-human-interaction). Suppose there are a series of activity functions that notify someone that their approval is needed and wait out the real-time response. After all of the approval activities have received responses or timed out, another activity fails due to an application misconfiguration (e.g. an invalid database connection string). The result is an orchestration failure deep into the workflow. With the `RewindAsync` API, an application administrator can fix the configuration error and "rewind" the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved and the orchestration can now complete successfully.
+One example use case for *rewind* is a workflow involving a series of [human approvals](durable-functions-overview.md#pattern-5-human-interaction). Suppose there are a series of activity functions that notify someone that their approval is needed and wait out the real-time response. After all of the approval activities have received responses or timed out, another activity fails due to an application misconfiguration (e.g. an invalid database connection string). The result is an orchestration failure deep into the workflow. With the `RewindAsync` API, an application administrator can fix the configuration error and *rewind* the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved and the orchestration can now complete successfully.
 
 > [!NOTE]
-> The Rewind feature does not support rewinding orchestration instances that use durable timers.
+> The *rewind* feature does not support rewinding orchestration instances that use durable timers.
 
 ```csharp
 [FunctionName("RewindInstance")]
