@@ -50,13 +50,13 @@ In the dialogs that follow, make the following selections:
     1. Disable the creation of a Git repo for this example project.
     1. Adjust the paths to the SDK in the *Project Settings*.
         1. In the **General** tab under the **Linked Frameworks and Libraries** header, add the SDK library as a framework: **Add framework** > **Add other...** > Navigate to `speechsdk/lib/` in your home directory and choose the file `libMicrosoft.CognitiveServices.Speech.core.dylib`.
-        1. In the **Build Settings** tab, first activate **All** settings. Then, in this tab,
-            1. add the path to SDK headers (`$(SRCROOT)/../speechsdk/include`) to the *Header Search Path* under the **Search Paths** heading.
-            ![Header Search Path setting](media/sdk/qs-objectivec-header-search-path.png)
-            1. add the path to the directory containing the library (`$(SRCROOT)/../speechsdk/lib`) to the *Library Search Path* under the **Search Paths** heading.
-            ![Library Search Path setting](media/sdk/qs-objectivec-library-search-path.png)
-            1. add the path to the directory containing the library (`$(SRCROOT)/../speechsdk/lib`) to the *Runpath Search Path* under the **Linking** heading.
-            ![Runpath Search Path setting](media/sdk/qs-objectivec-runpath-search-path.png)
+        1. Go to the **Build Settings** tab and activate **All** settings.
+        1. Add the path to SDK headers (`$(SRCROOT)/../speechsdk/include`) to the *Header Search Path* under the **Search Paths** heading.
+        ![Header Search Path setting](media/sdk/qs-objectivec-header-search-path.png)
+        1. Add the path to the directory containing the library (`$(SRCROOT)/../speechsdk/lib`) to the *Library Search Path* under the **Search Paths** heading.
+        ![Library Search Path setting](media/sdk/qs-objectivec-library-search-path.png)
+        1. Add the path to the directory containing the library (`$(SRCROOT)/../speechsdk/lib`) to the *Runpath Search Path* under the **Linking** heading.
+        ![Runpath Search Path setting](media/sdk/qs-objectivec-runpath-search-path.png)
 
 ## Set up the UI
 
