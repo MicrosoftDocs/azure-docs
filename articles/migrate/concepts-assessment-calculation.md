@@ -111,6 +111,8 @@ For performance-based sizing, Azure Migrate needs the utilization data for CPU, 
    61%-80% | 4 Star
    81%-100% | 5 Star
 
+Below are few reasons on why an assessment could get a low rating:
+
    **One-time discovery**
 
    - The statistics setting in vCenter Server is not set to level 3. Since the one-time discovery model depends on the statistics settings of vCenter Server, if the statistics setting in vCenter Server is lower than level 3, performance data for disk and network is not collected from vCenter Server. In this case, the recommendation provided by Azure Migrate for disk and network is not utilization-based. Without considering the IOPS/throughput of the disk, Azure Migrate cannot identify if the disk will need a premium disk in Azure, hence, in this case, Azure Migrate recommends Standard disks for all disks.

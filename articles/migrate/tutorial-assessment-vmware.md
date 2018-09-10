@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM.
 - **vCenter Server account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format.
-- **Statistics settings**: The statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters. This prerequisite is not applicable if you are using the continuous discovery approach that profiles the on-prem environment rather than collecting historical performance data from vCenter Server.
+- **Statistics settings**: This prerequisite is only applicable to the one-time discovery model. For the one-time discovery to work, the statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters.
 
 ## Create an account for VM discovery
 
@@ -63,7 +63,9 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
 
 1. In the Azure Migrate project, click **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Discover machines**, there are two options available for the appliance, click **Download** to download the appropriate appliance based on your preference.
+
     a. **One-time discovery:** The appliance for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric, [learn more] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Since it is a one-time discovery, changes in the on-premises environment are not reflected once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
+
     b. **Continuous discovery:** The appliance for this model, continuously profiles the on-premises environment to gather real-time utilization data for each VM. In this model, peak counters are collected for each metric (CPU utilization, memory utilization etc.). This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
 
     > [!NOTE]
@@ -84,6 +86,7 @@ Check that the .OVA file is secure, before you deploy it.
 3. The generated hash should match these settings.
 
 #### One-time discovery
+
   For OVA version 1.0.9.14
 
     **Algorithm** | **Hash value**
@@ -176,7 +179,7 @@ will be hosted.
 
 ### Verify VMs in the portal
 
-For the one-time discovery, the discovery time depends on how many VMs you are discovering. Typically, for 100 VMs, after the collector finishes running it takes around an hour for configuration and performance data collection to complete. You can create assessments (both performance-based and as on-premises assessments) immediately after the discovery is done.
+For one-time discovery, the discovery time depends on how many VMs you are discovering. Typically, for 100 VMs, after the collector finishes running, it takes around an hour for configuration and performance data collection to complete. You can create assessments (both performance-based and as on-premises assessments) immediately after the discovery is done.
 
 For continuous discovery (in preview), the collector will continuously profile the on-premises environment and will keep sending the performance data at an hour interval. You can review the machines in the portal after an hour of kicking off the discovery. It is strongly recommended to wait for at least a day before creating any performance-based assessments for the VMs.
 
