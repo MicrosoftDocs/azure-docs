@@ -12,6 +12,16 @@ ms.author: iainfou
 
 # Security concepts for applications and clusters in Azure Kubernetes Service (AKS)
 
+To protect your customer data as you run application workloads in Azure Kubernetes Service (AKS), the security of your cluster is a key consideration. Kubernetes includes security components such as *network policies* and *Secrets*. Azure then adds in components such as network security groups and orchestrated cluster upgrades. These security components are combined to keep your AKS cluster running the latest OS security updates and Kubernetes releases, and with secure pod traffic and access to sensitive credentials.
+
+This article introduces the core concepts that secure your applications in AKS:
+
+- [Master components security](#master-security)
+- [Node security](#node-security)
+- [Cluster upgrades](#cluster-upgrades)
+- [Network security](#network-security)
+- [Kubernetes Secrets](#secrets)
+
 ## Master security
 
 In AKS, the Kubernetes master components are part of the managed service provided my Microsoft. Each AKS cluster has their own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. This master is managed and maintained by Microsoft
@@ -27,11 +37,6 @@ The Azure platform automatically applies OS security patches to the nodes on a n
 Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default. This SSH access is only available using the internal IP address. Azure network security group rules can be used to further restrict IP range access to the AKS nodes. Deleting the default network security group SSH rule and disabling the SSH service on the nodes prevents the Azure platform from performing maintenance tasks.
 
 To provide storage, the nodes use Azure Managed Disks. The data stored on managed disks is automatically encrypted at rest within the Azure platform. To improve redundancy, these disks are also securely replicated within the Azure datacenter.
-
-*** CAN / SHOULD THE FOLLOWING BE USED?? ARE THEY SUPPORTED ?? ***
-
-- [Azure Active Directory integration for Linux VMs](../virtual-machines/linux/login-using-aad.md)
-- [Just-in-time VM access](../security-center/security-center-just-in-time.md)
 
 ## Cluster upgrades
 
@@ -54,8 +59,8 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 
 Network traffic can be secured with two types of traffic filtering and policy:
 
-- Ingress and egress traffic for the AKS cluster - Azure network security groups
-- Pod to pod communication within the AKS cluster - Kubernetes network policies
+- Ingress and egress traffic for the AKS cluster - [Azure network security groups](#azure-network-security-groups)
+- Pod to pod communication within the AKS cluster - [Kubernetes network policies](#kubernetes-network-policies)
 
 ### Azure network security groups
 
@@ -63,16 +68,24 @@ To filter the flow of traffic in virtual networks, Azure uses network security g
 
 ### Kubernetes network policies
 
-Kubernetes *network policies* can be used to secure communication between pods. By default, pods can send and receive traffic from any source. A NetworkPolicy defines the ingress and egress network ranges and ports that are allowed.
+Kubernetes *network policies* can be used to secure communication between pods. By default, pods can send and receive traffic from any source. A NetworkPolicy defines the ingress and egress network ranges and ports that are allowed. To secure pods, you first create and define those policies, then assign policies to pods based on tags.
 
-## Secrets
+For more information, see [Kubernetes Network Policies][kubernetes-network-policies].
+
+## Kubernetes Secrets
+
+A Kubernetes *Secret* is used to inject sensitive data into pods, such as access credentials or keys. You first create a Secret using the Kubernetes API. When you define your pod or deployment, a specific Secret can be requested. Secrets are only provided to nodes that have a scheduled pod that requires it, and the Secret is stored in *tmpfs*, not written to disk. When the last pod on a node that requires a Secret is deleted, the Secret is deleted from the node's tmpfs. Secrets are stored within a given namespace and can only be accessed by pods within the same namespace.
+
+The use of Secrets reduces the sensitive information that is defined in the pod or service YAML manifest. Instead, you request the Secret stored in Kubernetes API Server as part of your YAML manifest. This approach only provides the specific pod access to the Secret.
 
 ## Next steps
 
+To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks-upgrade-cluster].
+
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
+[kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-network-policies]: concepts-network.md#network-policies
