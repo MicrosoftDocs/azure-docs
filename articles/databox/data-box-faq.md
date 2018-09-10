@@ -135,12 +135,8 @@ A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data B
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
 
-### Q. What is the data transfer speed for Data Box?
-A. Depending on the file size, you can see up to 
-
 ### Q. How do I know that my data is secure during transit? 
 A. There are multiple security features implemented to ensure that your Data Box is secure during transit. Some of these include tamper-evident seals, hardware and software tampering detection, device unlock password. For more information, go to [Azure Data Box security and data protection](data-box-security.md).
-
 
 ### Q. How do I copy the data to the Data Box? 
 A.  If using an SMB client, you can use an SMB copy tool such as Robocopy, Diskboss, or even Windows File Explorer drag-and-drop to copy data onto the device. 
@@ -157,18 +153,17 @@ A.  To speed up the copy process:
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the Data Box is connected.
 - Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://bluestop.org/fio/) to benchmark the performance of the server hardware.
 
-### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
+<!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.
+- Copy files to the VM’s disk.-->
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
 A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the GA release, the storage accounts in all regions in US, West Europe, North Europe, France, and UK in the Azure public cloud are supported.
 
-We recommend that you use no more than three storage accounts for a given device. Using more storage accounts could potentially impact the performance.
 
 ## Ship device
 
