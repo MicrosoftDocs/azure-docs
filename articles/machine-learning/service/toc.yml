@@ -68,6 +68,13 @@
       items:
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
+    - name: Train ML models
+      href: how-to-train-ml-models.md
+      items:
+      - name: Train PyTorch models
+        href: how-to-train-pytorch.md
+      - name: Train TensorFlow models
+        href: how-to-train-tensorflow.md
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
