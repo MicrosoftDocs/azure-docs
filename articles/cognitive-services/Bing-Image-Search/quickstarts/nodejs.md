@@ -18,7 +18,7 @@ Use this quickstart to make your first call to the Bing Image Search API and rec
 
 While this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible most programming languages.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7.js) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) with additional error handling, and code annotations.
 
 ## Prerequisites
 
