@@ -1,5 +1,5 @@
 ---
-title: Deploy and configure Azure Firewall in a hybid network using Azure PowerShell
+title: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
 description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne
