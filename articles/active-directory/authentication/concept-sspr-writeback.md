@@ -20,9 +20,9 @@ Having a cloud based password reset utility is great but most companies still ha
 
 Password writeback is supported in environments that use:
 
-* [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
-* [Password hash synchronization](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Pass-through authentication](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Password hash synchronization](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Pass-through authentication](../hybrid/how-to-connect-pta.md)
 
 Password writeback provides:
 

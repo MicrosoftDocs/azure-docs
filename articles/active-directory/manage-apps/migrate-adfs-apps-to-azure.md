@@ -233,4 +233,4 @@ If you want Azure AD to directly handle user provisioning for an SaaS app, see [
 
 - [Managing applications with Azure Active Directory](what-is-application-management.md)
 - [Manage access to apps](what-is-access-management.md)
-- [Azure AD Connect federation](../active-directory-aadconnectfed-whatis.md)
+- [Azure AD Connect federation](../hybrid/how-to-connect-fed-whatis.md)

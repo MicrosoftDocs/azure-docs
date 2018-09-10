@@ -70,7 +70,7 @@ Use SSO to enable users to access their [SaaS applications](../active-directory/
 
 Organizations that do not enforce SSO for their users and applications are more exposed to scenarios where users have multiple passwords, which directly increases the likelihood of users reusing passwords or using weak passwords.
 
-You can learn more about Azure AD SSO by reading the article [AD FS management and customization with Azure AD Connect](../active-directory/active-directory-aadconnect-federation-management.md).
+You can learn more about Azure AD SSO by reading the article [AD FS management and customization with Azure AD Connect](../active-directory/hybrid/how-to-connect-fed-management.md).
 
 ## Deploy password management
 

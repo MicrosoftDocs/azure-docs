@@ -148,7 +148,7 @@ Get-AzureADUser -All $true |Where-Object {$_.DirSyncEnabled -ne "True"}
 
 ### Next Steps
 
-- Learn about [ADConnect](../active-directory/connect/active-directory-aadconnect-dirsync-deprecated.md)
+- Learn about [ADConnect](../active-directory/hybrid/reference-connect-dirsync-deprecated.md)
 
 
 

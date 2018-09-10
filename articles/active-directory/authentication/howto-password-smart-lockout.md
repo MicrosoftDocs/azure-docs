@@ -24,7 +24,7 @@ Smart lockout is always on for all Azure AD customers with these default setting
 
 Smart lockout can be integrated with hybrid deployments, using password hash sync or pass-through authentication to protect on-premises Active Directory accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises Active Directory.
 
-When using [pass-through authentication](../connect/active-directory-aadconnect-pass-through-authentication.md), you need to make sure that:
+When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you need to make sure that:
 
    * The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
    * The Azure AD lockout duration **in seconds** is **longer** than the Active Directory reset account lockout counter after duration **minutes**.

@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud-based dir
 
 - **For IT admins.** Azure AD provides a more secure solution for your organization through the use of stronger identity management and single sign-on (SSO) access to thousands of [cloud-based SaaS apps](../saas-apps/tutorial-list.md) and on-premises apps. Through these apps, you'll also get cloud-based app security, seamless access, enhanced collaboration, and automation of the identity lifecycle for your employees, helping to increase both security and compliance.
 
-    Additionally, with just [four clicks](./../connect/active-directory-aadconnect-get-started-express.md), you can integrate Azure AD with an existing Windows Server Active Directory, letting your organization use your existing on-premises identity investments to manage cloud-based SaaS app access.
+    Additionally, with just [four clicks](../hybrid/how-to-connect-install-express.md), you can integrate Azure AD with an existing Windows Server Active Directory, letting your organization use your existing on-premises identity investments to manage cloud-based SaaS app access.
 
 - **For app developers.** Azure AD lets you focus on building your apps by letting you integrate with an identity management solution that's used by millions of organizations around the world.
 

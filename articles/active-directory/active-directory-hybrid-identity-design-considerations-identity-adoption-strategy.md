@@ -110,7 +110,7 @@ Single Forest Scenario
 It is common for large and even small organizations to have multiple forests, as shown in Figure 5.
 
 > [!NOTE]
-> For more information about the different on-premises and Azure AD topologies with Azure AD Connect sync read the article [Topologies for Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
+> For more information about the different on-premises and Azure AD topologies with Azure AD Connect sync read the article [Topologies for Azure AD Connect](hybrid/plan-connect-topologies.md).
 > 
 > 
 
@@ -130,7 +130,7 @@ If this is the case, then the multi-forest single Azure AD topology should be co
 * If you have a linked mailbox, then there is also another account in a different forest used to sign in.
 
 > [!NOTE]
-> Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) for more considerations regarding the use of SourceAnchor.
+> Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](hybrid/plan-connect-design-concepts.md#sourceanchor) for more considerations regarding the use of SourceAnchor.
 > 
 > 
 
