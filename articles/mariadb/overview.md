@@ -53,7 +53,7 @@ For any questions or suggestions you might have about working with Azure Databas
 In addition, consider the following points of contact as appropriate:
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/915439-azure-database-for-mariadb).
 
 ## Next steps
 Now that you've read an introduction to Azure Database for MariaDB and answered the question "What is Azure Database for MariaDB?," you're ready to:
