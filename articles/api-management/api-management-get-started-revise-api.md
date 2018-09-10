@@ -59,7 +59,7 @@ In this tutorial, you learn how to:
 
 1. Select **Demo Conference API** from the API list.
 2. Select the **Design** tab near the top of the screen.
-3. Notice that the **revision selector** (directly above the design tab) shows your current revision as **Revision 2**.
+3. Notice that the **revision selector** (directly above the design tab) shows **Revision 2** as currently selected.
 
     > [!TIP]
     > Use the revision selector to switch between revisions that you wish to work on.

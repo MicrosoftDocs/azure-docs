@@ -118,7 +118,7 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -370,5 +370,8 @@ The patch orchestration app collects telemetry to track usage and performance. T
 ### Version 2.0.0
 - Public release
 
-### Version 2.0.1 (Latest)
+### Version 2.0.1
 - Recompiled the app using latest Service Fabric SDK
+
+### Version 2.0.2 (Latest)
+- Fixed an issue with health warning getting left behind during restart.

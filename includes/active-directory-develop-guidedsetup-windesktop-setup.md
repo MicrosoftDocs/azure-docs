@@ -39,12 +39,16 @@ To create your application, do the following:
 2. In the Package Manager Console window, paste the following Azure PowerShell command:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
     > [!NOTE] 
     > This command installs Microsoft Authentication Library. MSAL handles acquiring, caching, and refreshing user tokens that are used to access the APIs that are protected by Azure Active Directory v2.
     >
+
+    > [!NOTE]
+    > This quickstart does not use yet the latest version of MSAL.NET, but we are working on updating it
+    > 
 
 ## Add the code to initialize MSAL
 In this step, you create a class to handle interaction with MSAL, such as handling of tokens.

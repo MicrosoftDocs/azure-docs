@@ -165,7 +165,7 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
 - SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
-- Certificate using CNG keys are not supported. Doesrted DoesDoes not support certificates that use CNG keys.
+- Certificate using CNG keys are not supported.
 
 #### FAQ: When would I not enable this encryption?
 Enabling encryption can add certain cost to your infrastructure (owning public certificate) hence you may skip enabling encryption in the below cases:

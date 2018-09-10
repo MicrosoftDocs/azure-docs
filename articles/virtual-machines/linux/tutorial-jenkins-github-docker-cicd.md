@@ -149,7 +149,7 @@ In your Jenkins website, select **Create new jobs** from the home page:
 - Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/cynthn/nodejs-docs-hello-world*
 - Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
-- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in the command window.
+- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Test"` in the command window.
 - Select **Save** at the bottom of the jobs window.
 
 
@@ -239,7 +239,7 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-Advance to the next tutorial to learn more about how to integrate Jenkins with Visual Studio Team Services.
+Advance to the next tutorial to learn more about how to integrate Jenkins with Azure DevOps Services.
 
 > [!div class="nextstepaction"]
-> [Deploy apps with Jenkins and Team Services](tutorial-build-deploy-jenkins.md)
+> [Deploy apps with Jenkins and Azure DevOps Services](tutorial-build-deploy-jenkins.md)

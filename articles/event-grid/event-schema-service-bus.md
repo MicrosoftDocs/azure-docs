@@ -7,13 +7,15 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/23/2018
+ms.date: 08/17/2018
 ms.author: babanisa
 ---
 
 # Azure Event Grid event schema for Service Bus
 
 This article provides the properties and schema for Service Bus events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+
+For a list of sample scripts and tutorials, see [Service Bus event source](event-sources.md#service-bus).
 
 ## Available event types
 

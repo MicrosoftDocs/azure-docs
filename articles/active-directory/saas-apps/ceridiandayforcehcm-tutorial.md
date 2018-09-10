@@ -129,13 +129,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| For test | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
 	
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/support) to get these values.
 
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
 
-1. Your Ceridian Dayforce HCM application expects the SAML assertions in a specific format. Work with [Ceridian Dayforce HCM support team](https://www.ceridian.com/contact-us/index.html) first to identify the correct user identifier. Microsoft recommends using the **"name"** attribute as user identifier. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.  
+1. Your Ceridian Dayforce HCM application expects the SAML assertions in a specific format. Work with [Ceridian Dayforce HCM support team](https://www.ceridian.com/support) first to identify the correct user identifier. Microsoft recommends using the **"name"** attribute as user identifier. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.  
 
 	![Configure Single Sign-On](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
 
@@ -166,7 +166,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Ceridian Dayforce HCM Configuration](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_configure.png) 
 
-1. To configure single sign-on on **Ceridian Dayforce HCM** side, you need to send the downloaded **Metadata XML** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Ceridian Dayforce HCM support team](https://www.ceridian.com/contact-us/index.html).
+1. To configure single sign-on on **Ceridian Dayforce HCM** side, you need to send the downloaded **Metadata XML** and **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Ceridian Dayforce HCM support team](https://www.ceridian.com/support).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -205,7 +205,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Ceridian Dayforce HCM test user
 
-The objective of this section is to create a user called Britta Simon in Ceridian Dayforce HCM. Work with the [Ceridian Dayforce HCM support team](https://www.ceridian.com/contact-us/index.html) to get users added in the Ceridian Dayforce HCM application. 
+The objective of this section is to create a user called Britta Simon in Ceridian Dayforce HCM. Work with the [Ceridian Dayforce HCM support team](https://www.ceridian.com/support) to get users added in the Ceridian Dayforce HCM application. 
 
 ### Assigning the Azure AD test user
 

@@ -29,12 +29,12 @@ This article summarizes supported configurations and components when you replica
 
 ## Resource support
 
-**Resource move type** | **Details** 
+**Resource move type** | **Details**
 --- | --- | ---
 **Move vault across resource groups** | Not supported<br/><br/> You can't move a Recovery services vault across resource groups.
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after it's replicating, you need to disable replication and reenable replication for the VM.
-**Replicate Azure VMs from one subscription to another for disaster recovery** | Not supported.
-**Migrate VMs across subscriptions** | Not supported.
+**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant for 'Resource manager deployment model' VMs. Not supported for 'Classic deployment model' VMs.
+**Migrate VMs across regions within the supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant for 'Resource manager deployment model' VMs. Not supported for 'Classic deployment model' VMs.
 **Migrate VMs within the same region** | Not supported.
 
 
@@ -142,6 +142,7 @@ Add disk to replicated VM | Not supported. You need to disable replication for t
 --- | --- | ---
 Size | Any Azure VM size with at least 2 CPU cores and 1-GB RAM | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
 Availability sets | Supported | If you use the default option during 'Enable replication' step in portal, the availability set is auto created based on source region configuration. You can change the target availability set in 'Replicated item > Settings > Compute and Network > Availability set' any time.
+Availability zones | Not supported | VMs deployed in Availability zones are currently not supported.
 Hybrid Use Benefit (HUB) VMs | Supported | If the source VM has HUB license enabled, the Test failover or Failover VM also uses the HUB license.
 Virtual machine scale sets | Not supported |
 Azure Gallery Images - Microsoft published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery

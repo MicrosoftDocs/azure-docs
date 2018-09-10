@@ -97,10 +97,10 @@ You may see runtime-specific automation in the output, such as MSBuild for ASP.N
 
 Browse to your app to verify that the content is deployed.
 
-## Deploy from local Git with VSTS builds
+## Deploy from local Git with Azure DevOps Services builds
 
 > [!NOTE]
-> For App Service to create the necessary build and release definitions in your VSTS account, your Azure account must have the role of **Owner** in your Azure subscription.
+> For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
 >
 
 To enable local Git deployment for your app with the Kudu build server, navigate to your app in the [Azure portal](https://portal.azure.com).
@@ -109,22 +109,22 @@ In the left navigation of your app page, click **Deployment Center** > **Local G
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Click **VSTS Continuous Delivery** > **Continue**.
+Click **Azure DevOps Services Continuous Delivery** > **Continue**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-In the **Configure** page, configure a new VSTS account, or specify an existing account. When finished, click **Continue**.
+In the **Configure** page, configure a new Azure DevOps Services organization, or specify an existing organization. When finished, click **Continue**.
 
 > [!NOTE]
-> If you want to use an existing VSTS account that is not listed, you need to [link the VSTS account to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
-Depending on the [pricing tier](/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
 
 In the **Summary** page, verify your options and click **Finish**.
 
-It takes a few minutes for the VSTS account to be ready. When it's ready, copy the Git repository URL in the deployment center.
+It takes a few minutes for the Azure DevOps Services organization to be ready. When it's ready, copy the Git repository URL in the deployment center.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -134,7 +134,7 @@ Back in the _local terminal window_, add an Azure remote to your local Git repos
 git remote add vsts <url>
 ```
 
-Push to the Azure remote to deploy your app with the following command. When prompted by Git Credential Manager, sign in with your visualstudio.com user. For additional authentication methods, see [VSTS authenticaiton overview](/vsts/git/auth-overview?view=vsts).
+Push to the Azure remote to deploy your app with the following command. When prompted by Git Credential Manager, sign in with your visualstudio.com user. For additional authentication methods, see [Azure DevOps Services authentication overview](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master
