@@ -37,7 +37,6 @@ ms.author: sedusch
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 For on-premises development, you can use either HANA System Replication or use shared storage to establish high availability for SAP HANA.
 On Azure virtual machines (VMs), HANA System Replication on Azure is currently the only supported high availability function.
@@ -65,6 +64,14 @@ Read the following SAP Notes and papers first:
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101)
+* General RHEL documentation
+  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Azure specific RHEL documentation:
+  * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
+  * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
 ## Overview
 
@@ -171,10 +178,6 @@ To deploy the template, follow these steps:
    1. Repeat these steps for ports 3**03**41 and 3**03**42.
 
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
-
-## Create a Pacemaker cluster
-
-Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
 
 ## Install SAP HANA
 
@@ -285,16 +288,6 @@ The steps in this section use the following prefixes:
 
    <pre><code><b>10.0.0.5 hn1-db-0</b>
    <b>10.0.0.6 hn1-db-1</b>
-   </code></pre>
-
-1. **[A]** Install the SAP HANA high availability packages:
-
-   Install the SAP HANA resource agents. Make sure to enable a repository that contains the package.
-
-   <pre><code># Enable repository that contains SAP HANA resource agents
-   sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
-   
-   sudo yum install -y resource-agents-sap-hana
    </code></pre>
 
 1. **[A]** RHEL for HANA configuration
@@ -448,7 +441,7 @@ The steps in this section use the following prefixes:
 
 1. **[A]** Configure firewall
 
-   Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication.
+   Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication. Adapt it to your SAP HANA 1.0 installation.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=40302/tcp
@@ -502,9 +495,21 @@ The steps in this section use the following prefixes:
    HDB start
    </code></pre>
 
+## Create a Pacemaker cluster
+
+Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
+
 ## Create SAP HANA cluster resources
 
-First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
+Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package.
+
+<pre><code># Enable repository that contains SAP HANA resource agents
+sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
+   
+sudo yum install -y resource-agents-sap-hana
+</code></pre>
+
+Next, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
 
 <pre><code>sudo pcs property set maintenance-mode=true
 
@@ -533,7 +538,7 @@ sudo pcs property set maintenance-mode=false
 
 Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
 
-<pre><code>sudo crm_mon -r
+<pre><code>sudo pcs status
 
 # Online: [ hn1-db-0 hn1-db-1 ]
 #
@@ -552,7 +557,7 @@ Make sure that the cluster status is ok and that all of the resources are starte
 
 ## Test the cluster setup
 
-This section describes how you can test your setup. Before you start a test, make sure that Pacemaker does not have any failed action (via crm_mon -r), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA is sync state, for example with systemReplicationStatus:
+This section describes how you can test your setup. Before you start a test, make sure that Pacemaker does not have any failed action (via pcs status), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA is sync state, for example with systemReplicationStatus:
 
 <pre><code>[root@hn1-db-0 ~]# sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
 </code></pre>
@@ -578,7 +583,7 @@ You can migrate the SAP HANA master node by executing the following command:
 
 If you set `AUTOMATED_REGISTER="false"`, this command should migrate the SAP HANA master node and the group that contains the virtual IP address to hn1-db-1.
 
-Once the migration is done, the crm_mon -r output looks like this
+Once the migration is done, the 'sudo pcs status' output looks like this
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -607,7 +612,7 @@ exit
 [root@hn1-db-0 ~]# pcs resource clear SAPHana_HN1_03-master
 </code></pre>
 
-Monitor the state of the HANA resource using crm_mon -r. Once HANA is started on hn1-db-0, the output should look like this
+Monitor the state of the HANA resource using 'pcs status'. Once HANA is started on hn1-db-0, the output should look like this
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]

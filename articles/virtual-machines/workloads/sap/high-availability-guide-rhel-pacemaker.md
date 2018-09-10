@@ -31,6 +31,33 @@ ms.author: sedusch
 
 ![Pacemaker on SLES overview](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
+Read the following SAP Notes and papers first:
+
+* SAP Note [1928533], which has:
+  * The list of Azure VM sizes that are supported for the deployment of SAP software.
+  * Important capacity information for Azure VM sizes.
+  * The supported SAP software, and operating system (OS) and database combinations.
+  * The required SAP kernel version for Windows and Linux on Microsoft Azure.
+* SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux
+* SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux
+* SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
+* [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
+* [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101)
+* General RHEL documentation
+  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Azure specific RHEL documentation:
+  * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
+  * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+
 ## Cluster installation
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
@@ -40,6 +67,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
 
    <pre><code>sudo subscription-manager register
+   # List the available pools
+   sudo subscription-manager list --available --matches '*SAP*'
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
@@ -53,7 +82,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
    </code></pre>
 
-1. **[A]** Install HA extension
+1. **[A]** Install RHEL HA Add-On
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
    </code></pre>
@@ -87,21 +116,20 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo firewall-cmd --add-service=high-availability
    </code></pre>
 
-1. **[A]** Enable and start Pacemaker
+1. **[A]** Enable basic cluster services
 
    Run the following commands to enable the Pacemaker service and start it.
 
    <pre><code>sudo systemctl start pcsd.service
    sudo systemctl enable pcsd.service
-   sudo systemctl enable pacemaker
    </code></pre>
 
 1. **[1]** Create Pacemaker cluster
 
-   Run the following commands to authenticate the nodes and create the cluster
+   Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance].
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
-   sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b>
+   sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
    
    # Run the following command until the status of both nodes is online
@@ -128,45 +156,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]** Increase the token timeout of corosync.
+1. **[A]** Set Expected Votes
 
-   <pre><code>sudo vi /etc/corosync/corosync.conf
-   </code></pre>
-
-   Add the following bold content to the file if the values are not there or different. Make sure to change the host names and cluster name if you copy and paste the corosync config.
-
-   <pre><code>totem {
-    version: 2
-    cluster_name: nw1-azr
-    secauth: off
-    transport: udpu
-    <b>token: 30000</b>
-   }
-   nodelist {
-    node {
-        ring0_addr: prod-cl1-0
-        nodeid: 1
-    }
-    node {
-        ring0_addr: prod-cl1-1
-        nodeid: 2
-    }
-   }
-   quorum {
-    provider: corosync_votequorum
-    two_node: 1
-    <b>expected_votes: 2</b>
-   }
-   logging {
-    to_logfile: yes
-    logfile: /var/log/cluster/corosync.log
-    to_syslog: yes
-   }
-   </code></pre>
-
-   Then restart the corosync service
-
-   <pre><code>sudo service corosync restart
+   <pre><code>sudo pcs quorum expected-votes 2
    </code></pre>
 
 ## Create STONITH device
@@ -237,7 +229,7 @@ sudo pcs property set stonith-timeout=900
 Use the following command to configure the fence device.
 
 > [!NOTE]
-> If the RHEL host names and the Azure node names are identical, then pcmk_host_map is not required in the command. Refer to the bold section in the command.
+> Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure node names are NOT identical. Refer to the bold section in the command.
 
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
 

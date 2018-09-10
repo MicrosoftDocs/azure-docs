@@ -38,7 +38,6 @@ ms.author: sedusch
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
@@ -67,6 +66,14 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [Product Documentation for Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
+* General RHEL documentation
+  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Configuring ASCS/ERS for SAP Netweaver with standalone resources in RHEL 7.5](https://access.redhat.com/articles/3569681)
+* Azure specific RHEL documentation:
+  * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
+  * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## Overview
 
@@ -305,7 +312,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>sudo crm_mon -r
+   <pre><code>sudo pcs status
    
    # Node <b>nw1-cl-1</b>: standby
    # Online: [ <b>nw1-cl-0</b> ]
@@ -357,7 +364,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
  
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>sudo crm_mon -r
+   <pre><code>sudo pcs status
    
    # Node <b>nw1-cl-0</b>: standby
    # Online: [ <b>nw1-cl-1</b> ]
@@ -470,7 +477,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>sudo crm_mon -r
+   <pre><code>sudo pcs status
    
    # Online: [ <b>nw1-cl-0</b> <b>nw1-cl-1</b> ]
    #
