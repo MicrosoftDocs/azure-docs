@@ -67,6 +67,6 @@ For more information, see this [blog](http://aka.ms/videoindexerblog).
 
 You're ready to get started with Video Indexer. For more information, see the following articles:
 
-- [Get started with the Video Indexer portal](video-indexer-get-started.md)
+- [Get started with the Video Indexer website](video-indexer-get-started.md)
 - [Process content with Video Indexer REST API](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md)
