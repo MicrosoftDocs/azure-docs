@@ -42,11 +42,12 @@ As you develop code for your service, and before you're ready to check it in, co
 Let's take a closer look at where the services are currently running. Run the `azds list-up` command, and you'll see output similar to the following:
 
 ```
-Name                          DevSpace  Type     Updated      Status
-----------------------------  --------  -------  -----------  ----------------
-mywebapi                      default   Service  10m 1s ago   Running
-mywebapi-54f9cf5b59-bjnkm     default   Pod      10m 4s ago   Running
-webfrontend-5b697958d6-b6v96  default   Pod      26m 38s ago  Init:1/3:mindaro-build
+Name                          DevSpace  Type     Updated  Status
+----------------------------  --------  -------  -------  -------
+mywebapi                      default   Service  3m ago   Running
+mywebapi-56c8f45d9-zs4mw      default   Pod      3m ago   Running
+webfrontend                   default   Service  1m ago   Running
+webfrontend-6b6ddbb98f-fgvnc  default   Pod      1m ago   Running
 ```
 
 The DevSpace column shows that both services are running in a space named `default`. Anyone who opens the public URL and navigates to the web app will invoke the code path you previously wrote that runs through both services. Now suppose you want to continue developing `mywebapi`. How can you make code changes and test them and not interrupt other developers who are using the dev environment? To do that, you'll set up your own space.

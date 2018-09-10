@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -32,6 +32,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer wirelessly connected to your network. Performance can be diminished.
+* When installing the gateway, the user account you're signed in to your computer with must have Log on as service privileges. When install is complete, the On-premises data gateway service uses the NT SERVICE\PBIEgwService account to log on as a service. A different account can be specified during setup or in Services after setup is complete. Ensure Group Policy settings allow both the account you're signed in with when installing and the service account you choose have Log on as service privileges.
 * Sign in to Azure with an account in Azure AD for the same [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
 * The (unified) gateway described here is not supported in Azure Government, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. 
@@ -73,7 +74,7 @@ In order to create a gateway resource in Azure, you must register the local inst
 ## <a name="create-resource"></a>Create an Azure gateway resource
 After you've installed and registered your gateway, you need to create a gateway resource in your Azure subscription. Sign in to Azure with the same account you used when registering the gateway.
 
-1. In Azure portal, click **Create a new service** > **Enterprise Integration** > **On-premises data gateway** > **Create**.
+1. In Azure portal, click **Create a resource** > **Integration** > **On-premises data gateway**.
 
    ![Create a gateway resource](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

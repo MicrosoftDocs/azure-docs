@@ -30,7 +30,7 @@ You can download the source code from [GitHub](https://github.com/Azure/DevOps-F
 
 ## Pre-requisites
 The following are the pre-requisites for following the CI/CD pipeline described below:
-* [Visual Studio Team Services Account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure DevOps Organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Container Service (AKS) cluster running Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Azure Container Registy (ACR) account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -48,19 +48,19 @@ The pipeline architecture is given below.
 
 ## Steps of the CI/CD pipeline
 1. Developer work on the IDE of their choice on the application code.
-2. They commit the code to source control of their choice (VSTS has good support for various source controls)
+2. They commit the code to source control of their choice (Azure DevOps has good support for various source controls)
 3. Separately, the data scientist work on developing their model.
 4. Once happy, they publish the model to a model repository, in this case we are using a blob storage account. This could be easily replaced with Azure ML Workbench's Model management service through their REST APIs.
-5. A build is kicked off in VSTS based on the commit in GitHub.
-6. VSTS Build pipeline pulls the latest model from Blob container and creates a container.
-7. VSTS pushes the image to private image repository in Azure Container Registry
+5. A build is kicked off in Azure DevOps based on the commit in GitHub.
+6. Azure DevOps Build pipeline pulls the latest model from Blob container and creates a container.
+7. Azure DevOps pushes the image to private image repository in Azure Container Registry
 8. On a set schedule (nightly), release pipeline is kicked off.
 9. Latest image from ACR is pulled and deployed across Kubernetes cluster on ACS.
 10. Users request for the app goes through DNS server.
 11. DNS server passes the request to load balancer and sends the response back to user.
 
 ## Next steps
-* Refer to the [tutorial]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) to follow the details and implement your own CI/CD pipeline for your application.
+* Refer to the [tutorial](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) to follow the details and implement your own CI/CD pipeline for your application.
 
 ## References
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
