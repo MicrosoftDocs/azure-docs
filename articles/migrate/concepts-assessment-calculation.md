@@ -111,7 +111,7 @@ For performance-based sizing, Azure Migrate needs the utilization data for CPU, 
    61%-80% | 4 Star
    81%-100% | 5 Star
 
-Below are few reasons on why an assessment could get a low rating:
+   Below are the reasons regarding why an assessment could get a low confidence rating:
 
    **One-time discovery**
 

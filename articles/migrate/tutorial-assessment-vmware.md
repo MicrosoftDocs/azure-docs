@@ -89,45 +89,46 @@ Check that the .OVA file is secure, before you deploy it.
 
   For OVA version 1.0.9.14
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+  SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+  SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
   For OVA version 1.0.9.12
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | d0363e5d1b377a8eb08843cf034ac28a
+  SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+  SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   For OVA version 1.0.9.8
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | b5d9f0caf15ca357ac0563468c2e6251
-    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | b5d9f0caf15ca357ac0563468c2e6251
+  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-	For OVA version 1.0.9.7
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+  For OVA version 1.0.9.7
+
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | d5b6a03701203ff556fa78694d6d7c35
+  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
 #### Continuous discovery
 
   For OVA version 1.0.10.4
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-    SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-    SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## Create the collector VM
 
