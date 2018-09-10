@@ -60,7 +60,7 @@ Azure Kubernetes Service uses Docker images. To create the image, use the follow
 
     * [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
-    The following example uses these files to configure the image:
+   The following example uses these files to configure the image:
 
     ```python
     from azureml.core.image import ContainerImage
