@@ -28,22 +28,22 @@ Azure Migrate needs access to VMware servers to automatically discover VMs for a
 - User type: At least a read-only user
 - Permissions: Data Center object –> Propagate to Child Object, role=Read-only
 - Details: User assigned at datacenter level, and has access to all the objects in the datacenter.
-- To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs and networks).
+- To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 If you're deploying in a tenant environment, here's one way to set this up:
 
-1.  Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VM’s belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant specific VM’s.
-2. You set up RBAC for different tenant users as described in the following example for User#1 and User#2:
+1.  Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VMs belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
+2. You set up RBAC for different tenant users as described in the following example for User #1 and User #2:
 
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in
-    - Datacenter1 - give read-only permissions to User#1 and User#2. Don't propagate those permissions to all child objects, because you'll set permissions on individual VM's.
+    - Datacenter1 - give read-only permissions to User #1 and User #2. Don't propagate those permissions to all child objects, because you'll set permissions on individual VMs.
 
-      - VM1 (Tenant#1) (Read only permission to User#1)
-      - VM2 (Tenant#1) (Read only permission to User#1)
-      - VM3 (Tenant#2) (Read only permission to User#2)
-      - VM4 (Tenant#2) (Read only permission to User#2)
+      - VM1 (Tenant #1) (read-only permission to User #1)
+      - VM2 (Tenant #1) (read-only permission to User #1)
+      - VM3 (Tenant #2) (read-only permission to User #2)
+      - VM4 (Tenant #2) (read-only permission to User #2)
 
-   - If you perform discovery using User#1 credentials, then only VM1 and VM2 will be discovered.
+   - If you perform discovery using User #1 credentials, then only VM1 and VM2 will be discovered.
 
 ## Plan your migration projects and discoveries
 
@@ -88,7 +88,7 @@ You need to create multiple collector appliances (one for each vCenter Server) a
 
 ### More than 1500 machines in a single vCenter Server
 
-If you have more than 1500 virtual machines in a single vCenter Server, you need to split the discovery into multiple migration projects. To split discoveries, you can leverage the Scope field in the appliance and specify the host, cluster, folder or datacenter that you want to discover. For example, if you have two folders in vCenter Server, one with 1000 VMs (Folder1) and other with 800 VMs (Folder2), you can use the scope field to split the discoveries between these folders.
+If you have more than 1500 virtual machines in a single vCenter Server, you need to split the discovery into multiple migration projects. To split discoveries, you can leverage the Scope field in the appliance and specify the host, cluster, folder, or datacenter that you want to discover. For example, if you have two folders in vCenter Server, one with 1000 VMs (Folder1) and other with 800 VMs (Folder2), you can use the scope field to split the discoveries between these folders.
 
 **One-time discovery**
 You can use the same collector to trigger both the discoveries. In the first discovery, you can specify Folder1 as the scope and point it to the first migration project, once the first discovery is complete, you can use the same collector, change its scope to Folder2 and migration project details to the second migration project and do the second discovery.
@@ -124,7 +124,7 @@ If you have multiple projects, you need to download the collector appliance only
 
 1. In the Azure Migrate project, click **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Discover machines**, there are two options available for the appliance, click **Download** to download the appropriate appliance based on your preference.
-    a. **One-time discovery:** The appliance for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric, [learn more] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Since its a one-time discovery, changes in the on-premises environment are not reflected once the discovery is complete. If you want the changes to reflect, you have to do a re-discovery of the same environment to the same project.
+    a. **One-time discovery:** The appliance for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric, [learn more] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Since its a one-time discovery, changes in the on-premises environment are not reflected once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
     b. **Continuous discovery:** The appliance for this model, continuously profiles the on-premises environment to gather real-time utilization data for each VM. In this model, peak counters are collected for each metric (CPU utilization, memory utilization etc.). This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
 
     > [!NOTE]
@@ -231,7 +231,7 @@ The collector appliance discovers the following static metadata about the select
 
 For on-time discovery model, the following table lists the exact performance counters that are collected, and also lists the assessment results that are impacted if a particular counter is not collected.
 
-For continuous discovery, the same counters are collected at real time (20 seconds interval), so there is no dependency on vCenter statistics level. The appliance then rolls-up the 20 second samples to create a single data point for every 15 minutes by selecting the peak value from the 20-second samples and sends it to Azure.
+For continuous discovery, the same counters are collected at real time (20-seconds interval), so there is no dependency on vCenter statistics level. The appliance then rolls-up the 20-second samples to create a single data point for every 15 minutes by selecting the peak value from the 20-second samples and sends it to Azure.
 
 |Counter                                  |Level    |Per-device level  |Assessment impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
