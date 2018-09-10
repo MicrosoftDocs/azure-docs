@@ -66,7 +66,7 @@ The following high-level automation is set up in the device console/management c
 * Automatic download of Azure connectivity information 
 * Configuration of on-premises branch device 
 
-Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. For details on how to consider automating connectivity, please see [Configure Automation – WAN Partners](virtual-wan-configure-automation-providers).
+Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. For details on how to consider automating connectivity, please see [Configure Automation – WAN Partners](virtual-wan-configure-automation-providers.md).
 
 ## Connectivity through preferred partners
 
@@ -83,3 +83,9 @@ You can check the following links to gather more information about services offe
 |Netfoundry | [Link](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|
 |Riverbed Technology |[Link](https://www.riverbed.com/go/steelconnect-azurewan.html)|
 |128 Technology | [Link](https://www.128technology.com/partners/azure)
+
+## Next Steps
+
+For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).
+
+For more information about how to automate connectivity to Azure Virtual WAN, see [Virtual WAN Partners - How to automate](virtual-wan-configure-automation-providers.md)
