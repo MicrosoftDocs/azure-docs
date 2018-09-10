@@ -384,7 +384,6 @@ table of values. See also:
 [**endofmonth()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofmonthfunction.html?q=endofmonth),
 and
 [**endofyear()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofyearfunction.html?q=endofyear).
-```
 
 [**between()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_betweenoperator.html?q=between):
 Matches the input that is inside the inclusive range.
@@ -463,7 +462,7 @@ MyTrace
 
 ## Time series analysis
 
-[make-series](https://kusto.azurewebsites.net/docs/query/make-seriesoperator.html): aggregate together groups of rows like[summarize](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html), but generates a (time) series vector per each combination of by values.
+[make-series](https://kusto.azurewebsites.net/docs/query/make-seriesoperator.html): aggregates together groups of rows like [summarize](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html), but generates a (time) series vector per each combination of by values.
 
 The following query returns a set of time series for the count of storm events per day. The query covers a three month period for each state, filling missing bins with the constant 0:
 
@@ -485,7 +484,6 @@ StormEvents
 ```
 
 Please review the full list of [series functions](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_scalarfunctions.html#series-processing-functions).
-
 
 ## Advanced aggregations
 
@@ -791,8 +789,7 @@ T
 window)
 ```
 
-[**activity_engagement
-plugin**)(https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html):
+[**activity_engagement plugin**)(https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html):
 Calculates activity engagement ratio based on ID column over a sliding
 timeline window. **activity_engagement plugin** can be used for
 calculating DAU, WAU, and MAU (daily, weekly, and monthly active users).
