@@ -213,9 +213,9 @@
     - name: User and admin consent
       href: 
     - name: Restrict your app to a set of users
-      href: 
+      href: howto-restrict-your-app-to-a-set-of-users.md
     - name: App roles
-      href: 
+      href: howto-add-app-roles-in-azure-ad-apps.md
   - name: Work with Visual Studio
     items:
     - name: Use the Active Directory connected service
