@@ -19,36 +19,38 @@ ms.author: jdial
 
 # Manage packet captures with Azure Network Watcher using the portal
 
-Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies, both reactively, and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communicationsm, and much more. Being able to remotely trigger packet captures, eases the burden of running a packet capture manually on a desired virtual machine, which saves valuable time.
+Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies, both reactively, and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communication, and much more. Being able to remotely trigger packet captures, eases the burden of running a packet capture manually on a desired virtual machine, which saves valuable time.
 
 In this article, you learn to start, stop, download, and delete a packet capture. 
 
 ## Before you begin
 
-Packet capture requires the following conectivity:
-> * Outbound connectivity to a storage account over port 443.
-> * Inbound and Outbound connectivity to 169.254.169.254
-> * Inbound and Outbound connectivity to 168.63.129.16
+Packet capture requires the following connectivity:
+* Outbound connectivity to a storage account over port 443.
+* Inbound and outbound connectivity to 169.254.169.254
+* Inbound and outbound connectivity to 168.63.129.16
 
 If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. 
 
 ## Start a packet capture
 
 1. In your browser, navigate to the [Azure portal](https://portal.azure.com) and select **All services**, and then select **Network Watcher** in the **Networking section**.
-2. Select **Packet capture** under **Network diagnostic tools**. If you have any existing packet captures, they're listed, regardless of their status.
+2. Select **Packet capture** under **Network diagnostic tools**. Any existing packet captures are listed, regardless of their status.
 3. Select **Add** to create a packet capture. You can select values for the following properties:
    - **Subscription**: The subscription that the virtual machine you want to create the packet capture for is in.
    - **Resource group**: The resource group of the virtual machine.
    - **Target virtual machine**: The virtual machine that you want to create the packet capture for.
    - **Packet capture name**: A name for the packet capture.
    - **Storage account or file**: Select **Storage account**, **File**, or both. If you select **File**, the capture is written to a path within the virtual machine.
-   - **Local file path**: The local path on the virtual machine where the packet capture will be saved (valid only when *File* is selected). You must specify a valid path. If you are using a Linux virtual machine, the path must start with */var/captures*.
+   - **Local file path**: The local path on the virtual machine where the packet capture will be saved (valid only when *File* is selected). The path must be a valid path. If you are using a Linux virtual machine, the path must start with */var/captures*.
    - **Storage accounts**: Select an existing storage account, if you selected *Storage account*. This option is only available if you selected **Storage**.
-   > [!NOTE]
-   > Premium storage accounts are currently not supported for storing packet captures.
-  - **Maximum bytes per packet**: The number of bytes from each packet that are captured. If left blank, all bytes are captured.
+   
+     > [!NOTE]
+     > Premium storage accounts are currently not supported for storing packet captures.
+
+- **Maximum bytes per packet**: The number of bytes from each packet that are captured. If left blank, all bytes are captured.
   - **Maximum bytes per session**: The total number of bytes that are captured. Once the value is reached the packet capture stops.
-  - **Time limit (seconds)**: The time limit before the packet capture is stopped. The default is 18000 seconds.
+  - **Time limit (seconds)**: The time limit before the packet capture is stopped. The default is 18,000 seconds.
   - Filtering (Optional). Select **+ Add filter**
     - **Protocol**: The protocol to filter for the packet capture. The available values are TCP, UDP, and Any.
     - **Local IP address**: Filters the packet capture for packets where the local IP address matches this value.
@@ -59,7 +61,7 @@ If a network security group is associated to the network interface, or subnet th
     > [!NOTE]
     > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
 
-4. To create the packet capture, select **OK**.
+4. Select **OK**.
 
 After the time limit set on the packet capture has expired, the packet capture is stopped, and can be reviewed. You can also manually stop a packet capture session.
 
@@ -70,7 +72,7 @@ After the time limit set on the packet capture has expired, the packet capture i
 
 ## Delete a packet capture
 
-1. In the packet capture view, select **...** or right click an existing packet capture, and select **Delete**.
+1. In the packet capture view, select **...** or right-click an existing packet capture, and select **Delete**.
 2. You are asked to confirm you want to delete the packet capture, select **Yes**.
 
 > [!NOTE]
@@ -78,7 +80,7 @@ After the time limit set on the packet capture has expired, the packet capture i
 
 ## Stop a packet capture
 
-In the packet capture view, select **...** or right click an existing packet capture, and select **Stop**.
+In the packet capture view, select **...** or right-click an existing packet capture, and select **Stop**.
 
 ## Download a packet capture
 
