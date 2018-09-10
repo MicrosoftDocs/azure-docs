@@ -75,7 +75,7 @@ The list of regions supported and available are as follows:
 
 This section describes the high-level details of automation from the connectivity providers.
 
-Devices that connect to Azure Virtual WAN have built-in automation to connect to Azure Virtual WAN. This is usually set up in the device management UI (or equivalent), thereby setting up the connectivity and configuration management between the VPN branch device to an Azure Virtual Hub VPN endpoint (VPN gateway).
+Devices that connect to Azure Virtual WAN have built-in automation to connect. This is usually set up in the device-management UI (or equivalent), which sets up the connectivity and configuration management between the VPN branch device to an Azure Virtual Hub VPN endpoint (VPN gateway).
 
 The following high-level automation is set up in the device console/management center:
 
@@ -84,7 +84,7 @@ The following high-level automation is set up in the device console/management c
 * Automatic download of Azure connectivity information 
 * Configuration of on-premises branch device 
 
-Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. For details on how to consider automating connectivity, please see [Configure Automation – WAN Partners](virtual-wan-configure-automation-providers.md).
+Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. If you want to know more about automation, please see [Configure Automation – WAN Partners](virtual-wan-configure-automation-providers.md).
 
 ## Connectivity through preferred partners
 
