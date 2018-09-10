@@ -68,7 +68,9 @@ App Service Authentication sets HTTP headers named `x-ms-client-principal-id` an
 [FunctionName("GetSignalRInfo")]
 public static SignalRConnectionInfo GetSignalRInfo(
     [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
-    [SignalRConnectionInfo(HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]SignalRConnectionInfo connectionInfo)
+    [SignalRConnectionInfo
+        (HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]
+        SignalRConnectionInfo connectionInfo)
 {
     // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
     return connectionInfo;
