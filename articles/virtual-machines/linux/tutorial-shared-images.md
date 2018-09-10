@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/07/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
@@ -40,43 +40,6 @@ In this tutorial, you create your own gallery and custom images of an Azure virt
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## Overview
-
-A managed image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how you create the image. When you create a VM  from the image, the copy of the VHDs in the image are used to create the disks for the new VM. The managed image remains in storage and can be used over and over again to create new VMs.
-
-If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a shared image gallery as a repository that makes it easy to update and share your images. The charges for using a shared image gallery are just the costs for the storage used by the images, plus any network egress costs for replicating images from the source region to the published regions.
-
-Shared images encompasses multiple resources:
-
-| Resource | Description|
-|----------|------------|
-| **Managed image** | This is a baseline image that can be used alone or used to create multiple **shared image versions** in an image gallery.|
-| **Image gallery** | Like the public Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access within your company. |
-| **Gallery image** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minumum and maximum memory requirements. This type of image is a resource within the resource manager deployment model, but it isn't used directly for creating VMs. It is a definition of a type of image. |
-| **Shared image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
-
-
-
-
-### Regional Support
-
-Regional support for shared image alleries is limited, but will expand over time. For preview: 
-
-| Create Gallery In  | Replicate Version To |
-|--------------------|----------------------|
-| West Central US    |South Central US|
-|                    |East US|
-|                    |East US 2|
-|                    |West US|
-|                    |West US 2|
-|                    |Central US|
-|                    |North Central US|
-|                    |Canada Central|
-|                    |Canada East|
-|                    |North Europe|
-|                    |West Europe|
-|                    |South India|
-|                    |Southeast Asia|
 
 
 ## Before you begin
