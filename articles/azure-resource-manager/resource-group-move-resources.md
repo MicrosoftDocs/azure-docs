@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: tomfitz
 
 ---
@@ -159,7 +159,7 @@ While the operation is still running, you continue to receive the 202 status cod
 
 ## Services that can be moved
 
-The services that enable moving to both a new resource group and subscription are:
+The following list provides a general summary of Azure services that can be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -228,7 +228,7 @@ The services that enable moving to both a new resource group and subscription ar
 
 ## Services that cannot be moved
 
-The services that currently don't enable moving a resource are:
+The following list provides a general summary of Azure services that can't be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
 
 * AD Domain Services
 * AD Hybrid Health Service
