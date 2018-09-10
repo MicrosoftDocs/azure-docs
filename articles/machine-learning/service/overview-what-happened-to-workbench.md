@@ -90,7 +90,7 @@ With this latest release, the Visual Studio Code Tools for AI extension has been
 
 ## What about domain packages?
 
-The domain packages for [Computer Vision, Text Analytics, and Forecasting](desktop-workbench/reference-python-package-overview.md) cannot be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with latest [Azure Machine Learning Python SDK](reference-azure-machine-learning-sdk.md). To learn how to migrate pre-existing models built using the Computer Vision, Text Analytics, and Forecasting packages, contact us at AML-Packages@microsoft.com.
+The domain packages for [Computer Vision, Text Analytics, and Forecasting](../desktop-workbench/reference-python-package-overview.md) cannot be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with latest [Azure Machine Learning Python SDK](reference-azure-machine-learning-sdk.md). To learn how to migrate pre-existing models built using the Computer Vision, Text Analytics, and Forecasting packages, contact us at AML-Packages@microsoft.com.
 
 ## Next steps
 
