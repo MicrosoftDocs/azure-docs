@@ -21,7 +21,7 @@ ms.author: magoedte
 This article describes how to set up VM Insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
 ## Performance Counters enabled
-VM Insights configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution and are collected every 60 seconds.
+VM Insights configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
 
 ### Windows performance counters
 
@@ -345,6 +345,9 @@ Files for the Dependency agent are placed in the following directories:
 | Service executable files | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
+### Enable performance counters
+If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../log-analytics/log-analytics-data-sources-performance-counters.md), or by downloading and running a PowerShell script hosted on our GitHub [repo](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Enable-VMInsightsPerfCounters.ps1) for the solution.
+ 
 ### Onboard the solution
 This method includes a JSON template that specifies the configuration to enable the solution components to your Log Analytics workspace.  
 
@@ -420,7 +423,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ]
     ```
 
-2. Save this file as **installsolutionsforvminsights.json ** to a local folder.
+2. Save this file as **installsolutionsforvminsights.json** to a local folder.
 3. Edit the values for **WorkspaceName**, **ResourceGroupName**, and **WorkspaceLocation**.  The value for **WorkspaceName** is the is the full resource ID of your Log Analytics workspace, which includes the workspace name, and the value for **WorkspaceLocation** is the region the workspace is defined in.
 4. You are ready to deploy this template using the following PowerShell command:
 
