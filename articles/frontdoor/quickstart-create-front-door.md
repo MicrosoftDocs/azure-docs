@@ -62,7 +62,7 @@ Create a Front Door configuration that directs user traffic based on lowest late
     
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, **trafficmanager.net** which is used to access your Traffic Manager profile.|
+    | Name                   | This name needs to be unique within the azurefd.net zone and results in the DNS name, **azurefd.net** which is used to access your Traffic Manager profile.|
     | Routing method          | Select the **Priority** routing method.|
     | Subscription            | Select your subscription.|
     | Resource group          | Select **Existing** and then select *myResourceGroupTM1*.|
