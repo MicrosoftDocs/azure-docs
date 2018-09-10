@@ -33,7 +33,7 @@ Start-AzureRmAutomationRunbook â€“AutomationAccountName "MyAutomationAccount" â€
 
 ## Runbook permissions
 
-Runbooks running on a Hybrid Runbook Worker cannot use the same method that is typically used for runbooks authenticating to Azure resources, since they are accessing resources outside of Azure. The runbook can either provide its own authentication to local resources, or can configure a [Managed Service Identity](../active-directory/managed-service-identity/tutorial-windows-vm-access-arm.md#enable-msi-on-your-vm
+Runbooks running on a Hybrid Runbook Worker cannot use the same method that is typically used for runbooks authenticating to Azure resources, since they are accessing resources outside of Azure. The runbook can either provide its own authentication to local resources, or can configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
 ), or you can specify a RunAs account to provide a user context for all runbooks.
 
 ### Runbook authentication
@@ -70,7 +70,7 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 5. Change **Run As** from **Default** to **Custom**.
 6. Select the credential and click **Save**.
 
-### Managed Service Identity
+### Managed Identities for Azure Resources
 
 Hybrid Runbook Workers running on Azure virtual machines can use the virtual machines Managed Service Identities (MSI) to authenticate to Azure resources. There are many benefits to using Managed Service Identities over Run As accounts.
 
@@ -81,15 +81,15 @@ Hybrid Runbook Workers running on Azure virtual machines can use the virtual mac
 To use an MSI on a Hybrid Runbook worker you need to complete the following steps:
 
 1. Create an Azure VM
-1. [Configure the MSI in the VM](../active-directory/managed-service-identity/tutorial-windows-vm-access-arm.md#enable-msi-on-your-vm
-)
-1. Grant Contributor role to the Compute MSI (Service Principal) at the subscription level. This allows you to manage all resources.
-1. [Install the Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) on the virtual machine.
+2. [Configure managed identities for Azure resources on your VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-identity-on-an-existing-vm)
+3. [Grant your VM access to a resource group in Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
+4. [Get an access token using the VM's system-assigned managed identity] (../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+5. [Install the Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) on the virtual machine.
 
 Once the preceding steps are complete, you can use `Connect-AzureRmAccount -Identity` in the runbook to authenticate to Azure resources. This reduces the need to leverage a Run As Account and manage the certificate for the Run As account.
 
 ```powershell
-# Connect to Azure using the MSI identity configured on the Azure VM that is hosting the hybrid runbook worker
+# Connect to Azure using the Managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
 Connect-AzureRmAccount -Identity
 
 # Get all VM names from the subscription
