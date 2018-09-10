@@ -81,6 +81,14 @@ To get started with scaling applications, follow the [quickstart to create an AK
 - Use the [horizontal pod autoscaler][aks-hpa]
 - Use the [cluster autoscaler][aks-cluster-autoscaler]
 
+For additional information on core Kubernetes and AKS concepts, see the following articles:
+
+- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS access and identity][aks-concepts-identity]
+- [Kubernetes / AKS security][aks-concepts-security]
+- [Kubernetes / AKS virtual networks][aks-concepts-network]
+- [Kubernetes / AKS storage][aks-concepts-storage]
+
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
@@ -90,3 +98,8 @@ To get started with scaling applications, follow the [quickstart to create an AK
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
 [aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
 [aks-cluster-autoscaler]: autoscaler.md
+[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
+[aks-concepts-security]: concepts-security.md
+[aks-concepts-storage]: concepts-storage.md
+[aks-concepts-identity]: concepts-identity.md
+[aks-concepts-network]: concepts-network.md
