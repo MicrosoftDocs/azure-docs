@@ -196,6 +196,12 @@
       "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "remote-monitoring-webui",
+      "url": "https://github.com/dominicbetts/pcs-remote-monitoring-webui.git",
+      "branch": "add-doc-tags",
+      "branch_mapping": {}
     }    
   ],
   "branch_target_mapping": {
