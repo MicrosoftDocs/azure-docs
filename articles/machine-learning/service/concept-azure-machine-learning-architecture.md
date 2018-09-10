@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.date: 09/24/2018
-
+# As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
 ---
 
 # Azure Machine Learning service architecture and concepts
