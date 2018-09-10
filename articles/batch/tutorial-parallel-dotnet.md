@@ -296,9 +296,9 @@ try
 catch (TimeoutException)
 {
     batchClient.JobOperations.TerminateJob(jobId, failureMessage);
-    Console.WriteLine(failureMessage);
+    Console.WriteLine(incompleteMessage);
 }
-batchClient.JobOperations.TerminateJob(jobId, successMessage);
+batchClient.JobOperations.TerminateJob(jobId, completeMessage);
 ...
 
 ```
