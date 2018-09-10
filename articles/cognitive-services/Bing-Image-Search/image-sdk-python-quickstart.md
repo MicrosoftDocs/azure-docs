@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search and find images on the web using the Bing Image Search SDK and Python.
 services: cognitive-services
 author: aahill
-manager: cagronlund
+manager: cagronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
@@ -15,7 +15,7 @@ ms.author: aahi
 
 Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Python application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
-The source code for this sample is available [on Github](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) with additional error handling and annotations.
+The source code for this sample is available [on Github](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) with additional error handling and annotations.
 
 ## Prerequisites 
 
