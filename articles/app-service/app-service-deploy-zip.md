@@ -66,7 +66,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 
 Make sure your Azure CLI version is 2.0.21 or later. To see which version you have, run `az --version` command in your terminal window.
 
-Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) command.  
+Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command.  
 
 The following example deploys the ZIP file you uploaded. When using a local installation of Azure CLI, specify the path to your local ZIP file for `--src`.   
 

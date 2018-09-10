@@ -12,17 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2017
+ms.date: 08/14/2018
 ms.author: mbullwin
 
 ---
 # Import data into Analytics
 
 Import any tabular data into [Analytics](app-insights-analytics.md), either to join it with [Application Insights](app-insights-overview.md) telemetry from your app, or so that you can analyze it as a separate stream. Analytics is a powerful query language well-suited to analyzing high-volume timestamped streams of telemetry.
-
 You can import data into Analytics using your own schema. It doesn't have to use the standard Application Insights schemas such as request or trace.
 
 You can import JSON or DSV (delimiter-separated values - comma, semicolon or tab) files.
+
+> [!IMPORTANT]
+> This article has been **deprecated**. The recommended method of getting data into Log Analytics is via the [Log Analytics data collector API.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 There are three situations where importing to Analytics is useful:
 

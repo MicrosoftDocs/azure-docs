@@ -51,6 +51,8 @@
       href: container-instances-liveness-probe.md
   - name: Manage
     items:
+    - name: Update running containers
+      href: container-instances-update.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
     - name: Monitor CPU and memory usage
@@ -59,7 +61,7 @@
       href: container-instances-log-analytics.md
   - name: Run workloads
     items:
-    - name: Run containerized tasks
+    - name: Run tasks with restart policies
       href: container-instances-restart-policy.md
     - name: Jenkins build agents on ACI
       href: container-instances-jenkins.md

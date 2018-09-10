@@ -1,18 +1,13 @@
 ---
-title: Authorize users for Ambari Views - Azure HDInsight | Microsoft Docs
+title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for domain-joined HDInsight clusters.'
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ---
@@ -118,7 +113,7 @@ The List view provides quick editing capabilities in two categories: Users and G
 
     ![Roles list view - users](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Azure AD groups specified in the **Access user group** property of the cluster's Domain settings. See [Create a Domain-joined HDInsight cluster](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+* The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Azure AD groups specified in the **Access user group** property of the cluster's Domain settings. See [Create a Domain-joined HDInsight cluster](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Roles list view - groups](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

@@ -16,7 +16,7 @@ This article describes the different types of outputs available for an Azure Str
 
 When you design your Stream Analytics query, refer to the name of the output using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need by providing multiple INTO clauses in the query.
 
-To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Some outputs types support [partitioning](#partitioning), and [output batch sizes](#output-batch-size) vary to optimize throughput.
 
@@ -143,7 +143,7 @@ Once you have the Power BI account authenticated, you can configure the properti
 | Property name | description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this PowerBI output. |
-| Group workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
+| Group workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose "My Workspace" if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
 | Dataset name |Provide a dataset name that it is desired for the Power BI output to use |
 | Table name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
 
@@ -167,7 +167,7 @@ bigint | Int64
 nvarchar(max) | String
 datetime | Datetime
 float | Double
-Record array | String type, Constant value “IRecord” or “IArray”
+Record array | String type, Constant value "IRecord" or "IArray"
 
 ### Schema Update
 Stream Analytics infers the data model schema based on the first set of events in the output. Later, if necessary, the data model schema is updated to accommodate incoming events that may not fit into the original schema.

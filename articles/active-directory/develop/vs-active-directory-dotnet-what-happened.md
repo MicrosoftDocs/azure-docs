@@ -7,11 +7,11 @@ manager: douge
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
+ms.custom: aaddev, vs-azure
 ---
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
 
@@ -158,5 +158,5 @@ When adding the connected service, Visual Studio 2015 backs up changed and remov
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v1-aspnet-webapp.md)

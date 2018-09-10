@@ -7,12 +7,21 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 07/16/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
 
-SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers logical servers that can contain [single SQL databases](sql-database-servers-databases.md) and [elastic pools](sql-database-elastic-pool.md), and [Managed Instances](sql-database-managed-instance.md) (in public preview) that contain system and user databases. SQL Database delivers dynamically scalable performance within two different purchasing models: a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a [DTU-based purchasing model](sql-database-service-tiers-dtu.md). SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
+SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database delivers dynamically scalable performance within two different purchasing models: a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a [DTU-based purchasing model](sql-database-service-tiers-dtu.md). SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
+
+Azure SQL Database provides the following deployment options for an Azure SQL database:
+- As a single database with its own set of resources managed via a logical server 
+- As a pooled database in an [elastic pool](sql-database-elastic-pool.md) with a shared set of resources managed via a logical server
+- As a part of a collection of databases known as a [managed instance](sql-database-managed-instance.md) (in public preview) that contains system and user databases and sharing a set of resources
+
+The following illustration shows these deployment options:
+
+![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
 SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. For information about new capabilities as they are announced, see:
 
@@ -162,8 +171,8 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 - See these quickstarts to get you started:
 
   - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  
-  - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
-  - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
+  - [Create a SQL database with the Azure CLI](sql-database-cli-samples.md)
+  - [Create a SQL database using PowerShell](sql-database-powershell-samples.md)
 
 - For a set of Azure CLI and PowerShell samples, see:
   - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)

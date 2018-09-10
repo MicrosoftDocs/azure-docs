@@ -3,7 +3,7 @@ title: 'Azure quickstart: Create a blob in object storage by using Java Storage 
 description: In this quickstart, you create a container in object (Azure Blob) storage, upload a file, list objects, and download by using the Java Storage SDK. 
 services: storage
 author: roygara
-manager: jeconnoc
+
 
 ms.custom: mvc
 ms.service: storage
@@ -287,5 +287,5 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 > [!div class="nextstepaction"]
 > [Storage SDK V10 for Java source code](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [API Reference](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-preview)
+> [API Reference](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview)
 > [Learn more about RxJava](https://github.com/ReactiveX/RxJava)

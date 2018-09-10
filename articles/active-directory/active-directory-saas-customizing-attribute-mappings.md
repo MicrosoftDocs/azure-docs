@@ -3,18 +3,17 @@ title: Customizing Azure AD Attribute Mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-
-ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 09/09/2018
+ms.author: barbkess
 
 ms.custom: H1Hack27Feb2017
 
@@ -30,18 +29,18 @@ There is a pre-configured set of attributes and attribute-mappings between Azure
 In the Azure AD portal, you can access this feature by clicking a **Mappings** configuration under **Provisioning** in the **Manage** section of an **Enterprise application**.
 
 
-![Salesforce][5] 
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/21.png) 
 
 Clicking a **Mappings** configuration, opens the related **Attribute-Mapping** screen. There are attribute-mappings that are required by a SaaS application to function correctly. For required attributes, the **Delete** feature is unavailable.
 
 
-![Salesforce][6]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/22.png)
 
 In the example above, you can see that the **Username** attribute of a managed object in Salesforce is populated with the **userPrincipalName** value of the linked Azure Active Directory Object.
 
 You can customize existing **Attribute-Mappings** by clicking a mapping. This opens the **Edit Attribute** screen.
 
-![Salesforce][7]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/23.png)
 
 
 ### Understanding attribute-mapping types
@@ -75,7 +74,7 @@ In addition to this property, attribute-mappings do also support the following a
 
 A selected number of applications, such as ServiceNow, Box, and Google Apps, support the ability to provision Group objects in addition to User objects. Group objects can contain group properties such as display names and email aliases, in addition to group members.
 
-![ServiceNow][8]  
+![ServiceNow](media/active-directory-saas-customizing-attribute-mappings/24.png)
 
 Group provisioning can be optionally enabled or disabled by selecting the group mapping under **Mappings**, and setting **Enabled** to the desired option in the **Attribute-Mapping** screen.
 
@@ -102,7 +101,7 @@ Applications and systems that support customization of the attribute list includ
 >[!NOTE]
 >Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developers tools provided by an application or system. 
 
-![Editor][9]  
+![Editor](media/active-directory-saas-customizing-attribute-mappings/25.png) 
 
 When editing the list of supported attributes, the following properties are provided:
 
@@ -119,7 +118,7 @@ When editing the list of supported attributes, the following properties are prov
 * **Multi-value?** - Whether or not the attribute supports multiple values.
 * **Exact case?** - Whether or not the attributes values are evaluated in a case-sensitive way.
 * **API Expression** - Do not use, unless instructed to do so by the documentation for a specific provisioning connector (such as Workday).
-* **Referenced Object Attribute** - If this is a Reference type attribute, then this menu allows you to select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". Note that the reference tables and the primary ID fields supported for a given application are pre-configured and currently cannot be edited using the Azure portal, but can be edited using the [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Referenced Object Attribute** - If this is a Reference type attribute, then this menu allows you to select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". Note that the reference tables and the primary ID fields supported for a given application are pre-configured and currently cannot be edited using the Azure portal, but can be edited using the [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You will then need to reload the **Provisioning** tab for the new attributes to become available in the attribute-mapping editor.
 
@@ -150,10 +149,4 @@ Selecting this option will effectively force a re-synchronization of all users w
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [List of Tutorials on How to Integrate SaaS Apps](saas-apps/tutorial-list.md)
 
-<!--Image references-->
-[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
-[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
-[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-[8]: ./media/active-directory-saas-customizing-attribute-mappings/24.png
-[9]: ./media/active-directory-saas-customizing-attribute-mappings/25.PNG
 

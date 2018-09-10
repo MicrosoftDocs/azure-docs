@@ -3,34 +3,33 @@ title: 'Reporting on Azure Active Directory automatic user account provisioning 
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
+author: barbkess
 manager: mtillman
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
-ms.topic: article
-ms.date: 05/12/2017
-ms.author: asmalser-msft
+ms.topic: conceptual
+ms.date: 09/09/2018
+ms.author: barbkess
+ms.reviewer: asmalser
 ---
 
 # Tutorial: Reporting on automatic user account provisioning
 
 
-Azure Active Directory includes a [user account provisioning service](active-directory-saas-app-provisioning.md) that helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems, for the purpose of end-to-end identity lifecycle management. Azure AD supports pre-integrated user provisioning connectors for all of the applications and systems in the "Featured" section of the [Azure AD application gallery](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory includes a [user account provisioning service](active-directory-saas-app-provisioning.md) that helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems, for the purpose of end-to-end identity lifecycle management. Azure AD supports pre-integrated user provisioning connectors for all of the applications and systems in the "Featured" section of the [Azure AD application gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 This article describes how to check the status of provisioning jobs after they have been set up, and how to troubleshoot the provisioning of individual users and groups.
 
 ## Overview
 
-Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using one of two methods:
+Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](./saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using one of two methods:
 
 * **Azure management portal** - This article primarily describes retrieving report information from the [Azure portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
 
-* **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](active-directory-reporting-api-audit-reference.md) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
+* **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
 
 ### Definitions
 
@@ -127,7 +126,7 @@ For best readability in the Azure portal, select the **Columns** button and choo
 
 The provisioning summary report and audit logs play a key role helping admins troubleshoot various user account provisioning issues.
 
-For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](active-directory-application-provisioning-content-map.md).
+For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
 
 
 ## Additional Resources

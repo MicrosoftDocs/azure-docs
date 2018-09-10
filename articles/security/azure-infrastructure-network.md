@@ -35,7 +35,7 @@ The network architecture of an Azure cluster within a datacenter consists of the
 - Digi CMs
 - Power distribution units
 
-Azure has two separate architectures. Some existing Azure customers and shared services reside on the default LAN architecture (DLA), whereas new regions and virtual customers reside on Quantum 10 (Q10) architecture. The DLA architecture is a traditional tree design, with active/passive access routers and security access control lists (ACLs) applied to the access routers. The Quantum 10 architecture is a Clos/mesh design of routers, where ACLs are not applied at the routers. Instead, ACLs are applied below the routing, through Software Load Balancing (SLB) or software defined VLANs.
+Azure has two separate architectures. Some existing Azure customers and shared services reside on the default LAN architecture (DLA), whereas new regions and virtual customers reside on Quantum 10 (Q10) architecture. The DLA architecture is a traditional tree design, with active/passive access routers and security access control lists (ACLs) applied to the access routers. The Quantum 10 architecture is a Close/mesh design of routers, where ACLs are not applied at the routers. Instead, ACLs are applied below the routing, through Software Load Balancing (SLB) or software defined VLANs.
 
 The following diagram provides a high-level overview of the network architecture within an Azure cluster:
 

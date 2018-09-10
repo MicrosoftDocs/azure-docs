@@ -3,17 +3,16 @@ title: Provision apps with scoping filters | Microsoft Docs
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-
-ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 09/09/2018
+ms.author: barbkess
 
 ms.custom: H1Hack27Feb2017
 
@@ -112,7 +111,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 * [Automate user provisioning and deprovisioning to SaaS applications](active-directory-saas-app-provisioning.md)
 * [Customize attribute mappings for user provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Account provisioning notifications](active-directory-saas-account-provisioning-notifications.md)
+* [Account provisioning notifications](active-directory-saas-app-provisioning.md)
 * [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [List of tutorials on how to integrate SaaS apps](saas-apps/tutorial-list.md)
 

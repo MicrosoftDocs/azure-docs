@@ -11,10 +11,10 @@
  
 ---
 > [!div class="op_single_selector"]
-> * [iOS](../articles/active-directory/develop/active-directory-devquickstarts-ios.md)
-> * [Android](../articles/active-directory/develop/active-directory-devquickstarts-android.md)
-> * [.NET](../articles/active-directory/develop/active-directory-devquickstarts-dotnet.md)
-> * [Xamarin](../articles/active-directory/develop/active-directory-devquickstarts-xamarin.md)
+> * [iOS](../articles/active-directory/develop/quickstart-v1-ios.md)
+> * [Android](../articles/active-directory/develop/quickstart-v1-android.md)
+> * [.NET](../articles/active-directory/develop/quickstart-v1-dotnet.md)
+> * [Xamarin](../articles/active-directory/develop/quickstart-v1-xamarin.md)
 > * [Cordova](../articles/active-directory/develop/active-directory-devquickstarts-cordova.md)
 > 
 > 

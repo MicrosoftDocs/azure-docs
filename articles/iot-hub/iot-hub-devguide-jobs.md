@@ -12,7 +12,7 @@ ms.author: dobett
 
 # Schedule jobs on multiple devices
 
-Azure IoT Hub enables a number of building blocks like [device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods].  Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs execute device twin updates and direct methods against a set of devices at a scheduled time.  For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+Azure IoT Hub enables a number of building blocks like [device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods]. Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs execute device twin updates and direct methods against a set of devices at a scheduled time.  For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -79,7 +79,7 @@ The following snippet shows the HTTPS 1.1 request details for updating device tw
     }
 
 ## Querying for progress on jobs
-The following snippet shows the HTTPS 1.1 request details for [querying for jobs][lnk-query]:
+The following snippet shows the HTTPS 1.1 request details for querying for jobs:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -89,6 +89,8 @@ The following snippet shows the HTTPS 1.1 request details for [querying for jobs
     User-Agent: <sdk-name>/<sdk-version>
 
 The continuationToken is provided from the response.  
+
+You can query for the job execution status on each device using the [IoT Hub query language for device twins, jobs, and message routing][lnk-query].
 
 ## Jobs Properties
 The following list shows the properties and corresponding descriptions, which can be used when querying for jobs or job results.

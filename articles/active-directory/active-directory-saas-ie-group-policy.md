@@ -3,17 +3,16 @@ title: Deploy Azure Access Panel Extension for IE using a GPO | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-
-ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: markvi
+ms.date: 09/09/2018
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 
@@ -116,7 +115,7 @@ The extension should now be enabled for the machines in the selected OU. [Learn 
 ## Step 5 (Optional): Disable "Remember Password" Prompt
 When users sign-in to websites using the Access Panel Extension, Internet Explorer may show the following prompt asking "Would you like to store your password?"
 
-![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+![Password prompt](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
 If you wish to prevent your users from seeing this prompt, then follow the steps below to prevent auto-complete from remembering passwords:
 

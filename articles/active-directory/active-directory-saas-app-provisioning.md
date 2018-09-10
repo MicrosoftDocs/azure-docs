@@ -3,18 +3,17 @@ title: Automated SaaS app user provisioning in Azure AD | Microsoft Docs
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
-editor: ''
-
-ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/26/2018
-ms.author: asmalser
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser
 
 ---
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
@@ -224,14 +223,14 @@ For information on how the read the audit logs in the Azure portal, see the [pro
 
 ##How do I troubleshoot issues with user provisioning?
 
-For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](active-directory-application-provisioning-content-map.md).
+For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
 
 
 ##What are the best practices for rolling out automatic user provisioning?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan)/
+For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan).
 
 
 ## Related articles

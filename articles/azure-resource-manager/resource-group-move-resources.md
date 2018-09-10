@@ -4,8 +4,6 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 09/07/2018
 ms.author: tomfitz
 
 ---
@@ -34,7 +32,7 @@ You can't change the location of the resource. Moving a resource only moves it t
 
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
+1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
   For Azure PowerShell, use:
 
@@ -55,8 +53,7 @@ There are some important steps to perform before moving a resource. By verifying
   * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
   * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. The service must enable the ability to move resources. This article lists which services enable moving resources and which services don't enable moving resources.
-3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used with that resource type.
+1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
   For PowerShell, use the following commands to get the registration status:
 
@@ -84,14 +81,16 @@ There are some important steps to perform before moving a resource. By verifying
   az provider register --namespace Microsoft.Batch
   ```
 
-4. The account moving the resources must have at least the following permissions:
+1. The account moving the resources must have at least the following permissions:
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
-5. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-5. When possible, break large moves into separate move operations. Resource Manager immediately fails attempts to move more than 800 resources in a single operation. However, moving less than 800 resources may also fail by timing out.
+1. When possible, break large moves into separate move operations. Resource Manager immediately fails attempts to move more than 800 resources in a single operation. However, moving less than 800 resources may also fail by timing out.
+
+1. The service must enable the ability to move resources. To determine whether the move will succeed, [validate your move request](#validate-move). See the sections below in this article of which [services enable moving resources](#services-that-can-be-moved) and which [services don't enable moving resources](#services-that-cannot-be-moved).
 
 ## When to call support
 
@@ -105,22 +104,75 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 * Move your resources to a new Azure account (and Azure Active Directory tenant) and you need help with the instructions in the preceding section.
 * Move classic resources but are having trouble with the limitations.
 
+## Validate move
+
+The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
+
+* name of the source resource group
+* resource ID of the target resource group
+* resource ID of each resource to move
+* the [access token](/rest/api/azure/#acquire-an-access-token) for your account
+
+Send the following request:
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+With a request body:
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+If the request is formatted correctly, the operation returns:
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+The 202 status code indicates the validation request was accepted, but it hasn't yet determined if the move operation will succeed. The `location` value contains a URL that you use to check the status of the long-running operation.  
+
+To check the status, send the following request:
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+While the operation is still running, you continue to receive the 202 status code. Wait the number of seconds indicated in the `retry-after` value before trying again. If the move operation validates successfully, you receive the 204 status code. If the move validation fails, you receive an error message, such as:
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
+
 ## Services that can be moved
 
-The services that enable moving to both a new resource group and subscription are:
+The following list provides a general summary of Azure services that can be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
 
+* Analysis Services
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Analysis Services
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * Azure Maps
 * Azure Relay
 * Azure Stack - registrations
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Bot Service
@@ -129,6 +181,8 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Container Registry
 * Content Moderator
+* Cost Management
+* Customer Insights
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -137,12 +191,14 @@ The services that enable moving to both a new resource group and subscription ar
 * Event Grid
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
+* Iot Central
 * IoT Hubs
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
+* Managed Identity - user-assigned
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -151,11 +207,12 @@ The services that enable moving to both a new resource group and subscription ar
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - see [Public IP limitations](#pip-limitations)
-* Redis Cache
+* Redis Cache - if the Redis Cache instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
 * Search
 * Service Bus
 * Service Fabric
+* Service Fabric Mesh
 * SignalR Service
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -167,12 +224,11 @@ The services that enable moving to both a new resource group and subscription ar
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
-* Visual Studio Team Services - VSTS accounts with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * VPN Gateway
 
 ## Services that cannot be moved
 
-The services that currently don't enable moving a resource are:
+The following list provides a general summary of Azure services that can't be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
 
 * AD Domain Services
 * AD Hybrid Health Service
@@ -181,9 +237,13 @@ The services that currently don't enable moving a resource are:
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Container Instances
 * Container Service
+* Data Box
+* Dev Spaces
 * Dynamics LCS
 * Express Route
 * Kubernetes Service
@@ -192,6 +252,7 @@ The services that currently don't enable moving a resource are:
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * Public IP - see [Public IP limitations](#pip-limitations)
 * Recovery Services vault - also don't move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * SAP HANA on Azure
@@ -221,13 +282,11 @@ Virtual Machines with certificate stored in Key Vault can be moved to a new reso
 
 ## Virtual Networks limitations
 
-When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
+When moving a virtual network, you must also move its dependent resources. For VPN Gateways, you must move IP addresses, virtual network gateways, and all associated connection resources. Local network gateways can be in a different resource group.
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
 You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
-
-You can't move a virtual network to a different subscription if the virtual network contains a custom DNS server. To move the virtual network, set it to Default (Azure-provided) DNS server. After the move, reconfigure the custom DNS server.
 
 ## App Service limitations
 
@@ -409,7 +468,7 @@ To move to a new subscription, include a value for the `DestinationSubscriptionI
 
 ## Use Azure CLI
 
-To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az_resource_move) command. Provide the resource IDs of the resources to move. The following example shows how to move multiple resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
+To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move multiple resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

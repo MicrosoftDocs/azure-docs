@@ -1,15 +1,13 @@
-﻿---
+---
 title: Requirements for Azure Import/Export service | Microsoft Docs
 description: Understand the software and hardware requirements for Azure Import/Export service.
 author: alkohli
-manager: jeconnoc
 services: storage
-
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-
+ms.component: common
 ---
 # Azure Import/Export system requirements
 
@@ -26,13 +24,12 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## Supported storage accounts
 
-Azure Import/Export service supports the following Azure storage accounts.
-- Classic
+Azure Import/Export service supports the following [Azure storage accounts](storage-account-options.md).
+- General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments)
 - Blob Storage accounts
-- General Purpose v1 storage accounts. 
+- General Purpose v2 storage accounts
 
 Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 
@@ -44,10 +41,10 @@ Each job may be used to transfer data to or from only one storage account. In ot
 The following list of storage types is supported with Azure Import/Export service.
 
 
-|Job  |Storage  |Supported  |Not supported  |
+|Job  |Storage Service |Supported  |Not supported  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob storage. <br>Block Blobs, Page blobs supported. <br> Azure Files supported.       |         |
-|Export     |   Azure Blob storage. <br>Block blobs, Page blobs, and Append blobs supported.       | Azure Files not supported.        |
+|Import     |  Azure Blob storage <br><br> Azure File storage       | Block Blobs and Page blobs supported <br><br> Files supported          |
+|Export     |   Azure Blob storage       | Block blobs, Page blobs, and Append blobs supported         | Azure Files not supported
 
 
 ## Supported hardware 

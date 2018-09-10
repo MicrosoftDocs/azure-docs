@@ -67,47 +67,6 @@ After you [submit your solution](https://azuremarketplace.microsoft.com/sell/sig
 
 For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
-## Storefronts
-In a storefront, you can list offers, enable trials, and transact directly with Microsoft customers. Microsoft provides distinct storefronts in the Marketplace and AppSource. For detail benefits of each storefronts, see the following link:
-* [Comparing AppSource and Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-* [Grow your business on Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
+## Next steps
 
-Storefronts help customers find, try, and buy apps and services that accelerate the customer's digital transformation. Storefronts help you grow your businesses by increasing access to Microsoft customers and partners.
- 
-Each storefront provides specialized options to help you maximize your publishing investment. The following table summarizes these options:
-
-| Option | AppSource | Azure Marketplace |
-|:--- |:--- |:--- |
-| Target audience | Line-of-business decision makers<table> <tr> <th>Specialist roles </th> </tr> <tr> <td>Accounting</td> </tr> <tr> <td>Procurement</td> </tr> <tr> <td>Manufacturing</td> </tr> </table> | IT pros and developers<table> <tr> <th>Specialist roles </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>SecOps</td> </tr> </table> |
-| Built with or to extend | <ul><li>Azure Dynamics 365</li><li>Office 365</li><li>Power BI</li><li>PowerApps</li></ul> | Azure | 
-| Types of solutions and services | <ul><li>Finished line-of-business cloud apps</li><li>Office 365 add-ins</li></ul> | <ul><li>Infrastructure solutions</li><li>Professional services</li></ul> |
-| Offer type | <ul><li>Consulting Services</li><li>Contact Me</li><li>Free trial</li><li>Get Now</li><li>Test drive</li></ul> | <ul><li>Azure apps: Managed app</li><li>Azure apps: Solution template</li><li>Consulting Services</li><li>Contact Me</li><li>Trial</li><li>Virtual machine</li></ul> |
-| In-app experience to give users access to apps and services in the context of your app | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office client apps</li><li>Power BI</li></ul> | <ul><li>Azure portal</li><li>Azure Resource Manager</li><li>Azure CLI</li></ul> |
-
-## Publish in the Marketplace
-The following articles can help you learn about the publishing options in AppSource and Azure Marketplace.
-
-Become a publisher in a storefront in the Marketplace in three easy steps:
-1. [Determine the publishing option](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
-2. [Become a publisher in Marketplace storefronts](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
-
-## Publishing checklists
-*   [Publishing checklist for AppSource](publishing-checklist-appsource.md)
-*   [Publishing checklist for the Azure Marketplace in the Cloud Partner Portal](./publishing-checklist-azure-Marketplace.md)
-*   [Enable a trial listing by using Azure Active Directory](./enable-trial-using-azure-ad.md)
-
-## Support
-*   [Support for AppSource](./support-appsource.md) 
-*   [Support for the Azure Marketplace](./support-azure-Marketplace.md)
-
-## Guides
-*   [Azure Marketplace Consulting Services](consulting-services.md)
-*   [Azure Marketplace SaaS app technical publishing guide](Marketplace-saas-applications-technical-publishing-guide.md)
-
-## Guidelines
-*   [Guidelines](./guidelines.md)
-*   [Guidelines for creating a Microsoft ID to manage a Marketplace account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)
-*   [Register in Dev Center](./register-dev-center.md) 
-*   [Add bank and tax information](./add-bank-tax-info.md) 
-*   [Enable a trial listing by using Azure Active Directory](./enable-trial-using-azure-ad.md)
-*   [Billing options for the Azure Marketplace](./billing-options-azure-marketplace.md) 
+Review in-depth information on cloud marketplace topics by exploring the table of contents to the left. 

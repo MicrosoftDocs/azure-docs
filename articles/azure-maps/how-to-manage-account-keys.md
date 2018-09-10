@@ -46,4 +46,5 @@ You can delete an account from the Azure portal. Navigate to the account overvie
 
 ## Next steps
 
-Learn how to use the [Maps management API](https://docs.microsoft.com/rest/api/maps-management/accounts) to create, update, and delete Maps accounts. 
+* Learn how to use Azure Maps search APIs at [search for an address](./how-to-search-for-address.md).
+* Learn how to use Azure maps [JavaScript map control](./how-to-use-map-control.md).

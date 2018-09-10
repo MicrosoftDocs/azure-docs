@@ -67,7 +67,7 @@ License-based (Entitlement-based) Azure AD services work by activating a subscri
 
 ## Integration with other 3rd party providers
 
-Azure Active Directory provides single-sign on and enhanced application access security to thousands of SaaS applications and on-premises web applications. For more information, see [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
+Azure Active Directory provides single-sign on and enhanced application access security to thousands of SaaS applications and on-premises web applications. For more information, see [Integrating applications with Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 
 ## Define synchronization management
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. With this integration, users and organizations can take advantage of the following:

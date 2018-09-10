@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ---
@@ -39,10 +39,10 @@ Here are the important steps to create this solution:
 1. **Select the watermark column**.
 	Select one column for each table in the source data store, which can be used to identify the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
-2. **Prepare a data store to store the watermark value**.   
+1. **Prepare a data store to store the watermark value**.   
 	In this tutorial, you store the watermark value in a SQL database.
 
-3. **Create a pipeline with the following activities**: 
+1. **Create a pipeline with the following activities**: 
 	
 	a. Create a ForEach activity that iterates through a list of source table names that is passed as a parameter to the pipeline. For each source table, it invokes the following activities to perform delta loading for that table.
 
@@ -67,9 +67,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 1. Open SQL Server Management Studio, and connect to your on-premises SQL Server database.
 
-2. In **Server Explorer**, right-click the database and choose **New Query**.
+1. In **Server Explorer**, right-click the database and choose **New Query**.
 
-3. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:
+1. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:
 
     ```sql
     create table customer_table
@@ -106,9 +106,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ### Create destination tables in your Azure SQL database
 1. Open SQL Server Management Studio, and connect to your SQL Server database.
 
-2. In **Server Explorer**, right-click the database and choose **New Query**.
+1. In **Server Explorer**, right-click the database and choose **New Query**.
 
-3. Run the following SQL command against your SQL database to create tables named `customer_table` and `project_table`:  
+1. Run the following SQL command against your SQL database to create tables named `customer_table` and `project_table`:  
     
     ```sql
     create table customer_table
@@ -137,7 +137,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         WatermarkValue datetime,
     );
     ```
-2. Insert initial watermark values for both source tables into the watermark table.
+1. Insert initial watermark values for both source tables into the watermark table.
 
     ```sql
 
@@ -230,19 +230,19 @@ Install the latest Azure PowerShell modules by following the instructions in [In
 
     If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
 
-2. Define a variable for the location of the data factory. 
+1. Define a variable for the location of the data factory. 
 
     ```powershell
     $location = "East US"
     ```
-3. To create the Azure resource group, run the following command: 
+1. To create the Azure resource group, run the following command: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
     If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
 
-4. Define a variable for the data factory name. 
+1. Define a variable for the data factory name. 
 
     > [!IMPORTANT]
     >  Update the data factory name to make it globally unique. An example is ADFIncMultiCopyTutorialFactorySP1127. 
@@ -250,7 +250,7 @@ Install the latest Azure PowerShell modules by following the instructions in [In
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
+1. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -332,9 +332,9 @@ In this step, you link your on-premises SQL Server database to the data factory.
     > - Replace &lt;servername>, &lt;databasename>, &lt;username>, and &lt;password> with values of your SQL Server database before you save the file.
     > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). An example is `mydomain\\myuser`.
 
-2. In PowerShell, switch to the C:\ADFTutorials\IncCopyMultiTableTutorial folder.
+1. In PowerShell, switch to the C:\ADFTutorials\IncCopyMultiTableTutorial folder.
 
-3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service AzureStorageLinkedService. In the following example, you pass values for the *ResourceGroupName* and *DataFactoryName* parameters: 
+1. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service AzureStorageLinkedService. In the following example, you pass values for the *ResourceGroupName* and *DataFactoryName* parameters: 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -366,7 +366,7 @@ In this step, you link your on-premises SQL Server database to the data factory.
     	}
     }
     ```
-2. In PowerShell, run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service AzureSQLDatabaseLinkedService. 
+1. In PowerShell, run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -407,7 +407,7 @@ In this step, you create datasets to represent the data source, the data destina
 
     The table name is a dummy name. The Copy activity in the pipeline uses a SQL query to load the data rather than load the entire table.
 
-2. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset SourceDataset.
+1. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset SourceDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -451,7 +451,7 @@ In this step, you create datasets to represent the data source, the data destina
     }
     ```
 
-2. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset SinkDataset.
+1. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset SinkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -487,7 +487,7 @@ In this step, you create a dataset for storing a high watermark value.
     	}
     }    
     ```
-2. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset WatermarkDataset.
+1. Run the **Set-AzureRmDataFactoryV2Dataset** cmdlet to create the dataset WatermarkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -508,11 +508,11 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Use the Lookup activity to retrieve the old watermark value (the initial value or the one that was used in the last iteration).
 
-2. Use the Lookup activity to retrieve the new watermark value (the maximum value of the watermark column in the source table).
+1. Use the Lookup activity to retrieve the new watermark value (the maximum value of the watermark column in the source table).
 
-3. Use the Copy activity to copy data between these two watermark values from the source database to the destination database.
+1. Use the Copy activity to copy data between these two watermark values from the source database to the destination database.
 
-4. Use the StoredProcedure activity to update the old watermark value to be used in the first step of the next iteration. 
+1. Use the StoredProcedure activity to update the old watermark value to be used in the first step of the next iteration. 
 
 ### Create the pipeline
 1. Create a JSON file named IncrementalCopyPipeline.json in the same folder with the following content: 
@@ -649,7 +649,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     	}
     }
     ```
-2. Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet to create the pipeline IncrementalCopyPipeline.
+1. Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet to create the pipeline IncrementalCopyPipeline.
     
    ```powershell
    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -688,7 +688,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     	]
     }
     ```
-2. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
+1. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
 	```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -698,26 +698,26 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All services**, search with the keyword *Data factories*, and select **Data factories**. 
+1. Select **All services**, search with the keyword *Data factories*, and select **Data factories**. 
 
     ![Data factories menu](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 
-3. Search for your data factory in the list of data factories, and select it to open the **Data factory** page. 
+1. Search for your data factory in the list of data factories, and select it to open the **Data factory** page. 
 
     ![Search for your data factory](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
 
-4. On the **Data factory** page, select **Monitor & Manage**. 
+1. On the **Data factory** page, select **Monitor & Manage**. 
 
     ![Monitor & Manage tile](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
 
-5. The **Data Integration Application** opens in a separate tab. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column. Select the link in the **Actions** column. 
+1. The **Data Integration Application** opens in a separate tab. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column. Select the link in the **Actions** column. 
 
     ![Pipeline Runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
-6. When you select the link in the **Actions** column, you see the following page that shows all the activity runs for the pipeline: 
+1. When you select the link in the **Actions** column, you see the following page that shows all the activity runs for the pipeline: 
 
     ![Activity Runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
 
-7. To go back to the **Pipeline Runs** view, select **Pipelines** as shown in the image. 
+1. To go back to the **Pipeline Runs** view, select **Pipelines** as shown in the image. 
 
 ## Review the results
 In SQL Server Management Studio, run the following queries against the target SQL database to verify that the data was copied from source tables to destination tables: 
@@ -795,15 +795,15 @@ VALUES
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Monitor the pipeline runs by following the instructions in the [Monitor the pipeline](#monitor-the-pipeline) section. Because the pipeline status is **In Progress**, you see another action link under **Actions** to cancel the pipeline run. 
+1. Monitor the pipeline runs by following the instructions in the [Monitor the pipeline](#monitor-the-pipeline) section. Because the pipeline status is **In Progress**, you see another action link under **Actions** to cancel the pipeline run. 
 
     ![In Progress pipeline runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
 
-3. Select **Refresh** to refresh the list until the pipeline run succeeds. 
+1. Select **Refresh** to refresh the list until the pipeline run succeeds. 
 
     ![Refresh pipeline runs](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
 
-4. Optionally, select the **View Activity Runs** link under **Actions** to see all the activity runs associated with this pipeline run. 
+1. Optionally, select the **View Activity Runs** link under **Actions** to see all the activity runs associated with this pipeline run. 
 
 ## Review the final results
 In SQL Server Management Studio, run the following queries against the target database to verify that the updated/new data was copied from source tables to destination tables. 

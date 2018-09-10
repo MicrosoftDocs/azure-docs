@@ -3,17 +3,16 @@ title: Writing Expressions for Attribute Mappings in Azure Active Directory | Mi
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-
-ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 09/09/2018
+ms.author: barbkess
 
 ---
 # Writing Expressions for Attribute Mappings in Azure Active Directory
@@ -223,7 +222,7 @@ For example, if the domain is "contoso.com", then you could use the following ex
 If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
 
 **Expression:** <br>
-`Append([userPrincipalName], ".test"))`
+`Append([userPrincipalName], ".test")`
 
 **Sample input/output:** <br>
 
@@ -285,6 +284,6 @@ If the state code doesn't match any of the predefined options, use default value
 * [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+* [Account Provisioning Notifications](active-directory-saas-app-provisioning.md)
 * [List of Tutorials on How to Integrate SaaS Apps](saas-apps/tutorial-list.md)
 
