@@ -49,7 +49,6 @@
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
@@ -84,7 +83,6 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
@@ -103,6 +101,7 @@
 #### [Route activity logs to an Azure event hub](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archive activity logs to an Azure storage account](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrate activity logs with Splunk using Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Integrate activity logs with SumoLogic using Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Reference
 #### [Retention](reports-monitoring/reference-reports-data-retention.md)
@@ -163,7 +162,7 @@
 ##### [Silent install](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Custom home page](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Translate inline links](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
-##### [Wildcards](active-directory-application-proxy-wildcard.md)
+##### [Wildcards](manage-apps/application-proxy-wildcard.md)
 ##### [Remove personal data](manage-apps/application-proxy-remove-personal-data.md)
 
 
@@ -172,7 +171,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](manage-apps/application-proxy-integrate-with-teams.md)
 ##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
-##### [Qlik](active-directory-application-proxy-qlik.md)
+##### [Qlik](manage-apps/application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)
@@ -332,6 +331,8 @@
 ### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [Terms of use](active-directory-tou.md)
 
 ## Secure your identities
 

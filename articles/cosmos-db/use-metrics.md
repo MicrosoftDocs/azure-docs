@@ -68,7 +68,7 @@ In the SQL API SDKs, Azure Cosmos DB provides query execution statistics.
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
  UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
- “SELECT * FROM c WHERE c.city = ‘Seattle’”, 
+ "SELECT * FROM c WHERE c.city = 'Seattle'", 
  new FeedOptions 
  { 
  PopulateQueryMetrics = true, 
