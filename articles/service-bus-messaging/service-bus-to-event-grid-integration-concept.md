@@ -1,9 +1,9 @@
-﻿---
+---
 title: Azure Service Bus to Event Grid integration overview | Microsoft Docs
 description: Description of Service Bus messaging and Event Grid integration
 services: service-bus-messaging
 documentationcenter: .net
-author: ChristianWolf42
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
-ms.author: chwolf
+ms.author: spelluru
 
 ---
 # Azure Service Bus to Event Grid integration overview

@@ -4,16 +4,12 @@ description: Understand how to use HTTP and webhook triggers and bindings in Azu
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
 ---
@@ -54,6 +50,7 @@ See the language-specific example:
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### Trigger - C# example
 
@@ -271,6 +268,45 @@ module.exports = function(context, req) {
     }
     context.done();
 };
+```
+
+### Trigger - Java example
+
+The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function returns a HTTP status code 200 response with arequest body that prefixes the triggering request body with a "Hello, " greeting.
+
+
+Here's the *function.json* file:
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Here's the Java code:
+
+```java
+@FunctionName("hello")
+public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
+                        final ExecutionContext context) 
+    {
+        // default HTTP 200 response code
+        return String.format("Hello, %s!", request);
+    }
+}
 ```
      
 ## Trigger - webhook example

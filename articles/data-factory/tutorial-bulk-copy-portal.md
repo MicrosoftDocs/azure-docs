@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
 ---
@@ -103,7 +103,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## Create linked services
-You create linked services to link your data stores and computes to a data factory. A linked has the connection information that the Data Factory service uses to connect to the data store at runtime. 
+You create linked services to link your data stores and computes to a data factory. A linked service has the connection information that the Data Factory service uses to connect to the data store at runtime. 
 
 In this tutorial, you link your Azure SQL Database, Azure SQL Data Warehouse, and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure SQL Data Warehouse is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into SQL Data Warehouse by using PolyBase. 
 
@@ -234,7 +234,7 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 
     ![ForEach activity settings](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
 
-    c. In the **Add Dynamic Content** page, collapse the System Vairables and Funcstions section, click the **tableList** under **Parameters** which will automatically populate the top expression text box as `@pipeline().parameter.tableList`, then click **Finish**. 
+    c. In the **Add Dynamic Content** page, collapse the System Vairables and Functions section, click the **tableList** under **Parameters** which will automatically populate the top expression text box as `@pipeline().parameter.tableList`, then click **Finish**. 
 
     ![Foreach parameter builder](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     

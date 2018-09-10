@@ -5,7 +5,7 @@
  author: rothja
  ms.service: billing
  ms.topic: include
- ms.date: 07/02/2018
+ ms.date: 08/22/2018
  ms.author: jroth
  ms.custom: include file
 ---
@@ -26,6 +26,7 @@
 | Unique tag calculations per subscription<sup>3</sup> | 10,000 | 10,000 |
 | [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
+| [Subscription level deployments](../articles/azure-resource-manager/deploy-to-subscription.md) per location | 800 | 800 |
 
 <sup>1</sup>Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, etc.
 
