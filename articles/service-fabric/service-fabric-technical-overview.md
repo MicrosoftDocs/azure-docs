@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: ryanwi
 
 ---
 # Service Fabric terminology overview
-Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers [Service Fabric Mesh](/azure/service-fabric-mesh). You can use any framework to write your services and choose where to run the application from multiple environment choices. This article details the terminology used by Service Fabric to understand the terms used in the documentation.
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  You can [host Service Fabric clusters anywhere](service-fabric-deploy-anywhere.md): Azure, in an on-premises datacenter, or on any cloud provider.  Service Fabric is the orchestrator that powers [Service Fabric Mesh](/azure/service-fabric-mesh). You can use any framework to write your services and choose where to run the application from multiple environment choices. This article details the terminology used by Service Fabric to understand the terms used in the documentation.
 
 The concepts listed in this section are also discussed in the following Microsoft Virtual Academy videos: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">Core concepts</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">Design-time concepts</a>, and <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Runtime concepts</a>.
 
@@ -28,10 +28,6 @@ The concepts listed in this section are also discussed in the following Microsof
 **Node**: A machine or VM that's part of a cluster is called a *node*. Each node is assigned a node name (a string). Nodes have characteristics, such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, that starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
 ## Application and service concepts
-
-**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. Two different types of application run on Service Fabric: Service Fabric Mesh Applications and Service Fabric Native Applications.
-
-**Service**: A service performs a complete and standalone function and can start and run independently of other services. A service is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service.
 
 **Service Fabric Mesh Application**: Service Fabric Mesh Applications are described by the Resource Model (YAML and JSON resource files) and can be deployed to any environment where Service Fabric runs.
 
@@ -56,9 +52,13 @@ The concepts listed in this section are also discussed in the following Microsof
 * Network endpoints
 * Volumes to mount in the container, referencing a separate volume resource.
 
-All the code packages defined as part of a Service resource are deployed and activated together as a group. 
+All the code packages defined as part of an application resource are deployed and activated together as a group. 
 
 ### Service Fabric Native Application concepts
+
+**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. Two different types of application run on Service Fabric: Service Fabric Mesh Applications and Service Fabric Native Applications.
+
+**Service**: A service performs a complete and standalone function and can start and run independently of other services. A service is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service.
 
 **Application type**: The name/version assigned to a collection of service types. It is defined in an `ApplicationManifest.xml` file and embedded in an application package directory. The directory is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
