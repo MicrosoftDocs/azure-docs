@@ -5,23 +5,12 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-<<<<<<< HEAD
-editor: ''
-tags: ''
-=======
->>>>>>> cf51af718b7d67ecc1be4f7b7da13fc385f6da65
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
 
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-<<<<<<< HEAD
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/22/2018
-=======
 ms.date: 11/21/2017
->>>>>>> cf51af718b7d67ecc1be4f7b7da13fc385f6da65
 ms.author: glenga
 ---
 
