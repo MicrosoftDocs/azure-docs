@@ -218,18 +218,6 @@ The result of a **summarize** operation has:
 
 - A row for each combination of by values
 
-[**bin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_binfunction.html):
-Rounds values down to an integer multiple of a given bin size.
-
-The following query calculates the count with a bucket size of 1 day.
-
-```Kusto
-StormEvents
-| where StartTime > datetime(2007-02-14) and StartTime <
-datetime(2007-02-21)
-| summarize event_count = count() by bin(StartTime, 1d)
-```
-
 [**render**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_renderoperator.html):
 Renders results as a graphical output.
 
@@ -267,9 +255,7 @@ The following query compares multiple daily series on a time chart.
 ```Kusto
 StormEvents
 | extend hour= floor( StartTime % 1d , 1h)
-| where State in ("GULF OF
-MEXICO","MAINE","VIRGINIA","WISCONSIN","NORTH DAKOTA","NEW
-JERSEY","OREGON")
+| where State in ("GULF OF MEXICO","MAINE","VIRGINIA","WISCONSIN","NORTH DAKOTA","NEW JERSEY","OREGON")
 | summarize event_count=count() by hour, State
 | render timechart
 ```
@@ -278,7 +264,23 @@ JERSEY","OREGON")
 > The **render** operator is a client-side feature rather than part
 > of the engine. It's integrated into the language for ease of use.
 
-[**case**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_casefunction.html):
+## Scalar operators
+
+This section covers some of the most important scalar operators.
+
+[**bin()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_binfunction.html):
+Rounds values down to an integer multiple of a given bin size.
+
+The following query calculates the count with a bucket size of 1 day.
+
+```Kusto
+StormEvents
+| where StartTime > datetime(2007-02-14) and StartTime <
+datetime(2007-02-21)
+| summarize event_count = count() by bin(StartTime, 1d)
+```
+
+[**case()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_casefunction.html):
 Evaluates a list of predicates, and returns the first result expression
 whose predicate is satisfied, or the final **else** expression. You can
 use this to categorize or group data:
@@ -296,12 +298,7 @@ StormEvents
 | sort by State asc
 ```
 
-## Scalar operators
-
-This section covers some of the most important scalar operators that we
-didn't cover in the previous section.
-
-[**extract**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_extractfunction.html?q=extract):
+[**extract()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_extractfunction.html?q=extract):
 Gets a match for a regular expression from a text string.
 
 The following query extracts specific attribute values from a trace.
@@ -319,31 +316,26 @@ This query uses a **let** statement, which binds a name (in this case
 **let** statement appears (global scope or in a function body scope),
 the name can be used to refer to its bound value.
 
-[**extractjson()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_extractjsonfunction.html?q=extract):
-Gets a specified element out of a JSON text using a path expression
+[**parse_json()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_parsejsonfunction.html?q=parse_json):
+Interprets a string as a JSON value, and returns the value as dynamic. It is superior to using the **extractjson()** function when you need to extract more than one element of a compound JSON object.
 
 The following query extracts the JSON elements from an array.
 
 ```Kusto
 let MyData = datatable (Trace: string)
-['{"duration":[{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0}]}'];
+['{"duration":[{"value":118.0,"valcount":5.0,"min":100.0,"max":150.0,"stdDev":0.0}]}'];
 MyData
-| extend Value= extractjson("$.duration[0].value",Trace)
-| extend Count= extractjson("$.duration[0].count",Trace)
-| extend Min= extractjson("$.duration[0].min",Trace)
-| extend StdDev= extractjson("$.duration[0].stdDev",Trace)
+| extend NewCol = parse_json(Trace)
+| project NewCol.duration[0].value, NewCol.duration[0].valcount, NewCol.duration[0].min, NewCol.duration[0].max, NewCol.duration[0].stdDev
 ```
 
 The following query extracts the JSON elements.
 
 ```Kusto
-let MyData = datatable (Trace: string)
-['{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0}'];
+let MyData = datatable (Trace: string) ['{"value":118.0,"valcount":5.0,"min":100.0,"max":150.0,"stdDev":0.0}'];
 MyData
-| extend Value= extractjson("$.value",Trace)
-| extend Count= extractjson("$.count",Trace)
-| extend Min= extractjson("$.min",Trace)
-| extend StdDev= extractjson("$.stdDev",Trace)
+| extend NewCol = parse_json(Trace)
+| project NewCol.value, NewCol.valcount, NewCol.min, NewCol.max, NewCol.stdDev
 ```
 
 The following query extracts the JSON elements with a dynamic data type.
@@ -356,7 +348,7 @@ MyData
 Trace.stdDev
 ```
 
-[**[ago]**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_agofunction.html?q=ago):
+[**ago()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_agofunction.html?q=ago):
 Subtracts the given timespan from the current UTC clock time.
 
 The following query returns data for the last 12 hours.
@@ -392,9 +384,8 @@ table of values. See also:
 [**endofmonth()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofmonthfunction.html?q=endofmonth),
 and
 [**endofyear()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofyearfunction.html?q=endofyear).
-```
 
-[**between**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_betweenoperator.html?q=between):
+[**between()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_betweenoperator.html?q=between):
 Matches the input that is inside the inclusive range.
 
 The following query filters the data by a given date range.
@@ -415,6 +406,10 @@ StormEvents
 | count
 ```
 
+## Tabular operators
+
+Kusto has many tabular operators, some of which are covered in other sections of this article. Here we'll focus on **parse**. 
+
 [**parse**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_parseoperator.html?q=parse): Evaluates a string expression and parses its value into one or more calculated columns. There are three ways to parse: simple (the default), regex, and relaxed.
 
 The following query parses a trace and extracts the relevant values, using a default of simple parsing. The expression (referred to as StringConstant) is a regular string value and the match is strict: extended columns must match the required types.
@@ -422,33 +417,15 @@ The following query parses a trace and extracts the relevant values, using a def
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
 [
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01,
-releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
-08:39:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00,
-releaseTime=02/17/2016 08:40:00, previousLockTime=02/17/2016
-08:39:00)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01,
-releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
-08:39:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01,
-releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016
-08:40:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00,
-releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)'
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01Z, releaseTime=02/17/2016 08:40:01Z, previousLockTime=02/17/2016 08:39:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00Z, releaseTime=02/17/2016 08:40:00Z, previousLockTime=02/17/2016 08:39:00Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01Z, releaseTime=02/17/2016 08:40:01Z, previousLockTime=02/17/2016 08:39:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01Z, releaseTime=02/17/2016 08:41:00Z, previousLockTime=02/17/2016 08:40:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00Z, releaseTime=02/17/2016 08:41:00Z, previousLockTime=02/17/2016 08:40:00Z)'
 ];
 MyTrace
-| parse EventTrace with * "resourceName=" resourceName ",
-totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long *
-"lockTime=" lockTime ", releaseTime=" releaseTime:date "," *
-"previousLockTime=" previousLockTime:date ")" *
-| project resourceName ,totalSlices , sliceNumber , lockTime ,
-releaseTime , previousLockTime
+| parse EventTrace with * "resourceName=" resourceName ", totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long * "lockTime=" lockTime ", releaseTime=" releaseTime:date "," * "previousLockTime=" previouLockTime:date ")" *  
+| project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previouLockTime
 ```
 
 The following query parses a trace and extracts the relevant values, using `kind = regex`. The StringConstant can be a regular expression.
@@ -456,78 +433,62 @@ The following query parses a trace and extracts the relevant values, using `kind
 ```Kusto
 let MyTrace = datatable (EventTrace:string)
 [
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01,
-releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
-08:39:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00,
-releaseTime=02/17/2016 08:40:00, previousLockTime=02/17/2016
-08:39:00)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01,
-releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
-08:39:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01,
-releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016
-08:40:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00,
-releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)'
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01Z, releaseTime=02/17/2016 08:40:01Z, previousLockTime=02/17/2016 08:39:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00Z, releaseTime=02/17/2016 08:40:00Z, previousLockTime=02/17/2016 08:39:00Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01Z, releaseTime=02/17/2016 08:40:01Z, previousLockTime=02/17/2016 08:39:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01Z, releaseTime=02/17/2016 08:41:00Z, previousLockTime=02/17/2016 08:40:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00Z, releaseTime=02/17/2016 08:41:00Z, previousLockTime=02/17/2016 08:40:00Z)'
 ];
 MyTrace
-| parse kind = regex EventTrace with "(.*?)[a-zA-Z]*="
-resourceName @", totalSlices=\s*\d+\s*.*?sliceNumber="
-sliceNumber:long ".*?(previous)?lockTime=" lockTime
-".*?releaseTime=" releaseTime ".*?previousLockTime="
-previousLockTime:date "\\)"
-| project resourceName , sliceNumber , lockTime , releaseTime ,
-previousLockTime
+| parse kind = regex EventTrace with "(.*?)[a-zA-Z]*=" resourceName @", totalSlices=\s*\d+\s*.*?sliceNumber=" sliceNumber:long  ".*?(previous)?lockTime=" lockTime ".*?releaseTime=" releaseTime ".*?previousLockTime=" previousLockTime:date "\\)"  
+| project resourceName , sliceNumber , lockTime , releaseTime , previousLockTime
 ```
 
 The following query parses a trace and extracts the relevant values, using `kind = relaxed`. The StringConstant is a regular string value and the match is relaxed: extended columns can partially match the required types.
 
 ```Kusto
-let MyTrace = datatable (EventTrace:string) 
+let MyTrace = datatable (EventTrace:string)
 [
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01,
-releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
-08:39:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00,
-releaseTime=02/17/2016 08:40:00, previousLockTime=02/17/2016
-08:39:00)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01,
-releaseTime=02/17/2016 08:40:01, previousLockTime=02/17/2016
-08:39:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01,
-releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016
-08:40:01)',
-'Event: NotifySliceRelease (resourceName=PipelineScheduler,
-totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00,
-releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)'
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=23, lockTime=02/17/2016 08:40:01Z, releaseTime=02/17/2016 08:40:01Z, previousLockTime=02/17/2016 08:39:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=15, lockTime=02/17/2016 08:40:00Z, releaseTime=02/17/2016 08:40:00Z, previousLockTime=02/17/2016 08:39:00Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=20, lockTime=02/17/2016 08:40:01Z, releaseTime=02/17/2016 08:40:01Z, previousLockTime=02/17/2016 08:39:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01Z, releaseTime=02/17/2016 08:41:00Z, previousLockTime=02/17/2016 08:40:01Z)',
+'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00Z, releaseTime=02/17/2016 08:41:00Z, previousLockTime=02/17/2016 08:40:00Z)'
 ];
 MyTrace
-| parse kind = relaxed "Event: NotifySliceRelease
-(resourceName=PipelineScheduler, totalSlices=NULL, sliceNumber=23,
-lockTime=02/17/2016 08:40:01, releaseTime=NULL,
-previousLockTime=02/17/2016 08:39:01)" with * "resourceName="
-resourceName ", totalSlices=" totalSlices:long * "sliceNumber="
-sliceNumber:long * "lockTime=" lockTime ", releaseTime="
-releaseTime:date "," * "previousLockTime=" previousLockTime:date
-")" *
-| project resourceName ,totalSlices , sliceNumber , lockTime ,
-releaseTime , previousLockTime
+| parse kind=relaxed "Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=NULL, sliceNumber=23, lockTime=02/17/2016 08:40:01, releaseTime=NULL, previousLockTime=02/17/2016 08:39:01)" with * "resourceName=" resourceName ", totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long * "lockTime=" lockTime ", releaseTime=" releaseTime:date "," * "previousLockTime=" previouLockTime:date ")" *  
+| project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previouLockTime
 ```
+
+## Time series analysis
+
+[make-series](https://kusto.azurewebsites.net/docs/query/make-seriesoperator.html): aggregates together groups of rows like [summarize](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html), but generates a (time) series vector per each combination of by values.
+
+The following query returns a set of time series for the count of storm events per day. The query covers a three month period for each state, filling missing bins with the constant 0:
+
+```Kusto
+StormEvents
+| make-series n=count() default=0 on StartTime in range(datetime(2007-01-01), datetime(2007-03-31), 1d) by State
+```
+
+Once you create a set of (time) series, you can apply series functions to detect anomalous shapes, seasonal patterns, and a lot more.
+
+The following query extracts the top three states that had the most events in specific day:
+
+```Kusto
+StormEvents
+| make-series n=count() default=0 on StartTime in range(datetime(2007-01-01), datetime(2007-03-31), 1d) by State
+| extend series_stats(n)
+| top 3 by series_stats_n_max desc
+| render timechart
+```
+
+Please review the full list of [series functions](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_scalarfunctions.html#series-processing-functions).
 
 ## Advanced aggregations
 
 We covered basic aggregations, like **count** and **summarize**, earlier
-in this article. This section introduces more advanced options
+in this article. This section introduces more advanced options.
 
 [**top-nested**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_topnestedoperator.html?q=top-nested):
 Produces hierarchical top results, where each level is a drill-down
@@ -548,8 +509,7 @@ top-nested 3 of Source by sum(BeginLat),
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
-[**pivot
-plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_pivotplugin.html?q=pivot):
+[**pivot() plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_pivotplugin.html?q=pivot):
 Rotates a table by turning the unique values from one column in the
 input table into multiple columns in the output table. The operator
 performs aggregations where they are required on any remaining column
@@ -565,7 +525,7 @@ StormEvents
 | evaluate pivot(State)
 ```
 
-[**dcount**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcount_aggfunction.html?q=dcount):
+[**dcount()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcount_aggfunction.html?q=dcount):
 Returns an estimate of the number of distinct values of an expression in
 the group. Use
 [**count()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_countoperator.html?q=count)
@@ -578,7 +538,7 @@ StormEvents
 | summarize Sources = dcount(Source) by State
 ```
 
-[**dcountif**:](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcountif_aggfunction.html?q=dcount)
+[**dcountif()**:](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcountif_aggfunction.html?q=dcount)
 Returns an estimate of the number of distinct values of the expression
 for rows for which the predicate evaluates to true.
 
@@ -590,7 +550,7 @@ StormEvents | take 100
 | summarize Sources = dcountif(Source, DamageProperty < 5000) by State
 ```
 
-[**dcount_hll**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcount_hllfunction.html?q=dcount):
+[**dcount_hll()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcount_hllfunction.html?q=dcount):
 Calculates the **dcount** from HyperLogLog results (generated
 by [**hll**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_hll_aggfunction.html) or [**hll_merge**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_hll_merge_aggfunction.html)).
 
@@ -603,7 +563,7 @@ StormEvents
 | project dcount_hll(hllMerged)
 ```
 
-[**arg_max**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_arg_max_aggfunction.html?q=arg_max):
+[**arg_max()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_arg_max_aggfunction.html?q=arg_max):
 Finds a row in the group that maximizes an expression, and returns the
 value of another expression (or * to return the entire row).
 
@@ -617,7 +577,7 @@ StormEvents
 | project State, StartTime, EndTime, EventType
 ```
 
-[**makeset**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_makeset_aggfunction.html?q=makeset):
+[**makeset()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_makeset_aggfunction.html?q=makeset):
 Returns a dynamic (JSON) array of the set of distinct values that an
 expression takes in the group.
 
@@ -829,11 +789,7 @@ T
 window)
 ```
 
-[**activity_engagement
-plugin**)(https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html):
-Calculates activity engagement ratio based on ID column over a sliding
-timeline window. **activity_engagement plugin** can be used for
-calculating DAU, WAU, and MAU (daily, weekly, and monthly active users).
+[**activity_engagement plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html): Calculates activity engagement ratio based on ID column over a sliding timeline window. **activity_engagement plugin** can be used for calculating DAU, WAU, and MAU (daily, weekly, and monthly active users).
 
 The following query returns the ratio of total distinct users using an application daily compared to total distinct users using the application weekly, on a moving seven-day window.
 
@@ -972,7 +928,10 @@ _end, _windowSize, EventType, _sequence, _periods)
 This section covers
 [**functions**](https://kusto.azurewebsites.net/docs/controlCommands/controlcommands_functions.html?q=function):
 reusable queries that are stored on the server. Functions can be invoked
-by queries and other functions (recursion is not supported).
+by queries and other functions (recursive functions are not supported).
+
+> [!NOTE]
+> You cannot create functions on the help cluster, which is read-only. Use your own test cluster for this part.
 
 The following example creates a function that takes a state name
 (`MyState`) as an argument.
