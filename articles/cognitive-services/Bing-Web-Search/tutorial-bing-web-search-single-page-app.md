@@ -42,7 +42,7 @@ The first step is to clone the repository with the sample app's source code.
 git clone https://github.com/Azure-Samples/cognitive-services-REST-api-samples.git
 ```
 
-Then run `npm install`. For this project, Express.js is the only dependency.
+Then run `npm install`. For this tutorial, Express.js is the only dependency.
 
 ```console
 cd <path-to-repo>/cognitive-services-REST-api-samples/Tutorials/Bing-Web-Search
