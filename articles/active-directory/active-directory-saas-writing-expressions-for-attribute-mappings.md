@@ -222,7 +222,7 @@ For example, if the domain is "contoso.com", then you could use the following ex
 If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
 
 **Expression:** <br>
-`Append([userPrincipalName], ".test"))`
+`Append([userPrincipalName], ".test")`
 
 **Sample input/output:** <br>
 
