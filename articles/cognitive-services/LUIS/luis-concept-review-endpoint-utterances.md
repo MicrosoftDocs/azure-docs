@@ -7,9 +7,9 @@ author: diberry
 manager: cjgronlund
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Enable active learning by reviewing endpoint utterances

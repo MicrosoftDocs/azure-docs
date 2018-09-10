@@ -2,14 +2,13 @@
 title: Iterative app design in Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.  LUIS apps require design iterations to train LUIS to get the best data extraction.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Authoring cycle

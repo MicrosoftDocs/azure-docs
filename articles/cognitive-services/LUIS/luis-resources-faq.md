@@ -1,5 +1,6 @@
 ---
-title: Language Understanding (LUIS) in Azure frequently asked questions | Microsoft Docs
+title: Frequently asked questions - Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
 author: diberry
 manager: cjgronlund
@@ -7,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Language Understanding FAQ
