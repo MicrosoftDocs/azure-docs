@@ -169,7 +169,7 @@ Before wrapping up, it's important to remember that the local cluster is real. A
 1. To remove an individual application and all it's data, run the following command:
    
     ```powershell
-    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    Remove-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
    
     Or, delete the application from the Service Fabric Explorer **ACTIONS** menu or the context menu in the left-hand application list view.
