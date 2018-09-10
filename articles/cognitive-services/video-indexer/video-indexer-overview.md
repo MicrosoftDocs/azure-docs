@@ -47,7 +47,7 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 
 Once Video Indexer is done processing and analyzing, you can review, curate, search, and publish the video insights.
 
-Whether your role is a content manager or a developer, the Video Indexer service is able to address your needs. Content managers can use the Video Indexer web portal to consume the service without writing a single line of code, see [Get started using the Video Indexer portal](video-indexer-get-started.md). Developers can take advantage of APIs to process content at scale, see [Use Video Indexer REST API](video-indexer-use-apis.md). The service also enables customers to use widgets to publish video streams and extracted insights in their own applications, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
+Whether your role is a content manager or a developer, the Video Indexer service is able to address your needs. Content managers can use the Video Indexer web portal to consume the service without writing a single line of code, see [Get started with the Video Indexer website](video-indexer-get-started.md). Developers can take advantage of APIs to process content at scale, see [Use Video Indexer REST API](video-indexer-use-apis.md). The service also enables customers to use widgets to publish video streams and extracted insights in their own applications, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
 You can sign up for the service using existing AAD, LinkedIn, Facebook, Google, or MSA account. For more information, see [getting started](video-indexer-get-started.md).
 
@@ -67,6 +67,6 @@ For more information, see this [blog](http://aka.ms/videoindexerblog).
 
 You're ready to get started with Video Indexer. For more information, see the following articles:
 
-- [Get started with the Video Indexer portal](video-indexer-get-started.md)
+- [Get started with the Video Indexer website](video-indexer-get-started.md)
 - [Process content with Video Indexer REST API](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md)
