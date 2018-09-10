@@ -1,0 +1,85 @@
+---
+title: 'Azure Virtual WAN partners locations | Microsoft Docs'
+description: This article contains a list of Azure Virtual WAN partners and hub locations
+services: virtual-wan
+author: cherylmc
+
+ms.service: virtual-wan
+ms.topic: conceptual
+ms.date: 09/10/2018
+ms.author: cherylmc
+Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
+---
+# Virtual WAN partners and virtual hub locations
+
+This article provides information on Virtual WAN supported regions and preferred partners for connectivity into Virtual Hub.
+
+Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or by using preferred provider devices through a Virtual WAN preferred partner. Using preferred partner devices allows you ease of use simplification of connectivity, and configuration management. Connectivity from the on-premises device is established in an automated way to the Virtual Hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). You can only have 1 hub per region.
+
+## Regions
+
+The list of regions supported and available are as follows:
+
+|Regions|
+|---|
+|asia-pacific-east|
+|asia-pacific-southeast|
+|australia-central|
+|australia-central-2|
+|australia-east|
+|australia-southeast|
+|brazil-south|
+|canada-central|
+|canada-east|
+|central-india|
+|europe-north|
+|europe-west|
+|france-central|
+|france-south|
+|japan-east|
+|japan-west|
+|korea-central|
+|korea-south|
+|south-india|
+|united-kingdom-south|
+|united-kingdom-west|
+|us-central|
+|us-east|
+|us-east-2|
+|us-north-central|
+|us-south-central|
+|us-west|
+|us-west-2|
+|us-west-central|
+|west-india|
+
+## Automation from connectivity partners
+
+This section describes the high-level details of automation from the connectivity providers.
+
+Devices that connect to Azure Virtual WAN have built-in automation to connect to Azure Virtual WAN. This is usually set up in the device management UI (or equivalent), thereby setting up the connectivity and configuration management between the VPN branch device to an Azure Virtual Hub VPN endpoint (VPN gateway).
+
+The following high-level automation is set up in the device console/management center:
+
+* Appropriate permissions for the device to access Azure Virtual WAN Resource Group
+* Uploading of Branch Device into Azure Virtual WAN
+* Automatic download of Azure connectivity information 
+* Configuration of on-premises branch device 
+
+Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. For details on how to consider automating connectivity, please see [Configure Automation – WAN Partners](virtual-wan-configure-automation-providers).
+
+## Connectivity through preferred partners
+
+If your branch device partner is not listed in the section below, please contact your branch device provider and have them contact us by sending an email to azurevirtualwan@microsoft.com.
+
+You can check the following links to gather more information about services offered by the preferred partners. 
+
+|Partner| Links |
+|---|---|
+|Barracuda Networks | [Link](https://www.barracuda.com/AzurevWAN)|
+| Check Point | |
+|Citrix | [Link](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)|
+|Palo Alto Networks | |
+|Netfoundry | [Link](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|
+|Riverbed Technology |[Link](https://www.riverbed.com/go/steelconnect-azurewan.html)|
+|128 Technology | [Link](https://www.128technology.com/partners/azure)
