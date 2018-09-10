@@ -220,6 +220,19 @@ As illustrated in the Access Check Algorithm, the mask limits access for **named
 >
 >
 
+### The sticky bit
+
+The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed.
+
+The following table shows how the sticky bit works in Data Lake Storage Gen1.
+
+| User group         | File    | Folder |
+|--------------------|---------|-------------------------|
+| Sticky bit **OFF** | No effect   | No effect.           |
+| Sticky bit **ON**  | No effect   | Prevents anyone except **super-users** and the **owning user** of a child item from deleting or renaming that child item.               |
+
+The sticky bit is not shown in the Azure portal.
+
 ## Permissions on new files and folders
 
 When a new file or folder is created under an existing folder, the Default ACL on the parent folder determines:
@@ -276,18 +289,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed.
-
-The following table shows how the sticky bit works in Data Lake Storage Gen1.
-
-| User group         | File    | Folder |
-|--------------------|---------|-------------------------|
-| Sticky bit **OFF** | No effect   | No effect.           |
-| Sticky bit **ON**  | No effect   | Prevents anyone except **super-users** and the **owning user** of a child item from deleting or renaming that child item.               |
-
-The sticky bit is not shown in the Azure portal.
 
 ## Common questions about ACLs in Data Lake Storage Gen1
 
