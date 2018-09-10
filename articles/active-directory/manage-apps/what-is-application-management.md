@@ -16,7 +16,7 @@ ms.reviewer: arvinh
 
 # What is application management in Azure Active Directory?
 
-Azure AD is a cloud solution for managing user access to applications. You can use Azure Active Directory (Azure AD) to manage user access to Office 365 as well as every business application from Microsoft, thousands of software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps. When application access is managed with Azure AD, users can sign on to any application by using their Azure AD accounts. After a single sign-on, users can access the other applications without signing in again.
+You can use Azure Active Directory (Azure AD) to manage user access to Office 365 as well as every business application from Microsoft, thousands of software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps. When application access is managed with Azure AD, users can sign on to any application by using their Azure AD accounts. After a single sign-on, users can access the other applications without signing in again.
 
 
 ![Apps federated via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
