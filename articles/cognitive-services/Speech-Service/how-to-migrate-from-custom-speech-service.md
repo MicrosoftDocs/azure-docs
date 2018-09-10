@@ -1,5 +1,5 @@
 ---
-title: Migrate from custom speech serivce - Speech service
+title: Migrate from custom speech serivce - Unified - Speech service
 titlesuffix: Azure Cognitive Services 
 description: Learn how to migration from the Custom Speech service to the unified Speech Service.
 services: cognitive-services
