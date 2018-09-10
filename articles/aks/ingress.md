@@ -63,6 +63,15 @@ Next, create a public IP address with the *static* allocation method using the [
 ```azurecli
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
+Query for the ip address that you just created.
+
+```azurecli
+az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query "{fqdn: dnsSettings.fqdn, address: ipAddress}"
+
+Address
+------------
+40.121.63.72
+```
 
 Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step:
 
