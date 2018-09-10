@@ -1,5 +1,5 @@
 ---
-title: Train Machine Learning Models
+title: Train Machine Learning Models with Azure Machine Learning
 description: Learn how to execute single-node and distributed training of traditional ML and deep learning models with Azure Machine Learning services
 services: machine-learning
 ms.service: machine-learning
@@ -25,7 +25,7 @@ Once you've created your Workspace and set up your [development environment](), 
 4. Create an Estimator object
 5. Submit your training job
 
-This How-To focuses on steps 4-5. For steps 1-3, refer to this [tutorial](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/tutorial-train-models-with-aml?branch=release-ignite-aml) for an example.
+This How-To focuses on steps 4-5. For steps 1-3, refer to this [tutorial]() for an example.
 
 ### Single-node training
 
@@ -52,7 +52,7 @@ The above code snippet specifies the following parameters to the Estimator const
 * `compute_target`: The remote compute that your training script will run on, in this case a [Managed Compute]() cluster
 * `entry_script`: The filepath (relative to the `folder` directory) of the training script to be executed on the remote compute. This file, and any additional files it depends on, should be located in this folder
 * `conda_packages`: The list of Python packages to be installed via conda needed by your training script.  
-Note that the constructor has another parameter called `pip_packages` that you can use for any pip packages needed
+The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 
 Now that you've created your Estimator object, you can submit the training job to be executed on the remote compute via a call to the `submit` function on your [Experiment]() object `experiment`. 
 
@@ -74,7 +74,7 @@ print(run.get_details().status)
 > For example, to download a file written to the *outputs* folder to your local machine after your remote training run: 
 > `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
-**For a full example of training with the Azure ML Python SDK, see [this tutorial](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/tutorial-train-models-with-aml?branch=release-ignite-aml) on training a scikit-learn model on the MNIST dataset.**
+**For a full example of training with the Azure ML Python SDK, see [this tutorial]() on training a scikit-learn model on the MNIST dataset.**
 
 ### Distributed training and custom Docker images
 
@@ -114,7 +114,7 @@ run = experiment.submit(method=cntk_est)
 
 **For a full example, see [this tutorial]().**
 
-## Next Steps
+## Next steps
 * [Track run metrics during training]()
 * [Train PyTorch models]()
 * [Train TensorFlow models]()
