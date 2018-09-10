@@ -67,6 +67,7 @@ TBD
 
 Now that you have an overview of the basics, read on to understand how provisioning works in Azure AD and the common scenarios that Azure AD supports.
 
+<!---
 ## Claims in Azure AD security tokens
 
 Security tokens (access and ID tokens) issued by Azure AD contain claims, or assertions of information about the subject that has been authenticated. These claims can be used by the application for various tasks. For example, applications can use claims to validate the token, identify the subject's directory tenant, display user information, determine the subject's authorization, and so on. The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration. A brief description of each type of claim emitted by Azure AD is provided in the table below. For more information, refer to [Supported token and claim types](v1-id-and-access-tokens.md).
@@ -94,10 +95,8 @@ Security tokens (access and ID tokens) issued by Azure AD contain claims, or ass
 | User Principal Name | Contains the user principal name of the subject. |
 | Version | Contains the version number of the token. |
 
-## See Also
+--->
 
-[Azure Active Directory Code Samples](sample-v1-code.md)
+## Next steps
 
-[Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md)
-
-[OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+* Learn about the [application types supported in Azure Active Directory](app-types.md)
