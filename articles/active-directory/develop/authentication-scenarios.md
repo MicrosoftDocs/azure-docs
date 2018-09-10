@@ -83,11 +83,11 @@ In this provisioning flow:
 
 |   |   |
 |---|---|
-| ![1](./media/authentication-scenarios/one.png)   | A user from B attempts to sign in with the app |
-| ![2](./media/authentication-scenarios/two.png)   | The user credentials are acquired and verified |
-| ![3](./media/authentication-scenarios/three.png) | The user is prompted to consent for the app to gain access to tenant B |
-| ![4](./media/authentication-scenarios/four.png)  | Azure AD uses the application object in A as a blueprint for creating a service principal in B |
-| ![5](./media/authentication-scenarios/five.png)  | The user receives the requested token |
+| 1 | A user from B attempts to sign in with the app |
+| 2 | The user credentials are acquired and verified |
+| 3 | The user is prompted to consent for the app to gain access to tenant B |
+| 4 | Azure AD uses the application object in A as a blueprint for creating a service principal in B |
+| 5 | The user receives the requested token |
 |   |   |
 
 You can repeat this process as many times as you want for other tenants (C, D, and so on). Directory A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent retain control over what the application is allowed to do through the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Azure AD](app-objects-and-service-principals.md).
