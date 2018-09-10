@@ -1,5 +1,5 @@
 ---
-title: Create an HTTP ingress controller with a static IP address in AKS
+title: Create an HTTP ingress controller with a static IP address in Azure Kubernetes Service (AKS)
 description: Learn how to install and configure an NGINX ingress controller with a static public IP address in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: iainfoulds
