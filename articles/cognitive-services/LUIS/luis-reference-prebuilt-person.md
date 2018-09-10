@@ -13,7 +13,7 @@ ms.author: diberry
 ---
 
 # Person entity
-The prebuilt person entity detects names. Because this entity is already trained, you do not need to add example utterances containing person to the application intents. <!--Name entity is supported in [many cultures](luis-reference-prebuilt-entities.md). -->
+The prebuilt person entity detects names. Because this entity is already trained, you do not need to add example utterances containing person to the application intents. Name entity is supported in English and Chinese [cultures](luis-reference-prebuilt-entities.md).
 
 ## Resolution for Person entity
 The following example shows the resolution of the **builtin.person** entity.
