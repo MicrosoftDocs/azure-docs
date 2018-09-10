@@ -27,7 +27,7 @@
 ## [High availability and disaster recovery](hana-overview-high-availability-disaster-recovery.md)
 ## Troubleshoot and monitor
 ### [Monitoring HLI](troubleshooting-monitoring.md)
-### [Monitoring and troubleshooting HANA](hana-monitoring-troubleshooting.md)
+### [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot.md)
 ## How to
 ### [HA Setup with STONITH](ha-setup-with-stonith.md)
 ### [OS Backup for Type II SKUs](os-backup-type-ii-skus.md)

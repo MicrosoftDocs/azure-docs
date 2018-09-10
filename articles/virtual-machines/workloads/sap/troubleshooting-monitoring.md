@@ -49,4 +49,4 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 **Next steps**
 
-- Refer [Monitoring and troubleshooting from HANA side](hana-monitoring-troubleshooting.md).
+- Refer [How to monitor SAP HANA (large instances) on Azure](troubleshooting-monitoring.md).
