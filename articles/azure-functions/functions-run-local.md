@@ -145,7 +145,16 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-To create the project without a local Git repository, use the `--no-source-control [-n]` option.
+`func init` supports the following options, which are version 2.x-only, unless otherwise noted:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--csx`** | Initializes a C# script (.csx) project. You must specify `--csx` in subsequent commands. |
+| **`--docker`** | Create a Dockerfile for a container using a base image that is based on the chosen `--worker-runtime`. Use this option when you plan to publish to a custom Linux container. |
+| **`--force`** | Initialize the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
+| **`--no-source-control -n`** | Prevents the default creation of a Git repository in version 1.x. In version 2.x, the git repository isn't created by default. |
+| **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
+| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are `dotnet`, `node` (JavaScript), `java`, and `python`. When not set, you are prompted to choose your runtime during initialization. |
 
 > [!IMPORTANT]
 > By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
@@ -228,7 +237,7 @@ Even when using the storage emulator for development, you may want to test with 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    
+
     When you are not already signed in to Azure, you are prompted to do so.
 
 ## <a name="create-func"></a>Create a function
@@ -269,10 +278,10 @@ You can also specify these options in the command using the following arguments:
 
 | Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--language -l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose the default language of your project. |
-| **`--template -t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
-| **`--name -n`** | The function name. |
 | **`--csx`** | (Version 2.x) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
+| **`--language -l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose a language that matches the worker runtime. |
+| **`--name -n`** | The function name. |
+| **`--template -t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
 
 For example, to create a JavaScript HTTP trigger in a single command, run:
 
@@ -293,22 +302,23 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 ```bash
 func host start
 ```
+
 The `host` command is only required in version 1.x.
 
 `func host start` supports the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
+| **`--build`** | Build current project before running. Version 2.x and C# projects only. |
+| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). The *\<type\>* options are `VSCode` and `VS`.  |
+| **`--debug`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). Valid values are `VSCode` and `VS`.  |
+| **`--language-worker`** | Arguments to configure the language worker. Version 2.x only. |
+| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
+| **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
 | **`--port -p`** | The local port to listen on. Default value: 7071. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
-| **`--build`** | Build current project before running. Version 2.x and C# projects only. |
-| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. | 
-| **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
-| **`--language-worker`** | Arguments to configure the language worker. Version 2.x only. |
-| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
 
 For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
@@ -344,6 +354,7 @@ The following cURL command triggers the `MyHttpTrigger` quickstart function from
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
+
 The following example is the same function called from a POST request passing _name_ in the request body:
 
 ```bash
@@ -403,6 +414,12 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publish to Azure
 
+Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x.
+
+### Project file deployment  
+
+The most common deployment method involves packaging your function app project and deploying the package to your function app. You can optionally [run your functions directly from the deployment package](run-functions-from-deployment-package.md).
+
 To publish a Functions project to a function app in Azure, use the `publish` command:
 
 ```bash
@@ -428,6 +445,10 @@ Use the following Azure CLI code to add this setting to your function app:
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup
 ```
+
+## Custom container deployment
+
+
 
 ## Next steps
 
