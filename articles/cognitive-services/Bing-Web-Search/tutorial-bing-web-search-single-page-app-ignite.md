@@ -1,4 +1,4 @@
-aren't---
+---
 title: "Tutorial: Create a Bing Web Search single-page app"
 titleSuffix: Azure Cognitive Services
 description: This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results in a single-page app.
