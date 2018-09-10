@@ -8,7 +8,7 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: panosper
 ---
 # Migration Guide 
