@@ -51,7 +51,7 @@ npm install
 
 ## App components
 
-The sample app we're building is made up of 4 parts:
+The sample app we're building is made up of four parts:
 
 * `app.js` - Our Express.js app. It handles request/response logic and routing.
 * `public/index.html` - The skeleton of our app; it defines how data is presented to the user.
@@ -82,7 +82,7 @@ The HTML form includes options that map to query parameters in the [Bing Web Sea
 | `query` | A text field to enter a query string. |
 | `where` | A drop-down menu to select the market (location and language). |
 | `what` | Checkboxes to promote specific result types. Promoting images, for example, increases the ranking of images in search results. |
-| `when` | A drop-down menu that allows the user to limit limiting the search results to today, this week, or this month. |
+| `when` | A drop-down menu that allows the user to limit the search results to today, this week, or this month. |
 | `safe` | A checkbox to enable Bing SafeSearch, which filters out adult content. |
 | `count` | Hidden field. The number of search results to return on each request. Change this value to display fewer or more results per page. |
 | `offset` | Hidden field. The offset of the first search result in the request, which is used for paging. It's reset to `0` with each new request. |
@@ -125,7 +125,7 @@ function bingSearchOptions(form) {
 
 `SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. However, this form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` is not used.
 
-If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9`. This ensures that the maximum number of result types are returned.
+If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9`, which ensures that the maximum number of result types are returned.
 
 > [!NOTE]
 > Promoting a result type doesn't *guarantee* that it will be included in the search results. Rather, promotion increases the ranking of those kinds of results relative to their usual ranking. To limit searches to particular kinds of results, use the `responseFilter` query parameter, or call a more specific endpoint such as Bing Image Search or Bing News Search.
@@ -385,7 +385,7 @@ The context arguments are:
 | Parameter  | Description |
 |------------|-------------|
 | `section` | The results section (`pole`, `mainline`, or `sidebar`) in which the item appears. |
-| `index`<br>`count` | Available when the `RankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection. You can this information to number the results, to generate different HTML for the first or last result, and so on. |
+| `index`<br>`count` | Available when the `RankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection. You can use this information to number the results, to generate different HTML for the first or last result, and so on. |
 
 In the sample app, both the `images` and `relatedSearches` renderers use the context arguments to customize the generated HTML. Let's take a closer look at the `images` renderer:
 
@@ -431,7 +431,7 @@ Here's an example of how images are displayed in the sample app:
 
 Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with each successive request. If multiple Bing Search APIs are being used, the same client ID should be used with all of them.
 
-Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate a user's searches, which has two important benefits. First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the request. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing. Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature will always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
+Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate a user's searches. First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the request. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing. Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature will always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
 
 << TODO: ERIK - VERIFY/REVIEW >>
 
