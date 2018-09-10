@@ -44,7 +44,7 @@ To configure your reference data, you first need to create an input that is of t
 If your reference data is not expected to change, then support for static reference data is enabled by specifying a static path in the input configuration. Azure Stream Analytics picks up the blob from the specified path. {date} and {time} substitution tokens aren't required. Reference data is immutable in Stream Analytics. Therefore, overwriting a static reference data blob is not recommended.
 
 ## Generating reference data on a schedule
-If your reference data is a slowly changing data set, then support for refreshing reference data is enabled by specifying a path pattern in the input configuration using the {date} and {time} substitution tokens. Stream Analytics picks up the updated reference data definitions based on this path pattern. For example, a pattern of `sample/{date}/{time}/products.csv` with a date format of **“YYYY-MM-DD”** and a time format of **“HH-mm”** instructs Stream Analytics to pick up the updated blob `sample/2015-04-16/17-30/products.csv` at 5:30 PM on April 16th, 2015 UTC time zone.
+If your reference data is a slowly changing data set, then support for refreshing reference data is enabled by specifying a path pattern in the input configuration using the {date} and {time} substitution tokens. Stream Analytics picks up the updated reference data definitions based on this path pattern. For example, a pattern of `sample/{date}/{time}/products.csv` with a date format of **"YYYY-MM-DD"** and a time format of **"HH-mm"** instructs Stream Analytics to pick up the updated blob `sample/2015-04-16/17-30/products.csv` at 5:30 PM on April 16th, 2015 UTC time zone.
 
 Azure Stream Analytics automatically scans for refreshed reference data blobs at a one minute interval.
 
@@ -67,7 +67,7 @@ Azure Stream Analytics automatically scans for refreshed reference data blobs at
     * Use {date}/{time} in the path pattern
     * Add a new blob using the same container and path pattern defined in the job input
     * Use a date/time **greater** than the one specified by the last blob in the sequence.
-3. Reference data blobs are **not** ordered by the blob’s “Last Modified” time but only by the time and date specified in the blob name using the {date} and {time} substitutions.
+3. Reference data blobs are **not** ordered by the blob’s "Last Modified" time but only by the time and date specified in the blob name using the {date} and {time} substitutions.
 3. To avoid having to list large number of blobs, consider deleting very old blobs for which processing will no longer be done. Please note that ASA might go have to reprocess a small amount in some scenarios like a restart.
 
 ## Next steps
