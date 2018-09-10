@@ -53,7 +53,7 @@ After you sign in to the Azure AD portal, you can create a new tenant for your o
 
 3. Select **Create**.
 
-Your new tenant is created with the initial domain as part of onmicrosoft.com.
+Your new tenant is created with the domain contoso.onmicrosoft.com.
 
 ## Clean up resources
 If you’re not going to continue to use this application, you can delete the tenant using the following steps:
