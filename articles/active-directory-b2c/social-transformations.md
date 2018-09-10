@@ -34,7 +34,7 @@ This article provides examples for using the social account claims transformatio
 
 ## CreateAlternativeSecurityId
 
-Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. For more information, see [AlternativeSecurityId's schema](http://msdn.microsoft.com/en-us/library/azure/dn151689.aspx).
+Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. For more information, see [AlternativeSecurityId's schema](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType).
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
