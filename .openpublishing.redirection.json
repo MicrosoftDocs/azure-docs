@@ -15126,6 +15126,12 @@
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
         },
+		        {
+            "source_path": "articles/active-directory/active-directory-aadconnect.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
+            "redirect_document_id": false
+        },
+		
         {
             "source_path": "articles/active-directory/develop/index.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-developers-guide",
