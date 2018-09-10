@@ -31,7 +31,7 @@ Before accessing Azure Cognitive Services, you must create and subscribe to at l
 
 1. Sign in to the [Azure portal](http://portal.azure.com), and click **+Create a resource**.
     
-    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreen_scaled.png)
+    ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
 2. Under Azure Marketplace, select **AI + Machine Learning**. If you don't see the service you're interested in, click on **See all** to view the entire catalog of Cognitive Services APIs.
 
@@ -56,6 +56,14 @@ Within your Cognitive Services resource, You can use the Endpoint URL and keys i
 
 ![Resources screen](media/cognitive-services-apis-create-account/resourceScreen.png)
 
-### Next Steps
+## Next Steps
 
-See the [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) page to find quickstarts, tutorials, and other documentation for the API you're using.
+> [!div class="nextstepaction"]
+> [Cognitive Services Documentation page](../tutorial-bing-web-search-single-page-app.md)
+
+## See also
+
+* [Quickstart: Extract handwritten text from an image](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
+* [Tutorial: Create an app to detect and frame faces in an image](https://review.docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial?branch=pr-en-us-51089)
+* [Build a custom search webpage](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
+* [Integrate Language Understanding (LUIS) with a bot using the Bot Framework](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
