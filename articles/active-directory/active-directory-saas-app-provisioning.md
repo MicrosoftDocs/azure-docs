@@ -223,7 +223,7 @@ For information on how the read the audit logs in the Azure portal, see the [pro
 
 ##How do I troubleshoot issues with user provisioning?
 
-For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](active-directory-application-provisioning-content-map.md).
+For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
 
 
 ##What are the best practices for rolling out automatic user provisioning?
