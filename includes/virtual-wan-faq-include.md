@@ -5,22 +5,22 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 07/18/2018
+ ms.date: 09/10/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN vpngateway?
 
-Virtual WAN provides large-scale Site-to-Site connectivity and is built for throughput, scalability, and ease of use. CPE branch devices auto-provision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners.
+Virtual WAN provides large-scale Site-to-Site connectivity and is built for throughput, scalability, and ease of use. ExpressRoute and Point-to-Site connectivity functionality is currently under Preview. CPE branch devices auto-provision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Parner List](../articles/virtual-wan/virtual-wan-locations-partners.md).
 
 ### Which device providers (Virtual WAN partners) are supported at launch time? 
 
-At this time, Citrix and Riverbed support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://aka.ms/virtualwan).
+At this time, Citrix and Riverbed support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](../articles/virtual-wan/virtual-wan-locations-partners.md).
 
 ### Am I required to use a preferred partner device?
 
-No. You can use any VPN-capable device that adheres to the Preview requirements for IKEv2 IPsec support.
+No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support.
 
 ### How do Virtual WAN partners automate connectivity with Azure Virtual WAN?
 
