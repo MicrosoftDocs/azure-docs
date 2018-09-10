@@ -41,7 +41,7 @@ The following guided setups walk you through building an app on your preferred p
 | <center>![Web apps](./media/azure-ad-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](web-app.md)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
 | <center>![Single page apps](./media/azure-ad-developers-guide/SPA.png)<br />Single page apps</center> | [Overview](single-page-application.md)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
 | <center>![Web APIs](./media/azure-ad-developers-guide/Web_API.png)<br />Web APIs</center> | [Overview](web-api.md)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
-| <center>![Service-to-service](./media/azure-ad-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
+| <center>![Service-to-service](./media/azure-ad-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](service-to-service.md)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 |  |  |  |  |  |
 
 ## How-to guides
