@@ -1,9 +1,10 @@
 ---
-title: Publish Knowledge Base - Go Quickstart - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: Go Publish Knowledge Base - Qna Maker"
+titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Go for QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker

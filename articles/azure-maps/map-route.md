@@ -15,9 +15,9 @@ ms.custom: codepen
 
 This article shows you how to make a route request and show the route on the map.
 
-There are two ways to do so, one way is by by querying the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module and the other is by making an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both are discussed below.
+There are two ways to do so, one way is by querying the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module and the other is by making an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both are discussed below.
 
-## Use service module to query for a route
+## Querying the route via service module
 
 ## Understand the code
 
@@ -38,7 +38,7 @@ The sixth code block constructs a route query.
 
 The last block of code queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method to get a route between the start and destination point. The response is then parsed into GeoJSON format using the [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) method. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for more information.
 
-## Use XMLHTTPRequest to query for a route
+## Querying the route via XMLHttpRequest
 
 ## Understand the code
 
