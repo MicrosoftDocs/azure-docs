@@ -19,10 +19,10 @@ The source code for this sample is available [on Github](https://github.com/Azur
 
 ## Prerequisites 
 
-* [Python 2 or 3](https://www.python.org/)
+* [Python 2.7 or 3.4](https://www.python.org/) and higher.
 
 * The [Azure Image Search SDK](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) for Python
-    * Install using `python -m pip install azure-cognitiveservices-search-imagesearch`
+    * Install using `pip install azure-cognitiveservices-search-imagesearch`
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -32,7 +32,6 @@ The source code for this sample is available [on Github](https://github.com/Azur
 
     ```python
     from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
-    from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
@@ -50,20 +49,25 @@ The source code for this sample is available [on Github](https://github.com/Azur
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-
+4. Send a search query to the Bing Image Search API:
+    ```python
+    image_results = client.images.search(query=search_term)
+    ```
 ## Process and view the results
 
 Parse the image results returned in the response.
+
+
 If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL,along with the total number of returned images.  
 
 ```python
-    if image_results.value:
-        first_image_result = image_results.value[0]
-        print("Total number of images returned: {}".format(len(image_results.value)))
-        print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
-        print("First image content url: {}".format(first_image_result.content_url))
-    else:
-        print("No image results returned!")
+if image_results.value:
+    first_image_result = image_results.value[0]
+    print("Total number of images returned: {}".format(len(image_results.value)))
+    print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
+    print("First image content url: {}".format(first_image_result.content_url))
+else:
+    print("No image results returned!")
 ```
 
 ## Next steps
