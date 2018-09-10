@@ -63,7 +63,7 @@ Service Fabric application lifecycle management capabilities enable application 
 
 Most applications consist of a combination of stateless and stateful microservices, containers, and other executables that are deployed together. By having strong types on the applications, Service Fabric enables the deployment of multiple application instances. Each instance is managed and upgraded independently. Importantly, Service Fabric can deploy containers or any executables and make them reliable. For example, Service Fabric can deploy .NET, ASP.NET Core, node.js, Windows containers, Linux containers, Java virtual machines, scripts, Angular, or literally anything that makes up your application.
 
-Service Fabric is integrated with CI/CD tools such as [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html), and [Octopus Deploy](https://octopus.com/) and can be used with any other popular CI/CD tool.
+Service Fabric is integrated with CI/CD tools such as [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html), and [Octopus Deploy](https://octopus.com/) and can be used with any other popular CI/CD tool.
 
 For more information about application lifecycle management, read [Application lifecycle](service-fabric-application-lifecycle.md). For more about how to deploy any code, see [deploy a guest executable](service-fabric-deploy-existing-app.md).
 
