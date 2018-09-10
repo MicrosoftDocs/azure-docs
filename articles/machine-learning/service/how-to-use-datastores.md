@@ -92,6 +92,29 @@ ws.set_default_datastore('your datastore name')
 ```
 
 ## Upload and download data
+### Upload
+For datastores of type `AzureBlobDatastore` and `AzureFileDatastore`, you can upload either a directory or individual files to the datastore using the Python SDK.
+
+To upload a directory to a datastore `ds`:
+```Python
+ds.upload(src_dir='your source directory',
+          target_path='your target path',
+          overwrite=True,
+          show_progress=True)
+```
+`target_path` specifies the location in the file share (or blob container) to upload. It defaults to `None`, in which case the data gets uploaded to root. `overwrite=True` will overwrite any existing data at `target_path`.
+
+You can alternatively upload a list of individual files to the datastore via the [`upload_files`]() method.
+
+### Download
+Similarly, you can download data from a datastore to your local file system for datastores of type `AzureBlobDatastore` and `AzureFileDatastore`.
+
+```Python
+ds.download(target_path='your target path',
+            prefix='your prefix',
+            show_progress=True)
+```
+`target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
 ## Use datastore for training
 
