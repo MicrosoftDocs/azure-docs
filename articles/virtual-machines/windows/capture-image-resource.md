@@ -58,15 +58,15 @@ To generalize your Windows VM, follow these steps:
 
 2. In the menu on the left, select **Virtual machines** and then select the VM from the list.
 
-3. In the page for the VM, on the upper menu, select **Capture**.
+3. In the **Virtual machine** page for the VM, on the upper menu, select **Capture**.
 
     ![Create image](./media/upload-generalized-managed/select-capture.png)
 
-   The **Create image** window appears.
+   The **Create image** page appears.
 
     ![Create image](./media/upload-generalized-managed/create-image.png)
 
-4. In **Name**, accept the pre-populated name or type a name that you would like to use for the image.
+4. In **Name**, either accept the pre-populated name or enter a name that you would like to use for the image.
 
 5. In **Resource group**, either select **Create new** and type in a name, or select **Use existing** and select a resource group to use from the drop-down list.
 
@@ -76,7 +76,7 @@ To generalize your Windows VM, follow these steps:
 
 8. Select **Create** to create the image.
 
-9. After the image is created, you will see it as an **Image** resource in the list of resources in the resource group.
+9. After the image is created, you can find it as an **Image** resource in the list of resources in the resource group.
 
 
 
@@ -206,10 +206,10 @@ You can create a managed image from a snapshot of a generalized VM by following 
 
 ## Create an image from a VHD in a storage account
 
-Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the following format: https://*mystorageaccount*.blob.core.windows.net/*container*/*vhd_filename.vhd*. In this example, the VHD is in *mystorageaccount* in a container named *vhdcontainer* and the VHD filename is *osdisk.vhd*.
+Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the following format: https://&lt;storageaccount&gt;.blob.core.windows.net/&lt;container&gt;/&lt;vhdfilename.vhd&gt;. In this example, the VHD is in *mystorageaccount* in a container named *vhdcontainer* and the VHD filename is *osdisk.vhd*.
 
 
-1.  Set the common parameters:
+1.  Create some variables.
 
     ```azurepowershell-interactive
 	$vmName = "myVM"
