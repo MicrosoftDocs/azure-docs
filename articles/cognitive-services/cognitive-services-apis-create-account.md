@@ -59,7 +59,7 @@ Within your Cognitive Services resource, You can use the Endpoint URL and keys i
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Documentation page](../tutorial-bing-web-search-single-page-app.md)
+> [Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)
 
 ## See also
 
