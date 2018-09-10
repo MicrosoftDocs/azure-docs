@@ -789,10 +789,7 @@ T
 window)
 ```
 
-[**activity_engagement plugin**)(https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html):
-Calculates activity engagement ratio based on ID column over a sliding
-timeline window. **activity_engagement plugin** can be used for
-calculating DAU, WAU, and MAU (daily, weekly, and monthly active users).
+[**activity_engagement plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html): Calculates activity engagement ratio based on ID column over a sliding timeline window. **activity_engagement plugin** can be used for calculating DAU, WAU, and MAU (daily, weekly, and monthly active users).
 
 The following query returns the ratio of total distinct users using an application daily compared to total distinct users using the application weekly, on a moving seven-day window.
 
