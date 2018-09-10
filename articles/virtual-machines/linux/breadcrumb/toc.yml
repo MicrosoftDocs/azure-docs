@@ -6,6 +6,6 @@
     tocHref: /azure/active-directory/managed-identities-azure-resources/
     topicHref: /azure/virtual-machines/index
     items:
-    - name: Windows
+    - name: Linux
       tocHref: /azure/active-directory/managed-identities-azure-resources/
-      topicHref: /azure/virtual-machines/windows/index
+      topicHref: /azure/virtual-machines/linux/index
