@@ -70,13 +70,13 @@ Use Data Lake Store to help control access to your data store at the network lev
 ![Firewall settings and IP access](./media/data-lake-store-security-overview/firewall-ip-access.png "Firewall settings and IP address")
 
 ## Data protection
-Azure Data Lake Store protects your data throughout its life cycle. For data in transit, Data Lake Store uses the industry-standard Transport Layer Security (TLS) protocol to secure data over the network.
+Azure Data Lake Store protects your data throughout its life cycle. For data in transit, Data Lake Store uses the industry-standard Transport Layer Security (TLS 1.2) protocol to secure data over the network.
 
 ![Encryption in Data Lake Store](./media/data-lake-store-security-overview/adls-encryption.png "Encryption in Data Lake Store")
 
 Data Lake Store also provides encryption for data that is stored in the account. You can chose to have your data encrypted or opt for no encryption. If you opt in for encryption, data stored in Data Lake Store is encrypted prior to storing on persistent media. In such a case, Data Lake Store automatically encrypts data prior to persisting and decrypts data prior to retrieval, so it is completely transparent to the client accessing the data. There is no code change required on the client side to encrypt/decrypt data.
 
-For key management, Data Lake Store provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Store. You can either let Data Lake Store manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while while creating a Data Lake Store account. For more information on how to provide encryption-related configuration, see [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
+For key management, Data Lake Store provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Store. You can either let Data Lake Store manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while creating a Data Lake Store account. For more information on how to provide encryption-related configuration, see [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
 ## Activity and diagnostic logs
 You can use activity or diagnostic logs, depending on whether you are looking for logs for account management-related activities or data-related activities.
