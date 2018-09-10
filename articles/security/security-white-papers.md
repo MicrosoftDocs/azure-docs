@@ -10,10 +10,10 @@ editor:
 ms.assetid:
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/17/2018
+ms.date: 9/10/2018
 ms.author: tomsh
 
 ---
@@ -21,6 +21,7 @@ ms.author: tomsh
 | | |
 |-|-|
 |[Introduction&nbsp;to&nbsp;Azure&nbsp;Security](azure-security.md)|Explains the collection of security controls implemented in Azure from both the customer's and Microsoft operations' perspectives. Provides a comprehensive look at the customer-facing security controls available with Azure.|
+|[Security best practices for Azure solutions](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|A collection of security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.|
 |[Advanced threat detection](azure-threat-detection.md)|Guides you through the Azure approaches towards threat vulnerability assessments, diagnostics, and analysis. Explains how Microsoft uses advanced threat detection mechanisms to secure the platform. Also explains how Microsoft includes these mechanisms in public facing features and services.|
 |[Azure data encryption-at-rest](azure-security-encryption-atrest.md)|Focuses on how data is protected at rest across Azure and the various components taking part in the data protection implementation. Reviews the pros and cons of the different key management protection approaches.|
 |[Azure logging and auditing](azure-log-audit.md)|Provides an introduction for generating, collecting, and analyzing security logs from services hosted on Azure. These logs can help you gain security insights into your Azure deployments. |
