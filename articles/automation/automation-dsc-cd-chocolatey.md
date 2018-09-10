@@ -261,7 +261,7 @@ nupkg updated and deployed to the NuGet server. In addition, the configuration (
 be updated to agree with the new version number. It must be sent to the pull server and compiled.
 From that point on, it's up to the VMs that depend on that configuration to pull the update and
 install it. Each of these updates are simple - just a line or two of PowerShell. In the case of
-Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained
+Azure DevOps, some of them are encapsulated in build tasks that can be chained
 together in a build. This
 [article](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)
 provides more details. This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the
