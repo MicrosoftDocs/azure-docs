@@ -27682,7 +27682,7 @@
             "redirect_document_id" : true
         },
         {
-            "source_path": "articles/aks/ingress.md ",
+            "source_path": "articles/aks/ingress.md",
             "redirect_url": "/azure/aks/ingress-tls",
             "redirect_document_id" : true
         },
