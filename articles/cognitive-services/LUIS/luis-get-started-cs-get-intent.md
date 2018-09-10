@@ -14,7 +14,7 @@ ms.author: diberry
 
 # Quickstart: Analyze text using C#
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
@@ -25,15 +25,15 @@ ms.author: diberry
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## Get LUIS key
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Analyze text with browser
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
 ## Analyze text with C# 
 
@@ -59,7 +59,7 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
 
 ## LUIS keys
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
 

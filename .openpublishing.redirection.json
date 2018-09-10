@@ -4775,8 +4775,13 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-clarizen-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/clarizen-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/clarizen-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-clarizen-tutorial.md",
@@ -6125,8 +6130,13 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-replicon-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/replicon-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/replicon-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-replicon-tutorial.md",
@@ -6830,8 +6840,13 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-xmatters-ondemand-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/xmatters-ondemand-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/xmatters-ondemand-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-xmatters-ondemand-tutorial.md",
@@ -25876,6 +25891,16 @@
             "source_path": "articles/iot-hub/iot-hub-get-started.md",
             "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
+          "redirect_url": "/azure/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/index.md",

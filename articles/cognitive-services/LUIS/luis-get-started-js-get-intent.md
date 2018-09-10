@@ -14,11 +14,11 @@ ms.author: diberry
 
 # Quickstart: Analyze text using Javascript
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ ms.author: diberry
 
 ## Get LUIS key
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Analyze text with browser
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
 ## Analyze text with Javascript 
 
@@ -50,7 +50,7 @@ You can use Javascript to access the same results you saw in the browser window 
 
 ## LUIS keys
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
 
