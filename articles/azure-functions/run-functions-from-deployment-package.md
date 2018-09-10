@@ -19,7 +19,7 @@ ms.author: glenga
 > [!NOTE]
 > The functionality described in this article is not available for Functions on Linux.
 
-In Azure, you can run your functions directly from a deployment package file that is in your function app. The other option is to deploy your loose files in the `d:\home\site\wwwroot` directory of your function app.
+In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` directory of your function app.
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
@@ -31,7 +31,7 @@ There are several benefits to running from a package file:
 + Can be deployed to a production app (with restart).
 + You can be certain of the files that are running in your app.
 + Improves the performance of [Azure Resource Manager deployments](functions-infrastructure-as-code.md).
-+ May reduce cold-start times (particularly for JavaScript functions with large NPM trees.)
++ May reduce cold-start times, particularly for JavaScript functions with large npm package trees.
 
 For more information, see [this announcement](https://github.com/Azure/app-service-announcements/issues/84).
 
