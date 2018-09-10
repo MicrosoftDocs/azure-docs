@@ -13,12 +13,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: magoedte
 ---
 
 # How to onboard the Azure Monitor VM Insights 
 This article describes how to set up VM Insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
+
+## Performance Counters enabled
+VM Insights configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution and are collected every 60 seconds.
+
+### Windows performance counters
+
+|Object name |Counter name |
+|------------|-------------|
+|LogicalDisk |% Free Space |
+|LogicalDisk |Avg. Disk sec/Read |
+|LogicalDisk |Avg. Disk sec/Transfer |
+|LogicalDisk |Avg. Disk sec/Write |
+|LogicalDisk |Disk Bytes/sec |
+|LogicalDisk |Disk Read Bytes/sec |
+|LogicalDisk |Disk Reads/sec |
+|LogicalDisk |Disk Transfers/sec |
+|LogicalDisk |Disk Write Bytes/sec |
+|LogicalDisk |Disk Writes/sec |
+|LogicalDisk |Free Megabytes |
+|Memory |Available Mbytes |
+|Network Adapter |Bytes Received/sec | 
+|Network Adapter |Bytes Sent/sec | 
+|Processor |% Processor Time |
+
+### Linux performance counters
+
+|Object name |Counter name |
+|------------|-------------|
+|Logical Disk |% Used Space |
+|Logical Disk |Disk Read Bytes/sec |
+|Logical Disk |Disk Reads/sec |
+|Logical Disk |Disk Transfers/sec |
+|Logical Disk |Disk Write Bytes/sec |
+|Logical Disk |Disk Writes/sec |
+|Logical Disk |Free Megabytes |
+|Logical Disk |Logical Disk Bytes/sec |
+|Memory |Available Mbytes Memory |
+|Network |Total Bytes Received |
+|Network |Total Bytes Transmitted |
+|Processor |% Processor Time |
 
 ## Prerequisites
 Before you start, make sure that you have the following as described in the sub-sections below.
@@ -98,20 +138,16 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
 4. On the **Insights (preview)** page, select **Try VM Insights**.
 
-    ![Enable VM Insights for a VM](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
+    ![Enable VM Insights for a VM](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal.png)
 
-5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
+5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
-    The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
+    >[!NOTE]
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). Be sure to create the workspace in the same subscription that the VM is deployed to. 
 
-    ![Enable VM Insights monitoring select workspace option](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-02.png)
+After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
 
->[!NOTE]
->If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). Be sure to create the workspace in the same subscription that the VM is deployed to. 
-
-After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the virtual machine. 
-
-![Enable VM Insights monitoring deployment processing](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-03.png)
+![Enable VM Insights monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
 ## Enable with PowerShell
 To onboard multiple VMs or VM Scale Sets, you use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM Scale Set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or Scale Set specified by *Name*.  For each VM or VM Scale Set, the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
@@ -263,7 +299,6 @@ Summarized steps:
 3. Enable collection of performance counters
 4. Onboard VM Insights solution
 
-
 ### Install the Dependency agent on Windows 
 The Dependency agent can be installed manually on Windows computers by running  `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install interactively.  
 
@@ -310,6 +345,95 @@ Files for the Dependency agent are placed in the following directories:
 | Service executable files | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
+### Onboard the solution
+This method includes a JSON template that specifies the configuration to enable the solution components to your Log Analytics workspace.  
+
+If you are unfamiliar with the concept of deploying resources by using a template, see:
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+
+#### Create and execute a template
+
+1. Copy and paste the following JSON syntax into your file:
+
+    ```json
+    {
+
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "WorkspaceName": {
+            "type": "string"
+        },
+        "WorkspaceLocation": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-03-15-preview",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('WorkspaceName')]",
+            "location": "[parameters('WorkspaceLocation')]",
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+
+                    "plan": {
+                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                        "promotionCode": ""
+                    }
+                },
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                        "promotionCode": ""
+                    }
+                }
+            ]
+        }
+    ]
+    ```
+
+2. Save this file as **installsolutionsforvminsights.json ** to a local folder.
+3. Edit the values for **WorkspaceName**, **ResourceGroupName**, and **WorkspaceLocation**.  The value for **WorkspaceName** is the is the full resource ID of your Log Analytics workspace, which includes the workspace name, and the value for **WorkspaceLocation** is the region the workspace is defined in.
+4. You are ready to deploy this template using the following PowerShell command:
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    ```
+
+    The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+
+    ```powershell
+    provisioningState       : Succeeded
+    ```
+After you've enabled monitoring, it might take about 10 minutes before you can view health state and metrics for the hybrid computer. 
 
 ## Next steps
 

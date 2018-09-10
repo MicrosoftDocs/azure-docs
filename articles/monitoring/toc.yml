@@ -70,6 +70,8 @@
       items:
        - name: Overview
          href: monitoring-vminsights-overview.md
+       - name: FAQ
+         href: monitoring-vminsights-faq.md
        - name: Onboard
          href: monitoring-vminsights-onboard.md
        - name: Monitor health
