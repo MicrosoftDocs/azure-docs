@@ -4,17 +4,13 @@ description: Understand how to use Azure Functions to optimize asynchronous work
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 10/03/2017
 ms.author: glenga
 
@@ -34,7 +30,7 @@ Here are some key features of Functions:
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
 * **Simplified integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) for some examples.  
-* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/app-service-deploy-local-git.md).  
+* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/app-service-deploy-local-git.md).  
 * **Open-source** - The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## What can I do with Functions?

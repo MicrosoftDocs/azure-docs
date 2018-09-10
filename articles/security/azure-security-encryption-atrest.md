@@ -75,7 +75,7 @@ The Data Encryption Keys, encrypted with the Key Encryption Keys are stored sepa
 
 ## Data Encryption Models
 
-An understanding the various encryption models and their pros and cons is essential for understanding how the various resource providers in Azure implement encryption at Rest. These definitions are shared across all resource providers in Azure to ensure common language and taxonomy. 
+An understanding of the various encryption models and their pros and cons is essential for understanding how the various resource providers in Azure implement encryption at Rest. These definitions are shared across all resource providers in Azure to ensure common language and taxonomy. 
 
 There are three scenarios for server-side encryption:
 
