@@ -26,11 +26,13 @@ For information about configuring VM Insights, see [Configuring solution in Azur
 Sign in to the [Azure portal](https://portal.azure.com). 
 
 ## View health directly from a virtual machine 
-To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM Insights page, select the **Health** tab to switch to the health view of the VM.  
+To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM Insights page, **Health** is open by default and shows the health view of the VM.  
 
 ![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health/vminsights-health-page-01.png)
 
-On the **Health** tab, which is selected by default, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](#alerting-and-alert-management) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](#health-diagnostics) for more details. 
+On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](#alerting-and-alert-management) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](#health-diagnostics) for more details. 
+
+Under the **Component health** section, the table shows a health rollup status of the component types that are monitored by health criteria targetting that component type, specifically **CPU**, **Memory**, **Disk**, and **Network**.  
 
 If the health status is not healthy, the **Top health issues** table provides an overview of the top five health issues identified on the VM.  To see a complete list of health issues or just health state of all components, click on **See all health criteria**. 
 
