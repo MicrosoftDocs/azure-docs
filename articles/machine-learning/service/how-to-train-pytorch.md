@@ -43,7 +43,7 @@ Here, we specify the following parameters to the PyTorch constructor:
 Note that the constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 * `use_gpu`: Set this flag to `True` to leverage the GPU for training. Defaults to `False`
 
-Because you are using the PyTorch estimator, the container used for training will default include the PyTorch package and related dependencies needed for training on CPUs and GPUs.
+Since you are using the PyTorch estimator, the container used for training will default include the PyTorch package and related dependencies needed for training on CPUs and GPUs.
 
 Then, submit the PyTorch job:
 ```Python

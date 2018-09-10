@@ -42,10 +42,10 @@ Here, we specify the following parameters to the TensorFlow constructor:
 * `compute_target`: The remote compute that your training script will run on, in this case a [Managed Compute]() cluster
 * `entry_script`: The filepath (relative to the `folder` directory) of the training script to be execute on the remote compute. This file, and any additional files it depends on, should be located in this folder
 * `conda_packages`: The list of Python packages to be installed via conda needed by your training script. In this case training script uses `sklearn` for loading the data, so specify this package to be installed.  
-Note that there is another parameter to Estimator called `pip_packages` that you can use for any pip packages needed
+Note that the constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 * `use_gpu`: Set this flag to `True` to leverage the GPU for training. Defaults to `False`.
 
-Because you are using the TensorFlow estimator, the container used for training will default include the TensorFlow package and related dependencies needed for training on CPUs and GPUs.
+Since you are using the TensorFlow estimator, the container used for training will default include the TensorFlow package and related dependencies needed for training on CPUs and GPUs.
 
 Then, submit the TensorFlow job:
 ```Python
@@ -84,7 +84,7 @@ The above code exposes the following new parameters to the TensorFlow constructo
 * `process_count_per_node`: The number of processes (or "workers") to run on each node. This argument defaults to `1`
 * `backend`: The backend for launching distributed training. This argument defaults to `None`. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `backend='mpi'`. Note that the MPI implementation used by AML is [Open MPI](https://www.open-mpi.org/).
 
-The above example will run distributed training with 2 workers, one worker per node.
+The above example will run distributed training with two workers, one worker per node.
 
 Horovod and its dependencies will be installed for you, so you can simply import it in your training script `train.py` as follows:
 ```Python
@@ -138,7 +138,7 @@ TF_CONFIG='{
 
 If you are using TensorFlow's high-level [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow will parse this `TF_CONFIG` variable and build the cluster spec for you. 
 
-If you are instead using TensorFlow's lower-level core APIs for training, you will need to parse the `TF_CONFIG` variable and build the `tf.train.ClusterSpec` yourself in your training code. In [this example](), you would do so in **your training script** as follows:
+If you are instead using TensorFlow's lower-level core APIs for training, you need to parse the `TF_CONFIG` variable and build the `tf.train.ClusterSpec` yourself in your training code. In [this example](), you would do so in **your training script** as follows:
 
 ```Python
 import os, json
