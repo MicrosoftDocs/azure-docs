@@ -5,7 +5,7 @@
   - name: Authentication
     href: authentication-scenarios.md
   - name: Application types
-    href: v2-app-types.md
+    href: app-types.md
   - name: Endpoints and libraries
     href: 
 - name: Quickstarts
@@ -23,7 +23,65 @@
     href: quickstart-v1-update-azure-ad-app.md
   - name: Remove an app
     href: quickstart-v1-remove-azure-ad-app.md
+  - name: Single page apps
+    href: single-page-application.md
+    items:
+    - name: v2.0
+      displayName: MSAL
+      items:
+      - name: Angular JS
+        href: 
+      - name: JavaScript
+        href: 
+    - name: v1.0
+      displayName: ADAL
+      items:
+      - name: AngularJS
+        href: quickstart-v1-angularjs-spa.md
+      - name: JavaScript
+        href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
+  - name: Web apps
+    href: web-app.md
+    items:
+    - name: v2.0
+      displayName: MSAL
+      items:
+      - name: ASP .NET
+        href: quickstart-v2-aspnet-webapp.md
+      - name: NodeJS
+        href: 
+    - name: v1.0
+      displayName: ADAL
+      items:
+      - name: ASP .NET
+        href: quickstart-v1-aspnet-webapp.md
+      - name: NodeJS
+        href: quickstart-v1-openid-connect-code.md
+      - name: Java
+        href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+      - name: Python
+        href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+  - name: Web APIs
+    href: web-api.md
+    items:
+    - name: v2.0
+      displayName: MSAL
+      items:
+      - name: ASP .NET
+        href: 
+      - name: ASP .NET Core
+        href: 
+      - name: NodeJS
+        href: 
+    - name: v1.0
+      displayName: ADAL
+      items:
+      - name: ASP .NET
+        href: quickstart-v1-dotnet-webapi.md
+      - name: NodeJS
+        href: quickstart-v1-nodejs-webapi.md
   - name: Mobile and desktop apps
+    href: native-app.md
     items:
     - name: v2.0
       displayName: MSAL
@@ -45,61 +103,8 @@
         href: quickstart-v1-android.md
       - name: Windows Desktop .NET
         href: quickstart-v1-dotnet.md
-  - name: Web apps
-    items:
-    - name: v2.0
-      displayName: MSAL
-      items:
-      - name: ASP .NET
-        href: quickstart-v2-aspnet-webapp.md
-      - name: NodeJS
-        href: 
-    - name: v1.0
-      displayName: ADAL
-      items:
-      - name: ASP .NET
-        href: quickstart-v1-aspnet-webapp.md
-      - name: NodeJS
-        href: quickstart-v1-openid-connect-code.md
-      - name: Java
-        href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
-      - name: Python
-        href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
-  - name: Single page apps
-    items:
-    - name: v2.0
-      displayName: MSAL
-      items:
-      - name: Angular JS
-        href: 
-      - name: JavaScript
-        href: 
-    - name: v1.0
-      displayName: ADAL
-      items:
-      - name: AngularJS
-        href: quickstart-v1-angularjs-spa.md
-      - name: JavaScript
-        href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
-  - name: Web APIs
-    items:
-    - name: v2.0
-      displayName: MSAL
-      items:
-      - name: ASP .NET
-        href: 
-      - name: ASP .NET Core
-        href: 
-      - name: NodeJS
-        href: 
-    - name: v1.0
-      displayName: ADAL
-      items:
-      - name: ASP .NET
-        href: quickstart-v1-dotnet-webapi.md
-      - name: NodeJS
-        href: quickstart-v1-nodejs-webapi.md
   - name: Service to service
+    href: service-to-service.md
     items:
     - name: v2.0
       displayName: MSAL
@@ -109,7 +114,20 @@
 - name: Tutorials
   expanded: true
   items:
+  - name: v2.0 Single page apps
+    href: single-page-application.md
+    displayName: MSAL
+    items:
+    - name: JavaScript
+      href: tutorial-v2-javascript-spa.md
+  - name: v2.0 Web apps
+    href: web-app.md
+    displayName: MSAL
+    items:
+    - name: ASP .NET
+      href: tutorial-v2-asp-webapp.md
   - name: v2.0 Mobile and desktop apps
+    href: native-app.md
     displayName: MSAL
     items:
     - name: iOS
@@ -120,16 +138,6 @@
       href: tutorial-v2-windows-desktop.md
     - name: Universal Windows Platform
       href: tutorial-v2-windows-uwp.md
-  - name: v2.0 Web apps
-    displayName: MSAL
-    items:
-    - name: ASP .NET
-      href: tutorial-v2-asp-webapp.md
-  - name: v2.0 Single page apps
-    displayName: MSAL
-    items:
-    - name: JavaScript
-      href: tutorial-v2-javascript-spa.md
 - name: Samples
   expanded: true
   items:
@@ -193,11 +201,17 @@
       href: consent-framework.md
     - name: Permissions and consent
       displayName: Scopes
-      href: v1-permissions-and-consent.md
+      items:
+        - name: In the Azure AD v2.0 endpoint
+          href: v2-permissions-and-consent.md
+        - name: In the Azure AD v1.0 endpoint
+          href: v1-permissions-and-consent.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
     - name: National clouds
       href: 
+    - name: Using the Azure AD v2.0 endpoint
+      href: active-directory-v2-limitations.md
 - name: How-to guides
   items:
   - name: Convert a single-tenant app to a multi-tenant app
@@ -216,6 +230,10 @@
       href: howto-restrict-your-app-to-a-set-of-users.md
     - name: App roles
       href: howto-add-app-roles-in-azure-ad-apps.md
+  - name: Migrate from the Azure Access Control Service
+    href: active-directory-acs-migration.md
+  - name: Use the Azure AD Graph API
+    href: active-directory-graph-api-quickstart.md
   - name: Work with Visual Studio
     items:
     - name: Use the Active Directory connected service

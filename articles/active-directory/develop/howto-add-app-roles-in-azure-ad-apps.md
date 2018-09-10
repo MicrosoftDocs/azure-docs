@@ -1,5 +1,5 @@
 ---
-title: How to add app roles in your Azure Active Directory-registered application and recieve them in the token
+title: How to add app roles in your Azure Active Directory-registered application and receive them in the token
 description: Learn how to add app roles in an application registered in Azure Active Directory, assign users and groups to these roles and receive them in the `roles` claim in the token.
 services: active-directory
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
-
 ---
-# How to: Add app roles in your application and recieve them in the token
+
+# How to: Add app roles in your application and receive them in the token
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
