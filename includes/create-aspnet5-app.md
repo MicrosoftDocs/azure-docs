@@ -16,5 +16,6 @@ ms.custom: "include file"
 3. Select **ASP.NET Core Web Application**.
 4. Give your new application a name (or take the default) and select **OK**.
 5. Select **Web Application**.
-6. Check the **Enable Docker Support** checkbox and click **OK**.
+6. Check the **Enable Docker Support** checkbox.
+7. Select the type of container you want (Windows or Linux) and click **OK**.
 

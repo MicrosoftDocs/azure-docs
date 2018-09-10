@@ -18,22 +18,16 @@ ms.author: mlearned
 ---
 # Debugging apps in a local Docker container
 ## Overview
-Visual Studio 2017 provides a consistent way to develop in a Linux Docker container and validate your application locally.
+Visual Studio 2017 provides a consistent way to develop in a Docker container and validate your application locally.
 You don't have to restart the container each time you make a code change.
 This article illustrates how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container,
 make any necessary changes, and then refresh the browser to see those changes.
 This article also shows you how to set breakpoints for debugging.
 
-> [!NOTE]
-> Windows Container support will be coming in a future release
->
->
-
 ## Prerequisites
 The following tools must be installed.
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the Web Development workload installed.
 
 To run Docker containers locally, you'll need a local docker client.
 You can use the [Docker Toolbox](https://www.docker.com/products/docker-toolbox), which requires Hyper-V to be disabled,
@@ -44,10 +38,7 @@ If using Docker Toolbox, you'll need to [configure the Docker client](vs-azure-t
 ## 1. Create a web app
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2. Add Docker support
-[!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
-
-## 3. Edit your code and refresh
+## 2. Edit your code and refresh
 To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
 
 1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally.
