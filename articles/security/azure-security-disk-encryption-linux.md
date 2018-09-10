@@ -1,18 +1,12 @@
 ---
 title: Azure Disk Encryption for  Linux IaaS VMs | Microsoft Docs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 071ee0c3-2e6c-4ea9-bfc7-908865629144
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
+ms.date: 09/10/2018
 
 ---
 
@@ -31,7 +25,7 @@ Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and
 
 
 ## <a name="bkmk_RunningLinux"> </a> Enable encryption on an existing or running IaaS Linux VM
-In this scenario, you can enable encryption by using the Resource Manager template, PowerShell cmdlets, or CLI commands. 
+In this scenario, you can enable encryption by using the Resource Manager template, PowerShell cmdlets, or CLI commands. If you need schema information for the virtual machine extension, see the [Azure Disk Encryption for Linux extension](../virtual-machines/extensions/azure-disk-enc-linux.md) article.
 
 >[!IMPORTANT]
  >It is mandatory to snapshot and/or backup a managed disk based VM instance outside of, and prior to enabling Azure Disk Encryption. A snapshot of the managed disk can be taken from the portal, or [Azure Backup](../backup/backup-azure-vms-encryption.md) can be used. Backups ensure that a recovery option is possible in the case of any unexpected failure during encryption. Once a backup is made, the Set-AzureRmVMDiskEncryptionExtension cmdlet can be used to encrypt managed disks by specifying the -skipVmBackup parameter. The Set-AzureRmVMDiskEncryptionExtension command will fail against managed disk based VMs until a backup has been made and this parameter has been specified. 

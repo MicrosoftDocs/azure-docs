@@ -165,7 +165,7 @@ In this quick start, pre-created container images have been used to create a Doc
 
 In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
 
-To learn about integrating Docker swarm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
+To learn about integrating Docker swarm with Azure DevOps, continue to the CI/CD with Docker Swarm and Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [CI/CD with Docker Swarm and VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD with Docker Swarm and Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

@@ -59,7 +59,7 @@ Browse the [Automation gallery](automation-runbook-gallery.md) for runbooks and 
 
 Azure Automation manages across the lifecycle of your infrastructure and applications. Transfer knowledge into the system on how the organization delivers and maintains workloads. Author in common languages like PowerShell, desired state configuration, Python, and graphical runbooks. Get a complete inventory of deployed resources for targeting, reporting, and compliance. Identify changes that can cause misconfiguration and improve operational compliance.
 
-* **Build / Deploy resources** - Deploy VMs across a hybrid environment using Runbooks and Azure Resource Manager templates. Integrate into development tools like Jenkins and Visual Studio Team services.
+* **Build / Deploy resources** - Deploy VMs across a hybrid environment using Runbooks and Azure Resource Manager templates. Integrate into development tools like Jenkins and Azure DevOps.
 * **Configure VMs** - Assess and configure Windows and Linux machines with the desired configuration for the infrastructure and application.
 * **Monitor** - Identify changes on machines that are causing issues and remediate or escalate to management systems.
 * **Protect** - Quarantine VM if security alert is raised. Set in-guest requirements.
