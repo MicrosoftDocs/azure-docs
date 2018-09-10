@@ -123,7 +123,7 @@ To avoid any costs associated with following the tutorial procedure, a Clean up 
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-view-occupancy.md)
+<!---> [Next steps button](quickstart-view-occupancy.md)--->
 
 <!--- Required:
 Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series, or, if there are no other tutorials, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
