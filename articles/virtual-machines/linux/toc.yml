@@ -41,7 +41,7 @@
     href: tutorial-azure-security.md
   - name: 13 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 14 - CI/CD with Team Services
+  - name: 14 - CI/CD with Azure Pipelines
     href: tutorial-build-deploy-jenkins.md
   - name: 15a - Create LAMP stack
     href: tutorial-lamp-stack.md
@@ -200,7 +200,7 @@
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
       items:
-        - name: Red Hat Enteprise Linux
+        - name: Red Hat Enterprise Linux
           href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
         - name: CentOS
           href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
@@ -230,9 +230,11 @@
       href: metrics-vm-usage-rest.md
   - name: Manage costs
     items:
-    - name: Prepay for VMs - Azure reservations
-      href: prepay-reserved-vm-instances.md
-    - name: What are Azure reservations?
+    - name: Prepay for VMs - Azure Reservations
+      href: prepay-reserved-vm-instances.md       
+    - name: Prepay for SUSE software  
+      href: prepay-suse-software-charges.md 
+    - name: What are Azure Reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md

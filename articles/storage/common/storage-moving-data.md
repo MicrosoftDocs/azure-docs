@@ -2,20 +2,21 @@
 title: Moving large amounts of data to/from cloud storage in Azure | Microsoft Docs
 description: An overview of the different methods for moving data to and from Azure Storage.
 services: storage
-author: JarrettRenshaw
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jarrettr
+ms.date: 08/26/2018
+ms.author: tamram
 ms.component: common
 ---
+
 # Moving data to and from Azure Storage
 If you want to move on-premises data to Azure Storage (or vice versa), there are a variety of ways to do this. The approach that works best for you will depend on your scenario. This article will provide a quick overview of different scenarios and appropriate offerings for each one.
 
 ## Building Applications
 If you're building an application, developing against the REST API or one of our many client libraries is a great way to move data to and from Azure Storage.
 
-Azure Storage provides rich client libraries for .NET, iOS, Java, Android, Universal Windows Platform (UWP), Xamarin, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+Azure Storage provides rich client libraries for many popular languages, including .NET, Java, Android, Go, Xamarin, C++, Node.JS, PHP, Ruby, Python, and iOS. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
 See [Get Started with Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md) to learn more.
 
