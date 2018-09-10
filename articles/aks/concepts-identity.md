@@ -67,7 +67,7 @@ A ClusterRoleBinding works in the same way to bind roles to users, but can be ap
 
 ## Next steps
 
-To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-Azure AD].
+To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
 
 For additional information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -86,7 +86,7 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-Azure AD]: Azure AD-integration.md
+[aks-aad]: Azure AD-integration.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md
