@@ -332,7 +332,7 @@ Next steps:
 
 
 ## SAP HANA on Azure Virtual Machines
-This section of the documentation covers different aspects of SAP HANA. As precondition, you should be familiar with the principle services of Azure that provide elementary services of Azure IaaS. so mostly knowledge of Azure compute, storage and networking. A lot of those topics are handled in the SAP NetWeaver related [Azure Planning Guide](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide). 
+This section of the documentation covers different aspects of SAP HANA. As precondition, you should be familiar with the principle services of Azure that provide elementary services of Azure IaaS. so mostly knowledge of Azure compute, storage, and networking. A lot of those topics are handled in the SAP NetWeaver related [Azure Planning Guide](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide). 
 
 The documentation specific for HANA on Azure consists out of this list of articles and heir sub-articles:
 
