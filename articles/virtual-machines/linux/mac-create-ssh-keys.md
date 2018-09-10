@@ -34,7 +34,7 @@ For additional ways to generate and use SSH keys on a Windows computer, see [How
 
 ## Create an SSH key pair
 
-Use the `ssh-keygen` command to generate SSH public and private key files. By default, these files are created in the `~/.ssh` directory. You can specify a different location, and an optional password (*passphrase*) to access the private key file. If an SSH key pair with the same name exists in the given location, those files are overwritten.
+Use the `ssh-keygen` command to generate SSH public and private key files. By default, these files are created in the ~/.ssh directory. You can specify a different location, and an optional password (*passphrase*) to access the private key file. If an SSH key pair with the same name exists in the given location, those files are overwritten.
 
 The following command creates an SSH key pair using RSA encryption and a bit length of 2048:
 
@@ -42,7 +42,7 @@ The following command creates an SSH key pair using RSA encryption and a bit len
 ssh-keygen -t rsa -b 2048
 ```
 
-If you use the [Azure CLI 2.0](/cli/azure) to create your VM with the `[az vm create](/cli/azure/vm#az-vm-create)` command, you can optionally generate SSH public and private key files using the `--generate-ssh-keys` option. The key files are stored in the `~/.ssh` directory unless specified otherwise with the `--ssh-dest-key-path` option. The `--generate-ssh-keys` option will not overwrite existing key files, instead returning an error. In the following command, replace *VMname* and *RGname* with your own values:
+If you use the [Azure CLI 2.0](/cli/azure) to create your VM with the `[az vm create](/cli/azure/vm#az-vm-create)` command, you can optionally generate SSH public and private key files using the `--generate-ssh-keys` option. The key files are stored in the ~/.ssh directory unless specified otherwise with the `--ssh-dest-key-path` option. The `--generate-ssh-keys` option will not overwrite existing key files, instead returning an error. In the following command, replace *VMname* and *RGname* with your own values:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --generate-ssh-keys 
@@ -84,7 +84,7 @@ With the public key deployed on your Azure VM, and the private key on your local
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-If you specified a passphrase when you created your key pair, enter that passphrase when prompted during the login process. The VM is added to your `~/.ssh/known_hosts` file, and you won't be asked to connect again until either the public key on your Azure VM changes or the server name is removed from `~/.ssh/known_hosts`.
+If you specified a passphrase when you created your key pair, enter that passphrase when prompted during the login process. The VM is added to your ~/.ssh/known_hosts file, and you won't be asked to connect again until either the public key on your Azure VM changes or the server name is removed from ~/.ssh/known_hosts.
 
 ## Next steps
 
