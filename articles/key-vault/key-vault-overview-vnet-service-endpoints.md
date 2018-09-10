@@ -9,7 +9,7 @@ manager: mbaldwin
 ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ---
 # Virtual Network Service Endpoints for Azure Key Vault
 
