@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/24/2018
 ---
-# What happened to Workbench in Azure Machine Learning?
+# What happened to Workbench in Azure Machine Learning (preview)?
 
 The Workbench application and some other early features were deprecated in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to better your experience. The core functionality from experiment execution to model deployment has not changed, but now you can use the robust SDK and CLI to accomplish your machine learning tasks and pipelines.  
 
@@ -27,8 +27,6 @@ The latest release of Azure Machine Learning includes:
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can create workspaces quickly in the [Azure portal](quickstart-get-started.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 While there are new improved CLI and SDK clients in the current release, the desktop Workbench application itself was deprecated. You can still monitor your experiments, but now you'll do so in workspace dashboard in the Azure web portal. Use the dashboard to run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## How do I migrate?
 
@@ -48,7 +46,7 @@ You can continue to use your experimentation and model management accounts as we
 
 [Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new [SDK](reference-azure-machine-learning-sdk.md), [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
 
-You can still find the documentation for the old features at the bottom of the Resources section of the [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
+You can still find the documentation for the old features in the Resources section at the bottom of the [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
 ## What about run histories?
 
