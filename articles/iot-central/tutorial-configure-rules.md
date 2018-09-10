@@ -43,7 +43,7 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     ![Rules view](media/tutorial-configure-rules/builderrulesview.png)
 
-4. To start creating the threshold-based telemetry rule, choose **New Rule**, then **Telemetry**.
+4. To start creating the threshold-based telemetry rule, select **Edit Template**, click **New Rule**, and then **Telemetry**.
 
 5. To define your rule, use the information in the following table:
 

@@ -12,7 +12,7 @@ ms.author: sewatson
 ---
 
 # App Service Documentation
-Azure App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure nor the language or web framework runtime. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
+Azure App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure nor the language or web framework runtime. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps Services, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
 
 ## Windows, Linux, and Docker
 [Web Apps](/app-service/app-service-web-overview) is App Service's main offering for building and hosting web applications using Windows environments. Developers who prefer a Linux environment may choose [App Service for Linux](/app-service/containers/app-service-linux-intro). Developers can also deploy Docker images directly into App Service for Linux to deploy custom runtimes/frameworks.

@@ -19,7 +19,7 @@ ms.author: daveba
 
 # How to use managed identities for Azure resources on an Azure VM with Azure SDKs 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 This article provides a list of SDK samples, which demonstrate use of their respective Azure SDK's support for managed identities for Azure resources.
 
 ## Prerequisites

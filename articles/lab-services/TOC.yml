@@ -161,7 +161,7 @@
       href: devtest-lab-scale-lab.md
     - name: Integrate with CI/CD
       items:
-      - name: Integrate labs into your VSTS CI/CD pipeline
+      - name: Integrate labs into your Azure DevOps CI/CD pipeline
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Create or modify labs using Resource Manager template
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
