@@ -545,7 +545,7 @@
           href: service-fabric-node-transition-apis.md
     - name: Set up continuous integration
       items:
-      - name: Set up continuous integration with VSTS
+      - name: Set up continuous integration with Azure Pipelines
         href: service-fabric-set-up-continuous-integration.md
       - name: Deploy your Linux applications using Jenkins
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
