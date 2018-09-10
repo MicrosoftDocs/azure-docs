@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Validate a new Azure Stack solution
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Learn how to you can use the solution validation workflow for certifying new Azure Stack solutions.
 
