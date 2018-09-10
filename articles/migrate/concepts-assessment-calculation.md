@@ -1,11 +1,11 @@
 ---
 title: Assessment calculations in Azure Migrate | Microsoft Docs
 description: Provides an overview of assessment calculations in the Azure Migrate service.
-author: rayne-wiselman, snehaamicrosoft
+author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: raynew, snehaa
+ms.author: raynew
 ---
 
 # Assessment calculations

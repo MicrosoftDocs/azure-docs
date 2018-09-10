@@ -1,11 +1,11 @@
 ---
 title: Collector appliance in Azure Migrate | Microsoft Docs
 description: Provides an overview of the Collector appliance and how to configure it.
-author: ruturaj, snehaamicrosoft
+author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: ruturajd, snehaa
+ms.author: ruturajd
 services: azure-migrate
 ---
 
