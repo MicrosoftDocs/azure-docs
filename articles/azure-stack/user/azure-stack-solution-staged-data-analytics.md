@@ -46,7 +46,7 @@ In this tutorial, you will build a sample environment to:
 
 Some preparation is required to build this use case:
 
--   An installed and functioning Azure Stack (more information can be found here: [Azure Stack overview)](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-storage-overview)
+-   An installed and functioning Azure Stack (more information can be found here: [Azure Stack overview)](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview)
 
 -   An Azure subscription. (Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -58,7 +58,7 @@ Some preparation is required to build this use case:
 
 ### Scalability considerations
 
-Azure functions and storage solutions scale to meet data volume and processing demands. For Azure scalability information and targets, see [Azure scalability documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets).
+Azure functions and storage solutions scale to meet data volume and processing demands. For Azure scalability information and targets, see [Azure scalability documentation](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 
 ### Availability considerations
 

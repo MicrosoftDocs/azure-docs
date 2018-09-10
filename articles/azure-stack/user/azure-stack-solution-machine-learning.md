@@ -229,7 +229,7 @@ apt-get -y dist-upgrade
 apt-get -y autoremove
 ```
 
-## Deploy Azure Machine Learning Services in Azure to build and train models
+## Deploy Azure Machine Learning Services in Azure
 
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
