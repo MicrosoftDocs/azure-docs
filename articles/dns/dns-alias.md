@@ -55,4 +55,4 @@ To lean more about alias records, see the follwing articles:
 
 - [Tutorial: Configure an alias record to refer to an Azure Public IP address](tutorial-alias-pip.md)
 - [Tutorial: Configure an alias record to support apex domain names with Traffic Manager](tutorial-alias-tm.md)
-- [DNS FAQ](https://docs.microsoft.com/en-us/azure/dns/dns-faq#alias-records)
+- [DNS FAQ](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
