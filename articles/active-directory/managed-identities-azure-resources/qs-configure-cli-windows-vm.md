@@ -116,7 +116,7 @@ To remove the managed identity for Azure resources VM extension (planned for dep
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
 ```
 
-## user-assigned managed identity
+## User-assigned managed identity
 
 In this section, you will learn how to add and remove a user-assigned managed identity from an Azure VM using Azure CLI.
 
