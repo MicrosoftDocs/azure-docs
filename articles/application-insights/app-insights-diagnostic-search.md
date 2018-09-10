@@ -129,13 +129,13 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 [Learn about sampling](app-insights-sampling.md).
 
 ## Create work item
-You can create a bug in GitHub or Visual Studio Team Services with the details from any telemetry item. 
+You can create a bug in GitHub or Azure DevOps with the details from any telemetry item. 
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
 
-The first time you do this, you are asked to configure a link to your Team Services account and project.
+The first time you do this, you are asked to configure a link to your Azure DevOps organization and project.
 
-![Fill the URL of your Team Services server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
+![Fill the URL of your Azure DevOps Services and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
 
 (You can also configure the link on the Work Items blade.)
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/09/2018
 ms.author: barbkess
 
 ---
@@ -62,7 +62,7 @@ The following features are supported by any of the preceding four application ty
 
 The following table describes the different single sign-on and provisioning modes supported by each of the preceding application types. You can use this table to help you to understand which application you need to add to support a specific goal.
 
-  ![App types table](./media/application-tables/table1.png)
+  ![App types table](./media/application-config-add-app-problem-how-to-choose-application-type/table1.png)
 
 ## How to choose a single sign-on mode
 
