@@ -4,13 +4,10 @@ description: Azure Functions supports multiple versions of the runtime. Learn ho
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: glenga
 
