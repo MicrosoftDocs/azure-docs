@@ -3,12 +3,12 @@ title: Understand the prediction score returned by LUIS
 titleSuffix: Azure Cognitive Services
 description: Learn what the prediction score means in LUIS
 services: cognitive-services
-author: diberry
+author: nitinme
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
