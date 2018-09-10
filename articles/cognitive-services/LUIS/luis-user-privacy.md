@@ -5,7 +5,6 @@ description: Language Understanding Intelligent Service (LUIS) preserves custome
 services: cognitive-services
 author: diberry
 manager: cjgronlund
-
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
