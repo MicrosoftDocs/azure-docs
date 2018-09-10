@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
 ---
@@ -62,8 +62,7 @@ Perform the following steps to prepare the drives.
         ```
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            "F:\MyFolder3\MyFile3.txt","MyAzureFileshare2/",file,rename,"None",None 
-            
+                        
         ```
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
