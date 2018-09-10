@@ -1,0 +1,78 @@
+- name: 'Overview'
+  items:
+  - name: What's new in Azure Active Directory
+    href: whats-new.md
+- name: 'Quickstarts'
+  items:
+  - name: Access the Azure Active Directory portal and create a new tenant
+    href: active-directory-access-azure-ad.md
+  - name: Create your new Azure Active Directory tenant
+    href: active-directory-create-new-tenant.md
+  - name: View your groups with assigned members
+    href: active-directory-groups-view-azure-portal.md
+  - name: Sign up for Azure AD Premium
+    href: active-directory-get-started-premium.md
+- name: 'Concepts'
+  items:
+  - name: What is Azure Active Directory?
+    href: active-directory-whatis.md
+  - name: Groups and access management
+    href: active-directory-manage-groups.md
+  - name: What is group-based licensing
+    href: active-directory-licensing-whatis-azure-portal.md
+  - name: What is the Azure AD architecture?
+    href: active-directory-architecture.md
+  - name: What default permissions are assigned to users?
+    href: users-default-permissions.md
+  - name: Storage of Azure AD identity data for European customers
+    href: active-directory-data-storage-eu.md
+  - name: What's the difference between the Azure AD portal and the Azure AD admin center?
+    href: active-directory-portal-vs-admin-center.md
+- name: 'How-to guides'
+  items:
+    - name: 'Organization'
+      items:
+      - name: Sign up for Azure Active Directory as an organization
+        href: sign-up-organization.md
+      - name: Add a custom domain name to Azure Active Directory
+        href: add-custom-domain.md
+      - name: Add company branding to your sign-in page in Azure Active Directory
+        href: customize-branding.md
+      - name: Associate an Azure subscription to Azure Active Directory
+        href: active-directory-how-subscriptions-associated-directory.md
+  - name: 'Groups'
+    items:
+    - name: Create a basic group and add members
+      href: active-directory-groups-create-azure-portal.md
+    - name: Add or remove members from a group
+      href: active-directory-groups-members-azure-portal.md
+    - name: Delete a group and its members
+      href: active-directory-groups-delete-group.md
+    - name: Add or remove a group from another group
+      href: active-directory-groups-membership-azure-portal.md
+    - name: Edit your group information
+      href: active-directory-groups-settings-azure-portal.md
+    - name: Add or remove Azure Active Directory group owners
+      href: active-directory-accessmanagement-managing-group-owners.md
+  - name: 'Users'
+    items:
+    - name: Add or delete a new user
+      href: add-users-azure-active-directory.md
+    - name: Add or change user profile information
+      href: active-directory-users-profile-azure-portal.md
+    - name: Reset a user's password
+      href: active-directory-users-reset-password-azure-portal.md
+    - name: Assign roles to users
+      href: active-directory-users-assign-role-azure-portal.md
+    - name: Assign or remove licenses from users
+      href: license-users-groups
+    - name: Restore a deleted user
+      href: active-directory-users-restore.md
+- name: 'Resources'
+  items:
+  - name: Get support for Azure Active Directory
+    href: active-directory-troubleshooting-support-howto.md
+  - name: Azure Active Directory FAQ
+    href: active-directory-faq.md
+  - name: Azure Active Directory deployment plans
+    href: active-directory-deployment-plans.md
