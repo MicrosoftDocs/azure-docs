@@ -687,20 +687,18 @@
         href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor other resources
       items:
+      - name: Assess AD Health
+        href: ../log-analytics/log-analytics-ad-assessment.md?toc=/azure/azure-monitor/toc.json
       - name: AD Replication Status
         href: ../log-analytics/log-analytics-ad-replication-status.md?toc=/azure/azure-monitor/toc.json
       - name: DNS
         href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
       - name: Office 365
         href: ../operations-management-suite/oms-solution-office-365.md?toc=/azure/azure-monitor/toc.json
+      - name: Assess Operations Manager
+        href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
       - name: Surface Hub
         href: ../log-analytics/log-analytics-surface-hubs.md?toc=/azure/azure-monitor/toc.json
-    - name: Assesments
-      items: 
-      - name: AD Health Assessment
-        href: ../log-analytics/log-analytics-ad-assessment.md?toc=/azure/azure-monitor/toc.json
-      - name: Operations Manager
-        href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
     - name: Use monitoring solutions
       items:
       - name: Overview
