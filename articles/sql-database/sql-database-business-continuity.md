@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: "On Demand"
-ms.date: 07/25/2018
+ms.date: 09/10/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -67,7 +67,8 @@ Use automated backups and [point-in-time restore](sql-database-recovery-using-ba
 * Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss.
 * Is cost sensitive.
 
-If you need faster recovery, use [active geo-replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md). 
+If you need faster recovery, use [failover groups](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+) (discussed next). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md). 
 
 ## Recover a database to another region
 <!-- Explain this scenario -->
@@ -76,9 +77,7 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 
 * One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
 * Another option is to restore a database on any server in any Azure region using [geo-redundant database backups](sql-database-recovery-using-backups.md#geo-restore) (geo-restore). Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage.
-* Finally, you can quickly promote a secondary on another data region to become the primary (also called a failover) and configure applications to connect to the promoted primary if you are using active geo-replication. There may be some small amount of data loss for recent transactions due to the nature of asynchronous replication. Using auto-failover groups, you can customize the failover policy to minimize the potential data loss. In all cases, users experience a small amount of downtime and need to reconnect. Failover takes only a few seconds while database recovery from backups takes hours.
-
-In order to fail over to another region, you can use [active geo-replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. 
+* Finally, you can quickly recover from an outage if you have configured a [auto-failover group](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) for your database or databases. Using auto-failover groups, you can customize the failover policy to minimize the potential data loss. In all cases, users experience a small amount of downtime and need to reconnect. Failover takes only a few seconds while database recovery from backups takes hours. The failover may result in small data loss due to the nature of asynchronous replication. See the earlier table in this article for details of the RPO.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -132,6 +131,11 @@ After recovery from either recovery mechanism, you must perform the following ad
 * Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://msdn.microsoft.com/library/ff929188.aspx))
 * Configure auditing, as appropriate
 * Configure alerts, as appropriate
+
+> [!NOTE]
+> If you are using a failover group to recover and connect to the databases using the read-write lstener,  the redirection after failover will happen automatically and transparently to the application.  
+>
+>
 
 ## Upgrade an application with minimal downtime
 Sometimes an application must be taken offline because of planned maintenance such as an application upgrade. [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md) describes how to use active geo-replication to enable rolling upgrades of your cloud application to minimize downtime during upgrades and provide a recovery path if something goes wrong. 
