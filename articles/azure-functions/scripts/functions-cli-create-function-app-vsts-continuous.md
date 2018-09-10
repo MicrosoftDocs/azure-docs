@@ -3,11 +3,11 @@ title: Create a function in Azure that is deployed from Azure DevOps | Microsoft
 description: Create a Function App and deploy function code from Azure DevOps
 services: functions 
 keywords: 
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ---
 # Create a function app and deploy function code from Azure DevOps
