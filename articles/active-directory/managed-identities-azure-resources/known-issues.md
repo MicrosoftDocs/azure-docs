@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQs and known issues with managed identities for Azure resources
 description: Known issues with managed identities for Azure resources.
 services: active-directory
@@ -19,9 +19,12 @@ ms.author: daveba
 
 # FAQs and known issues with managed identities for Azure resources
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## Frequently Asked Questions (FAQs)
+
+> [!NOTE]
+> Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
 ### Does managed identities for Azure resources work with Azure Cloud Services?
 
@@ -44,7 +47,7 @@ When using managed identities for Azure resources with VMs, we encourage using t
 3. The certificates used by managed identities for Azure resources are no longer present in the VM. 
 4. The IMDS endpoint is a well-known non-routable IP address, only available from within the VM. 
 
-The managed identities for Azure resources VM extension is still available to be used today; however, moving forward we will default to using the IMDS endpoint. The managed identities for Azure resources VM extension will start on a deprecation plan soon. 
+The managed identities for Azure resources VM extension is still available to be used today; however, moving forward we will default to using the IMDS endpoint. The managed identities for Azure resources VM extension will be deprecated in January 2019. 
 
 For more information on Azure Instance Metadata Service, see [IMDS documentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -52,7 +55,7 @@ For more information on Azure Instance Metadata Service, see [IMDS documentation
 
 All Linux distributions supported by Azure IaaS can be used with managed identities for Azure resources via the IMDS endpoint. 
 
-Note: The managed identities for Azure resources VM Extension only supports the following Linux distributions:
+Note: The managed identities for Azure resources VM Extension (planned for deprecation in January 2019) only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -82,9 +85,9 @@ When managed identities for Azure resources is enabled on a VM, the following er
 
 ![Managed identities for Azure resources automation script export error](./media/msi-known-issues/automation-script-export-error.png)
 
-The managed identities for Azure resources VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
+The managed identities for Azure resources VM extension (planned for deprecation in January 2019) does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
 
-When the schema export functionality becomes available for the managed identities for Azure resources VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+When the schema export functionality becomes available for the managed identities for Azure resources VM extension (planned for deprecation in January 2019), it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### Configuration blade does not appear in the Azure portal
 
@@ -120,11 +123,11 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - user-assigned Identity assignments are only available for VM and VMSS. IMPORTANT: user-assigned Identity assignments will change in the upcoming months.
 - Duplicate user-assigned Identities on the same VM/VMSS, will cause the VM/VMSS to fail. This includes identities that are added with different casing. e.g. MyUserAssignedIdentity and myuserassignedidentity. 
-- Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
+- Provisioning of the VM extension (planned for deprecation in January 2019) to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
 - Adding a 'non-existent' user-assigned identity will cause the VM to fail. 
 - Creating a user-assigned identity with special characters (i.e. underscore) in the name, is not supported.
 - user-assigned identity names are restricted to 24 characters for end to end scenario. user-assigned identities with names longer than 24 characters will fail to be assigned.
-- If using the managed identity virtual machine extension, the supported limit is 32 user-assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512.  
+- If using the managed identity virtual machine extension (planned for deprecation in January 2019), the supported limit is 32 user-assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512.  
 - When adding a second user-assigned identity, the clientID might not be available to requests tokens for the VM extension. As a mitigation, restart the managed identities for Azure resources VM extension with the following two bash commands:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
