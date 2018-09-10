@@ -1,14 +1,14 @@
 ---
-title: Publish your LUIS app to the prediction endpoint - Azure Cognitive Services | Microsoft Docs
+title: Publish your LUIS app to the prediction endpoint
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
-titleSuffix: Azure
-author: diberry
+titleSuffix: Azure Cognitive Services
+author: nitinme
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 

@@ -1,13 +1,14 @@
 ---
-title: Use Microsoft Azure Traffic Manager to increase endpoint quota in Language Understanding (LUIS) - Azure Cognitive Services  | Microsoft Docs
+title: Use Microsoft Azure Traffic Manager to increase endpoint quota in Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offers the ability to increase the endpoint request quota beyond a single key's quota. This is done by creating more keys for LUIS and adding them to the LUIS application on the **Publish** page in the **Resources and Keys** section.
-author: diberry
+author: ntinme
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.author: diberry
 #Customer intent: As an advanced user, I want to understand how to use multiple LUIS endpoint keys to increase the number of endpoint requests my application receives.
 ---
