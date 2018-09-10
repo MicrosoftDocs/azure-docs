@@ -229,13 +229,9 @@
       items:
       - name: Release notes
         href: active-directory-b2c-developer-notes-custom.md
-      - name: SSO session providers
-        href: active-directory-b2c-reference-sso-custom.md
-      - name: Language customization
-        href: active-directory-b2c-language-customization-custom.md
       - name: Trust Framework definition
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
-      - name: Identity Experience Framework  schema
+      - name: Identity Experience Framework schema
         items:
         - name: TrustFrameworkPolicy
           href: trustframeworkpolicy.md
@@ -298,6 +294,8 @@
               href: saml-technical-profile.md
             - name: Self-asserted
               href: self-asserted-technical-profile.md
+            - name: SSO session
+              href: active-directory-b2c-reference-sso-custom.md
             - name: Validation
               href: validation-technical-profile.md
         - name: UserJourneys

@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/16/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # ClaimsTransformations
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 The **ClaimsTransformations** element contains a list of claims transformation functions that can be used in user journeys as part of a [custom policy](active-directory-b2c-overview-custom.md). A claims transformation converts a given claim into another one. In the claims transformation, you specify the transform method, for example adding an item to a string collection or changing the case of a string.
 

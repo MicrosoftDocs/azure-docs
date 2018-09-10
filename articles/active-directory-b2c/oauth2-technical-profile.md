@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Define a OAuth2 technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory (Azure AD) B2C provides support for the OAuth2 protocol identity provider. This is the primary protocol for authorization and delegated authentication. For more information, see the [RFC 6749 The OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749). With OAuth2 technical profile you can federate with an OAuth2 based identity provider, such as Facebook and Live.com, allowing you users to sign-in with their existing social or enterprise identities.
 
@@ -83,6 +85,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | ClaimsEndpointFormatName | No | The name of the format query string parameter. For example, you can set the name as `format` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ClaimsEndpointFormat | No | The value of the format query string parameter. For example, you can set the value as `json` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | No | The name of the identity provider. |
+| response_mode | No | The method that the identity provider uses to send the result back to Azure AD B2C. Possible values: `query`, `form_post` (default), or `fragment`. |
 | scope | No | The scope of the access request defined according to the OAuth2 identity provider specification. Such as `openid`, `profile`, and `email`. |
 | HttpBinding | No | The expected HTTP binding to the access token and claims token endpoints. Possible values: `GET` or `POST`.  |
 | ResponseErrorCodeParamName | No | The name of the parameter that contains the error message returned over HTTP 200 (Ok). |

@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # About technical profiles
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 A technical profile provides a framework with a built-in mechanism to communicate with different type of parties using a custom policy in Azure Active Directory (Azure AD) B2C. Technical profiles are used to communicate with your Azure AD B2C tenant, to create a user, or read a user profile. A technical profile can be self-asserted to enable interaction with the user. For example, collect the user's credential to sign in and then render the sign-up page or password reset page. 
 

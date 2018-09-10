@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Define a self-asserted technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 All interactions in Azure Active Directory (Azure AD) B2C where the user is expected to provide input are self-asserted technical profiles. For example, a sign-up page, sign-in page, or password reset page.
 

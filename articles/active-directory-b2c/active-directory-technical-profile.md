@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Define an Azure Active Directory technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory (Azure AD) B2C provides support for the Azure Active Directory user management. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol.
 

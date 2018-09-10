@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/17/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# ContentDefinitions 
+# ContentDefinitions
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 You can customize the look and feel of any [self-asserted technical profile](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C runs code in your customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). 
 

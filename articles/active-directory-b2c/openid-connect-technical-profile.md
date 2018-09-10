@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Define a OpenId Connect technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols.  With OpenId Connect technical profile you can federate with an OpenId Connect based identity provider, such as Azure AD, allowing you users to sign-in with their existing social or enterprise identities.
 
@@ -74,7 +76,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | METADATA | Yes | A URL that points to a JSON configuration document formatted according to the OpenID Connect Discovery specification, which is also known as a well-known openid configuration endpoint. |
 | ProviderName | No | The name of the identity provider. |
 | response_types | No | The response type according to the OpenID Connect Core 1.0 specification. Possible values: `id_token`, `code`, or `token`. |
-| response_mode | No | The response mode. |
+| response_mode | No | The method that the identity provider uses to send the result back to Azure AD B2C. Possible values: `query`, `form_post` (default), or `fragment`. |
 | scope | No | The scope of the access request defined according to the OpenID Connect Core 1.0 specification. Such as `openid`, `profile`, and `email`. |
 | HttpBinding | No | The expected HTTP binding to the access token and claims token endpoints. Possible values: `GET` or `POST`.  |
 | ValidTokenIssuerPrefixes | No | A key that can be used to sign in to each of the tenants when using a multi-tenant identity provider such as Azure Active Directory. |

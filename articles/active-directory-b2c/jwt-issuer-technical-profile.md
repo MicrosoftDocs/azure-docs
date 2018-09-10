@@ -8,14 +8,16 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Define a technical profile for a JWT token issuer in an Azure Active Directory B2C custom policy
 
-Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each authentication flow. A technical profile for a JWT token issuer emits a JWT token that is returned back to the relying party application. Usually this technical profile is the last orchestration step in the user journey.
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
+Azure Active Directory (Azure AD) B2C emits several types of security tokens as it processes each authentication flow. A technical profile for a JWT token issuer emits a JWT token that is returned back to the relying party application. Usually this technical profile is the last orchestration step in the user journey.
 
 ## Protocol
 

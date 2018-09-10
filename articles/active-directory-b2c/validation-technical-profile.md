@@ -8,12 +8,14 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Define a validation technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
  
 A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims or returns an HTTP 409 error message (Conflict response status code), with the following data:
 

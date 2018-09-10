@@ -15,6 +15,8 @@ ms.component: B2C
 
 # General claims transformations
 
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 This article provides examples for using general claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## DoesClaimExist
