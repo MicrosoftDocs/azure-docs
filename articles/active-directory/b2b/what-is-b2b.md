@@ -22,6 +22,7 @@ Azure Active Directory (Azure AD) business-to-business (B2B) collaboration lets 
 Watch the video learn how you can securely collaborate with guest users by inviting them to sign in to your company's apps and services using their own identities.
 
 The following video provides a useful overview.
+
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 ## Collaborate with any partner using their identities
