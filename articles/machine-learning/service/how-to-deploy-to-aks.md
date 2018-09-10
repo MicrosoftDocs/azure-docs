@@ -76,7 +76,6 @@ Azure Kubernetes Service uses Docker images. To create the image, use the follow
 
 1. To create the image, use the model and image configuration. This operation may take around 5 minutes to complete:
 
-
     ```python
     image = ContainerImage.create(name = "myimage1",
                                     # this is the model object
