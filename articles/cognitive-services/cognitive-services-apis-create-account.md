@@ -1,7 +1,7 @@
 ---
-title: Create a Cognitive Services API resource in the Azure portal
+title: "Quickstart: Create and access Azure Cognitive Services using Azure resources"
 titleSuffix: Microsoft Docs
-description: Learn how to create and access Azure Cognitive Services APIs.
+description: Learn how to create and access Azure Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -19,7 +19,7 @@ ms.reviewer: gibattag
 
 ---
 
-# Create and access a Cognitive Services API resource in the Azure portal
+# Quickstart: Create and access Cognitive Services using Azure resources
 
 Before accessing Azure Cognitive Services, you must create and subscribe to at least one Cognitive Services [resource](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal). These resources enable you to connect to one or more of the many Cognitive Services APIs available.
 
