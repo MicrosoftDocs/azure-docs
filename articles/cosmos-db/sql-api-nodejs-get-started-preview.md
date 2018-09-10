@@ -4,7 +4,7 @@ description: A Node.js tutorial that demonstrates how to connect to and query Az
 keywords: node.js tutorial, node database
 services: cosmos-db
 author: deborahc
-manager: andrl
+manager: kfile
 editor: monicar
 
 ms.service: cosmos-db
@@ -20,10 +20,11 @@ ms.author: dech
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js - v2.0 Preview](sql-api-nodejs-get-started-preview.md)
-> * [Node.js for MongoDB](mongodb-samples.md)
 > * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
+> 
 
 
 Welcome to the Node.js tutorial for the Azure Cosmos DB JavaScript SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.

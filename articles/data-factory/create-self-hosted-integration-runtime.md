@@ -27,16 +27,16 @@ This document introduces how you can create and configure Self-hosted IR.
 1. Create a Self-hosted integration runtime. You can use ADF UI for creating the self-hosted IR. Here is a PowerShell example:
 
 	```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
 2. Download and install self-hosted integration runtime (on local machine).
 3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
 
-## Setting up self-hosted IR on Azure VM using Azure Resource Manager Template (automatation)
+## Setting up self-hosted IR on Azure VM using Azure Resource Manager Template (automation)
 You can automate self-hosted IR setup on an Azure VM using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This provides an easy way to have a fully functioning Self-hosted IR inside Azure VNet with High Avalaibility and Scalability feature (as long as you set node count to be 2 or higher).
 
 ## Command flow and data flow
@@ -153,6 +153,8 @@ In the self-hosted IR to be shared,
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. Note the **Resource ID** of the self-hosted IR to be shared.
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -164,6 +166,20 @@ In the Data Factory to which the permissions were granted,
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### Monitoring 
+
+- **Shared IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **Linked IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### Known limitations of self-hosted IR sharing
 
@@ -183,6 +199,8 @@ created implicitly, however, data factories created with Azure Resource Manager 
 6. The Azure PowerShell which support this feature is version >= 6.6.0
 (AzureRM.DataFactoryV2 >= 0.5.7)
 
+7. To Grant permission, the user will require "Owner" role or inherited "Owner" role in the Data Factory where the Shared IR exists. 
+
   > [!NOTE]
   > This feature is only available in Azure Data Factory version 2 
 
@@ -201,7 +219,7 @@ At **corporate firewall** level, you need configure the following domains and ou
 
 Domain names | Ports | Description
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Used for communication with Data Movement Service backend
+*.servicebus.windows.net | 443 | Used for communication with Data Movement Service backend
 *.core.windows.net | 443 | Used for Staged copy using Azure Blob (if configured)
 *.frontend.clouddatahub.net | 443 | Used for communication with Data Movement Service backend
 download.microsoft.com | 443 | Used for downloading the updates

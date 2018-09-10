@@ -4,8 +4,18 @@
   items:
   - name: About SQL Data Warehouse
     href: sql-data-warehouse-overview-what-is.md
+  - name: SQL Data Warehouse architecture
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: Data warehouse units
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
+  - name: Best practices
+    href: sql-data-warehouse-best-practices.md
+  - name: Capacity limits
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: FAQ
+    href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
   items:
     - name: August 2018 
@@ -27,13 +37,13 @@
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
-  - name: Pause and resume compute
+  - name: Pause and resume
     items:
     - name: Portal
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Scale compute
+  - name: Scale
     items:
     - name: Portal
       href: quickstart-scale-compute-portal.md
@@ -77,18 +87,8 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
-    - name: Data warehouse components
-      href: sql-data-warehouse-overview-workload.md
     - name: Best practices
-      href: sql-data-warehouse-best-practices.md
-    - name: MPP architecture
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Data warehouse units
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Capacity limits
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: FAQ
-      href: sql-data-warehouse-overview-faq.md
+      href: sql-data-warehouse-best-practices-development.md
     - name: Tables
       items:
       - name: Overview
@@ -111,14 +111,6 @@
         href: sql-data-warehouse-tables-statistics.md
       - name: Temporary
         href: sql-data-warehouse-tables-temporary.md
-    - name: Queries
-      items:
-      - name: Dynamic SQL
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Group by options
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: Labels
-        href: sql-data-warehouse-develop-label.md
     - name: T-SQL language elements
       items:
       - name: Loops
@@ -135,24 +127,34 @@
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Views
         href: sql-data-warehouse-develop-views.md
-  - name: Workload Management
+  - name: Querying
+    items:
+    - name: Dynamic SQL
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Group by options
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: Labels
+      href: sql-data-warehouse-develop-label.md
+  - name: Workload management
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
-  - name: Manageability & Monitoring
+  - name: Manageability & monitoring
     items:
-    - name: Query Activity & Resource Utilization  
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Overview
+      href: sql-data-warehouse-overview-manageability-monitoring.md
+    - name: Scale, pause, resume
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Resource utilization & query activity 
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
     - name: Data protection
       href: backup-and-restore.md
-    - name: Scale-out, pause, resume
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Maintenance schedule
-      href: service-maintenance.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
+    - name: Maintenance schedule
+      href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Integration
@@ -177,7 +179,7 @@
       href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Threat detection
       href: sql-data-warehouse-security-threat-detection.md
-  - name: Load Data
+  - name: Load data
     items:
     - name: New York taxi cab data
       href: load-data-from-azure-blob-storage-using-polybase.md
@@ -207,20 +209,20 @@
       href: sql-data-warehouse-query-visual-studio.md
     - name: Install Visual studio
       href: sql-data-warehouse-install-visual-studio.md
-  - name: Tune Workload
+  - name: Manage workload
     items:
     - name: Analyze your workload
       href: analyze-your-workload.md    
-  - name: Manage and Monitor
+  - name: Monitor and tune
     items:
-    - name: Restore - Portal
-      href: sql-data-warehouse-restore-database-portal.md
-    - name: Restore - PowerShell
-      href: sql-data-warehouse-restore-database-powershell.md
-    - name: Restore - REST API
-      href: sql-data-warehouse-restore-database-rest-api.md
+    - name: Monitor your workload
+      href: sql-data-warehouse-manage-monitor.md
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
+    - name: Monitor Gen2 cache
+      href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Restore your data warehouse
+      href: sql-data-warehouse-restore.md
     - name: Automate performance levels
       href: manage-compute-with-azure-functions.md
   - name: Integrate
