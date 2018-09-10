@@ -63,6 +63,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 |Mac OS X|N/A|N/A|Yes\*\*|Yes\*\*|Yes\*
 
 \*Requires Internet Explorer versions 10 or above
+
 \*\*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
