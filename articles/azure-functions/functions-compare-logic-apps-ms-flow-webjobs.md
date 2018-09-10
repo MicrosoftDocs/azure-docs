@@ -37,6 +37,7 @@ Flow is built on top of Logic Apps. They share the same workflow designer and th
 Flow empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. On the other hand, Logic Apps can enable advanced integrations (for example, B2B processes) where enterprise-level DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
 
 The following table helps you determine whether Flow or Logic Apps is best for a given integration.
+
 |  | Flow | Logic Apps |
 | --- | --- | --- |
 | Users |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
