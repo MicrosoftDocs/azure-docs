@@ -124,7 +124,7 @@ You should see an output similar to the following snippet:
     HTTP/1.1 200 OK
     ...
 
-    Hello, Data Lake Storage Gen1 user!
+    Hello, Data Lake Store user!
 
 ## Rename a file
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
