@@ -204,9 +204,9 @@ Under the **BuildingBlocks** element, add the **Localization** element with the 
 ### Provide language-specific strings and collections 
 
 Add **LocalizedResources** elements inside the **Localization** element after the close of the **SupportedLanguages** element. You add **LocalizedResources** elements for each page (content definition) and any language you want to support. To customize the unified sign-up or sign-in page, sign-up and multi-factor authentication (MFA) pages for English, Spanish, and France, you add the following **LocalizedResources** elements.  
-- Unified sign-up or sign-in page, English `<LocalizedResources Id="api.api.signuporsignin.en">`
-- Unified sign-up or sign-in page, Spanish `<LocalizedResources Id="api.api.signuporsignin.es">`
-- Unified sign-up or sign-in page, France `<LocalizedResources Id="api.api.signuporsignin.fr">` 
+- Unified sign-up or sign-in page, English `<LocalizedResources Id="api.signuporsignin.en">`
+- Unified sign-up or sign-in page, Spanish `<LocalizedResources Id="api.signuporsignin.es">`
+- Unified sign-up or sign-in page, France `<LocalizedResources Id="api.signuporsignin.fr">` 
 - Sign-Up, English `<LocalizedResources Id="api.localaccountsignup.en">`
 - Sign-Up, Spanish `<LocalizedResources Id="api.localaccountsignup.es">`
 - Sign-Up, France `<LocalizedResources Id="api.localaccountsignup.fr">`
@@ -220,13 +220,7 @@ Note: This example makes a reference to `Gender` and `City` claim types. To use 
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
+
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
       <Item Text="Female" Value="F" />
@@ -238,6 +232,14 @@ Note: This example makes a reference to `Gender` and `City` claim types. To use 
       <Item Text="London" Value="London" />
     </LocalizedCollection>
   </LocalizedCollections>
+
+  <LocalizedStrings>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+  </LocalizedStrings>
 </LocalizedResources>
 ```
 
@@ -245,13 +247,7 @@ The sign-up page localization for Spanish.
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.es">
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-  </LocalizedStrings>
+
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
       <Item Text="Femenino" Value="F" />
@@ -263,6 +259,14 @@ The sign-up page localization for Spanish.
       <Item Text="Londres" Value="London" />
     </LocalizedCollection>
   </LocalizedCollections>
+
+  <LocalizedStrings>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
+  </LocalizedStrings>
 </LocalizedResources>
 ```
 
@@ -306,14 +310,6 @@ The following example shows the final XML:
     </SupportedLanguages>
 
     <LocalizedResources Id="api.localaccountsignup.en">
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-      <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-        <!-- More localized strings... -->
-      </LocalizedStrings>
       <LocalizedCollections>
         <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
           <Item Text="Female" Value="F" />
@@ -327,16 +323,17 @@ The following example shows the final XML:
         </LocalizedCollection>
         <!-- More localized collections... -->
       </LocalizedCollections>
+      <LocalizedStrings>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+      <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
+        <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+        <!-- More localized strings... -->
+      </LocalizedStrings>
     </LocalizedResources>
 
     <LocalizedResources Id="api.localaccountsignup.es">
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-      </LocalizedStrings>
       <LocalizedCollections>
        <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
           <Item Text="Femenino" Value="F" />
@@ -348,6 +345,13 @@ The following example shows the final XML:
           <Item Text="Londres" Value="London" />
         </LocalizedCollection>
       </LocalizedCollections>
+      <LocalizedStrings>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
+        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
+        <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
+      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
+      </LocalizedStrings>
     </LocalizedResources>
     <!-- More localized resources... -->
   </Localization>
