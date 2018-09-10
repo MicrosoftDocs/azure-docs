@@ -4,8 +4,8 @@
 
 
 ---
-title: Throttling errors retries and backoff in Azure Compute  | Microsoft Docs
-description: Throttling errors retries and backoff in Azure Compute.
+title: Troubleshooting throttling errors in Azure Compute  | Microsoft Docs
+description: Throttling errors, retries and backoff in Azure Compute.
 services: virtual-machines-linux
 documentationcenter: ''
 author: changov
@@ -23,21 +23,16 @@ ms.author: vashan, rajraj, changov
 ---
 
 
-# Throttling errors and retries in Azure Compute 
+# Troubleshooting API throttling errors in Azure Compute 
  
-Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
+Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider (CRP) that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
 
 ## Throttling by Azure Resource Manager vs Resource Providers  
 
 As the front door to Azure, Azure Resource Manager does the authentication and first-order validation and throttling of all incoming API requests. Azure Resource Manager call rate limits and related diagnostic response HTTP headers are described [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
  
-When an Azure API client gets a throttling error, the HTTP status is 429 Too Many Requests. To understand if the request throttling is done by Azure Resource Manager or an underlying resource provider like Compute Resource Provider.  
+When an Azure API client gets a throttling error, the HTTP status is 429 Too Many Requests. To understand if the request throttling is done by Azure Resource Manager or an underlying resource provider like CRP, inspect the `x-ms-ratelimit-remaining-subscription-reads` for GET requests and `x-ms-ratelimit-remaining-subscription-writes` response headers for non-GET requests. If the remaining call count is approaching 0, the subscription’s general call limit defined by Azure Resource Manager has been reached. Activities by all subscription clients are counted together. Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
 
-To distinguish the cases, inspect the `x-ms-ratelimit-remaining-subscription-reads` for GET requests and `x-ms-ratelimit-remaining-subscription-writes` response headers for non-GET requests.  
-
-If the remaining call count is approaching 0, the subscription’s general call limit defined by Azure Resource Manager has been reached. Activities by all subscription clients are counted together.  
-
-Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
 ## Call rate inforamtional response headers 
 
 | Header                            | Value format                           | Example                               | Description                                                                                                                                                                                               |
@@ -46,7 +41,7 @@ Otherwise, the throttling is coming from the target resource provider (the one a
 | x-ms-request-charge               | ```<count>   ```                             | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
 
 
-API request can be subjected to multiple throttling policies. There will be a separate `x-ms-ratelimit-remaining-resource` header for each policy. 
+Note that an API request can be subjected to multiple throttling policies. There will be a separate `x-ms-ratelimit-remaining-resource` header for each policy. 
 
 Here is a sample response to delete a VM in a virtual machine scale set request.
 
