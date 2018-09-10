@@ -1,12 +1,7 @@
 ---
-title: IoT DevKit to cloud -- Next steps after finishing get started tutorial with IoT DevKit | Microsoft Docs
-description: Next steps after finishing get started tutorial with IoT DevKit.
 author: liydu
-manager: jeffya
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.tgt_pltfrm: arduino
+ms.topic: include
 ms.date: 06/09/2018
 ms.author: liydu
 ---
