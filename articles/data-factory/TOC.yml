@@ -180,7 +180,7 @@
       href: connector-ftp.md
     - name: GE Historian
       href: connector-odbc.md#ge-historian-source
-    - name: Google Adwords
+    - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
