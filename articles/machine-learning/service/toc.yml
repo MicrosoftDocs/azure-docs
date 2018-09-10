@@ -71,6 +71,7 @@
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
+      href: how-to-track-experiments.md
   - name: Deploy models in production	
     items:    
     - name: Where to deploy models
