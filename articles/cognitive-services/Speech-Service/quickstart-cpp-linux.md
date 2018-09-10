@@ -16,38 +16,28 @@ ms.author: wolfma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-<<<<<<< HEAD
-In this article, you learn how to create a C++ console application on Linux (Ubuntu 16.04) by using the Cognitive Services Speech SDK to transcribe speech to text.
+In this article, you create a C++ console application for Ubuntu Linux 16.04. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the Speech service for free](get-started.md).
-* An Ubuntu 16.04 PC with a working microphone.
-* To install packages needed to build and run this sample, run the following:
-=======
-In this article, you create a C++ console application for Ubuntu Linux 16.04 using the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (e.g., `g++`).
-
-## Prerequisites
-
-You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the speech service for free](get-started.md) for details.
->>>>>>> b9088cd86088b17653d810cbf24318d09e4d9a32
+You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech service for free](get-started.md) for details.
 
 ## Install Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tarfile from https://aka.ms/csspeech/linuxbinary.
+You can use the Speech SDK for Linux to build both 64-bit and 32-bit applications. You can [download](https://aka.ms/csspeech/linuxbinary) the required libraries and header files as a tar file.
 
 Download and install the SDK as follows:
 
 1. Make sure the SDK's dependencies are installed.
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
-  ```
+   ```sh
+   sudo apt-get update
+   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+   ```
 
-1. Choose a directory to which the Speech SDK files should be extracted and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable will make it easy to refer to the directory in future commands. For example, if you want to use the directory `speechsdk` in your home directory, use a command like the one here.
+1. Choose a directory to which the Speech SDK files should be extracted, and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands. For example, if you want to use the directory `speechsdk` in your home directory, use a command like the following:
 
    ```sh
    export SPEECHSDK_ROOT="$HOME/speechsdk"
@@ -72,43 +62,24 @@ Download and install the SDK as follows:
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-<<<<<<< HEAD
-   It should show a third-party notice and license files, as well as an `include`
-   directory for headers, and a `lib` directory for libraries.
-=======
    The directory listing should contain the third-party notice and license files, as well as an `include` directory containing header (`.h`) files and a `lib` directory containing libraries.
->>>>>>> b9088cd86088b17653d810cbf24318d09e4d9a32
 
    [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## Add sample code
 
-<<<<<<< HEAD
-Add the following code into a file named `helloworld.cpp`:
+1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
 
-  [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
-
-- Replace the string `YourSubscriptionKey` with your subscription key.
-
-- Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
-=======
-1. Create a C++ source file named `helloworld.cpp` and paste the following code into it.
-
-  [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Also replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
->>>>>>> b9088cd86088b17653d810cbf24318d09e4d9a32
+1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 ## Build the app
 
 > [!NOTE]
-<<<<<<< HEAD
-> Make sure to copy and paste the following build commands as a _single line_.
-=======
-> Make sure to enter the commands below as a _single command line_. The easiest way to do that is to copy the command using the **Copy** button next to each command, then paste it at your shell prompt.
->>>>>>> b9088cd86088b17653d810cbf24318d09e4d9a32
+> Make sure to enter the commands below as a _single command line_. The easiest way to do that is to copy the command by using the **Copy** button next to each command, and then paste it at your shell prompt.
 
 * On an **x64**  (64-bit) system, run the following command to build the application.
 
@@ -138,13 +109,13 @@ Add the following code into a file named `helloworld.cpp`:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-1. Execute the application.
+1. Run the application.
 
    ```sh
    ./helloworld
    ```
 
-1.  In the console window, a prompt appears requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service and transcribed to text, which appears in the same window.
+1.  In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service and transcribed to text, which appears in the same window.
 
    ```text
    Say something...
