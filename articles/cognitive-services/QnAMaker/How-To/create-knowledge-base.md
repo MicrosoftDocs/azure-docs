@@ -2,13 +2,13 @@
 title: How to create a knowledge base - QnA Maker - Azure Cognitive Services | Microsoft Docs
 description: How to create a knowledge base 
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: pchoudh
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
+ms.date: 09/11/2018
+ms.author: tulasim
 ---
 
 # Create a knowledge base
@@ -35,15 +35,21 @@ QnA Maker makes it very simple to onboard your existing data sources to create a
 ) to see how many documents you can add.
     - If you want to manually add QnAs, you can skip linking files.
 
-4. Select **Create**.
+4. Add **Chit-chat** to your KB- you can choose to add chit-chat support for your bot, by choosing from one of the 3 pre-defined personalities. 
+
+
+    ![Add chit-chat to KB ](../media/qnamaker-how-to-chitchat/create-kb-chit-chat.png)
+
+    
+5. Select **Create**.
 
     ![Create KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-5. It takes a few minutes for data to be extracted.
+6. It takes a few minutes for data to be extracted.
 
     ![Extraction](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-6. If your Knowledge Base has been successfully created, you will be redirected to the **Knowledge base** page.
+7. If your Knowledge Base has been successfully created, you will be redirected to the **Knowledge base** page.
 
 ## Next steps
 
