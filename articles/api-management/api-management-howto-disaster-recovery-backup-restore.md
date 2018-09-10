@@ -174,7 +174,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 where:
 
 * `subscriptionId` - id of the subscription containing the API Management service you are restoring a backup into
-* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are restoring a backup into is hosted, for example, `North-Central-US`
+* `resourceGroupName` - name of the resource group containing the Azure API Management service you are restoring a backup into
 * `serviceName` - the name of the API Management service being restored into specified at the time of its creation
 * `api-version` - replace  with `2018-06-01-preview`
 

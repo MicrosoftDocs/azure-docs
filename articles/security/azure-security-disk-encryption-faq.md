@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
 
 ---
@@ -29,12 +29,12 @@ Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerS
 
 ## How much does Azure Disk Encryption cost?
 
-There is no charge for encrypting VM disks with Azure Disk Encryption but there are charges associated with the use of Azure Key Vault. For more information on Azure Key Vault costs, see the [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) page.
+There's no charge for encrypting VM disks with Azure Disk Encryption but there are charges associated with the use of Azure Key Vault. For more information on Azure Key Vault costs, see the [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) page.
 
 
 ## Which virtual machine tiers does Azure Disk Encryption support?
 
-Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It is also available for VMs with premium storage. It is not available on basic tier VMs.
+Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It's also available for VMs with premium storage. It isn't available on basic tier VMs.
 
 ## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
 
@@ -61,13 +61,13 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | CentOS | 6.5 | Data disk |
 | openSUSE | 13.2 | Data disk |
 | SLES | 12 SP1 | Data disk |
-| SLES | Priority:12-SP1 | Data disk |
+| SLES | Priority: 12-SP1 | Data disk |
 | SLES | HPC 12 | Data disk |
-| SLES | Priority:11-SP4 | Data disk |
+| SLES | Priority: 11-SP4 | Data disk |
 | SLES | 11 SP4 | Data disk |
 
 
-*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but is not currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article.__
+*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but isn't currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article.__
 
 ## How can I start using Azure Disk Encryption?
 
@@ -75,7 +75,7 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
-Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you cannot encrypt the data without first encrypting the OS volume. For Linux VMs, it is possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs is not supported.
+Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
 
 ## Does Azure Disk Encryption allow you to bring your own key (BYOK) capability?
 
@@ -91,11 +91,17 @@ You can't use the on-premises key management service or HSM to safeguard the enc
 
 ## What are the prerequisites to configure Azure Disk Encryption?
 
-There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) article to create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md).
+There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) article to create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md).
 
-## Where can I get more information on how to use PowerShell for configuring Azure Disk Encryption?
+## What are the prerequisites to configure Azure Disk Encryption with an Azure AD app (previous release)?
 
-There are some great articles on how you can perform basic Azure Disk Encryption tasks, as well as more advanced scenarios. For the basic tasks, see [Explore Azure Disk Encryption with Azure PowerShell – Part 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). For more advanced scenarios, see [Explore Azure Disk Encryption with Azure PowerShell – Part 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
+There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites-aad.md) article to create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md).
+
+## Is Azure Disk Encryption using an Azure AD app (previous release) still supported?
+Yes. Disk encryption using an Azure AD app is still supported. However, when encrypting new VMs it's recommended that you use the new method rather than encrypting with an Azure AD app. 
+
+## Can I migrate VMs that were encrypted with an Azure AD app to encryption without an Azure AD app?
+Currently, there is not a direct migration path for machines that were encrypted with an Azure AD app to encryption without an Azure AD app. Additionally, there is also not a direct path from encryption without an Azure AD app to encryption with an AD app. 
 
 ## What version of Azure PowerShell does Azure Disk Encryption support?
 
@@ -116,11 +122,11 @@ Yes, you can perform an update or patch a Red Hat Linux VM. For more information
 
 The following workflow is recommended to have the best results on Linux:
 * Start from the unmodified stock gallery image corresponding to the desired OS distro and version
-* Back up any mounted drives that will be encrypted.  This permits recovery if there is a failure, for example if the VM is rebooted before encryption has completed.
+* Back up any mounted drives that will be encrypted.  This allows for recovery if there's a failure, for example if the VM is rebooted before encryption has completed.
 * Encrypt (can take multiple hours or even days depending on vm characteristics and size of any attached data disks)
 * Customize, and add software to the image as needed.
 
-If this workflow is not possible, relying on [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+If this workflow isn't possible, relying on [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
 
 ## What is the disk "Bek Volume" or "/mnt/azure_bek_disk"?
 
@@ -135,6 +141,6 @@ You can ask questions or provide feedback on the [Azure Disk Encryption forum](h
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service and its capabilities, see the following articles:
 
+- [Azure Disk Encryption Overview](azure-security-disk-encryption-overview.md)
 - [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Encrypt an Azure virtual machine](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Azure data encryption at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

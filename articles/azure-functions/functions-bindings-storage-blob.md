@@ -4,17 +4,13 @@ description: Understand how to use Azure Blob storage triggers and bindings in A
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 02/12/2018
+ms.date: 09/03/2018
 ms.author: glenga
 ---
 
@@ -37,13 +33,13 @@ The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://w
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## Packages - Functions 2.x
 
-The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub repository.
+The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) GitHub repository.
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## Trigger
 
@@ -55,7 +51,7 @@ Use Event Grid instead of the Blob storage trigger for the following scenarios:
 
 * Blob-only storage accounts
 * High scale
-* Cold-start delay
+* Minimizing cold-start delay
 
 ### Blob-only storage accounts
 
