@@ -16,8 +16,6 @@ ms.reviewer: sngun
 
 After you buy an Azure Cosmos DB reserved capacity, the reservation discount is automatically applied to Azure Cosmos DB resources that match the attributes and quantity of the reservation. A reservation covers the throughput provisioned for Azure Cosmos DB resources and it doesn’t cover software, networking, storage, or pre-defined container charges.
 
-For reserved Virtual Machine Instances see [Understand Azure Reserved VM Instances discount](../billing/billing-understand-vm-reservation-charges.md).
-
 ## Reservation discount applied to Azure Cosmos DB accounts
 
 A reservation discount is applied to provisioned throughput (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
@@ -26,7 +24,7 @@ A reservation discount is applied to provisioned throughput (RU/s) on an hour-by
 * The reservation purchase will apply discounts to all regions in the ratio equivalent to the regional on-demand pricing. For reservation discount ratios in each region see [reservation discount per region](#reservation-discount-per-region) section of this article.
 
 ## Reservation discount per region
-The reservation discount applies to meter usage in the following ratio:
+Reservation discount is applied to Azure Cosmos DB throughput costs on an hour-by-hour basis at either the single subscription or enrolled/account scope. The reservation discount applies to meter usage in different regions in the following ratio:
 
 |Meter Description  |Region |Ratio  |
 |---------|---------|---------|
@@ -68,31 +66,33 @@ The reservation discount applies to meter usage in the following ratio:
 Consider the following requirements for a reservation:
 
 * Required throughput: 50,000 RU/s  
-* Regions used: 2. For reservation discount rate in each region, see [reservation discount per region](#reservation-discount-per-region) section of this article.  
+* Regions used: 2. 
 
 In this case, your total on-demand charges are for 500 quantity of 100 RU/s meter in these two regions, for a total RU/s consumption of 100,000 every hour. 
 
 **Scenario 1**
 
-If your deployments were in the following regions, then a reservation purchase of 100,000 RU/s would completely balance your on-demand charges for RU/s. 
+For example, if you need Azure Cosmos DB deployments in "US North Central" and "US West" regions, and if each region has a throughput consumption of 50,000 RU/s. Then a reservation purchase of 100,000 RU/s would completely balance your on-demand charges for RU/s and you don't have to pay anything at the regular pay-as-you-go rates. 
 
 |Meter description | Region |Throughput consumption (RU/s) |Reservation discount applied to RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB - 100 RU/s/Hour - US North Central  |   US North Central  | 50,000  | 50,000  |
 |Azure Cosmos DB - 100 RU/s/Hour - US West  |  US West   |  50,000  |  50,000 |
 
-Using the example in the above table: 50,000 units of capacity (RU/s) in AU Central 2 of provisioned throughput corresponds to 75,000 of billable usage (or normalized usage), computed as (Provisioned Throughput * Reservation Discount Ratio for That Region) that is: 50,000 * 1.5 = 75,000 of billable or normalized usage. For reservation discount ratios in each region see [reservation discount per region](#reservation-discount-per-region) section of this article.
-
 **Scenario 2**
 
-If your deployments were in the following regions, then a reservation purchase of 100,000 RU/s would be applicable as follows (assuming that AU Central 2 usage was discounted first)::
+For example, if you need Azure Cosmos DB deployments in "AU Central 2" and "FR South" regions, and if each region has a throughput consumption of 50,000 RU/s. Then a reservation purchase of 100,000 RU/s would be applicable as follows (assuming that AU Central 2 usage was discounted first):
 
 |Meter description | Region |Throughput consumption (RU/s) |Reservation discount applied to RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB - 100 RU/s/Hour - AU Central 2  |  AU Central 2   |  50,000  |  50,000   |
 |Azure Cosmos DB - 100 RU/s/Hour - FR South  |  FR South   |  50,000 |  15,384  |
 
-100,000 RU/s of reservation purchase would offset the 75,000 RU/s in AU Central 2 and the left over 25,000 RU/s will apply discount to up to 25,000 / 1.625 = 15,384 RU/s in FR South. For reservation discount ratios in each region see [reservation discount per region](#reservation-discount-per-region) section of this article. Remaining 34,616 RUs are charged at the normal pay-as-you-go rates. The Azure billing system will assign the Reservation billing benefit to the first instance that is processed which matches the Reservation configuration (for example, AU Central 2 in this case).
+50,000 units of usage in "AU Central 2" region corresponds to 75,000 RU/s of billable usage (or normalized usage). This value is computed as (provisioned_throughput * reservation_discount_ratio_for_that_region) which equals to: 50,000 * 1.5 = 75,000 RU/s of billable or normalized usage. 
+
+100,000 RU/s of reservation purchase would offset the 75,000 RU/s in "AU Central 2" and leaves 25,000 RU/s to the "FR South" region. From the remaining 25,000 RU/s, a reservation discount of 25,000 / 1.625 = 15,384 RU/s is applied to "FR South" region. Then the remaining 34,616 RU/s in "FR South" region are charged at the normal pay-as-you-go rates. 
+
+The Azure billing system will assign the Reservation billing benefit to the first instance that is processed which matches the Reservation configuration (for example, AU Central 2 in this case).
 
 To understand and view the application of your Azure reservations in billing usage reports, see [Understand Azure reservation usage](../billing/billing-understand-reserved-instance-usage-ea.md).
 
