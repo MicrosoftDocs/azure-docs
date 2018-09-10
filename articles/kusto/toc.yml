@@ -7,6 +7,8 @@
   items:
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
+  - name: Explore data - Query Explorer
+    href: explore-data.md
 - name: Tutorials
 - name: Concepts
   items:
