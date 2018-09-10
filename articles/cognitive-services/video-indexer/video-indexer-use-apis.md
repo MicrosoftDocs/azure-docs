@@ -84,7 +84,7 @@ The values described in the following table apply. The **Param value** is the va
 
 The Account ID parameter is required in all operational API calls. Account ID is a GUID that can be obtained in one of the following ways:
 
-* Use the Video Indexer portal to get the Account ID:
+* Use the **Video Indexer website** to get the Account ID:
 
     1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
     2. Browse to the **Settings** page.
@@ -92,7 +92,7 @@ The Account ID parameter is required in all operational API calls. Account ID is
 
         ![Account ID](./media/video-indexer-use-apis/account-id.png)
 
-* Use the API to programmatically get the Account ID.
+* Use **Video Indexer Developer Portal** to programmatically get the Account ID.
 
     Use the [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
     
