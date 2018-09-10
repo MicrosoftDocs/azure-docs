@@ -210,6 +210,8 @@
       href: conditional-access-dev-guide.md
     - name: National clouds
       href: 
+    - name: Using the Azure AD v2.0 endpoint
+      href: active-directory-v2-limitations.md
 - name: How-to guides
   items:
   - name: Convert a single-tenant app to a multi-tenant app
@@ -230,6 +232,8 @@
       href: 
   - name: Migrate from the Azure Access Control Service
     href: active-directory-acs-migration.md
+  - name: Use the Azure AD Graph API
+    href: active-directory-graph-api-quickstart.md
   - name: Work with Visual Studio
     items:
     - name: Use the Active Directory connected service
