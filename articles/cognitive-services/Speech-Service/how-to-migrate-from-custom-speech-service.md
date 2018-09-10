@@ -52,4 +52,4 @@ Existing customers are required to migrate their existing resource keys to the n
 
 ## Next steps
 
-Learn how to [authenticate](../how-to-authenticate.md) to the Speech API
+Learn [speech to text](../speech-to-text.md) concepts
