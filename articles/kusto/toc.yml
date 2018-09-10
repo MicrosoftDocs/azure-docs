@@ -5,10 +5,19 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Quickstart placeholder
+  - name: Create a cluster - Azure portal
+    href: create-cluster-database-portal.md
+  - name: Explore data - Query Explorer
+    href: explore-data.md
 - name: Tutorials
 - name: Concepts
+  items:
+  - name: Data ingestion
+    href: ingest-data.md
 - name: How-to guides
+  items:
+  - name: Write Kusto queries
+    href: write-queries.md  
 - name: Samples
 - name: Reference
 - name: Resources

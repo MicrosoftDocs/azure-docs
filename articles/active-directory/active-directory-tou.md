@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: rolyon
 
 ---
@@ -160,7 +160,7 @@ The following procedure describes how to add a Terms of use language.
 
 1. Select the Terms of use you want to edit.
 
-1. In the the details pane, click the **Languages** tab.
+1. In the details pane, click the **Languages** tab.
 
     ![Add TOU](media/active-directory-tou/languages-tou.png)
 
@@ -219,7 +219,7 @@ A: Currently, you can't update an existing Terms of use document. To change a Te
 A: The PDF is rendered by default as a JPEG, so hyperlinks are not clickable. Users have the option to select **Having trouble viewing? Click here**, which renders the PDF natively where hyperlinks are supported.
 
 **Q: Can a Terms of use support multiple languages?**</br>
-A: Yes.  Currently there are 18 different languages an administrator can configure for a single Terms of use. 
+A: Yes. Currently there are 108 different languages an administrator can configure for a single Terms of use.
 
 **Q: When is the Terms of use triggered?**</br>
 A: The Terms of use is triggered during the sign-in experience.

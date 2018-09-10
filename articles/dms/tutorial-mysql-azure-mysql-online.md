@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/31/2018
 ---
 
 # Migrate MySQL to Azure Database for MySQL online using DMS
@@ -23,6 +23,9 @@ In this tutorial, you learn how to:
 > * Create a migration project by using the Azure Database Migration Service.
 > * Run the migration.
 > * Monitor the migration.
+
+> [!IMPORTANT]
+> For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 ## Prerequisites
 To complete this tutorial, you need to:
@@ -209,5 +212,6 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 4. When the database migration status shows **Completed**, connect your applications to the new target Azure SQL Database.
  
 ## Next steps
--	For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
--	For information about the Azure Database for MySQL, see the article [What is the Azure Database for MySQL?](https://docs.microsoft.com/azure/mysql/overview).
+- For information about known issues and limitations when performing online migrations to Azure Database for MySQL, see the article [Known issues and workarounds with Azure Database for MySQL online migrations](known-issues-azure-mysql-online.md).
+- For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
+- For information about the Azure Database for MySQL, see the article [What is the Azure Database for MySQL?](https://docs.microsoft.com/azure/mysql/overview).

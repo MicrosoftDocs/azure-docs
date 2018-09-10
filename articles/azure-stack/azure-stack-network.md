@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -41,7 +41,7 @@ The following table shows the logical networks and associated IPv4 subnet ranges
 | Switch infrastructure | Point-to-point IP addresses for routing purposes, dedicated switch management interfaces, and loopback addresses assigned to the switch. | /26 | 
 | Infrastructure | Used for Azure Stack internal components to communicate. | /24 |
 | Private | Used for the storage network and private VIPs. | /24 | 
-| BMC | Used to communicate with the BMCs on the physical hosts. | /27 | 
+| BMC | Used to communicate with the BMCs on the physical hosts. | /26 | 
 | | | |
 
 ## Network infrastructure

@@ -87,6 +87,8 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
+    - name: Best practices
+      href: sql-data-warehouse-best-practices-development.md
     - name: Tables
       items:
       - name: Overview
@@ -141,16 +143,18 @@
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
     items:
-    - name: Query Activity & Resource Utilization  
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Overview
+      href: sql-data-warehouse-overview-manageability-monitoring.md
+    - name: Scale, pause, resume
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Resource utilization & query activity 
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
     - name: Data protection
       href: backup-and-restore.md
-    - name: Scale-out, pause, resume
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Maintenance schedule
-      href: service-maintenance.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
+    - name: Maintenance schedule
+      href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Integration
@@ -211,14 +215,14 @@
       href: analyze-your-workload.md    
   - name: Monitor and tune
     items:
-    - name: Restore - Portal
-      href: sql-data-warehouse-restore-database-portal.md
-    - name: Restore - PowerShell
-      href: sql-data-warehouse-restore-database-powershell.md
-    - name: Restore - REST API
-      href: sql-data-warehouse-restore-database-rest-api.md
+    - name: Monitor your workload
+      href: sql-data-warehouse-manage-monitor.md
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
+    - name: Monitor Gen2 cache
+      href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Restore your data warehouse
+      href: sql-data-warehouse-restore.md
     - name: Automate performance levels
       href: manage-compute-with-azure-functions.md
   - name: Integrate
