@@ -20,7 +20,7 @@ ms.author: antchu
 
 # SignalR Service bindings for Azure Functions
 
-This article explains how to send real-time messages to connected clients by using [SignalR Service](https://azure.microsoft.com/services/signalr-service/) bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
+This article explains how to authenticate and send real-time messages to clients connected to [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -36,7 +36,7 @@ The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extens
 
 ## SignalR connection info input binding
 
-Before a client can connect to SignalR Service, it must retrieve the service endpoint and a valid access key. The *SignalRConnectionInfo* input binding produces the SignalR Service endpoint and a valid token that is used as an access key to connect to the service. Because the token is time-limited and can be used to authenticate a user to a connection, you should not cache the token or share it between clients. An HTTP trigger using this binding can be used by clients to retrieve the connection information.
+Before a client can connect to Azure SignalR Service, it must retrieve the service endpoint URL and a valid access token. The *SignalRConnectionInfo* input binding produces the SignalR Service endpoint URL and a valid token that are used to connect to the service. Because the token is time-limited and can be used to authenticate a specific user to a connection, you should not cache the token or share it between clients. An HTTP trigger using this binding can be used by clients to retrieve the connection information.
 
 See the language-specific example:
 
@@ -49,11 +49,11 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 [FunctionName("GetSignalRInfo")]
-public static IActionResult GetSignalRInfo(
+public static SignalRConnectionInfo GetSignalRInfo(
     [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
     [SignalRConnectionInfo(HubName = "chat")]SignalRConnectionInfo connectionInfo)
 {
-    return new OkObjectResult(connectionInfo);
+    return connectionInfo;
 }
 ```
 
@@ -62,22 +62,22 @@ public static IActionResult GetSignalRInfo(
 If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
 (../app-service/app-service-authentication-overview.md).
 
-App Service Authentication sets an HTTP header named `x-ms-client-principal-id` the authenticated user's client principal ID. You can set the `UserId` property of the binding to the value from the header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}`. 
+App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `UserId` property of the binding to the value from either header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
 
 ```cs
 [FunctionName("GetSignalRInfo")]
-public static IActionResult GetSignalRInfo(
+public static SignalRConnectionInfo GetSignalRInfo(
     [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
     [SignalRConnectionInfo(HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]SignalRConnectionInfo connectionInfo)
 {
     // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
-    return new OkObjectResult(connectionInfo);
+    return connectionInfo;
 }
 ```
 
 ### 2.x JavaScript input example
 
-The following example shows a SignalR connection info input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
+The following example shows a SignalR connection info input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding to return the connection information.
 
 Here's binding data in the *function.json* file:
 
@@ -107,7 +107,7 @@ module.exports = function (context, req, connectionInfo) {
 If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
 (../app-service/app-service-authentication-overview.md).
 
-App Service Authentication sets an HTTP header named `x-ms-client-principal-id` the authenticated user's client principal ID. You can set the `userId` property of the binding to the value from the header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}`. 
+App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `userId` property of the binding to the value from either header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
 
 Example function.json:
 
@@ -117,7 +117,7 @@ Example function.json:
     "name": "connectionInfo",
     "hubName": "chat",
     "userId": "{headers.x-ms-client-principal-id}",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>", // Defaults to AzureSignalRConnectionString
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
     "direction": "in"
 }
 ```
@@ -126,7 +126,8 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, req, connectionInfo) {
-    // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
+    // connectionInfo contains an access key token with a name identifier 
+    // claim set to the authenticated user
     context.res = { body: connectionInfo };
     context.done();
 };
@@ -134,7 +135,7 @@ module.exports = function (context, req, connectionInfo) {
 
 ## SignalR output binding
 
-Use the *SignalR* output binding to send one or more messages. You can broadcast a message to all connected clients, or you can broadcast it only to connected clients that have been authenticated to a given user.
+Use the *SignalR* output binding to send one or more messages using Azure SignalR Service. You can broadcast a message to all connected clients, or you can broadcast it only to connected clients that have been authenticated to a given user.
 
 See the language-specific example:
 
@@ -145,24 +146,20 @@ See the language-specific example:
 
 #### Broadcast to all clients
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that sends a message using the output binding to all connected clients. The target is the name of the method to be invoked on each client. The arguments property is an array zero or more objects to be passed to the client method.
+The following example shows a [C# function](functions-dotnet-class-library.md) that sends a message using the output binding to all connected clients. The `Target` is the name of the method to be invoked on each client. The `Arguments` property is an array of zero or more objects to be passed to the client method.
 
 ```cs
 [FunctionName("SendMessage")]
-public static async Task<IActionResult> SendMessage(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req, 
+public static Task SendMessage(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message, 
     [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
 {
-    dynamic message = await req.Content.ReadAsAsync<object>();
-
-    await signalRMessages.AddAsync(
+    return signalRMessages.AddAsync(
         new SignalRMessage 
         {
             Target = "newMessage", 
             Arguments = new [] { message } 
         });
-
-    return new OkResult();
 }
 ```
 
@@ -172,21 +169,18 @@ You can send a message only to connections that have been authenticated to a use
 
 ```cs
 [FunctionName("SendMessage")]
-public static async Task<IActionResult> SendMessage(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req, 
+public static Task SendMessage(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message, 
     [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
 {
-    dynamic message = await req.Content.ReadAsAsync<object>();
-
-    await signalRMessages.AddAsync(
+    return signalRMessages.AddAsync(
         new SignalRMessage 
         {
+            // the message will only be sent to these user IDs
             UserIds = new [] { "userId1", "userId2" },
             Target = "newMessage", 
             Arguments = new [] { message } 
         });
-
-    return new OkResult();
 }
 ```
 
@@ -194,7 +188,7 @@ public static async Task<IActionResult> SendMessage(
 
 #### Broadcast to all clients
 
-The following example shows a SignalR output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. Set the output binding to an array of one or more SignalR messages. A SignalR message consists of a target property that specifies the name of the method to invoke on each client, and an arguments property that is an array of objects to pass to the client method as arguments.
+The following example shows a SignalR output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding to send a message with Azure SignalR Service. Set the output binding to an array of one or more SignalR messages. A SignalR message consists of a `target` property that specifies the name of the method to invoke on each client, and an `arguments` property that is an array of objects to pass to the client method as arguments.
 
 Here's binding data in the *function.json* file:
 
@@ -203,9 +197,9 @@ Example function.json:
 ```json
 {
   "type": "signalR",
-  "name": "signalRMessages", // name of the output binding
+  "name": "signalRMessages",
   "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>", // Defaults to AzureSignalRConnectionString
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
 }
 ```
@@ -231,6 +225,7 @@ You can send a message only to connections that have been authenticated to a use
 ```javascript
 module.exports = function (context, req) {
     context.bindings.signalRMessages = [{
+        // message will only be sent to these user IDs
         "userIds": [ "userId1", "userId2" ],
         "target": "newMessage",
         "arguments": [ req.body ]
@@ -247,8 +242,8 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**|| must be set to `signalRConnectionInfo`.|
-|**direction**|| must be set to `in`.|
+|**type**|| Must be set to `signalRConnectionInfo`.|
+|**direction**|| Must be set to `in`.|
 |**name**|| Variable name used in function code for connection info object. |
 |**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
 |**userId**|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
@@ -260,8 +255,8 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**|| must be set to `signalR`.|
-|**direction**|| must be set to `out`.|
+|**type**|| Must be set to `signalR`.|
+|**direction**|| Must be set to `out`.|
 |**name**|| Variable name used in function code for connection info object. |
 |**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
 |**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
