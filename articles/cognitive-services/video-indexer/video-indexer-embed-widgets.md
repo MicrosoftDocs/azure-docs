@@ -23,8 +23,8 @@ A **Cognitive Insights** widget includes all visual insights that were extracted
 
 |Name|Definition|Description|
 |---|---|---|
-|widgets|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/00000000-0000-0000-0000-000000000000/0000000000/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The **widgets** URL param is not supported if **version=2** is used. |
-|version|Versions of the **Cognitive Insights** widget|To get the latest insights widget updates, add `?version=2` query param to the embed url. For example, `https://www.videoindexer.ai/embed/insights/00000000-0000-0000-0000-000000000000/0000000000/?version=2` <br/> To get the older version, just remove the `version=2` from the URL.
+|widgets|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The **widgets** URL param is not supported if **version=2** is used. |
+|version|Versions of the **Cognitive Insights** widget|To get the latest insights widget updates, add `?version=2` query param to the embed url. For example, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> To get the older version, just remove the `version=2` from the URL.
 
 ### Player widget
 
@@ -217,11 +217,11 @@ You can choose the types of insights you want by specifying them as a value to t
 The possible values are: people, keywords, sentiments, transcript, search.
 
 For example, if you want to embed a widget containing only people and search insights the iframe embed URL will look like this:
-https://www.videoindexer.ai/embed/insights/00000000-0000-0000-0000-000000000000/0000000000/?widgets=people,search
+https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
 
 The title of the iframe window can also be customized by providing **&title=**<YourTitle> to the iframe URL. (It will customize the html \<title> value ).
 For example, if you want to give your iframe window the title "MyInsights", the URL will look like this:
-https://www.videoindexer.ai/embed/insights/00000000-0000-0000-0000-000000000000/0000000000/?title=MyInsights. 
+https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights. 
 Notice that this option is relevant only in cases when you need to open the insights in a new window.
 
 ### Player widget
@@ -229,14 +229,14 @@ If you embed Video Indexer player, you can choose the size of the player by spec
 
 For example:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/00000000-0000-0000-0000-000000000000/0000000000/” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 By default Video Indexer player will have auto generated closed captions based on the transcript of the video that was extracted from the video with the source language that was selected when the video was uploaded.
 
 If you want to embed with a different language, you can add **&captions=< Language | ”all” | “false” >** to the embed player URL or put “all” as the value if you want to have all available languages captions.
 If you want the captions to be displayed by default, you can pass **&showCaptions=true**
 
-The embed URL then will look like this : https://www.videoindexer.ai/embed/player/00000000-0000-0000-0000-000000000000/0000000000/?captions=italian. If you want to disable captions, you can pass “false” as value for captions parameter.
+The embed URL then will look like this : https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian. If you want to disable captions, you can pass “false” as value for captions parameter.
 
 Auto play – by default the player will start playing the video. you can choose not to by passing &autoplay=false to the embed URL above.
 
