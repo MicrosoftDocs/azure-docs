@@ -1,9 +1,10 @@
 ---
-title: C# Quickstart for Microsoft QnA Maker API (V4) - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: C# for QnA Maker API (V4)"
+titleSuffix: Azure Cognitive Services 
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker
