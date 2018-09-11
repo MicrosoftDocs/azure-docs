@@ -1,5 +1,5 @@
 ---
-title: Use datastores in Azure Machine Learning
+title: Use datastores in Azure Machine Learning to access data
 description: How to use datastores to access data storage during training
 services: machine-learning
 ms.service: machine-learning
