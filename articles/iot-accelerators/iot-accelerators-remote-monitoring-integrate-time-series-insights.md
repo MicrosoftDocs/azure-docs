@@ -1,10 +1,10 @@
 ---
 title: Integrate Azure Time Series Insights with Remote Monitoring | Microsoft Docs
-description: Learn how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that does not include Time Series Insights out of the box.
+description: In this how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that does not already include Time Series Insights.
 author: philmea
 manager: timlt
 ms.author: philmea
-ms.date: 09/09/2018
+ms.date: 09/10/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
@@ -13,10 +13,10 @@ services: iot-accelerators
 # Integrate Azure Time Series Insights with Remote Monitoring
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service for managing IoT-scale time-series data in the cloud. You can use Time Series Insights to store and manage time-series data, explore and visualize events simultaneously, conduct root-cause analysis, and to compare multiple sites and assets.
 
-Our solution accelerator now provides automatic deployment and integration with Time Series Insights*. In this how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that does not have Time Series Insights.
+Our solution accelerator now provides automatic deployment and integration with Time Series Insights*. In this how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that does not already include Time Series Insights.
 
 > [!NOTE]
-> Time Series Insights is not yet available in Mooncake. All Mooncake Remote Monitoring deployments will continue to use Cosmos DB for all storage.
+> Time Series Insights is not yet available in Azure China Cloud. New deployments in Azure China Cloud will continue to use Cosmos DB for all storage.
 
 ## Prerequisites
 
@@ -25,8 +25,7 @@ To complete this how-to, you will need have already deployed a Remote Monitoring
 * [Deploy the Remote Monitoring preconfigured solution](quickstart-remote-monitoring-deploy.md)
 
 ## Create a consumer group
-
-You will need to create a dedicated consumer group in your IoT Hub to be used for streaming data to Time Series Insights.
+Create a dedicated consumer group in your IoT Hub to be used for streaming data to Time Series Insights.
 
 > [!NOTE]
 > Consumer groups are used by applications to pull data from Azure IoT Hub. Each consumer group allows up to five output consumers. You should create a new consumer group for every five output sinks and you can create up to 32 consumer groups.
@@ -117,9 +116,7 @@ To make sure all users who have access to your Remote Monitoring solution are ab
 
 1. In the **Select** list, select a user, group, or application. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
 
-1. Choose **Save** to create the role assignment.
-
-   After a few moments, the security principal is assigned the role in data access policies.
+1. Choose **Save** to create the role assignment. After a few moments, the security principal is assigned the role in data access policies.
 
 > [!NOTE]
 > If you need to grant additional users access to the Time Series Insights explorer, you can use these steps to [grant data access](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
@@ -153,7 +150,6 @@ INTO
 FROM
     DeviceTelemetry T PARTITION BY PartitionId TIMESTAMP BY T.EventEnqueuedUtcTime
 ```
-
 6. Restart the Azure Stream Analytics streaming jobs.
 
 7. Pull the latest changes to the Azure Stream Analytics manager microservice by typing the following command at the command prompt:
@@ -161,12 +157,12 @@ FROM
 .NET: 
 
 ```
-docker pull azureiotpcs/asa-manager-dotnet:1.0.2 [TO DO: ASK HUA]
+docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
 Java:
 ```
-docker pull azureiotpcs/asa-manager-java:1.0.2 [TO DO: ASK HUA]
+docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
 ## Configure the Telemetry microservice 
@@ -196,36 +192,44 @@ To complete the Time Series Insights integration, you will need to configure the
 ### Basic Deployments
 Configure the environment of `basic` deployment for the updated microservices.
 
-1. Create a key for the AAD application on Azure Portal
+1. In the Azure Portal, click on the **Azure Active Directory** tab on the left hand panel.
 
-1. Pull the latest docker compose yaml file from Github repo.
+1. Click on **App registrations**.
 
-1. SSH into the VM
+1. Search for and click on your **ContosoRM** application.
 
-1. `cd /app`
+1. Navigate to **Settings** > **Keys** and then create a new key for your application. Make sure to copy the Key Value to safe location.
 
-1. Add the following environment variables for each micro services in the yaml file and `env-setup` script in the VM
+1. Pull the [latest docker compose yaml file](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) from Github repo using the latest tag. 
 
-* PCS_TELEMETRY_STORAGE_TYPE=tsi
-* PCS_TSI_FQDN={TSI Data Access FQDN}
-* PCS_AAD_TENANT={AAD Tenant Id}
-* PCS_AAD_APPID={AAD application Id}
-* PCS_AAD_APPSECRET={AAD application key}
+1. SSH into the VM by following the steps outlined on [how to create and use SSH Keys](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows).
 
-1. Edit your the docker compose file and add above environment variables for telemetry service
+1. Once connected, type `cd /app`.
 
-1.  Edit your the docker compose file and add `PCS_TELEMETRY_STORAGE_TYPE` for ASA Manager service
+1. Add the following environment variables to each microservice in the docker compose yaml file and the `env-setup` script in the VM:
 
-1. Restart docker contains `sudo ./start.sh` from the VM
+```
+PCS_TELEMETRY_STORAGE_TYPE=tsi
+PCS_TSI_FQDN={TSI Data Access FQDN}
+PCS_AAD_TENANT={AAD Tenant Id}
+PCS_AAD_APPID={AAD application Id}
+PCS_AAD_APPSECRET={AAD application key}
+```
+
+9. Navigate to the **telemetry service** and also edit the docker compose file by adding the same environment variables above.
+
+1. Navigate to the **ASA manager service** and edit the docker compose file by adding `PCS_TELEMETRY_STORAGE_TYPE`.
+
+1. Restart the docker containers using `sudo ./start.sh` from the VM.
 
 ### Standard Deployments
 Configure the environment of `standard` deployment for the updated micro services above
 
-1. Run `kubectl proxy`
+1. At the command line, run `kubectl proxy`. See documentation on [accessing the Kubernetes API](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server) for more details.
 
-1. Go to the Kubernetes management console
+1. Open the Kubernetes management console.
 
-1. Find the config map to add the new environment vaiables for TSI
+1. Find the configuration map to add the following new environment vaiables for TSI:
 
 ```
 telemetry.storage.type: "tsi"
@@ -271,6 +275,6 @@ security.auth.serviceprincipal.secret: "{AAD application service principal secre
 ```
 
 ## Next Steps
-* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see [Diagnosing an alert with Azure Time Series Insights](/tutorials).
+* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](/tutorials).
 
-* To learn how to explore and query data in the Time Series Insights explorer, see [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* To learn how to explore and query data in the Time Series Insights explorer, see documentation on the [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
