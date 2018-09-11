@@ -197,6 +197,7 @@
 #### [Tenant restrictions](manage-apps/tenant-restrictions.md)
 #### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Understanding Azure AD application consent experiences](application-consent-experience.md)
 
 ### Troubleshoot
 
@@ -231,11 +232,11 @@
 
 
 #### Application registration
-##### [Enter fields for the application object](application-dev-registration-config-specific-application-property-how-to.md)
-##### [Change token lifetime defaults](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [Enter fields for the application object](develop/registration-config-specific-application-property-how-to.md)
+##### [Change token lifetime defaults](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### Authentication
-##### [Configure endpoints](application-dev-registration-config-how-to.md)
+##### [Configure endpoints](develop/registration-config-how-to.md)
 
 #### Conditional Access
 ##### [Customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
@@ -247,7 +248,7 @@
 ##### [Which applications are supported with conditional access?](active-directory-conditional-access-supported-apps.md)
 
 #### Find an API
-##### [Find an API](application-dev-api-find-an-api-how-to.md)
+##### [Find an API](develop/api-find-an-api-how-to.md)
 
 #### Managing access
 ##### [Assign users and groups to an app](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -257,14 +258,14 @@
 ##### [Unexpected app in the applications list](manage-apps/application-types.md)
 
 #### Multi-tenant apps
-##### [Configure a new app](application-dev-setup-multi-tenant-app.md)
-##### [Add to the app gallery](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Configure a new app](develop/setup-multi-tenant-app.md)
+##### [Add to the app gallery](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### Permissions
-##### [Choose permissions for an API](application-dev-perms-for-given-api.md)
-##### [Grant permissions to my app](application-dev-registration-config-grant-permissions-how-to.md)
-##### [Delegated vs application permissions](application-dev-delegated-and-app-perms.md)
-##### [Application consent](application-dev-consent-framework.md)
+##### [Choose permissions for an API](develop/perms-for-given-api.md)
+##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
+##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
+##### [Application consent](develop/consent-framework.md)
 
 #### Provisioning
 ##### [How long it takes](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -277,7 +278,7 @@
 
 #### Single sign-on
 ##### [Choose a method](manage-apps/single-sign-on-modes.md)
-##### [Configure](application-dev-registration-config-sso-how-to.md)
+##### [Configure](develop/registration-config-sso-how-to.md)
 ##### [Configure federated - gallery apps](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [Configuring federated common problems - gallery apps](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [Configure federated - non-gallery apps](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)

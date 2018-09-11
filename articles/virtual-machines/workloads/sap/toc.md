@@ -24,7 +24,11 @@
 ## Install SAP HANA
 ### [Validate the configuration](hana-installation.md)
 ### [Sample HANA Installation](hana-example-installation.md)
-## [High availability and disaster recovery](hana-overview-high-availability-disaster-recovery.md)
+## High availability and disaster recovery
+### [Options and considerations](hana-overview-high-availability-disaster-recovery.md)
+### [Backup and restore](hana-backup-restore.md)
+### [Principles and preparation](hana-concept-preparation.md)
+### [Disaster recovery failover procedure](hana-failover-procedure.md)
 ## Troubleshoot and monitor
 ### [Monitoring HLI](troubleshooting-monitoring.md)
 ### [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot.md)

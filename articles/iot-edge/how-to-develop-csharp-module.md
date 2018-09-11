@@ -114,6 +114,9 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 
 4. Click **Start Debugging** or press **F5**. You will start the debug session.
 
+   > [!NOTE]
+   > If your .Net Core `TargetFramework` is not consistent with your program path in `launch.json`. You need to manually update the program path in `launch.json` to respect the `TargetFramework` in your .csproj file. So that VS Code can successfully launch this program.
+
 5. In VS Code integrated terminal, run the following command to send a **Hello World** message to your module. This is the command showed in previous steps when setup IoT Edge simulator successfully.
 
     ```cmd

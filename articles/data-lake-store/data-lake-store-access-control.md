@@ -17,7 +17,7 @@ ms.author: nitinme
 ---
 # Access control in Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Storage Gen1. To learn more about the HDFS access control model, see [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Azure Data Lake Storage Gen1 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Storage Gen1. 
 
 ## Access control lists on files and folders
 
@@ -79,15 +79,15 @@ In the POSIX-style model that's used by Data Lake Storage Gen1, permissions for 
 
 Following are some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Storage Gen1 account.
 
-|    Operation           |    /    | Seattle | Portland | Data.txt     |
-|------------------------|---------|---------|----------|--------------|
-| Read Data.txt          |   --X   |   --X   |  --X     | R--          |
-| Append to Data.txt     |   --X   |   --X   |  --X     | RW-          |
-| Delete Data.txt        |   --X   |   --X   |  -WX     | ---          |
-| Create Data.txt        |   --X   |   --X   |  -WX     | ---          |
-| List /                 |   R-X   |   ---   |  ---     | ---          |
-| List /Seattle          |   --X   |   R-X   |  ---     | ---          |
-| List /Seattle/Portland |   --X   |   --X   |  R-X     | ---          |
+|    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
+|--------------------------|---------|----------|-----------|--------------|
+| Read Data.txt            |   --X   |   --X    |  --X      | R--          |
+| Append to Data.txt       |   --X   |   --X    |  --X      | RW-          |
+| Delete Data.txt          |   --X   |   --X    |  -WX      | ---          |
+| Create Data.txt          |   --X   |   --X    |  -WX      | ---          |
+| List /                   |   R-X   |   ---    |  ---      | ---          |
+| List /Seattle/           |   --X   |   R-X    |  ---      | ---          |
+| List /Seattle/Portland/  |   --X   |   --X    |  R-X      | ---          |
 
 
 > [!NOTE]
@@ -95,9 +95,19 @@ Following are some common scenarios to help you understand which permissions are
 >
 >
 
+![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+
+On this blade, the top section shows the owners permissions. (In the screenshot, the owning user is Bob.) Following that, the assigned Access ACLs are shown. 
+
+![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
+
+Click **Advanced View** to see the more advanced view, where the Default ACLs, mask, and a description of super-users are shown.  This blade also provides a way to recursively set Access and Default ACLs for child files and folders based on the permissions of the current folder.
+
+![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
+
 ## The super-user
 
-A super-user has the most rights of all the users in the Data Lake Store. A super-user:
+A super-user has the most rights of all the users in the Data Lake Storage Gen1 account. A super-user:
 
 * Has RWX Permissions to **all** files and folders.
 * Can change the permissions on any file or folder.
@@ -129,14 +139,11 @@ The user who created the item is automatically the owning user of the item. An o
 
 ## The owning group
 
-In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance."
+In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
-When a new filesystem item is created, Data Lake Storage Gen1 assigns a value to the owning group.
-
+Assiging the owning group for a new file or folder:
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
-
-The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
 The owning group can be changed by:
 * Any super-users.
@@ -145,9 +152,10 @@ The owning group can be changed by:
 > [!NOTE]
 > The owning group *cannot* change the ACLs of a file or folder.  While the owning group is set to the user who created the account in the case of the root folder, **Case 1** above, a single user account is not valid for providing permissions via the owning group.  You can assign this permission to a valid user group if applicable.
 
+
 ## Access check algorithm
 
-The following psuedocode represents the access check algorithm for Data Lake Storage Gen1 accounts.
+The following pseudocode represents the access check algorithm for Data Lake Storage Gen1 accounts.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -202,7 +210,7 @@ The sticky bit is a more advanced feature of a POSIX filesystem. In the context 
 
 The sticky bit is not shown in the Azure portal.
 
-## Permissions on new files and folders
+## Default permissions on new files and folders
 
 When a new file or folder is created under an existing folder, the Default ACL on the parent folder determines:
 
@@ -211,17 +219,19 @@ When a new file or folder is created under an existing folder, the Default ACL o
 
 ### umask
 
-When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on  parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
+When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
 The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-* umask.owning_user =  0 # ---
-* umask.owning_group = 0 # ---
-* umask.other =        7 # RWX
+| umask component     | Numeric form | Short form | Meaning |
+|---------------------|--------------|------------|---------|
+| umask.owning_user   |    0         |   ---      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
+| umask.owning_group  |    0         |   ---      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
+| umask.other         |    7         |   RWX      | For other, remove all permissions on the child's Access ACL |
 
-This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
+The umask value used by Azure Data Lake Storage Gen1 effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
-The following psuedocode shows how the umask is applied when creating the ACLs for a child item.
+The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 
 ```
 def set_default_acls_for_new_child(parent, child):
@@ -282,19 +292,12 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
-
 * [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-
 * [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
-
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-
 * [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-
 * [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-
 * [ACL using access control lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## See also
