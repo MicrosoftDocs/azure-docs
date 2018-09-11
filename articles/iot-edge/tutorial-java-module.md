@@ -34,7 +34,8 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
+* Java modules for IoT Edge don't support Windows devices.
 
 Cloud resources:
 

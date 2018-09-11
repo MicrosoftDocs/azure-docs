@@ -297,7 +297,7 @@ Azure log integration enables you to integrate raw logs from your Azure resource
 
 #### Implement user provisioning for connected apps
 
-Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../active-directory-saas-app-provisioning.md).
+Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
 
 #### Integrate information protection
 
