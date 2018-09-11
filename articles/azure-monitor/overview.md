@@ -68,7 +68,7 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ### Application Insights
 [Application Insights](http://azure.microsoft.com/documentation/services/application-insights) monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Log Analytics to provide you with deep insights into your application's operations and diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
 
-![App Insights](media/overview/app-insights.png)
+![App Insights](media/overview/001-app-insights.png)
 
 ### Container Insights
 [Container Insights](../monitoring/monitoring-container-health.md) gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable container health, these metrics are automatically collected for you through a containerized version of the Operations Management Suite (OMS) Agent for Linux and stored in Log Analytics.
@@ -107,7 +107,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ### Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) allow you to combine different kinds of data, including both metrics and logs, into a single pane in the [Azure portal](https://portal.azure.com). You can optionally share the dashboard with other Azure users. Elements throughout Azure Monitor can be added to an Azure dashboard in addition to the output of any log query or metrics chart. For example, you could create a dashboard that combines tiles that show a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a query from Log Analytics.
 
-![Dashboard](media/overview/dashboard.png)
+![Dashboard](media/overview/002-dashboard.png)
 
 ### Views
 [Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md) visually present log data in Log Analytics.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements in Azure Monitor, views can be added to Azure dashboards.
