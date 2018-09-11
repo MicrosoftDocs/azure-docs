@@ -1,6 +1,6 @@
 ---
 title: Upload your package to AppSource
-description: Upload the manifest for your Office Add-in, SharePoint Add-in, or Microsoft Teams app, or upload your Office 365 web app or Power BI custom visual.
+description: Upload the manifest for your Office Add-in, SharePoint Add-in, Microsoft Teams app, or Power BI custom visual.
 ms.date: 1/11/2018
 ---
 
@@ -34,16 +34,8 @@ For more information, see [Submit apps for Office 365 operated by 21Vianet in Ch
 
 ## Upload an Office 365 web app
 
-Office 365 web apps are registered in Azure Active Directory (Azure AD) and do not have a manifest. Instead, you must provide the app ID.
+Office 365 web apps are no longer accpeted via the Seller Dashboard. We reccomend that you submit Office 365 web apps via the [Cloud Partner Portal](https://appsource.microsoft.com/en-us/partners/signup) instead.
 
-Under **App registration**:
-
-- Provide an Azure app ID. When you register your web app with Azure AD, an Azure app ID in the form of a GUID is created.
-- Select the Azure AD instance that your app uses. The following are the options: 
-    - Azure Active Directory Global - Use for most Office 365 web apps.
-    - Azure Active Directory China - Use for web apps created with Office 365 in China.
-    - Microsoft account - Not currently available.
-    - Microsoft account + Azure Active Directory Global – Use for web apps that support MSA and OrgID accounts. 
 
 ## Upload a Power BI custom visual    
 
