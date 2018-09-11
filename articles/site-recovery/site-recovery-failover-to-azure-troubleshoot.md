@@ -41,9 +41,9 @@ Site Recovery was not able to create a failed over Classic virtual machine in Az
 
 * One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
 
-## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
+## Unable to connect/RDP/SSH - VM Connect button grayed out
 
-If Connect button is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
+If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
 1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
@@ -53,9 +53,9 @@ If Connect button is grayed out and you are not connected to Azure via an Expres
 6. Now, to save the changes made, click **Save**.
 7. Close the panels and navigate to **Overview** section of virtual machine to connect/RDP.
 
-## Unable to connect/RDP/SSH to the failed over virtual machine even though Connect button is available (not grayed out) on the virtual machine
+## Unable to connect/RDP/SSH - VM Connect button available
 
-Check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/windows/boot-diagnostics.md).
+If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/windows/boot-diagnostics.md).
 
 1. If the virtual machine has not started, try failing over to an older recovery point.
 2. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
