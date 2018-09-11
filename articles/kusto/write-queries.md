@@ -264,8 +264,7 @@ The following query extracts specific attribute values from a trace.
 ```Kusto
 let MyData = datatable (Trace: string) ["A=1, B=2, Duration=123.45,...", "A=1, B=5, Duration=55.256, ..."];
 MyData
-| extend Duration = extract("Duration=([0-9.]+)", 1, Trace,
-typeof(real)) * time(1s)
+| extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s)
 ```
 
 This query uses a **let** statement, which binds a name (in this case `MyData`) to an expression. For the rest of the scope in which the **let** statement appears (global scope or in a function body scope), the name can be used to refer to its bound value.
@@ -300,8 +299,7 @@ The following query extracts the JSON elements with a dynamic data type.
 let MyData = datatable (Trace: dynamic)
 [dynamic({"value":118.0,"counter":5.0,"min":100.0,"max":150.0,"stdDev":0.0})];
 MyData
-| project Trace.value, Trace.counter, Trace.min, Trace.max,
-Trace.stdDev
+| project Trace.value, Trace.counter, Trace.min, Trace.max, Trace.stdDev
 ```
 
 [**ago()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_agofunction.html?q=ago): Subtracts the given timespan from the current UTC clock time.
@@ -492,7 +490,8 @@ The following query counts the distinct values of `Source` where `DamageProperty
 
 **\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRKEnMTlUwNDDg5apRKC7NzU0syqxKVQjOLy1KTi1WsFVISc4vzSvJTNOACOkouCTmJqanBhTlF6QWlVQq2CiYGhgYaCokVSoElySWpAIAuk%2fTX14AAAA%3d)**\]**
 ```Kusto
-StormEvents | take 100
+StormEvents 
+| take 100
 | summarize Sources = dcountif(Source, DamageProperty < 5000) by State
 ```
 
@@ -615,7 +614,8 @@ let Y = datatable(Key:string, Value2:long)
     'c',30,
     'd',40
 ];
-X | join kind=inner Y on Key
+X 
+| join kind=inner Y on Key
 ```
 
 > [!TIP]
@@ -652,7 +652,7 @@ StormEvents
 | extend row_number = row_number()
 ```
     
-[Cross-Database and Cross-Cluster Queries](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_syntax.html?q=cross): You can query a database on the same cluster by referring it as `database(“MyDatabase”).MyTable`. You can query a database on a remote cluster by referring to it as `cluster(“MyCluster”).database(“MyDatabase”).MyTable`.
+[Cross-Database and Cross-Cluster Queries](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_syntax.html?q=cross): You can query a database on the same cluster by referring it as `database("MyDatabase").MyTable`. You can query a database on a remote cluster by referring to it as `cluster("MyCluster").database("MyDatabase").MyTable`.
 
 The following query is called from one cluster and queries data from
 `MyCluster` cluster. To run this, use your own clusters.
@@ -807,8 +807,7 @@ let _windowSize = 365d;
 let _sequence = dynamic(['Hail', 'Tornado', 'Thunderstorm Wind']);
 let _periods = dynamic([1h, 4h, 1d]);
 StormEvents
-| evaluate funnel_sequence_completion(EpisodeId, StartTime, _start,
-_end, _windowSize, EventType, _sequence, _periods)
+| evaluate funnel_sequence_completion(EpisodeId, StartTime, _start, _end, _windowSize, EventType, _sequence, _periods)
 ```
 
 ## Functions
