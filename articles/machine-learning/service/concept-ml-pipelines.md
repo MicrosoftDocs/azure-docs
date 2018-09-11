@@ -52,8 +52,7 @@ Pipelines can be saved as templates so you can schedule batch-scoring or retrain
 Check out the Python reference docs for pipelines:
 + https://docs.microsoft.com/python/api/azureml_pipeline_core/?view=azure-ml-py
 + https://docs.microsoft.com/python/api/azureml_pipeline_steps/?view=azure-ml-py
-+ https://docs.microsoft.com/python/api/azureml_pipeline_viz/?view=azure-ml-py
 
 ## Next steps
 
-Download [this Jupyter notebook](https://aka.ms/aml-notebook-train) to try out a pipeline for yourself. 
+Download [this Jupyter notebook](http://aka.ms/aml-notebook-pipeline) to try out a pipeline for yourself. 
