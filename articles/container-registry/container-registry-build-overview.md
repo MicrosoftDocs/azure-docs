@@ -27,7 +27,7 @@ Trigger container image builds automatically when code is committed to a Git rep
 
 ## Quick Build: inner-loop extended to the cloud
 
-The beginning of lifecycle management starts before developers commit their first lines of code. ACR Build's [Quick Build](container-registry-tutorial-quick-build.md) feature enables an integrated local inner-loop development experience, offloading builds to Azure. With Quick Builds, you can verify your automated build definitions prior to committing your code.
+The beginning of lifecycle management starts before developers commit their first lines of code. ACR Build's [Quick Build](container-registry-tutorial-quick-build.md) feature enables an integrated local inner-loop development experience, offloading builds to Azure. With Quick Builds, you can verify your automated build pipelines prior to committing your code.
 
 Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a **context** (the set of files to build), sends it to the ACR Build service and, by default, pushes the built image to its registry upon completion.
 
