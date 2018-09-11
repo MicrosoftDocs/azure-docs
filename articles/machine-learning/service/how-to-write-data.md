@@ -9,15 +9,14 @@ ms.author: cforbe
 author: cforbe
 ms.date: 08/30/2018
 ---
-# Writing data with the data preparation SDK
-It is possible to write out the data at any point in a Dataflow. These writes are added as steps to the resulting Dataflow and will be executed every time the Dataflow is executed. Since there are no limitations to how many write steps there are in a pipeline, this makes it easy to write out intermediate results for troubleshooting or to be picked up by other pipelines.
 
-It is important to note that the execution of each write results in a full pull of the data in the Dataflow. A Dataflow with three write steps will, for example, read and process every record in the dataset three times.
+# Writing data with the data preparation SDK
+It is possible to write out the data at any point in a Dataflow. These writes are added as steps to the resulting Dataflow and will be executed every time the Dataflow is executed. Since there are no limitations to how many write steps there are in a pipeline, this makes it easy to write out intermediate results for troubleshooting or to be picked up by other pipelines. It is important to note that the run of each write results in a full pull of the data in the Dataflow. A Dataflow with three write steps will, for example, read and process every record in the dataset three times.
 
 ## Writing to files
 Data can be written to files in any of our supported locations (Local File System, Azure Blob Storage, and Azure Data Lake Storage). In order to parallelize the write, the data is written to multiple partition files. A sentinel file named SUCCESS is also output once the write has completed. This makes it possible to identify when an intermediate write has completed without having to wait for the whole pipeline to complete.
 
-When running a Dataflow in Spark, attempting to execute a write to an existing folder will fail. It is important to ensure the folder is empty or use a different target location per execution.
+When running a Dataflow in Spark, attempting to run a write to an existing folder will fail. It is important to ensure the folder is empty or use a different target location for each run.
 
 The following file formats are currently supported:
 -	Delimited Files (CSV, TSV, etc.)
@@ -48,12 +47,12 @@ t.head(10)
 
 ## Delimited files
 The line below creates a new Dataflow with a write step, but the actual write has not been
-executed yet. When the Dataflow is run, the write will take place.
+run yet. When the Dataflow is run, the write will take place.
 
 ```
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
 ```
-We now execute the Dataflow, which executes the write operation.
+We now run the Dataflow, which runs the write operation.
 ```
 write_t.run_local()
 

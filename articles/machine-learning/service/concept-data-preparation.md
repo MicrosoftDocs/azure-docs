@@ -12,24 +12,21 @@ ms.date: 08/30/2018
 
 # What is the data prep SDK?
  
-As part of the AML Workbench, we provided a Data Prep experience via a GUI. But with the focus of AML Services switching to an API/SDK model, a GUI solution was out of sync. Hence, the team has exposed the underlying API that the GUI uses.  GOOD NEWS: as of today, you can now use this API. 
- 
-While 100% of the GUI functionality is not yet exposed, it will be eventually. As of today, you can use much of the capability including PROSE technology, Smart File Readers, and many other transforms.  
-## Why would you use this API? 
-The data prep API provides (and will provide even more) value through:
--	Intelligent Transforms. This includes Derived Column By Example and Autosplit
--	Smart File Reading. Point the file reader at any one of the supported file types. So, no need to remember how to use a csv reader, a flat file reader, or an excel reader etc.
--	Varying Schema per row. The Data Prep engine has the ability to support different columns per row so that inconsistent data can still be read and then processed
--	Scale through streaming. Unlike many other APIs, the Data Prep engine does not load all the data into memory; it streams it so it scales and performs much better than traditional APIs
--	X-Plat with a single code artifact. Write to a single Data Prep API and have it run on Windows, macOS, Linux, Spark in a scale up or scale out manner
-  
-## Download the data prep SDK
-- [Data Prep SDK](https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/)
+Having data preparation as part of the ML workflow will allow an easy way to read in data of various formats, transform it to be more usable, and write out the data to be consumed by models or another storage where models read from. 
 
-    ```    
-    pip install --upgrade --extra-index-url https://dataprepdownloads.azureedge.net/pypi/privPreview/latest/ azureml-dataprep
-    ```
+Models become more accurate when they have access to more clean data. Data can come in different kinds of formats, so having an SDK that can read that data as part of the workflow makes it more efficient. 
 
-- [AzureML SDK](https://github.com/Azure/ViennaDocs/tree/master/PrivatePreview)
- 
-- [CLI link](https://github.com/Azure/ViennaDocs/blob/master/PrivatePreview/cli/CLI-101-Install-and-Local-Run.md)
+Then when it becomes time to clean the data, using transforms makes it simple to add columns, filter out unwanted rows or columns, and impute missing values.
+
+For models to consume the data that has been cleaned, it is easier to be able to access it in known formats like CSV or Parquet files. 
+
+## The steps for data preparation with Azure Machine Learning 
+1. [Load Data](how-to-load-data.md )
+2. [Transform Data](how-to-transform-data.md )
+3. [Write Data](how-to-write-data.md )
+
+[ ![Data preparation process](./media/concept-data-preparation/data-prep-process.png) ]
+(./media/concept-data-preparation/data-prep-process.png#lightbox)
+
+## Next Steps
+Here is an [example notebook](https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation.

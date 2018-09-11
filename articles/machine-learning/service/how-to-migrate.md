@@ -18,16 +18,16 @@ Most artifacts created in the first preview of Azure Machine Learning service ar
 
 The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning service. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
 
-|Previous preview asset or resource|Can I migrate?|Actions|
+|Asset or resource from old version|Can I migrate?|Actions|
 |-----------------|:-------------:|-------------|
 |Machine learning models (as local files)|Yes|None. Works as before.|
 |Model dependencies & schemas (as local files)|Yes|None. Works as before.|
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
 |Compute targets|No|Register them in new workspace.|
-|Registered Models|No|You must re-register the model under a the new workspace.|
-|Registered Manifests|No|None. Manifests no longer exists as a concept in the new workspace.|
-|Registered Images|No|You must re-create the deployment Docker image under a new workspace.|
+|Registered models|No|You must re-register the model under a the new workspace.|
+|Registered manifests|No|None. Manifests no longer exists as a concept in the new workspace.|
+|Registered images|No|You must re-create the deployment Docker image under a new workspace.|
 |Deployed web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
 |Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](reference-azure-machine-learning-sdk.md) for new work.|

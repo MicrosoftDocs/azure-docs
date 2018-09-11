@@ -1,6 +1,6 @@
 ---
-title: Migrate to Azure Machine Learning, general availability
-description: Learn how to upgrade or migrate to the latest version of Azure Machine Learning service.
+title: Deploy from Azure Machine Learning service to Azure Kubernetes Service | Microsoft Docs
+description: Learn how to deploy a model from the Azure Machine Learning service to Azure Kubernetes Service. The model is deployed as a web service. Azure Kubernetes Service is good for high-scale production workloads.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -13,20 +13,21 @@ ms.date: 09/24/2018
 
 # How to deploy web services from Azure Machine Learning service to Azure Kubernetes Service
 
-For high-scale production scenarios, you can deploy your model to the Azure Kubernetes Service (AKS). Azure ML can use an existing AKS cluster or a new cluster you can provision during deployment.
+For high-scale production scenarios, you can deploy your model to the Azure Kubernetes Service (AKS). Azure Machine Learning can use an existing AKS cluster or a new cluster created during deployment. The model is deployed to ASK as a web service.
 
-Deploying to AKS provides auto-scaling, logging, model data collection, and fast response times for your web services. 
+Deploying to AKS provides auto-scaling, logging, model data collection, and fast response times for your web service.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An Azure Machine Learning Workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md).
+- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
-- A trained ML model. If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
+- A trained machine learning model. If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
 ## Initialize the workspace
-Use the saved config.json file created as part of the prerequisites steps.
+
+To initialize the workspace, load the `config.json` file that contains your workspace information.
 
 ```python
 from azureml.coreazureml import Workspace
@@ -37,7 +38,7 @@ ws = Workspace.from_config()
 
 ## Register the model
 
-Register an existing trained model, add description and tags.
+To register an existing model, specify the model path, description, and tags.
 
 ```python
 from azureml.core.model import Model
@@ -51,50 +52,48 @@ model = Model.register(model_path = "model.pkl", # this points to a local file
 
 ## Create a Docker image
 
-The following steps show how to create a Docker image using the registered model. 
+Azure Kubernetes Service uses Docker images. To create the image, use the following steps:
 
-### Configure the image:
+1. To configure the image, you must create a scoring script and environment file. For an example of creating the script and environment file, see the following sections of the image classification example:
 
-1. Create the [scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
-1. Create [an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
-1. Use these two files to configure the Docker image
+    * [Create a scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
 
-```bash
-from azureml.core.image import ContainerImage
+    * [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
-# Image configuration
-image_config = ContainerImage.image_configuration(execution_script = "score.py",
-                                                    runtime = "python",
-                                                    conda_file = "myenv.yml",
-                                                    description = "Image with ridge regression model",
-                                                    tags = ["diabetes","regression"]
-                                                    )
-```
+   The following example uses these files to configure the image:
 
-### Create the image
+    ```python
+    from azureml.core.image import ContainerImage
 
-This may take a few minutes. Time estimate ~5 minutes.
+    # Image configuration
+    image_config = ContainerImage.image_configuration(execution_script = "score.py",
+                                                        runtime = "python",
+                                                        conda_file = "myenv.yml",
+                                                        description = "Image with ridge regression model",
+                                                        tags = ["diabetes","regression"]
+                                                        )
+    ```
 
-```bash
-image = ContainerImage.create(name = "myimage1",
-                                # this is the model object
-                                models = [model],
-                                image_config = image_config,
-                                workspace = ws)
+1. To create the image, use the model and image configuration. This operation may take around 5 minutes to complete:
 
-# Wait for the create process to complete
-image.wait_for_creation(show_output = True)
-```
+    ```python
+    image = ContainerImage.create(name = "myimage1",
+                                    # this is the model object
+                                    models = [model],
+                                    image_config = image_config,
+                                    workspace = ws)
+
+    # Wait for the create process to complete
+    image.wait_for_creation(show_output = True)
+    ```
 
 ## Create the AKS Cluster
 
-The following code snippet demonstrates how to create the AKS cluster:
+The following code snippet demonstrates how to create the AKS cluster. This process takes around 20 minutes to complete:
 
 > [!IMPORTANT]
 > Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
 
-> [!NOTE]
-> This process takes approximately 20 minutes.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -116,10 +115,10 @@ print(aks_target.provisioning_errors)
 
 ### Attach existing AKS cluster (optional)
 
-If you have existing AKS cluster in your Azure subscription, you can use it to deploy your web service. The following code snippet demonstrates how to attach a cluster to your workspace. 
+If you have existing AKS cluster in your Azure subscription, you can use it to deploy your image. The following code snippet demonstrates how to attach a cluster to your workspace. 
 
 > [!IMPORTANT]
-> AKS versions 1.8.7 and later are supported (need to check this!!)
+> AKS versions 1.8.7 and later are supported.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
@@ -137,7 +136,7 @@ aks_target.wait_for_provisioning(True)
 
 ## Deploy your web service
 
-The following code snippet demonstrates how to deploy the image to the cluster:
+The following code snippet demonstrates how to deploy the image to the AKS cluster:
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -161,7 +160,7 @@ print(aks_service.state)
 
 ## Test the web service
 
-You can use `aks_service.run()` to test the web service. The following code snippet demonstrates how to pass data to the service and display the prediction:
+Use `aks_service.run()` to test the web service. The following code snippet demonstrates how to pass data to the service and display the prediction:
 
 ```python
 import json
