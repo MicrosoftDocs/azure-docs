@@ -129,7 +129,7 @@
       href: how-to-create-transparent-gateway-windows.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
-  - name: CI/CD in VSTS
+  - name: CI/CD in Azure DevOps
     href: how-to-ci-cd.md
   - name: Troubleshoot
     href: troubleshoot.md
