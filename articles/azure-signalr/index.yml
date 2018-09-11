@@ -31,26 +31,20 @@ sections:
     - image: 
         src: https://review.docs.microsoft.com/en-us/azure/media/index/azurefunctions.svg
       text: JavaScript
-      href: /azure/azure-signalr/signalr-quickstart-dotnet-core
+      href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
     - image: 
         src: https://review.docs.microsoft.com/en-us/azure/media/index/azurefunctions.svg
       text: C#
-      href: /azure/azure-signalr/signalr-quickstart-dotnet-core
+      href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: ASP.NET Core SignalR
+    text: Learn how to build Azure SignalR Service applications
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-signalr/signalr-quickstart-dotnet-core">Build an ASP.NET Core application with Azure SignalR Service</a>
     - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Integrate Azure SignalR Service with ASP.NET Core Identity</a>
-  - type: paragraph
-    text: Azure Functions
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Use Authentication with Azure Functions and SignalR Service</a>
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-azure-functions">Build a Serverless Real-time App with Authentication (JavaScript or C#)</a>
 # - title: Free Pluralsight Video Training
 #   items:
 #   - type: list
