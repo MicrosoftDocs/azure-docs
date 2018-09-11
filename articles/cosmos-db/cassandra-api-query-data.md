@@ -15,15 +15,15 @@ ms.author: govindk
 
 # Query data from the Cassandra API account
 
-This article shows how to query user data from Azure Cosmos DB Cassandra API account by using a java application. The java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) and queries user data such as user id, user name, user city. 
+This article shows how to query user data from Azure Cosmos DB Cassandra API account by using a java application. The java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, user city. 
 
 ## Prerequisites
 
-* This article belongs to a multi-part tutorial. Before you start with this doc, make sure to [create the Cassandra API account, keyspace, table](create-cassandra-api-account-java.md) and [load sample data into the table](cassandra-api-load-data.md). 
+* This article belongs to a multi-part tutorial. Before you start with this doc, make sure to [create the Cassandra API account, keyspace, table, and [load sample data into the table](cassandra-api-load-data.md). 
 
 ## Query data
 
-Open the “UserRepository.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder and append the code to query all users in the database or a specific user filtered by user id and to delete a table. 
+Open the “UserRepository.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder and append the code to query all users in the database or a specific user filtered by user ID and to delete a table. 
 
 ```java
 /**
@@ -60,7 +60,7 @@ public void deleteTable() {
 }
 ```
 
-Open the “UserProfile.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder. This class contains the main method which calls the createKeyspace and createTable, insert data methods you defined earlier. Now append the following code which queries all users or a specific user:
+Open the “UserProfile.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder. This class contains the main method that calls the createKeyspace and createTable, insert data methods you defined earlier. Now append the following code that queries all users or a specific user:
 
 ```java
 LOGGER.info("Select all users");
