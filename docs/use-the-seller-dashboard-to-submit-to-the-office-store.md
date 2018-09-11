@@ -10,7 +10,6 @@ If you want your Office Add-in, Office 365 web app, or Power BI custom visual to
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md).
 
-If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually).  AppSource currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
 
 For information about the AppSource approval process, see [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md).
 
@@ -22,7 +21,6 @@ This section lists the information that you need to provide when you submit your
 
 Select **Add a new app**. On the **Listing type** page, select the type of solution that you are submitting:
 
-- Azure AD web app
 - Office Add-in
 - Outlook Add-in
 - Power BI custom visual
@@ -33,7 +31,7 @@ Select **Add a new app**. On the **Listing type** page, select the type of solut
 
 |**Field name**|**Notes**|
 |:-------------|:-------|
-|Manifest|Required (except for web apps using Azure AD)<br/><br/>For more information, see [Upload your submission package](upload-package.md).|
+|Manifest|Required <br/><br/>For more information, see [Upload your submission package](upload-package.md).|
 |Submission title|Required|
 |Version|Required (autopopulated)|
 |Release date (UTC)|Required. This controls the date on which your add-in will be made available after it passes validation. If this is set to a date in the future, your add-in will not be available until that date. If your submission is an update and you set this field to a date in the future, your existing add-in will be unpublished until the release date you specified.|
