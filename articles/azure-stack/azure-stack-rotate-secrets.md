@@ -51,7 +51,7 @@ In order to maintain the integrity of the Azure Stack infrastructure, operators 
 Azure Stack supports secret rotation with external certificates from a new Certificate Authority (CA) in the following contexts:
 
 |Installed Certificate CA|CA to Rotate To|Supported|Azure Stack Versions Supported|
-|-----|-----|-----|-----|-----|
+|-----|-----|-----|-----|
 |From Self-Signed|To Enterprise|Not Supported||
 |From Self-Signed|To Self-Signed|Not Supported||
 |From Self-Signed|To Public<sup>*</sup>|Supported|1803 & Later|
@@ -163,7 +163,7 @@ The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure S
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating internal and external secrets. End directory must be **\Certificates**. |
 | CertificatePassword | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when both internal and external secrets are rotated. |
-|
+
 
 ### Examples
  
