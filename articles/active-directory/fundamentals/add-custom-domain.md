@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
@@ -54,7 +54,7 @@ Next, you must update the DNS zone file for your new custom domain. You can use 
     >The DNS entry doesn't change how your mail routing or web hosting works.
 
 ## Verify your custom domain name
-After you register your custom domain name, it can take a few seconds to a couple of hours before the DNS information propogates to where Azure AD can see it as valid.
+After you register your custom domain name, it can take a few seconds to a couple of hours before the DNS information propagates to where Azure AD can see it as valid.
 
 ### To verify your custom domain name
 1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
@@ -70,14 +70,14 @@ After you register your custom domain name, it can take a few seconds to a coupl
     ![Contoso blade with DNS entry information and the Verify button](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
 ### Common verification issues
-If Azure AD can't verify a custom domain name, try the following:
+If Azure AD can't verify a custom domain name, try the following suggestions:
 - **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain and this process can take an hour or more.
 
 - **Make sure the DNS record is correct.** Go back to the domain name registrar site and make sure the entry is there, and that it matches the DSN entry information provided by Azure AD.
 
     If you can't update the record on the registrar site, you must share the entry with someone that has the right permissions to add the entry and verify it's accurate.
 
-- **Delete the domain name from another directory in Azure AD.** A domain name can only be verified in one directory, which means that if your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../users-groups-roles/domains-manage.md).    
+- **Make sure the domain name isn't already in another directory.** A domain name can only be verified in one directory, which means that if your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../users-groups-roles/domains-manage.md).    
 
 ## Next steps
 - Add users to your domain, see [Manage custom domain names](../users-groups-roles/domains-manage.md).
