@@ -15,7 +15,7 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ---
 
-# User consent and LinkedIn account connections data
+# User consent and LinkedIn account connections data sharing
 
 As an Azure Active Directory (Azure AD) administrator, you can enable users in your organization to consent to connect their Microsoft work or school account with their LinkedIn account. When users connect their accounts, information and highlights from LinkedIn are available in some Microsoft apps and services. Users can also expect their networking experience on LinkedIn to be improved and enriched with information from Microsoft.
 
