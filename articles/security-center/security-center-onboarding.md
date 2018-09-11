@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
@@ -99,7 +99,7 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
    ![Add computers][7]
 
- The **Direct Agent** blade provides a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.   
+ The **Direct Agent** blade provides a link for downloading a Windows or Linux agent as well as the workspace ID and keys to use in configuring the agent.   
 
 ## Next steps
 In this article you learned how to onboard Azure and non-Azure resources in order to benefit from Security Center’s advanced security.  To do more with your onboarded resources, see
