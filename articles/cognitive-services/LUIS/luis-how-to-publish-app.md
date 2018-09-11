@@ -26,6 +26,8 @@ To publish to the endpoint, select **Publish** in the top, right panel.
 ![Top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
 Select the correct slot when the pop-up window displays: staging or production. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
+
+The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on www.luis.ai, if you create a LUIS resource in westus and add it to the app as a resource, the app is published that region. For more information about LUIS regions, see [Regions](luis-reference-regions).
  
 ![Publishing pop-up window](./media/luis-how-to-publish-app/publish-pop-up.png)
 
