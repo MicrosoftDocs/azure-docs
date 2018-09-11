@@ -39,7 +39,7 @@
     href: tutorial-monitoring.md
   - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Team Services CI/CD
+  - name: 13 - Azure Pipelines CI/CD
     href: tutorial-vsts-iis-cicd.md
   - name: 14 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
@@ -96,6 +96,8 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -218,9 +220,9 @@
       href: nested-virtualization.md
   - name: Manage costs
     items:
-    - name: Prepay for VMs - Azure reservations
+    - name: Prepay for VMs - Azure Reservations
       href: prepay-reserved-vm-instances.md
-    - name: What are Azure reservations?
+    - name: What are Azure Reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
@@ -343,6 +345,20 @@
       href: portal-create-fqdn.md
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Configure managed identities
+    items:
+    - name: Portal
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: CLI
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: PowerShell
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure Resource Manager Template
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: REST
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure SDKs
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Use VM extensions
     href: ../extensions/overview.md
   - name: Migrate VMs
@@ -433,6 +449,13 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
+    - name: Troubleshoot boot errors
+      items:
+      - name: BitLocker errors 
+        href: troubleshoot-bitlocker-boot-error.md  
+      - name: Checking file system errors
+        href: troubleshoot-check-disk-boot-error.md
+
 - name: Reference
   items:
   - name: Azure CLI

@@ -53,8 +53,6 @@
       href: app-insights-asp-net-core.md
     - name: Console
       href: application-insights-console.md
-    - name: Application dashboard
-      href: app-insights-overview-dashboard.md
   - name: Monitor Java apps
     items:
     - name: Web apps
@@ -246,6 +244,10 @@
       href: app-insights-api-filtering-sampling.md
     - name: Sampling
       href: app-insights-sampling.md
+  - name: Visualize
+    items:
+    - name: Application dashboard
+      href: app-insights-overview-dashboard.md
   - name: Manage
     items:
     - name: Manage pricing and data volume

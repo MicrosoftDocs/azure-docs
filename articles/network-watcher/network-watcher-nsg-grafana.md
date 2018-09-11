@@ -59,10 +59,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
 
 3. Add the following content to the file. Change the storage account name and access key to reflect your storage account details:
 
-   > [!WARNING]
-   > The following steps work with flow logs version 1. The format of NSG flow logs will be upgraded to version 2 soon. For details, see [Network security group flow log changes](prepare-flow-log.md). The following instructions will not work with version 2 of the log files, without modification.
-
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -132,7 +129,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
 	    index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
 The Logstash config file provided is composed of three parts: the input, filter, and output.
 The input section designates the input source of the logs that Logstash will process – in this case we are going to use an “azureblob” input plugin (installed in the next steps) that will allow us to access the NSG flow log JSON files stored in blob storage. 

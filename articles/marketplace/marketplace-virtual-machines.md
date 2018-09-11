@@ -39,7 +39,7 @@ You can arrange for users to test your offer by accessing limited term software 
 
 You deploy one or more virtual machines through infrastructure-as-a-service(IaaS) or SaaS apps. A benefit of the test drive publishing option is the automated provisioning of a virtual machine or entire solution led by a partner-hosted guided tour. A test drive provides an evaluation at no additional cost to your customer. Your customer does not need to be an existing Azure customer to engage with the trial experience. 
 
-Email amp-testdrive@microsoft.com to get started. 
+Contact us at [amp-testdrive](mailto:amp-testdrive@microsoft.com) to get started. 
 
 |Requirements  |Details |
 |---------|---------|

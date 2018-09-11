@@ -1,9 +1,8 @@
----
+﻿---
 title: "Team development for Azure Dev Spaces using .NET Core and Visual Studio | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
@@ -159,6 +158,6 @@ To test your new version of `mywebapi` in conjunction with `webfrontend`, open y
 
 Now, add the "scott.s." part to the URL so it reads something like http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `default/scott` space.
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]

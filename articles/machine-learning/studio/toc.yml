@@ -184,7 +184,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell module (New)
-    href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
+    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
   - name: Azure PowerShell module (Classic)
     href: powershell-module.md
   - name: Algorithm & Module reference

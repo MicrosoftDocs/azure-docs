@@ -1,9 +1,9 @@
 ---
-title: Configure the Azure Stack user's PowerShell environment | Microsoft Docs
-description: Configure the Azure Stack user's PowerShell environment
+title: Connect to Azure Stack with PowerShell as a user | Microsoft Docs
+description: Steps to connect to the user's Azure Stack instance.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,13 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
-ms.author: mabrigg
+ms.date: 09/07/2018
+ms.author: sethm
 ms.reviewer: Balsu.G
 
 ---
 
-# Configure the Azure Stack user's PowerShell environment
+# Connect to Azure Stack with PowerShell as a user
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 

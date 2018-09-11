@@ -220,6 +220,8 @@ Any of the following solutions fix the problem:
 
 * Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
 
+* Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers are not limited by the [fair share](../automation-runbook-execution.md#fair-share) limits that Azure sandboxes are.
+
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
 #### Issue
