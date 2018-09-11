@@ -113,6 +113,8 @@
           href: automation-pass-json-string.md
         - name: Start/stop VMs during off-hours
           href: automation-solution-vm-management.md
+        - name: Manage Python 2 packages
+          href: python-packages.md
     - name: Hybrid Runbook Worker
       items:
         - name: Hybrid Runbook Worker overview
