@@ -58,7 +58,11 @@ Modify the program's using statements.
 
 ### Create the Content Moderator client
 
-Add the following code:
+Add the following code to create a Content Moderator client for your subscription.
+
+> [!IMPORTANT]
+> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
+> the values of your region identifier and subscription key.
 
     /// <summary>
     /// Wraps the creation and configuration of a Content Moderator client.
@@ -101,14 +105,6 @@ Add the following code:
             return client;
         }
     }
-
-
-> [!IMPORTANT]
-> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
-> the values of your region identifier and subscription key.
-
-You now have a quick way to create a Content Moderator client for your subscription.
-
 
 ### Initialize application-specific settings
 
