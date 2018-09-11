@@ -41,7 +41,7 @@ Both Access ACLs and Default ACLs have the same structure.
 
 Every file and folder has distinct permissions for these identities:
 
-* The owning user of the file
+* The owning user
 * The owning group
 * Named users
 * Named groups
@@ -78,6 +78,16 @@ In the POSIX-style model that's used by Data Lake Storage Gen1, permissions for 
 ## Common scenarios related to permissions
 
 Following are some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Storage Gen1 account.
+
+|    Operation           |    /    | Seattle | Portland | Data.txt     |
+|------------------------|---------|---------|----------|--------------|
+| Read Data.txt          |   --X   |   --X   |  --X     | R--          |
+| Append to Data.txt     |   --X   |   --X   |  --X     | RW-          |
+| Delete Data.txt        |   --X   |   --X   |  -WX     | ---          |
+| Create Data.txt        |   --X   |   --X   |  -WX     | ---          |
+| List /                 |   R-X   |   ---   |  ---     | ---          |
+| List /Seattle          |   --X   |   R-X   |  ---     | ---          |
+| List /Seattle/Portland |   --X   |   --X   |  R-X     | ---          |
 
 ### Permissions needed to read a file
 
