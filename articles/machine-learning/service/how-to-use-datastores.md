@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ---
 
 # How to Use Datastores
-In Azure Machine Learning services, a datastore is an abstraction over [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). The datastore can either use an [Azure Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) container, [Azure file share](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction), or [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/introduction) (ADLS) as the backend storage. Datastores allow you to easily access and interact with your data storage during your Azure Machine Learning workflows via the Python SDK or CLI.
+In Azure Machine Learning services, a datastore is an abstraction over [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). The datastore can either use an [Azure Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) container or [Azure file share](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) as the backend storage. Datastores allow you to easily access and interact with your data storage during your Azure Machine Learning workflows via the Python SDK or CLI.
 
 ## Create a datastore
 In order to use datastores, you will first need a [workspace](). You can either create a new workspace or retrieve an existing one:
@@ -33,7 +33,7 @@ ds = ws.get_default_datastore()
 ```
 
 ### Register a datastore
-If you already have existing Azure Storage, you can register it as a datastore on your workspace. Azure ML provides the functionality to register an Azure Blob Container, Azure File Share, or Azure Data Lake as a datastore. All the register methods are on the `Datastore` class and have the form `register_azure_*`.
+If you already have existing Azure Storage, you can register it as a datastore on your workspace. Azure ML provides the functionality to register an Azure Blob Container or Azure File Share as a datastore. All the register methods are on the `Datastore` class and have the form `register_azure_*`.
 
 #### Azure Blob Container Datastore
 To register an Azure Blob Container datastore:
@@ -59,18 +59,6 @@ ds = Datastore.register_azure_file_share(workspace=ws,
                                         create_if_not_exists=True)
 ```
 
-#### Azure Data Lake Datastore
-To register an Azure Data Lake datastore:
-
-```Python
-ds = Datastore.register_azure_data_lake(workspace=ws, 
-                                        datastore_name='your datastore name', 
-                                        store_name='your ADLS store name',
-                                        tenant_id='the Directory ID/Tenant ID of the service principal',
-                                        cliend_id='the Client ID/Application ID of the service principal',
-                                        client_secret='the secret of the service principal')
-```
-
 
 For registering an Azure Blob Container or Azure File Share, if you want to use a SAS token, provide the token to the `sas_token` parameter of the `Datastore.register_azure_*` function. You must use an [account SAS](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
@@ -93,7 +81,7 @@ ws.set_default_datastore('your datastore name')
 
 ## Upload and download data
 ### Upload
-For datastores of type `AzureBlobDatastore` and `AzureFileDatastore`, you can upload either a directory or individual files to the datastore using the Python SDK.
+You can upload either a directory or individual files to the datastore using the Python SDK.
 
 To upload a directory to a datastore `ds`:
 ```Python
@@ -107,7 +95,7 @@ ds.upload(src_dir='your source directory',
 You can alternatively upload a list of individual files to the datastore via the [`upload_files`]() method.
 
 ### Download
-Similarly, you can download data from a datastore to your local file system for datastores of type `AzureBlobDatastore` and `AzureFileDatastore`.
+Similarly, you can download data from a datastore to your local file system.
 
 ```Python
 ds.download(target_path='your target path',
