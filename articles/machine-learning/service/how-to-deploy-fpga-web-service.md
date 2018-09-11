@@ -13,9 +13,7 @@ ms.date: 09/24/2018
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning
 
-In this document, you will learn how to set up your workstation environment and deploy a model as a web service on [field programmable gate arrays (FPGA)](concept-accelerate-with-fpgas.md). The web service uses Project Brainwave to run the model on FPGA.
-
-Using FPGAs provides ultra-low latency inferencing, even with a single batch size.
+You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md).  Using FPGAs provides ultra-low latency inferencing, even with a single batch size.   
 
 ## Prerequisites
 
@@ -23,16 +21,16 @@ Using FPGAs provides ultra-low latency inferencing, even with a single batch siz
 
 - An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
  
-Your workspace needs to be in the *East US 2* region.
+  - Your workspace needs to be in the *East US 2* region.
 
-You will need to install the contrib extras:
+  - Install the contrib extras:
 
-     ```shell
+    ```shell
     pip install --upgrade azureml-sdk[contrib]
     ```  
 
 ## Create and deploy your model
-In this example we will create a pipeline that will preprocess the input image, featurize it using ResNet 50 on an FPGA, and then run the features through a classifer trained on the ImageNet data set.
+Create a pipeline to preprocess the input image, featurize it using ResNet 50 on an FPGA, and then run the features through a classifer trained on the ImageNet data set.
 
 For your convenience the entire flow is available in a Jupyter notebook.  Sample code is provided here.
 
@@ -61,8 +59,8 @@ in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
-### Featurizer
-We use ResNet50 as a featurizer. In this step we initialize the model. This downloads a TensorFlow checkpoint of the quantized ResNet50.
+### Add Featurizer
+Initialize the model and download a TensorFlow checkpoint of the quantized version of ResNet50 to be used as a featurizer.
 
 ```python
 from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
@@ -74,7 +72,7 @@ print(feature_tensor.name)
 print(feature_tensor.shape)
 ```
 
-### Classifier
+### Add Classifier
 This classifier has been trained on the ImageNet data set.
 
 ```python
@@ -82,8 +80,9 @@ classifier_input, classifier_output = Resnet50.get_default_classifier(feature_te
 ```
 
 ### Create service definition
-Now that we've definied the image preprocessing, featurizer, and classifier that we will execute on our service we can create a service definition. The service definition is a set of files generated from the model that allow us to deploy to the FPGA service. The service definition consists of a pipeline. The pipeline is a series of stages that are executed in order. We support TensorFlow stages, Keras stages, and BrainWave stages. The stages will be executed in order on the service, with the output of each stage input into the subsequent stage.
-To create a TensorFlow stage we specify a session containing the graph (in this case we are using the default graph) and the input and output tensors to this stage. We use this information to save the graph so that we can execute it on the service.
+Now that you have definied the image preprocessing, featurizer, and classifier that executes on the service, you can create a service definition. The service definition is a set of files generated from the model that is deployed to the FPGA service. The service definition consists of a pipeline. The pipeline is a series of stages that are executed in order.  TensorFlow stages, Keras stages, and BrainWave stages are supported.  The stages are executed in order on the service, with the output of each stage input into the subsequent stage.
+
+To create a TensorFlow stage, specify a session containing the graph (in this case default graph is used) and the input and output tensors to this stage.  This information is used to save the graph so that it can be executed on the service.
 
 ```python
 from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
@@ -101,7 +100,7 @@ with tf.Session() as sess:
 ```
 
 ### Deploy model
-Create a service from the service definition.  You will need a workspace in the East US 2 location.
+Create a service from the service definition.  Your workspace needs to be in the East US 2 location.
 
 ```python
 from azureml.core import Workspace
@@ -136,10 +135,10 @@ import requests
 classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
 ```
 
-Call your service and replace the "[your-image.jpg]" name below with an image from your machine. 
+Call your service and replace the "your-image.jpg" file name below with an image from your machine. 
 
 ```python
-with open('[your-image.jpg]') as f:
+with open('your-image.jpg') as f:
     results = service.run(f)
 # map results [class_id] => [confidence]
 results = enumerate(results)
@@ -159,7 +158,7 @@ service.delete()
 registered_model.delete()
 ```
 
-## SSL/TLS and authentication
+## Secure your deployment with SSL/TLS and authentication
 
 Azure Machine Learning provides SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients.
 
@@ -244,7 +243,7 @@ Use the tools provided by your domain name registrar to update the DNS record fo
 > [!NOTE]
 > Depending on the registrar, and the time to live (TTL) configured for the domain name, it can take several minutes to several hours before clients can resolve the domain name.
 
-### Consuming authenticated services
+### Consume authenticated services
 
 The following examples demonstrate how to consume an authenticated service using Python and C#:
 
@@ -314,4 +313,7 @@ There are two ways to enable the client to authenticate to a server secured with
 Using either method causes gRPC to use the certificate as the root cert.
 
 > [!IMPORTANT]
-> gRPC will not accept untrusted certificates. Using an untrusted certificate will fail with an `Unavailable` status code. The details of the failure contain `Connection Failed`.
+> gRPC does not accept untrusted certificates. Using an untrusted certificate will fail with an `Unavailable` status code. The details of the failure contain `Connection Failed`.
+
+## Next steps
+Incorporate this API into your pipelines for ultra-fast inferencing.
