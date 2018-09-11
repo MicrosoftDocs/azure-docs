@@ -20,7 +20,7 @@ Custom Speech Service and its corresponding Client libraries and APIs are being 
 
 The pricing model is simpler, moving to an hour-based pricing model for the unified Speech Service.   
 
-1. Create an Azure resource in each region where your application is availabile. The new Azure resource name is **Speech**. You can use a single Azure resource for the following services in the same region, instead of creating separate resources:
+1. Create an Azure resource in each region where your application is available. The new Azure resource name is **Speech**. You can use a single Azure resource for the following services in the same region, instead of creating separate resources:
 
     * Speech-to-text
     * Custom speech-to-text
@@ -29,14 +29,16 @@ The pricing model is simpler, moving to an hour-based pricing model for the unif
 
 2. Download the [Speech SDK](speech-sdk.md). 
 
-3. Follow the quickstart guides and SDK samples to use the correct APIs. If you use the REST apis, you will also need to use the correct endpoints and resource keys. 
+3. Follow the quickstart guides and SDK samples to use the correct APIs. If you use the REST APIs, you also need to use the correct endpoints and resource keys. 
 
 4. Update the client application to use the Speech service and APIs. 
 
 > [!NOTE]
-> * LUIS - If your enabled speech in Language Understanding (LUIS), a single LUIS resource in the same region will work for LUIS as well as all the speech services. See [Recognize intents from speech](how-to-recognize-intents-from-speech-csharp.md) documentation.
+> * LUIS - If you enabled speech in Language Understanding (LUIS), a single LUIS resource in the same region will work for LUIS as well as all the speech services. See [Recognize intents from speech](how-to-recognize-intents-from-speech-csharp.md) documentation.
 > * Text-to-text translation is not part of the Speech service. It needs its own Azure resource subscription.
   
+
+
 ## Migration for existing customers
 
 Existing customers are required to migrate their existing resource keys to the new service on the Speech Service portal. Note that resource keys can only be migrated within the same region. Use the following steps:
