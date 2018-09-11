@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -96,7 +96,7 @@ sudo reboot
 
 ### CentOS or Red Hat Enterprise Linux 7.3 or 7.4
 
-1. Update the kernel.
+1. Update the kernel (recommended). If you choose not to update the kernel, ensure that the versions of `kernel-devel` and `dkms` are appropriate for your kernel.
 
   ```
   sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -167,9 +167,9 @@ Deploy RDMA-capable N-series VMs from one of the images in the Azure Marketplace
 
 * **CentOS-based 7.4 HPC** - RDMA drivers and Intel MPI 5.1 are installed on the VM.
 
-## Install GRID drivers on NV-series VMs
+## Install GRID drivers on NV or NVv2-series VMs
 
-To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
+To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
 
 ### Ubuntu 16.04 LTS
 
@@ -186,7 +186,7 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
 
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
-3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NVv2 VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
 
   ```
   blacklist nouveau
@@ -229,7 +229,7 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
 
 ### CentOS or Red Hat Enterprise Linux 
 
-1. Update the kernel and DKMS.
+1. Update the kernel and DKMS (recommended). If you choose not to update the kernel, ensure that the versions of `kernel-devel` and `dkms` are appropriate for your kernel.
  
   ```bash  
   sudo yum update
@@ -241,7 +241,7 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
   sudo yum install dkms
   ```
 
-2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NV2 VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
 
   ```
   blacklist nouveau
@@ -301,7 +301,7 @@ If the driver is installed, you will see output similar to the following. Note t
  
 
 ### X11 server
-If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
+If you need an X11 server for remote connections to an NV or NVv2 VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
  
 ```
 Section "Device"

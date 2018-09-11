@@ -28,7 +28,7 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, and ND-series VMs (optional for 
 
 ### NVIDIA GRID drivers
 
-Microsoft redistributes NVIDIA GRID driver installers for NV-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure.
+Microsoft redistributes NVIDIA GRID driver installers for NV amd NVv2-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure.
 
 | OS | Driver |
 | -------- |------------- |
