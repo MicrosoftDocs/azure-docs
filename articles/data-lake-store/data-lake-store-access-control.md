@@ -215,11 +215,11 @@ When creating a file or folder, umask is used to modify how the default ACLs are
 
 The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-| umask component     | Numeric form | Short form |
-|---------------------|--------------|------------|
-| umask.owning_user   |    0         |   ---      |
-| umask.owning_group  |    0         |   ---      |
-| umask.other         |    7         |   RWX      |
+| umask component     | Numeric form | Short form | Meaning |
+|---------------------|--------------|------------|---------|
+| umask.owning_user   |    0         |   ---      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
+| umask.owning_group  |    0         |   ---      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
+| umask.other         |    7         |   RWX      | For other, remove all permissions on the child's Access ACL |
 
 This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
