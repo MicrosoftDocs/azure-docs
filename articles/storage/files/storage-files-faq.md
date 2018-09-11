@@ -4,7 +4,7 @@ description: Find answers to frequently asked questions about Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 08/22/2018
+ms.date: 09/11/2018
 ms.author: renash
 ms.component: files
 ---
@@ -223,15 +223,20 @@ This article answers common questions about Azure Files features and functionali
 
     The preview release does not support REST APIs to get, set, or copy NTFS ACLs for directories or files.
 
+* <a id="ad-vm-subscription"></a>
+**Can I access Azure Files with Azure AD credentials from a VM under a different subscription?**
+
+    If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD Domain Services deploymnet to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.    
+    
 * <a id="ad-support-subscription"></a>
-**Can Azure Files integrate with a Azure AD tenant from a different subscription?**
+**Can I enable Azure AD authentication over SMB for Azure Files with an Azure AD tenant that is different from the primary tenant with which the file share is assoicated?**
 
     No, Azure Files only supports Azure AD integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant.
 
 * <a id="ad-linux-vms"></a>
 **Does Azure AD authentication over SMB for Azure Files (Preview) support Linux VMs?**
 
-    No, authenication from Linux VMs is not supported in the preview release.
+    No, authentication from Linux VMs is not supported in the preview release.
 
 * <a id="ad-aad-smb-afs"></a>
 **Can I leverage Azure AD authentication over SMB capabilities on file shares managed by Azure File Sync?**

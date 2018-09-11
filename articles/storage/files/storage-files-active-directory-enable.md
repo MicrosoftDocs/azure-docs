@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/11/2018
 ms.author: tamram
 ---
 
@@ -18,11 +18,11 @@ For an overview of Azure AD authentication over SMB for Azure Files, see [Overvi
 
 ## Workflow overview
 
-Before you enable Azure AD over SMB for Azure Files, verify that your Azure AD and Azure Storage environments are properly configured. It's recommended that you walk through the [prerequisites](#prerequisites) and make sure that you've performed all of the required steps. 
+Before you enable Azure AD over SMB for Azure Files, verify that your Azure AD and Azure Storage environments are properly configured. It's recommended that you walk through the [prerequisites](#prerequisites) to make sure that you've performed all of the required steps. 
 
 Next, grant access to Azure Files resources with Azure AD credentials by following these steps: 
 
-1. Enable Azure AD authentication over SMB for your storage account.
+1. Enable Azure AD authentication over SMB for your storage account to register the storage account with the associated Azure AD Domain Services deployment.
 2. Assign access permissions for a share to an Azure AD identity (a user, group, or service principal).
 3. Configure NTFS permissions over SMB for directories and files.
 4. Mount an Azure file share from a domain-joined VM.
@@ -63,11 +63,13 @@ The diagram below illustrates the end-to-end workflow for enabling Azure AD auth
 
 After you have completed the [prerequisites](#prerequisites), you can enable Azure AD authentication over SMB.
 
-### Step 1: Enable Azure AD authentication over SMB on your storage account
+### Step 1: Enable Azure AD authentication over SMB for your storage account
 
 To enable Azure AD authentication over SMB for Azure Files, you can set a property on storage accounts created after August 29, 2018, using the Azure Storage Resource Provider from PowerShell or Azure CLI. Setting the property in the Azure portal is not supported for the preview release. 
 
 Setting this property registers the storage account with the associated Azure AD Domain Services deployment. Azure AD authentication over SMB is then enabled for all new and existing file shares in the storage account. 
+
+Keep in mind that you can enable Azure AD authentication over SMB only after you have successfully deployed Azure AD Domain Services to your Azure AD tenant. For more information, refer to the [prerequisites](#prerequisites).
 
 **Powershell**
 
