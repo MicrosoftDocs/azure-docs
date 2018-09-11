@@ -117,19 +117,7 @@ Following are some common scenarios to help you understand which permissions are
 * For the folder to enumerate, the caller needs **Read + Execute** permissions.
 * For all the ancestor folders, the caller needs **Execute** permissions.
 
-## Viewing permissions in the Azure portal
 
-From the **Data Explorer** blade of the Data Lake Storage Gen1 account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastore** account.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-On this blade, the top section shows the owners permissions. (In the screenshot, the owning user is Bob.) Following that, the assigned Access ACLs are shown. 
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Click **Advanced View** to see the more advanced view, where the Default ACLs, mask, and a description of super-users are shown.  This blade also provides a way to recursively set Access and Default ACLs for child files and folders based on the permissions of the current folder.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## The super-user
 
@@ -183,22 +171,49 @@ The owning group can be changed by:
 
 ## Access check algorithm
 
-The following illustration represents the access check algorithm for Data Lake Storage Gen1 accounts.
+The following psuedocode represents the access check algorithm for Data Lake Storage Gen1 accounts.
 
-![Data Lake Storage Gen1 ACLs algorithm](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
+```
+def access_check( user, desired_perms, path ) : 
+  # access_check returns true if user has the desired permissions on the path, false otherwise
+  # user is the identity that wants to perform an operation on path
+  # desired_perms is a simple integer with values from 0 to 7 ( R=4, W=2, X=1). User desires these permissions
+  # path is the file or folder
+  # Note: the "sticky bit" is not illustrated in this algorithm
+  
+# Handle super users
+    if (is_superuser(user)) :
+      return True
 
+  # Handle the owning user. Note that mask is not used.
+    if (is_owning_user(path, user))
+      perms = get_perms_for_owning_user(path)
+      return ( (desired_perms & perms) == desired_perms )
+
+  # Handle the named user. Note that mask is used.
+  if (user in get_named_users( path )) :
+      perms = get_perms_for_named_user(path, user)
+      mask = get_mask( path )
+      return ( (desired_perms & perms & mask ) == desired_perms)
+
+  # Handle groups (named groups and owning group)
+  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
+  if (len(belongs_to_groups)>0) :
+    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
+    perms = 0
+    for p in group_perms : perms = perms | p # bitwise OR all the perms together
+    mask = get_mask( path )
+    return ( (desired_perms & perms & mask ) == desired_perms)
+
+  # Handle other
+  perms = get_perms_for_other(path)
+  mask = get_mask( path )
+  return ( (desired_perms & perms & mask ) == desired_perms)
+```
 
 ## The mask and "effective permissions"
 
-The **mask** is an RWX value that is used to limit access for **named users**, the **owning group**, and **named groups** when you're performing the access check algorithm. Here are the key concepts for the mask.
-
-* The mask creates "effective permissions." That is, it modifies the permissions at the time of access check.
-* The mask can be directly edited by the file owner and any super-users.
-* The mask can remove permissions to create the effective permission. The mask *cannot* add permissions to the effective permission.
-
-Let's look at some examples. In the following example, the mask is set to **RWX**, which means that the mask does not remove any permissions. The effective permissions for the named user, owning group, and named group are not altered during the access check.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
+As illustrated in the Access Check Algorithm, the RWX creates limits access for **named users**, the **owning group**, and **named groups**.  
 
 In the following example, the mask is set to **R-X**. This means that it **turns off the Write permissions** for **named user**, **owning group**, and **named group** at the time of access check.
 
@@ -309,15 +324,6 @@ A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this ha
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
 No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
-
-### What is the difference between mask and umask?
-
-| mask | umask|
-|------|------|
-| The **mask** property is available on every file and folder. | The **umask** is a property of the Data Lake Storage Gen1 account. So there is only a single umask in the Data Lake Storage Gen1.    |
-| The mask property on a file or folder can be altered by the owning user or owning group of a file or a super-user. | The umask property cannot be modified by any user, even a super-user. It is an unchangeable, constant value.|
-| The mask property is used during the access check algorithm at runtime to determine whether a user has the right to perform on operation on a file or folder. The role of the mask is to create "effective permissions" at the time of access check. | The umask is not used during access check at all. The umask is used to determine the Access ACL of new child items of a folder. |
-| The mask is a 3-bit RWX value that applies to named user, owning group, and named group at the time of access check.| The umask is a 9-bit value that applies to the owning user, owning group, and **other** of a new child.|
 
 ### Where can I learn more about POSIX access control model?
 

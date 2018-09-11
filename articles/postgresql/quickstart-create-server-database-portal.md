@@ -80,6 +80,10 @@ Azure Database for PostgreSQL creates a firewall at the server level. It prevent
     AllowAllIps | 0.0.0.0 | 255.255.255.255
 
      ![Set Firewall Rules](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
+      > [!NOTE]
+      > For production instances you should only set your firewall rules to accept incoming requests from known IP addresses.  These settings are for example purposes only.
+      >
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the connection security update has finished successfully before you continue.
 

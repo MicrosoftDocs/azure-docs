@@ -5,7 +5,7 @@ keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hado
 services: hdinsight
 author: jejiang
 ms.author: jejiang
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
@@ -20,7 +20,7 @@ Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to c
 
 The following items are required for completing the steps in this article:
 
-- A HDInsight cluster. To create a cluster, see [Get started with HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- A HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
 
@@ -270,7 +270,7 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
 >[!NOTE]
->PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only “PySpark” is supported for python. It is known issue that submit to spark 2.2 fail with python3.
+>PySpark3 is not supported anymore in Livy 0.4 (which is HDI spark 2.2 cluster). Only "PySpark" is supported for python. It is known issue that submit to spark 2.2 fail with python3.
    
 ## Livy configuration
 Livy configuration is supported, it could be set at the project settings in work space folder. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).

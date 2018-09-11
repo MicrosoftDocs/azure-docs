@@ -12,8 +12,8 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: ambapat
 
 ---
@@ -90,8 +90,8 @@ Key vault access policies grant permissions to keys, secrets and certificates se
 
 > [!IMPORTANT]
 > Note that key vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
-> 
-> 
+
+In addition to access policies, data plane access can also be restricted using [Virtual Network Service Endpoints for Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) by configuring [Firewalls and virtual network rules](key-vault-network-security.md) for an additional layer of security.
 
 ## Example
 Let's say you are developing an application that uses a certificate for SSL, Azure storage for storing data, and uses an RSA 2048-bit key for sign operations. Let's say this application is running in a VM (or a VM Scale Set). You can use a key vault to store all the application secrets, and use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
@@ -197,8 +197,8 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 
 > [!NOTE]
 > Note: This example shows how key vault access will be locked down in production. The developers should have their own subscription or resourcegroup where they have full permissions to manage their vaults, VMs and storage account where they develop the application.
-> 
-> 
+
+It is highly recommended to secure access to your key vault further by [configuring Key Vault firewalls and virtual networks](key-vault-network-security.md).
 
 ## Resources
 * [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md)
@@ -239,6 +239,8 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
   Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
 
 ## Next Steps
+[Configure Key Vault firewalls and virtual networks](key-vault-network-security.md)
+
 For a getting started tutorial for an administrator, see [Get Started with Azure key vault](key-vault-get-started.md).
 
 For more information about usage logging for key vault, see [Azure key vault Logging](key-vault-logging.md).
