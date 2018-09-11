@@ -60,6 +60,8 @@ Once an app is configured as public, _any_ valid LUIS authoring key or LUIS endp
 
 A user who is not an owner or collaborator, can only access a public app if given the app ID. LUIS doesn't have a public _market_ or other way to search for a public app.  
 
+A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
+
 ## Microsoft user accounts
 Authors and collaborators can add keys to LUIS on the Publish page. The Microsoft user account that creates the LUIS key in the Azure portal needs to be either the app owner or an app collaborator. 
 
