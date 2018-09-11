@@ -128,6 +128,22 @@ This happens when
 
 1.  **Blocked** : The operator can block a device, once a device is blocked it cannot send data to IoT Central and will have to be reset. Devices that are blocked have the provisioning status of **Blocked**. The operator can also unblock the device. Once unblocked the device provisioning status return to its previous provisioning status (Registered or Provisioned). 
 
+## Getting device connection string
+If you already have an IoT Central app and have devices connected, you can get still get device connection strings to Azure IoT Hub for temporary use, while you migrate your device code to use DPS SDK. 
+
+Use the below instructions to get the device connection string.
+
+ ```cmd/sh
+git clone https://github.com/Azure/dps-keygen
+cd dps-keygen
+npm i -g
+ ```
+ **Usage**
+In order to create a connection string, find your binary under bin/ folder
+ ```cmd/sh
+dps_cstr <scope_id> <device_id> <device_key>
+ ```
+You can get connection the details such as **Scope ID, Device ID, Device Primary key** for the device page.
 
 
 ## SDK support
