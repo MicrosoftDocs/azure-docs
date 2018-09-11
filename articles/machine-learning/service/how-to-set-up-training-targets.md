@@ -160,7 +160,6 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     from azureml.core.runconfig import RunConfiguration
     from azureml.core.conda_dependencies import CondaDependencies
 
-
     # Load the "cpu-dsvm.runconfig" file (created by the above attach operation) in memory
     run_config = RunConfiguration(framework = "python")
 
@@ -199,6 +198,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     ```python
     dsvm_compute.delete()
     ```
+    
 ## Azure Batch AI
 
 If it takes a long time to train your model, you can use Azure Batch AI to distribute the training across a cluster of compute resources in the cloud. Batch AI can also be configured to enable a GPU resource.
@@ -242,11 +242,8 @@ if not found:
 ```
 
 For more information on using the BatchAiCompute object, see the reference documentation. You can also check the Batch AI cluster and job status using az-cli commands:
-    - # check cluster status. You can see how many nodes are running.
-        ```$ az batchai cluster list```
-
-    - # check job status. You can see how many jobs are running
-        ```$ az batchai job list```
+    - Check cluster status. You can see how many nodes are running. ```$ az batchai cluster list```
+    - Check job status. You can see how many jobs are running. ```$ az batchai job list```
 
 ## Azure Container Instance (ACI)
 
