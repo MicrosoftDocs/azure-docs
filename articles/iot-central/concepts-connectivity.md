@@ -24,10 +24,10 @@ Azure IoT Central uses  [Azure IoT Hub Device Provisioning service (DPS)](https:
 >IoTCentral uses Azure IoT Device Provisioning service (DPS) underneath for all device registration and connection, [learn more about DPS](https://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps).
 
 Based on your use case follow the instructions to connect devices to IoT Central
-1. [Connect a single device quickly (using Shared Access Signatures)](#Connect-a-single-device)
-1. [Connect devices at scale using Shared Access Signatures (SAS)](#Connect-devices-at-scale-using-Shared-Access-Signatures)
-1. [Connect devices at scale using X509 certificates](#Connect-devices-using-X509-certificates) **recommended for production workloads**
-1. [Connect devices without first registering devices](#Connect-devices-without-first-registering-devices) 
+1. [Connect a single device quickly (using Shared Access Signatures)](#connect-a-single-device)
+1. [Connect devices at scale using Shared Access Signatures (SAS)](#connect-devices-at-scale-using-shared-access-signatures)
+1. [Connect devices at scale using X509 certificates](#connect-devices-using-x509-certificates) **recommended for production workloads**
+1. [Connect devices without first registering devices](#connect-devices-without-first-registering-devices) 
 
 ## Connect a single device
 Connecting a single device to IoT Central using SAS is easy and takes only a few steps 
