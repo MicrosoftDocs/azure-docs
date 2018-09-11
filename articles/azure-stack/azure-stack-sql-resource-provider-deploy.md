@@ -90,14 +90,14 @@ You can specify the following parameters from the command line. If you don't, or
 ## Deploy the SQL resource provider using a custom script
 
 To eliminate any manual configuration when deploying the resource provider, you can customize the following script.  
-- If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+-  
 - Change the default account information and passwords as needed for your Azure Stack deployment.
 
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2018-03-01-hybrid
+Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module  -Name AzureStack -RequiredVersion 1.4.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
