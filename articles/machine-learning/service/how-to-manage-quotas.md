@@ -2,14 +2,14 @@
 title: How to manage and request quotas  | Microsoft Docs
 description: This how-to guide explains the various quotas on resources for Azure Machine Learning and how to view and request more quota.
 services: machine-learning
-author: nigup
+author: nishankgu
 ms.author: nigup
 manager:  asutton
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 9/7/2018
+ms.date: 9/24/2018
 ---
 
 # How to manage and request quotas
@@ -41,10 +41,10 @@ It is important to emphasize that virtual machine cores have a regional total li
 
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
-| VMs per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) |10,000 per Region |10,000 per Region |
-| VM total cores per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) |20 per Region | Contact support |
-| VM per series (Dv2, F, etc.) cores per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) |20 per Region | Contact support |
-| vCPUs per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) <sup>1</sup> |20 per Region|10,000 per Region|
+| VMs per [subscription]() |10,000 per Region |10,000 per Region |
+| VM total cores per [subscription]() |20 per Region | Contact support |
+| VM per series (Dv2, F, etc.) cores per [subscription]() |20 per Region | Contact support |
+| vCPUs per [subscription]() <sup>1</sup> |20 per Region|10,000 per Region|
 
 ### Batch AI clusters
 In Batch AI, there is a default quota limit on both the number of cores and number of clusters allowed per region in a subscription. Batch AI quota is separate from the VM core quota above and the core limits are not shared currently between the two resource types.
@@ -64,7 +64,7 @@ There is also a limit on the number of container instances that you can spin up 
 
 | Resource | Default Limit |
 | --- | :--- |
-| Container groups per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) | 20<sup>1</sup> |
+| Container groups per [subscription]() | 20<sup>1</sup> |
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
 | Container creates per hour |60<sup>1</sup> |
