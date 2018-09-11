@@ -13,7 +13,7 @@ ms.author: diberry
 ---
 
 # Location entity
-The prebuilt location entity detects names. Because this entity is already trained, you do not need to add example utterances containing location to the application intents. Location entity is supported in English [culture](luis-reference-prebuilt-entities.md).
+The prebuilt location entity detects places. Because this entity is already trained, you do not need to add example utterances containing location to the application intents. Location entity is supported in English [culture](luis-reference-prebuilt-entities.md).
 
 ## Resolution for location entity
 The following example shows the resolution of the **builtin.location** entity.
