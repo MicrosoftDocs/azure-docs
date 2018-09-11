@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # How to: Enable cross-app SSO on Android using ADAL
 
-[!INCLUDE [active-directory-develop-applies-adal](../../../includes/active-directory-develop-applies-adal.md)]
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Single sign-on (SSO) allows users to only enter their credentials once and have those credentials automatically work across applications and across platforms that other applications may use (such as Microsoft Accounts or a work account from Microsoft 365) no matter the publisher.
 
