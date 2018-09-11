@@ -77,9 +77,9 @@ A device developer needs to embed the *connection string* for your real device i
 
     ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
-2. On the **Connect** page, copy the **Primary connection string**, and save it. You use this value in the second half of this tutorial. A device developer uses this value in the client application that runs on the device:
+2. On the **Connect** page, **Scope ID, Device ID, and Primary key**, and save it. You use this value in the second half of this tutorial. A device developer uses this value in the client application that runs on the device:
 
-    ![Connection string values](media/tutorial-add-device/connectionstring.png)
+    ![Connection details](media/tutorial-add-device/device-connect.PNG)
 
 ## Prepare the client code
 
@@ -125,14 +125,20 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 8. Add the following variable declarations to the file:
 
+ 
+
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
 
+  > [!NOTE]
+   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
+   
+
    > [!NOTE]
-   > You update the placeholder `{your device connection string}` in a later step.
+   > You update the placeholder `{your device connection string}` in a later step. 
 
 9. Save the changes you have made so far, but keep the file open.
 
