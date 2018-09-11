@@ -1,13 +1,12 @@
 ---
-title: 'Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API | Microsoft Docs'
-description: Learn about the feature support the Azure Cosmos DB Cassandra API
+title: Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API | Microsoft Docs
+description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
 services: cosmos-db
-author: govindk
+author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-ms.devlang: na
 ms.topic: overview
 ms.date: 09/10/2018
 ms.author: govindk
@@ -224,5 +223,4 @@ Since Azure Cosmos DB is a managed platform, running other systems, which are on
 
 ## Next steps
 
-
-- Explore Azure Cosmos DB with protocol support for Cassandra [samples](Cassandra-samples.md).
+- Explore Azure Cosmos DB with protocol support for Cassandra [samples].
