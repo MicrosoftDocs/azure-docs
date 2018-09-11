@@ -187,7 +187,6 @@ In this tutorial, you learned how to:
 > * Automatically deploy and upgrade an application
 
 Advance to the next tutorial:
-> [!div class="nextstepaction"]
 > [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
