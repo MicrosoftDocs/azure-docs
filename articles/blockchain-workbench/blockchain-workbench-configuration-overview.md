@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 7/12/2018
+ms.date: 9/11/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -15,7 +15,7 @@ manager: femila
 
  Azure Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
 
-Configuration metadata specifies the following information for each blockchain application: 
+Configuration metadata specifies the following information for each blockchain application:
 
 * Name and description of the blockchain application
 * Unique roles for users who can act or participate within the blockchain application
@@ -74,7 +74,7 @@ Supported data types.
 | int      | Integer data type |
 | money    | Money data type |
 | state    | Workflow state |
-| string   | String data type |
+| string   | String data type. 4000 character maximum. |
 | user     | Address of type user |
 | time     | Time data type |
 |`[ Application Role Name ]`| Any name specified in application role. Limits users to be of that role type. |
