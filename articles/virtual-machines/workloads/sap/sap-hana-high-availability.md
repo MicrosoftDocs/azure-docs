@@ -107,7 +107,7 @@ To deploy the template, follow these steps:
     - **System Availability**: Select **HA**.
     - **Admin Username and Admin Password**: A new user is created that can be used to log on to the machine.
     - **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet used. If you already have a virtual network that's connected to your on-premises network, select **Existing**.
-    - **Subnet ID**: The ID of the subnet to which the virtual machines should be connected. To connect the virtual machine to your on-premises network, select the subnet of your VPN or Azure ExpressRoute virtual network. The ID usually looks like **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>**.
+    - **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>**.
 
 ### Manual deployment
 
