@@ -34,9 +34,9 @@ To view the resources associated with an Azure account, you must first add the a
 
 	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Select **Add new account**. 
+1. Select **Manage accounts**. 
 
-	![Cloud Explorer add-account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+	![Cloud Explorer add-account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. Log in to the Azure account whose resources you want to browse. 
 
@@ -58,7 +58,7 @@ To view the resources associated with an Azure account, you must first add the a
 
 	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
 
-1. Choose **Remove** to remove an account
+1. Choose **Remove** to remove an account.
 
     ![Cloud Explorer Manage accounts dialog box](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
