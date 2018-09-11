@@ -620,7 +620,7 @@ Each function app also has a special **master key**. This key is a host key name
 
 Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Manage**.
 
-    ![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
 There is no supported API for programmatically obtaining function keys.
 
