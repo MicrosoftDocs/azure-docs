@@ -255,7 +255,7 @@ cd ..
 docker build -t flask-postgresql-sample .
 ```
 
-Docker displays a confirmation that it successfully created the image.
+Docker should display a confirmation that it successfully created the image. If you get an error, make sure you have docker installed, and that the docker daemon is running before trying again.
 
 ```bash
 Successfully built 7548f983a36b
@@ -289,7 +289,7 @@ The database already contains the registration you created previously.
 
 ![Docker container-based Python Flask application running locally](./media/tutorial-docker-python-postgresql-app/local-docker.png)
 
-Now that you verified that the container works locally, delete _db.env_. In Azure App Service, you will use app settings to define the environment variables.
+Now that you verified that the container works locally, delete `db.env`. In Azure App Service, you will use app settings to define the environment variables.
 
 ### Create an Azure Container Registry
 
@@ -406,12 +406,12 @@ az webapp restart --resource-group myResourceGroup --name <app_name>
 
 Browse to the deployed web app.
 
+> [!NOTE]
+> The web app takes some time to start because the container has to be downloaded and run when the app is requested for the first time. If loading the page times out, or if you see an error message, just wait a few minutes and refresh the page.
+
 ```bash
 http://<app_name>.azurewebsites.net
 ```
-
-> [!NOTE]
-> The web app takes some time to start because the container has to be downloaded and run when the app is requested the first time. If at first you see an error after a long time, just refresh the page.
 
 You see previously registered guests that were saved to the Azure production database in the previous step.
 
