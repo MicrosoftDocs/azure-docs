@@ -8,7 +8,7 @@
     href: Welcome.md
 - name: Quickstarts
   items:
-  - name: Create and access Cognitive Services using Azure resources
+  - name: Create an account
     href: cognitive-services-apis-create-account.md
   - name: Build an image classifier
     href: ./custom-vision-service/getting-started-build-a-classifier.md
