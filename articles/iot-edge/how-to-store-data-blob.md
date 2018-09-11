@@ -30,6 +30,7 @@ An Azure IoT Edge device:
    | ---------------- | ------------ |
    | Ubuntu Server 16.04 | AMD64 |
    | Ubuntu Server 18.04 | AMD64 |
+   | Windows 10 IoT Core (October update) | AMD64 |
    | Windows 10 IoT Enterprise (October update) | AMD64 |
    | Windows Server 2019 | AMD64 |
    | Rasbian Stretch | ARM32 |
@@ -90,8 +91,8 @@ Use the following steps to configure the deployment manifest:
 
    5. In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 
-      * Linux containers: **\<storage path>:/blobroot**. For example, /usr/containerdata:/blobroot. 
-      * Windows containers: **\<storage path>:C:\BlobRoot**. For example, C:\ContainerData:C:\BlobRoot.
+      * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. 
+      * Windows containers: **\<storage path>:C:\BlobRoot**. For example, C:\\ContainerData:C:\\BlobRoot.
 
 
 Continue following the steps in the deployment guide to deploy your blob storage module. You don't need to set up any routes for the blob storage module, since it can receive requests directly through the exposed port 11002. 
@@ -134,8 +135,8 @@ The solution template creates a deployment manifest template that includes your 
 
 5. In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 
-   * Linux containers: **\<storage path>:/blobroot**. For example, /usr/containerdata:/blobroot. 
-   * Windows containers: **\<storage path>:C:\BlobRoot**. For example, C:\ContainerData:C:\BlobRoot.
+   * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. 
+   * Windows containers: **\<storage path>:C:\\BlobRoot**. For example, C:\\ContainerData:C:\\BlobRoot.
 
 
 4. Save **deployment.template.json**.
@@ -217,4 +218,8 @@ Supported:
 
 Unsupported:
 * Put block from URL
+
+## Next steps
+
+Learn more about [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
 

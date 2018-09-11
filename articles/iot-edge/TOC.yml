@@ -127,6 +127,10 @@
       href: how-to-create-transparent-gateway-windows.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
+  - name: Store data at the edge
+    items:
+    - name: Azure Blob Storage
+      href: how-to-store-data-blob.md
   - name: CI/CD in VSTS
     href: how-to-ci-cd.md
   - name: Troubleshoot
