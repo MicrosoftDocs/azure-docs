@@ -206,53 +206,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	* Click **Save**.
 
-	* Click on **Activate** at the top right corner of the page.
+	* Click on **Test Connection** at the top right corner of the page.
 
 		![Activate plugin](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
+	
+	* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore and click **Activate** tab.
+
+		![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
   
-	* Click on the menu icon from your new Identity Provider that you created as part of the configuration and from the list select **copy sys_id**
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
-
-	* In the upper left search box, search for **sys_properties.list** and press enter.
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694993.png "Configure single sign-on")
-
-	* Click **New**.
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694994.png "Configure single sign-on")
-
-	* In the **System Property** section, perform the following steps:
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694995.png "Configure single sign-on")
-
-		* Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
-
-		* In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
-
-		* Select **Private**.
-
-		* Click **Submit**.
-
-	* Click **New**.
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694994.png "Configure single sign-on")
-
-	* In the **System Property** section, perform the following steps:
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694996.png "Configure single sign-on")
-
-		* Enter `glide.authenticate.multisso.test.connection.mandatory` value in the name textbox.
-
-		* In the **Value** textbox, enter **false**.
-
-		* Click **Submit**.
-
-	* After doing above step, now you will be able to activate your new Identity Provider and your SSO should work
-
-	> [!NOTE]
-	> Also please note that, you have to test your new Idp configuration in a new incognito window
-
 12. For configuring **ServiceNow** manually, follow the below steps:
 
 	* Sign on to your ServiceNow application as an administrator.
@@ -311,6 +272,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		* In the **Name** textbox, type a name for your configuration (for example, **SAML 2.0**).
 
+		* Keep **Identity Provider's SingleLogoutRequest** textbox blank.
+
 		* Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
 			> [!NOTE]
@@ -327,49 +290,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 			> [!NOTE]
 			> ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same, please follow the below steps.
+		
+		* Click on **Test Connection** at the top right corner of the page.
 
-	* Click on the menu icon from your new Identity Provider that you created as part of the configuration and from the list select **copy sys_id**
+		* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore and click **Activate** tab.
 
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694992.png "Configure single sign-on")
-
-	* In the upper left search box, search for **sys_properties.list** and press enter.
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694993.png "Configure single sign-on")
-
-	* Click **New**.
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694994.png "Configure single sign-on")
-
-	* In the **System Property** section, perform the following steps:
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694995.png "Configure single sign-on")
-
-		* Enter `glide.authenticate.sso.redirect.idp` value in the name textbox.
-
-		* In the **Value** textbox, paste the copy sys_id value which you have copied in the preceding steps.
-
-		* Select **Private**.
-
-		* Click **Submit**.
-
-	* Click **New**.
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694994.png "Configure single sign-on")
-
-	* In the **System Property** section, perform the following steps:
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694996.png "Configure single sign-on")
-
-		* Enter `glide.authenticate.multisso.test.connection.mandatory` value in the name textbox.
-
-		* In the **Value** textbox, enter **false**.
-
-		* Click **Submit**.
-
-	* After doing above step, now you will be able to activate your new Identity Provider and your SSO should work
-
-	> [!NOTE]
-	> Also please note that, you have to test your new Idp configuration in a new incognito window
+		  ![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
 
 ### Configure Azure AD Single Sign-On for ServiceNow Express
 
