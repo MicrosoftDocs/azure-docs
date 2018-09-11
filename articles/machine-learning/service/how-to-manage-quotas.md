@@ -31,7 +31,7 @@ Keep these quotas in mind as you design and scale up your Azure ML resources. Fo
 Here is a breakdown of the quota limits by various resource types within your Azure subscription. 
 
 > [!Important]
-> Limits are subject to change. The latest can always be found at the service-level quota [document](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits/) for all of Azure.
+> Limits are subject to change. The latest can always be found at the service-level quota [document](https://docs.microsoft.com/azure/azure-subscription-service-limits/) for all of Azure.
 
 ### Virtual machines 
 There is a limit on the number of virtual machines you can provision on an Azure subscription across your services or in a standalone manner. This limit is at the region level both on the total cores and also on a per family basis.
@@ -95,7 +95,7 @@ Viewing your quota for various resources, such as Virtual Machines, Storage, Net
 
 If you want to raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge. 
 
-The limits can't be raised above the maximum limit value shown in the tables. If there is no maximum limit, then the resource doesn't have adjustable limits. [This](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quota-errors) article covers the quota increase process in more detail.
+The limits can't be raised above the maximum limit value shown in the tables. If there is no maximum limit, then the resource doesn't have adjustable limits. [This](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) article covers the quota increase process in more detail.
 
 When requesting a quota increase, you need to select the service you are requesting to raise the quota against, which could be services such as AzureML quota, Batch AI quota, or Storage quota. 
 
