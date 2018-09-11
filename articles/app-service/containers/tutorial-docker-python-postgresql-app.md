@@ -175,25 +175,24 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 }
 ```
 
-### Create a firewall rule for the PostgreSQL server
+### Create firewall rules for the PostgreSQL server
 
-In the Cloud Shell, run the following Azure CLI command to allow access to the database from all IP addresses.
-> [!Note]
-> It is not advised to leave all ports open to your database, or to make your database internet-facing.  See other [Azure security articles](https://docs.microsoft.com/azure/security/) to properly secure your new database for production use.
+By default, the newly created database doesn't allow external connections. In order to connect to it, we'll need to create some firewall rules.
 
-```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
-```
-
-> [!TIP]
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
->
-
-In the Cloud Shell, run the command again to allow access to the database from your local computer by replacing *\<you_ip_address>* with [your local IPv4 IP address](https://whatismyipaddress.com/).
+For local testing purposes, we want to restrict connections to our local IP address. In the Cloud Shell, run this command to allow access to the database from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](http://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<you_ip_address> --end-ip-address=<you_ip_address> --name AllowLocalClient
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
 ```
+
+Next, let's open the range of IP addresses belonging to resources on the Azure network, so that we can connect from our web app after we deploy it.
+
+```azurecli-interactive
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
+```
+
+> [!IMPORTANT]
+> This option configures the firewall to allow network connections from IPs within the Azure network, not limited to your subscription. For production use, aim to configure the most restrictive firewall rules possible by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
 ## Connect Python app to production database
 
