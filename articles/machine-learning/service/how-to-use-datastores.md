@@ -112,8 +112,9 @@ First, you need to create a `DataReference` object from your datastore and pass 
 There are two supported ways to make your datastore available on the remote compute:
 * **Mount**  
 `ds.as_mount(path_on_compute='your path on compute)'` creates a `DataReference` object with mount mode, so that the datastore will get mounted for you on the remote compute at the relative path location specified by `path_on_compute` (or at the root if `path_on_compute`=None). 
-* **Download**  
-`ds.as_download(path_on_compute='your path on compute)` creates a `DataReference` object with download mode. With this mode, the data will get downloaded from your datastore to the remote compute to the location specified by `path_on_compute`.
+* **Download/upload**  
+    * `ds.as_download(path_on_compute='your path on compute)` creates a `DataReference` object with download mode. With this mode, the data will get downloaded from your datastore to the remote compute to the location specified by `path_on_compute`.
+    * Conversely, you can also upload data that was produced from your training run up to a datastore. For example, if your training script creates a `foo.pkl` file in the current execution directory on the remote compute, you can specify for it to get uploaded to your datastore after the script has been run: `ds.as_upload(path_on_compute='./foo.pkl')`. This will upload the file to the root of your datastore.
 
 If you don't want to mount/download your entire datastore, you can instead specify a particular path. If your datastore has a directory with relative path `./foo` and you're only interested in mounting this directory to the compute target, you can do so as follows: `ds.path(path='./foo').as_mount()`
 
@@ -138,9 +139,9 @@ Alternatively, you can pass in a list of DataReferences to the `inputs` paramete
 est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py',
-                inputs=[ds1.as_mount(), ds2.as_download()])
+                inputs=[ds1.as_mount(), ds2.as_download(), ds3.as_upload(path_on_compute='./foo.pkl')])
 ```
-The above code will mount one datastore `ds1` and download the other `ds2` to the remote compute before your training script `train.py` is executed.
+The above code will mount one datastore `ds1` and download the other `ds2` to the remote compute before your training script `train.py` is executed. After your script has run, it will upload the file './foo.pkl' from the remote compute up to the datastore `d3`.
 
 ## Next steps
 * [Train a model](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-ml-models)
