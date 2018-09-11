@@ -1,0 +1,119 @@
+- name: Azure AD Application Management Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About application management
+    href: what-is-application-management.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Add an application - portal
+    href: add-application-portal.md
+  - name: View tenant apps - portal
+    href: view-applications-portal.md
+- name: Tutorials
+  items:
+  - name: Configure single sign-on - portal
+    href: configure-single-sign-on-portal.md
+- name: Concepts
+  items: 
+  - name: Plan a cloud app integration
+    items:
+    - name: What happens when you add an app
+      href: plan-an-application-integration.md
+  - name: Plan an on-premises app integration
+    items:
+    - name: Application Proxy
+      href: application-proxy.md
+    - name: Connectors
+      href: application-proxy-connectors.md
+    - name: Connector groups
+      href: application-proxy-connector-groups.md
+    - name: Security
+      href: application-proxy-security.md
+    - name: Network topology
+      href: application-proxy-network-topology.md
+    - name: Comparison of remote access solutions
+      href: application-proxy-migration.md
+  - name: Provisioning users and groups
+    items:
+    - name: Automatic user provisioning
+      href: configure-automatic-user-provisioning-portal.md
+    - name: SCIM-enabled apps
+      href: use-scim-to-provision-users-and-groups.md
+  - name: Application security
+    items:
+    - name: App access options
+      href: what-is-access-management.md
+    - name: Certificate signing options
+      href: certificate-signing-options.md
+    - name: Manage certificates
+      href: manage-certificates-for-federated-single-sign-on.md
+  - name: Single sign-on
+    items:
+    - name: SSO methods
+      href: application-proxy-single-sign-on.md
+    - name: Home Realm Discovery
+      href: configure-authentication-for-federated-users-portal.md
+    - name: Kerberos constrained Delegation (KCD)
+      href: application-proxy-configure-single-sign-on-with-kcd.md
+    - name: Password vaulting
+      href: application-proxy-configure-single-sign-on-password-vaulting.md
+    - name: Ping access
+      href: application-proxy-configure-single-sign-on-with-ping-access.md
+- name: How-to guides
+  items:
+  - name: Cloud app integration
+    items:
+    - name: Change name or logo
+      href: change-name-or-logo-portal.md
+  - name: On-premises app integration
+    items:
+    - name: Enable Application Proxy
+      href: application-proxy-enable.md
+    - name: Publish app for remote access
+      href: application-proxy-publish-azure-portal.md
+    - name: Configure connectors
+      href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Configure claims-aware apps
+      href: application-proxy-configure-for-claims-aware-applications.md
+    - name: Register connector - silent install
+      href: application-proxy-register-connector-powershell.md
+    - name: Configure native client apps
+      href: application-proxy-configure-native-client-application.md
+    - name: Configure custom home page
+      href: application-proxy-configure-custom-home-page.md
+    - name: Translate inline links
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Publish using wildcards
+      href: application-proxy-wildcard.md
+    - name: Remove personal data
+      href: application-proxy-remove-personal-data.md
+    - name: Configure custom domain
+      href: application-proxy-configure-custom-domain.md
+    - name: Integrate with Remote Desktop
+      href: application-proxy-integrate-with-remote-desktop-services.md
+    - name: Integrate with Sharepoint
+      href: application-proxy-integrate-with-sharepoint-server.md
+    - name: Integrate with Teams
+      href: application-proxy-integrate-with-teams.md
+    - name: Integrate with Tableau
+      href: application-proxy-integrate-with-tableau.md
+    - name: Integrate with Qlik
+      href: application-proxy-qlik.md
+    - name: Configuration errors
+      href: application-proxy-troubleshoot.md
+  - name: Application access
+    items:
+    - name: Assign a user to an app
+      href: assign-user-or-group-access-portal.md
+    - name: Remove user or group access
+      href: remove-user-or-group-access-portal.md
+    - name: Hide app from a user
+      href: hide-application-from-user-portal.md
+    - name: Disable user sign-on
+      href: disable-user-sign-in-portal.md
+  - name: Migration
+    items:
+    - name: Migrate an ADFS app to Azure
+      href: migrate-adfs-apps-to-azure.md
