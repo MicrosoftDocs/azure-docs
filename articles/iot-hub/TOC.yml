@@ -66,18 +66,21 @@
     - name: Send and receive messages
       href: iot-hub-devguide-messaging.md
       items:
-      - name: Send device-to-cloud messages to IoT Hub
+      - name: Use message routing to send device-to-cloud messages
         href: iot-hub-devguide-messages-d2c.md
-      - name: Read device-to-cloud messages from the built-in endpoint
-        href: iot-hub-devguide-messages-read-builtin.md
+        items:
+        - name: Create and read IoT Hub messages
+          href: iot-hub-devguide-messages-construct.md
+        - name: Read device-to-cloud messages from the built-in endpoint
+          href: iot-hub-devguide-messages-read-builtin.md
+        - name: Use custom endpoints and routing rules for device-to-cloud messages
+          href: iot-hub-devguide-messages-read-custom.md
+        - name: Add queries to message routes
+          href: iot-hub-devguide-routing-query-syntax.md
       - name: React to IoT Hub events
         href: iot-hub-event-grid.md
-      - name: Use custom endpoints and routing rules for device-to-cloud messages
-        href: iot-hub-devguide-messages-read-custom.md
       - name: Send cloud-to-device messages from IoT Hub
         href: iot-hub-devguide-messages-c2d.md
-      - name: Create and read IoT Hub messages
-        href: iot-hub-devguide-messages-construct.md
       - name: Choose a communication protocol
         href: iot-hub-devguide-protocols.md
     - name: Upload files from a device

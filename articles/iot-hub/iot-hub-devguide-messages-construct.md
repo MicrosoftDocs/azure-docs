@@ -1,33 +1,38 @@
 ﻿---
 title: Understand Azure IoT Hub message format | Microsoft Docs
 description: Developer guide - descibes the format and expected content of IoT Hub messages.
-author: dominicbetts
-manager: timlt
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
+ms.date: 08/13/2018
+ms.author: asrastog
 ---
 
 # Create and read IoT Hub messages
 
-To support seamless interoperability across protocols, IoT Hub defines a common message format for all device-facing protocols. This message format is used for both [device-to-cloud][lnk-d2c] and [cloud-to-device][lnk-c2d] messages. 
+To support seamless interoperability across protocols, IoT Hub defines a common message format for all device-facing protocols. This message format is used for both [device-to-cloud routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) and [cloud-to-device](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-c2d) messages. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-An [IoT Hub message][lnk-messaging] consists of:
+IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) *events* than [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) *messages* in that there is a high volume of events passing through the service that can be read by multiple readers.
 
+An IoT Hub message consists of:
 * A predetermined set of *system properties* as listed below.
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 * An opaque binary body.
 
-Property names and values can only contain ASCII alphanumeric characters, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` when you:  
+Property names and values can only contain ASCII alphanumeric characters, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
 
-* Send device-to-cloud messages using the HTTPS protocol.
-* Send cloud-to-device messages.
+Device-to-cloud messaging with IoT Hub has the following characteristics:
 
-For more information about how to encode and decode messages sent using different protocols, see [Azure IoT SDKs][lnk-sdks].
+* Device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days.
+* Device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
+* IoT Hub does not allow arbitrary partitioning. Device-to-cloud messages are partitioned based on their originating **deviceId**.
+* As explained in the [Control access to IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security) section, IoT Hub enables per-device authentication and access control.
+
+For more information about how to encode and decode messages sent using different protocols, see [Azure IoT SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 The following table lists the set of system properties in IoT Hub messages.
 
@@ -56,18 +61,27 @@ IoT Hub measures message size in a protocol-agnostic way, considering only the a
 
 Property names and values are limited to ASCII characters, so the length of the strings equals the size in bytes.
 
+## Anti-spoofing properties
+
+To avoid device spoofing in device-to-cloud messages, IoT Hub stamps all messages with the following properties:
+
+* **ConnectionDeviceId**
+* **ConnectionDeviceGenerationId**
+* **ConnectionAuthMethod**
+
+The first two contain the **deviceId** and **generationId** of the originating device, as per [Device identity properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#device-identity-properties).
+
+The **ConnectionAuthMethod** property contains a JSON serialized object, with the following properties:
+
+```json
+{
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
+  "issuer": "iothub"
+}
+```
+
 ## Next steps
 
-For information about message size limits in IoT Hub, see [IoT Hub quotas and throttling][lnk-quotas].
-
-To learn how to create and read IoT Hub messages in various programming languages, see the [Quickstarts][lnk-get-started].
-
-[lnk-messaging]: iot-hub-devguide-messaging.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-c2d]: iot-hub-devguide-messages-c2d.md
-[lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
+* For information about message size limits in IoT Hub, see [IoT Hub quotas and throttling](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling).
+* To learn how to create and read IoT Hub messages in various programming languages, see the [Quickstarts](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node).

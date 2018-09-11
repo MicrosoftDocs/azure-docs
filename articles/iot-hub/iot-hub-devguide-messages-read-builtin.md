@@ -1,6 +1,6 @@
 ---
 title: Understand the Azure IoT Hub built-in endpoint | Microsoft Docs
-description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint toread device-to-cloud messages.
+description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint to read device-to-cloud messages.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -21,7 +21,7 @@ By default, messages are routed to the built-in service-facing endpoint (**messa
 
 IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint.
 
-By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this fallback route, messages that do not explicitly match any message routing rules are dropped.
+If the [Fallback Route](..iot-hub/iot-hub-devguide-messages-d2c.md##Fallback Route) is enabled, all messages that do not match a query on any route are written to the built-in endpoint. If you disable this Fallback Route, messages that do not match any query are dropped.
 
 You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or with the [Azure portal][lnk-management-portal].
 
