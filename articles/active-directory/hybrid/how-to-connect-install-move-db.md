@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Move Azure AD Connect database from SQL Server Express to SQL Server. | Microsoft Docs'
 description: This document describes how to move the Azure AD Connect database from the local SQL Server Express server to a remote SQL Server.
 services: active-directory
@@ -19,7 +19,7 @@ This document describes how to move the Azure AD Connect database from the local
 ## About this scenario
 The following is some brief information about this scenario.  In this scenario, Azure AD Connect version (1.1.819.0) is installed on a single Windows Server 2016 domain controller.  It is using the built-in SQL Server 2012 Express Edition for its database.  The database will be moved to a SQL Server 2017 server.
 
-![](media/active-directory-aadconnect-move-db/move1.png)
+![](media/how-to-connect-install-move-db/move1.png)
 
 ## Move the Azure AD Connect database
 Use the following steps to move the Azure AD Connect database to a remote SQL Server.
@@ -31,7 +31,7 @@ Use the following steps to move the Azure AD Connect database to a remote SQL Se
 5. On the remote SQL server, open SQL Server Management Studio.
 6. On Databases, right-click and select Attach.
 7. On the **Attach Databases** screen, click **Add** and navigate to the ADSync.mdf file.  Click **OK**.
-![](media/active-directory-aadconnect-move-db/move2.png)
+![](media/how-to-connect-install-move-db/move2.png)
 
 8. Once the database is attached, go back to the Azure AD Connect server and install Azure AD Connect.
 9. Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
