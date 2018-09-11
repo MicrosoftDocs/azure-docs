@@ -15,7 +15,7 @@ ms.author: sajagtap
 
 Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
-## Sign up for the Content Moderator media processor (public preview)
+## Sign up for the Content Moderator media processor (preview)
 
 ### Create a free Azure account
 
