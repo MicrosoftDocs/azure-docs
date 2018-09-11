@@ -59,6 +59,7 @@ ms.author: mtillman
                                                     </div>
                                                 </a>
                                             </li>
+<!--This is the learning section -->
                                             <li>
                                                 <a href="">
                                                     <div class="cardSize">
@@ -81,6 +82,7 @@ ms.author: mtillman
                                                     </div>
                                                 </a>
                                             </li>
+<!--End of thelearning section -->
 										</ul>
                                     </li>
                                     <li>
