@@ -210,7 +210,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		![Activate plugin](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
 	
-	* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore and click **Activate** tab.
+	* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
 
 		![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
   
@@ -293,7 +293,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 		
 		* Click on **Test Connection** at the top right corner of the page.
 
-		* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore and click **Activate** tab.
+		* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
 
 		  ![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
 
