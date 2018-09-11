@@ -15,7 +15,7 @@ ms.author: sajagtap
 
 Use Content Moderator’s machine-assisted [video moderation](video-moderation-api.md) and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
 
-## Video-trained classifier
+## Video-trained classifier (preview)
 
 Machine-assisted video classification is either achieved with image trained models or video trained models. Unlike image-trained video classifiers, Microsoft's adult and racy video classifier is trained with videos. This method results in better match quality.
 
