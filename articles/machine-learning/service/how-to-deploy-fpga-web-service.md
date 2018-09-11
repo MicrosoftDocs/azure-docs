@@ -160,10 +160,10 @@ registered_model.delete()
 
 ## Secure your deployment with SSL/TLS and authentication
 
-Azure Machine Learning provides SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients.
+Azure Machine Learning Hardware Accelerated Models provides SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients.
 
 > [!NOTE]
-> The steps in this section only apply to Azure Machine Learning Hardware Accelerated Models. For standard Azure Machine Learning service, see the [How to set up SSL on Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) document.
+> The steps in this section only apply to Azure Machine Learning Hardware Accelerated Models.
 
 > [!IMPORTANT]
 > Authentication is only enabled for services that have provided an SSL certificate and key. 
