@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
@@ -39,7 +39,7 @@ If you do not have NSGs enabled, Security Center presents two recommendations to
 
    ![Choose Network Security Group][4]
 
-If you create an NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create an NSG and set security rules.
+If you create an NSG, follow the steps in [Manage a network security group](../virtual-network/manage-network-security-group.md) to create an NSG and set security rules.
 
 ## See also
 This article showed you how to implement the Security Center recommendation "Enable Network Security Groups" for subnets or virtual machines. To learn more about enabling NSGs, see the following:

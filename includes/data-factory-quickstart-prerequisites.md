@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: jingwang
+ms.custom: include file
+---
+
 ## Prerequisites
 
 ### Azure subscription
@@ -6,8 +18,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ### Azure roles
 To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. In the Azure portal, select your username in the upper-right corner, and select **Permissions** to view the permissions that you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../articles/billing/billing-add-change-azure-subscription-administrator.md) article.
 
+To create and manage child resources (including datasets, linked services, pipelines, triggers, and integration runtimes) for Data Factory through the Author & Monitor UI in the Azure portal, you must belong to the **Data Factory Contributor** role. To create and manage child resources with Powershell or the SDK, the **contributor** role is sufficient.
+
 ### Azure storage account
-You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) to create one. 
+You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md) to create one. 
 
 #### Get the storage account name and account key
 You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account: 

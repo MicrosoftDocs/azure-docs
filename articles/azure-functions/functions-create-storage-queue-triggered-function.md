@@ -4,23 +4,19 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Queue storage
 
-Learn how to create a function triggered when messages are submitted to an Azure Storage queue.
+Learn how to create a function that is triggered when messages are submitted to an Azure Storage queue.
 
 ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 

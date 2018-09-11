@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
+ms.reviewer: sdash
+ms.author: mbullwin
 
 ---
 # Monitor availability and responsiveness of any web site
@@ -110,7 +111,7 @@ From an availability test result, you can:
 
 * Inspect the response received from your server.
 * Diagnose failure with server side telemetry collected while processing the failed request instance.
-* Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
+* Log an issue or work item in Git or Azure DevOps to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
 *Looks OK but reported as a failure?* 
@@ -178,7 +179,9 @@ Use Visual Studio Enterprise to record a web session.
 
 View your test results and any failures in the same way as single-url tests.
 
-In addition, you can download the test results to view them in Visual Studio.
+You can also download the test results to view them in Visual Studio.
+
+To download the test results. Navigate to the Availability test summary, click on a result in the graph to open the Availability test result window, and then click on **Open in Visual Studio** to download the test result.
 
 #### Too many failures?
 
@@ -251,7 +254,7 @@ If your test must sign in using OAuth, the general approach is:
 ## Performance tests
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 
-From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account.
+From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Azure DevOps Services organization.
 
 When the test is complete, you are shown response times and success rates.
 

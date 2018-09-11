@@ -88,6 +88,8 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 Basic services created after late 2017 have an increased limit of 15 indexes, data sources, skillsets, and indexers.
 
+Resource-intensive operations, such as image analysis in Azure blob indexing or natural language processing in cognitive search, have shorter maximum running times so that other indexing jobs can be accommodated. If an indexing job cannot complete within the maximum time allowed, try running it on a schedule. The scheduler keeps track of indexing status. If a scheduled indexing job is interrupted for any reason, the indexer can pick up where it last left off at the next scheduled run.
+
 | Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
@@ -95,7 +97,7 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 | Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
 | Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
-| Maximum running time for cognitive search skillsets (natural language or image processing) <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |
+| Maximum running time for cognitive search skillsets or blob indexing with image analysis <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A |
 
@@ -107,7 +109,7 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 
 <sup>4</sup> Maximum of 30 skills per skillset.
 
-<sup>5</sup> When a scheduled indexing job is interrupted due to reaching its running time quota, the indexer picks up where it left off the next time it runs according to the schedule. 
+<sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
 
 ## Queries per second (QPS)
 
@@ -122,7 +124,7 @@ Estimates are more predictable when calculated on services running on dedicated 
 * Maximum 32 fields in $orderby clause
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
 ## API Response limits
 * Maximum 1000 documents returned per page of search results

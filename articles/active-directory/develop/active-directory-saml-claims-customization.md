@@ -18,8 +18,8 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-
 ---
+
 # Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory
 Today Azure Active Directory supports single sign on with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery as well as custom applications. When a user authenticates to an application through Azure AD using the SAML 2.0 protocol, Azure AD sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as "claims".
 
@@ -127,8 +127,8 @@ There are some restricted claims in SAML. If you add these claims, then Azure AD
 
 ## Next steps
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Troubleshooting SAML-Based Single Sign-On](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Media Services scenarios and availability of features across datacenters | Microsoft Docs
-description: This topic gives an overview of Microsoft Azure Media Services scenarios and availability of features and services across data centers. 
+description: This topic gives an overview of Microsoft Azure Media Services scenarios and availability of features and services across datacenters. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -20,9 +20,9 @@ ms.author: juliako;anilmur
 
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
-AMS operates in multiple data centers around the world. These data centers are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
+AMS operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
 
-This topic shows common scenarios for delivering your content [live](#live_scenarios) or [on-demand](#vod_scenarios). The topic also provides details about availability of media features and services across data centers.
+This topic shows common scenarios for delivering your content [live](#live_scenarios) or [on-demand](#vod_scenarios). The topic also provides details about availability of media features and services across datacenters.
 
 ## Overview
 
@@ -162,7 +162,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-To determine if Media Services is available in a data center, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
+To determine if Media Services is available in a datacenter, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
 
 ### Streaming endpoints 
 

@@ -5,8 +5,8 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ---
@@ -204,12 +204,12 @@ The **execute** command is used to execute compiled results.
 
 The following are optional arguments for **execute**:
 
-|Argument|Description|
-|--------|-----------|
-|-DataRoot [default value '']|Data root for metadata execution. It defaults to the **LOCALRUN_DATAROOT** environment variable.|
-|-MessageOut [default value '']|Dump messages on the console to a file.|
-|-Parallel [default value '1']|Indicator to run the generated local-run steps with the specified parallelism level.|
-|-Verbose [default value 'False']|Indicator to show detailed outputs from runtime.|
+|Argument|Default value|Description|
+|--------|-------------|-----------|
+|-DataRoot | '' |Data root for metadata execution. It defaults to the **LOCALRUN_DATAROOT** environment variable.|
+|-MessageOut | '' |Dump messages on the console to a file.|
+|-Parallel | '1' |Indicator to run the generated local-run steps with the specified parallelism level.|
+|-Verbose | 'False' |Indicator to show detailed outputs from runtime.|
 
 Here's a usage example:
 

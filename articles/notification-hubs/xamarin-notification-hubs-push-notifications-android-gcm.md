@@ -28,7 +28,7 @@ In this tutorial, you take the following steps:
 
 > [!div class="checklist"]
 > * Create a Firebase project and enable Firebase Cloud Messaging
-> * Create a notificaiton hub
+> * Create a notification hub
 > * Create a Xamarin.Android app and connect it to the notification hub
 > * Send test notifications from the Azure portal
 
@@ -54,7 +54,7 @@ In this tutorial, you take the following steps:
 
 Your notification hub is configured to work with FCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
-## Create Xamain.Android app and connect it to notification hub
+## Create Xamarin.Android app and connect it to notification hub
 
 ### Create Visual Studio project and add NuGet packages
 1. In Visual Studio, point to **File**, select **New**, and then select **Project**. 
@@ -138,6 +138,7 @@ Open the **AndroidManifest.xml** file and insert the following `<receiver>` elem
 8. Add the following using statements to **MyFirebaseIIDService.cs**:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -179,6 +180,7 @@ Open the **AndroidManifest.xml** file and insert the following `<receiver>` elem
 12. Add the following using statements to **MyFirebaseMessagingService.cs**.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```
@@ -288,6 +290,6 @@ In this tutorial, you sent broadcast notifications to all your Android devices r
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid

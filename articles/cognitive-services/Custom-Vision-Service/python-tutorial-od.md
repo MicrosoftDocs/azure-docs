@@ -79,7 +79,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 For object detection project you need to upload image, regions, and tags. The region is in normalized coordiantes and specifies the location of the tagged object.
 
-To add the images, region, and tags to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code.
+To add the images, region, and tags to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates.
 
 ```Python
 
@@ -189,7 +189,7 @@ from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint 
 predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 
 # Open the sample image and get back the prediction results.
-with open("images/test/test_image.jpg", mode="rb") as test_data:
+with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.

@@ -6,10 +6,9 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
 
@@ -32,7 +31,7 @@ At a high level, the project required the following workflow steps:
 1. Convert C-CDA documents to FHIR resources.
 2. Perform recurring trigger polling for modified FHIR resources. 
 2. Call a custom app, FhirNotificationApi, to connect to Azure Cosmos DB and query for new or modified documents.
-3. Save the response to to the Service Bus queue.
+3. Save the response to the Service Bus queue.
 4. Poll for new messages in the Service Bus queue.
 5. Send email notifications to patients.
 
@@ -207,7 +206,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 ### Testing the FhirNotificationApi 
 
-The following image demonstrates how swagger was used to to test the [FhirNotificationApi](#api-app-source).
+The following image demonstrates how swagger was used to test the [FhirNotificationApi](#api-app-source).
 
 ![The Swagger file used to test the API app](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
 

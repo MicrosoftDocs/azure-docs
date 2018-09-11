@@ -11,13 +11,13 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
 ---
 
 # Tutorial: Analyze videos with Azure Media Services 
 
-This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchabe catalog, with indexes and dashboards. Then, they can obtain insights into their business such as a list of common complaints, sources of such complaints, etc.
+This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business such as a list of common complaints, sources of such complaints, etc.
 
 This tutorial shows you how to:    
 
@@ -25,10 +25,13 @@ This tutorial shows you how to:
 > * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
-> * Examine the sample code in detail
+> * Examine the code that analyzes the specified video
 > * Run the app
 > * Examine the output
 > * Clean up resources
+
+> [!Note]
+> Use the Azure portal, as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md), to set your Media Services account to 10 S3 Media Reserved Units.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,28 +47,30 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
+The sample is located in the [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) folder.
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## Examine the sample code in detail
+## Examine the code that analyzes the specified video
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
 The sample performs the following actions:
 
-1. Creates a new Transform (first, checks if the specified Transform exists). 
-2. Creates an output Asset that is used as the encoding Job's output.
-3. Create an input Asset and uploads the specified local video file into it. The Asset is used as the Job's input. 
-4. Submits the encoding Job using the input and output that was created.
-5. Checks the Job's status.
-6. Downloads the encoded files.
+1. Creates a transform and a job that analyzes your video.
+2. Creates an input asset and uploads the video into it. The asset is used as the job's input.
+3. Creates an output asset that stores the job's output. 
+4. Submits the job.
+5. Checks the job's status.
+6. Downloads the files that resulted from running the job. 
 
 ### Start using Media Services APIs with .NET SDK
 
-To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. You first need to get a token and then create a **ClientCredential** object from the returned token. In the code you cloned at the beginning of the article, the **ArmClientCredential** object is used to get the token.  
+To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
@@ -83,7 +88,7 @@ The following function performs these actions:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
-### Create an output asset to store the result of a job 
+### Create an output asset to store the result of the job 
 
 The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your job. The project defines the **DownloadResults** function that downloads the results from this output asset into the "output" folder, so you can see what you got.
 
@@ -103,7 +108,7 @@ When creating a **Transform**, you should first check if one already exists usin
 
 #### Job
 
-As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTPS URLs, SAS URLs, or Assets that are in your Media Service account. 
+As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTPS URLs, SAS URLs, or Assets that are in your Media Service account. 
 
 In this example, the job input is a local video.  
 
@@ -111,7 +116,7 @@ In this example, the job input is a local video.
 
 ### Wait for the job to complete
 
-The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) completion. The simplest option (that is shown here) is to use polling. 
+The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the [Job](https://docs.microsoft.com/rest/api/media/jobs) completion. The simplest option (that is shown here) is to use polling. 
 
 Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 

@@ -3,7 +3,7 @@ title: Service Bus pricing and billing | Microsoft Docs
 description: Overview of Service Bus pricing structure.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Service Bus pricing and billing
@@ -35,7 +35,10 @@ The **Standard** tier introduces graduated pricing for operations performed with
 
 The **Premium** tier provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution. Not only is this performance more predictable and available, but it is also faster.
 
-Note that the Standard tier base charge is charged only once per month per Azure subscription. This means that after you create a single Standard tier Service Bus namespace, you can create as many additional Standard namespaces as you want under that same Azure subscription, without incurring additional base charges.
+> [!NOTE]
+> Topics and subscriptions are only available in the Standard or Premium pricing tiers; the Basic tier supports only queues.
+
+The Standard tier base charge is charged only once per month per Azure subscription. This means that after you create a single Standard tier Service Bus namespace, you can create as many additional Standard namespaces as you want under that same Azure subscription, without incurring additional base charges.
 
 The [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/) table summarizes the functional differences between the Standard and Premium tiers.
 

@@ -1,18 +1,19 @@
 ---
 title: Using Terraform with Azure
 description: Introduction to using Terraform to vesion and deploy Azure infrastructure.
-ms.service: virtual-machines-linux
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, overview, plan, apply, automate
-author: binderjoe
-ms.author: jbinder
-ms.date: 10/19/2017
-ms.topic: article
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
 ---
-
 
 # Terraform with Azure
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources, such as virtual machines, storage accounts, and networking interfaces. Terraform's command-line interface (CLI) provides a simple mechanism to deploy and version the configuration files to Azure or any other supported cloud.
+[Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources, such as virtual machines, storage accounts, and networking interfaces. Terraform's command-line interface (CLI) provides a simple mechanism to deploy and version the configuration files to Azure or any other supported cloud.
 
 This article describes the benefits of using Terraform to manage Azure infrastructure.
 
@@ -35,7 +36,7 @@ Terraform provides a command-line interface (CLI) that allows users to validate 
 
 ## Deploy infrastructure to multiple clouds
 
-Terraform is a popular tool choice for multi-cloud scenarios, where similar infrastructure is deployed to Azure and additional cloud providers or on-premise datacenters. It enables developers to use the same tools and configuration files to manage infrastructure on multiple cloud providers.
+Terraform is a popular tool choice for multi-cloud scenarios, where similar infrastructure is deployed to Azure and additional cloud providers or on-premises datacenters. It enables developers to use the same tools and configuration files to manage infrastructure on multiple cloud providers.
 
 ## Next steps
 

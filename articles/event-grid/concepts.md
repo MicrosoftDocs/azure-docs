@@ -3,11 +3,10 @@ title: Azure Event Grid concepts
 description: Describes Azure Event Grid and its concepts. Defines several key components of Event Grid.
 services: event-grid
 author: tfitzmac
-manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
 ---
 
@@ -68,6 +67,10 @@ Event Grid provides security for subscribing to topics, and publishing topics. W
 ## Event delivery
 
 If Event Grid can't confirm that an event has been received by the subscriber's endpoint, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-and-retry.md).
+
+## Batching
+
+When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume usecases, it is recommended that you batch multiple events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not exceed 64 KB.
 
 ## Next steps
 

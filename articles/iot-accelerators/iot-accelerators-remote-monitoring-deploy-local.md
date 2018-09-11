@@ -80,7 +80,7 @@ Follow the on-screen instructions to complete the sign-in process. Make sure tha
 
 ### Run a local deployment
 
-Use the following command to start the local deployment. This will create the required azure resources and print out environemnt variables to teh console. 
+Use the following command to start the local deployment. This will create the required azure resources and print out environment variables to the console. 
 
 ```cmd/pcs
 pcs -s local
@@ -130,6 +130,6 @@ In this tutorial, you learned how to:
 > * Deploy the solution accelerator
 > * Sign in to the solution accelerator
 
-Now that you have deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](iot-accelerators-remote-monitoring-deploy.md).
+Now that you have deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

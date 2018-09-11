@@ -46,8 +46,8 @@ The following articles are the complete documentation for cognitive search.
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + [Preview REST API](search-api-2017-11-11-preview.md)
-  + [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
-  + [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
+  + [Create Skillset (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## See also
 

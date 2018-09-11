@@ -1,19 +1,16 @@
-﻿---
+---
 title: Compare Flow, Logic Apps, Functions, and WebJobs - Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks:  Flow, Logic Apps, Functions, and WebJobs."
 services: functions,app-service\logic
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: mvc
 ---
 
@@ -45,13 +42,13 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Design Tool |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
 | Application Lifecycle Management (ALM) |Design and test in non-production environments, promote to production when ready. |DevOps: source control, testing, support, automation, and manageability in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Admin Experience |Manage Flow Environments and Data Loss Prevention (DLP) policies, track licensing [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Manage Resource Groups, Connections, Access Management, and Logging [https://portal.azure.com](https://portal.azure.com) |
-| Security |Office 365 Security and Compliance audit logs, Data Loss Prevention (DLP), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
+| Security |Office 365 Security and Compliance audit logs, Data Loss Prevention (DLP), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
 ## Compare Azure Functions and Azure Logic Apps
 
 Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps provides serverless workflows. Complex *orchestrations* can be created by both. An orchestration is a collection of functions or steps, called *actions* in Logic Apps, that are executed to accomplish a complex task. For example, to process a batch of orders you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable-functions-overview.md) (in preview). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable-functions-overview.md). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
 
 You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these services:
  

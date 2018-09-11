@@ -6,10 +6,10 @@ author: yarong
 manager: kfile
 editor: ''
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 

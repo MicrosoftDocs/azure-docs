@@ -1,11 +1,11 @@
 ---
 title: Azure App Service on Linux FAQ | Microsoft Docs
 description: Azure App Service on Linux FAQ.
-keywords: azure app service, web app, faq, linux, oss
+keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 
 ms.assetid:
@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
-ms.author: msangapu
+ms.date: 06/26/2018
+ms.author: yili
 ---
 # Azure App Service on Linux FAQ
 
 With the release of App Service on Linux, we're working on adding features and making improvements to our platform. This article provides answers to questions that our customers have been asking us recently.
 
-If you have a question, comment on the article and we'll answer it as soon as possible.
+If you have a question, comment on this article.
 
 ## Built-in images
 
@@ -31,7 +31,7 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name. For Ruby, you can specify the Ruby script that you want to initialize your app with.
+For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name as `dotnet <myapp>.dll`. For Ruby, you can specify the Ruby script that you want to initialize your app with.
 
 ## Management
 
@@ -49,31 +49,31 @@ Yes, you can do that through the source control management (SCM) site.
 
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
-You need to set the **reserved** field of the app service to *true*.
+You should set the **reserved** field of the app service to *true*.
 
 ## Continuous integration and deployment
 
 **My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration and deployment of custom containers?**
 
-To set up continuous integration/deployment for Azure Container Registry or DockerHub images by check the following article [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+Yes, to set up continuous integration/deployment for Azure Container Registry or DockerHub, by following [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Do you support staging environments?**
 
 Yes.
 
-**Can I use *web deploy* to deploy my web app?**
+**Can I use *WebDeploy/MSDeploy* to deploy my web app?**
 
 Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false*.
 
-**Git deployment of my application fails when using Linux web app. How can I workaround the issue?**
+**Git deployment of my application fails when using Linux web app. How can I work around the issue?**
 
-If Git deployment fails to your Linux web app, you can choose the following alternate options to deploy your application code:
+If Git deployment fails to your Linux web app, choose one of the following options to deploy your application code:
 
-- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Team Services Git repo or GitHub repo to use Azure Continuous Delivery. For more details, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following:
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following code:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -81,10 +81,11 @@ If Git deployment fails to your Linux web app, you can choose the following alte
 
 ## Language support
 
-**I want to use websockets in my Node.js application, any special settings or configurations to set?**
+**I want to use web sockets in my Node.js application, any special settings, or configurations to set?**
 
-Yes, disable `perMessageDeflate` in your server side Node.js code. For example, if you are using socket.io, do the following:
-```
+Yes, disable `perMessageDeflate` in your server-side Node.js code. For example, if you are using socket.io, use the following code:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -96,16 +97,16 @@ Yes.
 
 **Do you support Composer as a dependency manager for PHP apps?**
 
-Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.lock file), and Kudu will then trigger a composer install for you.
+Yes, during a Git deployment, Kudu should detect that you're deploying a PHP application (thanks to the presence of a composer.lock file), and Kudu will then trigger a composer install.
 
 ## Custom containers
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true* or by removing the app setting entirely. Keep in mind that doing this will cause container restarts when the platform storage goes through a change. 
+You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true*. Keep in mind that this will cause container restarts when the platform storage goes through a change.
 
 >[!NOTE]
->If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
+>If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is unspecified or set to *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
@@ -117,7 +118,7 @@ Provide the full registry URL, including `http://` or `https://`.
 
 **What is the format for the image name in the private registry option?**
 
-Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Can I expose more than one port on my custom container image?**
 
@@ -139,6 +140,35 @@ We have automatic port detection. You can also specify an app setting called *WE
 
 No, the platform handles HTTPS termination at the shared front ends.
 
+## Multi-container with Docker Compose and Kubernetes
+
+**How do I configure Azure Container Registry (ACR) to use with multi-container?**
+
+In order to use ACR with multi-container, **all container images** need to be hosted on the same ACR registry server. Once they are on the same registry server, you will need to create application settings and then update the Docker Compose or Kubernetes configuration file to include the ACR image name.
+
+Create the following application settings:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (full URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
+
+Within the configuration file, reference your ACR image like the following example:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**How do I know which container is internet accessible?**
+
+- Only one container can be open for access
+- Only port 80 and 8080 is accessible (exposed ports)
+
+Here are the rules for determining which container is accessible - in the order of precedence:
+
+- Application setting `WEBSITES_WEB_CONTAINER_NAME` set to the container name
+- The first container to define port 80 or 8080
+- If neither of the above is true, the first container defined in the file will be accessible (exposed)
+
 ## Pricing and SLA
 
 **What is the pricing, now that the service is generally available?**
@@ -157,6 +187,6 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 
 ## Next steps
 
-* [What is Azure App Service on Linux?](app-service-linux-intro.md)
-* [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)
+- [What is Azure App Service on Linux?](app-service-linux-intro.md)
+- [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)

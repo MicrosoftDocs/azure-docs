@@ -7,7 +7,8 @@ manager: douge
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
@@ -30,49 +31,51 @@ To access tables in ASP.NET Core projects, you need to include the following ite
 
 1. Add the necessary `using` statements:
 
-    ```cs
-    using Microsoft.Framework.Configuration;
+    ```csharp
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Table;
     using System.Threading.Tasks;
-    using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-1. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration:
+1. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code, using the name of your storage account and the account key, which you can find in the storage connection string in appSettings.json:
 
-    ```cs
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```csharp
+        CloudStorageAccount storageAccount = new CloudStorageAccount(
+            new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+                "<name>", "<account-key>"), true);
     ```
 
 1. Get a `CloudTableClient` object to reference the table objects in your storage account:
 
-    ```cs
+    ```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
 1. Get a `CloudTable` reference object to reference a specific table and entities:
 
-    ```cs
+    ```csharp
     // Get a reference to a table named "peopleTable"
     CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
 ## Create a table in code
 
-To create the Azure table, call ``CreateIfNotExistsAsync()`:
+To create the Azure table, create an async method and within it, call `CreateIfNotExistsAsync()`:
 
-```cs
-// Create the CloudTable if it does not exist
-await peopleTable.CreateIfNotExistsAsync();
+```csharp
+async void CreatePeopleTableAsync()
+{
+    // Create the CloudTable if it does not exist
+    await peopleTable.CreateIfNotExistsAsync();
+}
 ```
-
+    
 ## Add an entity to a table
 
 To add an entity to a table, you create a class that defines the properties of your entity. The following code defines an entity class called `CustomerEntity` that uses the customer's first name as the row key and last name as the partition key.
 
-```cs
+```csharp
 public class CustomerEntity : TableEntity
 {
     public CustomerEntity(string lastName, string firstName)
@@ -91,7 +94,7 @@ public class CustomerEntity : TableEntity
 
 Table operations involving entities use the `CloudTable` object you created earlier in [Access tables in code](#access-tables-in-code). The `TableOperation` object represents the operation to be done. The following code example shows how to create a `CloudTable` object and a `CustomerEntity` object. To prepare the operation, a `TableOperation` is created to insert the customer entity into the table. Finally, the operation is executed by calling `CloudTable.ExecuteAsync`.
 
-```cs
+```csharp
 // Create a new customer entity.
 CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 customer1.Email = "Walter@contoso.com";
@@ -108,7 +111,7 @@ await peopleTable.ExecuteAsync(insertOperation);
 
 You can insert multiple entities into a table in a single write operation. The following code example creates two entity objects ("Jeff Smith" and "Ben Smith"), adds them to a `TableBatchOperation` object using the `Insert` method, and then starts the operation by calling `CloudTable.ExecuteBatchAsync`.
 
-```cs
+```csharp
 // Create the batch operation.
 TableBatchOperation batchOperation = new TableBatchOperation();
 
@@ -134,7 +137,7 @@ await peopleTable.ExecuteBatchAsync(batchOperation);
 
 To query a table for all of the entities in a partition, use a `TableQuery` object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
 
-```cs
+```csharp
 // Construct the query operation for all customer entities where PartitionKey="Smith".
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
 
@@ -157,7 +160,7 @@ do
 
 You can write a query to get a single, specific entity. The following code uses a `TableOperation` object to specify a customer named 'Ben Smith'. The method returns just one entity, rather than a collection, and the returned value in `TableResult.Result` is a `CustomerEntity` object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the `Table` service.
 
-```cs
+```csharp
 // Create a retrieve operation that takes a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
@@ -175,12 +178,12 @@ else
 
 You can delete an entity after you find it. The following code looks for and deletes a customer entity named "Ben Smith":
 
-```cs
+```csharp
 // Create a retrieve operation that expects a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
 // Execute the operation.
-TableResult retrievedResult = peopleTable.Execute(retrieveOperation);
+TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
 
 // Assign the result to a CustomerEntity object.
 CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;

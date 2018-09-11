@@ -1,7 +1,7 @@
 ---
 title: Handle mouse events with Azure Maps | Microsoft Docs
 description: How to make an interactive Javascript map with map events
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
@@ -26,5 +26,10 @@ Play with the map above and see the corresponding mouse events highlighted on th
 
 Learn more about the classes and methods used in this article: 
 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addeventlistener)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
+
+For more code examples to add to your maps, see the following article: 
+* [Show search results](./map-search-location.md)
+
+Check out our [code sample page](http://aka.ms/AzureMapsSamples) for more mapping scenarios.

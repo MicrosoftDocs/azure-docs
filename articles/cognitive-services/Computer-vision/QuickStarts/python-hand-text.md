@@ -1,6 +1,6 @@
 ---
-title: Computer Vision Python quickstart handwritten text | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Extract handwritten text - REST, Python - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract handwritten text from an image using Computer Vision with Python in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -9,12 +9,16 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/17/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Extract Handwritten Text with Python
+# Quickstart: Extract handwritten text - REST, Python - Computer Vision
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
+
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## Prerequisites
 
@@ -37,6 +41,15 @@ The following code uses the Python `requests` library to call the Computer Visio
 ## Recognize Text request
 
 ```python
+import requests
+import time
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
@@ -50,18 +63,17 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "RecognizeText"
+text_recognition_url = vision_base_url + "recognizeText"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \
     "Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg"
 
-import requests
-headers  = {'Ocp-Apim-Subscription-Key': subscription_key}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 # Note: The request parameter changed for APIv2.
 # For APIv1, it is 'handwriting': 'true'.
-params   = {'mode': 'Handwritten'}
-data     = {'url': image_url}
+params  = {'mode': 'Handwritten'}
+data    = {'url': image_url}
 response = requests.post(
     text_recognition_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -73,27 +85,28 @@ response.raise_for_status()
 operation_url = response.headers["Operation-Location"]
 
 # The recognized text isn't immediately available, so poll to wait for completion.
-import time
 analysis = {}
-while "recognitionResult" not in analysis:
+poll = True
+while (poll):
     response_final = requests.get(
         response.headers["Operation-Location"], headers=headers)
     analysis = response_final.json()
     time.sleep(1)
+    if ("recognitionResult" in analysis):
+        poll= False 
+    if ("status" in analysis and analysis['status'] == 'Failed'):
+        poll= False
 
-# Extract the recognized text, with bounding boxes.
-polygons = [(line["boundingBox"], line["text"])
-    for line in analysis["recognitionResult"]["lines"]]
+polygons=[]
+if ("recognitionResult" in analysis):
+    # Extract the recognized text, with bounding boxes.
+    polygons = [(line["boundingBox"], line["text"])
+        for line in analysis["recognitionResult"]["lines"]]
 
 # Display the image and overlay it with the extracted text.
-from matplotlib.patches import Polygon
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
-
 plt.figure(figsize=(15, 15))
-image  = Image.open(BytesIO(requests.get(image_url).content))
-ax     = plt.imshow(image)
+image = Image.open(BytesIO(requests.get(image_url).content))
+ax = plt.imshow(image)
 for polygon in polygons:
     vertices = [(polygon[0][i], polygon[0][i+1])
         for i in range(0, len(polygon[0]), 2)]
@@ -386,7 +399,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)

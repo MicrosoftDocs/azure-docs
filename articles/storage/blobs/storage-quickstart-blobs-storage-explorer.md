@@ -3,7 +3,7 @@ title: Azure Quickstart - Create a blob in object storage using Azure Storage Ex
 description: In this quickstart, you use Azure Storage Explorer  in object (Blob) storage. Then you use Storage Explorer to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
-manager: jeconnoc
+
 
 ms.custom: mvc
 ms.service: storage

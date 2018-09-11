@@ -11,8 +11,8 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/31/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
@@ -82,7 +82,23 @@ Sharepointserviceaccount can be the SPS machine account or a service account und
 
 
 ## SSO for non-Windows apps
-The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are several protocols that define how to send such requests. Most non-Windows servers expect Negotiate/SPNego that is now supported on Azure AD Application Proxy.
+
+The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. 
+
+There are several protocols that define how to send such requests. Most non-Windows servers expect to negotiate with SPNEGO. This protocol is supported on Azure AD Application Proxy, but is disabled by default. A server can be configured for SPNEGO or standard KCD, but not both.
+
+If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard KCD should be routed through other connectors that are not configured for SPNEGO.
+ 
+
+To enable SPNEGO:
+
+1. Open an command prompt that runs as administrator.
+2. From the command prompt, run the following commands on the connector servers that need SPNEGO.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
@@ -116,13 +132,13 @@ If delegated login identity is used, the value might not be unique across all th
    * On-premises SAM account name (depends on the domain controller configuration)
 
 ### Troubleshooting SSO for different identities
-If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 But, in some cases, the request is successfully sent to the backend application while this application replies in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the connector machine in the Application Proxy session event log. The user identity that was used for delegation appears in the “user” field within the event details. To turn on session log, select **Show analytic and debug logs** in the event viewer view menu.
 
 ## Next steps
 
-* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

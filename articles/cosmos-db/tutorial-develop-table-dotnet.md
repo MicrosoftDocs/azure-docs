@@ -6,8 +6,8 @@ author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/18/2017

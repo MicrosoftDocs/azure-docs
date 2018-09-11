@@ -12,19 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/01/2018
 ms.author: abnarain
 
 ---
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-usql-activity.md)
-> * [Version 2 - Preview](transform-data-using-data-lake-analytics.md)
+> * [Version 1](v1/data-factory-usql-activity.md)
+> * [Current version](transform-data-using-data-lake-analytics.md)
 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [USQL Activity in V1](v1/data-factory-usql-activity.md).
 
 Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -39,8 +36,8 @@ The following table provides descriptions for the generic properties used in the
 | **type**                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | **accountName**          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | No                                       |
-| **subscriptionId**       | Azure subscription ID                    | No (If not specified, subscription of the data factory is used). |
-| **resourceGroupName**    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
+| **subscriptionId**       | Azure subscription ID                    | No                                       |
+| **resourceGroupName**    | Azure resource group name                | No                                       |
 
 ### Service principal authentication
 The Azure Data Lake Analytics linked service requires a service principal authentication to connect to the Azure Data Lake Analytics service. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to both the Data Lake Analytics and the Data Lake Store it uses. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
@@ -73,7 +70,7 @@ Use service principal authentication by specifying the following properties:
                 "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "<tenant ID>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },

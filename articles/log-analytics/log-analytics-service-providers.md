@@ -1,82 +1,82 @@
-﻿---
-title: Log Analytics Features for Service Providers | Microsoft Docs
-description: Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
+---
+title: Log Analytics for Service Providers | Microsoft Docs
+description: Log Analytics can help Managed Service Providers (MSPs), large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
-
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2016
-ms.author: richrund
-
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: meirm
+ms.component: na
 ---
-# Log Analytics features for Service Providers
+
+# Log Analytics for Service Providers
 Log Analytics can help managed service providers (MSPs), large enterprises, independent software vendors (ISVs), and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure. 
 
 Large enterprises share many similarities with service providers, particularly when there is a centralized IT team that is responsible for managing IT for many different business units. For simplicity, this document uses the term *service provider* but the same functionality is also available for enterprises and other customers.
 
-## Cloud Solution Provider
-For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics is one of the Azure services available in [Azure CSP subscription](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics is one of the Azure services available in [Azure CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
-For Log Analytics, the following capabilities are enabled in *Cloud Solution Provider* subscriptions.
+## Architectures for Service Providers
 
-As a *Cloud Solution Provider* you can:
+Log Analytics workspaces provide a method for the administrator to control the flow and isolation of the logs and create a log architecture that addresses its specific business needs. [This article](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) explains the general considerations around workspace management. Service providers have additional considerations.
 
-* Create Log Analytics workspaces in a tenant (customer's) subscription.
-* Access workspaces created by tenants. 
-* Add and remove user access to the workspace using Azure user management. When in a tenant’s workspace in the OMS portal the user management page under Settings is not available
-  * Log Analytics does not support role-based access yet - giving a user `reader` permission in the Azure portal allows them to make configuration changes in the OMS portal
+There are three possible architectures for service providers regarding Log Analytics workspaces:
 
-To log in to a tenant’s subscription, you need to specify the tenant identifier. The tenant identifier is often that last part of the e-mail address used to sign in.
+### 1. Distributed - Logs are stored in workspaces located in the customer's tenant 
 
-* In the OMS portal, add `?tenant=contoso.com` in the URL for the portal. For example, `mms.microsoft.com/?tenant=contoso.com`
-* In PowerShell, use the `-Tenant contoso.com` parameter when using `Connect-AzureRmAccount` cmdlet
-* The tenant identifier is automatically added when you use the `OMS portal` link from the Azure portal to open and log in to the OMS portal for the selected workspace
+In this architecture, a workspace is deployed in the customer's tenant that is used for all the logs of that customer. The service provider administrators are granted access to this workspace using [Azure Active Directory guest users (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). The service provider administrators will have to switch to their customer's directory in the Azure portal to be able to access these workspaces.
 
-As a *customer* of a Cloud Solution Provider you can:
+The advantages of this architecture are:
+* The customer can manage access to the logs using their own [role-based access](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Each customer can have different settings for their workspace such as retention and data capping.
+* Isolation between customers for regulatory and compliancy.
+* The charge for each workspace will be rolled into the customer's subscription.
+* Logs can be collected from all types of resources, not just agent-based. For example, Azure Audit Logs.
 
-* Create log analytics workspaces in a CSP subscription
-* Access workspaces created by the CSP
-  * Use the `OMS portal` link from the Azure portal to open and log in to the OMS portal for the selected workspace
-* View and use the user management page under Settings in the OMS portal
+The disadvantages of this architecture are:
+* It is harder for the service provider to manage a large number of customer tenants at once.
+* Service provider administrators have to be provisioned in the customer directory.
+* The service provider can't analyze data across its customers.
 
-> [!NOTE]
-> The included Backup and Site Recovery solutions for Log Analytics are not able to connect to a Recovery Services vault and cannot be configured in a CSP subscription. 
-> 
-> 
+### 2. Central - Logs are stored in a workspace located in the service provider tenant
 
-## Managing multiple customers using Log Analytics
-It is recommended that you create a Log Analytics workspace for each customer you manage. A Log Analytics workspace provides:
+In this architecture, the logs are not stored in the customer's tenants but only in a central location within one of the service provider's subscriptions. The agents that are installed on the customer's VMs are configured to send their logs to this workspace using the workspace ID and secret key.
 
-* A geographic location for data to be stored. 
-* Granularity for billing 
-* Data isolation 
-* Unique configuration
+The advantages of this architecture are:
+* It is easy to manage a large number of customers and integrate them to various backend systems.
+* The service provider has full ownership over the logs and the various artifacts such as functions and saved queries.
+* The service provider can perform analytics across all of its customers.
 
-By creating a workspace per customer, you are able to keep each customer’s data separate and also track the usage of each customer.
+The disadvantages of this architecture are:
+* This architecture is applicable only for agent-based VM data, it will not cover PaaS, SaaS and Azure fabric data sources.
+* It might be hard to separate the data between the customers when they are merged into a single workspace. The only good method to do so is to use the computer's fully qualified domain name (FQDN) or via the Azure subscription ID. 
+* All data from all customers will be stored in the same region with a single bill and same retention and configuration settings.
+* Azure fabric and PaaS services such as Azure Diagnostics and Azure Audit Logs requires the workspace to be in the same tenant as the resource, thus they cannot send the logs to the central workspace.
+* All VM agents from all customers will be authenticated to the cental workspace using the same workspace ID and key. There is no method to block logs from a specific customer without interrupting other customers.
 
-More details on when and why to create multiple workspaces is described in [manage access to log analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
 
-Creation and configuration of customer workspaces can be automated using [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager templates](log-analytics-template-workspace-configuration.md), or using the [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+### 3. Hybrid - Logs are stored in workspace located in the customer's tenant and some of them are pulled to a central location.
 
-The use of Resource Manager templates for workspace configuration allows you to have a master configuration that can be used to create and configure workspaces. You can be confident that as workspaces are created for customers they are automatically configured to your requirements. When you update your requirements, the template is updated and then reapplied the existing workspaces. This process ensures that even existing workspaces meet your new standards.    
+The third architecture mix between the two options. It is based on the first distributed architecture where the logs are local to each customer but using some mechanism to create a central repository of logs. A portion of the logs is pulled into a central location for reporting and analytics. This portion could be small number of data types or a summary of the activity such as daily statistics.
 
-When managing multiple Log Analytics workspaces, we recommend integrating each workspace with your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality. By integrating with your existing systems, support staff can continue to follow their familiar processes. Log Analytics regularly checks each workspace against the alert criteria you specify and generates an alert when action is needed.
+There are two options to implement the central location in Log Analytics:
 
-For personalized views of data, use the [dashboard](../azure-portal/azure-portal-dashboards.md) capability in the Azure portal.  
+1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](log-analytics-data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-For executive level reports that summarize data across workspaces you can use the integration between Log Analytics and [PowerBI](log-analytics-powerbi.md). If you need to integrate with another reporting system, you can use the Search API (via PowerShell or [REST](log-analytics-log-search-api.md)) to run queries and export search results.
+2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between Log Analytics and [Power BI](log-analytics-powerbi.md). 
+
 
 ## Next Steps
 * Automate creation and configuration of workspaces using [Resource Manager templates](log-analytics-template-workspace-configuration.md)
 * Automate creation of workspaces using [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Use [Alerts](log-analytics-alerts.md) to integrate with existing systems
-* Generate summary reports using [PowerBI](log-analytics-powerbi.md)
-
+* Generate summary reports using [Power BI](log-analytics-powerbi.md)
+* Review the process of [configuring Log Analytics and Power BI to monitor multiple CSP customers](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

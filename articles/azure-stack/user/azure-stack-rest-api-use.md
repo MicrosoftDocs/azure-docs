@@ -3,7 +3,7 @@ title: Use the Azure Stack API | Microsoft Docs
 description: Learn how to retrieve an authentication from Azure to make API requests to Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 
 ms.service: azure-stack
@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 
@@ -23,9 +23,9 @@ ms.reviewer: thoroet
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can use the Azure Stack Application Programming Interface (API) to automate operations such as syndicating marketplace items.
+You can use the Application Programming Interface (API) to automate operations such as adding a VM to your Azure Stack cloud.
 
-The API requires your client to authenticate against the Microsoft Azure login endpoint. The endpoint returns a token to use in the header of every request sent to the Azure Stack API. Microsoft Azure uses Oauth 2.0.
+The API requires your client to authenticate to the Microsoft Azure login endpoint. The endpoint returns a token to use in the header of every request sent to the Azure Stack API. Microsoft Azure uses Oauth 2.0.
 
 This article provides examples that use the **cURL** utility to create Azure Stack requests. The application, cURL, is a command-line tool with a library for transferring data. These examples walk through the process of retrieving a token to access the Azure Stack API. Most programming languages provide Oauth 2.0 libraries, which have robust token management and handle tasks such refreshing the token.
 

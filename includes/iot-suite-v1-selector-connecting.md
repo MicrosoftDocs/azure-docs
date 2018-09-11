@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-accelerators
+ author: dominicbetts
+ ms.service: iot-accelerators
+ ms.topic: include
+ ms.date: 05/30/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 > [!div class="op_single_selector"]
 > * [C on Windows](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [C on Linux](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -24,13 +36,13 @@ Before you write any code for your device, you must provision your remote monito
 ### Provision your remote monitoring preconfigured solution
 The device you create in this tutorial sends data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, use the following steps:
 
-1. On the <https://www.azureiotsuite.com/> page, click **+** to create a solution.
+1. On the <https://www.azureiotsolutions.com/> page, click **+** to create a solution.
 2. Click **Select** on the **Remote monitoring** panel to create your solution.
 3. On the **Create Remote monitoring solution** page, enter a **Solution name** of your choice, select the **Region** you want to deploy to, and select the Azure subscription to want to use. Then click **Create solution**.
 4. Wait until the provisioning process completes.
 
 > [!WARNING]
-> The preconfigured solutions use billable Azure services. Be sure to remove the preconfigured solution from your subscription when you are done with it to avoid any unnecessary charges. You can completely remove a preconfigured solution from your subscription by visiting the <https://www.azureiotsuite.com/> page.
+> The preconfigured solutions use billable Azure services. Be sure to remove the preconfigured solution from your subscription when you are done with it to avoid any unnecessary charges. You can completely remove a preconfigured solution from your subscription by visiting the <https://www.azureiotsolutions.com/> page.
 > 
 > 
 

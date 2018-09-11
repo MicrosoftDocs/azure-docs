@@ -1,5 +1,5 @@
 ---
-title: Deploy a Spring Boot application to Azure Service Fabric | Microsoft Docs
+title: Create a Spring Boot app on Service Fabric in Azure | Microsoft Docs
 description: In this quickstart, you deploy a Spring Boot application for Azure Service Fabric using a Spring Boot sample application.
 services: service-fabric
 documentationcenter: java
@@ -18,44 +18,48 @@ ms.author: suhuruli
 ms.custom: mvc, devcenter
 
 ---
+# Quickstart: Deploy a Java Spring Boot application to Service Fabric
 
-# Quickstart: deploy a Java Spring Boot Application to Azure
-Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
+Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers.
 
-Using familiar command-line tools, this quickstart walks you through how to deploy a functional Spring Boot application to Service Fabric on a Mac or Linux developer machine using the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website.
+This quickstart shows how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric.
 
 ![Application Screenshot](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 In this quickstart, you learn how to:
 
 * Deploy a Spring Boot application to Service Fabric
-* Deploy the application to your local cluster 
+* Deploy the application to your local cluster
 * Deploy the application to a cluster in Azure
 * Scale-out the application across multiple nodes
 * Perform failover of your service with no hit to availability
 
 ## Prerequisites
+
 To complete this quickstart:
+
 1. Install Service Fabric SDK & Service Fabric Command Line Interface (CLI)
 
-    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli#cli-mac)
+    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
     
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 
-2. [Install Git](https://git-scm.com/)
-3. Install Yeoman
+1. [Install Git](https://git-scm.com/)
+1. Install Yeoman
 
-    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. Set up Java Environment
+1. Set up Java Environment
 
-    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
     
     b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## Download the sample
+
 In a terminal window, run the following command to clone the Spring Boot Getting Started sample app to your local machine.
+
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
@@ -70,11 +74,11 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ## Package the Spring Boot application 
 1. Inside the `gs-spring-boot` directory in your clone, run the `yo azuresfguest` command. 
 
-2. Enter the following details for each prompt. 
+1. Enter the following details for each prompt.
 
     ![Yeoman Entries](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. In the `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` folder, create a file called `entryPoint.sh`. Add the following to the `entryPoint.sh` file. 
+1. In the `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` folder, create a file called `entryPoint.sh`. Add the following to the `entryPoint.sh` file. 
 
     ```bash
     #!/bin/bash
@@ -83,7 +87,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-4. Add the **Endpoints** resource in the `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` file
+1. Add the **Endpoints** resource in the `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` file
 
     ```xml 
         <Resources>
@@ -125,13 +129,14 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 At this stage, you have created a Service Fabric application for the Spring Boot Getting Started sample that you can deploy to Service Fabric.
 
 ## Run the application locally
+
 1. Start your local cluster on Ubuntu machines by running the following command:
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [preqrequisites](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
+    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [preqrequisites](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
 
     ```bash
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
@@ -141,46 +146,47 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     
     ![Local cluster healthy](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-2. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
-3. Run the following command to connect to your local cluster. 
+1. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
+1. Run the following command to connect to your local cluster.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-4. Run the `install.sh` script. 
+1. Run the `install.sh` script.
 
     ```bash
     ./install.sh
     ```
 
-5. Open your favorite web browser and access the application by accessing **http://localhost:8080**. 
+1. Open your favorite web browser and access the application by accessing **http://localhost:8080**.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
-    
-You can now access the Spring Boot application that was deployed to a Service Fabric cluster.  
+
+You can now access the Spring Boot application that was deployed to a Service Fabric cluster.
 
 ## Deploy the application to Azure
 
 ### Set up your Azure Service Fabric Cluster
+
 To deploy the application to a cluster in Azure, create your own cluster.
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team. You can use party clusters to deploy applications and learn about the platform. The cluster uses a single, self-signed certificate for node-to-node and client-to-node security.
 
-Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **ReadMe** link to find the certificate password and instructions about how to configure various environments to use the certificate. Keep both the **Welcome** page and the **ReadMe** page open, you will use some of the instructions in the following steps. 
+Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **ReadMe** link to find the certificate password and instructions about how to configure various environments to use the certificate. Keep both the **Welcome** page and the **ReadMe** page open, you will use some of the instructions in the following steps.
 
 > [!Note]
-> There are a limited number of party clusters available per hour. If you get an error when you try to sign up for a party cluster, you can wait for a period and try again, or you can follow these steps in [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) to create a cluster in your subscription. 
+> There are a limited number of party clusters available per hour. If you get an error when you try to sign up for a party cluster, you can wait for a period and try again, or you can follow these steps in [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) to create a cluster in your subscription.
 >
 > The Spring Boot service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
 >
 
 Service Fabric provides several tools that you can use to manage a cluster and its applications:
 
-- Service Fabric Explorer, a browser-based tool.
-- Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI 2.0.
-- PowerShell commands. 
+* Service Fabric Explorer, a browser-based tool.
+* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI 2.0.
+* PowerShell commands.
 
-In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer. 
+In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer.
 
 To use the CLI, you need to create a PEM file based on the PFX file you downloaded. To convert the file, use the following command. (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)
 
@@ -192,35 +198,36 @@ To use Service Fabric Explorer, you need to import the certificate PFX file you 
 
 Use whatever method you are most comfortable with to import the certificate on your system. For example:
 
-- On Windows: Double-click the PFX file and follow the prompts to install the certificate in your personal store, `Certificates - Current User\Personal\Certificates`. Alternatively, you can use the PowerShell command in the **ReadMe** instructions.
-- On Mac: Double-click the PFX file and follow the prompts to install the certificate in your Keychain.
-- On Ubuntu: Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
- 
-   ![Install certificate on Firefox](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png) 
+* On Windows: Double-click the PFX file and follow the prompts to install the certificate in your personal store, `Certificates - Current User\Personal\Certificates`. Alternatively, you can use the PowerShell command in the **ReadMe** instructions.
+* On Mac: Double-click the PFX file and follow the prompts to install the certificate in your Keychain.
+* On Ubuntu: Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
 
+   ![Install certificate on Firefox](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)
 
 ### Deploy the application using CLI
+
 Now that the application and your cluster are ready, you can deploy it to the cluster directly from command line.
 
 1. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
-2. Run the following command to connect to your Azure cluster. 
+1. Run the following command to connect to your Azure cluster.
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
     ```
-3. Run the `install.sh` script. 
+1. Run the `install.sh` script.
 
     ```bash
     ./install.sh
     ```
 
-4. Open your web browser and access the application by accessing: **http://\<ConnectionIPOrUrl>:8080**. 
+1. Open your web browser and access the application by accessing: **http://\<ConnectionIPOrUrl>:8080**.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
-    
-You can now access the Spring Boot application running in a Service Fabric cluster on Azure.  
-    
+
+You can now access the Spring Boot application running in a Service Fabric cluster on Azure.
+
 ## Scale applications and services in a cluster
+
 Services can be scaled across a cluster to accommodate for a change in load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services, for example, you can use scripts or commands from Service Fabric CLI (sfctl). The following steps use Service Fabric Explorer.
 
 Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser by browsing to the cluster's HTTP management port (19080); for example, `http://localhost:19080`.
@@ -228,17 +235,17 @@ Service Fabric Explorer runs in all Service Fabric clusters and can be accessed 
 To scale the web front-end service, do the following:
 
 1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
-2. Click on the ellipsis (three dots) next to the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the treeview and choose **Scale Service**.
+1. Click on the ellipsis (three dots) next to the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     You can now choose to scale the number of instances of the service.
 
-3. Change the number to **3** and click **Scale Service**.
+1. Change the number to **3** and click **Scale Service**.
 
     An alternative way to scale the service using command line is as follows.
 
-    ```bash 
+    ```bash
     # Connect to your local cluster
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
@@ -246,7 +253,7 @@ To scale the web front-end service, do the following:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-4. Click on the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
+1. Click on the **fabric:/SpringServiceFabric/SpringGettingStarted** node in the tree-view and expand the partition node (represented by a GUID).
 
     ![Service Fabric Explorer Scale Service Complete](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -254,22 +261,24 @@ To scale the web front-end service, do the following:
 
 Through this simple management task, you've doubled the resources available for the front-end service to process user load. It's important to understand that you don't need multiple instances of a service for it to run reliably. If a service fails, Service Fabric makes sure that a new service instance runs in the cluster.
 
-## Fail over services in a cluster 
-To demonstrate service failover, a node restart is simulated by using Service Fabric Explorer. Ensure only one instance of your service is running. 
+## Fail over services in a cluster
+
+To demonstrate service failover, a node restart is simulated by using Service Fabric Explorer. Ensure only one instance of your service is running.
 
 1. Open Service Fabric Explorer in your cluster - for example, `http://localhost:19080`.
-2. Click on the ellipsis (three dots) next to the node running the instance of your service and Restart the node. 
+1. Click on the ellipsis (three dots) next to the node running the instance of your service and Restart the node.
 
     ![Service Fabric Explorer Restart Node](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-3. The instance of your service is moved to a different node and your application has no downtime. 
+1. The instance of your service is moved to a different node and your application has no downtime.
 
     ![Service Fabric Explorer Restart Node Succeed](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
 ## Next steps
+
 In this quickstart, you learned how to:
 
 * Deploy a Spring Boot application to Service Fabric
-* Deploy the application to your local cluster 
+* Deploy the application to your local cluster
 * Deploy the application to a cluster in Azure
 * Scale-out the application across multiple nodes
 * Perform failover of your service with no hit to availability
