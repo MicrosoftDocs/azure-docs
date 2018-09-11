@@ -28,7 +28,7 @@ The following example shows the resolution of the **builtin.location** entity.
   "entities": [
     {
       "entity": "Cairo",
-      "type": "builtin.person",
+      "type": "builtin.location",
       "startIndex": 17,
       "endIndex": 21
     }
