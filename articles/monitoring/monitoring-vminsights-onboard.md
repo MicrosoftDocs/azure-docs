@@ -20,71 +20,8 @@ ms.author: magoedte
 # How to onboard the Azure Monitor VM Insights 
 This article describes how to set up VM Insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
-## Performance Counters enabled
-VM Insights configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
-
-### Windows performance counters
-
-|Object name |Counter name |
-|------------|-------------|
-|LogicalDisk |% Free Space |
-|LogicalDisk |Avg. Disk sec/Read |
-|LogicalDisk |Avg. Disk sec/Transfer |
-|LogicalDisk |Avg. Disk sec/Write |
-|LogicalDisk |Disk Bytes/sec |
-|LogicalDisk |Disk Read Bytes/sec |
-|LogicalDisk |Disk Reads/sec |
-|LogicalDisk |Disk Transfers/sec |
-|LogicalDisk |Disk Write Bytes/sec |
-|LogicalDisk |Disk Writes/sec |
-|LogicalDisk |Free Megabytes |
-|Memory |Available Mbytes |
-|Network Adapter |Bytes Received/sec | 
-|Network Adapter |Bytes Sent/sec | 
-|Processor |% Processor Time |
-
-### Linux performance counters
-
-|Object name |Counter name |
-|------------|-------------|
-|Logical Disk |% Used Space |
-|Logical Disk |Disk Read Bytes/sec |
-|Logical Disk |Disk Reads/sec |
-|Logical Disk |Disk Transfers/sec |
-|Logical Disk |Disk Write Bytes/sec |
-|Logical Disk |Disk Writes/sec |
-|Logical Disk |Free Megabytes |
-|Logical Disk |Logical Disk Bytes/sec |
-|Memory |Available Mbytes Memory |
-|Network |Total Bytes Received |
-|Network |Total Bytes Transmitted |
-|Processor |% Processor Time |
-
 ## Prerequisites
 Before you start, make sure that you have the following as described in the sub-sections below.
-
-### Hybrid environment connected sources
-VM Insights Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
-
-| Connected source | Supported | Description |
-|:--|:--|:--|
-| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| System Center Operations Manager management group | No | |  
-
-On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send monitoring data. System Center Operations Manager and Log Analytics provide different out-of-the box versions of the agent. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.  
-
-On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics. You can use Map on servers with Log Analytics agents connected directly to the service, or that are reporting to an Operations Manager management group integrated with Log Analytics.  
-
-If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For further information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
-
-### Dependency agent
-To monitor physical or virtual machines in a hybrid environment with VM Insights Map, you need to install the Dependency agent. The agent can be downloaded from the following location.
-
-| File | OS | Version | SHA-256 |
-|:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 ### Log Analytics 
 
@@ -121,7 +58,29 @@ The following versions of the Windows and Linux operating systems are officially
 |SLES 11 | X | X | X |  
 |Oracle Linux 7 | X | | X |  
 |Oracle Linux 6 | X | X | X |  
-|Debian 9.4, 8 | X | | X |  
+|Debian 9.4, 8 | X | | X | 
+
+### Hybrid environment connected sources
+VM Insights Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
+
+| Connected source | Supported | Description |
+|:--|:--|:--|
+| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| System Center Operations Manager management group | No | |  
+
+On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send monitoring data. System Center Operations Manager and Log Analytics provide different out-of-the box versions of the agent. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.  
+
+On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics. You can use Map on servers with Log Analytics agents connected directly to the service, or that are reporting to an Operations Manager management group integrated with Log Analytics.  
+
+If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For further information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
+
+The Dependency agent can be downloaded from the following location.
+
+| File | OS | Version | SHA-256 |
+|:--|:--|:--|:--|
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
@@ -129,6 +88,46 @@ Microsoft automatically collects usage and performance data through your use of 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
+## Performance Counters enabled
+VM Insights configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
+
+### Windows performance counters
+
+|Object name |Counter name |  
+|------------|-------------|  
+|LogicalDisk |% Free Space |  
+|LogicalDisk |Avg. Disk sec/Read |  
+|LogicalDisk |Avg. Disk sec/Transfer |  
+|LogicalDisk |Avg. Disk sec/Write |  
+|LogicalDisk |Disk Bytes/sec |  
+|LogicalDisk |Disk Read Bytes/sec |  
+|LogicalDisk |Disk Reads/sec |  
+|LogicalDisk |Disk Transfers/sec |  
+|LogicalDisk |Disk Write Bytes/sec |  
+|LogicalDisk |Disk Writes/sec |  
+|LogicalDisk |Free Megabytes |  
+|Memory |Available Mbytes |  
+|Network Adapter |Bytes Received/sec |  
+|Network Adapter |Bytes Sent/sec |  
+|Processor |% Processor Time |  
+
+### Linux performance counters
+
+|Object name |Counter name |  
+|------------|-------------|  
+|Logical Disk |% Used Space |  
+|Logical Disk |Disk Read Bytes/sec |  
+|Logical Disk |Disk Reads/sec |  
+|Logical Disk |Disk Transfers/sec |  
+|Logical Disk |Disk Write Bytes/sec |  
+|Logical Disk |Disk Writes/sec |  
+|Logical Disk |Free Megabytes |  
+|Logical Disk |Logical Disk Bytes/sec |  
+|Memory |Available Mbytes Memory |  
+|Network |Total Bytes Received |  
+|Network |Total Bytes Transmitted |  
+|Processor |% Processor Time |  
 
 ## Enable using Azure Policy
 To enable the solution for multiple Azure VMs that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  Using Azure Policy with the policies provided delivers the following benefits for new VMs:
