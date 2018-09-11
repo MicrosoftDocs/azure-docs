@@ -44,6 +44,10 @@ You can delete an account from the Azure portal. Navigate to the account overvie
 
 ![Delete your account in the portal](./media/how-to-manage-account-keys/account-delete-portal.png)
 
+You will then see a confirmation page. You can confirm the account deletion by typing its name.
+
+![Confirm deleting your account](./media/how-to-manage-account-keys/PLACEHOLDER.png)
+
 ## Next steps
 
 * Learn how to use Azure Maps search APIs at [search for an address](./how-to-search-for-address.md).
