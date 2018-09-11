@@ -86,7 +86,7 @@ Responses such as the following may indicate that the VM's managed identity for 
 If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 
 - Go to the **Identity** page and ensure **System assigned** is set to "Yes."
-- Go to the **Extensions** page and ensure the managed identities for Azure resources extension deployed successfully.
+- Go to the **Extensions** page and ensure the managed identities for Azure resources extension **(planned for deprecation in January 2019)** deployed successfully.
 
 If either is incorrect, you may need to redeploy the managed identities for Azure resources on your resource again, or troubleshoot the deployment failure. See [Configure Managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.
 
