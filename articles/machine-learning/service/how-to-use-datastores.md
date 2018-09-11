@@ -133,6 +133,7 @@ The location on the compute target of the DataReference is made available in the
 
 ```Python
 from azureml.train.estimator import Estimator
+
 script_params = {
     '--data_dir': ds.as_mount()
 }
@@ -151,7 +152,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_mount(), ds2.as_download()])
 ```
-The above code will mount one datastore `ds1` and download the other `ds2` to the remote compute before your training script `train.py` is invoked.
+The above code will mount one datastore `ds1` and download the other `ds2` to the remote compute before your training script `train.py` is executed.
 
 ## Next steps
 * [Train a model](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-ml-models)
