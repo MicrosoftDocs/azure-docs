@@ -1,5 +1,5 @@
 - name: Troubleshooting Azure VMs
-  href: ../index.md
+  href: index.md
 - name: Allocation failures
   items:
   - name: Allocation failures 
