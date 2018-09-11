@@ -52,4 +52,4 @@ Existing customers are required to migrate their existing resource keys to the n
 
 ## Next steps
 
-Learn [speech to text](../speech-to-text.md) concepts
+Learn [speech to text](./speech-to-text.md) concepts
