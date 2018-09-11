@@ -330,9 +330,9 @@ Next steps:
 
 
 ## SAP HANA on Azure Virtual Machines
-This section of the documentation covers different aspects of SAP HANA. As precondition, you should be familiar with the principle services of Azure that provide elementary services of Azure IaaS. so mostly knowledge of Azure compute, storage, and networking. A lot of those topics are handled in the SAP NetWeaver related [Azure Planning Guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
+This section of the documentation covers different aspects of SAP HANA. As a prerequisite, you should be familiar with the principal services of Azure that provide elementary services of Azure IaaS, so mostly knowledge of Azure compute, storage, and networking. A lot of those topics are handled in the SAP NetWeaver related [Azure Planning Guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
 
-The documentation specific for HANA on Azure consists out of this list of articles and heir sub-articles:
+The documentation specific for HANA on Azure consists of this list of articles and their sub-articles:
 
 - [Quickstart: Manual installation of single-instance SAP HANA on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
@@ -348,7 +348,7 @@ The documentation specific for HANA on Azure consists out of this list of articl
  
 
 ## SAP NetWeaver deployed on Azure Virtual Machines
-In this section you find planing and deployment documentation for SAP NetWeaver and Business One on Azure. The documentation in this chapter is focused mostly around the basics and the usage of non-HANA databases with SAP workload on Azure. Whereas the documents and articles for HA are foundation for HANA high availability in Azure as well. the articles list like:
+In this section you find planning and deployment documentation for SAP NetWeaver and Business One on Azure. The documentation in this chapter is focused mostly around the basics and the usage of non-HANA databases with SAP workload on Azure. Whereas the documents and articles for HA are foundation for HANA high availability in Azure as well. the articles list like:
 
 - [SAP Business One on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
 - [Deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)
