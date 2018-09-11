@@ -57,15 +57,15 @@ A few components are required to build this use case and may take some time to p
 
  -  An Azure Stack Operator must also deploy the App Service, create plans and offers, create a tenant subscription, and add the Windows Server 2016 image
 
- -  A hybrid network and App Service set up is required (Learn more about [App integration with VNets.](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet))
+ -  A hybrid network and App Service set up is required (Learn more about [App integration with VNets.](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet))
 
- -  The Private [Build and Release Agent](https://docs.microsoft.com/en-us/vsts/pipelines/agents/agents?view=vsts) for VSTS Integration must be set up prior to deployment (Ensure any existing components used meet the requirements before beginning.)
+ -  The Private [Build and Release Agent](https://docs.microsoft.com/vsts/pipelines/agents/agents?view=vsts) for VSTS Integration must be set up prior to deployment (Ensure any existing components used meet the requirements before beginning.)
 
 Prior knowledge of Azure and Azure Stack is required. To learn more before proceeding, start with these topics:
 
- -  [Introduction to Azure](https://azure.microsoft.com/en-us/overview/what-is-azure/)
+ -  [Introduction to Azure](https://azure.microsoft.com/overview/what-is-azure/)
 
- -  [Azure Stack Key Concepts](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-key-features)
+ -  [Azure Stack Key Concepts](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
  -  Azure Stack Hybrid CI/CD Solution Guide
 
@@ -73,13 +73,13 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  An Azure subscription (Create a[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
- -  A new Web App URL created by[Web App](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview) in Azure
+ -  A new Web App URL created by[Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure
 
- -  Deployment of [Azure Container Services (ACS) Kubernetes on Azure](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+ -  Deployment of [Azure Container Services (ACS) Kubernetes on Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
- -  Deployment of Azure Machine Learning service (preview) [4-part tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1)
+ -  Deployment of Azure Machine Learning service (preview) [4-part tutorial](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1)
 
- -  Azure Machine Learning Experimentation [account](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/experimentation-service-template)
+ -  Azure Machine Learning Experimentation [account](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/experimentation-service-template)
 
 **Azure Stack**
 
@@ -91,11 +91,11 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
 <!-- -->
 
- -  Deployment of[App Service](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy)PaaS services to Azure Stack
+ -  Deployment of[App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy)PaaS services to Azure Stack
 
- -  A [Plan/Offers](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-plan-offer-quota-overview) within the Azure Stack environment
+ -  A [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) within the Azure Stack environment
 
- -  A [Tenant subscription](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) within the Azure Stack environment
+ -  A [Tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) within the Azure Stack environment
 
  -  An Ubuntu Server VM Image (available in [Azure Stack Marketplace](https://buildazure.com/2016/05/04/azure-marketplace-ubuntu-server-16-04-lts/))\ This VM will be built in the tenant subscription on the Azure Stack as the private build agent as well as the Kubernetes VMs. If this image is not available, the Azure Stack Operator can assist, to ensure this is added to the environment. (Do not use the 18.04 build of ubuntu, as it is currently not supported.)
 
@@ -103,7 +103,7 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  Deployment of VSTS Linux-based Private Build Agent Virtual Machine, within the tenant subscription
 
- -  Deployment an [Azure Container Services (ACS) Kubernetes on Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+ -  Deployment an [Azure Container Services (ACS) Kubernetes on Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
 **Developer tools**
 
@@ -113,7 +113,7 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  [Local clone](https://www.visualstudio.com/docs/git/gitquickstart) of project
 
- -  [Linux Subsystem for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10) installation (for BASH and SSH)
+ -  [Linux Subsystem for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) installation (for BASH and SSH)
 
  -  [Docker for Windows](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe) installation
 
@@ -123,17 +123,17 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
 **VSTS**
 
- -  **VSTS Account.** Quickly set up continuous integration for build, test and deployment. For more information about VSTS accounts see [Create the VSTS Account](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student?view=vsts).
+ -  **VSTS Account.** Quickly set up continuous integration for build, test and deployment. For more information about VSTS accounts see [Create the VSTS Account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student?view=vsts).
 
- -  **Code Repository.** Using existing code repositories in GitHub, BitBucket, DropBox, One Drive, and TFS, the VSTS platform can leverage multiple code repositories to streamline the development pipeline. For more information about code repositories see [Get Started with Git and VSTS](https://docs.microsoft.com/en-us/vsts/git/gitquickstart?view=vsts&tabs=visual-studio) tutorial.
+ -  **Code Repository.** Using existing code repositories in GitHub, BitBucket, DropBox, One Drive, and TFS, the VSTS platform can leverage multiple code repositories to streamline the development pipeline. For more information about code repositories see [Get Started with Git and VSTS](https://docs.microsoft.com/vsts/git/gitquickstart?view=vsts&tabs=visual-studio) tutorial.
 
- -  **Service Connection.** Connect to external and remote services to execute tasks for testing, build or deployment. For more information about VSTS service connections see [Service Endpoints for Build and Release](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints?view=vsts).
+ -  **Service Connection.** Connect to external and remote services to execute tasks for testing, build or deployment. For more information about VSTS service connections see [Service Endpoints for Build and Release](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints?view=vsts).
 
- -  **Build Definitions.** Define automated build processes and compose a set of tasks via the task catalog. For more information about build definitions see [Create a Build Definition](https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1?view=vsts) documentation.
+ -  **Build Definitions.** Define automated build processes and compose a set of tasks via the task catalog. For more information about build definitions see [Create a Build Definition](https://docs.microsoft.com/vsts/build-release/actions/ci-cd-part-1?view=vsts) documentation.
 
- -  **Release Definitions.** Define the deployment process for a collection of environments where application artifacts are deployed. For more information about release definitions see [Create a Release Definition](https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1?view=vsts) documentation.
+ -  **Release Definitions.** Define the deployment process for a collection of environments where application artifacts are deployed. For more information about release definitions see [Create a Release Definition](https://docs.microsoft.com/vsts/build-release/actions/ci-cd-part-1?view=vsts) documentation.
 
- -  **Hosted VSTS Linux Build Agent Pool.** Quickly build, test and deploy applications using a Microsoft managed and maintained hosted agent. For more information about hosted VSTS build agents see [Hosted Agents](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/hosted?view=vsts) documentation.
+ -  **Hosted VSTS Linux Build Agent Pool.** Quickly build, test and deploy applications using a Microsoft managed and maintained hosted agent. For more information about hosted VSTS build agents see [Hosted Agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/hosted?view=vsts) documentation.
 
 ## Create a storage account and container for clean data to reside
 
@@ -304,7 +304,7 @@ Use the Azure portal to provision the Azure Machine Learning accounts:
 
 ## Install and log in to workbench 
 
-Azure Machine Learning Workbench is available for Windows or macOS. See the list of[supported platforms](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation).
+Azure Machine Learning Workbench is available for Windows or macOS. See the list of[supported platforms](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
 
 **Warning:** The installation might take around an hour to complete.
 
@@ -1304,7 +1304,7 @@ The completion script itself is generated by kubectl and is accessible from the 
 
 ## Connect to the Kubernetes Cluster
 
-To connect to the cluster, the Kubernetes command-line client (**kubectl**) is needed. Instructions for connecting to and managing the cluster are found in [Azure Container Services documentation.](https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/)
+To connect to the cluster, the Kubernetes command-line client (**kubectl**) is needed. Instructions for connecting to and managing the cluster are found in [Azure Container Services documentation.](https://docs.microsoft.com/azure/container-service/dcos-swarm/)
 
 Any SSH Client can be used for connecting the Kubernetes cluster. Windows Subsystem for Linux (WSL) is recommended. The Machine connecting to the Kubernetes Cluster will be in the Resource Group created for the cluster and will start with the prefix of vmd-edge-ml-stack.
 
@@ -1421,7 +1421,7 @@ The Deployment can take some time.
 
 ### Create a team project
 
-1.  Ensure [Project Collection Administrators Group membership.](https://docs.microsoft.com/en-us/vsts/organizations/security/set-project-collection-level-permissions?view=vsts) To create team projects, **Create new projects** permission must be set to **Allow**.
+1.  Ensure [Project Collection Administrators Group membership.](https://docs.microsoft.com/vsts/organizations/security/set-project-collection-level-permissions?view=vsts) To create team projects, **Create new projects** permission must be set to **Allow**.
 
 2.  From the Projects Page, select **New Project**.
 
@@ -1502,7 +1502,7 @@ VSTS authenticates against Azure Resource Manager using a Service Principal. For
 
 ### Service Principal Creation
 
-Refer to the [Service Principal Creation  instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)  to create a service principal, and choose Web App/API for the  Application Type.
+Refer to the [Service Principal Creation  instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)  to create a service principal, and choose Web App/API for the  Application Type.
 
 **Access Key Creation**
 
@@ -1550,7 +1550,7 @@ As part of the service endpoint configuration, VSTS requires the **Tenant ID** t
 
 Grant the Service Principal rights to deploy resources in the Azure Stack Subscription
 
-To access resources in the subscription, assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).
+To access resources in the subscription, assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group allows it to read the resource group and any resources it contains.
 
@@ -1582,11 +1582,11 @@ Set the scope at the level of the subscription, resource group, or resource. Per
 
 ## Role-Based Access Control
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure and Azure Stack. Using RBAC, only the amount of access that users need to perform their jobs can be granted. For more information about Role-Based Access Control see [Manage Access to Azure Subscription Resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure and Azure Stack. Using RBAC, only the amount of access that users need to perform their jobs can be granted. For more information about Role-Based Access Control see [Manage Access to Azure Subscription Resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
 **VSTS Agent Pools**
 
-Instead of managing each agent individually, agents are organized into**agent pools**. An agent pool defines the sharing boundary for all agents in that pool. In VSTS, agent pools are scoped to the VSTS account, so can be shared across team projects. For more information and a tutorial on how to create VSTS agent pools see [Create Agent Pools and Queues.](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/pools-queues?view=vsts)
+Instead of managing each agent individually, agents are organized into**agent pools**. An agent pool defines the sharing boundary for all agents in that pool. In VSTS, agent pools are scoped to the VSTS account, so can be shared across team projects. For more information and a tutorial on how to create VSTS agent pools see [Create Agent Pools and Queues.](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts)
 
 **Add aPersonal access token(PAT)for Azure Stack**
 
