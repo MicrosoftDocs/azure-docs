@@ -108,7 +108,7 @@ There are two supported ways to make your datastore available on the remote comp
 * **Mount**  
 `ds.as_mount()`: by specifying this mount mode, the datastore will get mounted for you on the remote compute. 
 * **Download/upload**  
-    * `ds.as_download(path_on_compute='your path on compute)`: with this download mode, the data will get downloaded from your datastore to the remote compute to the location specified by `path_on_compute`.
+    * `ds.as_download(path_on_compute='your path on compute')`: with this download mode, the data will get downloaded from your datastore to the remote compute to the location specified by `path_on_compute`.
     * Conversely, you can also upload data that was produced from your training run up to a datastore. For example, if your training script creates a `foo.pkl` file in the current execution directory on the remote compute, you can specify for it to get uploaded to your datastore after the script has been run: `ds.as_upload(path_on_compute='./foo.pkl')`. This will upload the file to the root of your datastore.
     
 If you want to reference a specific folder or file in your datastore, you can use the datastore's **`path`** function. For example, if your datastore has a directory with relative path `./bar`, and you only want to download the contents of this folder to the compute target, you can do so as follows: `ds.path(path='./bar').as_download()`
@@ -129,7 +129,7 @@ est = Estimator(source_directory='your code directory',
 ```
 `as_mount()` is the default mode for a datastore, so you could also directly just pass `ds` to the `'--data_dir'` argument.
 
-Alternatively, you can pass in a list of datastores to the `inputs` parameter of the Estimator constructor to mount/copy your datastore(s):
+Alternatively, you can pass in a list of datastores to the `inputs` parameter of the Estimator constructor to mount or copy to/from your datastore(s):
 
 ```Python
 est = Estimator(source_directory='your code directory',
