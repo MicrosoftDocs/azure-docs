@@ -43,13 +43,13 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 ### Which Azure regions are supported by Azure Migrate?
 
-Azure Migrate currently supports East US and West Central US as migration project locations. Note that even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
+Azure Migrate currently supports East US and West Central US as migration project locations. Even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
 
 ### How does the on-premises site connect to Azure Migrate?
 
 The connection can be over the internet or use ExpressRoute with public peering.
 
-### Can I harden the VM set up with the .OVA template?
+### Can I harden the VM set up with the.OVA template?
 
 Additional components (for example anti-virus) can be added into the .OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
 
@@ -85,7 +85,9 @@ The agent-based discovery is an option available on top of the appliance-based d
 
 ### Would there be any performance impact on the analyzed ESXi host environment?
 
-Since we collect the information via the vCenter server, there is no performance impact on the ESXi hosts. Even on the vCenter server, there is almost zero performance impact.
+In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
+
+We have introduced continuous profiling of performance data(which is in preview). With continuous profiling, there is no longer a need to change the vCenter Server statistics level to run a performance-based assessment. The collector appliance will now profile the on-premises machines to measure the performance data of the virtual machines. This would have almost zero performance impact on the ESXi hosts as well as on the vCenter Server.
 
 ### Where is the collected data stored and for how long?
 
