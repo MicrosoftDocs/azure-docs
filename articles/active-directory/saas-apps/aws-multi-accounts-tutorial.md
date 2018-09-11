@@ -316,6 +316,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
+> [!Note]
+> Please note that nested groups are not supported when assigning groups.
+
 28. To assign the role to the group, select the role and click on **Assign** button in the bottom of the page.
 
 	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
