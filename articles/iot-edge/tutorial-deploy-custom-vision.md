@@ -48,7 +48,6 @@ Development resources:
 * [C# for Visual Studio Code (powered by OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extension for Visual Studio Code. 
 * [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio Code. 
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension for Visual Studio Code. 
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## Build an image classifier with Custom Vision
@@ -135,7 +134,7 @@ Now you have a container version of your image classifier on your development ma
 
 A solution is a logical way of developing and organizing multiple modules for a single IoT Edge deployment. A solution contains code for one or more modules as well as the deployment manifest that declares how they will be deployed on an IoT Edge device. 
 
-1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
+1. In Visual Studio Code, select **View** > **Terminal** to open the VS Code integrated terminal.
 
 2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge python module template in VS Code:
 
@@ -165,7 +164,7 @@ The VS Code window loads your IoT Edge solution workspace.
 
 ### Add your image classifier
 
-The Python module template in Visual Studio code contains some sample code that you can run to test IoT Edge. You won't use that default code in this scenario, but will replace it with the image classifier container that you created. 
+The Python module template in Visual Studio code contains some sample code that you can run to test IoT Edge. You won't use that default code in this scenario, but will replace it with the image classifier container that you exported in the previous section. 
 
 1. In your file explorer, copy all the contents from your extracted classifier package. It should be two folders, **app** and **azureml**, and two files, **Dockerfile** and **README**. 
 
@@ -179,7 +178,7 @@ The Python module template in Visual Studio code contains some sample code that 
 
 5. Open the **module.json** file in the Classifier folder. 
 
-6. Update the **platforms** parameter to point to the new Dockerfile that you added, and remove the ARM32 architecture option which isn't supported by Custom Vision. 
+6. Update the **platforms** parameter to point to the new Dockerfile that you added, and remove the ARM32 architecture and AMD64.debug options, which aren't supported for the Custom Vision module. 
 
    ```json
    "platforms": {
@@ -199,10 +198,10 @@ In this section, you add a new module to the same CustomVisionSolution and provi
    | ------ | ----- |
    | Select deployment template file | Select the deployment.template.json file in the CustomVisionSolution folder. |
    | Select module template | Select **Python Module** |
-   | Provide a module name | Call your module **SimulatedCamera** |
-   | Provide Docker image repository for the module | Replace **localhost:5000** with the login server value that you copied from your Azure Container Registry. The final string looks like **\<registryname\>.azurecr.io/simulatedcamera**. |
+   | Provide a module name | Call your module **cameraCapture** |
+   | Provide Docker image repository for the module | Replace **localhost:5000** with the login server value that you copied from your Azure Container Registry. The final string looks like **\<registryname\>.azurecr.io/cameracapture**. |
 
-   The VS COde window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: Classifier and SimulatedCamera. 
+   The VS Code window loads your new module in the solution workspace, and updates the deployment.template.json file. Now you should see two module folders: Classifier and CameraCapture. 
 
 2. 
 
@@ -225,21 +224,7 @@ In this section, you add a new module to the same CustomVisionSolution and provi
 
 In the previous sections, you created a solution with one module, and then added another to the deployment manifest template. Now, you need to build the solution, create container images for the modules, and push the images to your container registry. 
 
-1. In the deployment.template.json file, give the IoT Edge runtime your registry credentials so that it can access your module images. Find the **moduleContent.$edgeAgent.properties.desired.runtime.settings** section. 
-2. Insert the following JSON code after the **loggingOptions**:
-
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
-   ```
-
-3. Insert your registry credentials into the **username**, **password**, and **address** fields. Use the values that you copied when you created your Azure Container Registry at the beginning of the tutorial.
-4. Save the **deployment.template.json** file.
+1. [ENV credentials]
 5. Sign in your container registry in Visual Studio Code so that you can push your images to your registry. Use the same credentials that you just added to the deployment manifest. Enter the following command in the integrated terminal: 
 
     ```csh/sh
@@ -252,7 +237,7 @@ In the previous sections, you created a solution with one module, and then added
     Login Succeeded
     ```
 
-6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
+6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and push IoT Edge solution**. 
 
 ## Deploy the solution to a device
 
@@ -262,7 +247,7 @@ You can set modules on a device through the IoT Hub, but you can also access you
 2. Follow the prompts to sign in to your Azure account. 
 3. In the command palette, select your Azure subscription then select your IoT Hub. 
 4. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
-5. Right-click on the device that you want to target with your deployment and select **Create deployment for IoT Edge device**. 
+5. Right-click on the device that you want to target with your deployment and select **Create deployment for single device**. 
 6. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.json**. Click **Select Edge deployment manifest**. 
 
 If the deployment is successful, and confirmation message is printed in the VS Code output. You can also check to see that all the modules are up and running on your device. 
