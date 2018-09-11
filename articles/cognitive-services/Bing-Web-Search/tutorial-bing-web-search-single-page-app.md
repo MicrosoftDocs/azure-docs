@@ -53,7 +53,7 @@ npm install
 
 The sample app we're building is made up of four parts:
 
-* `app.js` - Our Express.js app. It handles request/response logic and routing.
+* `bing-web-search.js` - Our Express.js app. It handles request/response logic and routing.
 * `public/index.html` - The skeleton of our app; it defines how data is presented to the user.
 * `public/css/styles.css` - Defines page styles, such as fonts, colors, text size.
 * `public/js/scripts.js` - Contains the logic to make requests to the Bing Web Search API, manage subscription keys, handle and parse responses, and display results.
