@@ -8,7 +8,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 09/18/2018
 ms.author: govindk
  
 ---
@@ -191,3 +191,5 @@ java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.exa
 The terminal window displays notifications that the keyspace and table are created. You can now open Data Explorer in the Azure portal to confirm that the keyspace and table are created. 
 
 ## Next steps
+
+* Proceed to the next article [load sample data to the Cassandra API table](cassandra-api-load-data.md)

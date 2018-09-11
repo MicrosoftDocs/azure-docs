@@ -1,5 +1,5 @@
 ---
-title: Load sample data into Cassandra API account by using a Java application | Microsoft Docs
+title: Load sample data into Cassandra API table by using a Java application | Microsoft Docs
 description: This article shows how to load sample user data to a table in Azure Cosmos DB Cassandra API account by using a java application.
 services: cosmos-db
 author: kanshiG
@@ -8,12 +8,12 @@ manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 09/18/2018
 ms.author: govindk
  
 ---
 
-# Load sample data into Cassandra API account
+# Load sample data into Cassandra API table
 
 This article shows how to load sample user data to a table in Azure Cosmos DB Cassandra API account by using a java application. The java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) and loads user data such as user ID, user name, user city. 
 
@@ -76,3 +76,5 @@ java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.exa
 You can now open Data Explorer in the Azure portal to confirm that the user information is added to the table.
 	
 ## Next steps
+
+* Proceed to the next article [query data from the Cassandra API account](cassandra-api-query-data.md)

@@ -8,7 +8,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 09/10/2018
+ms.date: 09/18/2018
 ms.author: govindk
  
 ---
@@ -24,78 +24,63 @@ The Azure Cosmos DB Cassandra API is compatible with CQL version **v4**. The sup
 
 ## Cassandra driver
 
-The following versions of Cassandra drivers are supported by Azure Cosmos DB Cassandra API:
+The following versions of Cassandra datastax drivers are supported by Azure Cosmos DB Cassandra API:
 
-Supported OSS driver | URL 
---- | --- | 
-Java 3.5+ | https://github.com/datastax/java-driver
-C#  3.5+ | https://github.com/datastax/csharp-driver
-Nodejs 3.5+ | https://github.com/datastax/nodejs-driver 
-Python 3.15+ | https://github.com/datastax/python-driver   
-C++ 2.9 | https://github.com/datastax/cpp-driver   
-PHP 1.3 | https://github.com/datastax/php-driver 
-Go | https://github.com/gocql/gocql  
+* [Java 3.5+](https://github.com/datastax/java-driver)  
+* [C# 3.5+](https://github.com/datastax/csharp-driver)  
+* [Nodejs 3.5+](https://github.com/datastax/nodejs-driver)  
+* [Python 3.15+](https://github.com/datastax/python-driver)  
+* [C++ 2.9](https://github.com/datastax/cpp-driver)   
+* [PHP 1.3](https://github.com/datastax/php-driver)  
+* [Gocql](https://github.com/gocql/gocql)  
  
 ## CQL data types 
 
 Azure Cosmos DB Cassandra API supports the following CQL data types:
 
-* ascii
-* bigint
-* blob
-* boolean
-* counter
-* date 
-* decimal
-* double
-* float
-* frozen
-* inet
-* int
-* list 	
-* set 	
-* smallint 
-* text 	
-* time 	
-* timestamp 
+* ascii  
+* bigint  
+* blob  
+* boolean  
+* counter  
+* date  
+* decimal  
+* double  
+* float  
+* frozen  
+* inet  
+* int  
+* list  
+* set  
+* smallint  
+* text  
+* time  
+* timestamp  
 * timeuuid  
-* tinyint 
-* tuple
-* uuid
-* varchar
-* varint
-* tuples
-* udts
-* frozen lists inside list/set/maps
+* tinyint  
+* tuple  
+* uuid  
+* varchar  
+* varint  
+* tuples  
+* udts  
+* map  
+
+For other datatypes and attributes, make a feature request or vote on the [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 
 ## CQL functions
 
 Azure Cosmos DB Cassandra API supports the following CQL functions:
 
-* Token
+* Token  
+* Aggregate MIN(), MAX(), SUM(), and AVG()  
+* WRITETIME
+
+For other functions, make a feature request or vote on the [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 
 ## Cassandra Query Language limits
 
-Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of TB or PB of data can be stored while ensuring partition key limits are honored. Similarly every entity or row equivalent does not have any limits on the number of columns however the total size of the entity should not exceed 2 MB.
-
-* Clustering column value length: 65535 (216-1)
-* Key length: 65535 
-* Table name length: 48 characters
-* Keyspace name length: 48 characters
-* Parameters in a query: 65535 
-* Statements in a batch: 65535 
-* Fields in a tuple: 32768 
-* Collection (List): total size of the row should not exceed 2 MB. 
-* Collection (Set): total size of the row should not exceed 2 MB. 
-* Collection (Map): total size of the row should not exceed 2 MB. 
-* Blob size: 1.9 MB (less than 1 MB is recommended)
-
-## Account commands
-
-You can increase or decrease the throughput capacity of a table at any point of time and the maximum provisioned throughput in clock hour (UTC) is charged. Throughput of the table can be changed through Azure CLI, Azure PowerShell, or Azure portal.
-
-Creating more than five tables per minute has performance impact so it's not a recommended option. When you are working on a test environment or using Cassandra API account in a CI/CD environment, pre-create all the required tables or create tables with different names.
-
+Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly every entity or row equivalent does not have any limits on the number of columns however the total size of the entity should not exceed 2 MB.
 
 ## Tools 
 
@@ -129,11 +114,23 @@ cqlsh.py <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT
 
 Azure Cosmos DB supports the following database commands on all Cassandra API accounts.
 
-* ALTER KEYSPACE 
+* CREATE KEYSPACE - The following options of this command are not applicable to Azure Cosmos DB Cassandra API.
+
+  * replication factor is not applicable because availability is guaranteed by Azure Cosmos DB.  
+
+  * class option is not applicable because data in an Azure Cosmos DB account is always replicated.
+
+  * Durable writes option is not applicable because Azure Cosmos DB always commits all the data.
+
+* CREATE TABLE - The following options of this command are not applicable to Azure Cosmos DB Cassandra API.
+
+  * The bloom filter, caching, dclocal_read_repair_chance, memtable_flush_period_in_ms, min_index_interval, max_index_interval, read_repair_chance, speculative_retry, compression, compaction options are not applicable because Cassandra API is a managed service with CQL V4 compatibility. It does not require read repair, compaction, it doesn't require additional data structures and their management to provide the SLA-based performance, and availability. The following command shows how to create a table with a specific throughput by using cqlsh: 
+
+   ``` bash 
+   CREATE TABLE keyspaceName.tablename (user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=100000
+   ```
 
 * ALTER TABLE 
-
-* ALTER TYPE - Alter commands are asynchronously executed so they take time to execute.
 
 * USE 
 
@@ -142,24 +139,6 @@ Azure Cosmos DB supports the following database commands on all Cassandra API ac
 * SELECT 
 
 * UPDATE 
-
-* CREATE KEYSPACE - The following options of this command are not applicable to Azure Cosmos DB Cassandra API.
-
-  * replication factor is not applicable. By default, Azure Cosmos DB provides majority quorum writes and replicates data to three replicas. So, by default, four copies of your data are available within any datacenter.  
-
-  * class option is not applicable because data is always replicated.
-
-  * Durable writes option is not applicable because data is always committed as a quorum.
-
-* CREATE TABLE - The following options of this command are not applicable to Azure Cosmos DB Cassandra API.
-
-  * The bloom filter, caching, dclocal_read_repair_chance, memtable_flush_period_in_ms, min_index_interval, max_index_interval, read_repair_chance, speculative_retry, compression, compaction options are not applicable because Cassandra API is a managed service with CQL V4 compatibility. It does not require read repair, compaction, it doesn't require additional data structures and their management to provide the SLA-based performance, and availability.  
- 
-  * Table is the unit of cost that is constrained by through provisioned by using cqlsh, code, or portal. You can create individual tables with specific throughput or create multiple tables as part of shared throughput database. The following command shows how to create a table with a specific throughput by using cqlsh: 
-
-   ``` bash 
-   CREATE TABLE keyspaceName.tablename (user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=100000
-   ```
 
 * DELETE
 
@@ -181,46 +160,13 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations. All write operations are always written with majority quorum irrespective of the account consistency.
-
-Apache Cassandra consistency | Azure Cosmos DB consistency |
---- | --- |
-Any(Write)	|  Eventual 
-One | Eventual
-Two | Strong
-Three | Strong
-Quorum | Strong 
-All | Strong
-Local One | Strong
-Local Quorum | Strong
-Each Quorum | Strong
-Serial | Strong
-Local Serial | Strong
-
-## Time-to-live (TTL)
-
-Cassandra API currently supports row level TTL, column level TTL is not yet available.
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations. All write operations, irrespective of the account consistency are always written with write performance SLAs.
 
 ## Permission and role management
 
 Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com. Azure Cosmos DB does not yet support users and roles for data plane activities. 
 
-## Replication
-
-Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended to achieve low-latency and global replication. 
-
-## Write CL level
-
-Certain Cassandra APIs support specifying a CL level that specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any CL level specified by client code is ignored.  
-
-## Change Data Capture(CDC)
-
-Azure Cosmos DB supports change feed. Change feed is equivalent to CDC in Cassandra. Change feed logs the changes as data gets modified in a container. 
-
-## Support for co-hosted Solr/Spark or other platforms
-
-Since Azure Cosmos DB is a managed platform, running other systems, which are on same nodes is not yet supported. It is suggested to use platforms like Azure Search that provide similar functionality.
-
 ## Next steps
 
-- Explore Azure Cosmos DB with protocol support for Cassandra [samples].
+- Get started with [creating a Cassandra API account, database, and a table](create-cassandra-api-account-java.md) by using a Java application
+

@@ -8,7 +8,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 09/18/2018
 ms.author: govindk
  
 ---
@@ -87,5 +87,6 @@ java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.exa
 You can now open Data Explorer in the Azure portal to confirm that the user table is deleted.
 
 ## Next steps
-	
+
+* To learn about Apache Cassandra features supported by Azure Cosmos DB Cassandra API, see [Cassandra support](cassandra-support) article.
 
