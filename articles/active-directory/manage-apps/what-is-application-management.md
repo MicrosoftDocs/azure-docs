@@ -16,8 +16,7 @@ ms.reviewer: arvinh
 
 # What is application management in Azure Active Directory?
 
-You can use Azure Active Directory (Azure AD) to manage user access to Office 365, business applications from Microsoft, thousands of software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps. When application access is managed with Azure AD, users can sign on to any application by using their Azure AD accounts. After signing in one time, users can access the other applications without signing in again.
-
+Azure Active Directory (Azure AD) provides secure and seamless access to cloud and on-premises applications. Users can sign in once to access Office 365 and other business applications from Microsoft, thousands of software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps. Reduce administrative costs by automating user provisioning. Use multi-factor authentication and conditional access policies to provide secure application access.
 
 ![Apps federated via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
@@ -25,7 +24,7 @@ You can use Azure Active Directory (Azure AD) to manage user access to Office 36
 
 Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset every day. With so many applications and access points, it is more critical than ever to use a cloud-based solution to manage user access to all applications.
 
-## Benefits of using Azure AD for application management
+## Key capabilities
 
 As a cloud solution, Azure AD can help you manage access risks and improve productivity, while reducing overall costs.
 
@@ -40,10 +39,11 @@ SSO improves security. *Without single sign-on*, administrators need to create a
 
 
 ### Address governance and compliance
-With Azure AD, you can audit access requests and approvals for the application, as well as understand overall application usage. Azure AD supports native audit logs for every application access request. Auditing data is also available from an API, which enables you to import this data into a Security Incident and Event Monitoring (SIEM) system of choice. You can review which users have access to an application, as well as programmatically remove access for users that haven't accessed the application recently.
+With Azure AD, you can monitor application sign-ins through reports that leverage Security Incident and Event Monitoring (SIEM) tools. You can access the reports from the portal, or from APIs. Programmatically audit who has access to your applications, and remove access to inactive users via access reviews.
+
 
 ### Manage costs
-By migrating to Azure AD, you can save costs associated with managing your current infrastructure. Azure AD provides self-service access to applications. Single sign-on eliminates application-specific passwords, which saves costs related to password reset for applications, and lost productivity while retrieving passwords.
+By migrating to Azure AD, you can save costs associated with managing your on-premises infrastructure. Azure AD provides self-service access to applications. Single sign-on eliminates application-specific passwords, which saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
 
 
