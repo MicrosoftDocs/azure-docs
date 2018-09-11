@@ -1,25 +1,16 @@
 ---
-title: Troubleshooting throttling errors in Azure Compute  | Microsoft Docs
-description: Throttling errors, retries and backoff in Azure Compute.
-services: virtual-machines-linux
-documentationcenter: ''
+title: include file
+description: include file
+services: virtual-machines
 author: changov
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.topic: include
 ms.date: 09/10/2018
 ms.author: vashan, rajraj, changov
+ms.custom: include file
 ---
 
 
-# Troubleshooting API throttling errors in Azure Compute 
- 
 Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider (CRP) that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
 
 ## Throttling by Azure Resource Manager vs Resource Providers  
@@ -28,7 +19,7 @@ As the front door to Azure, Azure Resource Manager does the authentication and f
  
 When an Azure API client gets a throttling error, the HTTP status is 429 Too Many Requests. To understand if the request throttling is done by Azure Resource Manager or an underlying resource provider like CRP, inspect the `x-ms-ratelimit-remaining-subscription-reads` for GET requests and `x-ms-ratelimit-remaining-subscription-writes` response headers for non-GET requests. If the remaining call count is approaching 0, the subscription’s general call limit defined by Azure Resource Manager has been reached. Activities by all subscription clients are counted together. Otherwise, the throttling is coming from the target resource provider (the one addressed by the `/providers/<RP>` segment of the request URL). 
 
-## Call rate inforamtional response headers 
+## Call rate informational response headers 
 
 | Header                            | Value format                           | Example                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
