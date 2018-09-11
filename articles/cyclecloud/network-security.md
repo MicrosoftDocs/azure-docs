@@ -61,7 +61,7 @@ For return proxy nodes, if `AssociatePublicIpAddress` has no been specified, a p
 
 ## Input Endpoints
 
-Azure CycleCloud creates a Network Security Group that only allows incoming traffic from the internet to specific ports referenced in the input-endpoints section of the node configuration. If no input-endpoints configuration is specified, only ssh (22) for Linux nodes or RDP (3389) for Windows nodes will be allowed. To allow a specific port, set it as the `PublicPort` in your configuration or use a common name (ssh, RDP, etc).
+Azure CycleCloud creates a Network Security Group that only allows incoming traffic from the internet to specific ports referenced in the input-endpoints section of the node configuration. If no input-endpoints configuration is specified, only SSH (22) for Linux nodes or RDP (3389) for Windows nodes will be allowed. To allow a specific port, set it as the `PublicPort` in your configuration or use a common name (SSH, RDP, etc).
 
 ## Network Security Groups
 
@@ -82,7 +82,7 @@ PrivateIp = x.x.x.x
 
 Note that the private IP address specified must be valid for the associated subnet. Azure reserves the first four and last IPs in the subnet. These addresses cannot be manually assigned to a node.
 
-### Using `cyclecloud connect`
+### Connecting Via the CLI
 
 You can connect to an instance via a bastion server by specifying the IP address on the command line:
 
@@ -90,12 +90,12 @@ You can connect to an instance via a bastion server by specifying the IP address
 $ cyclecloud connect htcondor-master --bastion-host 1.1.1.1
 ```
 
-The above command assumes `cyclecloud` as the username, 22 as the port, and loads your
+The above command assumes _cyclecloud_ as the username, 22 as the port, and loads your
 default SSH key. To customize these values, see the `--bastion-*` help options for the
 `cyclecloud` command.
 
-Alternately, the `cyclecloud` can detect the bastion host for you if you add the following
-directive to your `~/.cycle/config.ini`:
+Alternately, the `cyclecloud` CLI can detect the bastion host for you if you add the following
+directive to your _~/.cycle/config.ini_:
 
 ``` ini
 [cyclecloud]

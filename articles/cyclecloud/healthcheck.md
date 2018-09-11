@@ -17,13 +17,9 @@ Azure CycleCloud provides a mechanism for terminating instances that are in an u
 CycleCloud images come with two default HealthCheck scripts:
 
 * The converge_timeout script will terminate an instance that has not finished installation within four hours of launch. This timeout period can be controlled with the `cyclecloud.keepalive.timeout` setting (defined in seconds).
-* The scheduled_shutdown check looks for marker files (in /opt/cycle/jetpack/run/scheduled_shutdown/ on Linux and C:\cycle\jetpack\run\scheduled_shutdown on Windows) that contain a line giving a time to shut down in [Unix timestamp seconds](https://en.wikipedia.org/wiki/Unix_time) and an optional second line with an explanation. When the current time is later than the earliest timestamp in the files, the instance terminates.
+* The scheduled_shutdown check looks for marker files in _/opt/cycle/jetpack/run/scheduled_shutdown/_ that contain a line giving a time to shut down in [Unix timestamp seconds](https://en.wikipedia.org/wiki/Unix_time) and an optional second line with an explanation. When the current time is later than the earliest timestamp in the files, the instance terminates.
 
-Customer­-defined scripts are placed in /opt/cycle/jetpack/config/healthcheck.d on Linux and in
-C:\cycle\jetpack\config\healthcheck.d on Windows. When the script exits with a status of `254`,
-HealthCheck will terminate the instance. To prevent HealthCheck scripts from terminating an
-instance, run the `jetpack keepalive` command. On Linux instances, you can specify a
-timeframe in hours or `forever`.
+Customer­-defined scripts are placed in _/opt/cycle/jetpack/config/healthcheck.d_. When the script exits with a status of `254`, HealthCheck will terminate the instance. To prevent HealthCheck scripts from terminating an instance, run the `jetpack keepalive` command. On Linux instances, you can specify a timeframe in hours or `forever`.
 
 Because HealthCheck scripts run regularly, they can be used to detect conditions that might
 appear after an instance has been running. For example, if jobs fill an execute node’s disk, the

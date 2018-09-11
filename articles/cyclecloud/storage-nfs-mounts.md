@@ -58,9 +58,9 @@ address = 54.83.20.2
 
 ## Default Shares
 
-By default, most CycleCloud cluster types include at least one shared drive mounted at `/shared` and `/mnt/exports/shared`. For clusters that need a simple shared filesystem, this mount is often sufficient.
+By default, most CycleCloud cluster types include at least one shared drive mounted at _/shared_ and _/mnt/exports/shared_. For clusters that need a simple shared filesystem, this mount is often sufficient.
 
-Many cluster types also include a second NFS mount at `/sched` and `/mnt/exports/sched` which is reserved for use by the chosen scheduler. In general, this mount should not be accessed by applications.
+Many cluster types also include a second NFS mount at _/sched_ and _/mnt/exports/sched_ which is reserved for use by the chosen scheduler. In general, this mount should not be accessed by applications.
 
 The mount configurations for the default shares reserve filesystem names `cyclecloud.mounts.shared` and `cyclecloud.mounts.sched`. Modifying the default configurations for these shares is possible, but may result in unexpected behavior since many cluster types rely on the default mounts.
 
