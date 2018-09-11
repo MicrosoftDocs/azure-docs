@@ -66,7 +66,7 @@ The three high-level hierarchy patterns are functional, business unit, and geogr
 
 For organizations with an Enterprise Agreement, Azure subscriptions follow a four-level hierarchy:
 
-1. Enterprise enrolment administrator
+1. Enterprise enrollment administrator
 
 2. Department administrator
 

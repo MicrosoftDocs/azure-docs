@@ -350,7 +350,7 @@
     - name: Portal
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
     - name: CLI
-      href: /active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
     - name: PowerShell
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
     - name: Azure Resource Manager Template
