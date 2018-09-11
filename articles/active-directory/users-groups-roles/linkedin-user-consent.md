@@ -23,7 +23,7 @@ To see LinkedIn information in Microsoft apps and services, users must cconsent 
 
 [!INCLUDE [active-directory-gdpr-note](../../../includes/gdpr-hybrid-note.md)]
 
-## How does your organization benefit from LinkedIn information in Microsoft apps and services?
+## Benefits of sharing LinkedIn information in Microsoft apps and services
 
 Access to LinkedIn information within Microsoft apps makes it easier for your users to connect, engage, and build professional relationships with colleagues, customers, and partners inside and outside your organization. New users can get up to speed faster by connecting with colleagues, learning more about them, and easily accessing more information. Here is an example of how LinkedIn information appears on the profile card in Microsoft apps:
 
@@ -36,7 +36,7 @@ You must be an Azure Active Directory Admin to manage the setting for your organ
 1. To enable or disable the account connections integration, follow the steps in [LinkedIn account connections](linkedin-integration.md).
 2. When you announce the LinkedIn integration in your organization, point your users to the FAQ about [LinkedIn information in Microsoft apps and services](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). The article provides information about where LinkedIn information shows up, how to connect accounts, and more.
 
-## User consent for data access and use in Microsoft and LinkedIn
+## User consent for data access in Microsoft and LinkedIn
 
 Data that is accessed from LinkedIn is not stored permanently in Microsoft services. Data that is accessed from Microsoft is not stored permanently with LinkedIn, except for Contacts. Microsoft Contacts are stored on LinkedIn until users remove them, as described in [deleting imported contacts from LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
@@ -61,12 +61,13 @@ Data that is accessed from LinkedIn is not stored permanently in Microsoft servi
 
 ### Microsoft work or school account data
 
-When you connect your Microsoft and LinkedIn accounts, you allow Microsoft to provide the following data to LinkedIn: 
-•	Profile data - includes information like your first name, last name, profile photo, email address, manager, and people that you manage.
-•	Calendar data - includes meetings in your calendars, their times, locations, and attendees' contact information. Information about the meeting, like agenda, content, or meeting title is not included in the calendar data.
-•	Interests data - includes the interests associated with your account, based on your use of Microsoft services, such as Cortana and Bing for Business.
-•	Subscriptions data - includes subscriptions provided by your organization to Microsoft apps and services, such as Office 365.
-•	Contacts data - includes contact lists in Outlook, Skype, and other Microsoft account services, including the contact information for people you frequently communicate or collaborate with. Contacts will be periodically imported, stored, and used by LinkedIn, for example to suggest connections, help organize contacts, and show updates about contacts.
+When you connect your Microsoft and LinkedIn accounts, you allow Microsoft to provide the following data to LinkedIn:
+
+* *Profile data - includes information like your first name, last name, profile photo, email address, manager, and people that you manage.
+* *Calendar data - includes meetings in your calendars, their times, locations, and attendees' contact information. Information about the meeting, like agenda, content, or meeting title is not included in the calendar data.
+* Interests data - includes the interests associated with your account, based on your use of Microsoft services, such as Cortana and Bing for Business.
+* Subscriptions data - includes subscriptions provided by your organization to Microsoft apps and services, such as Office 365.
+* Contacts data - includes contact lists in Outlook, Skype, and other Microsoft account services, including the contact information for people you frequently communicate or collaborate with. Contacts will be periodically imported, stored, and used by LinkedIn, for example to suggest connections, help organize contacts, and show updates about contacts.
 
 Data that is accessed from Microsoft is not stored permanently with LinkedIn, except for Contacts. Microsoft Contacts are stored on LinkedIn until users remove them. Learn more about [deleting imported contacts from LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
