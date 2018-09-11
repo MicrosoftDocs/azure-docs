@@ -269,3 +269,24 @@
         href: application-sign-in-problem-federated-sso-gallery.md
       - name: Problem with custom-developed app
         href: application-sign-in-problem-custom-dev.md
+  - name: Resources
+    items:
+    - name: Azure AD deployment plans
+      href: ../fundamentals/active-directory-deployment-plans.md
+    - name: Azure feedback forum
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/?category=security-identity
+    - name: MSDN forum
+      href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/active-directory
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=active-directory
+    - name: Stack Overflow
+      href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    - name: Videos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+
