@@ -95,16 +95,6 @@ Following are some common scenarios to help you understand which permissions are
 >
 >
 
-### Permissions needed to enumerate a folder
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
-
-* For the folder to enumerate, the caller needs **Read + Execute** permissions.
-* For all the ancestor folders, the caller needs **Execute** permissions.
-
-
-From the **Data Explorer** blade of the Data Lake Storage Gen1 account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastorage** account.
-
 ![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
 On this blade, the top section shows the owners permissions. (In the screenshot, the owning user is Bob.) Following that, the assigned Access ACLs are shown. 
