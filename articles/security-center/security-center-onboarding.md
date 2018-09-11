@@ -99,7 +99,7 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
    ![Add computers][7]
 
- The **Direct Agent** blade provides a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.   
+ The **Direct Agent** blade provides a link for downloading a Windows or Linux agent as well as the workspace ID and keys to use in configuring the agent.   
 
 ## Next steps
 In this article you learned how to onboard Azure and non-Azure resources in order to benefit from Security Center’s advanced security.  To do more with your onboarded resources, see
