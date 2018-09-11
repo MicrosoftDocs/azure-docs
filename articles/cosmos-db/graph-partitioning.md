@@ -1,5 +1,5 @@
 ---
-title: 'Graph API Partitioning | Microsoft Docs'
+title: 'Gremlin API Partitioning | Microsoft Docs'
 description: Learn how you can use a partitioned Graph in Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
@@ -15,7 +15,7 @@ ms.author: lbosq
 ---
 # Using a partitioned graph in Azure Cosmos DB
 
-One of the key features of the Graph API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of containers, that can scale independently in terms of storage and throughput. Azure Cosmos DB supports the following types of containers across all APIs:
+One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of containers, that can scale independently in terms of storage and throughput. Azure Cosmos DB supports the following types of containers across all APIs:
 
 - **Fixed container**: These containers can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed container it isn't necessary to specify a partition key property in the data.
 
@@ -27,7 +27,7 @@ In this document, the specifics on how graph databases are partitioned will be d
 
 The following are details that need to be understood when creating a partitioned graph container:
 - **Setting up partitioning will be necessary** if the container is expected to be more than 10 GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
-- **Both vertices and edges are stored as JSON documents** in the back-end of an Azure Cosmos DB Graph API container.
+- **Both vertices and edges are stored as JSON documents** in the back-end of an Azure Cosmos DB Gremlin API container.
 - **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partition key is a single-word string without spaces or special characters, and it is defined when creating a new container using the format `/partitioning-key-name` on the portal.
 - **Edges will be stored with their source vertex**. In other words, for each vertex its partition key will define where they will be stored along with its outgoing edges. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
 - **Graph queries need to specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, the partition key should be specified when a single vertex is selected, whenever it's possible. The following are queries for selecting one or multiple vertices in a partitioned graph:
@@ -65,8 +65,8 @@ The following are guidelines that should be followed to ensure the most efficien
 - **Optimize queries to obtain data within the boundaries of a partition when possible**. An optimal partitioning strategy would be aligned to the querying patterns. Queries that obtain data from a single partition provide the best possible performance.
 
 ## Next steps
-In this article, an overview of concepts and best practices for partitioning with an Azure Cosmos DB Graph API was provided. 
+In this article, an overview of concepts and best practices for partitioning with an Azure Cosmos DB Gremlin API was provided. 
 
 * Learn about [Partition and scale in Azure Cosmos DB](partition-data.md).
-* Learn about the [Gremlin support in Graph API](gremlin-support.md).
-* Learn about [Introduction to Graph API](graph-introduction.md).
+* Learn about the [Gremlin support in Gremlin API](gremlin-support.md).
+* Learn about [Introduction to Gremlin API](graph-introduction.md).

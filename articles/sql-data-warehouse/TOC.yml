@@ -87,6 +87,8 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
+    - name: Best practices
+      href: sql-data-warehouse-best-practices-development.md
     - name: Tables
       items:
       - name: Overview
