@@ -94,6 +94,7 @@
 ### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tasks
+#### [Download a sign-in report](reports-monitoring/quickstart-download-sign-in-report.md)
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](reports-monitoring/howto-find-activity-reports.md)
 #### [Use the Azure AD Power BI Content Pack](reports-monitoring/howto-power-bi-content-pack.md)
