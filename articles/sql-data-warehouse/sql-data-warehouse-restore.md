@@ -3,7 +3,7 @@ title: Restore an Azure SQL Data Warehouse | Microsoft Docs
 description: How to guide for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 
 # Restoring Azure SQL Data Warehouse 
-In this article you will learn how to do the following:
+In this article you will learn how to do the following in the Azure portal and PowerShell:
 
 - Create a restore point
 - Restore from an automatic restore point or user-defined restore point
@@ -22,15 +22,19 @@ In this article you will learn how to do the following:
 - Restore from a geo-backup
 - Create a copy of your data warehouse from a user-defined restore point
 
+> [!NOTE]
+> As of 8/27, cross-server restore has been disabled due to a known regression. We are actively working on a fix at our highest priority. We apologize for this inconvenience. In the meantime, you can leverage your [geo-backup](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) to restore across servers.  
+>
+
 ## Before you begin
 **Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.  Before you can restore a SQL data warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
 
-# Restore through PowerShell
+## Restore through PowerShell
 
 ## Install PowerShell
 In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.  The latest version can be installed from  [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
 
-## Restore an active or paused database
+## Restore an active or paused database using PowerShell
 To restore a database from a restore point use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] PowerShell cmdlet.
 
 1. Open Windows PowerShell.
@@ -86,7 +90,7 @@ $RestoredDatabase.status
 > After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
 >
 
-## Copy your data warehouse with user-defined restore points
+## Copy your data warehouse with user-defined restore points using PowerShell
 To restore a database from a user-defined restore point use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] PowerShell cmdlet.
 
 1. Open Windows PowerShell.
@@ -94,10 +98,10 @@ To restore a database from a user-defined restore point use the [Restore-AzureRm
 3. Select the subscription that contains the database to be restored.
 4. Create a restore point for an immediate copy of your database
 5. Rename your database to a temporary name.
-5. Retrieve the most recent restore point by the specified RestorePointLabel.
-6. Get the resource id of the database to initiate the restore
-6. Restore the database to the desired restore point.
-7. Verify that the restored database is online.
+6. Retrieve the most recent restore point by the specified RestorePointLabel.
+7. Get the resource id of the database to initiate the restore
+8. Restore the database to the desired restore point.
+9. Verify that the restored database is online.
 
 ```Powershell
 
@@ -134,7 +138,7 @@ $RestoredDatabase.status
 
 ```
 
-## Restore a deleted database
+## Restore a deleted database using PowerShell
 To restore a deleted database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.
 
 1. Open Windows PowerShell.
@@ -169,7 +173,7 @@ $RestoredDatabase.status
 > After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
 >
 
-## Restore from an Azure geographical region
+## Restore from an Azure geographical region using PowerShell
 To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.
 
 > [!NOTE]
@@ -204,9 +208,9 @@ $GeoRestoredDatabase.status
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
-# Restore through the Azure Portal
+## Restore through the Azure portal
 
-## Create a user-defined restore point
+## Create a user-defined restore point using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
 
 2. Navigate to the SQL data warehouse that you want to create a restore point for.
@@ -214,37 +218,37 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 3. At the top of the Overview blade, select **+New Restore Point**.
 
     ![New Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
-    
+
 4. Specify a name for your restore point.
 
     ![Name of Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## Restore an active or paused database
+## Restore an active or paused database using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
 2. Navigate to the SQL data warehouse that you want to restore from.
 3. At the top of the Overview blade, select **Restore**.
 
     ![ Restore Overview](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
-    
+
 4. Select either **Automatic Restore Points** or **User-Defined Restore Points**.
 
     ![Automatic Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-    
+
 5. For User-Defined Restore Points, **select a Restore point** or **Create a new user-defined restore point**.
 
     ![User-defined Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
-## Restore a deleted database
+## Restore a deleted database using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
 2. Navigate to the SQL server your deleted database was hosted on.
 3. Select the Deleted databases icon in the table of contents.
 
     ![Deleted Databases](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_0.png)
-    
+
 4. Select the deleted database that you want to restore.
 
     ![Select Deleted Databases](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_1.png)
-    
+
 5. Specify a new database name.
 
     ![Specify Database Name](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_2.png)
