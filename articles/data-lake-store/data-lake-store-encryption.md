@@ -120,9 +120,9 @@ Note that if you use the default options for encryption, your data is always enc
 
    ![Screenshot of Keys window, with New Version highlighted](./media/data-lake-store-encryption/keynewversion.png)
 
-4.	Browse to the Data Lake Storage Gen1 storage account, and select **Encryption**.
+4.	Browse to the Data Lake Storage Gen1 account, and select **Encryption**.
 
-    ![Screenshot of Data Lake Storage Gen1 storage account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
+    ![Screenshot of Data Lake Storage Gen1 account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
 
 5.	A message notifies you that a new key version of the key is available. Click **Rotate Key** to update the key to the new version.
 
