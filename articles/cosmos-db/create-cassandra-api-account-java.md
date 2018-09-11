@@ -61,7 +61,7 @@ You can get the connection string information from Azure portal to get your conn
 
 The Java sample project you use in this article is hosted in GitHub, you can download it from [azure-cosmos-db-cassandra-java-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started) repository. After downloading you can update the connection string information within the “java-examples\src\main\resources\config.properties” file and run it.  
 
-```
+```java
 cassandra_host=<FILLME_with_CONTACT POINT> 
 cassandra_host = 10350 
 cassandra_username=<FILLME_with_USERNAME> 
