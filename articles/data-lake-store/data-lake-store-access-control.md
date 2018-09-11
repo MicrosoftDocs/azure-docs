@@ -27,11 +27,8 @@ There are two kinds of access control lists (ACLs), **Access ACLs** and **Defaul
 
 * **Default ACLs**: A "template" of ACLs associated with a folder that determine the Access ACLs for any child items that are created under that folder. Files do not have Default ACLs.
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 Both Access ACLs and Default ACLs have the same structure.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
@@ -84,25 +81,18 @@ Following are some common scenarios to help you understand which permissions are
 
 ### Permissions needed to read a file
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
-
 * For the file to be read, the caller needs **Read** permissions.
 * For all the folders in the folder structure that contain the file, the caller needs **Execute** permissions.
 
 ### Permissions needed to append to a file
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
 * For the file to be appended to, the caller needs **Write** permissions.
 * For all the folders that contain the file, the caller needs **Execute** permissions.
 
 ### Permissions needed to delete a file
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
-
 * For the parent folder, the caller needs **Write + Execute** permissions.
 * For all the other folders in the file’s path, the caller needs **Execute** permissions.
-
 
 
 > [!NOTE]
@@ -112,7 +102,6 @@ Following are some common scenarios to help you understand which permissions are
 
 ### Permissions needed to enumerate a folder
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
 * For the folder to enumerate, the caller needs **Read + Execute** permissions.
 * For all the ancestor folders, the caller needs **Execute** permissions.
@@ -233,10 +222,6 @@ When a new file or folder is created under an existing folder, the Default ACL o
 - A child folder’s Default ACL and Access ACL.
 - A child file's Access ACL (files do not have a Default ACL).
 
-## Advanced topics for understanding ACLs in Data Lake Storage Gen1
-
-Following are some advanced topics to help you understand how ACLs are determined for Data Lake Storage Gen1 files or folders.
-
 ### umask
 
 When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on  parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
@@ -267,11 +252,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-
-
 ## Common questions about ACLs in Data Lake Storage Gen1
-
-Here are some questions that come up often about ACLs in Data Lake Storage Gen1.
 
 ### Do I have to enable support for ACLs?
 
