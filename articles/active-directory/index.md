@@ -73,7 +73,7 @@ ms.author: mtillman
                                                                 <div class="cardText" style="padding-left: 0px">
                                                                     <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
 																	<p>
-																	    <a href="">Secure your Azure resources with conditional access</a><br>
+																	    <a href="https://docs.microsoft.com/learn/modules/secure-azure-resources-with-conditional-access">Secure your Azure resources with conditional access</a><br>
                                                                         <a href="">More interactive learning ...</a><br>
 																    </p>
 																</div>
