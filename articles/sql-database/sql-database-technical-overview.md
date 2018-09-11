@@ -7,7 +7,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 09/07/2018
+ms.date: 09/17/2018
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
@@ -41,7 +41,8 @@ SQL Database delivers predictable performance at multiple service levels that pr
 
 With SQL Database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed performance level. SQL Database provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
-With SQL Database Managed Instance, each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md) 
+- With [SQL Database Managed Instance](sql-database-managed-instance.md), each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
+- With the [Hyperscale service tier](sql-database-hyperscale.md) (preview) in the vCore purchasing model, you can scale to 100 TB with fast backup and restore capabilities.
 
 ### Adjust performance and scale without downtime
 
@@ -49,11 +50,12 @@ SQL Database offers a [DTU-based purchasing model](sql-database-service-tiers-dt
 - The DTU-based purchasing model offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The vCore-based purchasing model lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
 
-You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+You can build your first app on a small, single database at a low cost per month in the General Purpose service tier and then change its service tier manually or programmatically at any time to the Business Critical Service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+
+> [!IMPORTANT]
+> You cannot scale from a General Purpose or Business Critical service tier to a [Hyperscale service tier](sql-database-hyperscale.md). You can, however, change performance levels within the Hyperscale service tier.
 
 Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a singe Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md). 
-
-SQL Database Managed Instance is in preview and offers a single service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md)
 
 ### Elastic pools to maximize resource utilization
 
@@ -171,8 +173,8 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 - See these quickstarts to get you started:
 
   - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  
-  - [Create a SQL database with the Azure CLI](sql-database-cli-samples.md)
-  - [Create a SQL database using PowerShell](sql-database-powershell-samples.md)
+  - [Create a SQL database with the Azure CLI](sql-database-get-started-cli.md)
+  - [Create a SQL database using PowerShell](sql-database-get-started-powershell.md)
 
 - For a set of Azure CLI and PowerShell samples, see:
   - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)

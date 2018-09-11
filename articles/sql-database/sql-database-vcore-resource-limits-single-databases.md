@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 08/24/2018
 ms.author: carlrab
 
 ---
@@ -117,8 +117,52 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
+### Hyperscale service tier
+
+#### Generation 4 compute platform
+|Performance level|L1|L2|L3|L4|L5|
+|:--- | --: |--: |--: |--: |--: |
+|H/W generation|4|4|4|4|4|
+|vCores|2|6|8|9|22|
+|Memory (GB)|14|42|56|63|154|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (TB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
+|Max log size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
+|TempDB size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
+|Target IOPS (64 KB)|?|?|?|?|?|
+|IO latency (approximate)|?|?|?|?|?||
+|Max concurrent workers (requests)|?|?|?|?|?|?||
+|Max allowed sessions|?|?|?|?|?|?||
+|Number of replicas|?|?|?|?|?|?||
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|?|?|?|?|?|?|
+|||
+### Generation 5 compute platform
+|Performance level|L1|L2|L3|L4|L5|
+|:--- | --: |--: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|
+|vCores|2|6|8|9|22|
+|Memory (GB)|14|42|56|63|154|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (TB)|Unlimited|Unlimited|Unlimited|10Unlimited0|Unlimited|
+|Max log size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
+|TempDB size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
+|Target IOPS (64 KB)|?|?|?|?|?|
+|IO latency (approximate)|?|?|?|?|?||
+|Max concurrent workers (requests)|?|?|?|?|?|?||
+|Max allowed sessions|?|?|?|?|?|?||
+|Number of replicas|?|?|?|?|?|?||
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|?|?|?|?|?|?|
+|||
+
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
-- See [Overview Azure SQL Database resource limits](sql-database-resource-limits.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

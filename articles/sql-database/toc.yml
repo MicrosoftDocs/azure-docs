@@ -9,33 +9,21 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create
-    items: 
-    - name: Single database
-      href: sql-database-get-started-portal.md
-    - name: Managed Instance
-      href: sql-database-managed-instance-get-started.md
-  - name: Configure
-    items:
-    - name: Logical server firewall rule
-      href: sql-database-get-started-portal-firewall.md
-    - name: Client VM connection to a Managed Instance
-      href: sql-database-managed-instance-configure-vm.md
-    - name: Point-to-site connection to a Managed Instance
-      href: sql-database-managed-instance-configure-p2s.md
-  - name: Load data
-    items:
-    - name: Import BACPAC into a single database
-      href: sql-database-import.md
-    - name: Restore a database backup to a Managed Instance
-      href: sql-database-managed-instance-get-started-restore.md
-  - name: Query
+  - name: Create DB - Portal
+    href: sql-database-get-started-portal.md
+  - name: Create DB - Azure CLI
+    href: sql-database-get-started-cli.md
+  - name: Create DB - Azure PowerShell
+    href: sql-database-get-started-powershell.md
+  - name: Create Managed Instance
+    href: sql-database-managed-instance-get-started.md
+  - name: Connect and query
     href: sql-database-connect-query.md
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
-    - name: Azure Data Studio
-      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+    - name: SQL Operations Studio
+      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure portal
       href: sql-database-connect-query-portal.md
     - name: VS Code
@@ -70,9 +58,13 @@
     href: sql-database-security-tutorial.md
   - name: 5 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: 6 - Migrate to a Managed Instance using DMS
+  - name: 6 - Create Managed Instance
+    href: sql-database-managed-instance-create-tutorial-portal.md
+  - name: 7 - Restore a backup to a Managed Instance
+    href: sql-database-managed-instance-restore-from-backup-tutorial.md
+  - name: 8 - Migrate to a Managed Instance using DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 7 - Set up Azure SQL Data Sync
+  - name: 9 - Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
   items:
@@ -92,6 +84,8 @@
       href: sql-database-service-tiers-vcore.md
     - name: DTU model
       href: sql-database-service-tiers-dtu.md
+    - name: Hyperscale service tier
+      href: sql-database-hyperscale.md
     - name: Resource limits
       href: sql-database-resource-limits.md
     - name: Prepay for reserved capacity
