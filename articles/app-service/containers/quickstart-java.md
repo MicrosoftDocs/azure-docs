@@ -50,7 +50,6 @@ Then add the following plugin definition inside the `<build>` element of the `po
 
 ```xml
 <plugins>
- 
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
@@ -63,7 +62,6 @@ Then add the following plugin definition inside the `<build>` element of the `po
    
             <!-- Web App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
@@ -72,7 +70,6 @@ Then add the following plugin definition inside the `<build>` element of the `po
    
         </configuration>
     </plugin>
-    ...
 </plugins>
 ```    
 
@@ -82,13 +79,14 @@ Update the following placeholders in the plugin configuration:
 | ----------- | ----------- |
 | `RESOURCEGROUP_NAME` | Name for the new resource group in which to create your web app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with a unique new resource group name, for example, *TestResources*. You will use this resource group name to clean up all Azure resources in a later section. |
 | `WEBAPP_NAME` | The app name will be part the host name for the web app when deployed to Azure (WEBAPP_NAME.azurewebsites.net). Update this value with a unique name for the new Azure web app, which will host your Java app, for example *contoso*. |
+| `REGION` | An Azure region where the web app is hosted, for example `westus2`. You can get a list of regions from the Cloud Shell or CLI using the `az account list-locations` command. 
 
 ## Deploy the app
 
 Deploy your Java app to Azure using the following command:
 
 ```bash
-mvn clean package azure-webapp:deploy
+mvn package azure-webapp:deploy
 ```
 
 Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/helloworld`. 
