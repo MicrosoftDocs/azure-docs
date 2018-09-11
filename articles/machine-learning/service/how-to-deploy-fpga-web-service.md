@@ -314,6 +314,3 @@ Using either method causes gRPC to use the certificate as the root cert.
 
 > [!IMPORTANT]
 > gRPC does not accept untrusted certificates. Using an untrusted certificate will fail with an `Unavailable` status code. The details of the failure contain `Connection Failed`.
-
-## Next steps
-Incorporate this API into your pipelines for ultra-fast inferencing.
