@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ---
 # What happened to Workbench in Azure Machine Learning (preview)?
 
-The Workbench application and some other early features were deprecated in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to better your experience. The core functionality from experiment execution to model deployment has not changed, but now you can use the robust SDK and CLI to accomplish your machine learning tasks and pipelines.  
+The Workbench application and some other early features were deprecated in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to better your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust SDK and CLI to accomplish your machine learning tasks and pipelines.  
 
 In this article, you'll learn about what changed and how it affects your pre-existing work with the Azure Machine Learning service.
 
@@ -41,7 +41,7 @@ You can continue to use your experimentation and model management accounts as we
 |Phase|Support details for earlier features|
 |:---:|----------------|
 |1|The ability to create _Azure Machine Learning Experimentation account_ and _Model Management account_ in the Azure portal and from the CLI. The ability to create ML Compute Environments from the CLI also ends. If you have an existing account, the CLI and the desktop Workbench continue to work in this phase.|
-|2|The underlying APIs for creating old workspaces and projects in the desktop Workbench and with the CLI ends. You can still open existing projects, add additional scripts to it, execute scripts in existing projects, and deploy web services to existing ML Compute Environments in this phase.|
+|2|The underlying APIs for creating old workspaces and projects in the desktop Workbench and with the CLI ends. You can still open existing projects, add additional scripts to it, run scripts in existing projects, and deploy web services to existing ML Compute Environments in this phase.|
 |3|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
 
 [Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new [SDK](reference-azure-machine-learning-sdk.md), [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).

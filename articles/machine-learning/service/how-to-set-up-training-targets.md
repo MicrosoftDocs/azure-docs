@@ -102,7 +102,7 @@ In a user-managed environment, you are responsible for ensuring that all the nec
   
 ### System-managed environment
 
-System-managed environments rely on conda to manage the dependencies. Conda creates a file named `conda_dependencies.yml` that contains a list of dependencies. You can then ask the system to build a new conda environment and execute your scripts in it. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged. 
+System-managed environments rely on conda to manage the dependencies. Conda creates a file named `conda_dependencies.yml` that contains a list of dependencies. You can then ask the system to build a new conda environment and run your scripts in it. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged. 
 
 The initial setup up of a new environment can take several minutes to complete, depending on the size of the required dependencies. The following code snippet demonstrates creating a system-managed environment that depends on scikit-learn:
 
@@ -183,7 +183,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     # Ask system to provision a new one based on the conda_dependencies.yml file
     run_config.environment.python.user_managed_dependencies = False
 
-    # Prepare the Docker and conda environment automatically when executingfor the first time.
+    # Prepare the Docker and conda environment automatically when running for the first time.
     run_config.prepare_environment = True
 
     # create a new CondaDependencies obj
@@ -260,7 +260,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 # create a new runconfig object
 run_config = RunConfiguration(project_object = project, run_config_name = 'my-aci-run-config')
 
-# signal that you want to use ACI to execute script.
+# signal that you want to use ACI to run script.
 run_config.target = "containerinstance"
 
 # ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
