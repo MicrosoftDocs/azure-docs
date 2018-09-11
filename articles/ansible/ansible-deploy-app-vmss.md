@@ -7,7 +7,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 09/11/2018
 ---
 
 # Deploy applications to virtual machine scale sets in Azure using Ansible
@@ -26,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Get host information
 
-This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **saclesethosts** in inventory. 
+This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **scalesethosts** in inventory. 
 
 Save the following sample playbook as `get-hosts-tasks.yml`: 
 
