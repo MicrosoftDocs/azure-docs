@@ -106,9 +106,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     In the **Sign-on URL** textbox, type a URL: `https://login.rackspace.com/federate/`
 
-	> [!NOTE] 
-	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Rackspace SSO Client support team](https://support.rackspace.com/) to get the value. 
-
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png) 
