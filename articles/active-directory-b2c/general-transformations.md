@@ -57,7 +57,7 @@ Hash the provided plain text using the salt and a secret.
 | InputClaim | plaintext | string | The input claim to be encrypted |
 | InputClaim | salt | string | The salt parameter. You can create a random value, using `CreateRandomString` claims transformation. |
 | InputParameter | randomizerSecret | string | Points to an existing Azure AD B2C **Policy Keys**. To create a new one: In your Azure AD B2C tenant, select **B2C Settings > Identity Experience Framework**. Select **Policy Keys** to view the keys that are available in your tenant. Select **Add**. For **Options**, select **Manual**. Provide a name (the prefix B2C_1A_ might be added automatically.). In the Secret box, enter any secret you want to use, such as 1234567890. For Key usage, select **Secret**. Select **Create**. |
-| OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. The claim configured in the `plaintext` inputClaim. |
+| OutputClaim | hash | string | The ClaimType that is produced after this claims transformation has been invoked. The claim configured in the `plaintext` inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
