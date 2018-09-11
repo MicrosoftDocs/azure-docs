@@ -41,10 +41,10 @@ It is important to emphasize that virtual machine cores have a regional total li
 
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
-| VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |10,000 per Region |10,000 per Region |
-| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20 per Region | Contact support |
-| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20 per Region | Contact support |
-| vCPUs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 per Region|10,000 per Region|
+| VMs per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) |10,000 per Region |10,000 per Region |
+| VM total cores per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) |20 per Region | Contact support |
+| VM per series (Dv2, F, etc.) cores per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) |20 per Region | Contact support |
+| vCPUs per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) <sup>1</sup> |20 per Region|10,000 per Region|
 
 ### Batch AI clusters
 In Batch AI, there is a default quota limit on both the number of cores and number of clusters allowed per region in a subscription. Batch AI quota is separate from the VM core quota above and the core limits are not shared currently between the two resource types.
@@ -64,7 +64,7 @@ There is also a limit on the number of container instances that you can spin up 
 
 | Resource | Default Limit |
 | --- | :--- |
-| Container groups per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 20<sup>1</sup> |
+| Container groups per [subscription](../../../includes/azure-subscription-limits-azure-resource-manager.md) | 20<sup>1</sup> |
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
 | Container creates per hour |60<sup>1</sup> |
@@ -100,4 +100,4 @@ The limits can't be raised above the maximum limit value shown in the tables. 
 When requesting a quota increase, you need to select the service you are requesting to raise the quota against, which could be services such as AzureML quota, Batch AI quota, or Storage quota. 
 
 > [!NOTE]
-> [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
+> [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../../../includes/azure-subscription-limits-azure-resource-manager.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
