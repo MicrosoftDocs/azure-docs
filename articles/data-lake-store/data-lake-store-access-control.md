@@ -233,21 +233,6 @@ When a new file or folder is created under an existing folder, the Default ACL o
 - A child folder’s Default ACL and Access ACL.
 - A child file's Access ACL (files do not have a Default ACL).
 
-### The Access ACL of a child file or folder
-
-When a child file or folder is created, the parent's Default ACL is copied as the Access ACL of the child file or folder. Also, if **other** user has RWX permissions in the parent's default ACL, it is removed from the child item's Access ACL.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
-
-In most scenarios, the previous information is all you need to know about how a child item’s Access ACL is determined. However, if you are familiar with POSIX systems and want to understand in-depth how this transformation is achieved, see the section [Umask’s role in creating the Access ACL for new files and folders](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) later in this article.
-
-
-### A child folder's Default ACL
-
-When a child folder is created under a parent folder, the parent folder's Default ACL is copied over as is to the child folder's Default ACL.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
-
 ## Advanced topics for understanding ACLs in Data Lake Storage Gen1
 
 Following are some advanced topics to help you understand how ACLs are determined for Data Lake Storage Gen1 files or folders.
