@@ -46,10 +46,16 @@ To complete this tutorial:
 In a local terminal window, run `psql` to connect to your local PostgreSQL server.
 
 ```bash
-sudo -u postgres psql
+sudo -u postgres psql postgres
 ```
 
-If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the steps at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
+If you get an error message about `unknown user: postgres`, it's possible your postgres configuration was set up with your logged in username. Try the following command instead.
+
+```bash
+psql postgres
+```
+
+If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the instructions for your operating system at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
 Create a database called *eventregistration* and set up a separate database user named *manager* with password *supersecretpass*.
 
