@@ -85,7 +85,7 @@ C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "m
 ### Configure Azure ML Workbench to Access GPU
 Go back to the project and open **File View**, and hit the **Refresh** button. Now you see two new configuration files `my_dsvm.compute` and `my_dsvm.runconfig`.
  
-Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:plus-gpu-0.7.9` and add a new line `nvidiaDocker: true`. So the file should have these two lines:
+Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:plus-gpu-0.9.9` and add a new line `nvidiaDocker: true`. So the file should have these two lines:
  
 ```yaml
 ...

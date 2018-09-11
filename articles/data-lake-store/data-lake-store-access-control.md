@@ -117,19 +117,7 @@ Following are some common scenarios to help you understand which permissions are
 * For the folder to enumerate, the caller needs **Read + Execute** permissions.
 * For all the ancestor folders, the caller needs **Execute** permissions.
 
-## Viewing permissions in the Azure portal
 
-From the **Data Explorer** blade of the Data Lake Storage Gen1 account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastore** account.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-On this blade, the top section shows the owners permissions. (In the screenshot, the owning user is Bob.) Following that, the assigned Access ACLs are shown. 
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Click **Advanced View** to see the more advanced view, where the Default ACLs, mask, and a description of super-users are shown.  This blade also provides a way to recursively set Access and Default ACLs for child files and folders based on the permissions of the current folder.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## The super-user
 
@@ -223,30 +211,20 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## The mask and "effective permissions"
+### The mask
 
-The **mask** is an RWX value that is used to limit access for **named users**, the **owning group**, and **named groups** when you're performing the access check algorithm. Here are the key concepts for the mask.
-
-* The mask creates "effective permissions." That is, it modifies the permissions at the time of access check.
-* The mask can be directly edited by the file owner and any super-users.
-* The mask can remove permissions to create the effective permission. The mask *cannot* add permissions to the effective permission.
-
-Let's look at some examples. In the following example, the mask is set to **RWX**, which means that the mask does not remove any permissions. The effective permissions for the named user, owning group, and named group are not altered during the access check.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
-
-In the following example, the mask is set to **R-X**. This means that it **turns off the Write permissions** for **named user**, **owning group**, and **named group** at the time of access check.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-For reference, here is where the mask for a file or folder appears in the Azure portal.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+As illustrated in the Access Check Algorithm, the mask limits access for **named users**, the **owning group**, and **named groups**.  
 
 > [!NOTE]
 > For a new Data Lake Storage Gen1 account, the mask for the Access ACL of the root folder ("/") defaults to RWX.
 >
 >
+
+#### The sticky bit
+
+The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a folder,  a child item can only be deleted or renamed by the child item's owning user.
+
+The sticky bit is not shown in the Azure portal.
 
 ## Permissions on new files and folders
 
@@ -274,34 +252,37 @@ When a child folder is created under a parent folder, the parent folder's Defaul
 
 Following are some advanced topics to help you understand how ACLs are determined for Data Lake Storage Gen1 files or folders.
 
-### Umask’s role in creating the Access ACL for new files and folders
+### umask
 
-In a POSIX-compliant system, the general concept is that umask is a 9-bit value on the parent folder that's used to transform the permission for **owning user**, **owning group**, and **other** on the Access ACL of a new child file or folder. The bits of a umask identify which bits to turn off in the child item’s Access ACL. Thus it is used to selectively prevent the propagation of permissions for **owning user**, **owning group**, and **other**.
+When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on  parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
-In an HDFS system, the umask is typically a sitewide configuration option that is controlled by administrators. Data Lake Storage Gen1 uses an **account-wide umask** that cannot be changed. The following table shows the unmask for Data Lake Storage Gen1.
+The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-| User group  | Setting | Effect on new child item's Access ACL |
-|------------ |---------|---------------------------------------|
-| Owning user | ---     | No effect                             |
-| Owning group| ---     | No effect                             |
-| Other       | RWX     | Remove Read + Write + Execute         |
+* umask.owning_user =  0 # ---
+* umask.owning_group = 0 # ---
+* umask.other =        7 # RWX
 
-The following illustration shows this umask in action. The net effect is to remove **Read + Write + Execute** for **other** user. Because the umask did not specify bits for **owning user** and **owning group**, those permissions are not transformed.
+This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+The following psuedocode shows how the umask is applied when creating the ACLs for a child item.
 
-### The sticky bit
+```
+def set_default_acls_for_new_child(parent, child):
+    child.acls = []
+    foreach entry in parent.acls :
+        new_entry = None
+        if (entry.type == OWNING_USER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
+        elif (entry.type == OWNING_GROUP) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
+        elif (entry.type == OTHER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.other))
+        else :
+            new_entry = entry.clone(perms = entry.perms )
+        child_acls.add( new_entry )
+```
 
-The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed.
 
-The following table shows how the sticky bit works in Data Lake Storage Gen1.
-
-| User group         | File    | Folder |
-|--------------------|---------|-------------------------|
-| Sticky bit **OFF** | No effect   | No effect.           |
-| Sticky bit **ON**  | No effect   | Prevents anyone except **super-users** and the **owning user** of a child item from deleting or renaming that child item.               |
-
-The sticky bit is not shown in the Azure portal.
 
 ## Common questions about ACLs in Data Lake Storage Gen1
 
@@ -344,15 +325,6 @@ A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this ha
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
 No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
-
-### What is the difference between mask and umask?
-
-| mask | umask|
-|------|------|
-| The **mask** property is available on every file and folder. | The **umask** is a property of the Data Lake Storage Gen1 account. So there is only a single umask in the Data Lake Storage Gen1.    |
-| The mask property on a file or folder can be altered by the owning user or owning group of a file or a super-user. | The umask property cannot be modified by any user, even a super-user. It is an unchangeable, constant value.|
-| The mask property is used during the access check algorithm at runtime to determine whether a user has the right to perform on operation on a file or folder. The role of the mask is to create "effective permissions" at the time of access check. | The umask is not used during access check at all. The umask is used to determine the Access ACL of new child items of a folder. |
-| The mask is a 3-bit RWX value that applies to named user, owning group, and named group at the time of access check.| The umask is a 9-bit value that applies to the owning user, owning group, and **other** of a new child.|
 
 ### Where can I learn more about POSIX access control model?
 
