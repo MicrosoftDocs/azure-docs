@@ -1,7 +1,8 @@
 ---
-title: R Developer's Guide to Azure | Microsoft Docs
-description: an overview of how R developers can run their code in the Azure cloud platform
-services: machine-learning,storage
+title: R developer's guide to Azure - R programming | Microsoft Docs
+description: This article provides an overview of the various ways that data scientists can leverage
+their existing skills with the R programming language in Azure. Azure offers many services that R developers can leverage to extend their data science workloads into the cloud.  
+services: machine-learning
 documentationcenter: ''
 author: AnalyticJeremy
 manager: cgronlun
@@ -13,21 +14,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: R
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/12/2018
 ms.author: jepeach
 ---
-# R Developer's Guide to Azure
+# R developer's guide to Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
-
 Many data scientists dealing with ever-increasing volumes of data are looking for ways to harness the power of cloud
 computing for their analyses.  This article provides an overview of the various ways that data scientists can leverage
 their existing skills with the [R programming language](https://www.r-project.org) in Azure.
 
-Azure offers many services that R developers can leverage to extend their data science workloads into the cloud.  Let's
-examine the various options and the most compelling scenarios for each one.
+Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many
+different options for R developers to run their code in Azure, the company is enabling data scientists to extend their data science workloads into the cloud when tackling large-scale projects.
 
-## Summary
-The following table summarizes the options discussed in this article.
+Let's examine the various options and the most compelling scenarios for each one.
+
+## Azure services with R language support
+This article covers the following Azure services that support the R language:
+
 |Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
@@ -189,10 +192,6 @@ Database.  It is currently in
 [limited preview](https://docs.microsoft.com/en-us/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#azure-sql-database-roadmap)
 but will continue to evolve.
 
-## Conclusion
-Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many
-different options for R developers to run their code in Azure, the company is enabling data scientists to harness the
-power of the cloud when tackling large-scale data projects.
 
 ### Next steps
 * [Running your R code on Azure with mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
