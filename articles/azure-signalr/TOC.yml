@@ -4,7 +4,7 @@
   items:
   - name: About Azure SignalR Service
     href: signalr-overview.md
-  - name: Easily scale ASP.NET Core SignalR
+  - name: Easily Scale ASP.NET Core SignalR
     href: signalr-overview-scale-aspnet-core.md
   - name: Build Real-time Apps with Azure Functions
     href: signalr-overview-azure-functions.md

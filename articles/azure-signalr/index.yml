@@ -64,7 +64,7 @@ sections:
 - title: Reference
   items:
   - type: paragraph
-    text: Programming Azure SignalR Service
+    text: Program Azure SignalR
   - type: list
     style: unordered
     items:
@@ -72,7 +72,7 @@ sections:
     - html: <a href="#">Azure Functions Bindings</a>
     - html: <a href="#">REST API</a>
   - type: paragraph
-    text: SignalR Clients
+    text: Connect to Azure SignalR with Clients SDKs
   - type: list
     style: unordered
     items:
