@@ -3,7 +3,7 @@ title: Azure Serial Console for GRUB and Single User Mode | Microsoft Docs
 description: Using Serial Console for grub in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -19,6 +19,8 @@ ms.author: alsin
 
 # Use Serial Console to access GRUB and Single User Mode
 Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues as fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted. This is useful to investigate situations such as a corrupt filesystem, a broken fstab, or network connectivity (incorrect iptables configuration).
+
+To access GRUB, you will need to reboot your VM while keeping the serial console blade open. This can be done with a SysRq `'b'` command, or by clicking the Restart button in the Overview blade. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds on boot and allow user input to cancel the timeout with keyboard input. 
 
 Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
 
