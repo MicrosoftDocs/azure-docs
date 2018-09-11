@@ -41,7 +41,7 @@ To begin:
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
-    The aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. The following is an example of what you'll see. It is not the complete list of cmdlets.
+    The aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. The following image is an example of what you'll see. It is not the complete list of cmdlets.
 
     ![list of Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
@@ -66,7 +66,7 @@ To begin:
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ``` 
-    In the command output, the **RegistrationState** should change to **Registered**. If not, just re-run the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet as shown above.
+    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet again.
 
 The following tasks can be automated with PowerShell:
 
@@ -111,7 +111,7 @@ Get-AzureRmRecoveryServicesVault
 ```
 . You can use this command to check that a new vault was created, or to see the available vaults in the subscription.
 
-The output is similar to this, notice the associated ResourceGroupName and Location are provided.
+The output is similar to the following example, notice the associated ResourceGroupName and Location are provided.
 
 ```
 Name              : Contoso-vault
@@ -146,7 +146,7 @@ Use **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft
 Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 ```
 
-The output from this command looks like this:
+The output is similar to the following example:
 
 ```
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
@@ -234,7 +234,7 @@ $item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -Worklo
 $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 ```
 
-The output looks similar to this:
+The output is similar to the following example:
 
 ```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -256,7 +256,7 @@ $joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
 $joblist[0]
 ```
 
-The output looks similar to this:
+The output is similar to the following example:
 
 ```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -314,7 +314,7 @@ $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDat
 $rp[0]
 ```
 
-The output looks similar to this:
+The output is similar to the following example:
 
 ```
 RecoveryPointAdditionalInfo :
@@ -340,7 +340,7 @@ To restore the disks and configuration information:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
-The output looks similar to this:
+The output is similar to the following example:
 
 ```
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
@@ -573,7 +573,8 @@ $endDate = Get-Date
 $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 $rp[0]
 ```
-The output looks similar to this:
+
+The output is similar to the following example:
 
 ```
 RecoveryPointAdditionalInfo :
@@ -602,7 +603,7 @@ Use the **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsof
 Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ```
 
-The output looks similar to this:
+The output is similar to the following example:
 
 ```
 OsType  Password        Filename
