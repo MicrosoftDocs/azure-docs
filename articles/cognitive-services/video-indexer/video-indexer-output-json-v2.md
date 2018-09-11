@@ -87,6 +87,7 @@ This section shows the summary of the insights.
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
 |statistics | For more detailed information, see [statistics](#statistics).|
 |emotions| May contain zero or more emotions. For More detailed information, see [emotions](#emotions).|
+|topics|May contain zero or more topics. The [topics](#topics) dimension.|
 
 ## videos
 
