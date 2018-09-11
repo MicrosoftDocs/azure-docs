@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -25,7 +25,7 @@ Active geo-replication is designed as a business continuity solution that allows
 > Active Geo-replication is not available in Managed Instance.
 >  
 
-Auto-failover groups is an extension of active geo-replication. It is designed to manage the failover of multiple geo-replicated databases sumultaneously using an application initiated failover or by delegating failover to be done by the SQL Database service based on a user defined criteria. The latter allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
+Auto-failover groups is an extension of active geo-replication. It is designed to manage the failover of multiple geo-replicated databases simultaneously using an application initiated failover or by delegating failover to be done by the SQL Database service based on a user defined criteria. The latter allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
 > Use active geo-replication if multiple secondaries are required.
@@ -124,7 +124,7 @@ For some applications the security rules require that the network access to the 
 
 ### Using failover groups and virtual network rules
 
-If you are using [Virtual Network service endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database, be aware that Each Virtual Network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. Since the failover results in the SQL client sessions being rerouted to the server in the different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers are included in the Virtual Network rules. To support manual failover, follow these steps:
+If you are using [Virtual Network service endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database, be aware that Each Virtual Network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Therefore, only the client applications deployed in the same region can connect to the primary database. Since the failover results in the SQL client sessions being rerouted to a server in a different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers are included in the Virtual Network rules. To support manual failover, follow these steps:
 
 1.	Provision the redundant copies of the front end components of your application (web service, virtual machines etc.) in the secondary region
 2.	Configure the [virtual network rules](sql-database-vnet-service-endpoint-rule-overview.md) individually for primary and secondary server

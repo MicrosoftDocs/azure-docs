@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -45,7 +45,9 @@ After the *UpdateSQLProvider.ps1* script creates a new VM, the script migrates t
 
 ### Update script PowerShell example
 
-You can edit and run the following script from an elevated PowerShell ISE. Remember to change the account information and passwords as needed for your environment.
+You can edit and run the following script from an elevated PowerShell ISE. 
+- If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+- Remember to change the account information and passwords as needed for your environment.
 
 > [!NOTE]
 > This update process only applies to Azure Stack integrated systems.
@@ -53,7 +55,7 @@ You can edit and run the following script from an elevated PowerShell ISE. Remem
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
+Use-AzureRmProfile -Profile 2018-03-01-hybrid
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
@@ -101,6 +103,7 @@ You can specify the following parameters from the command line when you run the 
 | **AzCredential** | The credentials for the Azure Stack service administrator account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
+| **AzureEnvironment** | The azure environment of the service admin account which you used for deploying Azure Stack. Required only if it’s NOT ADFS. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | You must also put your certificate .pfx file in this directory. | _Optional for single node, but mandatory for multi-node_ |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
 | **MaxRetryCount** | The number of times you want to retry each operation if there's a failure.| 2 |

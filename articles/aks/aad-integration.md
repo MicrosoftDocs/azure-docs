@@ -123,9 +123,9 @@ Deploy the cluster using the [az aks create][az-aks-create] command. Replace the
 
 ```azurecli
 az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
-  --aad-server-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+  --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
-  --aad-client-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+  --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
 

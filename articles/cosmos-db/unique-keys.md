@@ -20,7 +20,7 @@ ms.author: rafats
 Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per [partition key](partition-data.md). Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate values specified by the unique key constraint.   
 
 > [!NOTE]
-> Unique keys are supported by the latest versions of the [.NET](sql-api-sdk-dotnet.md) and [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
+> Unique keys are supported by the latest versions of the [.NET](sql-api-sdk-dotnet.md) and [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Gremlin API do not support unique keys at this time. 
 > 
 >
 
