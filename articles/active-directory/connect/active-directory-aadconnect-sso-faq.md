@@ -4,7 +4,7 @@ description: Answers to frequently asked questions about Azure Active Directory 
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -35,19 +35,20 @@ No. Seamless SSO is only available in the worldwide instance of Azure AD.
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-Listed below is a non-exhaustive list of applications that send these parameters to Azure AD, and therefore provides users a silent sign-on experience using Seamless SSO (i.e., no need for your users to input their usernames):
+Listed below is a non-exhaustive list of applications that can send these parameters to Azure AD, and therefore provides users a silent sign-on experience using Seamless SSO (i.e., no need for your users to input their usernames or passwords):
 
 | Application name | Application URL to be used |
 | -- | -- |
-| Access panel | myapps.microsoft.com/contoso.com |
-| Outlook on Web | outlook.office365.com/contoso.com |
+| Access panel | https://myapps.microsoft.com/contoso.com |
+| Outlook on Web | https://outlook.office365.com/contoso.com |
+| Office 365 portal | https://portal.office.com?domain_hint=contoso.com |
 
 In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's tenanted endpoints - that is, https://login.microsoftonline.com/contoso.com/<..> or https://login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https://login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
 
 | Application name | Application URL to be used |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Azure portal | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Azure portal | https://portal.azure.com/contoso.com |
 
 In the above tables, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
 
@@ -78,16 +79,19 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
 ### Step 1. Get list of AD forests where Seamless SSO has been enabled
 
-1. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
-3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
-6. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
+5. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 2. Update the Kerberos decryption key on each AD forest that it was set it up on
 
 1. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+
+    >[!NOTE]
+    >We use the Domain Administrator's username, provided in the User Principal Names (UPN) (johndoe@contoso.com) format or the domain qualified sam-account name (contoso\johndoe or contoso.com\johndoe) format, to find the intended AD forest. If you use domain qualified sam-account name, we use the domain portion of the username to [locate the Domain Controller of the Domain Administrator using DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). If you use UPN instead, we [translate it to a domain qualified sam-account name](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) before locating the appropriate Domain Controller.
+
 2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACC` computer account in this specific AD forest and updates it in Azure AD.
 3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
@@ -96,26 +100,43 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
 ## How can I disable Seamless SSO?
 
-Seamless SSO can be disabled using Azure AD Connect.
+### Step 1. Disable the feature on your tenant
 
-Run Azure AD Connect, choose "Change user sign-in page" and click "Next". Then uncheck the "Enable single sign on" option. Continue through the wizard. After completion of the wizard, Seamless SSO is disabled on your tenant.
+#### Option A: Disable using Azure AD Connect
 
-However, you see a message on screen that reads as follows:
+1. Run Azure AD Connect, choose **Change user sign-in page** and click **Next**.
+2. Uncheck the **Enable single sign on** option. Continue through the wizard.
+
+After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
 
 "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
 
-To complete the process, follow these manual steps on the on-premises server where you are running Azure AD Connect:
+To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you are running Azure AD Connect.
 
-### Step 1. Get list of AD forests where Seamless SSO has been enabled
+#### Option B: Disable using PowerShell
 
-1. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
-6. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+Run the following steps on the on-premises server where you are running Azure AD Connect:
 
-### Step 2. Manually delete the `AZUREADSSOACCT` computer account from each AD forest that you see listed.
+1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
+5. Call `Enable-AzureADSSO -Enable $false`.
+
+>[!IMPORTANT]
+>Disabling Seamless SSO using PowerShell will not change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.
+
+### Step 2. Get list of AD forests where Seamless SSO has been enabled
+
+Follow tasks 1 through 4 below if you have disabled Seamless SSO using Azure AD Connect. If you have disabled Seamless SSO using PowerShell instead, jump ahead to task 5 below.
+
+1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
+5. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+
+### Step 3. Manually delete the `AZUREADSSOACCT` computer account from each AD forest that you see listed.
 
 ## Next steps
 

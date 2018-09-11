@@ -4,7 +4,7 @@ description: In this document you will learn how to deploy AD FS in Azure for hi
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
-ms.author: anandy; billmath
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
 # Deploying Active Directory Federation Services in Azure
@@ -182,17 +182,20 @@ Select the newly created ILB in the Load Balancers panel. It will open the setti
 
 **6.3. Configuring probe**
 
-In the ILB settings panel, select Probes.
+In the ILB settings panel, select Health probes.
 
 1. Click on add
 2. Provide details for probe
    a. **Name**: Probe name
-   b. **Protocol**: TCP
-   c. **Port**: 443 (HTTPS)
-   d. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool
-   e. **Unhealthy threshold limit**: 2 (default value) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
+   b. **Protocol**: HTTP
+   c. **Port**: 80 (HTTP)
+   d. **Path**: /adfs/probe 
+   e. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool
+   f. **Unhealthy threshold limit**: 2 (default value) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
 
 ![Configure ILB probe](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+We are using the /adfs/probe endpoint that was created explictly for health checks in an AD FS environment where a full HTTPS path check cannot happen.  This is substantially better than a basic port 443 check, which does not accurately reflect the status of a modern AD FS deployment.  More information on this can be found at https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Create load balancing rules**
 

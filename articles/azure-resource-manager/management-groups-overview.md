@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/28/2018
+ms.date: 08/31/2018
 ms.author: rithorn
 ---
 
@@ -19,40 +19,27 @@ ms.author: rithorn
 
 If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
-The management group feature is available in a public preview. To start using management groups, sign in to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section.
-
 For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
 
 ## Hierarchy of management groups and subscriptions
 
 You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management.
-The following diagram shows an example hierarchy that consists of management groups and subscriptions organized by departments.
+The following diagram shows an example of creating a hierarchy for governance using management groups.
 
 ![tree](media/management-groups/MG_overview.png)
 
-By creating a hierarchy that is grouped by departments, you can assign [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once.
+By creating a hierarchy like this example you can apply a policy, for example, VM locations limited to US West Region on the group “Infrastructure Team management group” to enable internal compliance and security policies. This policy will inherit onto both EA subscriptions under that management group and will apply to all VMs under those subscriptions. As this policy inherits from the management group to the subscriptions, this security policy cannot be altered by the resource or subscription owner allowing for improved governance.
+
+Another scenario where you would use management groups is to provide user access to multiple subscriptions.  By moving multiple subscriptions under that management group, you have the ability create one RBAC assignment on the management group, which will inherit that access to all the subscriptions.  Without the need to script RBAC assignments over multiple subscriptions, one assignment on the management group can enable users to have access to everything they need.
 
 ### Important facts about management groups
 
-- 10,000 management groups can be supported in a single directory.
+- 10,000 management groups can be supported in a single directory (Azure Active Directory tenant).
 - A management group tree can support up to six levels of depth.
   - This limit doesn't include the Root level or the subscription level.
 - Each management group and subscription can only support one parent.
 - Each management group can have multiple children.
 - All subscriptions and management groups are contained within a single hierarchy in each directory. See [Important facts about the Root management group](#important-facts-about-the-root-management-group) for exceptions during the Preview.
-
-### Preview subscription visibility limitation
-
-There's currently a limitation within the preview where you aren't able to view subscriptions that you have inherited access to. The access is inherited to the subscription, but the Azure Resource Manager isn't able to honor the inheritance access yet.  
-
-Using the REST API to get information on the subscription returns details as you do have access, but within the Azure portal and Azure Powershell the subscriptions don't show.
-
-This item is being worked on and will be resolved before management groups are announced as "General Availability."  
-
-### Cloud Solution Provider (CSP) limitation during Preview
-
-There's a current limitation for Cloud Solution Provider (CSP) Partners where they aren't able to create or manage their customer's management groups within their customer's directory.  
-This item is being worked on and will be resolved before management groups are announced as "General Availability."
 
 ## Root management group for each directory
 
@@ -72,7 +59,7 @@ Each directory is given a single top-level management group called the "Root" ma
   - No one is given default access to the root management group. Directory Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the directory administrators can assign any RBAC role to other users to manage.  
 
 >[!NOTE]
->If your directory started using the management groups service before 6/25/2018, your directory might not be set up with all subscriptions in the hierarchy. The management group team is retroactively updating each directory that started using management groups in the Public Preview prior to that date within July 2018. All subscriptions in the directories will be made children under the root management group prior.  
+>If your directory started using the management groups service before 6/25/2018, your directory might not be set up with all subscriptions in the hierarchy. The management group team is retroactively updating each directory that started using management groups in the Public Preview prior to that date within July/August 2018. All subscriptions in the directories will be made children under the root management group prior.  
 >
 >If you have questions on this retroactive process, contact: managementgroups@microsoft.com  
   
@@ -91,11 +78,15 @@ The following chart shows the list of roles and the supported actions on managem
 
 | RBAC Role Name             | Create | Rename | Move | Delete | Assign Access | Assign Policy | Read  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Owner                       | X      | X      | X    | X      | X             |               | X     |
+|Owner                       | X      | X      | X    | X      | X             | X             | X     |
 |Contributor                 | X      | X      | X    | X      |               |               | X     |
+|MG Contributor*             | X      | X      | X    | X      |               |               | X     |
 |Reader                      |        |        |      |        |               |               | X     |
+|MG Reader*                  |        |        |      |        |               |               | X     |
 |Resource Policy Contributor |        |        |      |        |               | X             |       |
 |User Access Administrator   |        |        |      |        | X             |               |       |
+
+*: MG Contributor and MG Reader only allow users to perform those actions on the management group scope.  
 
 ### Custom RBAC Role Definition and Assignment
 
@@ -108,5 +99,5 @@ To learn more about management groups, see:
 - [Create management groups to organize Azure resources](management-groups-create.md)
 - [How to change, delete, or manage your management groups](management-groups-manage.md)
 - [Install the Azure PowerShell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
-- [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Install the Azure CLI extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [Install the Azure CLI extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

@@ -263,7 +263,7 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** You can download the new certificate from the StorSimple Device Manager service, and then provide it to be installed in the certificate store of your remote access clients. For instructions, go to:
 
-* [Import-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+* [Import-Certificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **Q:** Is my data protected if the StorSimple Device Manager service is compromised?
 

@@ -13,7 +13,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: barbkess
 ms.reviewer: jeedes
@@ -57,7 +57,7 @@ Azure AD supports two signing algorithms to sign the SAML response:
 
 ## Next steps
 * [Article index for application management in Azure Active Directory](../active-directory-apps-index.md)
-* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Troubleshoot SAML-based single sign-on](../develop/active-directory-saml-debugging.md)
+* [Configure single sign-on to applications that are not in the Azure Active Directory App Gallery](configure-federated-single-sign-on-non-gallery-applications.md)
+* [Troubleshoot SAML-based single sign-on](../develop/howto-v1-debug-saml-sso-issues.md)
 
 

@@ -72,5 +72,7 @@ You also need [Docker for VS Code](https://marketplace.visualstudio.com/items?it
 
 Learn about other scenarios for developing with Azure IoT Edge in Visual Studio Code:
 
-* [Develop a C# module in VS Code](how-to-develop-csharp-module.md)
-* [Develop a C# function in VS Code](how-to-develop-csharp-function.md)
+* Develop modules in VS Code with [C#](how-to-develop-csharp-module.md) or [Node.js](how-to-develop-node-module.md).
+* Develop Azure Functions in VS Code with [C#](how-to-develop-csharp-function.md).
+
+To develop modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).

@@ -3,7 +3,7 @@ title: Deploy an application to an Azure virtual machine scale set | Microsoft D
 description: Learn how to deploy applications to Linux and Windows virtual machine instances in a scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ---
 
 # Deploy your application on virtual machine scale sets
@@ -110,7 +110,7 @@ az vmss create \
 ### Install applications with OS updates
 When new OS releases are available, you can use or build a new custom image and [deploy OS upgrades](virtual-machine-scale-sets-upgrade-scale-set.md) to a scale set. Each VM instance is upgraded to the latest image that you specify. You can use a custom image with the application pre-installed, the Custom Script Extension, or PowerShell DSC to have your application automatically available as you perform the upgrade. You may need to plan for application maintenance as you perform this process to ensure that there are no version compatibility issues.
 
-If you use a custom VM image with the application pre-installed, you could integrate the application updates with a deployment pipeline to build the new images and deploy OS upgrades across the scale set. This approach allows the pipeline to pick up the latest application builds, create and validate a VM image, then upgrade the VM instances in the scale set. To run a deployment pipeline that builds and deploys application updates across custom VM images, you could [create a Packer image and deploy with Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), or use another platform such as [Spinnaker](https://www.spinnaker.io/) or [Jenkins](https://jenkins.io/).
+If you use a custom VM image with the application pre-installed, you could integrate the application updates with a deployment pipeline to build the new images and deploy OS upgrades across the scale set. This approach allows the pipeline to pick up the latest application builds, create and validate a VM image, then upgrade the VM instances in the scale set. To run a deployment pipeline that builds and deploys application updates across custom VM images, you could [create a Packer image and deploy with Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), or use another platform such as [Spinnaker](https://www.spinnaker.io/) or [Jenkins](https://jenkins.io/).
 
 
 ## Next steps

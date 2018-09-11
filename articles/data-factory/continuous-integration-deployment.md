@@ -1,4 +1,4 @@
----
+﻿---
 title: Continuous integration and deployment in Azure Data Factory | Microsoft Docs
 description: Learn how to use continuous integration and deployment to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 08/16/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -43,53 +43,57 @@ Select **Load file** to select the exported Resource Manager template and provid
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
+**Connection strings**. You can find the info required to create connection strings in the articles about the individual connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In code view, however, the password or account key portion of the connection string is removed. To open code view, select the icon highlighted in the following screen shot.
+
+![Open code view to see connection string](media/continuous-integration-deployment/continuous-integration-codeview.png)
+
 ## Continuous integration lifecycle
 Here is the entire lifecycle for continuous integration & deployment
-that you can use after you enable VSTS GIT integration in the Data Factory UI:
+that you can use after you enable Azure DevOps Services GIT integration in the Data Factory UI:
 
-1.  Set up a development data factory with VSTS in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
+1.  Set up a development data factory with Azure DevOps Services in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
 
-2.  Then developers can modify resources such as pipelines. As they make their modifications, they can select **Debug** to see how the pipeline runs with the most recent changes.
+1.  Then developers can modify resources such as pipelines. As they make their modifications, they can select **Debug** to see how the pipeline runs with the most recent changes.
 
-3.  After developers are satisfied with their changes, they can create a pull request from their branch to the master branch (or the collaboration branch) to get their changes reviewed by peers.
+1.  After developers are satisfied with their changes, they can create a pull request from their branch to the master branch (or the collaboration branch) to get their changes reviewed by peers.
 
-4.  After changes are in the master branch, they can publish to the development factory by selecting **Publish**.
+1.  After changes are in the master branch, they can publish to the development factory by selecting **Publish**.
 
-5.  When the team is ready to promote changes to the test factory and the production factory, they can export the Resource Manager template from the master branch, or from any other branch in case their master branch backs the live development Data Factory.
+1.  When the team is ready to promote changes to the test factory and the production factory, they can export the Resource Manager template from the master branch, or from any other branch in case their master branch backs the live development Data Factory.
 
-6.  The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.
+1.  The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.
 
-## Automate continuous integration with VSTS Releases
+## Automate continuous integration with Azure DevOps Services Releases
 
-Here are the steps to set up a VSTS Release so you can automate the deployment of a data factory to multiple environments.
+Here are the steps to set up a Azure DevOps Services Release so you can automate the deployment of a data factory to multiple environments.
 
-![Diagram of continuous integration with VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram of continuous integration with Azure DevOps Services](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### Requirements
 
--   An Azure subscription linked to Team Foundation Server or VSTS using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   An Azure subscription linked to Team Foundation Server or Azure DevOps Services using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   A Data Factory with VSTS Git configured.
+-   A Data Factory with Azure DevOps Services Git configured.
 
 -   An [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) containing the secrets.
 
-### Set up a VSTS Release
+### Set up a Azure DevOps Services Release
 
-1.  Go to your VSTS page in the same project as the one configured with the Data Factory.
+1.  Go to your Azure DevOps Services page in the same project as the one configured with the Data Factory.
 
-2.  Click on the top menu **Build and Release** &gt; **Releases** &gt; **Create release definition**.
+1.  Click on the top menu **Azure Pipelines** &gt; **Releases** &gt; **Create release definition**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Select the **Empty process** template.
+1.  Select the **Empty process** template.
 
-4.  Enter the name of your environment.
+1.  Enter the name of your environment.
 
-5.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf_publish` as the default branch with latest default version.
+1.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf_publish` as the default branch with latest default version.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Add an Azure Resource Manager Deployment task:
+1.  Add an Azure Resource Manager Deployment task:
 
     a.  Create new task, search for **Azure Resource Group Deployment**, and add it.
 
@@ -105,15 +109,15 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Save the release definition.
+1.  Save the release pipeline.
 
-9.  Create a new release from this release definition.
+1.  Create a new release from this release pipeline.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### Optional - Get the secrets from Azure Key Vault
 
-If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release.
+If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the Azure DevOps Services release.
 
 There are two ways to handle the secrets:
 
@@ -140,7 +144,7 @@ There are two ways to handle the secrets:
 
     -   The parameters file needs to be in the publish branch as well.
 
-2.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
+1.  Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
 
     -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
@@ -148,17 +152,17 @@ There are two ways to handle the secrets:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### Grant permissions to the VSTS agent
-The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the VSTS agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
+### Grant permissions to the Azure DevOps Services agent
+The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure DevOps Services agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
 ### Update active triggers
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and start them after the deployment. You can add an Azure Powershell task for this purpose, as shown in the following example:
 
-1.  In the Tasks tab of the VSTS Release, search for **Azure Powershell** and add it.
+1.  In the Tasks tab of the Azure DevOps Services Release, search for **Azure Powershell** and add it.
 
-2.  Choose **Azure Resource Manager** as the connection type and select your subscription.
+1.  Choose **Azure Resource Manager** as the connection type and select your subscription.
 
-3.  Choose **Inline Script** as the script type and then provide your code. The following example stops the triggers:
+1.  Choose **Inline Script** as the script type and then provide your code. The following example stops the triggers:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -170,13 +174,9 @@ Deployment can fail if you try to update active triggers. To update active trigg
 
 You can follow similar steps and use similar code (with the `Start-AzureRmDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
-## Sample template and script
-Here are two samples that you can use to get started with continuous integration and deployment for Data Factory:
+## Sample deployment template
 
--   A sample deployment template that you can import in VSTS.
--   A sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes the code to delete resources that have been removed.
-
-Here is a sample deployment template that you can import in VSTS.
+Here is a sample deployment template that you can import in Azure DevOps Services.
 
 ```json
 {
@@ -714,7 +714,9 @@ Here is a sample deployment template that you can import in VSTS.
 }
 ```
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards:
+## Sample script to stop and restart triggers and clean up
+
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed.
 
 ```powershell
 param
@@ -788,5 +790,93 @@ else {
     $deletedlinkedservices | ForEach-Object { Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
     Write-Host "Deleting integration runtimes"
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+}
+```
+
+## Use custom parameters with the Resource Manager template
+
+You can define custom parameters for the Resource Manager template. You simply need to have a file named `arm-template-parameters-definition.json` in the root folder of the repository. (The file name must match the name shown here exactly.) Data Factory tries to read the file from whichever branch you are currently working in, not just from the collaboration branch. If no file is found, Data Factory uses the default definitions.
+
+The following example shows a sample parameters file. Use this sample as a reference to create your own custom parameters file. If the file you provide is not in the proper JSON format, Data Factory outputs an error message in the browser console and reverts to the default definitions shown in the Data Factory UI.
+
+```json
+{
+	"Microsoft.DataFactory/factories/pipelines": {},
+	"Microsoft.DataFactory/factories/integrationRuntimes": {
+		"properties": {
+			"typeProperties": {
+				"ssisProperties": {
+					"catalogInfo": {
+						"catalogServerEndpoint": "=",
+						"catalogAdminUserName": "=",
+						"catalogAdminPassword": {
+							"value": "-::secureString"
+						}
+					},
+					"customSetupScriptProperties": {
+						"sasToken": {
+							"value": "-::secureString"
+						}
+					}
+				},
+				"linkedInfo": {
+					"key": {
+						"value": "-::secureString"
+					}
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/triggers": {
+		"properties": {
+			"pipelines": [{
+					"parameters": {
+						"*": "="
+					}
+				},
+				"pipelineReference.referenceName"
+			],
+			"pipeline": {
+				"parameters": {
+					"*": "="
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/linkedServices": {
+		"*": {
+			"properties": {
+				"typeProperties": {
+					"accountName": "=",
+					"username": "=",
+					"userName": "=",
+					"accessKeyId": "=",
+					"servicePrincipalId": "=",
+					"userId": "=",
+					"clientId": "=",
+					"clusterUserName": "=",
+					"clusterSshUserName": "=",
+					"hostSubscriptionId": "=",
+					"clusterResourceGroup": "=",
+					"subscriptionId": "=",
+					"resourceGroupName": "=",
+					"tenant": "=",
+					"dataLakeStoreUri": "=",
+					"baseUrl": "=",
+					"connectionString": "|:-connectionString:secureString"
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/datasets": {
+		"*": {
+			"properties": {
+				"typeProperties": {
+					"folderPath": "=",
+					"fileName": "="
+				}
+			}
+		}
+	}
 }
 ```

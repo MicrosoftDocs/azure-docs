@@ -4,7 +4,7 @@ description: This article describes how to get started with Azure Active Directo
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -36,9 +36,18 @@ Ensure that the following prerequisites are in place:
     >[!NOTE]
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) to learn more.
 
+* **Use a supported Azure AD Connect topology**: Ensure that you are using one of Azure AD Connect's supported topologies described [here](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >Seamless SSO supports multiple AD forests, whether there are AD trusts between them or not.
+
 * **Set up domain administrator credentials**: You need to have domain administrator credentials for each Active Directory forest that:
     * You synchronize to Azure AD through Azure AD Connect.
     * Contains users you want to enable for Seamless SSO.
+    
+* **Enable modern authentication**: You need to enable [modern authentication](https://aka.ms/modernauthga) on your tenant for this feature to work.
+
+* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
 ## Step 2: Enable the feature
 
@@ -46,9 +55,12 @@ Enable Seamless SSO through [Azure AD Connect](active-directory-aadconnect.md).
 
 If you're doing a fresh installation of Azure AD Connect, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the **User sign-in** page, select the **Enable single sign on** option.
 
+>[!NOTE]
+> The option will be available for selection only if the Sign On method is **Password Hash Synchronization** or **Pass-through Authentication**.
+
 ![Azure AD Connect: User sign-in](./media/active-directory-aadconnect-sso/sso8.png)
 
-If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**.
+If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**. If you are using Azure AD Connect versions 1.1.880.0 or above, the **Enable single sign on** option will be selected by default. If you are using older versions of Azure AD Connect, select the **Enable single sign on** option.
 
 ![Azure AD Connect: Change the user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -70,23 +82,32 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 
 ![Azure portal: Azure AD Connect pane](./media/active-directory-aadconnect-sso/sso10.png)
 
+>[!IMPORTANT]
+> Seamless SSO creates a computer account named `AZUREADSSOACC` (which represents Azure AD) in your on-premises Active Directory (AD) in each AD forest. This computer account is needed for the feature to work. Move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+
 ## Step 3: Roll out the feature
 
-To roll out the feature to your users, you need to add the following Azure AD URL to the users' Intranet zone settings by using Group Policy in Active Directory:
+You can gradually roll out Seamless SSO to your users using the instructions provided below. You start by adding the following Azure AD URL to all or selected users' Intranet zone settings by using Group Policy in Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-
 
 In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 
 
 >[!NOTE]
-> The following instructions work only for Internet Explorer and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on Mac.
+> The following instructions work only for Internet Explorer and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on macOS.
 
 ### Why do you need to modify users' Intranet zone settings?
 
 By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, "http://contoso/" maps to the Intranet zone, whereas "http://intranet.contoso.com/" maps to the Internet zone (because the URL contains a period). Browsers will not send Kerberos tickets to a cloud endpoint, like the Azure AD URL, unless you explicitly add the URL to the browser's Intranet zone.
 
-### Detailed steps
+There are two ways to modify users' Intranet zone settings:
+
+| Option | Admin consideration | User experience |
+| --- | --- | --- |
+| Group policy | Admin locks down editing of Intranet zone settings | Users cannot modify their own settings |
+| Group policy preference |  Admin allows editing on Intranet zone settings | Users can modify their own settings |
+
+### "Group policy" option - Detailed steps
 
 1. Open the Group Policy Management Editor tool.
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
@@ -118,6 +139,32 @@ By default, the browser automatically calculates the correct zone, either Intern
 
     ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
 
+### "Group policy preference" option - Detailed steps
+
+1. Open the Group Policy Management Editor tool.
+2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
+3. Browse to **User Configuration** > **Preferences** > **Windows Settings** > **Registry** > **New** > **Registry item**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Enter the following values in appropriate fields and click **OK**.
+   - **Key Path**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Value name**: ***https***.
+   - **Value type**: ***REG_DWORD***.
+   - **Value data**: ***00000001***.
+ 
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. Enable the policy setting, and then select **OK**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### Browser considerations
 
 #### Mozilla Firefox (all platforms)
@@ -129,15 +176,15 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 4. Enter https://autologon.microsoftazuread-sso.com in the field.
 5. Select **OK** and then reopen the browser.
 
-#### Safari (Mac OS)
+#### Safari (macOS)
 
-Ensure that the machine running the Mac OS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Ensure that the machine running the macOS is joined to AD. Instructions for AD-joining your macOS device is outside the scope of this article.
 
 #### Google Chrome (all platforms)
 
-If you have overriden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoftazuread-sso.com) to them as well.
+If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoftazuread-sso.com) to them as well.
 
-#### Google Chrome (Mac OS only)
+#### Google Chrome (macOS only)
 
 For Google Chrome on Mac OS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URL for integrated authentication.
 
@@ -151,7 +198,7 @@ Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers.
 
 To test the feature for a specific user, ensure that all the following conditions are in place:
   - The user signs in on a corporate device.
-  - The device is joined to your Active Directory domain.
+  - The device is joined to your Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
   - The device has a direct connection to your domain controller (DC), either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
   - You have [rolled out the feature](##step-3-roll-out-the-feature) to this user through Group Policy.
 
@@ -164,7 +211,12 @@ To test the scenario where the user doesn't have to enter the username or the pa
 
 ## Step 5: Roll over keys
 
-In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the Active Directory forests on which you have enabled Seamless SSO. To learn more, see [Azure Active Directory Seamless Single Sign-On: Technical deep dive](active-directory-aadconnect-sso-how-it-works.md). For improved security, we recommend that you periodically roll over the Kerberos decryption keys of these computer accounts. For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the Active Directory forests on which you have enabled Seamless SSO. To learn more, see [Azure Active Directory Seamless Single Sign-On: Technical deep dive](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>The Kerberos decryption key on a computer account, if leaked, can be used to generate Kerberos tickets for any user in its AD forest. Malicious actors can then impersonate Azure AD sign-ins for compromised users. We highly recommend that you periodically roll over these Kerberos decryption keys - at least once every 30 days.
+
+For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). We are working on a capability to introduce automated roll over of keys.
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least once every 30 days.

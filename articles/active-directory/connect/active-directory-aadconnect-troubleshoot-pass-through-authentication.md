@@ -4,7 +4,7 @@ description: This article describes how to troubleshoot Azure Active Directory (
 services: active-directory
 keywords: Troubleshoot Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -48,7 +48,7 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
 ![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
@@ -92,7 +92,7 @@ Ensure that you use a cloud-only Global Administrator account for all Azure AD C
 
 If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it shows you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers."
 
-Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
+Ensure that your setup is [highly available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
 
 ## Issues with enabling the feature
 
@@ -107,18 +107,6 @@ Ensure that the server on which Azure AD Connect is installed can communicate wi
 ### Enabling the feature failed due to token or account authorization errors
 
 Ensure that you use a cloud-only Global Administrator account when enabling the feature. There is a known issue with multi-factor authentication (MFA)-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operation) as a workaround.
-
-## Exchange ActiveSync configuration issues
-
-These are the common issues when you configure Exchange ActiveSync support for Pass-through Authentication.
-
-### Exchange PowerShell issue
-
-If you see the "**A parameter cannot be found that matches parameter name 'PerTenantSwitchToESTSEnabled'\.**" error when you run the `Set-OrganizationConfig` Exchange PowerShell command, contact Microsoft Support.
-
-### Exchange ActiveSync not working
-
-The configuration takes some time to take effect - the time period depends on your environment. If the situation persists for a long time, contact Microsoft Support.
 
 ## Collecting Pass-through Authentication Agent logs
 
@@ -136,7 +124,7 @@ For detailed analytics, enable the "Session" log. Don't run the Authentication A
 
 ### Detailed trace logs
 
-To troubleshoot user sign-in failures, look for trace logs at **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
+To troubleshoot user sign-in failures, look for trace logs at **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding sign-in failure reasons table. Following is an example log entry:
 
 ```
 	AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

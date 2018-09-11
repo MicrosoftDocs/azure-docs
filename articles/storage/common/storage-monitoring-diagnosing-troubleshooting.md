@@ -2,20 +2,12 @@
 title: Monitor, diagnose, and troubleshoot Azure Storage | Microsoft Docs
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
 services: storage
-documentationcenter: ''
 author: fhryo-msft
-manager: jahogg
-editor: tysonn
-
-ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-
+ms.component: common
 ---
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -75,7 +67,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
   * [Appendix 2: Using Wireshark to capture network traffic]
   * [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
   * [Appendix 4: Using Excel to view metrics and log data]
-  * [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
+  * [Appendix 5: Monitoring with Application Insights for Azure DevOps]
 
 ## <a name="introduction"></a>Introduction
 This guide shows you how to use features such as Azure Storage Analytics, client-side logging in the Azure Storage Client Library, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage related issues.
@@ -127,7 +119,7 @@ You can use the [Azure portal](https://portal.azure.com) to view the health of t
 The [Azure portal](https://portal.azure.com) can also provide notifications of incidents that affect the various Azure services.
 Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](http://status.azure.com).
 
-While the [Azure portal](https://portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) and Application Insights for Visual Studio Team Services are examples of this approach. For more information about Application Insights for Visual Studio Team Services, see the appendix "[Appendix 5: Monitoring with Application Insights for Visual Studio Team Services](#appendix-5)."
+While the [Azure portal](https://portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) and Application Insights for Azure DevOps are examples of this approach. For more information about Application Insights for Azure DevOps, see the appendix "[Appendix 5: Monitoring with Application Insights for Azure DevOps](#appendix-5)."
 
 ### <a name="monitoring-capacity"></a>Monitoring capacity
 Storage Metrics only stores capacity metrics for the blob service because blobs typically account for the largest proportion of stored data (at the time of writing, it is not possible to use Storage Metrics to monitor the capacity of your tables and queues). You can find this data in the **$MetricsCapacityBlob** table if you have enabled monitoring for the Blob service. Storage Metrics records this data once per day, and you can use the value of the **RowKey** to determine whether the row contains an entity that relates to user data (value **data**) or analytics data (value **analytics**). Each stored entity contains information about the amount of storage used (**Capacity** measured in bytes) and the current number of containers (**ContainerCount**) and blobs (**ObjectCount**) in use in the storage account. For more information about the capacity metrics stored in the **$MetricsCapacityBlob** table, see [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -802,8 +794,8 @@ To import your Storage Logging data into Excel after you download it from blob s
 
 On step 1 of the **Text Import Wizard**, select **Semicolon** as the only delimiter and choose double-quote as the **Text qualifier**. Then click **Finish** and choose where to place the data in your workbook.
 
-### <a name="appendix-5"></a>Appendix 5: Monitoring with Application Insights for Visual Studio Team Services
-You can also use the Application Insights feature for Visual Studio Team Services as part of your performance and availability monitoring. This tool can:
+### <a name="appendix-5"></a>Appendix 5: Monitoring with Application Insights for Azure DevOps
+You can also use the Application Insights feature for Azure DevOps as part of your performance and availability monitoring. This tool can:
 
 * Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there's a problem.
 * Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app's performance drops below acceptable limits, Microsoft can send you an email. You can monitor both .NET and Java web services.
@@ -868,7 +860,7 @@ You can find more information at [What is Application Insights](../../applicatio
 [Appendix 2: Using Wireshark to capture network traffic]: #appendix-2
 [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]: #appendix-3
 [Appendix 4: Using Excel to view metrics and log data]: #appendix-4
-[Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]: #appendix-5
+[Appendix 5: Monitoring with Application Insights for Azure DevOps]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

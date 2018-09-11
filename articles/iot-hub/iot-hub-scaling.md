@@ -26,7 +26,7 @@ Each IoT Hub tier is available in three sizes, based around how much data throug
 
 The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
 
-Once you create your IoT hub you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).
+Once you create your IoT hub you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md). Note that the maximum partition limit for basic tier IoT Hub is 8 and for standard tier is 32. Most IoT hubs only need 4 partitions. The partition limit is chosen when IoT Hub is created, and relates the device-to-cloud messages to the number of simultaneous readers of these messages. This value remains unchanged when you migrate from basic tier to standard tier. Also note that only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and B3, or S1 and S2.
 
 | Capability | Basic tier | Standard tier |
 | ---------- | ---------- | ------------- |
@@ -48,34 +48,34 @@ The difference in supported capabilities between the basic and standard tiers of
 
 | API | Basic tier | Standard tier |
 | --- | ---------- | ------------- |
-| [Delete device](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | Yes | Yes |
-| [Get device](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Yes | Yes |
+| [Delete device](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Yes |
+| [Get device](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |
 | Delete module | Yes | Yes |
 | Get module | Yes | Yes |
-| [Get registry statistics](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Yes | Yes |
-| [Get services statistics](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Yes | Yes |
-| [Create Or Update Device](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Yes | Yes |
+| [Get registry statistics](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Yes | Yes |
+| [Get services statistics](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Yes | Yes |
+| [Create Or Update Device](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Yes | Yes |
 | Put module | Yes | Yes |
-| [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Yes | Yes |
+| [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Yes | Yes |
 | Query modules | Yes | Yes |
-| [Create file upload SAS URI](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Yes | Yes |
-| [Receive device bound notification](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Yes | Yes |
-| [Send device event](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | Yes | Yes |
+| [Create file upload SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
+| [Receive device bound notification](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
+| [Send device event](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
 | Send module event | Yes | Yes |
-| [Update file upload status](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | Yes | Yes |
-| [Bulk device operation](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Yes, except for IoT Edge capabilites | Yes | 
-| [Purge command queue](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | Yes |
-| [Get device twin](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | Yes |
+| [Update file upload status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
+| [Bulk device operation](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Yes, except for IoT Edge capabilites | Yes | 
+| [Purge command queue](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
+| [Get device twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
 | Get module twin |   | Yes |
-| [Invoke device method](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | Yes |
-| [Update device twin](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | Yes | 
+| [Invoke device method](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Yes |
+| [Update device twin](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Yes | 
 | Update module twin |   | Yes | 
-| [Abandon device bound notification](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | Yes |
-| [Complete device bound notification](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | Yes |
-| [Cancel job](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | Yes |
-| [Create job](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | Yes |
-| [Get job](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | Yes |
-| [Query jobs](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | Yes |
+| [Abandon device bound notification](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
+| [Complete device bound notification](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
+| [Cancel job](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Yes |
+| [Create job](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Yes |
+| [Get job](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Yes |
+| [Query jobs](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Yes |
 
 ## Message throughput
 
@@ -101,6 +101,9 @@ In addition to this throughput information, see [IoT Hub quotas and throttles][I
 IoT Hub identity registry operations are not supposed to be run-time operations, as they are mostly related to device provisioning.
 
 For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
+
+## Auto-scale
+If you are approaching the allowed message limit on your IoT Hub, you can use these [steps to automatically scale](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to increment an IoT Hub unit in the same IoT Hub tier.
 
 ## Sharding
 While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case you can partition your devices across multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.

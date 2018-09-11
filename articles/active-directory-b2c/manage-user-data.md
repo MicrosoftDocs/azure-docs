@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Manage user data in Azure Active Directory B2C
 
- This article discusses how you can manage the user data in Azure Active Directory (Azure AD) B2C by using the operations that are provided by the [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog). Managing user data includes deleting or exporting data from audit logs.
+ This article discusses how you can manage the user data in Azure Active Directory (Azure AD) B2C by using the operations that are provided by the [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog). Managing user data includes deleting or exporting data from audit logs.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 

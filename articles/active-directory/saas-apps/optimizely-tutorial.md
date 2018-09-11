@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/07/2018
 ms.author: jeedes
 
 ---
@@ -45,13 +45,15 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Optimizely from the gallery
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Optimizely from the gallery
+
 To configure the integration of Optimizely into Azure AD, you need to add Optimizely from the gallery to your list of managed SaaS apps.
 
 **To add Optimizely from the gallery, perform the following steps:**
@@ -63,7 +65,7 @@ To configure the integration of Optimizely into Azure AD, you need to add Optimi
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
@@ -76,7 +78,8 @@ To configure the integration of Optimizely into Azure AD, you need to add Optimi
 
 	![Creating an Azure AD test user](./media/optimizely-tutorial/tutorial_optimizely_addfromgallery.png)
 
-##  Configuring and testing Azure AD single sign-on
+## Configuring and testing Azure AD single sign-on
+
 In this section, you configure and test Azure AD single sign-on with Optimizely based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Optimizely is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Optimizely needs to be established.
@@ -101,8 +104,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_samlbase.png)
 
 3. On the **Optimizely Domain and URLs** section, perform the following steps:
@@ -113,46 +116,65 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:  `urn:auth0:optimizely:contoso`
 
-	> [!NOTE] 
-	> These values are not the real. You will update the value with the actual Sign-on URL and Identifier, which is explained later in the tutorial. 
+	> [!NOTE]
+	> These values are not the real. You will update the value with the actual Sign-on URL and Identifier, which is explained later in the tutorial.
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+4. Optimizely application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+	
+	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_attribute.png)
+	
+5. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
 
-	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_certificate.png) 
+	| Attribute Name | Attribute Value |
+	| ---------------| --------------- |
+	| email | user.mail |
 
-5. Click **Save** button.
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the **attribute name** shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Click **Ok**.
+
+6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+
+	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_certificate.png)
+
+7. Click **Save** button.
 
 	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_general_400.png)
 
-6. On the **Optimizely Configuration** section, click **Configure Optimizely** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Optimizely Configuration** section, click **Configure Optimizely** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_configure.png) 
+	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_configure.png)
 
-7. To configure single sign-on on **Optimizely** side, contact your Optimizely Account Manager and provide the downloaded **Certificate (Base64)**, and **SAML Single Sign-On Service URL**. 
+9. To configure single sign-on on **Optimizely** side, contact your Optimizely Account Manager and provide the downloaded **Certificate (Base64)**, and **SAML Single Sign-On Service URL**.
 
-8. In response to your email, Optimizely provides you with the Sign On URL (SP-initiated SSO) and the Identifier (Service Provider Entity ID) values.
+10. In response to your email, Optimizely provides you with the Sign On URL (SP-initiated SSO) and the Identifier (Service Provider Entity ID) values.
 
-	a. Copy the **SP-initiated SSO URL** provided by Optimizely, and paste into the **Sign On URL** textbox in **Optimizely Domain and URLs** section on Azure portal 
+	a. Copy the **SP-initiated SSO URL** provided by Optimizely, and paste into the **Sign On URL** textbox in **Optimizely Domain and URLs** section on Azure portal.
 
-	b. Copy the **Service Provider Entity ID** provided by Optimizely, and paste into the **Identifier** textbox in **Optimizely Domain and URLs** section on Azure portal 
+	b. Copy the **Service Provider Entity ID** provided by Optimizely, and paste into the **Identifier** textbox in **Optimizely Domain and URLs** section on Azure portal.
 
-9. In a different browser window, sign-on to your Optimizely application.
+11. In a different browser window, sign-on to your Optimizely application.
 
-10. Click you account name in the top right corner and then **Account Settings**.
-   
+12. Click you account name in the top right corner and then **Account Settings**.
+
     ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
-11. In the Account tab, check the box **Enable SSO** under Single Sign On in the **Overview** section.
-   
+13. In the Account tab, check the box **Enable SSO** under Single Sign On in the **Overview** section.
+  
     ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_10.png)
-	
-12. Click **Save**
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+14. Click **Save**
 
 ### Creating an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
@@ -182,7 +204,7 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating an Optimizely test user
 
 In this section, you create a user called Britta Simon in Optimizely.
@@ -209,7 +231,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Optimizely**.
 
@@ -217,7 +239,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Assign User][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
@@ -228,19 +250,17 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application. 
+When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application.
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -255,4 +275,3 @@ When you click the Optimizely tile in the Access Panel, you should get automatic
 [201]: ./media/optimizely-tutorial/tutorial_general_201.png
 [202]: ./media/optimizely-tutorial/tutorial_general_202.png
 [203]: ./media/optimizely-tutorial/tutorial_general_203.png
-

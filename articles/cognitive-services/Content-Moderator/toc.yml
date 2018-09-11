@@ -115,6 +115,8 @@
   items:  
   - name: FAQ
     href: FAQs.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
   - name: Export or delete account data
@@ -128,4 +130,4 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: On-demand webinar
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html 
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html

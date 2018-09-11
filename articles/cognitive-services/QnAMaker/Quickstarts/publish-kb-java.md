@@ -1,9 +1,10 @@
 ---
-title: Publish Knowledge Base - Java Quickstart - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: Java Publish Knowledge Base - Qna Maker"
+titleSuffix: Azure Cognitive Services 
 description: How to publish a knowledge base in Java for QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker

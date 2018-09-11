@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Velpic SAML | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Velpic SAML.
 services: active-directory
@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Velpic SAML from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Velpic SAML from the gallery
 To configure the integration of Velpic SAML into Azure AD, you need to add Velpic SAML from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of Velpic SAML into Azure AD, you need to add Velpi
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. Click **Add** button on the top of the dialog.
+1. Click **Add** button on the top of the dialog.
 
 	![Applications][3]
 
-4. In the search box, type **Velpic SAML**.
+1. In the search box, type **Velpic SAML**.
 
 	![Creating an Azure AD test user](./media/velpicsaml-tutorial/tutorial_velpicsaml_search.png)
 
-5. In the results panel, select **Velpic SAML**, and then click **Add** button to add the application.
+1. In the results panel, select **Velpic SAML**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
 
@@ -86,10 +86,10 @@ This link relationship is established by assigning the value of the **user name*
 To configure and test Azure AD single sign-on with Velpic SAML, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Velpic SAML test user](#creating-a-velpic-saml-test-user)** - to have a counterpart of Britta Simon in Velpic SAML that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a Velpic SAML test user](#creating-a-velpic-saml-test-user)** - to have a counterpart of Britta Simon in Velpic SAML that is linked to the Azure AD representation of her.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
  
 	![Configure Single Sign-On](./media/velpicsaml-tutorial/tutorial_velpicsaml_samlbase.png)
 
-3. Enter the details in the **Velpic SAML Domain and URLs** section-
+1. Enter the details in the **Velpic SAML Domain and URLs** section-
 
 	![Configure Single Sign-On](./media/velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
@@ -116,35 +116,35 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	> [!NOTE]
 	> Please note that the Sign on URL will be provided by the Velpic SAML team and Identifier value will be available when you configure the SSO Plugin on Velpic SAML side. You need to copy that value from Velpic SAML application  page and paste it here.
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/velpicsaml-tutorial/tutorial_general_400.png)
 
-6. On the Velpic SAML Configuration section, click Configure Velpic SAML to open Configure sign-on window. Copy the SAML Entity ID from the Quick Reference section.
+1. On the Velpic SAML Configuration section, click Configure Velpic SAML to open Configure sign-on window. Copy the SAML Entity ID from the Quick Reference section.
 
-7. In a different web browser window, log into your Velpic SAML company site as an administrator.
+1. In a different web browser window, log into your Velpic SAML company site as an administrator.
 
-8. Click on **Manage** tab and go to **Integration** section where you need to click on **Plugins** button to create new plugin for Sign-In.
+1. Click on **Manage** tab and go to **Integration** section where you need to click on **Plugins** button to create new plugin for Sign-In.
 
 	![Plugin](./media/velpicsaml-tutorial/velpic_1.png)
 
-9. Click on the **‘Add plugin’** button.
+1. Click on the **‘Add plugin’** button.
 	
 	![Plugin](./media/velpicsaml-tutorial/velpic_2.png)
 
-10. Click on the **SAML** tile in the Add Plugin page.
+1. Click on the **SAML** tile in the Add Plugin page.
 	
 	![Plugin](./media/velpicsaml-tutorial/velpic_3.png)
 
-11. Enter the name of the new SAML plugin and click the **‘Add’** button.
+1. Enter the name of the new SAML plugin and click the **‘Add’** button.
 
 	![Plugin](./media/velpicsaml-tutorial/velpic_4.png)
 
-12. Enter the details as follows:
+1. Enter the details as follows:
 
 	![Plugin](./media/velpicsaml-tutorial/velpic_5.png)
 
@@ -171,15 +171,15 @@ The objective of this section is to create a test user in the Azure Management p
 
 	![Creating an Azure AD test user](./media/velpicsaml-tutorial/create_aaduser_01.png) 
 
-2. Go to **Users and groups** and click **All users** to display the list of users.
+1. Go to **Users and groups** and click **All users** to display the list of users.
 	
 	![Creating an Azure AD test user](./media/velpicsaml-tutorial/create_aaduser_02.png) 
 
-3. At the top of the dialog click **Add** to open the **User** dialog.
+1. At the top of the dialog click **Add** to open the **User** dialog.
  
 	![Creating an Azure AD test user](./media/velpicsaml-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/velpicsaml-tutorial/create_aaduser_04.png) 
 
@@ -201,7 +201,7 @@ Log into your Velpic SAML company site as an administrator and perform following
 
 	![add user](./media/velpicsaml-tutorial/velpic_7.png)
 
-2. On the **“Create New User”** dialog page, perform the following steps.
+1. On the **“Create New User”** dialog page, perform the following steps.
 
 	![user](./media/velpicsaml-tutorial/velpic_8.png)
 	
@@ -229,23 +229,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Velpic SAML**.
+1. In the applications list, select **Velpic SAML**.
 
 	![Configure Single Sign-On](./media/velpicsaml-tutorial/tutorial_velpicsaml_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 
@@ -255,7 +255,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 	![Plugin](./media/velpicsaml-tutorial/velpic_6.png)
 
-2. Click on the **‘Log In With Azure AD’** button to log in to Velpic using your Azure AD account.
+1. Click on the **‘Log In With Azure AD’** button to log in to Velpic using your Azure AD account.
 
 
 ## Additional resources

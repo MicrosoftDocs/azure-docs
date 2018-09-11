@@ -39,7 +39,7 @@ Compound indexes hold references to multiple fields of a document. Logically, th
 >[!important] 
 > Currently, unique indexes can be created only when the collection is empty (contains no documents). 
 
-The following command creates a unique index on the field “student_id”:
+The following command creates a unique index on the field "student_id":
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 
@@ -99,4 +99,3 @@ Currently, creating unique indexes is possible only when the collection contains
 ## Next steps
 * [How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
-* [Expire data in Azure Cosmos DB MongoDB API](../cosmos-db/mongodb-ttl.md)

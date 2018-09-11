@@ -1,6 +1,6 @@
 ---
 title: Usage reporting infrastructure for Cloud Service Providers for Azure Stack | Microsoft Docs
-description: Azure Stack includes the infrastructure needed to track usage as it occurs and forwards it to Azure.
+description: Azure Stack includes the infrastructure needed to track usage for tenants serviced by a Cloud Service Provider (CSP) as it occurs and forwards it to Azure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
 
 ---
 ## Usage reporting infrastructure for Cloud Service Providers
 
-Azure Stack includes the infrastructure needed to track usage as it occurs and forwards it to Azure. In Azure, Azure Commerce processes the usage data and charges usage to the appropriate Azure subscriptions, in the same way as usage that takes place in the global Azure cloud.
+Azure Stack includes the infrastructure needed to track usage as it occurs and forwards it to Azure. In Azure, Azure Commerce processes the usage data and charges usage to the appropriate Azure subscriptions. This happens in the same way as usage tracking is monitored in the global Azure cloud.
 
-You should be aware that certain concepts are consistent between global Azure and Azure Stack. Azure Stack has local subscriptions, which fulfill a similar role to an Azure subscription. Local subscriptions are only valid locally. Local subscriptions are mapped to Azure subscriptions when usage is forwarded to Azure.
+You should note that certain concepts are consistent between global Azure and Azure Stack. Azure Stack has local subscriptions, which fulfill a similar role to an Azure subscription. Local subscriptions are only valid locally. Local subscriptions are mapped to Azure subscriptions when usage is forwarded to Azure.
 
 Azure Stack has local usage meters. Local usage is mapped to the meters used in Azure commerce. However, the meter IDs are different. There are more meters available locally than the one Microsoft uses for billing.
 
@@ -61,5 +61,5 @@ The following terms and concepts are used for usage and billing in Azure Stack:
 
 ## Next steps
 
- - To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
+ - To learn more about the CSP program, see [Cloud Solution Provider program](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).

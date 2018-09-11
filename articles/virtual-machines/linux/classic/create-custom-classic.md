@@ -3,7 +3,7 @@ title: Create a Classic Linux VM using the Azure CLI 1.0 | Microsoft Docs
 description: Learn how to create a Linux virtual machine with the Azure CLI 1.0 using the Classic deployment model
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to Create a Classic Linux VM with the Azure CLI 1.0

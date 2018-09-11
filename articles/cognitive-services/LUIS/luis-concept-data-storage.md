@@ -1,27 +1,29 @@
 ---
-title: Understand data storage in LUIS - Azure | Microsoft Docs
-description: Learn how data is stored in Language Understanding (LUIS)
+title: Data storage in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
+description: Learn how data is stored in Language Understanding (LUIS). LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
+
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
-# Data storage and removal
+# Data storage and removal in Language Understanding (LUIS) Cognitive Services
 LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. This data is stored for 30 days. 
 
 ## Export and delete app
-Users have full control over [exporting](create-new-app.md#export-app) and [deleting](create-new-app.md#delete-app) the app. 
+Users have full control over [exporting](luis-how-to-start-new-app.md#export-app) and [deleting](luis-how-to-start-new-app.md#delete-app) the app. 
 
 ## Utterances in an intent
-Delete example utterances used for training [LUIS][LUIS]. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
+Delete example utterances used for training [LUIS](luis-reference-regions.md). If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
 
 ## Utterances in review
-You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](label-suggested-utterances.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
+You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](luis-how-to-review-endoint-utt.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 
 ## Accounts
 If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
@@ -39,6 +41,4 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about exporting and deleting an app](create-new-app.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Learn about exporting and deleting an app](luis-how-to-start-new-app.md)

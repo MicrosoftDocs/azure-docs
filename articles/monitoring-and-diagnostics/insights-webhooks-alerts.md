@@ -1,12 +1,12 @@
 ---
 title: Have a classic metric alert notify a non-Azure system using a webhook
 description: "Learn how to reroute Azure metric alerts to other, non-Azure systems."
-author: johnkemnetz
+author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: johnkem
+ms.author: snmuvva
 ms.component: alerts
 ---
 # Configure a webhook on an Azure metric alert

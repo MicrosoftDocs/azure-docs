@@ -3,7 +3,7 @@ title: How to create Windows Azure VM Images with Packer | Microsoft Docs
 description: Learn how to use Packer to create images of Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ---
 
 # How to use Packer to create Windows virtual machine images in Azure
@@ -239,6 +239,6 @@ To see your VM, that includes the IIS install from the Packer provisioner, in ac
 
 
 ## Next steps
-In this example, you used Packer to create a VM image with IIS already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Team Services, Ansible, Chef, or Puppet.
+In this example, you used Packer to create a VM image with IIS already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Azure DevOps Services, Ansible, Chef, or Puppet.
 
 For additional example Packer templates for other Windows distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).

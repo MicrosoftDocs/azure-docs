@@ -2,13 +2,13 @@
 title: Use Azure Container Instances as a Jenkins build agent
 description: Learn how to use Azure Container Instances as a Jenkins build agent.
 services: container-instances
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
-ms.author: iainfou
+ms.date: 08/31/2018
+ms.author: marsma
 ---
 
 # Use Azure Container Instances as a Jenkins build agent
@@ -44,7 +44,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
    ![Additional settings for Jenkins portal deployment](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. For service principal integration, select **Auto(MSI)** to have [Azure Managed Service Identity][managed-service-identity] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
+4. For service principal integration, select **Auto(MSI)** to have [Azure Managed Service Identity][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Select **Manual** to provide your own service principal credentials.
 
 5. Cloud agents configure a cloud-based platform for Jenkins build jobs. For the sake of this article, select **ACI**. With the ACI cloud agent, each Jenkins build job is run in a container instance.
 
@@ -88,31 +88,21 @@ Jenkins is now configured and ready to build and deploy code. For this example, 
 
 ## Create a build job
 
-When you're using a container image as a Jenkins build target, you need to specify an image that includes all tooling necessary for a successful build. To specify the image:
+Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure container instance.
 
-1. Select **Manage Jenkins** > **Configure System** and scroll down to the **Cloud** section. For this example, update the Docker image value to **microsoft/java-on-azure-jenkins-slave**.
-
-   When you're done, select **Save** to return to the Jenkins dashboard.
-
-   ![Jenkins cloud configuration](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Now create a Jenkins build job. Select **New Item**, give the build project a name such as **aci-java-demo**, select **Freestyle project**, and select **OK**.
+1. Select **New Item**, give the build project a name such as **aci-demo**, select **Freestyle project**, and select **OK**.
 
    ![Box for the name of the build job, and list of project types](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Under **General**, ensure that **Restrict where this project can be run** is selected. Enter **linux** for the label expression. This configuration ensures that this build job runs on the ACI cloud.
+2. Under **General**, ensure that **Restrict where this project can be run** is selected. Enter **linux** for the label expression. This configuration ensures that this build job runs on the ACI cloud.
 
    !["General" tab with configuration details](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Under **Source Code Management**, select **Git** and enter **https://github.com/spring-projects/spring-petclinic.git** for the repository URL. This GitHub repo contains the sample application code.
+3. Under **Build**, select **Add build step** and select **Execute Shell**. Enter `echo "aci-demo"` as the command.
 
-   !["Source Code Management" tab with source code information](./media/container-instances-jenkins/jenkins-job-02.png)
+   !["Build" tab with selections for the build step](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Under **Build**, select **Add build step** and select **Invoke top-level Maven targets**. Enter **package** as the build step goal.
-
-   !["Build" tab with selections for the build step](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Select **Save**.
+5. Select **Save**.
 
 ## Run the build job
 
@@ -133,6 +123,10 @@ To test the build job and observe Azure Container Instances as the build platfor
 4. After all build jobs have finished, the container instances are removed.
 
    ![Resource group with container instances removed](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 

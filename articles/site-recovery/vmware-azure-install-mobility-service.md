@@ -1,11 +1,11 @@
 ---
 title: Install Mobility Service (VMware or physical to Azure) | Microsoft Docs
 description: Learn how to install the Mobility Service agent to protect your on-premises VMware VMs and physical servers with Azure Site Recovery.
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
-ms.author: anoopkv
+ms.topic: article
+ms.date: 07/06/2018
+ms.author: ramamill
 ---
 
 # Install the Mobility service 
@@ -21,7 +21,8 @@ Azure Site Recovery Mobility Service is installed on VMware VMs and physical ser
 
 
 >[!IMPORTANT]
-> Beginning with version 9.7.0.0, on Windows VMs, the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
+> Beginning with version 9.7.0.0, **on Windows VMs**, the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
+> </br>On **Linux VMs**, WALinuxAgent has to be manually installed.
 
 ## Prerequisites
 Complete these prerequisite steps before you manually install Mobility Service on your server:
@@ -37,11 +38,14 @@ Complete these prerequisite steps before you manually install Mobility Service o
 
 ### Mobility Service installer-to-operating system mapping
 
+To see a list of Operating System versions with a compatible Mobility Service package refer to the list of [supported operating systems for VMware virtual machines and physical servers](vmware-physical-azure-support-matrix.md#replicated-machines).
+
 | Installer file template name| Operating system |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) </br> Windows Server 2016 (64-bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (64-bit only) </br> CentOS 7.0, 7.1, 7.2, 7.3 (64-bit only) |
+|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (64-bit only) </br> CentOS 6.* (64-bit only) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (64-bit only) </br> CentOS 7.* (64-bit only) |
+|Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3 (64-bit only)|
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (64-bit only)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
@@ -49,7 +53,6 @@ Complete these prerequisite steps before you manually install Mobility Service o
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (64-bit only)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (64-bit only)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (64-bit only)|
-
 
 ## Install Mobility Service manually by using the GUI
 
