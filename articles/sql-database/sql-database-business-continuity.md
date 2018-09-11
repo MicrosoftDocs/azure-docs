@@ -133,7 +133,7 @@ After recovery from either recovery mechanism, you must perform the following ad
 * Configure alerts, as appropriate
 
 > [!NOTE]
-> If you are using a failover group to recover and connect to the databases using the read-write lstener,  the redirection after failover will happen automatically and transparently to the application.  
+> If you are using a failover group and connect to the databases using the read-write lstener,  the redirection after failover will happen automatically and transparently to the application.  
 >
 >
 
