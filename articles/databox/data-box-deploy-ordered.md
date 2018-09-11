@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: alkohli
 ---
 # Tutorial: Order Azure Data Box
@@ -69,7 +69,7 @@ Perform the following steps in the Azure portal to order a device.
     |Source country     |	Select the country where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
 
-5. Select Data Box. The maximum solution capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
+5. Select Data **Box**. The maximum solution capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
       [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

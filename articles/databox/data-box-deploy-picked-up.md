@@ -50,7 +50,7 @@ After the verification is complete, the Data Box is connected to the network in 
 
 Once the copy is complete, order status updates to **Completed**.
 
-Verify that your data is in the storage account(s) before you delete it from the source. To verify that the data has uploaded into Azure, perform the following steps:
+Verify that your data is in the storage account(s) before you delete it from the source. 
 
 ## Erasure of data from Data Box
  
