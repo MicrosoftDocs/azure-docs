@@ -34,7 +34,7 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
 > [!NOTE]
-> SQL Database Managed Instance is currently in preview for the Business Critical service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
+> The Business Critical tier in Managed Instance is currently in public preview. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 
 ## Scalable performance and pools
 
@@ -53,7 +53,7 @@ You can build your first app on a small, single database at a low cost per month
 Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a singe Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md). 
 
 > [!NOTE]
-> SQL Database Managed Instance is currently in preview for the Business Critical service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
+> The Business Critical tier in Managed Instance is currently in public preview. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 
 ### Elastic pools to maximize resource utilization
 

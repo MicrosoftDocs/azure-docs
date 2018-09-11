@@ -64,10 +64,7 @@ The following table helps you understand how to select the optimal configuration
 
 Managed Instance is available in two service tiers:
 - **General Purpose**: Designed for applications with typical performance and IO latency requirements.
-- **Business Critical**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
-
-> [!IMPORTANT]
-> The **Business Critical** service tier is in preview.
+- **Business Critical (preview)**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
 
 Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
 
@@ -107,7 +104,7 @@ The following list outlines the key characteristics of the General Purpose servi
 
 For more information see [Standard/General Purpose availability and architecture](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database.
 
-### Business Critical service tier
+### Business Critical service tier (preview)
 
 Business Critical service tier is built for applications with high IO requirements. It offers highest resilience to failures using several isolated Always On replicas. 
 

@@ -7,7 +7,7 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: conceptual 
-ms.date: 09/26/2018 
+ms.date: 09/23/2018 
 ms.author: jovanpop 
 manager: craigg 
 --- 

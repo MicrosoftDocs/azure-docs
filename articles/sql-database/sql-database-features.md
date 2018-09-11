@@ -24,7 +24,7 @@ Microsoft continues to add features to Azure SQL Database. Visit the Service Upd
 
 The following table lists the major features of SQL Server and provides information about whether the feature is partially or fully supported and a link to more information about the feature. 
 
-| **SQL Feature** | **Supported in Azure SQL Database/Logical Server** | **Supported in Azure SQL Database/Managed Instance** |
+| **SQL Feature** | **Supported in Azure SQL Database/Logical Server** | **Supported in Azure SQL Database/Managed Instance (Managed Instance is in preview)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
@@ -78,7 +78,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Yes | No – you can restore COPY_ONLY full backups that you take periodically - see [Backup differences](sql-database-managed-instance-transact-sql-information.md#backup) and [Restore differences](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Geo-replication](sql-database-geo-replication-overview.md) | Yes | No |
 | [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Yes | Yes |
-| [In-memory optimization](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Yes - [Premium and Business Critical tiers only](sql-database-in-memory.md) | No |
+| [In-memory optimization](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Yes - [Premium and Business Critical tiers only](sql-database-in-memory.md) | Yes - [Business Critical tier only - in preview](sql-database-managed-instance.md) |
 | [JSON data support](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Yes](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Yes](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Language elements](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  Yes - see [T-SQL differences](sql-database-managed-instance-transact-sql-information.md) |
 | [Linked servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) | Only to SQL Server and SQL Database |
