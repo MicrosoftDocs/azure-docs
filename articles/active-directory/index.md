@@ -53,7 +53,23 @@ ms.author: mtillman
 																	    <a href="fundamentals/get-started-azure-ad.md">Create your Azure AD environment</a><br>
                                                                         <a href="">Build your directory</a>
 																    </p>
-																	<br><br>
+																</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <div class="cardSize">
+                                                        <div class="cardPadding">
+                                                            <div class="card">
+                                                                <div class="cardImageOuter">
+                                                                    <div class="cardImage">
+                                                                        <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_learn-about.svg" data-linktype="external">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="cardText" style="padding-left: 0px">
                                                                     <h3>Build your skills with Microsoft Learn</a></h3> 
 																	<p>
 																	    <a href="">Secure your Azure resources with conditional access</a><br>
@@ -65,7 +81,7 @@ ms.author: mtillman
                                                     </div>
                                                 </a>
                                             </li>
-                                        </ul>
+										</ul>
                                     </li>
                                     <li>
                                         <div class="cardSize">
