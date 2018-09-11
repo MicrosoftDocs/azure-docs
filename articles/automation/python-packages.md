@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Manage Python 2 packages in Azure Automation
 
-Azure Automation allows you to run Python 2 runbooks on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks you can use Python packages to import the modules that you need. This article describes how you manage and use Python packages in Azure Automation.
+Azure Automation allows you to run Python 2 runbooks on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. This article describes how you manage and use Python packages in Azure Automation.
 
 ## Import packages
 
@@ -20,7 +20,7 @@ In your Automation Account, select **Python 2 packages** under **Shared Resource
 
 ![Add Python package](media/python-packages/add-python-package.png)
 
-On the **Add Python 2 Package** page, select a local package to upload. The package can be a .whl file or .tar.gz file. When selected, click **OK** to upload the package.
+On the **Add Python 2 Package** page, select a local package to upload. The package can be a `.whl` file or `.tar.gz` file. When selected, click **OK** to upload the package.
 
 ![Add Python package](media/python-packages/upload-package.png)
 
@@ -30,8 +30,8 @@ Once a package has been imported, it is listed on the **Python 2 packages** page
 
 ## Use a package in a runbook
 
-Once you have imported a package you can now use it in a runbook. The following example uses the [
-Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility). This package makes it easier to use Python with Azure Automation. To use the package follow the instructions in the Github repository and add it to the runbook by using `from azure_automation_utility import get_automation_runas_credential` for example to import the function for retrieving the RunAs Account.
+Once you have imported a package, you can now use it in a runbook. The following example uses the [
+Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility). This package makes it easier to use Python with Azure Automation. To use the package, follow the instructions in the Github repository and add it to the runbook by using `from azure_automation_utility import get_automation_runas_credential` for example to import the function for retrieving the RunAs Account.
 
 ```python
 import azure.mgmt.resource
@@ -56,8 +56,6 @@ for group in groups:
 ## Develop and test runbooks offline
 
 To develop and test your Python 2 runbooks offline, you can use the [Azure Automation python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on Github.
-
-## Next steps
 
 ## Next steps
 
