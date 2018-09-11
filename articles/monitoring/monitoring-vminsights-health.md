@@ -28,29 +28,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## View health directly from a virtual machine 
 To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM Insights page, **Health** is open by default and shows the health view of the VM.  
 
-![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health/vminsights-health-page-01.png)
+![VM Insights of a selected Azure virtual machine](./media/monitoring-vminsights-health/vminsights-directvm-health.png)
 
 On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of alerts raised by an unhealthy component. Refer to [Alerting and an alert management](#alerting-and-alert-management) for more details.  Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring objects related to the VM. Refer to the [Health diagnostics](#health-diagnostics) for more details. 
 
-Under the **Component health** section, the table shows a health rollup status of the component types that are monitored by health criteria targetting that component type, specifically **CPU**, **Memory**, **Disk**, and **Network**.  
+Under the **Component health** section, the table shows a health rollup status of the primary performance categories monitored by health criteria for those areas, specifically **CPU**, **Memory**, **Disk**, and **Network**.  Selecting any one of the components opens a page listing all of the individual health criterion monitoring aspects of that component and the respective health state of each.  
 
-If the health status is not healthy, the **Top health issues** table provides an overview of the top five health issues identified on the VM.  To see a complete list of health issues or just health state of all components, click on **See all health criteria**. 
-
-The information presented under **Top health issues** and on the **Health Criteria** page is described in the following table:
-
-|Column | Description |
-|-------|-------------|
-|Health criteria state |The health state health criteria monitoring this VM. |
-|Health criteria |The name of the health criteria. |
-|Component type |Indicates the component type the health criteria is monitoring.  Example, Logical disk, Disk, Network adapter, etc. |
-|Component name |The name of the component instance on the VM monitored by the health criteria. |
-|Last state change |The time difference of the last state change, which is a change from an unhealthy to health state. | 
-|Category |Represented as *Availability* or *Performance*. |
-|Type | The category of health criteria, which is represented as *Unit*, *Dependency*, *Aggregate*. |
-
-The list view would look like below. Results can be filtered further from the drop-down lists **Category** and **Type**.  By default the *Unit* type and categories are selected.
-
-![Top health issues example](./media/monitoring-vminsights-health/top-health-issues-vm-01.png)
+When accessing VM Insights Health from an Azure VM running the Windows operating system, the health state of the top 5 core Windows services is shown under the section **Core services health**.  Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state.  Clicking on the name of the health criteria will open the property pane and from here you are able to review the configuration details, including if the health criteria has a corresponding Azure Monitor alert defined.  
 
 ## Aggregate virtual machine perspective
 To view health collection for all of your virtual machines in a resource group, from the navigation list in the portal, select **Azure Monitor** and then select **Virtual Machines (preview)**.  
@@ -71,7 +55,7 @@ Here you can quickly identify the top critical issues detected by the health cri
 ### VM distribution by operating system
 This section provides the distribution of VMs based on operating system running on the VM. 
 
-![VM Insights virtual machine distribution perspective](./media/monitoring-vminsights-health/vminsights-vmdistribution-perspective-01.png)
+![VM Insights virtual machine distribution perspective](./media/monitoring-vminsights-health/vminsights-vmdistribution-by-os.png)
 
 On the Operating Systems tab, the table shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM. The health states defined for a VM are: 
 
