@@ -1,12 +1,12 @@
 ---
 title: Monitoring Azure applications and resources
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
-author: rboucher
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: overview
 ms.date: 03/05/2018
-ms.author: robb,bwren
+ms.author: bwren
 ms.component: ""
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy an Azure Stream Analytics job with CI/CD using VSTS tutorial
-description:  This article describes how to deploy a Stream Analytics job with CI/CD using VSTS.
+title: Deploy an Azure Stream Analytics job with CI/CD using Azure DevOps Services tutorial
+description:  This article describes how to deploy a Stream Analytics job with CI/CD using Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 7/10/2018
 --- 
 
-# Tutorial: Deploy an Azure Stream Analytics job with CI/CD using VSTS
-This tutorial describes how to set up continuous integration and deployment for an Azure Stream Analytics job using Visual Studio Team Services. 
+# Tutorial: Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines
+This tutorial describes how to set up continuous integration and deployment for an Azure Stream Analytics job using Azure Pipelines. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add source control to your project
-> * Create a build definition in Team Services
-> * Create a release definition in Team Services
+> * Create a build pipeline in Azure Pipelines
+> * Create a release pipeline in Azure Pipelines
 > * Automatically deploy and upgrade an application
 
 ## Prerequisites
@@ -27,8 +27,8 @@ Before you start, make sure you have the following:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
-* Create a [Stream Analytics project in Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Create a [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) account.
+* Create a [Stream Analytics project in Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Create an [Azure DevOps](https://visualstudio.microsoft.com/team-services/) organization.
 
 ## Configure NuGet package dependency
 In order to do auto build and auto deployment on an arbitrary machine, you need to use the NuGet package `Microsoft.Azure.StreamAnalytics.CICD`. It provides the MSBuild, local run, and deployment tools that support the continuous integration and deployment process of Stream Analytics Visual Studio projects. For more information, see [Stream Analytics CI/CD tools](stream-analytics-tools-for-visual-studio-cicd.md).
@@ -42,34 +42,35 @@ Add **packages.config** to your project directory.
 </packages>
 ```
 
-## Share your Visual Studio solution to a new Team Services Git repo
-Share your application source files to a team project in Team Services so you can generate builds.  
+## Share your Visual Studio solution to a new Azure Repos Git repo
+
+Share your application source files to a project in Azure DevOps so you can generate builds.  
 
 1. Create a new local Git repo for your project by selecting **Add to Source Control**, then **Git** on the status bar in the lower right-hand corner of Visual Studio. 
 
-2. In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Visual Studio Team Services**.
+2. In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps Services**.
 
    ![Push Git Repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. Verify your email and select your account in the **Team Services Domain** drop-down. Enter your repository name and select **Publish repository**.
+3. Verify your email and select your organization in the **Azure DevOps Services Domain** drop-down. Enter your repository name and select **Publish repository**.
 
    ![Push Git repo](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository name**, and select a team project. You can view your code in the browser by selecting **See it on the web**.
+    Publishing the repo creates a new project in your organization with the same name as the local repo. To create the repo in an existing project, click **Advanced** next to **Repository name**, and select a project. You can view your code in the browser by selecting **See it on the web**.
  
-## Configure continuous delivery with VSTS
-A Team Services build definition describes a workflow comprised of build steps that are executed sequentially. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
+## Configure continuous delivery with Azure DevOps
+An Azure Pipelines build pipeline describes a workflow comprised of build steps that are executed sequentially. Learn more about [Azure Pipelines build pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
 
-A Team Services release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Azure Pipelines [release pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts).
 
-### Create a build definition
-Open a web browser and navigate to the team project you just created in [Visual Studio Team Services](https://app.vsaex.visualstudio.com/). 
+### Create a build pipeline
+Open a web browser and navigate to the project you just created in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Under the **Build & Release** tab, select **Builds**, and then **+New**.  Select **VSTS Git** and **Continue**.
+1. Under the **Build & Release** tab, select **Builds**, and then **+New**.  Select **Azure DevOps Services Git** and **Continue**.
     
     ![Select source](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
-2. In **Select a template**, click **Empty Process** to start with an empty definition.
+2. In **Select a template**, click **Empty Process** to start with an empty pipeline.
     
     ![Choose build template](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
 
@@ -77,7 +78,7 @@ Open a web browser and navigate to the team project you just created in [Visual 
     
     ![Trigger status](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
 
-4. Builds are also triggered upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, you must define a release definition that deploys your application to a cluster. Right click on the ellipses next to your build definition and select **Edit**.
+4. Builds are also triggered upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, you must define a release pipeline that deploys your application to a cluster. Right click on the ellipses next to your build pipeline and select **Edit**.
 
 5.  In **Tasks**, enter "Hosted" as the **Agent queue**.
     
@@ -120,17 +121,17 @@ Open a web browser and navigate to the team project you just created in [Visual 
     
     ![Set properties](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
 
-12. Click **Save & Queue** to test the build definition.
+12. Click **Save & Queue** to test the build pipeline.
     
     ![Set override parameters](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### Failed build process
-You may receive errors for null deployment parameters if you did not override template parameters in the **Azure Resource Group Deployment** task of your build definition. Return to the build definition and override the null parameters to resolve the error.
+You may receive errors for null deployment parameters if you did not override template parameters in the **Azure Resource Group Deployment** task of your build pipeline. Return to the build pipeline and override the null parameters to resolve the error.
 
    ![Build process failed](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### Commit and push changes to trigger a release
-Verify that the continuous integration pipeline is functioning by checking in some code changes to Team Services.    
+Verify that the continuous integration pipeline is functioning by checking in some code changes to Azure DevOps.    
 
 As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon from the status bar in the bottom right.
 
@@ -138,11 +139,11 @@ As you write your code, your changes are automatically tracked by Visual Studio.
 
     ![Commit and push changes](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
 
-2. Select the unpublished changes status bar icon or the Sync view in Team Explorer. Select **Push** to update your code in Team Services/TFS.
+2. Select the unpublished changes status bar icon or the Sync view in Team Explorer. Select **Push** to update your code in Azure DevOps.
 
     ![Commit and push changes](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
 
-Pushing the changes to Team Services automatically triggers a build.  When the build definition successfully completes, a release is automatically created and starts updating the job on the cluster.
+Pushing the changes to Azure DevOps Services automatically triggers a build.  When the build pipeline successfully completes, a release is automatically created and starts updating the job on the cluster.
 
 ## Clean up resources
 

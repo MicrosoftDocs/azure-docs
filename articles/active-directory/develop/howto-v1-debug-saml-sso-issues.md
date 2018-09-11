@@ -92,11 +92,11 @@ To resolve the error:
     - Claims issued in the token
     - Certificate used to sign the token. For information on how to review the SAML response, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 4. For more information on the SAML response, see [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md).
-5. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](../application-sign-in-problem-application-error.md) for guidance on resolving the problem. 
+5. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](../manage-apps/application-sign-in-problem-application-error.md) for guidance on resolving the problem. 
 6. If you are still not able to sign in successfully, you can ask the application vendor what is missing from the SAML response.
 
 
 ## Next steps
-Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md), or [get started with conditional access](../active-directory-conditional-access-azure-portal-get-started.md).
+Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../manage-apps/user-provisioning.md), or [get started with conditional access](../conditional-access/app-based-conditional-access.md).
 
 

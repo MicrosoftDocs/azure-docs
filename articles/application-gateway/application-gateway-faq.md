@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 9/6/2018
 ms.author: victorh
 
 ---
@@ -81,7 +81,7 @@ No, Application Gateway does not support static public IP addresses, but it does
 
 Only one public IP address is supported on an Application Gateway.
 
-**Q. How big should I make my subnet for Application Gateway?**
+**Q. How large should I make my subnet for Application Gateway?**
 
 Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
 For example, if Application Gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, Application Gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
@@ -90,7 +90,7 @@ For example, if Application Gateway is set to three instances and no private fro
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
 
-Application Gateway also inserts X-Original-Host header which contains the original Host header with which the request arrived. This header is useful in scenarios like Azure Website integration, where the incoming host header is modified before traffic is routed to the backend.
+Application Gateway also inserts X-Original-Host header that contains the original Host header with which the request arrived. This header is useful in scenarios like Azure Website integration, where the incoming host header is modified before traffic is routed to the backend.
 
 **Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
 
@@ -119,6 +119,12 @@ Network Security Groups are supported on the Application Gateway subnet with the
 * Outbound internet connectivity can't be blocked.
 
 * Traffic from the AzureLoadBalancer tag must be allowed.
+
+**Q. Are user-defined routes supported on the application gateway subnet?**
+
+User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
+
+For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
@@ -202,8 +208,8 @@ The following table shows an average performance throughput for each application
 
 | Average back-end page response size | Small | Medium | Large |
 | --- | --- | --- | --- |
-| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100KB |35 Mbps |100 Mbps |200 Mbps |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
@@ -324,7 +330,7 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 **Q. Does WAF also support DDoS prevention?**
 
-No, WAF does not provide DDoS prevention.
+Yes. You can enable DDos protection on the VNet where the application gateway is deployed. This ensures that the application gateway VIP is also protected using the Azure DDos Protection service.
 
 ## Diagnostics and Logging
 

@@ -27,21 +27,21 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
    
    * If missing (or set to null), documents are not deleted automatically.
    * If present and the value is set to "-1" = infinite – documents don’t expire by default
-   * If present and the value is set to some number ("n") – documents expire "n” seconds after last modification
+   * If present and the value is set to some number ("n") – documents expire "n" seconds after last modification
 2. TTL for the documents: 
    
    * Property is applicable only if DefaultTTL is present for the parent collection.
    * Overrides the DefaultTTL value for the parent collection.
 
-As soon as the document has expired (`ttl` + `_ts` <= current server time), the document is marked as "expired.” No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
+As soon as the document has expired (`ttl` + `_ts` <= current server time), the document is marked as "expired." No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
 
 The above logic can be shown in the following matrix:
 
-|  | DefaultTTL missing/not set on the collection | DefaultTTL = -1 on collection | DefaultTTL = "n" on collection |
+|  | DefaultTTL missing/not set on the collection | DefaultTTL = -1 on collection | DefaultTTL = n' on collection |
 | --- |:--- |:--- |:--- |
-| TTL Missing on document |Nothing to override at document level since both the document and collection have no concept of TTL. |No documents in this collection will expire. |The documents in this collection will expire when interval n elapses. |
-| TTL = -1 on document |Nothing to override at the document level since the collection doesn’t define the DefaultTTL property that a document can override. TTL on a document is uninterpreted by the system. |No documents in this collection will expire. |The document with TTL=-1 in this collection will never expire. All other documents will expire after "n" interval. |
-| TTL = n on document |Nothing to override at the document level. TTL on a document is uninterpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
+| TTL Missing on document |Nothing to override at document level since both the document and collection have no concept of TTL. |No documents in this collection will expire. |The documents in this collection will expire when interval n' elapses. |
+| TTL = -1 on document |Nothing to override at the document level since the collection doesn’t define the DefaultTTL property that a document can override. TTL on a document is uninterpreted by the system. |No documents in this collection will expire. |The document with TTL=-1 in this collection will never expire. All other documents will expire after n' interval. |
+| TTL = n on document |Nothing to override at the document level. TTL on a document is uninterpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit n' interval from the collection. |
 
 ## Configuring TTL
 By default, time to live is disabled by default in all Cosmos DB collections and on all documents. TTL can be set programmatically or by using the Azure portal. Use the following steps to configure TTL from Azure portal:
@@ -51,8 +51,8 @@ By default, time to live is disabled by default in all Cosmos DB collections and
 2. Navigate to the collection you want to set the TTL value, Open the **Scale & Settings** pane. You can see that the Time to Live is by default set to **off**. You can change it to **on (no default)** or **on**.
 
    **off** - Documents are not deleted automatically.  
-   **on (no default)** - This option sets the TTL value to “-1” (infinite) which means documents don’t expire by default.  
-   **on** - Documents expire "n” seconds after last modification.  
+   **on (no default)** - This option sets the TTL value to "-1" (infinite) which means documents don’t expire by default.  
+   **on** - Documents expire "n" seconds after last modification.  
 
    ![Set time to live](./media/time-to-live/set-ttl-in-portal.png)
 
@@ -172,7 +172,7 @@ No, there will be no impact on RU charges for deletions of expired documents via
 
 **Does the TTL feature only apply to entire documents, or can I expire individual document property values?**
 
-TTL applies to the entire document. If you would like to expire just a portion of a document, then it is recommended that you extract the portion from the main document into a separate "linked” document and then use TTL on that extracted document.
+TTL applies to the entire document. If you would like to expire just a portion of a document, then it is recommended that you extract the portion from the main document into a separate "linked" document and then use TTL on that extracted document.
 
 **Does the TTL feature have any specific indexing requirements?**
 

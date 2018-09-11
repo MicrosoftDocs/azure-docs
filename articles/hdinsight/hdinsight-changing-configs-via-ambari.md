@@ -1,12 +1,11 @@
-﻿---
-title: Optimize cluster configurations with Ambari - Azure HDInsight | Microsoft Docs
+---
+title: Optimize cluster configurations with Ambari - Azure HDInsight 
 description: Use the Ambari web UI to configure and optimize HDInsight clusters.
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
 ---
@@ -20,7 +19,7 @@ Log in to  Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster
 
 ![Ambari dashboard](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
 
-The Ambari web UI can be used to manage hosts, services, alerts, configurations, and views. Ambari can’t be used to create an HDInsight cluster, upgrade services, manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
+The Ambari web UI can be used to manage hosts, services, alerts, configurations, and views. Ambari can't be used to create an HDInsight cluster, upgrade services, manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
 
 ## Manage your cluster's configuration
 
@@ -185,7 +184,7 @@ As a general rule, having the compression method splittable is important, otherw
     ![Hive exec compress intermediate](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]
-    > To compress intermediate files, choose a compression codec with lower CPU cost, even if the codec doesn’t have a high compression output.
+    > To compress intermediate files, choose a compression codec with lower CPU cost, even if the codec doesn't have a high compression output.
 
 1. To set the intermediate compression codec, add the custom property `mapred.map.output.compression.codec` to the `hive-site.xml` or `mapred-site.xml` file.
 
@@ -222,7 +221,7 @@ The final Hive output can also be compressed.
 
 Speculative execution launches a certain number of duplicate tasks in order to detect and blacklist the slow-running task tracker, while improving the overall job execution by optimizing individual task results.
 
-Speculative execution shouldn’t be turned on for long-running MapReduce tasks with large amounts of input.
+Speculative execution shouldn't be turned on for long-running MapReduce tasks with large amounts of input.
 
 * To enable speculative execution, navigate to the Hive **Configs** tab, and then set the `hive.mapred.reduce.tasks.speculative.execution` parameter to true. The default value is false.
 

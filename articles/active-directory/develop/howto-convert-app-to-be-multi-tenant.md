@@ -175,7 +175,7 @@ In this article, you learned how to build an application that can sign in a user
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
 [AAD-App-Branding]:howto-add-branding-in-azure-ad-apps.md
-[AAD-App-Manifest]: ./active-directory-application-manifest.md
+[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]:quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework
@@ -196,7 +196,7 @@ In this article, you learned how to build an application that can sign in a user
 [Consent-Multi-Tier-Multi-Party]: ./media/active-directory-devhowto-multi-tenant-overview/consent-flow-multi-tier-multi-party.png
 
 <!--Reference style links -->
-[AAD-App-Manifest]: ./active-directory-application-manifest.md
+[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md

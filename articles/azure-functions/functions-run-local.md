@@ -4,16 +4,13 @@ description: Learn how to code and test Azure functions from the command prompt 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: multiple
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.date: 06/26/2018
+ms.topic: conceptual
+ms.date: 08/14/2018
 ms.author: glenga
 
 ---
@@ -25,13 +22,13 @@ Azure Functions Core Tools lets you develop and test your functions on your loca
 
 ## Core Tools versions
 
-There are two versions of Azure Functions Core Tools. The version you use depends on your local development environment, choice of language, and level of support required:
+There are two versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
 
-+ [Version 1.x](#v1): supports version 1.x of the runtime, which is Generally Available (GA). This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
++ [Version 1.x](#v1): supports version 1.x of the runtime, which is Generally Available (GA). This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
 
-+ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation. Like the 2.x runtime, this version of the core tools is currently in preview.
++ [Version 2.x](#v2): supports [version 2.x of the runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation. Like the 2.x runtime, this version of the core tools is currently in preview. In version 2.x, all functions in a function app must use the same language runtime.
 
-Unless otherwise noted, the examples in this article are for version 2.x.
+Unless otherwise noted, the examples in this article are for version 2.x. To receive important updates on version 2.x, including breaking changes announcements, watch the [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) repository.
 
 ## Install the Azure Functions Core Tools
 
@@ -127,13 +124,13 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyFunctionProj
 ```
 
+When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
 In version 2.x, when you run the command you must choose a runtime for your project. If you plan to develop JavaScript functions, choose **node**:
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 Use the up/down arrow keys to choose a language, then press Enter. The output looks like the following example for a JavaScript project:
@@ -294,19 +291,24 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 ```bash
 func host start
 ```
+The `host` command is only required in version 1.x.
 
 `func host start` supports the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | The local port to listen on. Default value: 7071. |
-| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). The *\<type\>* options are `VSCode` and `VS`.  |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
-| **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
+| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). The *\<type\>* options are `VSCode` and `VS`.  |
+| **`--port -p`** | The local port to listen on. Default value: 7071. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
-| **`--pause-on-error`** | Pause for additional input before exiting the process. Used when launching Core Tools from Visual Studio or VS Code.|
+| **`--build`** | Build current project before running. Version 2.x and C# projects only. |
+| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. | 
+| **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
+| **`--language-worker`** | Arguments to configure the language worker. Version 2.x only. |
+| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
+
+For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 

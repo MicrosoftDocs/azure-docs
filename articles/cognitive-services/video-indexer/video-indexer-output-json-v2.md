@@ -77,7 +77,8 @@ This section shows the summary of the insights.
 |shortId|The ID of the video. For example, 63c6d532ff.|
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
-|thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
+|thumbnailVideoId|The ID of the video from which the thumbnail was taken.
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
 |faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
@@ -90,7 +91,7 @@ This section shows the summary of the insights.
 
 |Name|Description|
 |---|---|
-|accountId|The video’s VI account ID.|
+|accountId|The video's VI account ID.|
 |id|The video's ID.|
 |name|The video's name.
 |state|The video’s state (uploaded, processing, processed, failed, quarantined).|
@@ -102,7 +103,7 @@ This section shows the summary of the insights.
 |metadata|The video's external metadata (if specified by the user).|
 |isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object. For more information, see [insights](#insights).|
-|thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it the video ID and thumbnailId.|
 |publishedUrl|A url to stream the video.|
 |publishedUrlProxy|A url to stream the video from (for Apple devices).|
 |viewToken|A short lived view token for streaming the video.|
@@ -665,7 +666,7 @@ Videos that are found to contain adult or racy content might be available for pr
 
 ## Next steps
 
-[Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4)
+[Video Indexer API](https://api-portal.videoindexer.ai)
 
 For information about how to embed widgets in your application, see [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md). 
 

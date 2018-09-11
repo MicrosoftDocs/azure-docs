@@ -27,6 +27,9 @@ When you sign up for Azure, there are several things you can do to get a better 
 
 - If you have signed up for [Azure free account](https://azure.microsoft.com/free/), [you can use some of the most popular Azure services for free for 12 months](billing-create-free-services-included-free-account.md). Along with the recommendations listed below, see [Avoid getting charged for free account](billing-avoid-charges-free-account.md).
 
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
+
 ## Get estimated costs before adding Azure services
 
 ### Estimate cost online using the pricing calculator

@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -82,7 +82,7 @@ While managing custom conditional access policies requires an Azure AD Premium l
 
 The directory roles that are included in the baseline policy are the most privileged Azure AD roles. 
 
-If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](../managed-service-identity/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
+If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](../managed-identities-azure-resources/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
 
 Baseline policies apply to legacy authentication flows like POP, IMAP, older Office desktop client. 
 
@@ -91,6 +91,9 @@ Baseline policies apply to legacy authentication flows like POP, IMAP, older Off
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
+For more information, see:
 
-If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
+- [Five steps to securing your identity infrastructure](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
+
+- [What is conditional access in Azure Active Directory?](overview.md) 
+

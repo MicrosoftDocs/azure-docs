@@ -456,7 +456,7 @@
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
     - name: Throttling errors
-      href: throttling-errors-in-azure-compute.md
+      href: troubleshooting-throttling-errors.md
     - name: Troubleshoot boot errors
       items:
       - name: BitLocker errors 

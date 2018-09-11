@@ -6,13 +6,14 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
+    - name: 1808 update 
+      href: azure-stack-update-1808.md 
+    - name: 1807 update 
+      href: azure-stack-update-1807.md 
     - name: 1805 update
       href: azure-stack-update-1805.md
     - name: 1804 update
       href: azure-stack-update-1804.md
-    - name: 1803 update
-      href: azure-stack-update-1803.md
-
 - name: Quickstarts
   expanded: true
   items:
@@ -51,6 +52,8 @@
         items:
         - name: Publish endpoints
           href: azure-stack-integrate-endpoints.md
+        - name: Extension host
+          href: azure-stack-extension-host-prepare.md
     - name: Identity integration
       items:    
       - name: Choose an identity provider
@@ -81,8 +84,12 @@
         href: azure-stack-validation-report.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
-    - name : Security integration
-      href: azure-stack-integrate-security.md
+    - name: External auditing
+      items:
+      - name: Syslog forwarding
+        href: azure-stack-integrate-security.md
+      - name: Device auditing
+        href: azure-stack-integrate-physical-device-auditing.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts
@@ -139,6 +146,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Manage physical memory capacity
           href: azure-stack-manage-storage-physical-memory-capacity.md
+        - name: Add scale unit nodes
+          href: azure-stack-add-scale-node.md
     - name: Replace hardware
       items:
       - name: Node actions
@@ -159,7 +168,9 @@
       - name: Back up Azure Stack
         href: azure-stack-backup-back-up-azure-stack.md
       - name: Back up files and applications on Azure Stack
-        href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
+        href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+      - name: Replicate Azure Stack VMs to Azure 
+        href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
       - name: Recover from catastrophic data loss
         href: azure-stack-backup-recover-data.md
       - name: Backup best practices
@@ -268,6 +279,8 @@
         href: azure-stack-app-service-release-notes-update-one.md
       - name: App Service on Azure Stack update 2 release notes
         href: azure-stack-app-service-release-notes-update-two.md
+      - name: App Service on Azure Stack update 3 release notes
+        href: azure-stack-app-service-release-notes-update-three.md
     - name: Deploy Ethereum
       href: azure-stack-ethereum.md
     - name: Populate the marketplace

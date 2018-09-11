@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
@@ -160,7 +160,7 @@ There is no charge for the SQL Data Sync service itself.  However, you still acc
 
 ### What regions support Data Sync?
 
-SQL Data Sync is available in all public cloud regions.
+SQL Data Sync is available in all regions.
 
 ### Is a SQL Database account required? 
 
@@ -173,7 +173,10 @@ Not directly. You can sync between SQL Server on-premises databases indirectly, 
 Yes. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
 -   If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 -   Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
-   
+
+### Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China)?
+Yes. You can sync between SQL Databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
+
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them?
 
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
@@ -227,7 +230,3 @@ For more info about SQL Database, see the following articles:
 -   [SQL Database Overview](sql-database-technical-overview.md)
 
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
-
-### Developer reference
-
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
