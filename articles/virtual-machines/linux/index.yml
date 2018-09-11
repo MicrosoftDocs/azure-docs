@@ -65,7 +65,7 @@ sections:
     - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor and update VMs</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD with Team Services</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD with Azure Pipelines</a>
     - html: Create a web server stack with <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a>, or <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Secure a web server with SSL</a>
 - title: Free Pluralsight Video Training
