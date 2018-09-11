@@ -202,7 +202,7 @@ The sticky bit is a more advanced feature of a POSIX filesystem. In the context 
 
 The sticky bit is not shown in the Azure portal.
 
-## Permissions on new files and folders
+## Default permissions on new files and folders
 
 When a new file or folder is created under an existing folder, the Default ACL on the parent folder determines:
 
@@ -211,13 +211,15 @@ When a new file or folder is created under an existing folder, the Default ACL o
 
 ### umask
 
-When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on  parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
+When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
 The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-* umask.owning_user =  0 # ---
-* umask.owning_group = 0 # ---
-* umask.other =        7 # RWX
+| umask component     | Value    |
+|---------------------|----------|
+| umask.owning_user   | 0 (---)  |
+| umask.owning_group  | 0 (---)  |
+| umask.other         | 7 (RWX)  |
 
 This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
@@ -282,19 +284,12 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
-
 * [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-
 * [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
-
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-
 * [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-
 * [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-
 * [ACL using access control lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## See also
