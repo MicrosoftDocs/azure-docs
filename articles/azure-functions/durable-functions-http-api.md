@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 09/06/2018
 ms.author: azfuncdf
 ---
 
@@ -40,6 +40,7 @@ This example function produces the following JSON response data. The data type o
 | statusQueryGetUri |The status URL of the orchestration instance. |
 | sendEventPostUri  |The "raise event" URL of the orchestration instance. |
 | terminatePostUri  |The "terminate" URL of the orchestration instance. |
+| rewindPostUri     |The "rewind" URL of the orchestration instance. |
 
 Here is an example response:
 
@@ -47,13 +48,14 @@ Here is an example response:
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -105,7 +107,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### Response
@@ -116,6 +118,7 @@ Several possible status code values can be returned.
 * **HTTP 202 (Accepted)**: The specified instance is in progress.
 * **HTTP 400 (Bad Request)**: The specified instance failed or was terminated.
 * **HTTP 404 (Not Found)**: The specified instance doesn't exist or has not started running.
+* **HTTP 500 (Internal Server Error)**: The specified instance failed with an unhandled exception.
 
 The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON object with the following fields:
 
@@ -201,7 +204,7 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 #### Response
@@ -276,7 +279,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
 
 ```http
-POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 Request parameters for this API include the default set mentioned previously as well as the following unique parameters:
@@ -316,13 +319,13 @@ Terminates a running orchestration instance.
 For Functions 1.0, the request format is as follows:
 
 ```http
-DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
 
 ```http
-DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Request parameters for this API include the default set mentioned previously as well as the following unique parameter.
@@ -342,7 +345,47 @@ Several possible status code values can be returned.
 Here is an example request that terminates a running instance and specifies a reason of **buggy**:
 
 ```
-DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+```
+
+The responses for this API do not contain any content.
+
+## Rewind instance (preview)
+
+Restores a failed orchestration instance into a running state by replaying the most recent failed operations.
+
+#### Request
+
+For Functions 1.0, the request format is as follows:
+
+```http
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Request parameters for this API include the default set mentioned previously as well as the following unique parameter.
+
+| Field       | Parameter Type  | Data Type | Description |
+|-------------|-----------------|-----------|-------------|
+| reason      | Query string    | string    | Optional. The reason for rewinding the orchestration instance. |
+
+#### Response
+
+Several possible status code values can be returned.
+
+* **HTTP 202 (Accepted)**: The rewind request was accepted for processing.
+* **HTTP 404 (Not Found)**: The specified instance was not found.
+* **HTTP 410 (Gone)**: The specified instance has completed or was terminated.
+
+Here is an example request that rewinds a failed instance and specifies a reason of **fixed**:
+
+```
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
 The responses for this API do not contain any content.

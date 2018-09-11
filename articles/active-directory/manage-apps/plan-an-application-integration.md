@@ -82,7 +82,7 @@ If you want to add your custom application to the Azure Application Gallery, see
 The following articles describe ways you can manage access to applications once they have been integrated with Azure AD using Azure AD Connectors and Azure AD.
 
 * [Managing access to apps using Azure AD](what-is-access-management.md)
-* [Automating with Azure AD Connectors](../active-directory-saas-app-provisioning.md)
+* [Automating with Azure AD Connectors](user-provisioning.md)
 * [Assigning users to an application](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Assigning groups to an application](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Sharing accounts](../active-directory-sharing-accounts.md)
