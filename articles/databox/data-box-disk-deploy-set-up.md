@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/07/2018
+ms.date: 09/10/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -244,7 +244,7 @@ Perform the following steps to connect and unlock your disks.
     Get the passkey from your Data Box Disk order in Azure portal. 
     /Volumes: This option is used to input a list of BitLocker encrypted volumes. 
     /Help: This option provides help on the tool usage and examples. 
-    /Clean: This option unmounts all the volumes mounted by this tool. 
+    /Unmount: This option unmounts all the volumes mounted by this tool. 
    
     END: Mon Aug 13 14:29:20 2018 [user@localhost Downloads]$
     ```
