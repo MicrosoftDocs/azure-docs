@@ -96,11 +96,13 @@ param_sampling = BayesianParameterSampling( {
     }
 )
 ```
-NOTE: Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy). If using Bayesian parameter sampling, you can set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
-```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
-```
+> [!NOTE]
+> Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you can set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
+>
+> ```Python
+> from azureml.train.hyperdrive import NoTerminationPolicy
+> early_termination_policy = NoTerminationPolicy()
+> ```
 
 ## Log metrics for hyperparameter tuning
 In order to use Azure Machine Learning service for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric. See [Primary Metric](#primary-metric).
@@ -169,11 +171,13 @@ early_termination_policy = NoTerminationPolicy()
 ### Default Policy
 If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
-[!NOTE] Bayesian sampling does not support any early termination policy. If using Bayesian parameter sampling, you should set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
-```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
-```
+> [!NOTE]
+> Bayesian sampling does not support any early termination policy. If using Bayesian parameter sampling, you should set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
+>
+> ```Python
+> from azureml.train.hyperdrive import NoTerminationPolicy
+> early_termination_policy = NoTerminationPolicy()
+> ```
 
 ## Configure your hyperparameter tuning run
 In addition to defining the hyperparameter search space and early termination policy, you will need to specify the metric that you want to optimize and configure resources allocated for hyperparameter tuning.
@@ -188,7 +192,8 @@ You can control your resource budget for your hyperparameter tuning run by speci
 * `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
 * `max_duration_minutes`: Maximum duration of the hyperparameter tuning run in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically canceled.
 
-[!NOTE] If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
+> [!NOTE]
+> If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
 
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 * `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel.
