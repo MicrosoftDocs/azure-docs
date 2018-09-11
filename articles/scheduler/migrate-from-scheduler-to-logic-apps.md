@@ -142,19 +142,26 @@ and then choose **Send** to make the request.
 After you send the call, the response from your logic 
 app appears under the **raw** box on the **Body** tab. 
 
+<a name="workflow-run-id"></a>
+
 > [!IMPORTANT]
 >
 > If you want to cancel the job later, choose the **Headers** tab. 
 > Find and copy the **x-ms-workflow-run-id** header value in the response. 
-> ![Response](./media/migrate-from-scheduler-to-logic-apps/response.png)
+>
+> ![Response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## Cancel a one-time job
 
-Since each run-once job is a run instance in Logic App, the [Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) API can be used to cancel a run-once job. You will need to provide the run ID as noted when invoking the trigger.
+In Logic Apps, each one-time job executes as a single logic 
+app run instance. To cancel a one-time job, you can use 
+[Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) 
+in the Logic Apps REST API. You need to provide the 
+[workflow run ID](#workflow-run-id) when you call the trigger.
 
 ## Create recurring jobs
 
-### Create Logic Apps
+### Create your logic app
 
 1. Create a Logic App, [learn more](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)
 1. Start the Logic App with `Recurrence` trigger.
