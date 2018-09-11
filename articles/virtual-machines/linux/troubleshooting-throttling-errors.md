@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting throttling errors in Azure Compute  | Microsoft Docs
+title: Troubleshooting throttling errors in Azure  | Microsoft Docs
 description: Throttling errors, retries and backoff in Azure Compute.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -18,6 +18,6 @@ ms.author: vashan, rajraj, changov
 ---
 
 
-# Troubleshooting API throttling errors in Azure Compute 
+# Troubleshooting API throttling errors
  
 [!INCLUDE [virtual-machines-common-throttling-errors-in-azure-compute](../../../includes/virtual-machines-common-throttling-errors-in-azure-compute.md)] 
