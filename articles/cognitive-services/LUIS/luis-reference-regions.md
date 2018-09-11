@@ -25,7 +25,7 @@ There are three LUIS websites, based on region. You must author and publish in t
 |[eu.luis.ai][eu.luis.ai]|Europe|
 
 ## Regions and Azure resources
-The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai](www.luis.ai), if you create a LUIS resource in **westus** and add it to the app as a resource, the app is published in that region. 
+The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS resource in **westus** and add it to the app as a resource, the app is published in that region. 
 
 ## Public apps
 A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with their resource key.
