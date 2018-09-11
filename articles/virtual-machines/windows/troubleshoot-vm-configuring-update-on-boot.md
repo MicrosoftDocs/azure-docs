@@ -1,0 +1,222 @@
+---
+title: VM startup is stuck on "Getting Windows Ready. Don't turn off your computer" in Azure | Microsoft Docs
+description: Introduce the steps to troubleshoot the issue in which VM startup is stuck on "Getting Windows Ready. Don't turn off your computer".
+services: virtual-machines-windows
+documentationcenter: ''
+author: Deland-Han
+manager: willchen
+editor: ''
+tags: azure-resource-manager
+
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 9/18/2018
+ms.author: delhan
+---
+
+# VM startup is stuck on "Getting Windows Ready. Don't turn off your computer" in Azure
+
+## Symptoms
+
+When you use **Boot diagnostics** to check the screenshot of a Virtual Machine (VM), you found the operating system is not fully startup yet. Additionally, the VM is displaying **Getting Windows Ready. Don't turn off your computer** message.
+
+![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message1.png)
+![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message2.png)
+
+## Cause
+
+Usually this issue occurs when the server is doing the final reboot after the configuration was changed. That configuration change could be initialized by Windows updates, changes on the roles/feature of the server. In the case of the windows update, if the amount of the updates were big, the OS will need more time till it finishes to reconfigure those changes.
+
+## Back up the OS disk
+
+Before you try to fix the issue, back up the OS disk first. This will help in case of a rollback for recovery or RCA in a later stage:
+
+### Unlock encrypted disk
+
+First, validate if this VM is an encrypted VM. To do this, on ASC check on the Resource Explorer on the VMCard for the value OS Disk Encrypted
+If the OS Disk is encrypted, first unlock the encrypted disk.
+![Check whether the disk is encrypted](..\media\troubleshoot-vm-configuring-update-on-boot\encrypted-disk.png)
+
+To do this, follow these steps:
+
+1. Create a Recovery VM located in the same Resource Group, Storage Account and Location of the impacted VM.
+
+2. In Azure Portal, delete the affected VM and keep the disk.
+
+3. Run PowerShell ISE as administrator.
+
+4. Run the following cmdlet to get the secret name.
+```
+Login-AzureRmAccount
+ 
+$vmName = “VirtualMachineName”
+$vault = “AzureKeyVaultName”
+ 
+# Get the Secret for the C drive from Azure Key Vault
+Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.Tags.VolumeLetter -eq “C:\”) -and ($_.ContentType -eq ‘BEK‘)}
+
+# OR Use the below command to get BEK keys for all the Volumes
+Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
+```
+
+5. Once you have the Secret Name, run the following commands in PowerShell:
+```
+$secretName = 'SecretName'
+$keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $secretname
+$bekSecretBase64 = $keyVaultSecret.SecretValueText
+```
+
+6. Then, convert the Base64 encoded value to Bytes and write the output to a file. 
+**Note** The BEK file name must match the original BEK GUID if you use the USB unlock option. Also, you will need to create a folder on your C drive named BEK before the following steps will work.
+```
+New-Item -ItemType directory -Path C:\BEK
+$bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
+$path = “c:\BEK\$secretName.BEK”
+[System.IO.File]::WriteAllBytes($path,$bekFileBytes)
+```
+
+7. Once the BEK file is created on your PC, copy it to the recovery VM you have the locked OS disk attached to Run the following using the BEK file location.
+```
+manage-bde -status F:
+manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
+```
+Optional: in some scenarios may be necessary also decrypting the disk with this command.
+```
+manage-bde -off F:
+```
+8. You can gather the logs by navigating to the following path: DRIVE LETTER:\Windows\System32\winevt\Logs
+
+9. Detach the drive from the recovery machine
+
+10. Rebuild the VM using PowerShell (Non-Managed Disk)
+```
+# To login to Azure Resource Manager
+Login-AzureRmAccount
+ 
+# To view all subscriptions for your account
+Get-AzureRmSubscription
+ 
+# To select a default subscription for your current session
+Get-AzureRmSubscription –SubscriptionID “SubscriptionID” | Select-AzureRmSubscription
+ 
+$rgname = "RGname"
+$loc = "Location"
+$vmsize = "VmSize"
+$vmname = "VmName"
+$vm = New-AzureRmVMConfig -VMName $vmname -VMSize $vmsize;
+ 
+$nic = Get-AzureRmNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
+$nicId = $nic.Id;
+ 
+$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId;
+ 
+$osDiskName = "OSdiskName"
+$osDiskVhdUri = "OSdiskURI"
+ 
+$vm = Set-AzureRmVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
+ 
+New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
+```
+
+11. Rebuild the VM using PowerShell (Managed Disk).
+```
+# To login to Azure Resource Manager
+Login-AzureRmAccount
+  
+# To view all subscriptions for your account
+Get-AzureRmSubscription
+  
+# To select a default subscription for your current session
+Get-AzureRmSubscription –SubscriptionID "SubscriptionID" | Select-AzureRmSubscription
+
+#Fill in all variables
+$subid = "SubscriptionID"
+$rgName = "ResourceGroupName";
+$loc = "Location";
+$vmSize = "VmSize";
+$vmName = "VmName";
+$nic1Name = "FirstNetworkInterfaceName";
+#$nic2Name = "SecondNetworkInterfaceName";
+$avName = "AvailabilitySetName";
+$osDiskName = "OsDiskName";
+$DataDiskName = "DataDiskName"
+
+#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below does not match
+$osDiskResouceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
+$dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
+
+$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
+
+#Uncomment to add Availabilty Set
+#$avSet = Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName;
+#$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
+
+#Get NIC Resource Id and add
+$nic1 = Get-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
+$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
+
+#Uncomment to add a secondary NIC
+#$nic2 = Get-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
+#$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic2.Id;
+
+#Windows VM
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Windows;
+
+#Linux VM
+#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Linux;
+
+#Uncomment to add additnal Data Disk
+#Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
+
+New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
+```
+
+### Create a snapshot
+
+Power the VM down, and then wait till it is stopped de-allocated.
+
+For unmanaged disks, you can use either [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343) or [Azure Powershell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids).
+
+#### Method 1: Using Microsoft Azure Storage Explorer
+
+1. Once the customer download the tool, proceed to add the Azure account details so you can access the storage accounts
+
+2. Click on **Add Account Settings**, and then **Add an account...**.
+![Add account settings](..\media\troubleshoot-vm-configuring-update-on-boot\account-settings.png)
+
+3. Go to the storage account where the OS disk is, you can see this on ASC under Resource Explorer on Properties in the VM Properties card
+![Portal setting](..\media\troubleshoot-vm-configuring-update-on-boot\VM-Properties.png)
+ 
+4. Create a snapshot of this disk by a right click over the disk and select **Make Snapshot**.
+![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\make-snapshot.png)
+
+#### Method 2: Using Azure Powershell
+
+1.	You can follow How to Clone a disk using Powershell
+
+For managed disks, use Azure portal to take a snapshot:
+
+1. Sign in to the Azure portal.
+
+2. Starting in the upper-left, click New and search for snapshot.
+
+3. In the Snapshot blade, click Create.
+
+4. Enter a Name for the snapshot.
+
+5. Select an existing Resource group or type the name for a new one.
+
+6. Select an Azure datacenter Location.
+
+7. For Source disk, select the Managed Disk to snapshot.
+
+8. Select the Account type to use to store the snapshot. We recommend Standard_LRS unless you need it stored on a high performing disk.
+
+9. Click Create.
+
+
+
+
