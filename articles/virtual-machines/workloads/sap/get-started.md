@@ -369,7 +369,7 @@ Regarding non-HANA databases under SAP workload on azure the documents list like
 
 For SAP HANA databases on Azure, check the section SAP HANA on Azure Virtual Machines.
 
-For High Availability of SAP workload on azure the following documents are available:
+For high availability of SAP workload on Azure the following documents are available:
 
 - [Azure Virtual Machines high availability for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
 - [High-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
