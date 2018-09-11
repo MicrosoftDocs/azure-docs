@@ -45,7 +45,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## Can I install an [Azure AD Application Proxy](../application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
+## Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
 
 Yes. The rebranded versions of the Pass-through Authentication Agent, version 1.5.193.0 or later, support this configuration.
 

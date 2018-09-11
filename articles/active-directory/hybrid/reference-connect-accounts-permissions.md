@@ -22,7 +22,7 @@ ms.author: billmath
 
 ## Accounts used for Azure AD Connect
 
-![](media/active-directory-aadconnect-accounts-permissions/account5.png)
+![](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect uses 3 accounts in order to synchronize information from on-premises or Windows Server Active Directory to Azure Active Directory.  These accounts are:
 

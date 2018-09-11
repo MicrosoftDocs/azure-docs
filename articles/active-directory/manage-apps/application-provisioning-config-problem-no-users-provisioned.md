@@ -68,7 +68,7 @@ When a user shows up as “skipped” in the audit logs, it is very important to
   *  provisioned if the matching property is empty or not populated for a group in Azure AD.
 
 ## Next steps
-[Azure AD Connect sync: Understanding Declarative Provisioning](hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Azure AD Connect sync: Understanding Declarative Provisioning](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
 
 =======
 ---
