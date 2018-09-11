@@ -17,7 +17,7 @@ ms.date: 09/11/2018
 
 Known issues and limitations associated with online migrations from SQL Server to Azure SQL Database are described below.
 
-## Migration of temporal tables not supported
+### Migration of temporal tables not supported
 
 **Symptom**
 
@@ -41,7 +41,7 @@ If your source database consists of one or more temporal tables, your database m
 
 For more information, see the article [Temporal Tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
  
-## Migration of tables includes one or more columns with the hierarchyid data type
+### Migration of tables includes one or more columns with the hierarchyid data type
 
 **Symptom**
 
@@ -61,7 +61,7 @@ You may see a SQL Exception suggesting “ntext is incompatible with hierarchyid
 
  3.	Rerun the migration activity.
 
-## Migration failures with various integrity violations with active triggers in the schema during “Full data load” or “Incremental data sync”
+### Migration failures with various integrity violations with active triggers in the schema during “Full data load” or “Incremental data sync”
 
 **Workaround**
 1. Find the triggers that are currently active in the source database using the query below:
@@ -72,7 +72,7 @@ You may see a SQL Exception suggesting “ntext is incompatible with hierarchyid
 
 3. Re-Run the migration activity.
 
-## Support for LOB data types
+### Support for LOB data types
 
 **Symptom**
 
@@ -86,7 +86,7 @@ SELECT max(len(ColumnName)) as LEN from TableName
 
 If you have an LOB column that is bigger than 32 KB, contact the engineering team at [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
 
-## Issues with timestamp columns
+### Issues with timestamp columns
 
 **Symptom**
 
@@ -96,7 +96,7 @@ DMS doesn't migrate the source timestamp value; instead, DMS generates a new tim
 
 If you need DMS to migrate the exact timestamp value stored in the source table, contact the engineering team at [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
 
-## Data migration errors do not provide additional details on the Database detailed status blade.
+### Data migration errors do not provide additional details on the Database detailed status blade.
 
 **Symptom**
 
