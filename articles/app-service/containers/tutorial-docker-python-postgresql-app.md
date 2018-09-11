@@ -1,5 +1,5 @@
 ---
-title: Build a Python and PostgreSQL web app in Azure App Service | Microsoft Docs 
+title: Build a Python and PostgreSQL web app in Azure App Service | Microsoft Docs
 description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database.
 services: app-service\web
 documentationcenter: python
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * Manage the app in the Azure portal
 
 You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
- 
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -59,7 +59,7 @@ CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
-Type `\q` to exit the PostgreSQL client. 
+Type `\q` to exit the PostgreSQL client.
 
 <a name="step2"></a>
 
@@ -79,7 +79,7 @@ cd docker-flask-postgres
 git checkout tags/0.1-initialapp
 ```
 
-This sample repository contains a [Flask](http://flask.pocoo.org/) application. 
+This sample repository contains a [Flask](http://flask.pocoo.org/) application.
 
 ### Run the app locally
 
@@ -111,7 +111,7 @@ Navigate to `http://localhost:5000` in a browser. Click **Register!** and create
 
 The Flask sample application stores user data in the database. If you are successful at registering a user, your app is writing data to the local PostgreSQL database.
 
-To stop the Flask server at anytime, type Ctrl+C in the terminal. 
+To stop the Flask server at anytime, type Ctrl+C in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -123,13 +123,13 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### Create an Azure Database for PostgreSQL server
 
 Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) command in the Cloud Shell.
 
-In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user credentials are for the database admin user account. 
+In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user credentials are for the database admin user account.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name GP_Gen4_2
@@ -163,19 +163,19 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 
 ### Create a firewall rule for the PostgreSQL server
 
-In the Cloud Shell, run the following Azure CLI command to allow access to the database from all IP addresses. 
+In the Cloud Shell, run the following Azure CLI command to allow access to the database from all IP addresses.
 > [!Note]
-> It is not advised to leave all ports open to your database, or to make your database internet-facing.  See other [Azure security articles](https://docs.microsoft.com/azure/security/) to properly secure your new database for production use.  
+> It is not advised to leave all ports open to your database, or to make your database internet-facing.  See other [Azure security articles](https://docs.microsoft.com/azure/security/) to properly secure your new database for production use.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
 ```
 
-> [!TIP] 
+> [!TIP]
 > You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-In the Cloud Shell, run the command again to allow access to the database from your local computer by replacing *\<you_ip_address>* with [your local IPv4 IP address](https://whatismyipaddress.com/). 
+In the Cloud Shell, run the command again to allow access to the database from your local computer by replacing *\<you_ip_address>* with [your local IPv4 IP address](https://whatismyipaddress.com/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<you_ip_address> --end-ip-address=<you_ip_address> --name AllowLocalClient
@@ -273,7 +273,7 @@ The database already contains the registration you created previously.
 
 ![Docker container-based Python Flask application running locally](./media/tutorial-docker-python-postgresql-app/local-docker.png)
 
-Now that you verified that the container works locally, delete _db.env_. In Azure App Service, you will use app settings to define the environment variables.  
+Now that you verified that the container works locally, delete _db.env_. In Azure App Service, you will use app settings to define the environment variables.
 
 ### Create an Azure Container Registry
 
@@ -386,12 +386,12 @@ In the Cloud Shell, restart the app. Restarting ensures that all settings are ap
 az webapp restart --resource-group myResourceGroup --name <app_name>
 ```
 
-### Browse to the Azure web app 
+### Browse to the Azure web app
 
-Browse to the deployed web app. 
+Browse to the deployed web app.
 
-```bash 
-http://<app_name>.azurewebsites.net 
+```bash
+http://<app_name>.azurewebsites.net
 ```
 
 > [!NOTE]
@@ -453,8 +453,8 @@ az webapp restart --resource-group myResourceGroup --name <app_name>
 
 Navigate to your Azure web app and try out the new functionality again. Create another event registration.
 
-```bash 
-http://<app_name>.azurewebsites.net 
+```bash
+http://<app_name>.azurewebsites.net
 ```
 
 ![Docker Python Flask app in Azure App Service](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
