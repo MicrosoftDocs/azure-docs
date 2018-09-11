@@ -107,6 +107,8 @@ To rotate both external an internal secret:
     A secure string of the password used for all of the pfx certificate files created.
 4. Wait while your secrets rotate.  
 When secret rotation successfully completes, your console will display **Overall action status: Success**. 
+    > [!note]  
+    > If secret rotation fails, follow the instructions in the error message and re-run start-secretrotation with the **-Rerun** Parameter. Contact Support if you experience repeated secret rotation failures. 
 5. After successful completion of secret rotation, remove your certificates from the share created in the pre-step and store them in their secure backup location. 
 
 ## Walkthrough of secret rotation
@@ -133,6 +135,10 @@ To rotate only Azure Stack’s internal secrets:
 
 1. Create a PowerShell session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. In the Privileged Endpoint session, run **Start-SecretRotation** with no arguments.
+3. Wait while your secrets rotate.  
+When secret rotation successfully completes, your console will display **Overall action status: Success**. 
+    > [!note]  
+    > If secret rotation fails, follow the instructions in the error message and rerun start-secretrotation with the **-Rerun** Parameter. Contact Support if you experience repeated secret rotation failures. 
 
 ## Start-SecretRotation reference
 
