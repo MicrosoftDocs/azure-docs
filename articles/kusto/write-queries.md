@@ -57,7 +57,7 @@ of the connection information). The data (rows) for that table are then filtered
 by the value of the `StartTime` column, and then filtered by the value of the
 `State` column. The query then returns the count of "surviving" rows.
 
-[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA)
+\[[**Click to run query**]\](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA)
 ```Kusto
 StormEvents
 | where StartTime >= datetime(2007-11-01) and StartTime < datetime(2007-12-01)
@@ -69,7 +69,7 @@ In this case, the result is:
 
 |Count|
 |-----|
-|   28|
+|   23|
 
 ## Most common operators
 
@@ -77,7 +77,9 @@ The operators covered in this section are the building blocks to
 understanding Kusto queries. Most queries you write will include several
 of these operators.
 
-To run queries:
+To run queries on the help cluster: select **Click to run query** above each query.
+
+To run queries on your own cluster:
 
 1. Copy each query into Kusto Query Explorer, and then either select
     the query or place your cursor in the query.
@@ -89,7 +91,7 @@ Returns the count of rows in the table.
 
 The following query returns the count of rows in the StormEvents table.
 
-[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRSM4vzSsBALU2eHsTAAAA)
+\[[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSspVqhRSM4vzSsBALU2eHsTAAAA)\]
 ```Kusto
 StormEvents | count
 ```
@@ -368,7 +370,7 @@ The following query returns data for the last 12 hours.
 [**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTc4S8hQcmQuNSNR4ALTKQyJDAlnSIuPLwzJGrctM3v%2b7%2bt684R7qMEhW6MafQUMJAnsUoIdl4mQm%2fVVrC%2bh0Z6shFOINZAIc%2bSZgcuSvCSbCxQjhkKoRtLH3CP0u4yDRyvEo55tsjoFd04U6vxyhli%2fUCF5604nPqyQppiMy6Wlme68uqVBB%2fSVKYxZZ69MD%2fouaTvvml%2fjoRsjoR%2be1z2j03jyjci78jRAgEAAA%3d%3d)
 ```Kusto
 //The first two lines generate sample data, and the last line uses
-the ago() operator to get records for last 12 hours.
+//the ago() operator to get records for last 12 hours.
 print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 | mvexpand TimeStamp, SomeCounter
 | where TimeStamp > ago(12h)
@@ -715,7 +717,7 @@ let X = datatable(Key:string, Value1:long)
 [
     'a',1,
     'b',2,
-    'b',3
+    'b',3,
     'c',4
 ];
 let Y = datatable(Key:string, Value2:long)
@@ -775,9 +777,8 @@ StormEvents
 [Cross-Database and Cross-Cluster Queries](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_syntax.html?q=cross): You can query a database on the same cluster by referring it as `database(“MyDatabase”).MyTable`. You can query a database on a remote cluster by referring to it as `cluster(“MyCluster”).database(“MyDatabase”).MyTable`.
 
 The following query is called from one cluster and queries data from
-`MyCluster` cluster.
+`MyCluster` cluster. To run this, use your own clusters.
 
-[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAEvOKS0uSS3SUPKtdIYwlTT1UhJLEpMSi1M1lMIzszOBAgGJ6alhmanlxbxcNQrlGalFqQpgroKNgpGBgQFItCQxO1XBEMixBgABiltyUwAAAA%3d%3d)
 ```Kusto
 cluster("MyCluster").database("Wiki").PageViews
 | where Views < 2000
@@ -958,8 +959,7 @@ times of one hour, four hours, and one day (`[1h, 4h, 1d]`).
 let _start = datetime(2007-01-01);
 let _end = datetime(2008-01-01);
 let _windowSize = 365d;
-let _sequence = dynamic(['Hail', 'Tornado', 'Thunderstorm
-Wind']);
+let _sequence = dynamic(['Hail', 'Tornado', 'Thunderstorm Wind']);
 let _periods = dynamic([1h, 4h, 1d]);
 StormEvents
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start,
@@ -979,7 +979,6 @@ by queries and other functions (recursive functions are not supported).
 The following example creates a function that takes a state name
 (`MyState`) as an argument.
 
-[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEANNLLkpNLElVSCvNSy7JzM9TKM8syVDQSMvPSUktslVySc3NV9Lk5fKtdIMp0PCtDC4BarFSKC4pysxLB8pW83IFl%2bQX5bqWpeaVFPNy1SiUZ6QWpSqA1SnY1ilAtfBy1QIAyH0hl3AAAAA%3d)
 ```Kusto
 .create function with (folder="Demo")
 MyFunction (MyState: string)
@@ -992,7 +991,6 @@ StormEvents
 The following example calls a function, which gets data for the state
 of Texas.
 
-[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAPOtdCvNSy7JzM9T0FAKSa1ILFbS5OWqUSguzc1NLMqsSlVIzi%2fNK9HQBADYlnNvKQAAAA%3d%3d)
 ```Kusto
 MyFunction ("Texas")
 | summarize count()
@@ -1001,8 +999,6 @@ MyFunction ("Texas")
 The following example deletes the function that was created in the
 first step.
 
-[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEANNLKcovUEgrzUsuyczPU%2fCtdIMyAai2b7AZAAAA)
-```Kusto
 .drop function MyFunction
 ```
 
