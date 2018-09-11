@@ -46,7 +46,7 @@ To deploy from Maven, use the code editor in the Cloud Shell to open up the proj
 code pom.xml
 ```
 
-Then add the following plugin definition inside the `<build>` element of the *pom.xml* file:
+Then add the following plugin definition inside the `<build>` element of the `pom.xml` file.
 
 ```xml
     <plugins>
@@ -91,7 +91,7 @@ Deploy your Java app to Azure using the following command:
 mvn clean package azure-webapp:deploy
 ```
 
-Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/helloworld`.
+Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/helloworld`. 
 
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
 
