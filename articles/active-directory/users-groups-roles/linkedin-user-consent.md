@@ -21,6 +21,8 @@ As an Azure Active Directory (Azure AD) administrator, you can enable users in y
 
 To see LinkedIn information in Microsoft apps and services, users must cconsent to connect their own Microsoft and LinkedIn accounts. Users are prompted to connect their accounts the first time they click to see someone's LinkedIn information on a profile card in Outlook, OneDrive or SharePoint Online. LinkedIn account connections are not fully enabled for your users until they consent to the experience and to connect their accounts.
 
+[!INCLUDE [active-directory-gdpr-note](../../includes/active-directory-gdpr-note.md)]
+
 ## How does your organization benefit from LinkedIn information in Microsoft apps and services?
 
 Access to LinkedIn information within Microsoft apps makes it easier for your users to connect, engage, and build professional relationships with colleagues, customers, and partners inside and outside your organization. New users can get up to speed faster by connecting with colleagues, learning more about them, and easily accessing more information. Here is an example of how LinkedIn information appears on the profile card in Microsoft apps:
@@ -57,7 +59,6 @@ When you connect your Microsoft and LinkedIn accounts, you allow LinkedIn to pro
 
 Data that is accessed from LinkedIn is not stored permanently in Microsoft services. For more information about Microsoft’s use of personal data, see the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement/).
 
-
 ### Microsoft work or school account data
 
 When you connect your Microsoft and LinkedIn accounts, you allow Microsoft to provide the following data to LinkedIn: 
@@ -71,17 +72,6 @@ Data that is accessed from Microsoft is not stored permanently with LinkedIn, ex
 
 For more information on LinkedIn’s use of personal data, see the [LinkedIn Privacy Policy](https://www.linkedin.com/legal/privacy-policy). For LinkedIn services, data transfer, and storage, data can flow from the European Union to the United States and back, and your privacy is protected as descibed in [European Union data transfers](https://www.linkedin.com/help/linkedin/answer/62533).
 
-## GDPR Compliance
-
-* Data sharing between LinkedIn and Microsoft complies with the GDPR.
-* For information about how Microsoft meets requirements of the GDPR, see Microsoft.com/GDPR and the Microsoft Privacy Statement.
-* For information about security, privacy, and compliance in Office 365, see Continuous compliance from Office 365.
-* For information about how LinkedIn meets requirements of the GDPR, see LinkedIn and GDPR.
-
 ## Next steps
 
-* [LinkedIn in Microsoft Applications with Your Work or School Account](https://www.linkedin.com/help/linkedin/answer/84077)
-
-
-
-
+* [LinkedIn in Microsoft applications with your work or school account](https://www.linkedin.com/help/linkedin/answer/84077)
