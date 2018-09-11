@@ -44,7 +44,7 @@ Use Machine Learning Studio when you want to develop and deploy models with no c
 
 ## SQL Server Machine Learning Services
 
-[SQL Server Microsoft Machine Learning Service](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) adds statistical analysis, data visualization, and predictive analytics in R and Python for relational data in SQL Server databases. R and Python libraries from Microsoft include advanced modeling and ML algorithms, which can execute in parallel and at scale, in SQL Server.
+[SQL Server Microsoft Machine Learning Service](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) adds statistical analysis, data visualization, and predictive analytics in R and Python for relational data in SQL Server databases. R and Python libraries from Microsoft include advanced modeling and ML algorithms, which can run in parallel and at scale, in SQL Server.
 
 Use SQL Server Machine Learning Services when you need built-in AI and predictive analytics on relational data in SQL Server.
 
