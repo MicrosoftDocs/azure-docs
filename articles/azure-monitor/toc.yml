@@ -229,7 +229,7 @@
         items:
         - name: Web apps
           href: ../application-insights/app-insights-asp-net.md?toc=/azure/azure-monitor/toc.json
-        - name: Web apps already live
+        - name: Status Monitor
           href: ../application-insights/app-insights-monitor-performance-live-website-now.md?toc=/azure/azure-monitor/toc.json
         - name: Windows services
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
