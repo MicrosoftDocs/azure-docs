@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Monitor Windows containers on Service Fabric using Log Analytics
 
-This is part two of a tutorial, and walks you through setting up Log Analytics to monitor your Windows containers orchestrated on Service Fabric.
+This is part three of a tutorial, and walks you through setting up Log Analytics to monitor your Windows containers orchestrated on Service Fabric.
 
 In this tutorial, you learn how to:
 
