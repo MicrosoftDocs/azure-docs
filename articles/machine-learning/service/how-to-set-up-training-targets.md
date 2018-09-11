@@ -194,10 +194,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     run = exp.submit(src)
     run.wait_for_completion(show_output = True)
     ```
-4. Clean up the compute resources when you are finished.
-    ```python
-    dsvm_compute.delete()
-    ```
+4. Clean up the compute resources when you are finished. '''dsvm_compute.delete() ```
     
 ## Azure Batch AI
 
