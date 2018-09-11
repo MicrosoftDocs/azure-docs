@@ -20,7 +20,7 @@ Machine learning (ML) pipelines are used by data scientists to build, optimize, 
 The following diagram shows an example pipeline:
 
 [ ![Machine learning pipelines](./media/concept-ml-pipelines/pipelines.png) ]
-(./media/concept-ml-pipelines/pipelines.png#lightbox)
+(./media/concept-ml-pipelines/machine-learning-pipelines-big.png#lightbox)
 
 ## Why build pipelines with Azure Machine Learning?
 
