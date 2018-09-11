@@ -199,6 +199,8 @@
       items:
       - name: Choose a method
         href: single-sign-on-modes.md
+      - name: Configure non-gallery apps
+        href: configure-single-sign-on-non-gallery-applications.md
       - name: Configure federated - gallery apps
         href: configure-federated-single-sign-on-gallery-applications.md
       - name: Configuring federated common problems - gallery apps
@@ -217,6 +219,8 @@
         href: configure-password-single-sign-on-non-gallery-applications-problems.md
     - name: Access panel
       items:
+      - name: Manage browser extension
+        href: manage-access-panel-browser-extension.md
       - name: App not appearing
         href: access-panel-troubleshoot-application-not-appearing.md
       - name: Unexpected app appearing
