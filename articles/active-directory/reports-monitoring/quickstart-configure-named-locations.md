@@ -49,7 +49,7 @@ To complete this quickstart, you need:
     * In the **Name** box, type a name for your named location.
     * In the **IP ranges** box, type the IP range in CIDR format.  
     * Click **Create**.
-	![The New blade](./media/quickstart-named-locations/61.png)
+	![The New blade](./media/quickstart-configure-named-locations/61.png)
 
 
 ## Next steps
