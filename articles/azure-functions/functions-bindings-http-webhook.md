@@ -599,10 +599,10 @@ By default, all function routes are prefixed with *api*. You can also customize 
 
 ### Authorization keys
 
-HTTP triggers let you use keys for added security. A standard HTTP trigger can use these as an API key, requiring the key to be present on the request. Webhooks can use keys to authorize requests in a variety of ways, depending on what the provider supports.
+Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  A standard HTTP trigger may require such an API key be present in the request. Webhooks may use keys to authorize requests in a variety of ways, depending on what the provider supports.
 
-> [!NOTE]
-> When running functions locally, authorization is disabled no matter the `authLevel` set in `function.json`. As soon as you publish to Azure Functions, the `authLevel` immediately takes effect.
+> [!IMPORTANT]
+> While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more about how to secure your function app HTTP endpoints in production, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
 
 There are two types of keys:
 
@@ -611,26 +611,22 @@ There are two types of keys:
 
 Each key is named for reference, and there is a default key (named "default") at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
 
-Each function app also has a special **master key**. This is a host key named `_master`, which provides administrative access to the runtime APIs. This key cannot be revoked. When you require an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
+Each function app also has a special **master key**. This is a host key named `_master`, which provides administrative access to the runtime APIs. This key cannot be revoked. When you set an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
 
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin authorization level.
 
 ### Obtaining keys
 
-Keys are stored as part of your function app in Azure and are encrypted at rest. You can view your keys, create new ones, or update keys to new values in one of two ways:
-
-* In the [Azure portal](https://portal.azure.com), navigate to one of your functions and select **Manage**.
+Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Manage**.
 
     ![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-* Using the Functions [key management REST APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API). For example, a GET request to the following endpoint of the `myfunctionapp` app returns all keys for a function named `HttpTriggerCSharp1`: `https://myfunctionapp.azurewebsites.net/admin/functions/HttpTriggerCSharp1/keys`
-
-    This request requires you to provide the host master key in the request. You can do this by using the **x-functions-key** HTTP header or by using the `code` query string. Remember to securely store and transmit your master key, which provides administrator access to your function app.
+There is no supported API for programmatically obtaining function keys.
 
 ### API key authorization
 
-By default, an HTTP trigger requires an API key in the HTTP request. So your HTTP request normally looks like the following:
+Most HTTP trigger templates requires an API key in the request. So your HTTP request normally looks like the following:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
@@ -638,12 +634,29 @@ The key can be included in a query string variable named `code`, as above, or it
 
 You can allow anonymous requests, which do not require keys. You can also require that the master key be used. You change the default authorization level by using the `authLevel` property in the binding JSON. For more information, see [Trigger - configuration](#trigger---configuration).
 
+> [!NOTE]
+> When running functions locally, authorization is disabled regardless of the specified authentication level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced.
+
 ### Keys and webhooks
 
 Webhook authorization is handled by the webhook receiver component, part of the HTTP trigger, and the mechanism varies based on the webhook type. Each mechanism does rely on a key. By default, the function key named "default" is used. To use a different key, configure the webhook provider to send the key name with the request in one of the following ways:
 
-- **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-- **Request header**: The provider passes the key name in the `x-functions-clientid` header.
+* **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Request header**: The provider passes the key name in the `x-functions-clientid` header.
+
+For an example of a webhook secured with a key, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
+
+### Secure an HTTP endpoint in production
+
+Further down there is a section on Key Management, and I’d like to suggest the three options below for programmatically managed security options.
+
+* Secure your Function App using App Service Authorization/Authentication. Leverage Azure AAD, service principal authentication, or several social media single-sign-on providers to secure you HTTP triggered Functions. Read a tutorial here
+
+* Use Azure API Management to provide any number of API security options, and configure your Functions IP restrictions to only accept traffic from your APIM IP address. Read about API M Security and Functions/App Service IP Restrictions
+
+*Deploy you Function Apps into an App Service Environment using the dedicated hosting plan and configure a single front end gateway to authenticate all incoming users. Learn more here
+
+When using one of these function app-level security methods, you should set the HTTP-triggered function authentication level to `anonymous`. 
 
 ## Trigger - limits
 
