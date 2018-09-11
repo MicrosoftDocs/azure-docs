@@ -42,6 +42,9 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
+      - name: Manage applications
+        tocHref: /azure/active-directory/manage-apps/
+        topicHref: /azure/active-directory/manage-apps/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
