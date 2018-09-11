@@ -1,6 +1,6 @@
 ---
-title: 'Write queries in Azure Kusto'
-description: 'In this how-to, you learn how to perform basic and more advanced queries using the Azure Kusto Query Language.'
+title: Write queries in Azure Kusto
+description: In this how-to, you learn how to perform basic and more advanced queries using the Azure Kusto Query Language.
 services: kusto
 author: mgblythe
 ms.author: mblythe
@@ -114,8 +114,7 @@ The following query returns a specific set of columns.
 ```Kusto
 StormEvents
 | take 5
-| project StartTime, EndTime, State, EventType, DamageProperty,
-EpisodeNarrative
+| project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
 [**where**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_whereoperator.html):
@@ -127,8 +126,7 @@ The following query filters the data by `EventType` and `State`.
 StormEvents
 | where EventType == 'Flood' and State == 'WASHINGTON'
 | take 5
-| project StartTime, EndTime, State, EventType, DamageProperty,
-EpisodeNarrative
+| project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
 [**sort**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_sortoperator.html):
@@ -142,8 +140,7 @@ StormEvents
 | where EventType == 'Flood' and State == 'WASHINGTON'
 | sort by DamageProperty desc
 | take 5
-| project StartTime, EndTime, State, EventType, DamageProperty,
-EpisodeNarrative
+| project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
 > [!NOTE]
@@ -160,8 +157,7 @@ operator.
 StormEvents
 | where EventType == 'Flood' and State == 'WASHINGTON'
 | top 5 by DamageProperty desc
-| project StartTime, EndTime, State, EventType, DamageProperty,
-EpisodeNarrative
+| project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
 [**extend**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_extendoperator.html):
@@ -175,8 +171,7 @@ StormEvents
 | where EventType == 'Flood' and State == 'WASHINGTON'
 | top 5 by DamageProperty desc
 | extend Duration = EndTime - StartTime
-| project StartTime, EndTime, Duration, State, EventType,
-DamageProperty, EpisodeNarrative
+| project StartTime, EndTime, Duration, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
 Expressions can include all the usual operators (+, -, *, /, %), and
@@ -205,8 +200,7 @@ storm-affected states.
 
 ```Kusto
 StormEvents
-| summarize StormCount = count(), TypeOfStorms = dcount(EventType) by
-State
+| summarize StormCount = count(), TypeOfStorms = dcount(EventType) by State
 | top 5 by StormCount desc
 ```
 
@@ -275,8 +269,7 @@ The following query calculates the count with a bucket size of 1 day.
 
 ```Kusto
 StormEvents
-| where StartTime > datetime(2007-02-14) and StartTime <
-datetime(2007-02-21)
+| where StartTime > datetime(2007-02-14) and StartTime < datetime(2007-02-21)
 | summarize event_count = count() by bin(StartTime, 1d)
 ```
 
@@ -304,8 +297,7 @@ Gets a match for a regular expression from a text string.
 The following query extracts specific attribute values from a trace.
 
 ```Kusto
-let MyData = datatable (Trace: string) ["A=1, B=2, Duration=123.45,
-...", "A=1, B=5, Duration=55.256, ..."];
+let MyData = datatable (Trace: string) ["A=1, B=2, Duration=123.45,...", "A=1, B=5, Duration=55.256, ..."];
 MyData
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace,
 typeof(real)) * time(1s)
@@ -392,8 +384,7 @@ The following query filters the data by a given date range.
 
 ```Kusto
 StormEvents
-| where StartTime between (datetime(2007-07-27) ..
-datetime(2007-07-30))
+| where StartTime between (datetime(2007-07-27) .. datetime(2007-07-30))
 | count
 ```
 
