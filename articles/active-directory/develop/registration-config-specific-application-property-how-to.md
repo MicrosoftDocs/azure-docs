@@ -57,4 +57,4 @@ Once you have filled the above fields, the application is registered in the Azur
 | Keys            | You can create Keys to programmatically access web APIs secured by Azure AD without any user interaction. From the \*\*Keys\*\* page, enter a key description and the expiration date and save to generate the key. Make sure to save it somewhere secure, as you won't be able to access it later.             |
 
 ## Next steps
-[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)
+[Managing Applications with Azure Active Directory](../manage-apps/what-is-application-management.md)

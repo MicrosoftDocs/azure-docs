@@ -26213,6 +26213,61 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/application-dev-api-find-an-api-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/api-find-an-api-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-consent-framework.md",
+            "redirect_url": "/azure/active-directory/develop/consent-framework",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-delegated-and-app-perms.md",
+            "redirect_url": "/azure/active-directory/develop/delegated-and-app-perms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-perms-for-given-api.md",
+            "redirect_url": "/azure/active-directory/develop/perms-for-given-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-change-token-lifetime-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-change-token-lifetime-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-grant-permissions-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-grant-permissions-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-multi-tenant-application-add-to-gallery-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-specific-application-property-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-specific-application-property-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-sso-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-sso-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-setup-multi-tenant-app.md",
+            "redirect_url": "/azure/active-directory/develop/setup-multi-tenant-app",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-b2b-add-guest-to-role.md",
             "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
             "redirect_document_id": true
