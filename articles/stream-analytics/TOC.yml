@@ -20,7 +20,7 @@
     href: stream-analytics-with-azure-functions.md
   - name: 3 - Run a Javascript UDF
     href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Deploy with CI/CD in VSTS
+  - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Samples
   items:
@@ -42,6 +42,8 @@
       href: stream-analytics-documentdb-output.md
   - name: Window functions
     href: stream-analytics-window-functions.md
+  - name: Geospatial functions
+    href: stream-analytics-geospatial-functions.md
   - name: Compatibility level
     href: stream-analytics-compatibility-level.md
   - name: Common query patterns

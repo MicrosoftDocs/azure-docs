@@ -22,7 +22,7 @@ ms.author: deli
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
 ## The x-ms-request-id Header
-Every request made against the Scheduler service returns a response header named**x-ms-request-id**. This header contains an opaque value that uniquely identifies the request.
+Every request made against the Scheduler service returns a response header named **x-ms-request-id**. This header contains an opaque value that uniquely identifies the request.
 
 If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of x-ms-request-id, the approximate time that the request was made, the identifier of the subscription, job collection, and/or job, and the type of operation that the request attempted.
 

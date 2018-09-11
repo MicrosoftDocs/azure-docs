@@ -69,4 +69,4 @@ sections:
     - title: Languages
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
-      html: <p><a href="model-management-api-reference">Model Management REST API</a></p>     
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST management APIs</a></p>     

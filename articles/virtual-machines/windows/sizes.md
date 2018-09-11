@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 09/05/2018
 ms.author: jonbeck
 ---
 
@@ -46,7 +46,7 @@ This article describes the available sizes and options for the Azure virtual mac
 For information on using the REST API to query for VM sizes, see the following:
 
 - [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
+- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list)
 - [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## ACU

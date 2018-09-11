@@ -3,16 +3,12 @@ title: Monitor Azure Functions
 description: Learn how to use Azure Application Insights with Azure Functions for monitoring function execution.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
 ---

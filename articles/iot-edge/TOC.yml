@@ -99,6 +99,8 @@
       href: how-to-develop-csharp-module.md
     - name: Node.js
       href: how-to-develop-node-module.md
+    - name: Java
+      href: how-to-develop-java-module.md
     - name: C
       href: how-to-develop-c-module.md
     - name: Develop multiple modules
@@ -131,7 +133,7 @@
     items:
     - name: Azure Blob Storage
       href: how-to-store-data-blob.md
-  - name: CI/CD in VSTS
+  - name: CI/CD in Azure DevOps
     href: how-to-ci-cd.md
   - name: Troubleshoot
     href: troubleshoot.md
@@ -187,8 +189,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: iothub-explorer tool
-    href: https://github.com/Azure/iothub-explorer
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
