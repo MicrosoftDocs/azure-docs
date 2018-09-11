@@ -16,24 +16,24 @@ ms.reviewer: arvinh
 
 # What is application management in Azure Active Directory?
 
-You can use Azure Active Directory (Azure AD) to manage user access to Office 365 as well as every business application from Microsoft, thousands of software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps. When application access is managed with Azure AD, users can sign on to any application by using their Azure AD accounts. After a single sign-on, users can access the other applications without signing in again.
+You can use Azure Active Directory (Azure AD) to manage user access to Office 365, business applications from Microsoft, thousands of software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps. When application access is managed with Azure AD, users can sign on to any application by using their Azure AD accounts. After signing in one time, users can access the other applications without signing in again.
 
 
 ![Apps federated via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
 ## Why manage applications with a cloud solution?
 
-Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from a variety of devices and locations. In addition, new apps are added, developed, and sunset every day. With so many applications and access points, it is more critical than ever to use a cloud-based solution to manage user access to all applications.
+Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset every day. With so many applications and access points, it is more critical than ever to use a cloud-based solution to manage user access to all applications.
 
 ## Benefits of using Azure AD for application management
 
-As a cloud solution, Azure AD can help you manage access risks, improve productivity, address governance and compliance needs, while reducing overall costs.
+As a cloud solution, Azure AD can help you manage access risks and improve productivity, while reducing overall costs.
 
 ### Manage risk with conditional access policies
 Coupling Azure AD single sign-on (SSO) with conditional access policies provides high levels of security for accessing applications. Security capabilities include cloud-scale identity protection, risk-based access control, native multi-factor authentication, and conditional access policies. These capabilities  allow for granular control policies based on applications, or on groups that need higher levels of security.
 
 ### Improve productivity with single sign-on
-Enabling single sign-on (SSO) across applications and Office 365 provides a superior log in experience for existing users by reducing or eliminating log on prompts. The user’s environment feels more cohesive and is less distracting without multiple prompts, or the need to manage multiple passwords. The business group can manage and approve access through self-service and dynamic membership. Allowing the right people in the business to manage access to an application improves the security of the identity system.
+Enabling single sign-on (SSO) across applications and Office 365 provides a superior sign in experience for existing users by reducing or eliminating sign in prompts. The user’s environment feels more cohesive and is less distracting without multiple prompts, or the need to manage multiple passwords. The business group can manage and approve access through self-service and dynamic membership. Allowing the right people in the business to manage access to an application improves the security of the identity system.
 
 SSO improves security. *Without single sign-on*, administrators need to create and update user accounts for each individual application, which takes time. Also, users have to track multiple credentials to access their applications. As a result, users tend to write down their passwords or use other password management solutions, which introduce data security risks. 
 
