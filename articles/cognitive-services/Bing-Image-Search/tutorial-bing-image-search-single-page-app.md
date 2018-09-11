@@ -50,32 +50,51 @@ Like any single-page web app, the tutorial application includes three parts:
 
 This tutorial focuses primarily on the JavaScript part of this app. 
 
-The HTML contains a search form with options that's connected to Javascript that sends search requests, using the `<form>` tag's `obsumbit attribute`. 
+## Manage and store user subscription keys
 
-the search form in which the user enters a query and chooses search options. The form is connected to the JavaScript that actually performs the search by the `<form>` tag's `onsubmit` attribute:
+This application uses web browsers' persistent storage to store API subscription keys. If no key is stored, the webpage will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will remove it from storage.
 
-```html
-<form name="bing" onsubmit="return newBingImageSearch(this)">
-```
-
-By default, the `onsubmit` handler returns `false`, which keeps the form from being submitted to a server.
-
-## Managing and storing user subscription keys
-
-To avoid including the Bing Search API subscription key in the application source code, we use the browser's persistent storage to store the key. If no key is stored, the app will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will invalidate it, and.
-
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
+Define `storeValue` and `retrieveValue` functions to use either the `localStorage` object (if the browser supports it) or a cookie.
 
 ```javascript
-// cookie names for data we store
+// Cookie names for data being stored
 API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
-
+// The Bing Image Search API endpoint 
 BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
 
-// ... omitted definitions of storeValue() and retrieveValue()
+try { //Try to use localStorage first 
+    localStorage.getItem;   
 
-// get stored API subscription key, or prompt if it's not found
+    window.retrieveValue = function (name) {
+        return localStorage.getItem(name) || "";
+    }
+    window.storeValue = function(name, value) {
+        localStorage.setItem(name, value);
+    }
+} catch (e) {
+    //If the browser doesn't support localStorage, try a cookie
+    window.retrieveValue = function (name) {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var keyvalue = cookies[i].split("=");
+            if (keyvalue[0].trim() === name) return keyvalue[1];
+        }
+        return "";
+    }
+    window.storeValue = function (name, value) {
+        var expiry = new Date();
+        expiry.setFullYear(expiry.getFullYear() + 1);
+        document.cookie = name + "=" + value.trim() + "; expires=" + expiry.toUTCString();
+    }
+}
+```
+
+The `getSubscriptionKey()` function attempts to retrieve a previously stored key using `retrieveValue`. If one isn't found, it will prompt the user for their key, and store it using `storeValue`.
+
+```javascript
+
+// Get the stored API subscription key, or prompt if it's not found
 function getSubscriptionKey() {
     var key = retrieveValue(API_KEY_COOKIE);
     while (key.length !== 32) {
@@ -87,18 +106,28 @@ function getSubscriptionKey() {
 }
 ```
 
-The HTML `<form>` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
+        The HTML `<form>` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
+
+        ```html
+        <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+            bingSearchOptions(this), getSubscriptionKey())">
+        ```
+
+## Send search requests
+
+This application uses an HTML `<form>` to initially send user search requests, using the `onsubmit` attribute to call `newBingImageSearch()`. 
 
 ```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
-    bingSearchOptions(this), getSubscriptionKey())">
+<form name="bing" onsubmit="return newBingImageSearch(this)">
 ```
 
-## Selecting search options
+By default, the `onsubmit` handler returns `false`, keeping the form from being submitted.
+
+## Select search options
 
 ![[Bing Image Search form]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-The HTML form includes the following controls:
+The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) to narrow filter search results. The HTML form in this application uses and displays the following parameter options:
 
 | | |
 |-|-|
@@ -113,13 +142,10 @@ The HTML form includes the following controls:
 |`nextoffset`|Hidden field. Upon receiving a search result, this field is set to the value of the `nextOffset` in the response. Using this field avoids overlapping results on successive pages.|
 |`stack`|Hidden field. A JSON-encoded list of the offsets of preceding pages of search results, for navigating back to previous pages.|
 
-> [!NOTE]
-> Bing Image Search offers many more query parameters. We're using only a few of them here.
-
-Our JavaScript function `bingSearchOptions()` converts these fields to a partial query string in the format required by the Bing Search API.
+The `bingSearchOptions()` function formats these options into a partial query string, which can be used in the app's API requests.  
 
 ```javascript
-// build query options from the HTML form
+// Build query options from the HTML form
 function bingSearchOptions(form) {
 
     var options = [];
@@ -141,11 +167,9 @@ function bingSearchOptions(form) {
 }
 ```
 
-For example, the SafeSearch feature can be `strict`, `moderate`, or `off`, with `moderate` being the default. But our form uses a checkbox, which has only two states. The JavaScript code converts this setting to either `strict` or `off` (we don't use `moderate`).
-
 ## Performing the request
 
-Given the query, the options string, and the API key, the `BingImageSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Image Search endpoint.
+Using the search query, options string, and API key, the `BingImageSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Image Search endpoint.
 
 ```javascript
 // perform a search given query, options string, and API key
@@ -195,7 +219,7 @@ function bingImageSearch(query, options, key) {
 }
 ```
 
-Upon successful completion of the HTTP request, JavaScript calls our `load` event handler, the `handleBingResponse()` function, to handle a successful HTTP GET request to the API. 
+Upon successful completion of the HTTP request, JavaScript calls our `load` event handler `handleBingResponse()` to handle a successful HTTP GET request. 
 
 ```javascript
 // handle Bing search request results
@@ -262,19 +286,9 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> A successful HTTP request does *not* necessarily mean that the search itself succeeded. If an error occurs in the search operation, the Bing Image Search API returns a non-200 HTTP status code and includes error information in the JSON response. Additionally, if the request was rate-limited, the API returns an empty response.
+> Successful HTTP requests may contain failed search information. If an error occurs during the search operation, the Bing Image Search API returns a non-200 HTTP status code and error information in the JSON response. Additionally, if the request was rate-limited, the API will return an empty response.
 
-Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
-
-|Stage|Potential error(s)|Handled by|
-|-|-|-|
-|Building JavaScript request object|Invalid URL|`try`/`catch` block|
-|Making the request|Network errors, aborted connections|`error` and `abort` event handlers|
-|Performing the search|Invalid request, invalid JSON, rate limits|tests in `load` event handler|
-
-Errors are handled by calling `renderErrorMessage()` with any details known about the error. If the response passes the full gauntlet of error tests, we call `renderSearchResults()` to display the search results in the page.
-
-## Displaying search results
+## Display the search results
 
 The main function for displaying the search results is `renderSearchResults()`. This function takes the JSON returned by the Bing Image Search service and renders the images and the related searches, if any.
 
