@@ -81,7 +81,7 @@ sections:
     style: unordered
     items:
     - html: <a href="#">JavaScript</a>
-    - html: <a href="#">.NET</a>
+    - html: <a href="#">.NET Standard</a>
     - html: <a href="#">Java</a>
 - title: Samples
   items:
