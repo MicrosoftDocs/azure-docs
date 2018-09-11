@@ -24,7 +24,7 @@ For the Visual Studio extension, you can do this by setting the `MS_VS_AZUREDEVS
 
 In the CLI, you can output more information during command execution by using the `--verbose` switch.
 
-## Debugging issues with multiple instances
+## Debugging services with multiple instances
 
 At this time, Azure Dev Spaces supports debugging only on a single instance (pod). The azds.yaml file contains a setting, replicaCount, that indicates the number of instances that will be run for your service. If you change the replicaCount to configure your app to run multiple instances for a given service, the behavior of the debugger might not be as expected.
 
