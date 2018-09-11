@@ -49,7 +49,6 @@ The following table compares the ERT and RPO for each service tier for the three
 | --- | --- | --- | --- |--- |--- |
 | Point in Time Restore from backup |Any restore point within seven days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
 | Geo-restore from geo-replicated backups |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
-| Restore from SQL long-term retention |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk |ERT < 12 h, RPO < 1 wk|ERT < 12 h, RPO < 1 wk|
 | Auto-failover groups |RTO = 1 h, RPO < 5s |RTO = 1 h, RPO < 5 s |RTO = 1 h, RPO < 5 s |RTO = 1 h, RPO < 5 s|RTO = 1 h, RPO < 5 s|
 
 ## Recover a database to the existing server
