@@ -53,7 +53,7 @@ Events will be logged both on the machine and in Azure AD.
 
 Azure AD Events will include information about the IP address and ClientType where the password reset occurred.
 
-![Example Windows 7 logon screen password reset in the Azure AD Audit log](windows-7-sspr-azure-ad-audit-log.png)
+![Example Windows 7 logon screen password reset in the Azure AD Audit log](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 If additional logging is required a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only.
 
