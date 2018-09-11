@@ -29,6 +29,13 @@ In this tutorial, you will build a sample environment to:
 > - Keep data on-premises to meet privacy or regulatory requirements, but have access to global Azure resources.
 > - Maintain a legacy system while using cloud-scaled app deployment and resources in global Azure.
 
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+
+
 ## Prerequisites
 
 A few components are required to build a hybrid connectivity deployment. Some of these components will take time to prepare, so you'll have to plan accordingly.
