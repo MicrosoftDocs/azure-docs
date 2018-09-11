@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 
 ---
@@ -58,7 +58,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
+To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md)
 
 ### Manage an existing SQL server
 
@@ -128,7 +128,7 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create a single Azure SQL database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## Manage Azure SQL servers, databases, and firewalls using Transact-SQL

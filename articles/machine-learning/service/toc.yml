@@ -9,7 +9,7 @@
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
     href: how-to-migrate.md             
-  - name: Choose a machine learning product
+  - name: Choose an ML product
     href: overview-more-machine-learning.md    
 - name: Quickstarts
   items:
@@ -34,9 +34,7 @@
   - name: ML pipelines
     href: concept-ml-pipelines.md        
   - name: ONNX
-    href: concept-onnx.md   
-  - name: Data preparation
-    href: concept-data-preparation.md    
+    href: concept-onnx.md    
 - name: How-to guides
   items:  
   - name: Manage workspaces
@@ -50,6 +48,7 @@
   - name: Set up training environments	
     href: how-to-set-up-training-targets.md
   - name: Prepare data for modeling
+    href: concept-data-preparation.md   
     items:
     - name: Load data
       href: how-to-load-data.md
@@ -69,11 +68,19 @@
       items:
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
+    - name: Train ML models
+      href: how-to-train-ml-models.md
+      items:
+      - name: Train PyTorch models
+        href: how-to-train-pytorch.md
+      - name: Train TensorFlow models
+        href: how-to-train-tensorflow.md
     - name: Tune hyperparameters
-      href: how-to-tune-hyperparameters.md
+      href: how-to-tune-hyperparameters.md    
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
+      href: how-to-track-experiments.md
   - name: Deploy models in production	
     items:    
     - name: Where to deploy models

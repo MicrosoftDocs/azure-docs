@@ -1,6 +1,6 @@
 ---
-title: ONNX for AI models with Azure Machine Learning service
-description: Learn how to use ONNX and Azure Machine Learning together. 
+title: ONNX and Azure Machine Learning - create and deploy models
+description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,41 +10,40 @@ author: prasanthpul
 ms.date: 09/24/2018
 ---
 
-# ONNX and Azure Machine Learning: Open and Interoperable AI
+# ONNX and Azure Machine Learning: Create and deploy interoperable AI models
 
-The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a community of partners, including Microsoft, who create compatible frameworks and tools. 
-
-Microsoft is committed to open and interoperable AI so that data scientists and developers can:
+The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a community of partners, including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
 
 + Use the framework of their choice to create and train models
 + Deploy models cross-platform with minimal integration work
 
 Microsoft supports ONNX across its products including Azure and Windows to help you achieve these goals.  
 
-## Benefits of ONNX
-
-Interoperability makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
+## Why choose ONNX
+The interoperability you get with ONNX makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
 
 You can export ONNX models from many frameworks, including:
 + PyTorch
 + Chainer
 + Microsoft Cognitive Toolkit (CNTK)
 + MXNet
++ ML.Net
 
-Converters exist for other frameworks such as TensorFlow, Keras, and SciKit-Learn.
+Converters exist for other frameworks such as TensorFlow, Keras, SciKit-Learn, and more.
 
 There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
+ONNX models can be deployed to the cloud using Azure Machine Learning and the ONNX Runtime. They can also be deployed to Windows 10 devices using Windows ML. They can even be deployed to other platforms using converters that are available from the ONNX community. 
+
 [ ![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
 (./media/concept-onnx/onnx.png#lightbox)
-
 
 ## Create ONNX models in Azure
 
 You can create ONNX models in several ways:
 + Train a model in Azure Machine Learning service and convert or export it to ONNX - learn more with this [sample notebook](http://aka.ms/aml-onnx-training-notebook)
 
-+ Get a pre-trained ONNX model from [Azure AI Model Gallery](https://gallery.azure.ai/models)
++ Get a pre-trained ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models)
 
 + Generate a customized ONNX model from [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
 
@@ -52,22 +51,58 @@ You can create ONNX models in several ways:
 
 Once you have an ONNX model, you can deploy it to Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/).
 
-## Convert to ONNX
+### Export/convert your models to ONNX
+
+For **PyTorch** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
+
+For **Microsoft Cognitive Toolkit (CNTK)** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
+
+For **Chainer** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)
+
+For **MXNet** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)
 
 For **TensorFlow** models, you can convert to the ONNX format with the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
 
-For **Keras**, **ScitKit-Learn**, and other models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package if you have a model in one of the following formats:
-* Keras
-* SciKit-Learn
-* xgboost
-* libSVM
-* CoreML
+For **Keras**, **ScitKit-Learn**, **CoreML**, **XGBoost**, and **libSVM** models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package.
 
-## Prepare to deploy
+You can find the latest list of supported frameworks and converters at the [ONNX Tutorials site](https://github.com/onnx/tutorials).
 
-With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud.
+## Deploy ONNX models in Azure
 
-Below is an example for deploying an ONNX model:
+With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud. Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
+
+### ONNX Runtime
+
+The ONNX Runtime is a high performance inference engine for ONNX models. It comes with a Python API and provides hardware acceleration on both CPU and GPU. It currently supports ONNX 1.2 models (ONNX opset version 7 and ONNX-ML opset version 1) and runs on Ubuntu 16.04 Linux.
+
+To install the ONNX Runtime, use:
+`pip install onnxruntime`
+
+To instantiate the ONNX Runtime in your Python script, call:
+```python
+import onnxruntime
+
+session = onnxruntime.InferenceSession("path to model")
+```
+
+The documentation accompanying the model usually tells you the inputs and outputs for using the model. You can also use a visualization tool such as [Netron](https://github.com/lutzroeder/Netron) to view the model. ONNX Runtime also lets you query the model metadata, inputs, and outputs:
+```python
+session.get_modelmeta()
+first_input_name = session.get_inputs()[0].name
+first_output_name = session.get_outputs()[0].name
+```
+
+To inference your model, use `run` and pass in the list of outputs you want returned (leave empty if you want all of them) and a map of the input values. The result is a list of the outputs.
+```python
+results = session.run(["output1", "output2"], {"input1": indata1, "input2": indata2})
+results = session.run([], {"input1": indata1, "input2": indata2})
+```
+
+For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
+
+### Deployment steps
+
+Here is an example for deploying an ONNX model:
 
 1. Initialize your Azure Machine Learning Workspace.
 
@@ -111,12 +146,12 @@ Below is an example for deploying an ONNX model:
    image.wait_for_creation(show_output = True)
    ```
 
-   The file `score.py` contains the scoring logic and needs to be included in the image. This file is used to run the model in the image. An example file for an ONNX model is shown below:
+   The file `score.py` contains the scoring logic and needs to be included in the image. This file is used to run the model in the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-scoring-script) for instructions on how to create a scoring script. An example file for an ONNX model is shown below:
 
    ```python
+   import onnxruntime
    import json
    import numpy as np
-   import onnxruntime
    import sys
    from azureml.core.model import Model
 
@@ -124,7 +159,6 @@ Below is an example for deploying an ONNX model:
        global model_path
        model_path = Model.get_model_path(model_name = 'MyONNXmodel')
 
-   # note you can pass in multiple rows for scoring
    def run(raw_data):
        try:
            data = json.loads(raw_data)['data']
@@ -139,16 +173,26 @@ Below is an example for deploying an ONNX model:
            return json.dumps({"error": result})
    ```
 
-## Deploy your web service
+   The file `myenv.yml` describes the dependencies needed for the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) for instructions on how to create an environment file. An example file for an ONNX model is shown below:
 
-You can deploy your ONNX model with Azure Machine Learning to:
-* Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
+   ```
+   name: myenv
+   channels:
+     - defaults
+   dependencies:
+     - pip:
+       - onnxruntime
+       # Required packages for AzureML
+       - --extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+       - azureml-core
+   ```
 
-* Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
+4. Deploy your ONNX model with Azure Machine Learning to:
+   + Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
 
-Once deployed, your ONNX model is hosted in the cloud and ready to be called!
+   + Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
 
-Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
+
 
 ## Next steps
 

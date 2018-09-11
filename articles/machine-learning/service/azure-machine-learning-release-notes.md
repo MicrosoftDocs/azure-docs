@@ -73,7 +73,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 
 
 ### Experimentation
-- Azure Machine Learning Workbench now supports running your scripts natively on your own python or pyspark environment. For this capability, user creates and manages their own environment on the remote VM and use Azure Machine Learning Workbench to execute their scripts on that target. Please see [Configuring Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md) 
+- Azure Machine Learning Workbench now supports running your scripts natively on your own python or pyspark environment. For this capability, user creates and manages their own environment on the remote VM and use Azure Machine Learning Workbench to run their scripts on that target. Please see [Configuring Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md) 
 
 ### Model Management
 - Support for Customizing the Deployed Containers: enables customizing the container image by allowing installation of external libraries using apt-get, etc. It is no longer limited to pip-installable libraries. See the [documentation](../desktop-workbench/model-management-custom-container.md) for more info.
