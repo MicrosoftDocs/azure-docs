@@ -28,21 +28,21 @@ Here is a sample of common commands:
 
 + Create an Azure Machine Learning Workspace, the top level resource for machine learning.
 
-    ```AzureCLI
+    ```azurecli
     ## Create a workspace
     az ml workspace create -n myworkspace -g myresourcegroup
     ```
 
-+ Submit an experiment against the Azure Machine Learning service on the compute target of your choice
++ Submit an experiment against the Azure Machine Learning service on the compute target of your choice.
 
-    ```AzureCLI
+    ```azurecli
     ## Run your experiment
     az ml experiment submit
     ```
 
 + Prepare for deployment by registering a model produced locally or in a training run. Create an image to contain your machine learning model and dependencies. Currently the CLI only supports creating WebApiContainer images. Supported deployment targets include ACI and AKS.
 
-    ```AzureCLI
+    ```azurecli
     ## Prepare to deploy your model as a web service
     
     ## - Register a model 

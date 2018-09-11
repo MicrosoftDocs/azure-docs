@@ -101,7 +101,7 @@ exp = Experiment(workspace_object = ws, name = experiment_name)
 
 ### Create remote compute target
 
-Azure Azure ML Managed Compute is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Managed Compute cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
+Azure Batch AI is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Batch AI cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
 
  **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
 
@@ -342,11 +342,11 @@ An estimator object is used to submit the run.  Create your estimator by running
 
 * The name of the estimator object, `est`
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution. 
-* The compute target.  In this case you will use the Managed Compute cluster you created
+* The compute target.  In this case you will use the Batch AI cluster you created
 * The training script name, train.py
 * The `data-folder` parameter used by the training script to access the data
 * Any Python packages needed for training
-In this tutorial, this target is the Managed Compute cluster. All files in the project directory are uploaded into the cluster nodes for execution. 
+In this tutorial, this target is the Batch AI cluster. All files in the project directory are uploaded into the cluster nodes for execution. 
 
 ```python
 from azureml.train.estimator import Estimator
