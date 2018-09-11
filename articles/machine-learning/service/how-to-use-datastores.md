@@ -104,7 +104,7 @@ ds.download(target_path='your target path',
 ```
 `target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
-## Use datastore for training
+## Access datastores for training
 You can access a datastore during a training run (e.g. for training or validation data) on a remote compute target via the Python SDK. 
 
 First, you need to create a `DataReference` object from your datastore and pass it to an [Estimator]() that submits your training job to the compute target. A `DataReference` represents a particular path in a datastore. This path could be the root `/`, a directory within the datastore, or a specific file in the datastore.
