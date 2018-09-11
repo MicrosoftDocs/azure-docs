@@ -1,31 +1,44 @@
 ---
-title: Add a custom domain to Azure AD | Microsoft Docs
-description: Explains how to add a custom domain in Azure Active Directory.
+title: How to add your custom domain to Azure Active Directory | Microsoft Docs
+description: Learn how to add a custom domain using the Azure Active Directory portal
 services: active-directory
 author: eross-msft
 manager: mtillman
+
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 11/14/2017
+ms.date: 09/10/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ---
 
-# Quickstart: Add a custom domain name to Azure Active Directory
+# How to: Add your custom domain name using the Azure Active Directory portal
+Every Azure AD tenant comes with an initial domain name, *domainname*.onmicrosoft.com. You can't change or delete the initial domain name, but you can add your organization's names to the list. Adding custom domain names helps you to create user names that are familiar to your users, such as _alain@contoso.com_, instead of 'alice@*domain name*.onmicrosoft.com'.
 
-Every Azure AD directory comes with an initial domain name in the form of *domainname*.onmicrosoft.com. The initial domain name cannot be changed or deleted, but you can add your corporate domain name to Azure AD as well. For example, your organization probably has other domain names used to do business and users who sign in using your corporate domain name. Adding custom domain names to Azure AD allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ instead of 'alice@*domain name*.onmicrosoft.com'. The process is simple:
+## To add a custom domain name
+1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-1. Add the custom domain name to your directory
-2. Add a DNS entry for the domain name at the domain name registrar
-3. Verify the custom domain name in Azure AD
+2. Select **Custom domain names**, and then select **Add custom domain**.
 
-## Add the custom domain name to your directory
-1. Sign in to the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that's a global admin for the directory.
-2. On the left, select **Custom domain names**.
-3. Select **Add custom domain**.
+3. Type your new corporate domain name into the **Custom domain name** box. For example, _Contoso.com_.
+
+    >[!Important]
+    >Make sure you include .com, .net, or any other top-level extension for this to work properly.
+
+4. Select **Add Domain**.
+
+    Image
+
+    The new domain name is created and a new blade appears with settings. In this case the blade is called, Contoso.com.
+
+    Image
+
+5. 
+
+
    
    ![Select the Add command](./media/add-custom-domain/add-custom-domain.png)
 5. On **Custom domain names**, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add Domain**. Be sure to include the .com, .net, or other top-level extension.
