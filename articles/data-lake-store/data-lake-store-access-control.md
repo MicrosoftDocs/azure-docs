@@ -89,34 +89,11 @@ Following are some common scenarios to help you understand which permissions are
 | List /Seattle          |   --X   |   R-X   |  ---     | ---          |
 | List /Seattle/Portland |   --X   |   --X   |  R-X     | ---          |
 
-### Permissions needed to read a file
-
-* For the file to be read, the caller needs **Read** permissions.
-* For all the folders in the folder structure that contain the file, the caller needs **Execute** permissions.
-
-### Permissions needed to append to a file
-
-* For the file to be appended to, the caller needs **Write** permissions.
-* For all the folders that contain the file, the caller needs **Execute** permissions.
-
-### Permissions needed to delete a file
-
-* For the parent folder, the caller needs **Write + Execute** permissions.
-* For all the other folders in the file’s path, the caller needs **Execute** permissions.
-
 
 > [!NOTE]
 > Write permissions on the file are not required to delete it as long as the previous two conditions are true.
 >
 >
-
-### Permissions needed to enumerate a folder
-
-
-* For the folder to enumerate, the caller needs **Read + Execute** permissions.
-* For all the ancestor folders, the caller needs **Execute** permissions.
-
-
 
 ## The super-user
 
