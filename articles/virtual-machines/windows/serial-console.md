@@ -191,7 +191,6 @@ As we are still in the preview stages for serial console access, we are working 
 
 Issue                             |   Mitigation 
 :---------------------------------|:--------------------------------------------|
-There is no option with virtual machine scale set instance serial console | At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causers Windows to fail to properly connect to the serial port.
 Only health information is shown when connecting to a Windows VM| This will show up if the Special Administrative Console has not been enabled for your Windows image. See [Access Serial Console for Windows](#access-serial-console-for-windows) for instructions on how to manually enable SAC on your Windows VM. More details can be found at [Windows Health Signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
@@ -204,9 +203,26 @@ A 'Forbidden' response was encountered when accessing this VM's boot diagnostic 
 
 A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
 
-**Q. I am not able to access the serial console, where can I file a support case?**
+**Q. Does serial console support copy/paste?**
 
-A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
+A. Yes it does. Use Ctrl + Shift + C and Ctrl + Shift + V to copy and paste into the terminal.
+
+**Q. Who can enable or disable serial console for my subscription?**
+
+A. In order to enable or disable serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but are not limited to, administrator or owner roles. Custom roles may also have write permissions.
+
+**Q. Who can access serial console for my VM?**
+
+A. You must have contributor level access or higher to a VM in order to access the VM's serial console. 
+
+**Q. My serial console is not showing anything, what do I do?**
+
+A. Your image is likely misconfigured for serial console access. See 
+[Enable Serial Console in custom or older images](#Enable-Serial-Console-in-custom-or-older-images) for details on configuring your image to enable serial console.
+
+**Q. Is serial console available for Virtual Machine Scale Sets?**
+
+A. At this time, access to the serial console for virtual machine scale set instances is not supported.
 
 ## Next steps
 * For an in-depth guide to CMD and PowerShell commands you can use in the Windows SAC, click [here](serial-console-cmd-ps-commands.md).
