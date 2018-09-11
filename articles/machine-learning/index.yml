@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Documentation
+title: Azure Machine Learning Documentation (Preview) – Tutorials, API reference | Microsoft Docs
 metadata:
   title: Azure Machine Learning Documentation - Tutorials, API Reference
-  description: Documentation, videos, and example models for Machine Learning, a cloud service for data scientists and developers using predictive analytics in applications.
+  description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
   manager: cgronlund
@@ -15,7 +15,7 @@ metadata:
   ms.author: jmartens
 
 abstract:
-  description: Learn how to use Azure Machine Learning and Machine Learning Studio, with their fully managed services for building, deploying, and managing machine learning and AI models in the cloud. 
+  description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how. 
 
 sections:
 
