@@ -12,7 +12,7 @@ manager: timlt
 ---
 # How to find an address using the Azure Maps search service
 
-The Maps search service is a RESTful set of APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
+The Maps search service is a set of RESTful APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 ## Using fuzzy search
 
-The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) which handles inputs of any combination of address or POI tokens. This search API is a canonical 'single-line search' and is useful when you do not know what your user inputs are when performing a search query. The fuzzy search API is a combination of POI search and geocoding. The API can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or it can be executed more generally without any geo biasing anchor point.
+The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) whose core functionality combines POI search and geocoding. This search API is a canonical 'single-line search' and is useful when you do not know what your user inputs are for a search query. For example, the API can handle inputs of any address or POI token combination. It can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or it can be executed more generally without any geo biasing anchor point.
 
 Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce unusual results. This default can be overridden as needed per request by passing in the query parameter `maxFuzzyLevel=2` or `3`.
 
