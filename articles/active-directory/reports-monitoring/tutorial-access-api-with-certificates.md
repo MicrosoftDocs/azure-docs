@@ -68,17 +68,17 @@ Your session should look similar to this screen:
 
 5. Open the application manifest in the inline manifest editor and replace the *keyCredentials* property with your new certificate information using the following schema. 
 
-        ```
-        "keyCredentials": [
-            {
-                "customKeyIdentifier": "$base64Thumbprint", //base64 encoding of the certificate hash
-                "keyId": "$keyid", //GUID to identify the key in the manifest
-                "type": "AsymmetricX509Cert",
-                "usage": "Verify",
-                "value":  "$base64Value" //base64 encoding of the certificate raw data
-            }
-        ]
-        ```
+   ```
+   "keyCredentials": [
+        {
+            "customKeyIdentifier": "$base64Thumbprint", //base64 encoding of the certificate hash
+            "keyId": "$keyid", //GUID to identify the key in the manifest
+            "type": "AsymmetricX509Cert",
+            "usage": "Verify",
+            "value":  "$base64Value" //base64 encoding of the certificate raw data
+        }
+    ]
+   ```
 
 6. Save the manifest. 
   
