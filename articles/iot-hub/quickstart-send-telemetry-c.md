@@ -38,7 +38,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 You can use the SDK by installing the packages and libraries for the following environments:
 
-* **Linux**: apt-get packages are available for Ubuntu 14.04, 15.04, 15.10, 16.04 using the following CPU architectures amd64, arm64, armhf and i386. For more information, see [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
+* **Linux**: apt-get packages are available for Ubuntu 16.04 and 18.04 using the following CPU architectures amd64, arm64, armhf and i386. For more information, see [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
 
 * **mbed**: For developers creating device applications on the mbed platform, we have published a library and samples that will get you started in minutes witH Azure IoT Hub. For more information, see [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 
