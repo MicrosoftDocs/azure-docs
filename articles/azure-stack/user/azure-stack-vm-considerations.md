@@ -3,7 +3,7 @@ title: Differences and considerations for virtual machines in Azure Stack | Micr
 description: Learn about differences and considerations when working with virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: mabrigg
 
 ---
 
@@ -33,7 +33,7 @@ Azure Stack virtual machines provide on-demand, scalable computing resources. Be
 | Virtual machine quotas | [Quota limits](../../azure-subscription-service-limits.md#service-specific-limits) are set by Microsoft | The Azure Stack cloud administrator must assign quotas before they offer virtual machines to their users. |
 | Virtual machine extensions |Azure supports a wide variety of virtual machine extensions. To learn about the available extensions, refer to the [virtual machine extensions and features](../../virtual-machines/windows/extensions-features.md) article.| Azure Stack supports a subset of extensions that are available in Azure and each of the extension have specific versions. The Azure Stack cloud administrator can choose which extensions to be made available to for their users. To view the list of supported extensions, refer to the [virtual machine extensions](#virtual-machine-extensions) section of this article. |
 | Virtual machine network | Public IP addresses assigned to tenant virtual machine are accessible over the Internet.<br><br><br>Azure Virtual Machines has a fixed DNS name | Public IP addresses assigned to a tenant virtual machine are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) or [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) to connect to a virtual machine that is created in Azure Stack.<br><br>Virtual machines created within a specific Azure Stack instance have a DNS name based on the value that is configured by the cloud administrator. |
-| Virtual machine storage | Supports [managed disks.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks are not yet supported in Azure Stack. |
+| Virtual machine storage | Supports [managed disks.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks are supported in Azure Stack with version 1808 and later. |
 | API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#api-versions) section of this article. |
 |Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Multiple fault domains (2 or 3 per region)<br>Multiple update domains (up to 20)<br>No managed disk support|
 |Virtual machine scale sets|Auto-scale supported|Auto-scale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.

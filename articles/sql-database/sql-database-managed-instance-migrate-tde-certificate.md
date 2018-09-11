@@ -136,4 +136,4 @@ The certificate is now available to the specified Managed Instance and backup of
 
 In this article, you learned how to migrate certificate protecting encryption key of database with Transparent Data Encryption, from the on-premises or IaaS SQL Server to Azure SQL Managed Instance.
 
-See [Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) to learn how to restore a database backup to an Azure SQL Database Managed Instance.
+See [Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started-restore.md) to learn how to restore a database backup to an Azure SQL Database Managed Instance.

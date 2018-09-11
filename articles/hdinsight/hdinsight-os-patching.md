@@ -55,7 +55,7 @@ When using this script requires the following information:
 
 ## Next steps
 
-For specific steps on using the script action, see the following sections in the [Customize Linuz-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
+For specific steps on using the script action, see the following sections in the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

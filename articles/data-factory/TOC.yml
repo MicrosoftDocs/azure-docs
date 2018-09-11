@@ -180,6 +180,8 @@
       href: connector-ftp.md
     - name: GE Historian
       href: connector-odbc.md#ge-historian-source
+    - name: Google AdWords
+      href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
     - name: Greenplum
@@ -224,6 +226,8 @@
       href: connector-oracle-eloqua.md
     - name: Oracle Responsys
       href: connector-oracle-responsys.md
+    - name: Oracle Service Cloud
+      href: connector-oracle-service-cloud.md
     - name: Paypal
       href: connector-paypal.md
     - name: Phoenix
@@ -369,8 +373,6 @@
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
-    - name: Monitor with OMS
-      href: data-factory-monitor-oms.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime

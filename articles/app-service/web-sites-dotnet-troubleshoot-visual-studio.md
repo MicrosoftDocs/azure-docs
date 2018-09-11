@@ -247,7 +247,7 @@ If your function [wrote logs](https://github.com/Azure/azure-webjobs-sdk/wiki), 
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* If you find that the debugger doesn't step into the code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Restrict stepping to Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* If you find that the debugger doesn't step into the code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * A timer starts on the server when you enable the remote debugging feature, and after 48 hours the feature is automatically turned off. This 48-hour limit is done for security and performance reasons. You can easily turn the feature back on as many times as you like. We recommend leaving it disabled when you are not actively debugging.
 * You can manually attach the debugger to any process, not only the web app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
@@ -619,7 +619,7 @@ You've seen how Visual Studio makes it easy to view logs created by an Azure web
 ### Azure web app troubleshooting
 For more information about troubleshooting web apps in Azure App Service, see the following resources:
 
-* [How to monitor web apps](/manage/services/web-sites/how-to-monitor-websites/)
+* [How to monitor web apps](web-sites-monitor.md)
 * [Investigating Memory Leaks in Azure Web Apps with Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blog post about Visual Studio features for analyzing managed memory issues.
 * [Azure web apps online tools you should know about](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
 
@@ -670,7 +670,7 @@ catch (Exception ex)
 
 * [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   How to use the command line to do what this tutorial shows how to do in Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is a tool for debugging ASP.NET applications.
-* [Using Web Apps Logging and Diagnostics - with David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) and [Streaming Logs from Web Apps - with David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Using Web Apps Logging and Diagnostics - with David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) and [Streaming Logs from Web Apps - with David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Videos by Scott Hanselman and David Ebbo.
 
 For error logging, an alternative to writing your own tracing code is to use an open-source logging framework such as [ELMAH](http://nuget.org/packages/elmah/). For more information, see [Scott Hanselman's blog posts about ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).

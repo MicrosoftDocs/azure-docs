@@ -10,7 +10,7 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 # Customer intent: As a web developer, I want to access a secret from Azure Key Vault so that it can be used in a web application.
 ---
@@ -38,8 +38,7 @@ To complete this tutorial, you must have the following items:
 
 Complete the steps in [Get Started with Azure Key Vault](key-vault-get-started.md) to get the URI to a secret, Client ID, Client Secret, and register the application. The web application will access the vault and needs to be registered in Azure Active Directory. It also needs to have access rights to Key Vault. If not, go back to Register an Application in the Get Started tutorial and repeat the steps listed. For more information about creating Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
 
-This sample depends on manually provisioning Azure Active Directory Identities. But you should use [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) instead. MSIs can automatically provision Azure AD Identities. For more information, see the sample on [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and the related [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). You can also look at the Key Vault specific [MSI tutorial](tutorial-web-application-keyvault.md)
-
+This sample depends on manually provisioning Azure Active Directory identities. But you should use [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) instead, which automatically provisions Azure AD identities. For more information, see the [sample on GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and the related [App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). You can also look at the Key Vault specific [Configure an Azure web application to read a secret from Key Vault tutorial](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>Add NuGet packages
 

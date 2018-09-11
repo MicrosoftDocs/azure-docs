@@ -5,7 +5,7 @@ services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018

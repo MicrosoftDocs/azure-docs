@@ -3,7 +3,7 @@ title: Using API version profiles with Python in Azure Stack | Microsoft Docs
 description: Learn about using API version profiles with Python in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,8 +11,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
 ---
@@ -27,8 +27,8 @@ The Python SDK supports API version profiles to target different cloud platforms
 
 1. **latest**  
     The profile targets the most recent API versions for all service providers in the Azure Platform.
-2.	**2017-03-09-profile**  
-    **2017-03-09-profile**  
+2.	**2018-03-01-hybrid**  
+    **2018-03-01-hybrid**  
     The profile targets the API versions of the resource providers supported by Azure Stack.
 
     For more information about API profiles and Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
