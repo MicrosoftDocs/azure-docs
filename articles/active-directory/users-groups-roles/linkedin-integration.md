@@ -23,7 +23,7 @@ In this article, you can learn how to enable or disable LinkedIn account connect
 > The LinkedIn account connections setting is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, it is enabled by default. 
 > 
 > Exceptions:
-> * The setting is not available for customers using Microsoft sovereign clouds. Current sovereign clouds include Microsoft Cloud for US Government, Microsoft Cloud Germany, and Azure and Office 365 operated by 21Vianet in China.
+> * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Office 365 operated by 21Vianet in China.
 > * The setting is off by default for tenants provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
 > * The setting is off by default for tenants provisioned in France.
 
