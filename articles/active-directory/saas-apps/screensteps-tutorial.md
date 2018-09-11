@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with ScreenSteps | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ScreenSteps.
 services: active-directory
@@ -107,10 +107,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ScreenSteps Domain and URLs single sign-on information](./media/screensteps-tutorial/tutorial_screensteps_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantname>.ScreenSteps.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantname>.screensteps.com/saml/consume/:id`
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL, which is explained later in this tutorial. 
+    > [!NOTE] 
+    > This value is not real. Update this value with the actual Sign-On URL, which is explained later in this tutorial.
+
+1. Check the **Show advanced URL settings** checkbox and enter the **Reply URL**.
+
+    ![Reply URL](./media/screensteps-tutorial/tutorial_screensteps_replyurl.png) 
 
 1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
