@@ -10,7 +10,7 @@ ms.date: 9/10/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 ---
-# Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines
+# Use PowerShell to back up and restore virtual machines
 
 This article shows how to use Azure PowerShell cmdlets to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager resource used to protect data and assets in Azure Backup and Azure Site Recovery services. 
 
@@ -43,27 +43,7 @@ To begin:
     ```    
     The aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. The following is an example of what you'll see. It is not the complete list of cmdlets.
 
-    CommandType     Name                                               Version    Source
-    -----------     ----                                               -------    ------
-    Alias           Get-AzureRmRecoveryServicesAsrNotificationSetting  0.2.2      AzureRM.RecoveryServices.SiteRecovery
-    Alias           Get-AzureRmrecoveryServicesBackupProperties        4.1.0      AzureRM.RecoveryServices
-    Cmdlet          Backup-AzureRmRecoveryServicesBackupItem           4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Disable-AzureRmRecoveryServicesBackupProtection    4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Disable-AzureRmRecoveryServicesBackupRPMountScript 4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Edit-AzureRmRecoveryServiceAsrRecoveryPlan         0.2.2      AzureRM.RecoveryServices.SiteRecovery
-    Cmdlet          Enable-AzureRmRecoveryServicesBackupProtection     4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupContainer         4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupItem              4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupJob               4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupJobDetails        4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupManagementServer  4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupProperty          4.1.0      AzureRM.RecoveryServices
-    Cmdlet          Get-AzureRmRecoveryServicesBackupProtectionPolicy  4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRMRecoveryServicesBackupRecoveryPoint     4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupRetentionPolic... 4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesBackupSchedulePolicy... 4.1.0      AzureRM.RecoveryServices.Backup
-    Cmdlet          Get-AzureRmRecoveryServicesVault                   4.1.0      AzureRM.RecoveryServices
-    Cmdlet          Get-AzureRmRecoveryServicesVaultSettingsFile       4.1.0      AzureRM.RecoveryServices
+    ![list of Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
 3. Sign in to your Azure account using **Connect-AzureRmAccount**. This cmdlet brings up a web page prompts you for your account credentials:
 
@@ -96,7 +76,7 @@ The following tasks can be automated with PowerShell:
 * [Monitor a backup job](backup-azure-vms-automation.md#monitoring-a-backup-job)
 * [Restore an Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)
 
-## Create a recovery services vault
+## Create a Recovery Services vault
 
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
@@ -123,12 +103,17 @@ The following steps lead you through creating a Recovery Services vault. A Recov
    >
 
 ## View the vaults in a subscription
-Use **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)** to view the list of all vaults in the current subscription. You can use this command to check that a new vault was created, or to see the available vaults in the subscription.
 
-Run the command, Get-AzureRmRecoveryServicesVault, to view all vaults in the subscription. The following example shows the information displayed for each vault.
+To view all vaults in the subscription, use **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)**:
 
 ```powershell
 Get-AzureRmRecoveryServicesVault
+```
+. You can use this command to check that a new vault was created, or to see the available vaults in the subscription.
+
+The output is similar to this, notice the associated ResourceGroupName and Location are provided.
+
+```
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -140,9 +125,11 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## Back up Azure VMs
+
 Use a Recovery Services vault to protect your virtual machines. Before you apply the protection, set the vault context (the type of data protected in the vault), and verify the protection policy. The protection policy is the schedule when the backup jobs run, and how long each backup snapshot is retained.
 
 ### Set vault context
+
 Before enabling protection on a VM, use **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. The following example sets the vault context for the vault, *testvault*.
 
 ```powershell
@@ -150,12 +137,18 @@ Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServices
 ```
 
 ### Create a protection policy
+
 When you create a Recovery Services vault, it comes with default protection and retention policies. The default protection policy triggers a backup job each day at a specified time. The default retention policy retains the daily recovery point for 30 days. You can use the default policy to quickly protect your VM and edit the policy later with different details.
 
-Use **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** to view the protection policies in the vault. You can use this cmdlet to get a specific policy, or to view the policies associated with a workload type. The following example gets policies for workload type, AzureVM.
+Use **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** to view the protection policies available in the vault. You can use this cmdlet to get a specific policy, or to view the policies associated with a workload type. The following example gets policies for workload type, AzureVM.
 
 ```powershell
 Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+```
+
+The output from this command looks like this:
+
+```
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
 DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 PM
@@ -177,30 +170,32 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ```
 
-
 ### Enable protection
-Once you have defined the backup protection policy, you still must enable the policy for an item. Use **[Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** to enable protection. Enabling protection requires two objects - the item and the policy. Once the policy has been associated with the vault, the backup workflow is triggered at the time defined in the policy schedule.
 
-The following example enables protection for the item, V2VM, using the policy, NewPolicy. To enable the protection on non-encrypted Resource Manager VMs
+Once you've defined the protection policy, you still must enable the policy for an item. Use **[Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** to enable protection. Enabling protection requires two objects - the item and the policy. Once the policy has been associated with the vault, the backup workflow is triggered at the time defined in the policy schedule.
+
+The following examples enable protection for the item, V2VM, using the policy, NewPolicy. The examples differ based on whether the VM is encrypted, and what type of encryption. 
+
+To enable the protection on **non-encrypted Resource Manager VMs**:
 
 ```powershell
-$pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-To enable the protection on encrypted VMs (encrypted using BEK and KEK), you need to give the Azure Backup service permission to read keys and secrets from key vault.
+To enable the protection on **encrypted VMs (encrypted using BEK and KEK)**, you must give the Azure Backup service permission to read keys and secrets from the key vault.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
-$pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-To enable the protection on encrypted VMs (encrypted using BEK only), you need to give the Azure Backup service permission to read secrets from key vault.
+To enable the protection on **encrypted VMs (encrypted using BEK only)**, you must give the Azure Backup service permission to read secrets from the key vault.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
-$pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
@@ -209,14 +204,15 @@ Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -Resour
 >
 >
 
-For classic VMs
+To enable protection on a classic VM:
 
 ```powershell
-$pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V1VM" -ServiceName "ServiceName1"
 ```
 
 ### Modify a protection policy
+
 To modify the protection policy, use [Set-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy) to modify the SchedulePolicy or RetentionPolicy objects.
 
 The following example changes the recovery point retention to 365 days.
@@ -224,21 +220,26 @@ The following example changes the recovery point retention to 365 days.
 ```powershell
 $retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 $retPol.DailySchedule.DurationCountInDays = 365
-$pol= Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
 
 ## Trigger a backup
 
-You can use **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** to trigger a backup job. If it is the initial backup, it is a full backup. Subsequent backups take an incremental copy. Be sure to use **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** to set the vault context before triggering the backup job. The following example assumes vault context was set.
+Use **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** to trigger a backup job. If it's the initial backup, it is a full backup. Subsequent backups take an incremental copy. Be sure to use **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** to set the vault context before triggering the backup job. The following example assumes the vault context was already set.
 
 ```powershell
 $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
 $item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
 $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
+```
+
+The output looks similar to this:
+
+```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
-V2VM              Backup               InProgress            4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+V2VM              Backup              InProgress          4/23/2016                  5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
 > [!NOTE]
@@ -253,9 +254,14 @@ You can monitor long-running operations, such as backup jobs, without using the 
 ```powershell
 $joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
 $joblist[0]
+```
+
+The output looks similar to this:
+
+```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
-V2VM             Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
 Instead of polling these jobs for completion - which is unnecessary additional code - use the **[Wait-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** cmdlet. This cmdlet pauses the execution until either the job completes or the specified timeout value is reached.
@@ -266,25 +272,25 @@ Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 
 ## Restore an Azure VM
 
-There is a key difference between the restoring a VM using the Azure portal and restoring a VM using PowerShell. With PowerShell, the restore operation is complete once the disks and configuration information from the recovery point are created. If you want to restore or recover few files from an Azure VM backup, refer to the [file recovery section](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+There is an important difference between the restoring a VM using the Azure portal and restoring a VM using PowerShell. With PowerShell, the restore operation is complete once the disks and configuration information from the recovery point are created. The restore operation doesn't create the virtual machine. To create a virtual machine from disk, see the section, [Create the VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). If you don't want to restore the entire VM, but want to restore or recover a few files from an Azure VM backup, refer to the [file recovery section](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup).
 
-> [!NOTE]
-> The restore operation does not create a virtual machine.
+> [!Tip]
+> The restore operation does not create the virtual machine.
 >
 >
-
-To create a virtual machine from disk, see the section, [Create the VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). The basic steps to restore an Azure VM are:
-
-* Select the VM
-* Choose a recovery point
-* Restore the disks
-* Create the VM from stored disks
 
 The following graphic shows the object hierarchy from the RecoveryServicesVault down to the BackupRecoveryPoint.
 
 ![Recovery Services object hierarchy showing BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-To restore backup data, identify the backed-up item and the recovery point that holds the point-in-time data. Use the **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** cmdlet to restore data from the vault to the customer's account.
+To restore backup data, identify the backed-up item and the recovery point that holds the point-in-time data. Use **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** to restore data from the vault to your account.
+
+The basic steps to restore an Azure VM are:
+
+* Select the VM.
+* Choose a recovery point.
+* Restore the disks.
+* Create the VM from stored disks.
 
 ### Select the VM
 
@@ -306,6 +312,11 @@ $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
 $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 $rp[0]
+```
+
+The output looks similar to this:
+
+```
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -319,17 +330,19 @@ ContainerType               : AzureVM
 BackupManagementType        : AzureVM
 ```
 
-
-
 ### Restore the disks
 
-Use the **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** cmdlet to restore a backup item's data and configuration to a recovery point. Once you have identified a recovery point, use it as the value for the **-RecoveryPoint** parameter. In the previous sample code, **$rp[0]** was the recovery point to use. In the following sample code, **$rp[0]** is the recovery point to use for restoring the disk.
+Use the **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** cmdlet to restore a backup item's data and configuration to a recovery point. Once you identify a recovery point, use it as the value for the **-RecoveryPoint** parameter. In the above sample, **$rp[0]** was the recovery point to use. In the following sample code, **$rp[0]** is the recovery point to use for restoring the disk.
 
 To restore the disks and configuration information:
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
+```
+The output looks similar to this:
+
+```
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -352,7 +365,7 @@ Once you restore the disks, go to the next section to create the VM.
 
 ## Create a VM from restored disks
 
-After you have restored the disks, use the following steps to create and configure the virtual machine from disk.
+After you restore the disks, use the following steps to create and configure the virtual machine from disk.
 
 > [!NOTE]
 > To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role does not have this permission, create a custom role with this action. For more information, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md).
@@ -414,7 +427,7 @@ After you have restored the disks, use the following steps to create and configu
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -VolumeType Data
       ```
 
-    * **Non-managed and encrypted VMs (BEK and KEK)** - For non-managed, encrypted VMs (encrypted using BEK and KEK), restore the key and secret to the key vault before attaching the disks. For more information, see the article, [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs.
+   * **Non-managed and encrypted VMs (BEK and KEK)** - For non-managed, encrypted VMs (encrypted using BEK and KEK), restore the key and secret to the key vault before attaching the disks. For more information, see the article, [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -474,7 +487,7 @@ After you have restored the disks, use the following steps to create and configu
        }
       ```
 
-       The Data disks encryption should be manually enabled using the following command.
+       Use the following command to manually enable encryption for the data disks.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
@@ -528,9 +541,9 @@ After you have restored the disks, use the following steps to create and configu
 
 ## Restore files from an Azure VM backup
 
-In addition to restoring disks, you can also restore individual files from an Azure VM backup. The restore files functionality gives access to all files in a recovery point and you can manage them via file explorer as you would do for normal files.
+In addition to restoring disks, you can also restore individual files from an Azure VM backup. The restore files functionality provides access to all files in a recovery point. Manage the files via File Explorer as you would for normal files.
 
-The basic steps to restore a file from Azure VM backup are:
+The basic steps to restore a file from an Azure VM backup are:
 
 * Select the VM
 * Choose a recovery point
@@ -540,23 +553,29 @@ The basic steps to restore a file from Azure VM backup are:
 
 
 ### Select the VM
+
 To get the PowerShell object that identifies the right backup item, start from the container in the vault, and work your way down the object hierarchy. To select the container that represents the VM, use the **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet and pipe that to the **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
 
-```
-PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
+```powershell
+$namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+$backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
 ### Choose a recovery point
+
 Use the **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** cmdlet to list all recovery points for the backup item. Then choose the recovery point to restore. If you are unsure which recovery point to use, it is a good practice to choose the most recent RecoveryPointType = AppConsistent point in the list.
 
 In the following script, the variable, **$rp**, is an array of recovery points for the selected backup item, from the past seven days. The array is sorted in reverse order of time with the latest recovery point at index 0. Use standard PowerShell array indexing to pick the recovery point. In the example, $rp[0] selects the latest recovery point.
 
+```powershell
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+$rp[0]
 ```
-PS C:\> $startDate = (Get-Date).AddDays(-7)
-PS C:\> $endDate = Get-Date
-PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-PS C:\> $rp[0]
+The output looks similar to this:
+
+```
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -575,26 +594,32 @@ BackupManagementType        : AzureVM
 Use the **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)** cmdlet to get the script to mount all the disks of the recovery point.
 
 > [!NOTE]
-> The disks are mounted as iSCSI attached disks to the machine where the script is run. Hence it is near instantaneous and does NOT incur any charge
+> The disks are mounted as iSCSI attached disks to the machine where the script is run. Mounting occurs immediately, and you don't incur any charges.
 >
 >
+
+```powershell
+Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
+The output looks similar to this:
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
-
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
-Run the script on the machine where you want to recover the files. You need to enter the password shown above to execute the script. After the disks are attached, use the Windows file explorer to browse through the new volumes and files. For more information refer to the [file recovery documentation](backup-azure-restore-files-from-vm.md)
+
+Run the script on the machine where you want to recover the files. To execute the script, you must enter the password provided. After the disks are attached, use Windows File Explorer to browse the new volumes and files. For more information, refer to the Backup article, [Recover files from Azure virtual machine backup](backup-azure-restore-files-from-vm.md).
 
 ### Unmount the disks
-After the required files are copied, unmount the disks by using the **[Disable-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** cmdlet. This is highly recommended as it makes sure that access is removed to the files of the recovery point
 
-```
-PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
-```
+After the required files are copied, use **[Disable-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** to unmount the disks. Be sure to unmount the disks so access to the files of the recovery point is removed.
 
+```powershell
+Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
 
 ## Next steps
+
 If you prefer to use PowerShell to engage with your Azure resources, see the PowerShell article, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). If you manage DPM backups, see the article, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
