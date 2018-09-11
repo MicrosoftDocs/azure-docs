@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/13/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
@@ -58,7 +58,9 @@ To watch a tutorial video about adding users, see [Adding Users to Azure Cost Ma
 
 ## Delete a user
 
-When you delete a user, any entities that the user has access to remain intact. You cannot remove yourself as a user.
+When you delete a user, any entities that the user has access to remain intact. Saved *personal* reports are removed when the user is deleted. Saved *public* reports created by the user are not deleted.
+
+You cannot remove yourself as a user.
 
 > [!WARNING]
 > When you delete a user, it can’t be restored.

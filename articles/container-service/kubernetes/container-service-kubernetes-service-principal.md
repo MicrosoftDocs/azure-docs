@@ -16,12 +16,12 @@ ms.custom: mvc
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage
+In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/app-objects-and-service-principals.md) to interact with Azure APIs. The service principal is needed to dynamically manage
 resources such as [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md)
 and the [Layer 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az-acs-create) command to create the Kubernetes cluster and the service principal at the same time.
 
 
 ## Requirements for the service principal
@@ -94,7 +94,7 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
 
 ## Option 2: Generate a service principal when creating the cluster with `az acs create`
 
-If you run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
+If you run the [`az acs create`](/cli/azure/acs#az-acs-create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
 
 As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment.
 
@@ -130,7 +130,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Unless you specify a custom validity window with the `--years` parameter when you create a service principal, its credentials are valid for 1 year from time of creation. When the credential expires, your cluster nodes might enter a **NotReady** state.
 
-To check the expiration date of a service principal, execute the [az ad app show](/cli/azure/ad/app#az_ad_app_show) command with the `--debug` parameter, and look for the `endDate` value of `passwordCredentials` near the bottom of the output:
+To check the expiration date of a service principal, execute the [az ad app show](/cli/azure/ad/app#az-ad-app-show) command with the `--debug` parameter, and look for the `endDate` value of `passwordCredentials` near the bottom of the output:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -144,7 +144,7 @@ Output (shown here truncated):
 ...
 ```
 
-If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) command to update the credentials:
+If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) command to update the credentials:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

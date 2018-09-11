@@ -4,14 +4,11 @@ description: Azure Functions supports multiple versions of the runtime. Learn th
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/24/2018
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 07/29/2018
 ms.author: glenga
 
 ---
@@ -22,7 +19,9 @@ ms.author: glenga
 | Runtime | Status |
 |---------|---------|
 |1.x|Generally Available (GA)|
-|2.x|Preview|
+|2.x|Preview<sup>*</sup>|
+
+<sup>*</sup>To receive important updates on version 2.x, including breaking changes announcements, watch the [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) repository.
 
 > [!NOTE] 
 > This article refers to the cloud service Azure Functions. For information about the product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).

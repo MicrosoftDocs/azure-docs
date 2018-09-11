@@ -1,4 +1,4 @@
----
+﻿---
 title: Linux compute VMs in an HPC Pack cluster | Microsoft Docs
 description: Learn how to create and use an HPC Pack cluster in Azure for Linux high performance computing (HPC) workloads
 services: virtual-machines-linux
@@ -60,24 +60,24 @@ Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deploy
 
 ### Deployment option 1. Use a Resource Manager template
 1. Go to the [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) template in the Azure Marketplace, and click **Deploy**.
-2. In the Azure portal, review the information and then click **Create**.
+1. In the Azure portal, review the information and then click **Create**.
    
     ![Portal creation][portal]
-3. On the **Basics** blade, enter a name for the cluster, which also names the head node VM. You can choose an existing resource group or create a group for the deployment in a location that's available to you. The location affects the availability of certain VM sizes and other Azure services (see [Products available by region](https://azure.microsoft.com/regions/services/)).
-4. On the **Head node settings** blade, for a first deployment, you can generally accept the default settings. 
+1. On the **Basics** blade, enter a name for the cluster, which also names the head node VM. You can choose an existing resource group or create a group for the deployment in a location that's available to you. The location affects the availability of certain VM sizes and other Azure services (see [Products available by region](https://azure.microsoft.com/regions/services/)).
+1. On the **Head node settings** blade, for a first deployment, you can generally accept the default settings. 
    
    > [!NOTE]
    > The **Post-configuration script URL** is an optional setting to specify a publicly available Windows PowerShell script that you want to run on the head node VM after it is running. 
    > 
    > 
-5. On the **Compute node settings** blade, select a naming pattern for the nodes, the number and size of the nodes, and the Linux distribution to deploy.
-6. On the **Infrastructure settings** blade, enter names for the virtual network and Active Directory domain, domain and VM administrator credentials, and a naming pattern for the storage accounts.
+1. On the **Compute node settings** blade, select a naming pattern for the nodes, the number and size of the nodes, and the Linux distribution to deploy.
+1. On the **Infrastructure settings** blade, enter names for the virtual network and Active Directory domain, domain and VM administrator credentials, and a naming pattern for the storage accounts.
    
    > [!NOTE]
    > HPC Pack uses the Active Directory domain to authenticate cluster users. 
    > 
    > 
-7. After the validation tests run and you review the terms of use, click **Purchase**.
+1. After the validation tests run and you review the terms of use, click **Purchase**.
 
 ### Deployment option 2. Use the IaaS deployment script
 Following are additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
@@ -131,12 +131,12 @@ Modify the file as needed for your environment and desired cluster configuration
 **To run the HPC Pack IaaS deployment script**
 
 1. Open Windows PowerShell on the client computer as an administrator.
-2. Change directory to the folder where the script is installed (E:\IaaSClusterScript in this example).
+1. Change directory to the folder where the script is installed (E:\IaaSClusterScript in this example).
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. Run the following command to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml
+1. Run the following command to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -219,7 +219,7 @@ Alternatively, mount a shared folder of the head node on Linux nodes. A share pr
     ![File share permissions][fileshareperms]
    
     ![File sharing][filesharing]
-2. Open a Windows PowerShell window and run the following commands:
+1. Open a Windows PowerShell window and run the following commands:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -248,7 +248,7 @@ The NFS service enables you to share and migrate files between computers running
     ![NFS NTFS permissions][nfsperm]
    
     ![NFS management properties][nfsmanage]
-2. Open a Windows PowerShell window and run the following commands:
+1. Open a Windows PowerShell window and run the following commands:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare

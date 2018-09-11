@@ -73,7 +73,7 @@ You start by creating a Stream Analytics job that includes an input source and a
 
     ![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.2.png "Add an output to your job")
 
-	* For **Output alias**, enter a a unique name for the job output. This is a friendly name used in queries to direct the query output to this Data Lake Store.
+	* For **Output alias**, enter a unique name for the job output. This is a friendly name used in queries to direct the query output to this Data Lake Store.
 	* For **Sink**, select **Data Lake Store**.
 	* You will be prompted to authorize access to Data Lake Store account. Click **Authorize**.
 

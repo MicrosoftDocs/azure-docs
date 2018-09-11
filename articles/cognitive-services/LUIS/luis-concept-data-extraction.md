@@ -1,14 +1,15 @@
 ---
-title: Understand data extraction concepts in LUIS - Azure | Microsoft Docs
+title: Data extraction concepts in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Learn what kind of data can be extracted from Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
 
 # Data extraction

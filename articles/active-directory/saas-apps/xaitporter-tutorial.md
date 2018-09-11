@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with XaitPorter | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and XaitPorter.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding XaitPorter from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding XaitPorter from the gallery
 To configure the integration of XaitPorter into Azure AD, you need to add XaitPorter from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of XaitPorter into Azure AD, you need to add XaitPo
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **XaitPorter**, select **XaitPorter** from result panel then click **Add** button to add the application.
+1. In the search box, type **XaitPorter**, select **XaitPorter** from result panel then click **Add** button to add the application.
 
 	![XaitPorter in the results list](./media/xaitporter-tutorial/tutorial_xaitporter_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In XaitPorter, assign the value of the **user name** in Azure AD as the value of
 To configure and test Azure AD single sign-on with XaitPorter, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a XaitPorter test user](#create-a-xaitporter-test-user)** - to have a counterpart of Britta Simon in XaitPorter that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a XaitPorter test user](#create-a-xaitporter-test-user)** - to have a counterpart of Britta Simon in XaitPorter that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/xaitporter-tutorial/tutorial_xaitporter_samlbase.png)
 
-3. On the **XaitPorter Domain and URLs** section, perform the following steps:
+1. On the **XaitPorter Domain and URLs** section, perform the following steps:
 
 	![XaitPorter Domain and URLs single sign-on information](./media/xaitporter-tutorial/tutorial_xaitporter_url.png)
 
@@ -114,27 +114,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [XaitPorter Client support team](https://www.xait.com/support/) to get these values.
 	 
-4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad. 
+1. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad. 
 
 	![The Certificate download link](./media/xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/xaitporter-tutorial/tutorial_general_400.png)
 
-6. Provide the **IP address** or the **App Federation Metadata Url** to the [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/), so that XaitPorter can ensure that IP address is reachable from your XaitPorter instance configuring whitelist at their side. 
+1. Provide the **IP address** or the **App Federation Metadata Url** to the [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/), so that XaitPorter can ensure that IP address is reachable from your XaitPorter instance configuring whitelist at their side. 
 
-7. In a different web browser window, log in to your XaitPorter company site as an administrator.
+1. In a different web browser window, log in to your XaitPorter company site as an administrator.
 
-8. Click on **Admin**.
+1. Click on **Admin**.
 
 	![Configure Single Sign-On](./media/xaitporter-tutorial/user1.png)
 
-9. Select **Manage Single Sign-On** from the **System Setup** dropdown list.
+1. Select **Manage Single Sign-On** from the **System Setup** dropdown list.
 
 	![Configure Single Sign-On](./media/xaitporter-tutorial/user2.png)
 
-10. In the **MANAGE SINGLE SIGN-ON** section, perform the following steps:
+1. In the **MANAGE SINGLE SIGN-ON** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/xaitporter-tutorial/user3.png)
 
@@ -158,15 +158,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/xaitporter-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/xaitporter-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/xaitporter-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/xaitporter-tutorial/create_aaduser_04.png)
 
@@ -194,23 +194,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **XaitPorter**.
+1. In the applications list, select **XaitPorter**.
 
 	![The XaitPorter link in the Applications list](./media/xaitporter-tutorial/tutorial_xaitporter_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

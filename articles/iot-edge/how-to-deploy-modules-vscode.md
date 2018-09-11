@@ -34,7 +34,7 @@ Here's a basic deployment manifest with one module as an example:
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -43,13 +43,8 @@ Here's a basic deployment manifest with one module as an example:
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -65,7 +60,7 @@ Here's a basic deployment manifest with one module as an example:
                "restartPolicy": "always",
                "settings": {
                  "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+                 "createOptions": "{}"
                }
              }
            },
@@ -100,7 +95,7 @@ Here's a basic deployment manifest with one module as an example:
      }
    }
    ```
-
+   
 ## Sign in to access your IoT hub
 
 You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select the IoT hub that you are working on.
@@ -130,7 +125,7 @@ You deploy modules to your device by applying the deployment manifest that you c
 
 2. Right-click on the device that you want to configure with the deployment manifest. 
 
-3. Select **Create Deployment for IoT Edge Device**. 
+3. Select **Create Deployment for Single Device**. 
 
 4. Navigate to the deployment manifest JSON file that you want to use, and click **Select Edge Deployment Manifest**. 
 

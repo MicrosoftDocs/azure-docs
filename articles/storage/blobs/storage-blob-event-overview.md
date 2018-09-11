@@ -2,12 +2,13 @@
 title: Reacting to Azure Blob storage events | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
-keywords: 
 author: cbrooksmsft
+
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
+ms.component: blobs
 ---
 
 # Reacting to Blob storage events
@@ -16,7 +17,7 @@ Azure Storage events allow applications to react to the creation and deletion of
 
 Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
-Availability for Storage events is tied to Event Grid [availability](../../event-grid/overview.md) and will become available in other regions as Event Grid does. Take a look at [Route Blob storage events to a custom web endpoint - CLI](storage-blob-event-quickstart.md) or [Route Blob storage events to a custom web endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) for a quick example. 
+Take a look at [Route Blob storage events to a custom web endpoint - CLI](storage-blob-event-quickstart.md) or [Route Blob storage events to a custom web endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) for a quick example. 
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

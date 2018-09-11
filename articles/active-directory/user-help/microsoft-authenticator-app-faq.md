@@ -1,118 +1,53 @@
 ---
-title: Help with Microsoft Authenticator app - Azure AD | Microsoft Docs
+title: Help with Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
 description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
-ms.service: multi-factor-authentication
+
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
 ---
 
 # Microsoft Authenticator app FAQ
 
-This article answers common questions about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Additionally, you can review another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
+This article answers common questions about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## Frequently asked questions
-
-### What data does the Authenticator store on my behalf and how can I delete it?
-
-Microsoft Authenticator stores the account information you create when you add an account. When you use Authenticator, a diagnostic log is created for debugging purposes and stores useful data in helping Microsoft diagnose any unforeseen issues. You can access the log data by opening **Help** > **Send Logs** > **View logs**.
-
-You can delete the data by deleting the account tile. Deleting the account tile also deletes all the account information being used by the application including the logs. 
-
-For more information on how Microsoft uses your data, visit: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
-
-### What are the codes in the app for? Why does the number keep counting down?
-
-When you open the Microsoft Authenticator app, you see the accounts you've added and a six- or eight-digit number by each of them. You might see a 30-second timer counting down.
-
-These codes are used when you sign in to your account. After you enter your username and password, you might be asked to enter a verification code. Open the Microsoft Authenticator app and copy the code that's currently showing. Enter that code in the sign-in page to finish.
-
-The reason that the codes change every 30 seconds is so that you never use the same code twice. It's not like a password that you're supposed to remember. The idea is that only someone with access to your phone knows your verification code.
-
-The codes don't require internet or data, so you don't have to worry about having phone service to sign in. When you close the app, it doesn't keep running in the background and it doesn't drain your battery. You can close the app and ignore it until the next time that you sign in.  
-
-### I only get notifications when I have the app open. If the app isn't open, I don't get any notifications.
-
-If you get notifications, but they don't make noise or vibrate despite your ringer being on, first check the app settings. Enable the app to use sound or vibrate with its notifications.
-
-If you don't get notifications at all, check the following cases:
-
-- Is your phone in Do Not Disturb or Quiet mode? That mode can keep apps from sending notifications.
-- Can you receive notifications from other apps? If not, there may be an issue with the network connections on your phone, or the notifications channel from Android or Apple. You can address the first option in your phone settings, but you may need to talk to your service provider for help with the second option.
-- Can you receive notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app and add it again to enable push notifications.
-
-If you tried these troubleshooting suggestions but are still having issues, you can send your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far.
-
-### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
-Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
-
-If you use a Microsoft account for your personal account and want to switch over to push notifications, you need to add your account again. Re-register the device with your account, and set up push notifications.  
-
-If you use Microsoft Authenticator for your work or school account, then your organization decides whether to allow one-click notifications.
-
-### Do one-click push notifications work for non-Microsoft accounts?
-No, push notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they may disable this feature.  
-
-### I got a new device or restored my device from a backup. How do I set up my accounts in the Microsoft Authenticator app again?
-If you’re running an iOS device, have turned on **Auto Backup**, and have created a backup of your accounts on your old device; you can use that backup to recover your account credentials on your new device. For more info, see the [Backup and recover account credentials with the Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md) article. 
-
-### I lost my device or moved on to a new device. How do I make sure notifications don't continue to go to my old device?  
-Adding the Microsoft Authenticator app to your new iOS device won't automatically remove the app from your old device. Even deleting the app from your old device isn't enough. You must both delete the app from your old device and tell Microsoft or your organization to forget the old device and unregister it from your account.
-- **To remove the app from a device using a personal Microsoft account.** Go to the two-step verification area of your [Account Security](https://account.microsoft.com/security) page and choose to turn off verification for your old device.  
-- **To remove the app from a device using a work or school Microsoft account.** Go to the two-step verification area of your [MyApps](https://myapps.microsoft.com/) page or to your organization’s custom portal and choose to turn off verification for your old device. 
-
-
-
-### How do I remove an account from the app?
-* iOS: From the main screen, swipe left on an account tile. Select **Delete**.
-* Windows Phone: From the main screen, select the menu button, then **Edit accounts**. Tap the **X** next to the account name.
-* Android: From the main screen, select the menu button, then **Edit accounts**. Tap the **X** next to the account name.
-
-If you have a device that is registered with your organization, you may need to complete an extra step to remove your account. On these devices, the Microsoft Authenticator app is automatically registered as a device administrator. If you want to completely uninstall the app, you need to first unregister the app in the app settings.
-
-### Why does the app request so many permissions?
-Here is a full list of permissions that can be asked for, and how they are used in the app. The specific permissions you see depend on the type of phone you have.
-
-* **Camera**: Used to scan QR codes when you add a work, school, or non-Microsoft account.
-* **Contacts and phone**: Used to simplify the process by finding existing accounts on your phone when you sign in with your personal Microsoft account.
-* **SMS**: Used to make sure your phone number matches the number on record. When you sign in with your personal Microsoft account for the first time.  We send a text message to the phone where you downloaded the app that includes a 6-8 digit verification code. Instead of asking you to find this code and enter it in the app, it's found in the text message for you.
-* **Draw over other apps**: The notification you get that verifies your identity is also displayed on any other app that might be running.
-* **Receive data from the internet**: This permission is required for sending notifications.
-* **Prevent phone from sleeping**: If you register your device with your organization, your organization can change this policy on your phone.
-* **Control vibration**: You can choose whether you would like a vibration whenever you receive a notification to verify your identity.
-* **Use fingerprint hardware**: Some work and school accounts require an additional PIN whenever you verify your identity. TO make the process easier, we allow you to use your fingerprint instead of entering the PIN.
-* **View network connections**: When you add a Microsoft account, the app requires network/internet connection.
-* **Read the contents of your storage**: This permission is only used when you report a technical problem through the app settings. Some information from your storage is collected to diagnose the issue.
-* **Full network access**: This permission is required for sending notifications to verify your identity.
-* **Run at startup**: If you restart your phone, this permission ensures that you continue you receive notifications to verify your identity.
-
-### Why does the Microsoft Authenticator App allow you to approve a request without unlocking the device?
-
-You don't have to unlock your device to approve verification requests because all you need to prove is that you have your phone with you. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is your password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.) Therefore, having the phone and approving the request meets the criteria for the second factor of authentication.
-
-### What does the lock icon in the account list mean?
-
-The padlock icon indicates that the device is registered in Azure AD and registered to the account. Device registration for iOS takes place during Microsoft Intune enrollment.
+|Question|Solution|
+|--------|--------|
+|What data does the Authenticator store on my behalf and how can I delete it?|The Microsoft Authenticator app collects three types of information:<ul><li>Account info you provide when you add your account. This data can be removed by removing your account.</li><li>Diagnostic log data, which resides only in the app until you choose to **Send Logs** to Microsoft through the app's **Help** menu. These log files contain personal data, like your email addresses (such as, alain@contoso.com), server/IP addresses, and device data (such as, device name and operating system version), with the personal data limited to info necessary to help troubleshoot app issues. You can view these log files in the app at any time to see the info being gathered. If you send the log files, the Authentication app engineers can use it to troubleshoot customer-reported issues.</li><li>Non-personally identifiable usage data, such “started add account flow/successfully added account,” or “notification approved.” This data is an integral part of our engineering decisions and helps us determine what features are important to you, and where improvements need to be made in the form of updates to the apps. You, as an app user, see a notification of this data collection on first launch of the app, and are informed that it can be turned off on the app’s **Settings** page. You can enable or disable this setting at any time.</li></ul>|
+|What are the codes in the app for?|When you open the Microsoft Authenticator app, you'll see your added accounts as tiles with a six- or eight-digit number for each.<br><br>You'll use these codes as verification that you are who you say you are. After you sign in with your username and password, you'll type in the verification code that's in the same tile as your account. For example, if you're Alain signing in to your Contoso account, you'd use the verification code, 427303.<br><br>![Accounts screen in the app](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
+|Why does the number next to the code keep counting down?|You might see a 30-second timer counting down next to your active verification code. This timer is so that you never sign in using the same code twice. Unlike a password, we don't want you to remember this number. The idea is that only someone with access to your phone knows your code.|
+|Why is my account tile gray?|Some organizations require the Microsoft Authenticator app to work with single sign-on and to protect organizational resources. In this situation, the account isn't used for two-step verification and shows up as gray or inactive. This type of account is frequently called a "broker" account.|
+|What is device registration?|Your organization might want you to register the device so they can understand which devices are accessing secured resources, such as files and apps, and to possibly turn on conditional access to reduce the risk of inappropriate access to those resources. You can unregister your device using **Settings**, but you may lose access to emails in Outlook, files in OneDrive, and you'll lose the ability to use phone sign-in.|
+|Do I need to be connected to the Internet or my network to get and use the verification codes?|The codes don't require you to be on the Internet or connected to data, so you don't need phone service to sign in. Additionally, because the app stops running as soon as you close it, it won't drain your battery.|
+|I only get notifications when the app is open. If the app is closed, I don't get notifications.|If you're getting notifications, but not an alert, even with your ringer on, you should check your app settings. Make sure the app is turned on to use sound or to vibrate for notifications. If you don't get notifications at all, you should check the following:<ul><li>Is your phone in Do Not Disturb or Quiet mode? These modes can prevent apps from sending notifications.</li><li>Can you get notifications from other apps? If not, it could be a problem with the network connections on your phone, or the notifications channel from Android or Apple. You can try to resolve your network connections through your phone settings, but you might need to talk to your service provider to help with the Android or Apple notifications channel.</li><li>Can you get notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app, add it again allowing notifications, and see if that fixes the problem.</li></ul>If you tried all of these steps and are still having issues, we recommend sending your log files for diagnostics. Open the app, go to **Help**, and then select **Send logs**. After that, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far.|
+|I'm using the verification codes in the app, but how do I switch to the push notifications?|You can set this up for your work or school account (if turned on by your administrator) or for your personal Microsoft account, but notifications won't work for third-party accounts, like Google or Facebook.<br><br>To switch your personal account over to notifications you'll have to re-register your device with the account, setting up push notifications.<br><br>Your organization decides whether to allow one-click notifications for your work or school account, so your organization might turn off this feature.|
+|Do notifications work for non-Microsoft accounts|No, notifications only work with Microsoft accounts and Auzre Active Directory accounts. If your work or school uses Azure AD accounts, they might turn off this feature.|
+|I got a new device or restored my device from a backup. How do I set up my accounts in the Microsoft Authenticator app again?|If you’re running an iOS device, have turned on **Auto Backup**, and have created a backup of your accounts on your old device; you can use that backup to recover your account credentials on your new device. For more info, see the [Backup and recover account credentials with the Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md) article.|
+|I lost my device or moved on to a new device. How do I make sure notifications don't continue to go to my old device?|Adding the Microsoft Authenticator app to your new iOS device won't automatically remove the app from your old device. Even deleting the app from your old device isn't enough. You must both delete the app from your old device and tell Microsoft or your organization to forget the old device and unregister it from your account.<ul><li>**To remove the app from a device using a personal Microsoft account.** Go to the two-step verification area of your [Account Security](https://account.microsoft.com/security) page and choose to turn off verification for your old device.</li><li>**To remove the app from a device using a work or school Microsoft account.** Go to the two-step verification area of your [MyApps](https://myapps.microsoft.com/) page or to your organization’s custom portal and choose to turn off verification for your old device.</li></ul>|
+|How do I remove an account from the app?|<ul><li>**iOS.** From the main screen, select the menu button, then select **Edit accounts**. Tap the red icon next to the account name, and tap **Remove Account**.</li><li>**Windows Phone.** From the main screen, select the menu button, then **Edit accounts**. Tap the **X** next to the account name.</li><li>**Android.** From the main screen, select the menu button, then **Edit accounts**. Tap the **X** next to the account name.</li></ul>If you have a device that is registered with your organization, you may need to complete an extra step to remove your account. On these devices, the Microsoft Authenticator app is automatically registered as a device administrator. If you want to completely uninstall the app, you need to first unregister the app in the app settings.|
+|Why does the app request so many permissions?|Here is a full list of permissions that can be asked for, and how they are used in the app. The specific permissions you see depend on the type of phone you have.<ul><li>**Camera.** Used to scan QR codes when you add a work, school, or non-Microsoft account.</li><li>**Contacts and phone.** Used to simplify the process by finding existing accounts on your phone when you sign in with your personal Microsoft account.</li><li>**SMS.** Used to make sure your phone number matches the number on record. When you sign in with your personal Microsoft account for the first time. We send a text message to the phone where you downloaded the app that includes a 6-8 digit verification code. Instead of asking you to find this code and enter it in the app, it's found in the text message for you.</li><li>**Draw over other apps.** The notification you get that verifies your identity is also displayed on any other app that might be running.</li><li>**Receive data from the internet.** This permission is required for sending notifications.</li><li>**Prevent phone from sleeping.** If you register your device with your organization, your organization can change this policy on your phone.</li><li>**Control vibration.** You can choose whether you would like a vibration whenever you receive a notification to verify your identity.</li><li>**Use fingerprint hardware.** Some work and school accounts require an additional PIN whenever you verify your identity. To make the process easier, we allow you to use your fingerprint instead of entering the PIN.</li><li> **View network connections.** When you add a Microsoft account, the app requires network/internet connection.</li><li>**Read the contents of your storage**. This permission is only used when you report a technical problem through the app settings. Some information from your storage is collected to diagnose the issue.</li><li>**Full network access.** This permission is required for sending notifications to verify your identity.</li><li>**Run at startup.** If you restart your phone, this permission ensures that you continue you receive notifications to verify your identity.</li></ul>|
+|Why does the Microsoft Authenticator app allow you to approve a request without unlocking the device?|You don't have to unlock your device to approve verification requests because all you need to prove is that you have your phone with you. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is your password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.) Therefore, having the phone and approving the request meets the criteria for the second factor of authentication.|
+|Why aren’t all my accounts showing up when I open the Microsoft Authenticator app on my Apple Watch?|The Microsoft Authenticator app only supports using Microsoft personal or school or work accounts with push notifications on the Apple Watch companion app. For your other accounts, like Google or Facebook, you’ll have to open the authenticator app on your phone to view your verification codes.|
+|Why can’t I approve or deny notifications on my Apple Watch?|First, make sure you’ve upgraded to the Microsoft Authenticator app, version 6.0.0 or higher on your iPhone. After that, open the Microsoft Authenticator companion app on your Apple Watch and look for any accounts with a **Set Up** button beneath them. You must complete that set up process to approve notifications for those accounts.|
+|Why am I getting the error, **Unable to communicate with the phone while using the Microsoft Authenticator companion app on the Apple Watch**?|If your phone and watch aren’t communicating, you can try the following:<ol><li>Force quit the Microsoft Authenticator phone app and open it again on your iPhone.</li><li>Force quit the companion app on your Apple Watch.<ol><li> Open the Microsoft Authenticator companion app on your Watch</li><li>Hold down the side button until the **Shutdown** screen appears.</li><li>Release the side button and hold down the Digital Crown to force quit the active app.</li></ol></li><li>Turn off both Bluetooth and Wi-Fi for both your phone and your Watch, and then turn them back on.</li><li>Restart your iPhone and your Watch.</li></ol>|
+|Why isn’t the Microsoft Authenticator companion app for Apple Watch syncing or showing up on my watch?|If the app isn’t showing up on your Watch, try the following: <ol><li>Make sure your Watch is running watchOS 4.0 or higher.</li><li>Sync your Watch again.</li></ol>|
+|My Apple Watch companion app crashed. Can I send you my crash logs so you can investigate? |You first have to make sure you’ve chosen to share your analytics with us. If you’re a TestFlight user, you’re already signed up. Otherwise, you can go to **Settings > Privacy > Analytics** and select both the **Share iPhone & Watch analytics** and the **Share with App Developers** options.<br><br>After you sign up, you can try to reproduce your crash so your crash logs are automatically sent to us for investigation. However, if you can’t reproduce your crash, you can manually copy your log files and send them to us.<ol><li>Open the Watch app on your phone, go to **Settings > General**, and then click **Copy Watch Analytics**.</li><li>Find the corresponding crash under **Settings > Privacy > Analytics > Analytics Data**, and then manually copy the entire text.</li><li>Open the Microsoft Authenticator app on your phone and paste that copied text into the **Share with App Developers** text box on the **Send logs** page.</li></ol>|
 
 ## Next steps
 
-### Contact us
-If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.
+-	If you want more information about two-step verification, see [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
 
+-	If you want more information about security info, see [Manage your security info](security-info-manage-settings.md)
 
-### Related topics
-* [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-* [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
-* [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
+- If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.

@@ -2,18 +2,13 @@
 title: An introduction to Hadoop security with domain-joined Azure HDInsight clusters
 description: Learn how domain-joined Azure HDInsight clusters support the four pillars of enterprise security.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-
 ---
 # An introduction to Hadoop security with domain-joined HDInsight clusters
 

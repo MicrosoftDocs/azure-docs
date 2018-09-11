@@ -1,6 +1,6 @@
 ---
-title:  Activate roles for Azure resources by using Privileged Identity Management | Microsoft Docs
-description: Describes how to activate roles in PIM.
+title: Activate my Azure resource roles in PIM | Microsoft Docs
+description: Learn how to activate your Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,39 +10,103 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
-ms.date: 04/02/2018
+ms.component: pim
+ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ---
 
-# Activate roles for Azure resources by using Privileged Identity Management
-Privileged Identity Management (PIM) introduces a new experience in activating roles for Azure resources. Eligible role members can schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators). For more information, see [How to activate or deactivate roles in Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
+# Activate my Azure resource roles in PIM
 
-## Activate roles
-Browse to the **My roles** section in the left pane. Select **Activate** for the role that you want to activate.
+Using Azure AD Privileged Identity Management (PIM), eligible role members for Azure resources can schedule activation for a future date and time. They can also select a specific activation duration within the maximum (configured by administrators).
 
-!["Eligible roles" tab in the "My roles" pane.](media/azure-pim-resource-rbac/rbac-roles.png)
+This article is for members who need to activate their Azure resource role in PIM.
 
-From the **Activations** menu, enter the start date and time to activate the role. Optionally, decrease the activation duration (the length of time that the role is active) and enter a justification if necessary. Then, select **Activate**.
+## Activate a role
 
-If the start date and time are not modified, the role is activated in seconds. In the **My roles** pane, a banner message shows that a role is queued for activation. Select the refresh button to clear this message.
+When you need to take on an Azure resource role, you can request activation by using the **My roles** navigation option in PIM.
 
-!["My roles" pane with a banner message and a notification about a pending approval](media/azure-pim-resource-rbac/rbac-activate-notification.png)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-If the activation is scheduled for a future date and time, the pending request appears on the **Pending requests** tab of the left pane. If the role activation is no longer required, you can cancel the request by selecting the **Cancel** button.
+1. Open **Azure AD Privileged Identity Management**. For information about how to add the PIM tile to your dashboard, see [Start using PIM](pim-getting-started.md).
 
-![List of pending requests with "Cancel" buttons](media/azure-pim-resource-rbac/rbac-activate-pending.png)
+1. Click **My roles** to see a list of your eligible Azure AD directory roles and Azure resource roles.
 
+    ![Azure AD directory roles and Azure resource roles - My roles](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
-## Apply Just Enough Administration practices
+1. In the **Azure resource roles** list, find the role you want to activate.
 
-Using Just Enough Administration (JEA) best practices with your resource role assignments is simple with PIM for Azure resources. Users and group members with assignments in Azure subscriptions or resource groups can activate their existing role assignment at a reduced scope. 
+    ![Azure resource roles - My roles list](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-From the search page, find the subordinate resource that you need to manage.
+1. Click **Activate** to open the Activate pane.
 
-![Selecting a resource](media/azure-pim-resource-rbac/azure-resources-02.png)
+1. If your role requires multi-factor authentication (MFA), click **Verify your identity before proceeding**. You only have to authenticate once per session.
 
-Select **My roles** from the left pane and choose the appropriate role to activate. The assignment type is **Inherited** because the role was assigned at the subscription, rather than at the resource group.
+    ![Verify with MFA before role activation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
-![List of eligible role assignments, with the assignment type highlighted](media/azure-pim-resource-rbac/my-roles-02.png)
+1. Click **Verify my identity** and follow the instructions to provide additional security verification.
+
+    ![Additional security verification](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+
+1. If you want to specify a reduced scope, click **Scope** to open the Resource filter pane.
+
+    It's a best practice to only request access to the resources you need. On the Resource filter pane, you can specify the resource groups or resources that you need access to.
+
+    ![Activate - Resource filter](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+
+1. If necessary, specify a custom activation start time. The member would be activated after the selected time.
+
+1. In the **Reason** box, enter the reason for the activation request.
+
+    ![Completed Activate pane](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+
+1. Click **Activate**.
+
+    If the role does not require approval, it is now activated, and the role appears in the list of active roles. If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
+
+    ![Request pending notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## View the status of your requests
+
+You can view the status of your pending requests to activate.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Click **My requests** to see a list of your Azure AD directory role and Azure resource role requests.
+
+    ![Azure AD directory roles and Azure resource roles - My requests](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+
+1. Scroll to the right to view the **Request Status** column.
+
+## Use a role immediately after activation
+
+Because of caching, activations do not occur immediately in the Azure portal without a refresh. If you need to reduce the possibility of delays after activating a role, you can use the **Application access** page in the portal. Applications accessed from this page check for new role assignments immediately.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Click the **Application access** page.
+
+    ![PIM Application access - screenshot](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Click **Azure resources** to reopen the portal on the **All resources** page.
+
+    When you click this link, you force a refresh and there is a check for new Azure resource role assignments.
+
+## Cancel a pending request
+
+If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Click **My requests**.
+
+1. For the role that you want to cancel, click the **Cancel** link.
+
+    When you click Cancel, the request will be cancelled. To activate the role again, you will have to submit a new request for activation.
+
+   ![Cancel pending request](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## Next steps
+
+- [Extend or renew Azure resource roles in PIM](pim-resource-roles-renew-extend.md)
+- [Activate my Azure AD directory roles in PIM](pim-how-to-activate-role.md)

@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
 
 ---
@@ -31,6 +31,12 @@ Get and set the chaos schedule.
 Get the Chaos Schedule defining when and how to run Chaos.
 
 Gets the version of the Chaos Schedule in use and the Chaos Schedule that defines when and how to run Chaos.
+
+### Arguments
+
+|Argument|Description|
+| --- | --- |
+| --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -55,6 +61,7 @@ Set the Chaos Schedule currently in use by Chaos. Chaos will automatically sched
 | --expiry-date-utc | The date and time for when to stop using the Schedule to schedule Chaos.  Default\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | JSON encoded list of ChaosScheduleJobs representing when to run Chaos and with what parameters to run Chaos with. |
 | --start-date-utc | The date and time for when to start using the Schedule to schedule Chaos.  Default\: 1601-01-01T00\:00\:00.000Z. |
+| --timeout -t | Server timeout in seconds.  Default\: 60. |
 | --version | The version number of the Schedule. |
 
 ### Global Arguments

@@ -1,17 +1,13 @@
 ---
-title: Customize HDInsight Clusters using script actions - Azure | Microsoft Docs
+title: Customize HDInsight Clusters using script actions - Azure 
 description: Learn how to customize HDInsight clusters using Script Action.
 services: hdinsight
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
 ---
 # Customize Windows-based HDInsight clusters using Script Action

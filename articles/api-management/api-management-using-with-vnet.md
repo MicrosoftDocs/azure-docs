@@ -106,9 +106,9 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | Source / Destination Port(s) | Direction | Transport protocol | Source / Destination | Purpose (*) | Virtual Network type |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Client communication to API Management|External |
-| * / 3443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Management endpoint for Azure portal and Powershell |Internal |
+| * / 3443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Management endpoint for Azure portal and Powershell |External & Internal |
 | * / 80, 443 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Dependency on Azure Storage**, Azure Service Bus, and Azure Active Directory (where applicable).|External & Internal |
-| * / 1433 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL endpoints** |External & Internal |
+| * / 1433 |Outbound |TCP |VIRTUAL_NETWORK / SQL|**Access to Azure SQL endpoints** |External & Internal |
 | * / 5672 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency for Log to Event Hub policy and monitoring agent |External & Internal |
 | * / 445 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency on Azure File Share for GIT |External & Internal |
 | * / 1886 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Needed to publish Health status to Resource Health |External & Internal |
@@ -147,6 +147,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 * **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to first deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate that there is connectivity to one of each resource below in your azure subscription
     * Azure Storage blob
     * Azure SQL Database
+    * Azure Storage Table
 
  > [!IMPORTANT]
  > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.

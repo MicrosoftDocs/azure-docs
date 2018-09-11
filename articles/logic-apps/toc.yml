@@ -48,7 +48,9 @@
       - name: Scopes
         href: logic-apps-control-flow-run-steps-group-scopes.md
     - name: Create variables for saving values
-      href: logic-apps-create-variables-store-values.md        
+      href: logic-apps-create-variables-store-values.md
+    - name: Perform data operations
+      href: logic-apps-perform-data-operations.md  
     - name: Add custom code with Azure Functions
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
@@ -172,7 +174,7 @@
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
-      - name: Excel
+      - name: Excel Online for Business or OneDrive
         href: ../connectors/connectors-create-api-excel.md
       - name: Facebook
         href: ../connectors/connectors-create-api-facebook.md
@@ -214,6 +216,8 @@
         href: ../connectors/connectors-create-api-onedriveforbusiness.md
       - name: Oracle Database
         href: ../connectors/connectors-create-api-oracledatabase.md
+      - name: Outlook.com
+        href: ../connectors/connectors-create-api-outlook.md
       - name: Project Online
         href: ../connectors/connectors-create-api-projectonline.md
       - name: Request / Response
@@ -230,12 +234,12 @@
         href: ../connectors/connectors-create-api-sendgrid.md
       - name: SFTP
         href: ../connectors/connectors-create-api-sftp.md  
-      - name: SharePoint Online
-        href: ../connectors/connectors-create-api-sharepointonline.md
-      - name: SharePoint Server
-        href: ../connectors/connectors-create-api-sharepointserver.md
+      - name: SharePoint
+        href: ../connectors/connectors-create-api-sharepoint.md
       - name: Slack
         href: ../connectors/connectors-create-api-slack.md
+      - name: SMTP
+        href: ../connectors/connectors-create-api-smtp.md
       - name: SQL Server
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Transform XML
@@ -260,6 +264,8 @@
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
+    - name: Migrate to latest schema
+      href: ../connectors/connectors-schema-migration.md  
   - name: Deploy
     items:
       - name: Define and deploy logic apps
@@ -282,6 +288,8 @@
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 
+      - name: Data operations - code examples
+        href: logic-apps-data-operations-code-samples.md
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
       - name: Build a serverless app - Visual Studio
@@ -312,9 +320,9 @@
   - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
     items: 
-      - name: Workflow actions and triggers
+      - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
-      - name: Workflow Definition Language functions
+      - name: Functions reference
         href: workflow-definition-language-functions-reference.md
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md

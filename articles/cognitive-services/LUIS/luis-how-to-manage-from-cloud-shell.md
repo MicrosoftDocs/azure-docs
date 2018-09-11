@@ -1,17 +1,18 @@
 ---
-title: View LUIS usage from Azure Cloud Shell | Microsoft Docs
+title: Azure Cloud Shell usage data for LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn how to get usage information in Azure Cloud Shell for LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: v-geberr
+ms.date: 09/06/2017
+ms.author: diberry
 ---
 
-# Manage LUIS service from Azure Cloud Shell
+# Usage data for LUIS service from Azure Cloud Shell
 The Azure portal allows you to use PowerShell cmdlets to work with LUIS resources. 
 
 These cmdlets allow you to [create](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) a LUIS subscription, get information about the subscription, including [usage](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), and [remove](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) the subscription. 
