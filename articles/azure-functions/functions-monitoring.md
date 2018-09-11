@@ -456,11 +456,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
