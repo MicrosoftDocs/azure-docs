@@ -251,7 +251,7 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem with password single sign-on - non-gallery app
         href: application-sign-in-problem-password-sso-non-gallery.md
-      - name: Poblem with password single sign-on - gallery app
+      - name: Problem with password single sign-on - gallery app
         href: application-sign-in-problem-password-sso-gallery.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
