@@ -22,7 +22,7 @@ To use a Twitter account as an identity provider in Azure Active Directory (Azur
 1. Sign in to the [Twitter Apps](https://apps.twitter.com/) with your Twitter credentials.
 2. Select **Create New App**.
 3. Enter the **Name**, **Description**, and **Website**.
-4. Enter `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` in **Callback URLs**. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com) and **{policyId}** with your policy ID (for example, b2c_1_policy). You should add a callback URL for all policies that use the Twitter account. Make sure to use `b2clogin.com` instead of ` login.microsoftonline.com` if you are using it in your application.
+4. Enter `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` in **Callback URLs**. Replace **{tenant}** with your tenant's name (for example, contosob2c) and **{policyId}** with your policy ID (for example, b2c_1_policy). You should add a callback URL for all policies that use the Twitter account. 
 5. Agree to the **Developer Agreement** and select **Create your Twitter application**.
 7. Select the **Keys and Access Tokens** tab.
 8. Copy the value of **Consumer Key** and **Consumer Secret**. You need both of them to configure a Twitter account as an identity provider in your tenant.

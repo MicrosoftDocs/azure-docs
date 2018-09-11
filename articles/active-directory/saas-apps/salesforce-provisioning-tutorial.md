@@ -61,55 +61,55 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
 
-2. If you have already configured Salesforce for single sign-on, search for your instance of Salesforce using the search field. Otherwise, select **Add** and search for **Salesforce** in the application gallery. Select Salesforce from the search results, and add it to your list of applications.
+1. If you have already configured Salesforce for single sign-on, search for your instance of Salesforce using the search field. Otherwise, select **Add** and search for **Salesforce** in the application gallery. Select Salesforce from the search results, and add it to your list of applications.
 
-3. Select your instance of Salesforce, then select the **Provisioning** tab.
+1. Select your instance of Salesforce, then select the **Provisioning** tab.
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
     ![provisioning](./media/salesforce-provisioning-tutorial/provisioning.png)
 
-5. Under the **Admin Credentials** section, provide the following configuration settings:
+1. Under the **Admin Credentials** section, provide the following configuration settings:
    
     a. In the **Admin Username** textbox, type a Salesforce account name that has the **System Administrator** profile in Salesforce.com assigned.
    
     b. In the **Admin Password** textbox, type the password for this account.
 
-6. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click your name, and then click **Settings**.
+1. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click your name, and then click **Settings**.
 
      ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
 
-7. On the left navigation pane, click **My Personal Information** to expand the related section, and then click **Reset My Security Token**.
+1. On the left navigation pane, click **My Personal Information** to expand the related section, and then click **Reset My Security Token**.
   
     ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
 
-8. On the **Reset Security Token** page, click **Reset Security Token** button.
+1. On the **Reset Security Token** page, click **Reset Security Token** button.
 
     ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
 
-9. Check the email inbox associated with this admin account. Look for an email from Salesforce.com that contains the new security token.
+1. Check the email inbox associated with this admin account. Look for an email from Salesforce.com that contains the new security token.
 
-10. Copy the token, go to your Azure AD window, and paste it into the **Secret Token** field.
+1. Copy the token, go to your Azure AD window, and paste it into the **Secret Token** field.
 
-11. The **Tenant URL** should be entered if the instance of Salesforce is on the Salesforce Government Cloud. Otherwise, it is optional. Enter the tenant URL using the format of "https://\<your-instance\>.my.salesforce.com," replacing \<your-instance\> with the name of your Salesforce instance.
+1. The **Tenant URL** should be entered if the instance of Salesforce is on the Salesforce Government Cloud. Otherwise, it is optional. Enter the tenant URL using the format of "https://\<your-instance\>.my.salesforce.com," replacing \<your-instance\> with the name of your Salesforce instance.
 
-12. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Salesforce app.
+1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Salesforce app.
 
-13. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications, and check the checkbox below.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications, and check the checkbox below.
 
-14. Click **Save.**  
+1. Click **Save.**  
     
-15.  Under the Mappings section, select **Synchronize Azure Active Directory Users to Salesforce.**
+1.  Under the Mappings section, select **Synchronize Azure Active Directory Users to Salesforce.**
 
-16. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Salesforce. Note that the attributes selected as **Matching** properties are used to match the user accounts in Salesforce for update operations. Select the Save button to commit any changes.
+1. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Salesforce. Note that the attributes selected as **Matching** properties are used to match the user accounts in Salesforce for update operations. Select the Save button to commit any changes.
 
-17. To enable the Azure AD provisioning service for Salesforce, change the **Provisioning Status** to **On** in the Settings section
+1. To enable the Azure AD provisioning service for Salesforce, change the **Provisioning Status** to **On** in the Settings section
 
-18. Click **Save.**
+1. Click **Save.**
 
 This starts the initial synchronization of any users and/or groups assigned to Salesforce in the Users and Groups section. Note that the initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Salesforce app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Additional resources
 

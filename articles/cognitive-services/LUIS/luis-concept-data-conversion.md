@@ -1,15 +1,16 @@
 ---
-title: Understand data conversion concepts in LUIS - Azure | Microsoft Docs
+title: Data conversion concepts in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Learn how utterances can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
 
 # Data conversion concepts in LUIS

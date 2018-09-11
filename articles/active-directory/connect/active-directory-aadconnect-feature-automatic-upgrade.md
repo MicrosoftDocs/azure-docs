@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
 
 ---
 # Azure AD Connect: Automatic upgrade
-This feature was introduced with build 1.1.105.0 (released February 2016).
+This feature was introduced with build [1.1.105.0 (released February 2016)](active-directory-aadconnect-version-history.md#111050).  This feature was updated in [build 1.1.561](active-directory-aadconnect-version-history.md#115610) and now supports additional scenarios that were previously not supported.
 
 ## Overview
 Making sure your Azure AD Connect installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default for express installations and DirSync upgrades. When a new version is released, your installation is automatically upgraded.
@@ -91,8 +91,8 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
-| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
-| UpgradeNotSupportedNonMsolAccount |The [AD Connector account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) is not the default MSOL_ account anymore. |
+| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |d
+| UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. | 
 | UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). |

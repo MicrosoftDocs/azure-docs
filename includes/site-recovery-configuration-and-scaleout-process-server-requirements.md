@@ -32,7 +32,7 @@ IIS | - No preexisting default website <br> - No preexisting website/application
 | 
 **NETWORK SETTINGS** | 
 IP address type | Static 
-Internet access | The server needs access to these URLs (directly or via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF also need access to the following URLs <br> - https://login.microsoftonline.com <br> - https://secure.aadcdn.microsoftonline-p.com <br> - https://login.live.com  <br> - https://auth.gfx.ms <br> - https://graph.windows.net <br> - https://login.windows.net <br> - https://www.live.com <br> - https://www.microsoft.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
+Internet access | The server needs access to these URLs (directly or via proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF also needs access to the following URLs: <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport) 
 NIC type | VMXNET3 (if the Configuration Server is a VMware VM)
  | 
@@ -44,7 +44,7 @@ MYSQL | MySQL should be installed. You can install manually, or Site Recovery ca
 
 **CPU** | **Memory** | **Cache disk** | **Data change rate** | **Replicated machines**
 --- | --- | --- | --- | ---
-8 vCPUs<br/><br/> 2 sockets * 4 cores @ 2.5 GHz | 16GB | 300 GB | 500 GB or less | < 100 machines
-12 vCPUs<br/><br/> 2 socks  * 6 cores @ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
-16 vCPUs<br/><br/> 2 socks  * 8 cores @ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
+8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16GB | 300 GB | 500 GB or less | < 100 machines
+12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
+16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
 

@@ -2,20 +2,16 @@
 title: Create and use a shared access signature (SAS) with Azure Blob storage | Microsoft Docs
 description: This tutorial shows you how to create shared access signatures for use with Blob storage, and how to consume them in your client applications.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
 
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
+ms.component: blobs
 ---
+
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage
 
 [Part 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with Blob storage. The examples are written in C# and use the Azure Storage Client Library for .NET. The examples in this tutorial:

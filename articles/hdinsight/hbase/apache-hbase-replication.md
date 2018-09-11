@@ -1,18 +1,15 @@
 ---
-title: Set up HBase cluster replication in Azure virtual networks | Microsoft Docs
+title: Set up HBase cluster replication in Azure virtual networks 
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Set up HBase cluster replication in Azure virtual networks

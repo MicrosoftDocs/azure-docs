@@ -326,7 +326,7 @@ Each input parameter is defined by the properties in the following table:
 
 ### Runbook output
 
-Data created by any activity that does not have an outgoing link is saved to the [output of the runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
+Data created by any activity that does not have an outgoing link is saved to the [output of the runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
 
 ## PowerShell expressions
 

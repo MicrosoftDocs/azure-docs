@@ -82,18 +82,19 @@ The Traffic service is a suite of web services designed for developers to create
 
 ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
 
-Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/timezone) page for more details.
+Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/traffic) page for more details.
 
 ### IP to Location
 
 The IP to Location is a preview service that allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
 
+For information on the REST APIs for IP to Location service, visit the [Azure Maps Geolocation APIs](https://docs.microsoft.com/rest/api/maps/geolocation) page.
 
 ## Programming model
 
 Azure Maps is built for mobility and can power cross-platform applications. It uses a programming model that is language agnostic and supports JSON output through [REST APIs](https://docs.microsoft.com/rest/api/maps/). 
 
-Additionally, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) with a simple programming model for quick and easy development of both web and mobile applications. 
+Additionally, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) with a simple programming model for quick and easy development of both web and mobile applications. 
 
 
 ## Usage

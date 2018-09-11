@@ -1,20 +1,14 @@
 ---
-title: Create an Apache Spark machine learning pipeline - Azure HDInsight | Microsoft Docs
+title: Create an Apache Spark machine learning pipeline - Azure HDInsight 
 description: Use the Apache Spark machine learning library to create data pipelines.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: maxluk
 ms.author: maxluk
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/19/2018
 ---
 # Create a Spark machine learning pipeline
 

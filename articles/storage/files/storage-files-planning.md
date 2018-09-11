@@ -3,12 +3,11 @@ title: Planning for an Azure Files deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
 author: wmgries
-manager: aungoo
-
 ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Planning for an Azure Files deployment
@@ -37,7 +36,7 @@ ms.author: wgries
 Azure Files offers two, built-in, convenient data access methods that you can use separately, or in combination with each other, to access your data:
 
 1. **Direct cloud access**: Any Azure file share can be mounted by [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and/or [Linux](storage-how-to-use-files-linux.md) with the industry standard Server Message Block (SMB) protocol or via the File REST API. With SMB, reads and writes to files on the share are made directly on the file share in Azure. To mount by a VM in Azure, the SMB client in the OS must support at least SMB 2.1. To mount on-premises, such as on a user's workstation, the SMB client supported by the workstation must support at least SMB 3.0 (with encryption). In addition to SMB, new applications or services may directly access the file share via File REST, which provides an easy and scalable application programming interface for software development.
-2. **Azure File Sync** (preview): With Azure File Sync, shares can be replicated to Windows Servers on-premises or in Azure. Your users would access the file share through the Windows Server, such as through an SMB or NFS share. This is useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. Finally, data may be tiered to Azure Files, such that all data is still accessible via the Server, but the Server does not have a full copy of the data. Rather, data is seamlessly recalled when opened by your user.
+2. **Azure File Sync**: With Azure File Sync, shares can be replicated to Windows Servers on-premises or in Azure. Your users would access the file share through the Windows Server, such as through an SMB or NFS share. This is useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. Finally, data may be tiered to Azure Files, such that all data is still accessible via the Server, but the Server does not have a full copy of the data. Rather, data is seamlessly recalled when opened by your user.
 
 The following table illustrates how your users and applications can access your Azure file share:
 
@@ -77,7 +76,7 @@ Azure Files supports three data redundancy options: locally redundant storage (L
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## Data growth pattern
-Today, the maximum size for an Azure file share is 5 TiB, inclusive of share snapshots. Because of this current limitation, you must consider the expected data growth when deploying an Azure file share. Note that an Azure Storage account, can store multiple shares with a total of 500 TiB stored across all shares.
+Today, the maximum size for an Azure file share is 5 TiB. Because of this current limitation, you must consider the expected data growth when deploying an Azure file share. Note that an Azure Storage account, can store multiple shares with a total of 500 TiB stored across all shares.
 
 It is possible to sync multiple Azure file shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, very large file shares that you may have on-premises can be brought into Azure File Sync. Please see [Planning for an Azure File Sync Deployment](storage-files-planning.md) for more information.
 

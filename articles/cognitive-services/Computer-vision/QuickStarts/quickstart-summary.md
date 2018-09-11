@@ -9,12 +9,18 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/02/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
 # Quickstart: Summary
 
-These quickstarts provide information and code samples to help you quickly get started using the Computer Vision API to accomplish the following tasks:
+These quickstarts provide information and code samples to help you quickly get started using the Computer Vision service.
+
+The samples make direct HTTP calls to the Computer Vision API. See the *SDK Quickstarts* section for samples using the Computer Vision client libraries, which provide convenience methods that wrap the HTTP calls.
+
+To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+
+You can use the Computer Vision service to accomplish the following tasks:
 
 * Analyze a remote image
 * Analyze a local image
@@ -38,11 +44,7 @@ The code in each sample is similar. However, they highlight different Computer V
 | Detect celebrities       | model=celebrities                           | JSON string       |
 | Generate a thumbnail     | width=200&height=150&smartCropping=true     | byte array        |
 | Extract printed text     | language=unk&detectOrientation=true         | JSON string       |
-| Extract handwritten text | handwriting=true                            | URL, JSON string* |
-
-&ast; Two API calls are required. The first call returns a URL, which is used by the second call to get the text.
-
-To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+| Extract handwritten text | handwriting=true                            | URL, JSON string  |
 
 ## Next steps
 

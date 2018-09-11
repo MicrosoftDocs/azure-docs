@@ -12,11 +12,11 @@
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Create a resource** > **Mobile** > **Notification Hub**.
+1. Select **Create a resource** > **Mobile** > **Notification Hub**.
    
       ![Azure portal - create a notification hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
-3. In the **Notification Hub** box, type a unique name. Select your **Region**, **Subscription**, and **Resource Group** (if you have one already). 
+1. In the **Notification Hub** box, type a unique name. Select your **Region**, **Subscription**, and **Resource Group** (if you have one already). 
    
       If you don't already have a service bus namespace, you can use the default name, which is created based on the hub name (if the namespace name is available).
     
@@ -28,10 +28,10 @@
    
       ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Select **Notifications** (Bell icon), and select **Go to resource**. 
+1. Select **Notifications** (Bell icon), and select **Go to resource**. 
 
       ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
-5. Select **Access Policies** from the list. Note the two connection strings that are available to you. You need them to handle push notifications later.
+1. Select **Access Policies** from the list. Note the two connection strings that are available to you. You need them to handle push notifications later.
 
       >[!IMPORTANT]
       >Do **NOT** use the DefaultFullSharedAccessSignature in your application. This is meant to be used in your back-end only.

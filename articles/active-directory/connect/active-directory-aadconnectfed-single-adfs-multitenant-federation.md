@@ -60,7 +60,7 @@ Connect to Azure Active Directory that contains the domain fabrikam.com
     Connect-MsolService
 Convert the fabrikam.com managed domain to federated:
 
-    Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
+    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
  
 The above operation will federate the domain fabrikam.com with the same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
 

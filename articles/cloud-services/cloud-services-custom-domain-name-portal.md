@@ -122,7 +122,7 @@ For example, the following A record forwards all traffic from **contoso.com** to
 
 | Host name/Subdomain | IP address |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
 

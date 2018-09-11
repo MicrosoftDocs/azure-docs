@@ -3,7 +3,7 @@ title: Implement disaster recovery using backup and restore in Azure API Managem
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
 ---
 # How to implement disaster recovery using service backup and restore in Azure API Management
@@ -34,8 +34,6 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 
 > [!IMPORTANT]
 > The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps:
 
@@ -46,7 +44,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 ### Create an Azure Active Directory application
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Using the subscription that contains your API Management service instance, navigate to the **App registrations** tab.
+2. Using the subscription that contains your API Management service instance, navigate to the **App registrations** tab in **Azure Active Directory** (Azure Active Directory > Manage/App registrations).
 
     > [!NOTE]
     > If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account.
@@ -71,6 +69,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
 8. Press **Select**.
+9. Click **Grant Permisssions**.
 
 ### Configuring your app
 
@@ -87,7 +86,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -107,13 +106,18 @@ Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the follo
 
     ![Endpoints][api-management-endpoint]
 2. Replace `{application id}` with the value you get by navigating to the **Settings** page.
-3. Replace the URL from the **Redirect URIs** tab is your Azure Active Directory application.
+3. Replace the `{redirect uri}` with the value from the **Redirect URIs** tab of your Azure Active Directory application.
 
     Once the values are specified, the code example should return a token similar to the following example:
 
     ![Token][api-management-arm-token]
 
+    > [!NOTE]
+    > The token may expire after a certain period. Execute the code sample again to generate a new token.
+
 ## Calling the backup and restore operations
+
+The REST APIs are [Api Management Service - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) and [Api Management Service - Restore](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
@@ -124,24 +128,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"> </a>Back up an API Management service
 To back up an API Management service issue the following HTTP request:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 where:
 
 * `subscriptionId` - id of the subscription containing the API Management service you are attempting to back up
-* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are trying to backup is hosted, for example, `North-Central-US`
+* `resourceGroupName` - name of the resource group of your Azure API Management service
 * `serviceName` - the name of the API Management service you are making a backup of specified at the time of its creation
-* `api-version` - replace  with `2014-02-14`
+* `api-version` - replace  with `2018-06-01-preview`
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Set the value of the `Content-Type` request header to `application/json`.
@@ -160,24 +167,26 @@ Note the following constraints when making a backup request.
 ### <a name="step2"> </a>Restore an API Management service
 To restore an API Management service from a previously created backup make the following HTTP request:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 where:
 
 * `subscriptionId` - id of the subscription containing the API Management service you are restoring a backup into
-* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are restoring a backup into is hosted, for example, `North-Central-US`
+* `resourceGroupName` - name of the resource group containing the Azure API Management service you are restoring a backup into
 * `serviceName` - the name of the API Management service being restored into specified at the time of its creation
-* `api-version` - replace  with `2014-02-14`
+* `api-version` - replace  with `2018-06-01-preview`
 
 In the body of the request, specify the backup file location, that is, Azure storage account name, access key, blob container name, and backup name:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Set the value of the `Content-Type` request header to `application/json`.
@@ -188,19 +197,21 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 > **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
 >
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
->
->
+
+> [!NOTE]
+> Backup and restore operations can also be performed with Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
 
 ## Next steps
-Check out the following Microsoft blogs for two different walkthroughs of the backup/restore process.
+
+Check out the following resources for different walkthroughs of the backup/restore process.
 
 * [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+* [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 * [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * The approach detailed by Stuart does not match the official guidance but it is interesting.
+  *The approach detailed by Stuart does not match the official guidance but it is interesting.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

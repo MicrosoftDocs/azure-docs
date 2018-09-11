@@ -2,13 +2,13 @@
 title: Service-to-service authentication to Azure Key Vault using .NET
 description: Use the Microsoft.Azure.Services.AppAuthentication library to authenticate to Azure Key Vault using .NET.
 keywords: azure key-vault authentication local credentials
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 services: key-vault
 
-ms.author: alleonar
-ms.date: 11/15/2017
-ms.topic: article
+ms.author: bryanla
+ms.date: 09/05/2018
+ms.topic: conceptual
 ms.prod:
 ms.service: key-vault
 ms.technology:
@@ -26,12 +26,12 @@ Using developer credentials during local development is more secure because you 
 
 The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.
 
-The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure App Services or an Azure Virtual Machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
+The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure App Services or an Azure Virtual Machine (VM), the library automatically uses [managed identities for Azure services](/azure/active-directory/msi-overview). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) when a managed identity is not available, or when the developer's security context cannot be determined during local development.
 
 <a name="asal"></a>
 ## Using the library
 
-For .NET applications, the simplest way to work with a Managed Service Identity (MSI) is through the `Microsoft.Azure.Services.AppAuthentication` package. Here's how to get started:
+For .NET applications, the simplest way to work with a managed identity is through the `Microsoft.Azure.Services.AppAuthentication` package. Here's how to get started:
 
 1. Add a reference to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet package to your application.
 
@@ -55,7 +55,7 @@ For .NET applications, the simplest way to work with a Managed Service Identity 
 
 The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. Consequently, you no longer have to check the expiration before calling the `GetAccessTokenAsync` method. Just call the method when you want to use the token. 
 
-The `GetAccessTokenAsync` method requires a resource identifier. To learn more, see [Which Azure services support Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+The `GetAccessTokenAsync` method requires a resource identifier. To learn more, see [which Azure services support managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>
@@ -63,11 +63,11 @@ The `GetAccessTokenAsync` method requires a resource identifier. To learn more, 
 
 The following samples show the `Microsoft.Azure.Services.AppAuthentication` library in action:
 
-1. [Use a Managed Service Identity (MSI) to retrieve a secret from Azure Key Vault at runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+1. [Use a managed identity to retrieve a secret from Azure Key Vault at runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
 
-2. [Programmatically deploy an Azure Resource Manager template from an Azure VM with an MSI](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
+2. [Programmatically deploy an Azure Resource Manager template from an Azure VM with a managed identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
 
-3. [Use .NET Core sample and MSI to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
+3. [Use .NET Core sample and a managed identity to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
 
 <a name="local"></a>
@@ -83,7 +83,7 @@ Here, you learn the requirements for each scenario and supported tools.
 
 ### Authenticating to Azure Services
 
-Local machines do not support Managed Service Identity (MSI).  As a result, the `Microsoft.Azure.Services.AppAuthentication` library uses your developer credentials to run in your local development environment. When the solution is deployed to Azure, the library uses MSI to switch to an OAuth 2.0 client credential grant flow.  This means you can test the same code locally and remotely without worry.
+Local machines do not support managed identities for Azure resources.  As a result, the `Microsoft.Azure.Services.AppAuthentication` library uses your developer credentials to run in your local development environment. When the solution is deployed to Azure, the library uses a managed identity to switch to an OAuth 2.0 client credential grant flow.  This means you can test the same code locally and remotely without worry.
 
 For local development, `AzureServiceTokenProvider` fetches tokens using **Visual Studio**, **Azure command-line interface** (CLI), or **Azure AD Integrated Authentication**. Each option is tried sequentially and the library uses the first option that succeeds. If no option works, an `AzureServiceTokenProviderException` exception is thrown with detailed information.
 
@@ -157,12 +157,12 @@ When creating a service that calls a custom service, use Azure AD client credent
 
 Once you've signed in to Azure, `AzureServiceTokenProvider` uses the service principal to retrieve a token for local development.
 
-This applies only to local development. When your solution is deployed to Azure, the library switches to MSI authentication.
+This applies only to local development. When your solution is deployed to Azure, the library switches to a managed identity for authentication.
 
 <a name="msi"></a>
-## Running the application using a Managed Service Identity 
+## Running the application using managed identity 
 
-When you run your code on an Azure App Service or an Azure VM with MSI enabled, the library automatically uses Managed Service Identity. No code changes are required. 
+When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. No code changes are required. 
 
 
 <a name="sp"></a>
@@ -174,7 +174,7 @@ It may be necessary to create an Azure AD Client credential to authenticate. Com
  
 2. Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity. 
  
-3. Your code is running on an Azure compute resource that does not yet support Managed Service Identity, such as Azure Batch.
+3. Your code is running on an Azure compute resource that does not yet support managed identities for Azure resources, such as Azure Batch.
 
 To use a certificate to sign into Azure AD:
 
@@ -225,7 +225,7 @@ The following options are supported:
 | `RunAs=Developer; DeveloperTool=AzureCli`	| Local development | AzureServiceTokenProvider uses AzureCli to get token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio`	| Local development | AzureServiceTokenProvider uses Visual Studio to get token. |
 | `RunAs=CurrentUser;` | Local development | AzureServiceTokenProvider uses Azure AD Integrated Authentication to get token. |
-| `RunAs=App;` | Managed Service Identity | AzureServiceTokenProvider uses Managed Service Identity to get token. |
+| `RunAs=App;` | managed identities for Azure resources | AzureServiceTokenProvider uses a managed identity to get token. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`	| Service principal	| `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal |`AzureServiceTokenProvider` uses secret to get token from Azure AD. |
@@ -233,7 +233,7 @@ The following options are supported:
 
 ## Next steps
 
-- Learn more about [Managed Service Identity](/azure/app-service/app-service-managed-service-identity).
+- Learn more about [managed identities for Azure resources](/azure/app-service/app-service-managed-service-identity).
 
 - Learn different ways to [authenticate and authorize apps](/azure/app-service/app-service-authentication-overview).
 

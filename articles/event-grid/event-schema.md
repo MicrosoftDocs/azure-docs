@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/06/2018
+ms.date: 07/20/2018
 ms.author: babanisa
 ---
 
@@ -90,6 +90,7 @@ All events have the same following top-level data:
 To learn about the properties in the data object, see the event source:
 
 * [Azure subscriptions (management operations)](event-schema-subscriptions.md)
+* [Container Registry](event-schema-container-registry.md)
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)

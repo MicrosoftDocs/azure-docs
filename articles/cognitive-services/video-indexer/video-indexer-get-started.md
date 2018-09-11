@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
 
 ---
@@ -16,7 +16,8 @@ ms.author: juliako
 
 This short getting started tutorial shows how to sign in to Video Indexer and how to upload your first video.
 
-To read a detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
+> [!Note]
+> When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). <br/>With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. <br/>With paid option, you create a Video Indexer account that is [connected to your Azure subscription and a Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
 
 ## Sign up and sign in
 
@@ -36,9 +37,6 @@ Once your video has been uploaded, Video Indexer starts indexing and analyzing t
 ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
 Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
-
-> [!Note]
-> The free trial has a total quota limit of 40 hours and a daily upload limit of 100 files. Note that the total quota and daily limit might change.
 
 ## Next steps
 
