@@ -1,5 +1,5 @@
 ---
-title: BuildingBlocks | Microsoft Docs
+title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
 description: Specify the BuildingBlocks element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1

@@ -1,5 +1,5 @@
 ---
-title: Predicates and PredicateValidations | Microsoft Docs
+title: Predicates and PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1

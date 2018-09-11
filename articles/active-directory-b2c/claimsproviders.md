@@ -1,5 +1,5 @@
 ---
-title: ClaimsProviders | Microsoft Docs
+title: ClaimsProviders  - Azure Active Directory B2C | Microsoft Docs
 description: Specify the ClaimsProvider element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1

@@ -1,5 +1,5 @@
 ---
-title: About technical profiles | Microsoft Docs
+title: About technical profiles in Azure Active Directory B2C custom policies | Microsoft Docs
 description: Learn about how technical profiles are used in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# About technical profiles
+# About technical profiles in Azure Active Directory B2C custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

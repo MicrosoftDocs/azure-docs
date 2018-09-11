@@ -1,5 +1,5 @@
 ---
-title: TrustFrameworkPolicy  | Microsoft Docs
+title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Specify the TrustFrameworkPolicy element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -134,7 +134,7 @@ B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
 
 A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection. 
 
-The **SocialAndLocalAccounts** policy file in the [starter pack](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for another scenarios, such as changing an email address, link and unlink a social account, or resetting a password. 
+The **SocialAndLocalAccounts** policy file in the [starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for another scenarios, such as changing an email address, link and unlink a social account, or resetting a password. 
 
 The orchestration steps may call a [Technical Profile](technicalprofiles.md). A technical profile provides a framework with a built-in mechanism to communicate with different types of parties. For example, a technical profile can perform these actions among others:
 

@@ -109,10 +109,10 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 
 ## Requirements of an operation
 
-1. There must be exactly one **InputClaim** element in the claims bag for all Azure AD technical profiles. 
-2. If the operation is `Write` or `DeleteClaims`, then it must also appear in a **PersistedClaims** element.
-3. The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
-4. The **displayName** claim is required and cannot be an empty string.
+- There must be exactly one **InputClaim** element in the claims bag for all Azure AD technical profiles. 
+- If the operation is `Write` or `DeleteClaims`, then it must also appear in a **PersistedClaims** element.
+- The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
+- The **displayName** claim is required and cannot be an empty string.
 
 ## Azure AD technical provider operations
 

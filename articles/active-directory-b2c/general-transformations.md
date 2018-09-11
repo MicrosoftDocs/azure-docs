@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/16/2018
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
 ---

@@ -29,7 +29,7 @@ Get a specified element from a JSON data.
 | InputParameter | claimToExtract | string | the name of the JSON element to be extracted. |
 | OutputClaim | extractedClaim | string | The ClaimType that is produced after this claims transformation has been invoked, the element value specified in the _claimToExtract_ input parameter. |
 
-In the following example, the claims transformation extracted the `emailAddress` element from the JSON data: `{"emailAddress": "emily@live.com", "displayName": "Emily Smith"}`
+In the following example, the claims transformation extracted the `emailAddress` element from the JSON data: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
 ```XML
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
@@ -48,11 +48,11 @@ In the following example, the claims transformation extracted the `emailAddress`
 ### Example
 
 - Input claims:
-    - **inputJson**: {"emailAddress": "emily@live.com", "displayName": "Emily Smith"}
+    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Input parameter:
     - **claimToExtract**: emailAddress
 - Output claims: 
-    - **extractedClaim**: emily@live.com
+    - **extractedClaim**: someone@example.com
 
 
 ## GetClaimsFromJsonArray
@@ -71,7 +71,7 @@ Get a list of specified elements from Json data.
 In the following example, the claims transformation extracts the following claims: email (string), displayName (string), membershipNum (int), active (boolean) and  birthdate (datetime) from the JSON data.
 
 ```JSON
-[{"key":"email","value":"emily@live.com"}, "key":"displayName","value":"Emily Smith"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
+[{"key":"email","value":"someone@example.com"}, "key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
 ```XML
@@ -96,15 +96,15 @@ In the following example, the claims transformation extracts the following claim
 ```    
 
 - Input claims:
-    - **jsonSourceClaim**: [{"key":"email","value":"emily@live.com"}, "key":"displayName","value":"Emily Smith"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
+    - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, "key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 - Input parameters:
     - **errorOnMissingClaims**: false
     - **includeEmptyClaims**: false
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Output claims:
-    - **email**: "emily@live.com"
-    - **displayName**: "Emily Smith"
+    - **email**: "someone@example.com"
+    - **displayName**: "Someone"
     - **membershipNum**: 6353399
     - **active**: true
     - **birthdate**: 1980-09-23T00:00:00Z
@@ -123,8 +123,8 @@ In the following example, the claims transformation extracts the `id` element fr
 
 ```JSON
 {
-    "emailAddress": "someone@live.com", 
-    "displayName": "Emily Smith", 
+    "emailAddress": "someone@example.com", 
+    "displayName": "Someone", 
     "id" : 6353399
 }
 ```
@@ -146,7 +146,7 @@ In the following example, the claims transformation extracts the `id` element fr
 ### Example
 
 - Input claims:
-    - **inputJson**: {"emailAddress": "emily@live.com", "displayName": "Emily Smith", "id" : 6353399}
+    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Input parameters
     - **claimToExtract**:  id
 - Output claims: 
@@ -161,7 +161,7 @@ Gets the first element from a JSON data array.
 | InputClaim | inputJsonClaim | string | The ClaimTypes that are used by the claims transformation to get the item from the JSON array. |
 | OutputClaim | extractedClaim | string | The ClaimType that is produced after this ClaimsTransformation has been invoked, the first element in the JSON array. |
 
-In the following example, the claims transformation extracts the first element (email address) from the JSON array  `["emily@live.com", "Emily Smith", 6353399]`.
+In the following example, the claims transformation extracts the first element (email address) from the JSON array  `["someone@example.com", "Someone", 6353399]`.
 
 ```XML
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
@@ -177,9 +177,9 @@ In the following example, the claims transformation extracts the first element (
 ### Example
 
 - Input claims:
-    - **inputJsonClaim**: ["emily@live.com", "Emily Smith", 6353399]
+    - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
 - Output claims: 
-    - **extractedClaim**: emily@live.com
+    - **extractedClaim**: someone@example.com
 
 ## XmlStringToJsonString
 
@@ -208,8 +208,8 @@ Input claim:
 
 ```XML
 <user>
-  <name>Emily</name>
-  <email>emily@contoso.com</email>
+  <name>Someone</name>
+  <email>someone@example.com</email>
 </user>
 ```
 
@@ -219,8 +219,8 @@ Output claim:
 {
   {
     "user": {
-      "name":"Emily",
-      "email":"emily@contoso.com"
+      "name":"Someone",
+      "email":"someone@example.com"
     }
   }
 }
