@@ -27,18 +27,24 @@ Azure Key Vault helps solve the following problems
 
 ## Basic concepts
 
-Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates.
+Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. A **Vault** is logical group of secrets
 Here are some key terms:
 - **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used in an exact manner to refer to the set of Azure and Office 365 services for an organization.
 - **Vault owner**: A vault owner can create a key vault and gain full access and control over it. The vault owner can also set up auditing to log who accesses secrets and keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, and do related tasks.
 - **Resource**: A resource is a manageable item that's available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.
 - **Resource group**: A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups, based on what makes the most sense for your organization.
 - **Vault consumer**: A vault consumer can perform actions on the assets inside the key vault when the vault owner grants the consumer access. The available actions depend on the permissions granted.
+- **Service Principal** - A Service Principal could be looked at as a credential for your application.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant. 
 - **Azure tenant ID**: A tenant ID is a unique way to identify an Azure AD instance within an Azure subscription.
 - **Managed Service Identity**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see [Managed Service Identity for Azure resources](../active-directory/managed-service-identity/overview.md).
 
     ![Diagram of how Managed Service Identity works](./media/key-vault-whatis/msi.png)
+    
+One of the functions of Azure Key Vault is that it's a Secret Store. But to authenticate to Key Vault you need to present a secret. There are 3 ways to authenticate to Key Vault
+- Managed Service Identity (**Recommended**)
+- Service Principal and Certificate
+- Service Principal and Secret
 
 ## Key Vault roles
 
