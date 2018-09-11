@@ -204,7 +204,7 @@ Update these values to contain information specific to your subscription and tea
     /// Content Moderator account. You can retrieve your team name from
     /// the Conent Moderator web site. Your team name is the Id associated 
     /// with your subscription.</remarks>
-    private const string TeamName = "{teamname}";
+    private const string TeamName = "YOUR REVIEW TEAM ID";
 
     /// <summary>
     /// The optional name of the subteam to assign the review to.
@@ -217,7 +217,7 @@ Update these values to contain information specific to your subscription and tea
     /// <remarks>Revies show up for reviewers on your team. 
     /// As reviewers complete reviews, results are sent to the
     /// callback endpoint using an HTTP POST request.</remarks>
-    private const string CallbackEndpoint = "{callbackUrl}";
+    private const string CallbackEndpoint = "YOUR API ENDPOINT";
 
     /// <summary>
     /// The media type for the item to review.
