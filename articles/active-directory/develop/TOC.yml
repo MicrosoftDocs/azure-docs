@@ -103,6 +103,8 @@
         href: quickstart-v1-android.md
       - name: Windows Desktop .NET
         href: quickstart-v1-dotnet.md
+      - name: Xamarin
+        href: quickstart-v1-xamarin.md
   - name: Service to service
     href: service-to-service.md
     items:
@@ -230,6 +232,21 @@
       href: howto-restrict-your-app-to-a-set-of-users.md
     - name: App roles
       href: howto-add-app-roles-in-azure-ad-apps.md
+  - name: Configure app properties
+    items:
+    - name: Single sign-on (SSO)
+      displayName: SSO
+      items:
+      - name: Enable SSO on Android
+        href: howto-v1-enable-sso-android.md
+      - name: Enable SSO on iOS
+        href: howto-v1-enable-sso-ios.md
+    - name: Claims
+      items:
+      - name: Configure role claims
+        href: ../active-directory-enterprise-app-role-management.md
+      - name: Customize claims
+        href: active-directory-saml-claims-customization.md
   - name: Migrate from the Azure Access Control Service
     href: active-directory-acs-migration.md
   - name: Use the Azure AD Graph API

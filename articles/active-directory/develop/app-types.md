@@ -21,11 +21,13 @@ ms.custom: aaddev
 
 # Application types in Azure Active Directory
 
-The Azure Active Directory (Azure AD) supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols OAuth 2.0 or OpenID Connect.
+Azure Active Directory (Azure AD) supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols OAuth 2.0 or OpenID Connect.
 
-These are the five primary application scenarios supported by Azure AD:
+The following diagram illustrates the scenarios and application types, and how different components can be added:
 
 ![Application Types and scenarios](./media/authentication-scenarios/application_types_and_scenarios.png)
+
+These are the five primary application scenarios supported by Azure AD:
 
 - **[Single Page Application (SPA)](single-page-application.md)**: A user needs to sign in to a single page application that is secured by Azure AD.
 - **[Web browser to web application](web-app.md)**: A user needs to sign in to a web application that is secured by Azure AD.
@@ -40,7 +42,7 @@ Follow the links to learn more about each type of app and understand the high-le
 
 You can develop any of the apps and scenarios described here using various languages and platforms. They are all backed by complete code samples available in the code samples guide: [v1.0 code samples by scenario](sample-v1-code.md) and [v2.0 code samples by scenario](sample-v2-code.md). You can also download the code samples directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?q=active-directory).
 
-In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
+In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API.
 
 ## App registration
 
