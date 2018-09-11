@@ -32,7 +32,7 @@ An IoT hub has a default built-in-endpoint (**messages/events**) that is compati
 You can use standard [Event Hubs integration and SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Note that once a Route is created, data stops flowing to the built-in-endpoint, unless a Route is created to that endpoint.
 
 ### Azure Blob Storage
-IoT Hub only supports writing data to Azure Blob Storage in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed. Learn 
+IoT Hub only supports writing data to Azure Blob Storage in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed.
 
 IoT Hub defaults to the following file naming convention:
 ```
