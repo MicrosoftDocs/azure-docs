@@ -19,15 +19,15 @@ You can deploy models to the following compute targets:
 
 - Azure Container Instances (ACI)
 - Azure Kubernetes Service (AKS)
-- IoT Edge
+- Azure IoT Edge
 - Field-programmable gate array (FPGA)
 
 Rest of this document talks about each of these options in detail.
 
 ## Azure Container Instances
 
-Use ACI for deploying your models as a REST API end point if one or more of the following conditions is true:
-- You're looking for a quick deployment in order to score and validate your model. ACI deployment is typically done in less than 5 mins
+Use Azure Container Instances for deploying your models as a REST API end point if one or more of the following conditions is true:
+- You're looking for a quick deployment in order to score and validate your model. ACI deployment is usually finished in less than 5 minutes.
 - You're looking to deploy your model in a development or test environment. ACI allows you to deploy 20 container groups per subscription. For more information, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
 
 For more information, see the [Deploy a model to Azure Container Instances](how-to-deploy-to-aci.md) document.

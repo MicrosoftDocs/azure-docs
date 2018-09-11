@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.date: 09/24/2018
-
+# As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
 ---
 
 # Azure Machine Learning service architecture and concepts
@@ -141,7 +141,7 @@ A run is a record that contains the following information:
 * Metadata about the run (timestamp, duration etc.)
 * Metrics logged by your script
 * Output files auto-collected by the experiment, or explicitly uploaded by you.
-* A snapshot of the directory that contains your scripts, prior to the run is executed
+* A snapshot of the directory that contains your scripts, prior to the run
 
 A run is produced when you submit a script to train a model. A run can have zero or more child runs.
 
@@ -149,13 +149,13 @@ For an example of viewing runs produced by training a model, see the [Quickstart
 
 ## Experiment
 
-An experiment is a grouping of many runs executed from a given script. It always belongs to a workspace. Submit a run using an arbitrary experiment name, and the submitted run is then listed under that experiment.
+An experiment is a grouping of many runs from a given script. It always belongs to a workspace. Submit a run using an arbitrary experiment name, and the submitted run is then listed under that experiment.
 
 For an example of using an experiment, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
 ## Compute target
 
-A compute target is the compute resource used to execute your training script or host your web service deployment. You can create compute targets by using the Azure Machine Learning SDK and CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can add (attach) them to your workspace. The supported compute targets are: 
+A compute target is the compute resource used to run your training script or host your web service deployment. You can create compute targets by using the Azure Machine Learning SDK and CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can add (attach) them to your workspace. The supported compute targets are: 
 
 * Your local computer
 * A Linux VM in Azure (such as the Data Science Virtual Machine)
@@ -172,7 +172,7 @@ For information on selecting a compute target for deployment, see the [Deploy mo
 
 ## Run configuration
 
-A run configuration is a set of instructions that defines how a script should be executed in a given compute target. It includes a wide set of behavior definitions, such as whether to use an existing Python environment or use a Conda environment built from specification.
+A run configuration is a set of instructions that defines how a script should be run in a given compute target. It includes a wide set of behavior definitions, such as whether to use an existing Python environment or use a Conda environment built from specification.
 
 A run configuration can be persisted into a file inside the directory that contains your training script, or constructed as an in-memory object and used to submit a run.
 
@@ -186,18 +186,18 @@ For an example of using scripts to train a model, see [Create a workspace with P
 
 ## Logging
 
-When developing your solution, use the Azure Machine Learning Python SDK in your Python script to log any arbitrary metrics information. Post execution, query the metrics to determine if the run produces the model you want to deploy. 
+When developing your solution, use the Azure Machine Learning Python SDK in your Python script to log any arbitrary metrics information. After the run, query the metrics to determine if the run produces the model you want to deploy. 
 
 ## Snapshot
 
-When submitting a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip is then expanded and the script is executed there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
+When submitting a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip is then expanded and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
 ## Activity
 
 An activity represents a long running operation. The following operations are examples of activities:
 
 * Creating or deleting a compute target
-* Executing a script on a compute target
+* Running a script on a compute target
 
 Activities can provide notifications through the SDK or Web UI so you can easily monitor the progress of these operations.
 

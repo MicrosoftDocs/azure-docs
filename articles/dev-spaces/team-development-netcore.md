@@ -76,7 +76,7 @@ Well done! You now have a multi-container application where each container can b
 
 ## Learn about team development
 
-[!INCLUDE[](includes/team-development-1.md)]
+[!INCLUDE [](includes/team-development-1.md)]
 
 Let's see it in action. Go to the VS Code window for `mywebapi` and make a code edit to the `string Get(int id)` method, for example:
 
@@ -89,8 +89,8 @@ public string Get(int id)
 ```
 
 
-[!INCLUDE[](includes/team-development-2.md)]
+[!INCLUDE [](includes/team-development-2.md)]
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]
