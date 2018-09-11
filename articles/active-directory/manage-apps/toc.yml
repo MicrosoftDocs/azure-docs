@@ -92,7 +92,7 @@
       - name: Change name or logo
         href: change-name-or-logo-portal.md
       - name: SaaS apps tutorials
-        href: ../saas-apps/tutorial.list.md
+        href: ../saas-apps/tutorial-list.md
     - name: On-premises app integration
       items:
       - name: Enable Application Proxy
@@ -136,7 +136,7 @@
         - name: Problem displaying app page
           href: application-proxy-page-appearance-broken-problem.md
         - name: Application load is too long
-          href: application-proxy-page-load-speed-problem.md)
+          href: application-proxy-page-load-speed-problem.md
         - name: Links on application page not working
           href: application-proxy-page-links-broken-problem.md
         - name: What ports to open for my app
@@ -166,7 +166,7 @@
       - name: Taking hours - gallery app
         href: application-provisioning-when-will-provisioning-finish.md
       - name: Configure user provisioning - gallery app
-        href: application-provisioning-config-how-to.md)
+        href: application-provisioning-config-how-to.md
       - name: Problem configuring user provisioning - gallery app
         href: application-provisioning-config-problem.md
       - name: Problem saving administrator credentials while configuring user provisioning gallery app
@@ -216,7 +216,7 @@
       - name: Configure password common problems - non-gallery apps
         href: configure-password-single-sign-on-non-gallery-applications-problems.md
     - name: Access panel
-    - items:
+      items:
       - name: App not appearing
         href: access-panel-troubleshoot-application-not-appearing.md
       - name: Unexpected app appearing
