@@ -22,14 +22,7 @@ ms.reviewer: dhanyahk
 
 The [Azure Active Directory (Azure AD) reporting APIs](concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools. If you want to access the Azure AD Reporting API without user intervention, you must configure your access to use certificates.
 
-In this tutorial, you learn how to:
-
-1. [Configure prerequisites](#prerequisites)
-2. [Create a test certificate](#create-a-test-certificate)
-3. [Register the certificate in your app](#register-the-certificate-in-your-app)
-4. [Get an access token for MS Graph API](#get-an-access-token-for-ms-graph-api)
-5. [Query the MS Graph API endpoints](#query-the-ms-graph-api-endpoints)
-
+In this tutorial, you learn how to create a test certificate and use it to access the MS Graph API for reporting. We don't recommend using the test certificate in a production environment. 
 
 ## Prerequisites
 
@@ -52,16 +45,16 @@ Your session should look similar to this screen:
 
 1. Use the **New-SelfSignedCertificate** Powershell commandlet to create a test certificate.
 
-        ```
-        $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
-        ```
+   ```
+   $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
+   ```
 
 2. Use the **Export-Certificate** commandlet to export it to a certificate file.
 
-        ```
-        Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
+   ```
+   Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
 
-        ```
+   ```
 
 ## Register the certificate in your app
 
