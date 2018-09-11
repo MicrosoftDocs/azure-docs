@@ -35,12 +35,8 @@
     href: concepts-connectivity.md
 - name: How-to guides
   items:
-  - name: Get started
-    items:
-      - name: Create an application
-        href: howto-create-application.md
-      - name: Set up a device template
-        href: howto-set-up-template.md
+  - name: Create an application
+    href: howto-create-application.md
   - name : Connect devices
     items:
       - name: Prepare and connect a Node.js (generic) application 
@@ -55,6 +51,8 @@
         href: howto-connect-windowsiotcore.md
   - name: Manage devices
     items:
+      - name: Set up a device template
+        href: howto-set-up-template.md
       - name: Manage your devices
         href: howto-manage-devices.md
       - name: Use device sets
