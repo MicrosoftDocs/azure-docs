@@ -23,9 +23,9 @@ To see LinkedIn information in Microsoft apps and services, users must cconsent 
 
 [!INCLUDE [active-directory-gdpr-note](../../../includes/gdpr-hybrid-note.md)]
 
-## Benefits of sharing LinkedIn information in Microsoft apps and services
+## Benefits of sharing LinkedIn information
 
-Access to LinkedIn information within Microsoft apps makes it easier for your users to connect, engage, and build professional relationships with colleagues, customers, and partners inside and outside your organization. New users can get up to speed faster by connecting with colleagues, learning more about them, and easily accessing more information. Here is an example of how LinkedIn information appears on the profile card in Microsoft apps:
+Access to LinkedIn information within Microsoft apps and services makes it easier for your users to connect, engage, and build professional relationships with colleagues, customers, and partners inside and outside your organization. New users can get up to speed faster by connecting with colleagues, learning more about them, and easily accessing more information. Here is an example of how LinkedIn information appears on the profile card in Microsoft apps:
 
 ![Enabling LinkedIn account connections](./media/linkedin-concepts/display-example.png)
 
@@ -63,8 +63,8 @@ Data that is accessed from LinkedIn is not stored permanently in Microsoft servi
 
 When you connect your Microsoft and LinkedIn accounts, you allow Microsoft to provide the following data to LinkedIn:
 
-* *Profile data - includes information like your first name, last name, profile photo, email address, manager, and people that you manage.
-* *Calendar data - includes meetings in your calendars, their times, locations, and attendees' contact information. Information about the meeting, like agenda, content, or meeting title is not included in the calendar data.
+* Profile data - includes information like your first name, last name, profile photo, email address, manager, and people that you manage.
+* Calendar data - includes meetings in your calendars, their times, locations, and attendees' contact information. Information about the meeting, like agenda, content, or meeting title is not included in the calendar data.
 * Interests data - includes the interests associated with your account, based on your use of Microsoft services, such as Cortana and Bing for Business.
 * Subscriptions data - includes subscriptions provided by your organization to Microsoft apps and services, such as Office 365.
 * Contacts data - includes contact lists in Outlook, Skype, and other Microsoft account services, including the contact information for people you frequently communicate or collaborate with. Contacts will be periodically imported, stored, and used by LinkedIn, for example to suggest connections, help organize contacts, and show updates about contacts.
