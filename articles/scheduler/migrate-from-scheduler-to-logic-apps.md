@@ -7,14 +7,12 @@ ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
 ms.reviewer: klam, LADocs
-ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 09/17/2018
 ---
 
 # Migrate to Azure Logic Apps from Azure Scheduler 
 
-> [!IMPORTANT]
 > Azure Logic Apps is replacing Azure Scheduler, 
 > which is being retired. To schedule jobs, please start using 
 > Azure Logic Apps instead, not Azure Scheduler.
@@ -31,15 +29,17 @@ because each logic app is a separate Azure resource.
 
 * The Azure Logic Apps service supports time zone and daylight savings time (DST).
 
-To learn more, see 
-[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 
+or try creating your first logic app in this quickstart: 
+[Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* If you're new to Logic Apps, see [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* To trigger your logic app by sending HTTP requests, 
+use a tool such as the [Postman desktop app](https://www.getpostman.com/apps).
 
 ## Schedule one-time jobs
 
@@ -98,34 +98,63 @@ Under the actions list, select this action: **Delay until**
 1. Add any other actions you want to run by 
 selecting from [~200+ connectors](../connectors/apis-list.md). 
 
-   For example, you can include an HTTP action, 
-   or actions that work with Azure Storage Queues, 
-   Service Bus queues, or Service Bus topics. 
+   For example, you can include an HTTP 
+   action that sends a request to a URL, 
+   or actions that work with Storage Queues, 
+   Service Bus queues, or Service Bus topics: 
+
+   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/http-action.png)
 
 1. When you're done, save your logic app.
 
    ![Save your logic app](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
+   When you save your logic app for the first time, 
+   the endpoint URL for your logic app's Request 
+   trigger appears in the **HTTP POST URL** box. 
+   When you want to call your logic app and send 
+   inputs to your logic app for processing, 
+   use this URL as the call destination.
+
+   ![Save Request trigger endpoint URL](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
+
+1. Copy and save this endpoint URL so you can later 
+send a manual request that triggers your logic app. 
+
 ## Start a one-time job
 
-To manually run or trigger a one-time job, send a call to the request endpoint's URL, 
-which you can find in your logic app's Request trigger, and provide the expected payload.
+To manually run or trigger a one-time job, send a call 
+to the endpoint URL for your logic app's Request trigger. 
+In this call, specify the input or payload to send, 
+which you might have described earlier by providing a schema. 
 
-![Trigger your logic app manually](./media/migrate-from-scheduler-to-logic-apps/call-run-once.png)
+For example, using the Postman app, you can create 
+a POST request with the settings similar to this sample, 
+and then choose **Send** to make the request.
 
-> [!TIP]
-> The `x-ms-workflow-run-id` header is returned by Logic App when the request URL is invoked.
-> Make a note of the value as it's needed to cancel the job.
+| Request method | URL | Body | Headers |
+|----------------|-----|------|---------| 
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>In the **raw** box, enter the payload you want to send in the request. <p>**Note**: This setting automatically configures the **Headers** values. | **Key**: Content-Type <br>**Value**: application/json
+ |||| 
 
-![Response](./media/migrate-from-scheduler-to-logic-apps/response.png)
+![Send request to manually trigger your logic app](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
-## Cancel a Run-Once Job
+After you send the call, the response from your logic 
+app appears under the **raw** box on the **Body** tab. 
+
+> [!IMPORTANT]
+>
+> If you want to cancel the job later, choose the **Headers** tab. 
+> Find and copy the **x-ms-workflow-run-id** header value in the response. 
+> ![Response](./media/migrate-from-scheduler-to-logic-apps/response.png)
+
+## Cancel a one-time job
 
 Since each run-once job is a run instance in Logic App, the [Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) API can be used to cancel a run-once job. You will need to provide the run ID as noted when invoking the trigger.
 
-# Recurring Job
+## Create recurring jobs
 
-## Create Logic Apps
+### Create Logic Apps
 
 1. Create a Logic App, [learn more](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)
 1. Start the Logic App with `Recurrence` trigger.
