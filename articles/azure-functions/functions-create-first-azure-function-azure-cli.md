@@ -6,7 +6,7 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 01/24/2018
+ms.date: 09/10/2018
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
@@ -45,8 +45,6 @@ When prompted, use the arrow keys to select a worker runtime from the following 
 + `dotnet`: creates a .NET class library project (.csproj).
 + `node`: creates a JavaScript project.
 
-The `java` option is not yet supported.
-
 When the command executes, you see something like the following output:
 
 ```output
@@ -75,7 +73,7 @@ Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
 
 ## Edit the function
 
- By default, the template creates a function that requires a function key when making requests. To make it easier to test the function in Azure, you need to update the function to allow anonymous access. The way that you make this change depends on your functions project language.
+By default, the template creates a function that requires a function key when making requests. To make it easier to test the function in Azure, you need to update the function to allow anonymous access. The way that you make this change depends on your functions project language.
 
 ### C\#
 
