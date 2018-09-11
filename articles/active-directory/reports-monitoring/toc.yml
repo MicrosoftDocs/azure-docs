@@ -13,6 +13,8 @@
       href: quickstart-download-sign-in-report.md
     - name: Access Reporting API with certificates
       href: tutorial-access-api-with-certificates.md
+    - name: Configure named locations
+      href: quickstart-configure-named-locations.md
       
   - name: Monitoring
     items:
