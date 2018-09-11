@@ -62,13 +62,10 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 |Windows 7|Yes\*|N/A|Yes|Yes\*\*|N/A
 |Mac OS X|N/A|N/A|Yes\*\*|Yes\*\*|Yes\*
 
-<<<<<<< HEAD:articles/active-directory/hybrid/how-to-connect-sso.md
-\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations)
-=======
+
 \*Requires Internet Explorer versions 10 or above
 
-\*\*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
->>>>>>> a56412a976c997611ea349a8a4f844f761530edb:articles/active-directory/connect/active-directory-aadconnect-sso.md
+\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../active-directory-azureadjoin-overview.md) for the optimal single sign-on experience with Azure AD.
