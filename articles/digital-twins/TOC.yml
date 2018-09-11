@@ -10,10 +10,10 @@
   items:
   - name: View space occupancy
     href: quickstart-view-occupancy-dotnet.md
-- name: Tutorials
-  items:
-  - name: Create app to manage facilities
-    href: tutorial-facilities-app.md
+# - name: Tutorials
+#   items:
+#   - name: Create app to manage facilities
+#     href: tutorial-facilities-app.md
 #- name: Concepts
 #  items:
 #  - name: Overview of device management
