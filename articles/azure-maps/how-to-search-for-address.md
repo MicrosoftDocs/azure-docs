@@ -4,7 +4,7 @@ title: How to search for an address using the Azure Maps Search service  | Micro
 description: Learn how to search for an address using the Azure Maps Search service
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -74,8 +74,8 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
   
     | Key | Value |
     |-----|------------|
-    | lat | 47.62039 |
-    | lon | -122.34928 |
+    | lat | 47.620525 |
+    | lon | -122.349274 |
 
 ## Search for address properties and coordinates 
 
@@ -107,7 +107,7 @@ You can pass a complete or partial street address to the search address API and 
     In this case, you specified a complete address query and receive a single result in the response body.
   
 5. In Params, edit the query string to the following value:
-    ```
+    ```plaintext
         400 Broad, Seattle
     ```
 
@@ -120,6 +120,7 @@ You can pass a complete or partial street address to the search address API and 
     The **typeahead** flag tells the Address Search API to treat the query as a partial input and return an array of predictive values.
 
 ## Search for a street address using Reverse Address Search
+
 1. In Postman, click **New Request** | **GET request** and name it **Reverse Address Search**.
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
@@ -140,11 +141,11 @@ You can pass a complete or partial street address to the search address API and 
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<your Azure Maps key\> |
-    | query | 47.59093,-122.33263 |
+    | query | 47.591180,-122.332700 |
   
 4. Click **Send** and review the response body.
-  
-    The response includes the POI entry for Safeco Field with a poi category of "stadium".
+
+    The response includes key address information about Safeco Field.
   
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -198,10 +199,10 @@ You can pass a complete or partial street address to the search address API and 
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<your Azure Maps key\> |
-    | query | 47.59093,-122.33263 |
+    | query | 47.591180,-122.332700 |
   
 4. Click **Send** and review the response body.
 
 ## Next steps
 
-- Explore the [Azure Maps search service](https://docs.microsoft.com/rest/api/maps/search) API documentation 
+- Explore the [Azure Maps search service](https://docs.microsoft.com/rest/api/maps/search) API documentation.
