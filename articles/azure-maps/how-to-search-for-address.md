@@ -22,7 +22,7 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 ## Using fuzzy search
 
-The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy), which handles inputs of any combination of address or POI tokens. This search API is the canonical 'single-line search' and is useful when you do not know what your user inputs as a search query. The fuzzy search API is a combination of POI search and geocoding. The API can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or it can be executed more generally without any geo biasing anchor point.
+The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) which handles inputs of any combination of address or POI tokens. This search API is a canonical 'single-line search' and is useful when you do not know what your user inputs are when performing a search query. The fuzzy search API is a combination of POI search and geocoding. The API can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or it can be executed more generally without any geo biasing anchor point.
 
 Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce unusual results. This default can be overridden as needed per request by passing in the query parameter `maxFuzzyLevel=2` or `3`.
 
@@ -37,10 +37,10 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/fuzzy/json? |
+    | Request URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference] (https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
@@ -89,7 +89,7 @@ You can pass a complete or partial street address to the search address API and 
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/address/json? |
+    | Request URL | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
     | Authorization | No Auth |
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
@@ -129,7 +129,7 @@ You can pass a complete or partial street address to the search address API and 
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/address/reverse/json? |
+    | Request URL | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
     | Authorization | No Auth |
   
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
@@ -189,7 +189,7 @@ You can pass a complete or partial street address to the search address API and 
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
-    | Request URL | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
+    | Request URL | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
     | Authorization | No Auth |
   
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
