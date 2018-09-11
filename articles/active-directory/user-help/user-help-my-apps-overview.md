@@ -17,7 +17,7 @@ ms.author: lizross
 # My Apps portal overview
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/en-us/azure/active-directory).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
 If you have a work or school account, and your administrator has given you access, you can use the My Apps portal to view and start cloud-based apps.
 

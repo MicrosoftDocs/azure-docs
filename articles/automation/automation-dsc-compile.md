@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: dsc
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/08/2018
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -255,13 +255,13 @@ following for more information:
 
 ### Credential Assets
 
-DSC configurations in Azure Automation can reference Automation credential assets using
-`Get-AzureRmAutomationCredential`. If a configuration has a parameter that has a **PSCredential**
-type, then you can use the `Get-AutomationRmAutomationCredential` cmdlet by passing the string name
+DSC configurations in Azure Automation can reference Automation credential assets using the 
+`Get-AutomationPSCredential` cmdlet. If a configuration has a parameter that has a **PSCredential**
+type, then you can use the `Get-AutomationPSCredential` cmdlet by passing the string name
 of an Azure Automation credential asset to the cmdlet to retrieve the credential. You can then use
-then use that object for the parameter requiring the **PSCredential** object. Behind the scenes,
-the Azure Automation credential asset with that name is retrieved and passed to the configuration.
-The example below shows this in action.
+that object for the parameter requiring the **PSCredential** object. Behind the scenes, the Azure
+Automation credential asset with that name is retrieved and passed to the configuration. The
+example below shows this in action.
 
 Keeping credentials secure in node configurations (MOF configuration documents) requires encrypting
 the credentials in the node configuration MOF file. However, currently you must tell PowerShell DSC
@@ -280,7 +280,7 @@ The following example shows a DSC configuration that uses an Automation credenti
 Configuration CredentialSample
 {
     Import-DscResource -ModuleName PSDesiredStateConfiguration
-    $Cred = Get-AutomationRmAutomationCredential -ResourceGroupName 'ResourceGroup01' -AutomationAccountName 'ContosoAutomationAccount' -Name 'SomeCredentialAsset'
+    $Cred = Get-AutomationPSCredential 'SomeCredentialAsset'
 
     Node $AllNodes.NodeName
     {

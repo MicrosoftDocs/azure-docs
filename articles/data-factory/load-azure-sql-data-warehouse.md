@@ -36,7 +36,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure SQL Data Warehouse: The data warehouse holds the data that's copied over from the SQL database. If you don't have an Azure SQL Data Warehouse, see the instructions in [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL Database: This tutorial copies data from an Azure SQL database with Adventure Works LT sample data. You can create a SQL database by following the instructions in [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md). 
-* Azure storage account: Azure Storage is used as the _staging_ blob in the bulk copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Azure storage account: Azure Storage is used as the _staging_ blob in the bulk copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 ## Create a data factory
 

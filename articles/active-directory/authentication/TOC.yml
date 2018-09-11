@@ -27,7 +27,7 @@
     href: concept-authentication-methods.md
   - name: Converged registration
     href: concept-registration-mfa-sspr-converged.md
-  - name: Self-service password reset
+  - name: Password reset
     items:
     - name: How password reset works
       href: concept-sspr-howitworks.md
@@ -47,7 +47,7 @@
       href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
-    - name: Create an Auth Provider
+    - name: Manage an Auth Provider
       href: concept-mfa-authprovider.md
     - name: Security guidance
       href: multi-factor-authentication-security-best-practices.md
@@ -63,9 +63,9 @@
       href: concept-password-ban-bad-on-premises.md
 - name: How-to guides
   items:
-  - name: Password reset
+  - name: Self-service password reset
     items:
-    - name: Deploy password reset
+    - name: Deploy self-service password reset
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
@@ -116,12 +116,12 @@
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
-      href: ../active-directory-certificate-based-authentication-get-started.md
+      href: active-directory-certificate-based-authentication-get-started.md
       items:
       - name: CBA on Android Devices
-        href: ../active-directory-certificate-based-authentication-android.md
+        href: active-directory-certificate-based-authentication-android.md
       - name: CBA on iOS Devices
-        href: ../active-directory-certificate-based-authentication-ios.md
+        href: active-directory-certificate-based-authentication-ios.md
   - name: Develop
     items:
     - name: Build MFA into custom apps

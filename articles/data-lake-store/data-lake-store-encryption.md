@@ -4,13 +4,9 @@ description: Encryption in Azure Data Lake Store helps you protect your data, im
 services: data-lake-store
 documentationcenter: ''
 author: esung22
-manager:
-editor:
 
-ms.assetid: 
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ---

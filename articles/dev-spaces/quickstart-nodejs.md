@@ -26,7 +26,7 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.10.3, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
+- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
   ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -118,7 +118,7 @@ You first need to configure your code project so VS Code will communicate with o
 
 Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
+This adds debug configuration for Azure Dev Spaces under the `.vscode` folder. This command is not to be confused with the `azds prep` command, which configures the project for deployment.
 
 ![](./media/common/command-palette.png)
 
