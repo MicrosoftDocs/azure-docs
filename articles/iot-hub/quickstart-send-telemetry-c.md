@@ -40,7 +40,7 @@ You can use the SDK by installing the packages and libraries for the following e
 
 * **Linux**: apt-get packages are available for Ubuntu 14.04, 15.04, 15.10, 16.04 using the following CPU architectures amd64, arm64, armhf and i386. For more information, see [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
 
-* **mbed**: For developers creating device applications on the mbed platform, we have published a library and samples that will get you started in minutes witH Azure IoT Hub. For more information, see [Use the mebed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
+* **mbed**: For developers creating device applications on the mbed platform, we have published a library and samples that will get you started in minutes witH Azure IoT Hub. For more information, see [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 
 * **Arduino**: If you are developing on Arduino, you can leverage the Azure IoT library available in the Arduino IDE library manager. For more information, see [The Azure IoT Hub library for Arduino](https://github.com/azure/azure-iot-arduino).
 
@@ -52,8 +52,8 @@ However, in this quickstart, you will prepare a development environment used to 
 1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
     ```
 
