@@ -449,7 +449,6 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
-<<<<<<< HEAD
     - name: Throttling errors
       href: throttling-errors-in-azure-compute.md
     - name: Troubleshoot boot errors
