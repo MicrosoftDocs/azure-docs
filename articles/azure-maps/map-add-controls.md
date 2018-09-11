@@ -4,11 +4,10 @@ description: How to add zoom control, pitch control, rotate control and a style 
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/29/2018
-ms.topic: how-to-guides
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
 ---
 
 # Add Map Controls to Azure Maps
