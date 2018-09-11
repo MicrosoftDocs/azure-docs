@@ -25,15 +25,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/index/i_upgrade.png
+        src: ./media/index/i_subscription.png
       text: Sign up for Azure AD Premium
       href: active-directory-get-started-premium.md
     - image: 
-        src: /media/index/i_get-started.png
+        src: ./media/index/i_portal.png
       text: Access the portal and create a tenant
       href: active-directory-access-azure-ad.md
     - image: 
-        src: /media/index/i-learn.png
+        src: ./media/index/i_tasks.png
       text: View groups and members
       href: active-directory-groups-view-azure-portal.md
 - title: Step-by-Step guides
