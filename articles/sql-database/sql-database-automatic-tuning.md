@@ -22,7 +22,7 @@ Azure SQL Database Automatic tuning might be one of the most important features 
 
 ## What can Automatic Tuning do for you?
 
-- Automated performance tuning of Azure SQL Databases
+- Automated performance tuning of Azure SQL databases
 - Automated verification of performance gains
 - Automated rollback and self-correction
 - Tuning history
@@ -33,7 +33,7 @@ Azure SQL Database Automatic tuning might be one of the most important features 
 
 ## Safe, Reliable, and Proven
 
-Tuning operations applied to Azure SQL Databases are fully safe for the performance of your most intense workloads. The system has been designed with care not to interfere with the user workloads. Automated tuning recommendations are applied only at the times of a low utilization. The system can also temporarily disable automatic tuning operations to protect the workload performance. In such case, “Disabled by the system” message will be shown in Azure portal. Automatic tuning regards workloads with the highest resource priority.
+Tuning operations applied to Azure SQL databases are fully safe for the performance of your most intense workloads. The system has been designed with care not to interfere with the user workloads. Automated tuning recommendations are applied only at the times of a low utilization. The system can also temporarily disable automatic tuning operations to protect the workload performance. In such case, “Disabled by the system” message will be shown in Azure portal. Automatic tuning regards workloads with the highest resource priority.
 
 Automatic tuning mechanisms are mature and have been perfected on several million databases running on Azure. Automated tuning operations applied are verified automatically to ensure there is a positive improvement to the workload performance. Regressed performance recommendations are dynamically detected and promptly reverted. Through the tuning history recorded, there exists a clear trace of tuning improvements made to each Azure SQL Database. 
 
@@ -76,5 +76,5 @@ Configuring Automatic tuning options on a server and inheriting settings for dat
 - To manually review and apply Automatic tuning recommendations, see [Find and apply performance recommendations](sql-database-advisor-portal.md).
 - To learn how to use T-SQL to apply and view Automatic tuning recommendations, see [Manage automatic tuning via T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 - To learn about building email notifications for Automatic tuning recommendations, see [Email notifications for automatic tuning](sql-database-automatic-tuning-email-notifications.md).
-- To learn about built-in intelligence used in Automatic tuning, see [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- To learn about built-in intelligence used in Automatic tuning, see [Artificial Intelligence tunes Azure SQL databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - To learn about how Automatic tuning works in Azure SQL Database and SQL server 2017, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

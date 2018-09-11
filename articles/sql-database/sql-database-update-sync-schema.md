@@ -13,7 +13,7 @@ ms.custom: data-sync
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 
-SQL Data Sync lets users synchronize data between Azure SQL Databases and on-premises SQL Server in one direction or in both directions. One of the current limitations of SQL Data Sync is a lack of support for the replication of schema changes. Every time you change the table schema, you need to apply the changes manually on all endpoints, including the hub and all members, and then update the sync schema.
+SQL Data Sync lets users synchronize data between Azure SQL databases and on-premises SQL Server in one direction or in both directions. One of the current limitations of SQL Data Sync is a lack of support for the replication of schema changes. Every time you change the table schema, you need to apply the changes manually on all endpoints, including the hub and all members, and then update the sync schema.
 
 This article introduces a solution to automatically replicate schema changes to all SQL Data Sync endpoints.
 1. This solution uses a DDL trigger to track schema changes.
