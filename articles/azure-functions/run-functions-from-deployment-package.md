@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: glenga
 
 ---
@@ -19,7 +19,7 @@ ms.author: glenga
 > [!NOTE]
 > The functionality described in this article is not available for Functions on Linux.
 
-In Azure, you can run your functions directly from a deployment package file that is in your function app. The other option is to deploy your loose files in the `d:\home\site\wwwroot` directory of your function app.
+In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` directory of your function app.
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
@@ -31,7 +31,7 @@ There are several benefits to running from a package file:
 + Can be deployed to a production app (with restart).
 + You can be certain of the files that are running in your app.
 + Improves the performance of [Azure Resource Manager deployments](functions-infrastructure-as-code.md).
-+ May reduce cold-start times (particularly for JavaScript functions with large NPM trees.)
++ May reduce cold-start times, particularly for JavaScript functions with large npm package trees.
 
 For more information, see [this announcement](https://github.com/Azure/app-service-announcements/issues/84).
 
@@ -55,7 +55,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 [Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` folder. With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` folder instead of extracting the files to `d:\home\site\wwwroot`. It also creates the `packagename.txt` file. The function app is then run from the package after a restart, and `wwwroot` becomes read-only. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
-## Adding the WEBSITE_RUN_FROM_ZIP setting
+## Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
