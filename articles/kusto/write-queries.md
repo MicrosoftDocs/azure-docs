@@ -999,6 +999,7 @@ MyFunction ("Texas")
 The following example deletes the function that was created in the
 first step.
 
+```Kusto
 .drop function MyFunction
 ```
 
