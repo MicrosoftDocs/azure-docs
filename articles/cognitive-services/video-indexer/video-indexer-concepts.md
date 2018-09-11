@@ -18,11 +18,11 @@ This topic describes some concepts of the Video Indexer service.
  	
 ## Summarized insights
 
-Summarized insights contain an aggregated view of the data: faces, keywords, sentiments. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
+Summarized insights contain an aggregated view of the data: faces, topics, sentiments. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
 
-## Topics/keywords
+## Topics
 
-Topics/keywords are in the list of key phrases that Video Indexer extracts from the text. For example, a Scott Guthrie video might contain the following topics/keywords: Security, Azure, Microsoft Cloud, Revenue.
+Topics are in the list of key phrases that Video Indexer extracts from the text. For example, a Scott Guthrie video might contain the following topics: Security, Azure, Microsoft Cloud, Revenue.
 
 ## Sentiments
 
