@@ -17,7 +17,7 @@ sections:
 - title: Upcoming change
   items:
   - type: paragraph
-    text: Azure IoT Central will use Azure IoT Device Provisioning service (DPS) for all device connections in the next coming weeks. Once this change goes live you will be required to update your device code to use DPS sdk to register and connect devices and applications using continuous data export and or Power BI solution template will be required to change the destination storage container and create a new solution template. Please contact technical support to learn more.
+    text: Azure IoT Central will transition to using Azure IoT Hub Device Provisioning service (DPS) for all device connections in the next few weeks. Once this change goes live, you will be required to update your device code to use the DPS SDK to register and connect devices. All applications using the continuous data export feature and/or the Power BI solutions template will be required to change the destination storage container and create a new solution template. <a href="https://aka.ms/iotcentral-create-technical-support-ticket">Please contact technical support to learn more.</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
