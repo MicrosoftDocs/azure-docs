@@ -134,7 +134,7 @@ Follow these steps to deploy the template:
    1. Stack Type  
       Select the SAP NetWeaver stack type
    1. Os Type  
-      Select one of the Linux distributions. For this example, select SLES 12 BYOS
+      Select one of the Linux distributions. For this example, select RHEL 7
    1. Db Type  
       Select HANA
    1. Sap System Count  

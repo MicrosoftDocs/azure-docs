@@ -29,7 +29,7 @@ ms.author: sedusch
 > [!NOTE]
 > Pacemaker on Red Hat Enterprise Linux uses the Azure Fence Agent to fence a cluster node if required. A failover can take up to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
 
-![Pacemaker on SLES overview](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+![Pacemaker on RHEL overview](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
 Read the following SAP Notes and papers first:
 
