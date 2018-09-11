@@ -27,7 +27,7 @@
 ## High availability and disaster recovery
 ### [Options and considerations](hana-overview-high-availability-disaster-recovery.md)
 ### [Backup and restore](hana-backup-restore.md)
-### [Principles and preparation]](hana-concept-preparation.md)
+### [Principles and preparation](hana-concept-preparation.md)
 ### [Disaster recovery failover procedure](hana-failover-procedure.md)
 ## Troubleshoot and monitor
 ### [Monitoring HLI](troubleshooting-monitoring.md)

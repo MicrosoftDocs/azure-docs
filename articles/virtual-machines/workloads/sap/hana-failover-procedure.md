@@ -19,6 +19,10 @@ ms.custom: H1Hack27Feb2017
 ---
 # Disaster recovery failover procedure
 
+
+>[!IMPORTANT]
+>This documentation is no replacement of the SAP HANA administration documentation or SAP Notes. It's expected that the reader has a solid understanding of and expertise in SAP HANA administration and operations, especially with the topics of backup, restore, high availability, and disaster recovery. In this documentation, screenshots from SAP HANA Studio are shown. Content, structure, and the nature of the screens of SAP administration tools and the tools themselves might change from SAP HANA release to release.
+
 There are two cases to consider when failing over to the DR site:
 
 - You need the SAP HANA database to go back to the latest status of data. In this case, there is a self-service script with which you can perform the failover without the need to contact Microsoft. However, for the failback, you need to work with Microsoft.
