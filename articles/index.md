@@ -269,7 +269,7 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/deploy-azure/">
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
                                                             Azure DevOps
                                                         </a>
