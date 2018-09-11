@@ -3,7 +3,7 @@ title: Add a multitenant application to the Azure AD application gallery | Micro
 description:  Explains how you can list your custom-developed multitenant application in the Azure AD application gallery.
 services: active-directory
 documentationCenter: na
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
-ms.author: barbkess
+ms.date: 09/11/2018
+ms.author: celested
 ms.reviewer: jeedes
 
 ---
