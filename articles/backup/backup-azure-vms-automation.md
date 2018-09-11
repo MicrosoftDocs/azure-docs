@@ -108,8 +108,7 @@ To view all vaults in the subscription, use **[Get-AzureRmRecoveryServicesVault]
 
 ```powershell
 Get-AzureRmRecoveryServicesVault
-```
-. You can use this command to check that a new vault was created, or to see the available vaults in the subscription.
+`` `
 
 The output is similar to the following example, notice the associated ResourceGroupName and Location are provided.
 
@@ -165,6 +164,11 @@ A backup protection policy is associated with at least one retention policy. Ret
 $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
 $retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 New-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
+```
+
+The output is similar to the following example:
+
+```
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
 NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
@@ -396,7 +400,7 @@ After you restore the disks, use the following steps to create and configure the
    $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
    ```
 
-4. Attach the OS disk and data disks. There are six sections that describe various VM configurations. Use the subsection for your VM configuration.
+4. Attach the OS disk and data disks. This step provides examples for various managed and encrypted VM configurations. Use the example that suits your VM configuration.
 
    * **Non-managed and non-encrypted VMs** - Use the following sample for non-managed, non-encrypted VMs.
 
@@ -623,4 +627,4 @@ Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## Next steps
 
-If you prefer to use PowerShell to engage with your Azure resources, see the PowerShell article, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). If you manage DPM backups, see the article, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
+If you prefer to use PowerShell to engage wi th your Azure resources, see the PowerShell article, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). If you manage DPM backups, see the article, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
