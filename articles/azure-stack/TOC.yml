@@ -6,14 +6,14 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
+    - name: 1809 update 
+      href: azure-stack-update-1809.md 
     - name: 1808 update 
       href: azure-stack-update-1808.md 
-    - name: 1807 update 
-      href: azure-stack-update-1807.md 
+    - name: 1807 update
+      href: azure-stack-update-1807.md
     - name: 1805 update
       href: azure-stack-update-1805.md
-    - name: 1804 update
-      href: azure-stack-update-1804.md
 - name: Quickstarts
   expanded: true
   items:
