@@ -80,15 +80,24 @@
     items:
     - name: Create or use existing virtual network
       href: configure-advanced-networking.md
-    - name: Configure Ingress HTTP application routing
-      href: http-application-routing.md
-    - name: Create Ingress and TLS
-      href: ingress.md
     - name: Create an internal load balancer
       href: internal-lb.md
     - name: Use a static IP addresses
       href: static-ip.md
-    - name: Manage Egress traffic
+    - name: Ingress
+      items:
+        - name: Create a basic controller
+          href: ingress-basic.md
+        - name: Use HTTP application routing
+          href: http-application-routing.md
+        - name: Use internal network
+          href: ingress-internal-ip.md
+        - name: Use TLS with Let's Encrypt
+          href: ingress-tls.md
+          items:
+          - name: Use a static public IP
+            href: ingress-static-ip.md
+    - name: Egress traffic
       href: egress.md
   - name: Security and authentication
     items:
