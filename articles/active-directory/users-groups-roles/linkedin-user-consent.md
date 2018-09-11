@@ -21,7 +21,7 @@ As an Azure Active Directory (Azure AD) administrator, you can enable users in y
 
 To see LinkedIn information in Microsoft apps and services, users must cconsent to connect their own Microsoft and LinkedIn accounts. Users are prompted to connect their accounts the first time they click to see someone's LinkedIn information on a profile card in Outlook, OneDrive or SharePoint Online. LinkedIn account connections are not fully enabled for your users until they consent to the experience and to connect their accounts.
 
-[!INCLUDE [active-directory-gdpr-note](../../includes/active-directory-gdpr-note.md)]
+[!INCLUDE [active-directory-gdpr-note](../../../includes/active-directory-gdpr-note.md)]
 
 ## How does your organization benefit from LinkedIn information in Microsoft apps and services?
 
