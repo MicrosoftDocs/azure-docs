@@ -372,7 +372,7 @@
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
 - name: Troubleshoot
-  href: ./troubleshooting/index.md
+  href: ../troubleshooting/index.md
 - name: Reference
   items:
   - name: Azure CLI
