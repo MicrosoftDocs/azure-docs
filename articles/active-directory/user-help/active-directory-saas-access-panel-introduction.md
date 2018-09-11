@@ -204,7 +204,7 @@ For example, if an application is configured to authenticate users by using AD F
  
 - To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
  
-- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md).
+- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
