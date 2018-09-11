@@ -103,7 +103,7 @@ selecting from [~200+ connectors](../connectors/apis-list.md).
    or actions that work with Storage Queues, 
    Service Bus queues, or Service Bus topics: 
 
-   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/http-action.png)
+   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. When you're done, save your logic app.
 
@@ -159,40 +159,62 @@ app run instance. To cancel a one-time job, you can use
 in the Logic Apps REST API. You need to provide the 
 [workflow run ID](#workflow-run-id) when you call the trigger.
 
-## Create recurring jobs
+## Schedule recurring jobs
 
 ### Create your logic app
 
-1. Create a Logic App, [learn more](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)
-1. Start the Logic App with `Recurrence` trigger.
+1. In the [Azure portal](https://portal.azure.com), 
+create a blank logic app in Logic App Designer. 
 
-    ![Recurrence trigger](./media/migrate-from-scheduler-to-logic-apps/schedule-trigger.png)
+   For the basic steps, follow [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Configure advanced schedule, if desired.
+1. In the search box, enter "recurrence" as your filter. 
+From the triggers list, select this trigger: 
+**Recurrence** 
 
-    ![Advanced schedule](./media/migrate-from-scheduler-to-logic-apps/advanced-schedule.png)
+   ![Add "Recurrence" trigger](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
-1. Add the action you wish to execute.
+1. Set up a more advanced schedule, if you want.
 
-    ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/http-action.png)
+   ![Advanced schedule](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
-    > [!TIP]
-    > In additional to HTTP, Storage queue, Service Bus queue, and Service Bus topic. You can also use more than [hundreds of other connectors](https://docs.microsoft.com/azure/connectors/apis-list).
-1. Save the Logic App.
+1. Add other actions you want by selecting from 
+[200+ connectors](../connectors/apis-list.md). 
+Under the trigger, choose **Next step**. 
+Find and select the actions you want.
 
-    ![Saved Logic App](./media/migrate-from-scheduler-to-logic-apps/recurrent-http.png)
+   For example, you can include an HTTP 
+   action that sends a request to a URL, 
+   or actions that work with Storage Queues, 
+   Service Bus queues, or Service Bus topics: 
 
-# Advanced Configurations
+   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
-## Retry Policy
+1. When you're done, save your logic app.
 
-Retry policy can be configured for each action in Logic App, by navigating to the `Settings` pane for a given action.
+   ![Save your logic app](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-![Retry policy](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
+## Advanced setup
 
-To learn more about retry policy in Logic Apps, see [here](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling#retry-policies).
+Here are other ways you can customize your jobs.
 
-## Exception Handling / Error Action
+### Retry policy
+
+To control the how often an action retries running in your 
+logic app during intermittent failures, you can set the 
+[retry policy](../logic-apps/logic-apps-exception-handling.md#retry-policies) 
+in each action's settings, for example:
+
+1. Open the action's (**...**) menu, and select **Settings**.
+
+   ![Open action settings](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
+
+1. Select the retry policy you want. For more information about each policy, 
+see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies).
+
+   ![Select retry policy](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
+
+## Handle exceptions and errors
 
 An error action can be executed in Scheduler should the default action failed to execute, the same can be done in Logic Apps as well.
 
@@ -202,20 +224,39 @@ Hover about the action in which you want to handle the exception for, and add a 
 
 To learn more about exception handling, see [here](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling#catch-and-handle-failures-with-the-runafter-property).
 
-## Frequently Asked Questions
+## FAQ
 
-* **When will Azure scheduler be deprecated?**
-  * Azure Scheduler is scheduled to be deprecated on 9/17/2019.
-* **What happens to my Scheduler job collections and jobs after the service has been deprecated?**
-  * After service deprecation, all Scheduler job collections and jobs will be deleted from the system.
-* **Do I need to create a back up, or perform any prerequisite before migrating my Scheduler jobs to Logic Apps?**
-  * It is always advised to back up your work. You may also want to ensure that the Logic Apps created is running as expected before delete or disable your Scheduler jobs.
-* **Is there a tool to help me migrate my jobs from Scheduler to Logic Apps?**
-  * Because every Scheduler jobs are unique, there's no one-size-fits-all tool available. Various scripts will be available for your reference, so you can modify them to fit your need. Please check back for availability.
-* **Where do I get support for migrating my Scheduler jobs?**
-  * You can receive support for scheduler migrations through [Azure Portal](https://portal.azure.com)
-    1. Select “Help + Support”
-    1. Select “Technical” for the “Issue Type”
-    1. Select the appropriate subscription
-    1. Select “Scheduler” as the “Service”
-  * You can also leverage some of the other resources we have documented, such as [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
+**Q**: When is Azure Scheduler retiring? <br>
+**A**: Azure Scheduler is scheduled to retire on September 17, 2019.
+
+**Q**: What happens to my Scheduler job collections and jobs after the service retires? <br>
+**A**: All Scheduler job collections and jobs will be deleted from the system.
+
+**Q**: Do I have to back up or perform any other tasks before migrating my Scheduler jobs to Logic Apps? <br>
+**A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs. 
+
+**Q**: Is there a tool that can help me migrate my jobs from Scheduler to Logic Apps? <br>
+**A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, various scripts wil be available for you to fit to your needs. Please check back for availability.
+
+**Q**: Where can I get support for migrating my Scheduler jobs? <br>
+**A**: Here are some ways to get support: 
+
+ **Azure portal**
+
+ 1. In the [Azure portal](https://portal.azure.com), select **Help + Support**.
+ 1. For **Issue Type**, select **Technical**.
+ 1. Select your Azure subscription.
+ 1. For **Service**, select **Scheduler**.
+
+**Community**
+
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
+
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
+## Next steps
+
+* [Tutorial: Check traffic with a schedule-based logic app](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
