@@ -2,19 +2,14 @@
 title: Debugging apps in a local Docker container | Microsoft Docs
 description: Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints
 services: azure-container-service
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
 ms.service: multiple
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/22/2016
-ms.author: mlearned
-
+ms.date: 09/11/2018
+ms.author: ghogen
 ---
 # Debugging apps in a local Docker container
 ## Overview
@@ -58,19 +53,20 @@ To quickly iterate changes, you can start your application within a container, a
    Now listening on: http://*:80
    Application started. Press Ctrl+C to shut down
    ```
+
 6. Your changes have been applied!
 
-## 4. Debug with breakpoints
+## 3. Debug with breakpoints
 Often, changes will need further inspection, leveraging the debugging features of Visual Studio.
 
-1. Return to Visual Studio and open `Controllers\HomeController.cs`
-2. Replace the contents of the About() method with the following:
+1. Return to Visual Studio and open `About.cshtml.cs`
+2. Replace the contents of the OnGet() method with the following:
 
+   ```cs
+       Message = "Your application description page from within a Container";
    ```
-   string message = "Your application description page from within a Container";
-   ViewData["Message"] = message;
-   ````
-3. Set a breakpoint to the left of the `string message`... line.
+
+3. Set a breakpoint to the left of the code line.
 4. Hit **&lt;F5>** to start debugging.
 5. Navigate to the About page to hit your breakpoint.
 6. Switch to Visual Studio to view the breakpoint, and inspect the value of message.
@@ -85,11 +81,11 @@ with the production realism of developing within a Docker container.
 [Troubleshooting Visual Studio Docker Development](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## More about Docker with Visual Studio, Windows, and Azure
-* [Docker Tools for Azure DevOps](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
+* [Container development with Visual Studio](/visualstudio/containers) - a container development hub page
+* [Docker Integration for Azure Pipelines](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
 * [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
 * [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
-* [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
-* For more examples of working with Docker, see [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+* [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/) - [Azure Kubernetes Service Documentation](/azure/aks)
 
 ## Various Docker tools
 [Some great docker tools (Steve Lasker's blog)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
