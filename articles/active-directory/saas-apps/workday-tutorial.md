@@ -3,9 +3,9 @@ title: 'Tutorial: Azure Active Directory integration with Workday | Microsoft Do
 description: Learn how to configure single sign-on between Azure Active Directory and Workday.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: femila
-ms.reviewer: joflore
+author: cmmdesai
+manager: mtillman
+ms.reviewer: jeedes
 
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: jeedes
+ms.date: 09/11/2018
+ms.author: chmutali
 
 ---
 # Tutorial: Azure Active Directory integration with Workday
