@@ -1,10 +1,11 @@
 ---
-title: "Quickstart: Send search queries using the Bing Image Search API and C#"
+title: "Quickstart: Send search queries with the Bing Image Search API and"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search and find images on the web using the Bing Web Search API.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
@@ -48,7 +49,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
         class Program
         {
         // Replace the this string with your valid access key.
-        const string subscriptionKey = "enter key here";
+        const string subscriptionKey = "enter your key here";
         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
         const string searchTerm = "tropical ocean";
     //...
@@ -147,7 +148,9 @@ In the `BingImageSearch` method, perform the following steps.
     Console.WriteLine("Title for the first image result: " + firstJsonObj["name"]+"\n");
     //After running the application, copy the output URL into a browser to see the image. 
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
-    ```         
+    ```  
+       
+3. Make sure to remove your subscription key from the application's code.
 
 ## JSON response
 
@@ -204,7 +207,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 ## See also 
 
-[Bing Image Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

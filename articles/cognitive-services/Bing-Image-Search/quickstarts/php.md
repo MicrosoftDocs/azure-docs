@@ -1,10 +1,11 @@
 ---
-title: "Quickstart: Send search queries using the REST API for the Bing Image Search API using PHP"
+title: "Quickstart: Send search queries with the Bing Image Search API and PHP"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search and find images on the web using the Bing Web Search API.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
@@ -37,7 +38,7 @@ To run this application, follow these steps.
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
     // Replace the accessKey string value with your valid access key.
     $accessKey = 'enter key here';
-    $term = 'puppies';
+    $term = 'tropical ocean';
     ```
 ## Construct and perform a HTTP request
 
@@ -126,7 +127,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 ## See also 
 
-[Bing Image Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
