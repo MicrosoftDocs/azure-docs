@@ -50,6 +50,8 @@
     href: Concepts/knowledge-base.md
   - name: Development lifecyle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
+  - name: Best practices
+    href: Concepts/best-practices.md
   - name: Confidence score
     href: Concepts/confidence-score.md
   - name: Data sources supported
