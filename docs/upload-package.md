@@ -34,7 +34,7 @@ For more information, see [Submit apps for Office 365 operated by 21Vianet in Ch
 
 ## Upload an Office 365 web app
 
-Office 365 web apps are no longer accpeted via SellerDashboard. We reccomend submitting via [Cloud Partner Portal](https://appsource.microsoft.com/en-us/partners/signup) instead
+Office 365 web apps are no longer accpeted via the Seller Dashboard. We reccomend that you submit Office 365 web apps via the [Cloud Partner Portal](https://appsource.microsoft.com/en-us/partners/signup) instead.
 
 
 ## Upload a Power BI custom visual    
