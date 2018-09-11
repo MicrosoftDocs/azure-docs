@@ -12,7 +12,7 @@ ms.date: 09/10/2018
 ms.author: govindk
  
 ---
-# Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API 
+# Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through Cassandra Query Language(CQL) v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
 
@@ -27,7 +27,7 @@ The Azure Cosmos DB Cassandra API is compatible with CQL version **v4**. The sup
 The following versions of Cassandra drivers are supported by Azure Cosmos DB Cassandra API:
 
 Supported OSS driver | URL 
---- | --- | --- | 
+--- | --- | 
 Java 3.5+ | https://github.com/datastax/java-driver
 C#  3.5+ | https://github.com/datastax/csharp-driver
 Nodejs 3.5+ | https://github.com/datastax/nodejs-driver 
