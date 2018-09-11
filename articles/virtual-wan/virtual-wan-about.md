@@ -6,19 +6,14 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 07/18/2018
+ms.date: 09/21/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
-# What is Azure Virtual WAN? (Preview)
+# What is Azure Virtual WAN?
 
 Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or by using preferred provider devices through a Virtual WAN partner. Using preferred provider devices allows you ease of use, simplification of connectivity, and configuration management. The Azure WAN built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale Site-to-Site connectivity.
-
-> [!IMPORTANT]
-> Azure Virtual WAN is currently a managed Public Preview. To use Virtual WAN, you must [Enroll in the Preview](#enroll).
->
-> This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Virtual WAN offers the following advantages:
 
@@ -26,7 +21,7 @@ This article provides a quick view into the network connectivity of your Azure a
 * **Automated spoke setup and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure and use this information to take required actions.
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
+![Virtual WAN diagram](./media/virtual-wan-about/newvwan.png)
 
 ## <a name="vendor"></a>Working with a Virtual WAN partner
 
