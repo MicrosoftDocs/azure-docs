@@ -69,6 +69,8 @@
         href: what-is-single-sign-on.md
       - name: SSO methods
         href: application-proxy-single-sign-on.md
+      - name: Choose a method
+        href: single-sign-on-modes.md
       - name: Home Realm Discovery
         href: configure-authentication-for-federated-users-portal.md
       - name: Kerberos constrained Delegation (KCD)
@@ -197,8 +199,6 @@
         href: manage-self-service-access.md
     - name: Single sign-on
       items:
-      - name: Choose a method
-        href: single-sign-on-modes.md
       - name: Configure non-gallery apps
         href: configure-single-sign-on-non-gallery-applications.md
       - name: Configure federated - gallery apps
