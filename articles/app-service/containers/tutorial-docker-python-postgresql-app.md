@@ -39,7 +39,7 @@ To complete this tutorial:
 1. [Install Git](https://git-scm.com/)
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
-1. [Install Docker Community Edition](https://www.docker.com/community-edition)
+1. [Install Docker Community Edition](https://www.docker.com/get-started)
 
 ## Test local PostgreSQL installation and create a database
 
