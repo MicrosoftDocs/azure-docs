@@ -94,7 +94,7 @@ For information on the REST APIs for IP to Location service, visit the [Azure Ma
 
 Azure Maps is built for mobility and can power cross-platform applications. It uses a programming model that is language agnostic and supports JSON output through [REST APIs](https://docs.microsoft.com/rest/api/maps/). 
 
-Additionally, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) with a simple programming model for quick and easy development of both web and mobile applications. 
+Additionally, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) with a simple programming model for quick and easy development of both web and mobile applications. 
 
 
 ## Usage

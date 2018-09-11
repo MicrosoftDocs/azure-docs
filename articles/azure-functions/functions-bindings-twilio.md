@@ -3,19 +3,15 @@ title: Azure Functions Twilio binding
 description: Understand how to use Twilio bindings with Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 07/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -223,10 +219,9 @@ public static CreateMessageOptions Run(
 {
     log.Info($"C# Queue trigger function processed: {order}");
 
-    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
+    var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
     {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
+        Body = $"Hello {order["name"]}, thanks for your order!"
     };
 
     return message;

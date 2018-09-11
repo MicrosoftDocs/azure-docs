@@ -3,7 +3,7 @@ title: Enable Backup for Azure Stack with PowerShell | Microsoft Docs
 description: Enable the Infrastructure Backup Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. 
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2018
-ms.author: mabrigg
+ms.date: 08/16/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
 
 ---
@@ -40,31 +40,26 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 | Variable        | Description   |
 |---              |---                                        |
 | $username       | Type the **Username** using the domain and username for the shared drive location with sufficient access to read and write files. For example, `Contoso\backupshareuser`. |
-| $key            | Type the **encryption key** used to encrypt each backup. |
 | $password       | Type the **Password** for the user. |
 | $sharepath      | Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data, the  device should be in a separate location. |
+| $frequencyInHours | The frequency in hours determines how often backups are created. The default value is 12. Scheduler supports a maximum of 12 and a minimum of 4.|
+| $retentionPeriodInDays | The retention period in days determines how many days of backups are preserved on the external location. The default value is 7. Scheduler supports a maximum of 14 and a minimum of 2. Backups older than the retention period get automatically deleted from the external location.|
+|     |     |
 
    ```powershell
+    # Example username:
     $username = "domain\backupadmin"
-   
-    $Secure = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
-    $Encrypted = ConvertFrom-SecureString -SecureString $Secure
-    $password = ConvertTo-SecureString -String $Encrypted
-    
-    $BackupEncryptionKeyBase64 = ""
-    $tempEncryptionKeyString = ""
-    foreach($i in 1..64) { $tempEncryptionKeyString += -join ((65..90) + (97..122) | Get-Random | % {[char]$_}) }
-    $tempEncryptionKeyBytes = [System.Text.Encoding]::UTF8.GetBytes($tempEncryptionKeyString)
-    $BackupEncryptionKeyBase64 = [System.Convert]::ToBase64String($tempEncryptionKeyBytes)
-    $BackupEncryptionKeyBase64
-    
-    $Securekey = ConvertTo-SecureString -String $BackupEncryptionKeyBase64 -AsPlainText -Force
-    $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
-    $key = ConvertTo-SecureString -String $Encryptedkey
-    
+    # Example share path:
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+   
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+    
+    # The encryption key is generated using the New-AzsEncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
+    # Make sure to store your encryption key in a secure location after it is generated.
+    $Encryptionkey = New-AzsEncryptionKeyBase64
+    $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
-    Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
+    Set-AzsBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
    
 ##  Confirm backup settings
@@ -72,15 +67,36 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 In the same PowerShell session, run the following commands:
 
    ```powershell
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName
    ```
 
-The result should look like the following output:
+The result should look like the following example output:
 
    ```powershell
-    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
+    UserName                    : domain\backupadmin
+   ```
+
+## Update backup settings
+In the same PowerShell session, you can update the default values for retention period and frequency for backups. 
+
+   ```powershell
+    #Set the backup frequency and retention period values.
+    $frequencyInHours = 10
+    $retentionPeriodInDays = 5
+
+    Set-AzsBackupShare -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
+   ```
+
+The result should look like the following example output:
+
+   ```powershell
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
     UserName                    : domain\backupadmin
     AvailableCapacity           : 60 GB
+    BackupFrequencyInHours      : 10
+    BackupRetentionPeriodInDays	: 5
    ```
 
 ## Next steps

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Configure a VNet gateway for ExpressRoute using PowerShell: classic: Azure | Microsoft Docs'
 description: Configure a VNet gateway for a classic deployment model VNet using PowerShell for an ExpressRoute configuration.
 documentationcenter: na
@@ -26,7 +26,7 @@ ms.author: charwen
 > 
 > 
 
-This article will walk you through the steps to add, resize, and remove a virtual network (VNet) gateway for a pre-existing VNet. The steps for this configuration are specifically for VNets that were created using the **classic deployment model** and that will be be used in an ExpressRoute configuration. 
+This article will walk you through the steps to add, resize, and remove a virtual network (VNet) gateway for a pre-existing VNet. The steps for this configuration are specifically for VNets that were created using the **classic deployment model** and that will be used in an ExpressRoute configuration. 
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

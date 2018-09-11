@@ -2,11 +2,11 @@
 title: Create a function in Azure that is deployed from GitHub | Microsoft Docs 
 description: Create a function app and deploy function code from a GitHub repository using Azure Functions.
 services: functions 
-ms.service: functions
+ms.service: azure-functions
 keywords: 
 ms.devlang: azurecli
 
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
@@ -43,7 +43,7 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Creates the storage account required by the function app. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan) and associates it with a Git or Mercurial repository. |
 

@@ -122,7 +122,7 @@ In this step, you create an [Azure Database for MySQL](../mysql/quickstart-creat
 
 ### Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [`az group create`](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container where related resources like web apps, databases, and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [`az group create`](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container where related resources like web apps, databases, and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the North Europe region:
 
@@ -134,7 +134,7 @@ To see the possible values you can use for `--location`, use the [`az appservice
 
 ### Create a MySQL server
 
-In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
+In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) command.
 
 In the following command, substitute a unique server name for the *\<mysql_server_name>* placeholder, a user name for the *\<admin_user>*, and a password for the *\<admin_password>*  placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<mysql_server_name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure.
 
@@ -170,7 +170,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 ### Configure server firewall
 
-In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
+In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -213,7 +213,7 @@ quit
 
 ## Deploy the sample to Azure App Service
 
-Create an Azure App Service plan with the **FREE** pricing tier using the  [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
+Create an Azure App Service plan with the **FREE** pricing tier using the  [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -239,7 +239,7 @@ When the plan is ready, the Azure CLI shows similar output to the following exam
 
 ### Create an Azure Web app
 
-In the Cloud Shell, use the [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
+In the Cloud Shell, use the [`az webapp create`](/cli/azure/webapp#az-webapp-create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -266,7 +266,7 @@ When the web app definition is ready, the Azure CLI shows information similar to
 
 ### Configure Java 
 
-In the Cloud Shell, set up the Java runtime configuration that your app needs with the  [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set) command.
+In the Cloud Shell, set up the Java runtime configuration that your app needs with the  [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set) command.
 
 The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -278,7 +278,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Before running the sample app, set application settings on the web app to use the Azure MySQL database you created in Azure. These properties are exposed to the web application as environment variables and override the values set in the application.properties inside the packaged web app. 
 
-In the Cloud Shell, set application settings using [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) in the CLI:
+In the Cloud Shell, set application settings using [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) in the CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -293,10 +293,10 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ```
 
 ### Get FTP deployment credentials 
-You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
+You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Azure DevOps, and BitBucket. 
 For this example, FTP to deploy the .WAR file built previously on your local machine to Azure App Service.
 
-To determine what credentials to pass along in an ftp command to the Web App, Use [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) command in the Cloud Shell: 
+To determine what credentials to pass along in an ftp command to the Web App, Use [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) command in the Cloud Shell: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -410,7 +410,7 @@ When you refresh the app, a **Time Created** column is now visible. When you add
 
 While your Java application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command in the Cloud Shell.
+To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

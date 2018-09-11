@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Create a Key Vault CLI | Microsoft Docs
-description: Quickstart showing how to create an Azure Key Vault using the CLI
+title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure CLI | Microsoft Docs
+description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -17,7 +17,7 @@ ms.date: 05/10/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
-# Quickstart: Create an Azure Key Vault using the CLI
+# Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI
 
 Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
 
@@ -96,4 +96,4 @@ az group delete --name ContosoResourceGroup
 In this quickstart, you have created a Key Vault and stored a secret in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed service identities continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)
+> To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Site Recovery deployment planner for Hyper-V-to-Azure| Microsoft Docs
 description: This is the Azure Site Recovery deployment planner user guide for Hyper-V to Azure scenario.
 services: site-recovery
@@ -89,13 +89,13 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 ## Steps to add servers into TrustedHosts List
 1.	The VM from where the tool is to be deployed should have all the hosts to be profiled in its TrustedHosts list. To add the client into Trustedhosts list run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2 or Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.	Each Hyper-V Host that needs to be profiled should have:
+1.	Each Hyper-V Host that needs to be profiled should have:
 
     a. The VM on which the tool is going to be run in its TrustedHosts list. Run the following command from an elevated PowerShell on the Hyper-V host.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. PowerShell remoting enabled.
 
@@ -106,10 +106,10 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 1.	Download the latest version of the [Azure Site Recovery deployment planner](https://aka.ms/asr-deployment-planner).
 The tool is packaged in a .zip folder. The same tool supports both VMware to Azure and Hyper-V to Azure disaster recovery scenarios. You can use this tool for Hyper-V-to secondary site disaster recovery scenario as well but ignore the Azure infrastructure recommendation from the report.
 
-2.	Copy the .zip folder to the Windows Server on which you want to run the tool. You can run the tool on a Windows Server 2012 R2 or Windows Server 2016. The server must have network access to connect to the  Hyper-V cluster or Hyper-V host that holds the VMs to be profiled. We recommend that you have the same hardware configuration of the VM, where the tool is going to run, as that of the Hyper-V server, which you want to protect. Such a configuration ensures that the achieved throughput that the tool reports matches the actual throughput that Azure Site Recovery can achieve during replication. The throughput calculation depends on available network bandwidth on the server and hardware configuration (CPU, storage, and so forth) of the server. The throughput is calculated from the server where the tool is running to Azure. If the hardware configuration of the server differs from the Hyper-V server, the achieved throughput that the tool reports will be inaccurate.
+1.	Copy the .zip folder to the Windows Server on which you want to run the tool. You can run the tool on a Windows Server 2012 R2 or Windows Server 2016. The server must have network access to connect to the  Hyper-V cluster or Hyper-V host that holds the VMs to be profiled. We recommend that you have the same hardware configuration of the VM, where the tool is going to run, as that of the Hyper-V server, which you want to protect. Such a configuration ensures that the achieved throughput that the tool reports matches the actual throughput that Azure Site Recovery can achieve during replication. The throughput calculation depends on available network bandwidth on the server and hardware configuration (CPU, storage, and so forth) of the server. The throughput is calculated from the server where the tool is running to Azure. If the hardware configuration of the server differs from the Hyper-V server, the achieved throughput that the tool reports will be inaccurate.
 The recommended configuration of the VM: 8 vCPUs, 16 GB RAM, 300 GB HDD.
 
-3.	Extract the .zip folder.
+1.	Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
 Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.2.zip

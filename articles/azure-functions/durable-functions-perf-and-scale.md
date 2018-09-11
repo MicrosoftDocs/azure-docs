@@ -3,15 +3,11 @@ title: Performance and scale in Durable Functions - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ---
@@ -117,7 +113,7 @@ Both activity function and orchestrator function concurrency limits can be confi
 In the previous example, a maximum of 10 orchestrator functions and 10 activity functions can run on a single VM concurrently. If not specified, the number of concurrent activity and orchestrator function executions is capped at 10X the number of cores on the VM.
 
 > [!NOTE]
-> These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM will have its own set set of limits. These settings cannot be used to control concurrency at a global level.
+> These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM will have its own set of limits. These settings cannot be used to control concurrency at a global level.
 
 ## Orchestrator function replay
 As mentioned previously, orchestrator functions are replayed using the contents of the **History** table. By default, the orchestrator function code is replayed every time a batch of messages are dequeued from a control queue.

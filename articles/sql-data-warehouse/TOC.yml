@@ -4,10 +4,24 @@
   items:
   - name: About SQL Data Warehouse
     href: sql-data-warehouse-overview-what-is.md
+  - name: SQL Data Warehouse architecture
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: Data warehouse units
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
+  - name: Best practices
+    href: sql-data-warehouse-best-practices.md
+  - name: Capacity limits
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: FAQ
+    href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
   items:
+    - name: August 2018 
+      href: release-notes-august-2018.md
+    - name: July 2018 
+      href: release-notes-july-2018.md
     - name: June 2018 
       href: release-notes-june-2018.md
     - name: May 2018
@@ -17,17 +31,19 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create and connect - portal
-    href: create-data-warehouse-portal.md
-  - name: Create - PowerShell
-    href: create-data-warehouse-powershell.md
-  - name: Pause and resume compute
+  - name: Create and connect
+    items: 
+    - name: Portal
+      href: create-data-warehouse-portal.md
+    - name: PowerShell
+      href: create-data-warehouse-powershell.md
+  - name: Pause and resume
     items:
     - name: Portal
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Scale compute
+  - name: Scale
     items:
     - name: Portal
       href: quickstart-scale-compute-portal.md
@@ -35,28 +51,8 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
-- name: Tutorials
-  items:
-  - name: 1 - Load WideWorldImporters
-    href: load-data-wideworldimportersdw.md
 - name: Concepts
   items:
-  - name: Service features
-    items:
-    - name: MPP architecture
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Data warehouse units
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Scale-out, pause, resume
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Backup and restore
-      href: backup-and-restore.md
-    - name: Capacity limits
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: Maintenance
-      href: service-maintenance.md
-    - name: FAQ
-      href: sql-data-warehouse-overview-faq.md
   - name: Security
     items:
     - name: Overview
@@ -79,46 +75,20 @@
       href: sql-data-warehouse-auditing-overview.md
     - name: Column-level security
       href: column-level-security.md
-  - name: Migrate to SQL Data Warehouse
-    items:
-    - name: Overview
-      href: sql-data-warehouse-overview-migrate.md
-    - name: Migrate schema
-      href: sql-data-warehouse-migrate-schema.md
-    - name: Migrate code
-      href: sql-data-warehouse-migrate-code.md
-    - name: Migrate data
-      href: sql-data-warehouse-migrate-data.md
-  - name: Load & move data
+  - name: Data loading
     items:
     - name: Overview
       href: design-elt-data-loading.md
     - name: Best practices
       href: guidance-for-loading-data.md
-  - name: Integrate
-    items:
-    - name: Overview
-      href: sql-data-warehouse-overview-integrate.md
-    - name: SQL Database elastic query
-      href: how-to-use-elastic-query-with-sql-data-warehouse.md
-  - name: Query performance
-    items:
-    - name: Resource classes & workload management
-      href: resource-classes-for-workload-management.md
-    - name: Memory & concurrency limits
-      href: memory-and-concurrency-limits.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-  - name: Monitor
-    href: sql-data-warehouse-manage-monitor.md
-  - name: Develop data warehouses
+  - name: Development
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
-    - name: Data warehouse components
-      href: sql-data-warehouse-overview-workload.md
     - name: Best practices
-      href: sql-data-warehouse-best-practices.md
+      href: sql-data-warehouse-best-practices-development.md
     - name: Tables
       items:
       - name: Overview
@@ -141,14 +111,6 @@
         href: sql-data-warehouse-tables-statistics.md
       - name: Temporary
         href: sql-data-warehouse-tables-temporary.md
-    - name: Queries
-      items:
-      - name: Dynamic SQL
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Group by options
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: Labels
-        href: sql-data-warehouse-develop-label.md
     - name: T-SQL language elements
       items:
       - name: Loops
@@ -165,35 +127,45 @@
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Views
         href: sql-data-warehouse-develop-views.md
-  - name: Troubleshoot
-    href: sql-data-warehouse-troubleshoot.md
-- name: How-to guides
-  items:
-  - name: Connect & query
+  - name: Querying
+    items:
+    - name: Dynamic SQL
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Group by options
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: Labels
+      href: sql-data-warehouse-develop-label.md
+  - name: Workload management
+    items:
+    - name: Resource classes & workload management
+      href: resource-classes-for-workload-management.md
+    - name: Memory & concurrency limits
+      href: memory-and-concurrency-limits.md
+  - name: Manageability & monitoring
     items:
     - name: Overview
-      href: sql-data-warehouse-connect-overview.md
-    - name: Connection strings
-      href: sql-data-warehouse-connection-strings.md
-    - name: sqlcmd
-      href: sql-data-warehouse-get-started-connect-sqlcmd.md
-    - name: Query with SSMS
-      href: sql-data-warehouse-query-ssms.md
-    - name: Query with Visual Studio
-      href: sql-data-warehouse-query-visual-studio.md
-    - name: Install Visual studio
-      href: sql-data-warehouse-install-visual-studio.md
-  - name: Upgrade
-    href: upgrade-to-latest-generation.md
-  - name: Restore
+      href: sql-data-warehouse-overview-manageability-monitoring.md
+    - name: Scale, pause, resume
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Resource utilization & query activity 
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
+    - name: Data protection
+      href: backup-and-restore.md
+    - name: Recommendations 
+      href: sql-data-warehouse-concept-recommendations.md
+    - name: Maintenance schedule
+      href: service-maintenance.md
+    - name: Troubleshoot
+      href: sql-data-warehouse-troubleshoot.md
+  - name: Integration
     items:
-    - name: Portal
-      href: sql-data-warehouse-restore-database-portal.md
-    - name: PowerShell
-      href: sql-data-warehouse-restore-database-powershell.md
-    - name: REST  API
-      href: sql-data-warehouse-restore-database-rest-api.md
-  - name: Security
+    - name: Overview
+      href: sql-data-warehouse-overview-integrate.md
+    - name: SQL Database elastic query
+      href: how-to-use-elastic-query-with-sql-data-warehouse.md
+- name: How-to guides
+  items:
+  - name: Secure
     items:
     - name: Configure Azure AD auth
       href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
@@ -207,7 +179,7 @@
       href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Threat detection
       href: sql-data-warehouse-security-threat-detection.md
-  - name: Load & move data
+  - name: Load data
     items:
     - name: New York taxi cab data
       href: load-data-from-azure-blob-storage-using-polybase.md
@@ -221,6 +193,38 @@
       href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
     - name: SSIS
       href: /sql/integration-services/load-data-to-sql-data-warehouse
+    - name: Load WideWorldImporters
+      href: load-data-wideworldimportersdw.md
+  - name: Develop
+    items:
+    - name: Overview
+      href: sql-data-warehouse-connect-overview.md
+    - name: Connection strings
+      href: sql-data-warehouse-connection-strings.md
+    - name: sqlcmd
+      href: sql-data-warehouse-get-started-connect-sqlcmd.md
+    - name: Query with SSMS
+      href: sql-data-warehouse-query-ssms.md
+    - name: Query with Visual Studio
+      href: sql-data-warehouse-query-visual-studio.md
+    - name: Install Visual studio
+      href: sql-data-warehouse-install-visual-studio.md
+  - name: Manage workload
+    items:
+    - name: Analyze your workload
+      href: analyze-your-workload.md    
+  - name: Monitor and tune
+    items:
+    - name: Monitor your workload
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Upgrade to Gen2
+      href: upgrade-to-latest-generation.md
+    - name: Monitor Gen2 cache
+      href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Restore your data warehouse
+      href: sql-data-warehouse-restore.md
+    - name: Automate performance levels
+      href: manage-compute-with-azure-functions.md
   - name: Integrate
     items:
     - name: Configure SQL Database elastic query
@@ -231,14 +235,6 @@
       href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
     - name: Visualize with Power BI
       href: sql-data-warehouse-get-started-visualize-with-power-bi.md
-  - name: Monitor & tune
-    items:
-    - name: Analyze your workload
-      href: analyze-your-workload.md
-  - name: Scale out
-    items:
-    - name: Automate compute levels
-      href: manage-compute-with-azure-functions.md
 - name: Reference
   items:
   - name: T-SQL

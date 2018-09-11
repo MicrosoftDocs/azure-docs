@@ -42,7 +42,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 ## List available recovery points
 To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery. 
 
-To see a list of available recovery points, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
+To see a list of available recovery points, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -58,7 +58,7 @@ az backup recoverypoint list \
 ## Restore a VM disk
 To restore your disk from the recovery point, you first create an Azure storage account. This storage account is used to store the restored disk. In additional steps, the restored disk is used to create a VM.
 
-1. To create a storage account, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
+1. To create a storage account, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
     ```azurecli-interactive
     az storage account create \
@@ -67,7 +67,7 @@ To restore your disk from the recovery point, you first create an Azure storage 
         --sku Standard_LRS
     ```
 
-2. Restore the disk from your recovery point with [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) command:
+2. Restore the disk from your recovery point with [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) command:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -81,7 +81,7 @@ To restore your disk from the recovery point, you first create an Azure storage 
 
 
 ## Monitor the restore job
-To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
+To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -106,7 +106,7 @@ When the *Status* of the restore job reports *Completed*, the disk has been rest
 ## Convert the restored disk to a Managed Disk
 The restore job creates an unmanaged disk. In order to create a VM from the disk, it must first be converted to a managed disk.
 
-1. Obtain the connection information for your storage account with [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Replace *mystorageaccount* with the name of your storage account as follows:
+1. Obtain the connection information for your storage account with [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Replace *mystorageaccount* with the name of your storage account as follows:
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -123,7 +123,7 @@ The restore job creates an unmanaged disk. In order to create a VM from the disk
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. Now you can create a Managed Disk from your recovered disk with [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create). The *uri* variable from the preceding step is used as the source for your Managed Disk.
+3. Now you can create a Managed Disk from your recovered disk with [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create). The *uri* variable from the preceding step is used as the source for your Managed Disk.
 
     ```azurecli-interactive
     az disk create \
@@ -132,7 +132,7 @@ The restore job creates an unmanaged disk. In order to create a VM from the disk
         --source $uri
     ```
 
-4. As you now have a Managed Disk from your restored disk, clean up the unmanaged disk and storage account with [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete). Replace *mystorageaccount* with the name of your storage account as follows:
+4. As you now have a Managed Disk from your restored disk, clean up the unmanaged disk and storage account with [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete). Replace *mystorageaccount* with the name of your storage account as follows:
 
     ```azurecli-interactive
     az storage account delete \
@@ -144,7 +144,7 @@ The restore job creates an unmanaged disk. In order to create a VM from the disk
 ## Create a VM from the restored disk
 The final step is to create a VM from the Managed Disk.
 
-1. Create a VM from your Managed Disk with [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) as follows:
+1. Create a VM from your Managed Disk with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) as follows:
 
     ```azurecli-interactive
     az vm create \
@@ -154,7 +154,7 @@ The final step is to create a VM from the Managed Disk.
         --os-type linux
     ```
 
-2. To confirm that your VM has been created from your recovered disk, list the VMs in your resource group with [az vm list](/cli/azure/vm?view=azure-cli-latest#az_vm_list) as follows:
+2. To confirm that your VM has been created from your recovered disk, list the VMs in your resource group with [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) as follows:
 
     ```azurecli-interactive
     az vm list --resource-group myResourceGroup --output table

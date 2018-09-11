@@ -86,8 +86,6 @@ You have now created and assigned a device configuration policy to enable the Re
 
 ## Configure Reset password link using the registry
 
-We recommend using this method only to test the setting change.
-
 1. Log in to the Windows PC using administrative credentials
 2. Run **regedit** as an administrator
 3. Set the following registry key
@@ -111,9 +109,11 @@ When testing this functionality using Hyper-V, the "Reset password" link does no
 
 * Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
 
-When testing this functionality using Remote Desktop, the "Reset password" link does not appear
+When testing this functionality using Remote Desktop, the "Reset password" link does not appear.
 
 * Password reset is not currently supported from a Remote Desktop.
+
+If the Windows lockscreen is disabled using a registry key or group policy **Reset password** will not be availalbe.
 
 ## Clean up resources
 

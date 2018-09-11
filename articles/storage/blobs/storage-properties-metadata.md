@@ -2,20 +2,14 @@
 title: Set and retrieve object properties and metadata in Azure Storage | Microsoft Docs
 description: Store custom metadata on objects in Azure Storage, and set and retrieve system properties.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
 
-ms.assetid: 036f9006-273e-400b-844b-3329045e9e1f
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: tamram
 ---
+
 # Set and retrieve properties and metadata
 
 Objects in Azure Storage support system properties and user-defined metadata, in addition to the data they contain. This article discusses managing system properties and user-defined metadata with the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).

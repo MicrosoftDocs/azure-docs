@@ -20,7 +20,7 @@ In this how-to, you will use an Azure Stream Analytics job to stream data from t
 
 To complete this how-to, you will need the following:
 
-* [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md).
+* [Deploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md).
   * The Remote Monitoring solution will deploy the IoT hub and Azure Stream Analytics job used in this article into your Azure subscription.
 * [Deploy an Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * Your Data Lake Store should be deployed to the same region as your Remote Monitoring solution.

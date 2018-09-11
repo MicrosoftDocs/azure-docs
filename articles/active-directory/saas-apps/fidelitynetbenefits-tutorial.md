@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 08/07/2018
 ms.author: jeedes
 
 ---
@@ -46,25 +46,27 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Fidelity NetBenefits from the gallery
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Fidelity NetBenefits from the gallery
+
 To configure the integration of Fidelity NetBenefits into Azure AD, you need to add Fidelity NetBenefits from the gallery to your list of managed SaaS apps.
 
 **To add Fidelity NetBenefits from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -100,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_samlbase.png)
 
 3. On the **Fidelity NetBenefits Domain and URLs** section, perform the following steps:
@@ -115,37 +117,28 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	For Production Environment:
 	`urn:sp:fidelity:geninbndnbparts20`
 
-	b. In the **Reply URL** textbox, type a URL:
+	b. In the **Reply URL** textbox, enter a URL that to be provided by Fidelity at time of implementation or contact your assigned Fidelity Client Service Manager.
 
-	For Testing Environment:
-    `https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
-
-	For Production Environment:
-	`https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
- 
 4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **user.userprincipalname**. You can map this with **employeeid** or any other claim which is applicable to your Organization as **User Identifier**. The following screenshot shows just an example for this.
 
 	![Fidelity NetBenefits attribute](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
 
 	>[!Note]
-	>Fidelity NetBenefits support Static and Dynamic Federation. Static means it will not use SAML based just in time user provisioning and Dynamic means it supports just in time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) and they have to enable this dynamic federation for your instance.
-	
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	>Fidelity NetBenefits support Static and Dynamic Federation. Static means it will not use SAML based just in time user provisioning and Dynamic means it supports just in time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the your assigned **Fidelity Client Service Manager** and they have to enable this dynamic federation for your instance.
 
-	![The Certificate download link](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png) 
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-5. Click **Save** button.
+	![The Certificate download link](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png)
+
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
 
-6. On the **Fidelity NetBenefits Configuration** section, click **Configure Fidelity NetBenefits** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Fidelity NetBenefits Configuration** section, click **Configure Fidelity NetBenefits** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Fidelity NetBenefits Configuration](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png) 
+	![Fidelity NetBenefits Configuration](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png)
 
-7. To configure single sign-on on **Fidelity NetBenefits** side, you need to send the downloaded **Metadata XML**, **SAML Single Sign-On Service URL** and **SAML Entity ID** to [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+8. To configure single sign-on on **Fidelity NetBenefits** side, you need to send the downloaded **Metadata XML**, **SAML Single Sign-On Service URL** and **SAML Entity ID** to **your assigned Fidelity Client Service Manager**. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -181,21 +174,21 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Fidelity NetBenefits test user
 
-In this section, you create a user called Britta Simon in Fidelity NetBenefits. If you are creating Static federation, please work with [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) to create users in Fidelity NetBenefits platform. These users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Fidelity NetBenefits. If you are creating Static federation, please work with your assigned **Fidelity Client Service Manager** to create users in Fidelity NetBenefits platform. These users must be created and activated before you use single sign-on.
 
-For Dynamic Federation, users are created using Just In Time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) and they have to enable this dynamic federation for your instance.
+For Dynamic Federation, users are created using Just In Time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the your assigned **Fidelity Client Service Manager** and they have to enable this dynamic federation for your instance.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Fidelity NetBenefits.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Fidelity NetBenefits, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Fidelity NetBenefits**.
 
@@ -214,20 +207,18 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Fidelity NetBenefits tile in the Access Panel, you should get automatically signed-on to your Fidelity NetBenefits application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -242,4 +233,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/fidelitynetbenefits-tutorial/tutorial_general_201.png
 [202]: ./media/fidelitynetbenefits-tutorial/tutorial_general_202.png
 [203]: ./media/fidelitynetbenefits-tutorial/tutorial_general_203.png
-

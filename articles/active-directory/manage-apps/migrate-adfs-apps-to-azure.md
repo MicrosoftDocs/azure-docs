@@ -6,6 +6,7 @@ author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
+ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -49,7 +50,7 @@ For an organization that already uses AD FS, Ping, or another on-premises authen
 - Azure AD, as an identity provider for SaaS apps, supports additional capabilities such as:
   - Token signing certificates per application.
   - [Configurable certificate expiration dates](manage-certificates-for-federated-single-sign-on.md).
-  - [Automated provisioning](../active-directory-saas-app-provisioning.md) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
+  - [Automated provisioning](user-provisioning.md) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
 
 **Keeping the benefits of an on-premises identity provider**
 - While you're gaining the Azure AD benefits, you can keep using your on-premises solution for authentication. That way, benefits like on-premises Multi-Factor Authentication solutions, logging, and auditing stay in place. 
@@ -118,7 +119,7 @@ The following table describes the key IdP configuration elements to configure SS
 |IdP </br>sign-out </br>URL|Sign-out URL of the IdP from the app’s perspective (where the user is redirected when they choose to sign out of the app).|For AD FS, the sign-out URL is either the same as the sign-on URL, or the same URL with “wa=wsignout1.0” appended. For example: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|The corresponding value for Azure AD depends on whether the app supports SAML 2.0 sign-out.</br></br>If the app supports SAML sign-out, the value follows the pattern where the value for {tenant-id} is replaced with the tenant ID. Find it in the Azure portal under **Azure Active Directory** > **Properties** as **Directory ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>If the app does not support SAML sign-out: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Token </br>signing </br>certificate|Certificate whose private key the IdP uses to sign issued tokens. It verifies that the token came from the same IdP that the app is configured to trust.|Find the AD FS token signing certificate in AD FS Management under **Certificates**.|In Azure AD, you can find the token signing certificate within the Azure portal in the application’s **Single sign-on** properties under the header **SAML Signing Certificate**. There, you can download the certificate for upload to the app.</br></br> If the application has more than one certificate, you can find all certificates in the federation metadata XML file.|
 |Identifier/</br>“issuer”|Identifier of the IdP from the app’s perspective (sometimes called the “issuer ID”).</br></br>In the SAML token, the value appears as the **Issuer** element.|The identifier for AD FS is usually the federation service identifier in AD FS Management under **Service** > **Edit Federation Service Properties**. For example: http&#58;//fs.contoso.com/adfs/services/trust|The corresponding value for Azure AD follows the pattern where the value for {tenant-id} is replaced with the tenant ID. Find it in the Azure portal under **Azure Active Directory** > **Properties** as **Directory ID**: https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>federation </br>metadata|Location of the IdP’s publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)|Find the AD FS federation metadata URL in AD FS Management under **Service** > **Endpoints** > **Metadata** > **Type: Federation Metadata**. For example: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|The corresponding value for Azure AD follows the pattern https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. The value for {TenantDomainName} is replaced with your tenant’s name in the format “contoso.onmicrosoft.com.” </br></br>For more information, see [Federation metadata](../develop/active-directory-federation-metadata.md).
+|IdP </br>federation </br>metadata|Location of the IdP’s publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)|Find the AD FS federation metadata URL in AD FS Management under **Service** > **Endpoints** > **Metadata** > **Type: Federation Metadata**. For example: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|The corresponding value for Azure AD follows the pattern https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. The value for {TenantDomainName} is replaced with your tenant’s name in the format “contoso.onmicrosoft.com.” </br></br>For more information, see [Federation metadata](../develop/azure-ad-federation-metadata.md).
 
 ## Migrating SaaS apps
 Migrating SaaS apps from AD FS or another identity provider to Azure AD is a manual process today. For app-specific guidance, see the [list of tutorials on integrating SaaS apps found in the Marketplace](../saas-apps/tutorial-list.md).
@@ -226,7 +227,7 @@ Because of the configuration created earlier under **Identity** > **Single sign-
 ![Selecting Azure AD as the authentication service](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### Optional: Configure user provisioning in Azure AD
-If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
+If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md).
 
 ## Next steps
 

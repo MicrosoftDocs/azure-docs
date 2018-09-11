@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -31,8 +31,8 @@ This section has three parts to it:
 ### How does set up work?
 
 Seamless SSO is enabled using Azure AD Connect as shown [here](active-directory-aadconnect-sso-quick-start.md). While enabling the feature, the following steps occur:
-- A computer account named `AZUREADSSOACC` (which represents Azure AD) is created in your on-premises Active Directory (AD).
-- The computer account's Kerberos decryption key is shared securely with Azure AD.
+- A computer account named `AZUREADSSOACC` (which represents Azure AD) is created in your on-premises Active Directory (AD) in each AD forest.
+- The computer account's Kerberos decryption key is shared securely with Azure AD. If there are multiple AD forests, each one will have its own Kerberos decryption key.
 - In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
 >[!NOTE]

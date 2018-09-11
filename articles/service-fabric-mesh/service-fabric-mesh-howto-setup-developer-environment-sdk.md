@@ -1,20 +1,20 @@
 ---
-title: Set up a Windows development environment for Service Fabric Mesh apps | Microsoft Docs
+title: Set up a Windows development environment to build Service Fabric Mesh apps | Microsoft Docs
 description: Set up your Windows development environment so you can create a Service Fabric Mesh application and deploy it to Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/11/2018
+ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: timlt  
-#Customer intent: As a developer, I need to prepare install the prerequisites to enable service fabric mesh development in visual studio.
+manager: jeconnoc
+#Customer intent: As a developer, I need to install the prerequisites to enable service fabric mesh development in visual studio.
 ---
 
-# Set up your Windows development environment to build Service Fabric applications
+# Set up your Windows development environment to build Service Fabric Mesh apps
 
-To build and run Azure Service Fabric apps on your Windows development machine, install the Service Fabric runtime, SDK, and tools.
+To build and run Azure Service Fabric Mesh applications on your Windows development machine, install the Service Fabric Mesh runtime, SDK, and tools.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -25,52 +25,34 @@ The following operating system versions are supported for development:
 * Windows 10 (Enterprise, Professional, or Education)
 * Windows Server 2016
 
-## Enable Hyper-V
+## Visual Studio
 
-Hyper-V must be enabled for you to create Service Fabric apps. 
+Visual Studio 2017 is required to deploy Service Fabric Mesh applications. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
 
-### Windows 10
+* ASP.NET and web development
+* Azure Development
 
-Open PowerShell as an administrator and run the following command:
+## Install Docker
 
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
+#### Windows 10
 
-Restart your computer. For more information about how to enable Hyper-V, see [Install Hyper-V on Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+Download and install the latest version of [Docker Community Edition for Windows][download-docker] to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
-### Windows Server 2016
+During installation, select **Use Windows containers instead of Linux containers** when asked.
 
-Open PowerShell as an administrator and run the following command:
+If Hyper-V is not enabled on your machine, Docker's installer will offer to enable it. Click **OK** to do so if prompted.
+
+#### Windows Server 2016
+
+If you don't have the Hyper-V role enabled, open PowerShell as an administrator and run the following command to enable Hyper-V, and then restart your computer. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 ```
 
-Restart your computer. For more information about how to enable Hyper-V, see [Install the Hyper-V role on Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Restart your computer.
 
-## Visual Studio
-
-Visual Studio 2017 is required to deploy Service Fabric apps. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
-
-- ASP.NET and web development
-- Azure Development
-
-## Docker
-
-Install Docker to support the containerized Service Fabric apps used by Service Fabric Mesh.
-
-### Windows 10
-
-Download and install the latest version of [Docker Community Edition for Windows][download-docker]. 
-
-During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then sign out and sign back in. After signing back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. You must enable Hyper-V and then restart your computer.
-
-After your computer has restarted, Docker will prompt you to enable the **Containers** feature, enable it, and restart your computer.
-
-### Windows Server 2016
-
-Use the following PowerShell commands to install Docker. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
+Open PowerShell as an administrator and run the following commands to install Docker:
 
 ```powershell
 Install-Module DockerMsftProvider -Force
@@ -78,16 +60,16 @@ Install-Package Docker -ProviderName DockerMsftProvider -Force
 Install-WindowsFeature Containers
 ```
 
-Restart your computer.
-
 ## SDK and tools
 
-Install the Service Fabric Mesh runtime, SDK, and tools in a dependent order.
+Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 
 1. Install the [Service Fabric Mesh SDK][download-sdkmesh] using Web Platform Installer. This will also install the Microsoft Azure Service Fabric SDK and runtime.
 2. Install the [Visual Studio Service Fabric Tools (preview) extension][download-tools] from Visual Studio Marketplace.
 
 ## Build a cluster
+
+If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
 
 For the best debugging performance when you create and run Service Fabric apps, we recommend creating a single-node local development cluster. This cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
 
@@ -96,7 +78,7 @@ Docker **must** be running before you can build a cluster. Test that Docker is r
 After you install the runtime, SDKs, and Visual Studio tools, create a development cluster.
 
 1. Close your PowerShell window.
-2. Open a new, elevated PowerShell window as an administrator. This step is necessary to load the Service Fabric modules you installed.
+2. Open a new, elevated PowerShell window as an administrator. This step is necessary to load the Service Fabric modules that were recently installed.
 3. Run the following PowerShell command to create a development cluster:
 
     ```powershell

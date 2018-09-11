@@ -1,5 +1,5 @@
----
-title: Configure reliable Azure microservices | Microsoft Docs
+﻿---
+title: Configure Azure Service Fabric Reliable Services | Microsoft Docs
 description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
 services: Service-Fabric
 documentationcenter: .net
@@ -120,6 +120,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Specifies a unique GUID to use for identifying the shared log file used with this replica. Typically, services should not use this setting. However, if SharedLogId is specified, then SharedLogPath must also be specified. |
 | SharedLogPath |Fully qualified path name |"" |Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified. |
 | SlowApiMonitoringDuration |Seconds |300 |Sets the monitoring interval for managed API calls. Example: user provided backup callback function. After the interval has passed, a warning health report will be sent to the Health Manager. |
+| LogTruncationIntervalSeconds |Seconds |0 |Configurable interval at which log truncation will be initiated on each replica. It is used to ensure log is also truncated based on time instead of just log size. This setting also forces purge of deleted entries in reliable dictionary. Hence it can be used to ensure deleted items are purged in a timely manner. |
 
 ### Sample configuration via code
 ```csharp

@@ -100,7 +100,7 @@ The back-end app receives a response that comprises:
     Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
 
 ### Method invocation for IoT Edge modules
-Invoking direct methods using a module ID is supported in the C# preview SDK (available [here](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+Invoking direct methods using a module ID is supported in the C# SDK (available [here](https://www.nuget.org/packages/Microsoft.Azure.Devices/)).
 
 For this purpose, use the `ServiceClient.InvokeDeviceMethodAsync()` method and pass in the `deviceId` and `moduleId` as parameters.
 
@@ -172,6 +172,6 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

@@ -2,13 +2,13 @@
 ms.assetid:
 title: Azure Key Vault Storage Account Keys
 description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
-ms.topic: article
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
-ms.date: 10/12/2017
+ms.date: 08/21/2017
 ---
 # Azure Key Vault Storage Account Keys
 
@@ -40,8 +40,8 @@ use Managed Storage Account Keys.
     - Azure Key Vault regenerates (rotates) the keys periodically.
     - Key values are never returned in response to caller.
     - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts.
-- Azure Key Vault allows you, the vault/object owner, to create SAS (account or service SAS) definitions.
-    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path. For more information, see [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
+- Azure Key Vault allows you, the vault/object owner, to create SAS (Shared Access Signature, account or service SAS) definitions.
+    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path. For more information, see the SAS definition operations in the [Azure Key Vault REST API reference](/rest/api/keyvault).
 
 ## Naming guidance
 
@@ -103,18 +103,18 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## Getting started
 
-### Setup for role-based access control (RBAC) permissions
+### Give Key Vault access to your Storage Account 
 
-The Azure Key Vault application identity needs permissions to *list* and
-*regenerate* keys for a storage account. Set up these permissions using the
-following steps:
+Like many applications, Key Vault is registered with Azure AD in order to use OAuth to access other services. During registration, [a service principal](/azure/active-directory/develop/app-objects-and-service-principals) object is created, which is used to represent the application's identity at run time. The service principal is also used to authorize the application's identity to access another resource, through role-based access control (RBAC).
+
+The Azure Key Vault application identity needs permissions to *list* and *regenerate* keys for your storage account. Set up these permissions using the following steps:
 
 ```powershell
 # Get the resource ID of the Azure Storage Account you want to manage.
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -127,7 +127,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 ## Working example
 
 The following example demonstrates creating a Key Vault managed Azure Storage
-Account and the associated Shared Access Signature (SAS) definitions.
+Account and the associated SAS definitions.
 
 ### Prerequisite
 
@@ -251,7 +251,7 @@ Key Vault must verify that the identity has *regenerate* permissions before it c
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions.
 
-Find some supporting examples at [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
+Find some supporting examples at [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=).
 
 If the identity does not have *regenerate* permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message.
 
