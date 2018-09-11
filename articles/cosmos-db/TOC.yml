@@ -290,7 +290,7 @@
       - name: Overview
         href: cassandra-introduction.md
       - name: Cassandra support
-        href: gremlin-support.md
+        href: cassandra-support.md
       - name: Tutorials
         items:
         - name: 1 - Create account & database
