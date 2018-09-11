@@ -36,6 +36,10 @@ sections:
         src: https://review.docs.microsoft.com/en-us/azure/media/index/azurefunctions.svg
       text: C#
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
+    - image: 
+        src: https://review.docs.microsoft.com/en-us/azure/media/logos/logo_REST.svg
+      text: Python
+      href: /azure/azure-signalr/signalr-quickstart-rest-api-python
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
