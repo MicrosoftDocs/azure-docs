@@ -14,7 +14,7 @@ ms.author: panosper
 # Migration guide for Custom Speech service
 Learn how to migrate from the Custom Speech service to the unified Speech Service.
 
-Custom Speech Service and its corresponding Client libraries and APIs are being deprecated on September 24th. Switch to the unified Speech Service and SDK to benefit from the latest quality and feature updates. 
+Custom Speech Service and its corresponding Client libraries and APIs are being deprecated. Switch to the unified Speech Service and SDK to benefit from the latest quality and feature updates. 
  
 ## Migration for new customers
 
