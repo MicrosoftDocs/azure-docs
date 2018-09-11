@@ -109,7 +109,7 @@ You can access a datastore during a training run (e.g. for training or validatio
 
 First, you need to create a `DataReference` object from your datastore and pass it to an [Estimator]() that submits your training job to the compute target. A `DataReference` represents a particular path in a datastore. This path could be the root `/`, a directory within the datastore, or a specific file in the datastore.
 
-Currently, there are two supported ways to make your datastore available on the remote compute:
+There are two supported ways to make your datastore available on the remote compute:
 * **Mount**  
 `ds.as_mount(path_on_compute='your path on compute)'` creates a `DataReference` object with mount mode, so that the datastore will get mounted for you on the remote compute at the relative path location specified by `path_on_compute` (or at the root if `path_on_compute`=None). 
 * **Download**  
