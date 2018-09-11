@@ -27,11 +27,8 @@ There are two kinds of access control lists (ACLs), **Access ACLs** and **Defaul
 
 * **Default ACLs**: A "template" of ACLs associated with a folder that determine the Access ACLs for any child items that are created under that folder. Files do not have Default ACLs.
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 Both Access ACLs and Default ACLs have the same structure.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
@@ -44,7 +41,7 @@ Both Access ACLs and Default ACLs have the same structure.
 
 Every file and folder has distinct permissions for these identities:
 
-* The owning user of the file
+* The owning user
 * The owning group
 * Named users
 * Named groups
@@ -82,27 +79,15 @@ In the POSIX-style model that's used by Data Lake Storage Gen1, permissions for 
 
 Following are some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Storage Gen1 account.
 
-### Permissions needed to read a file
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
-
-* For the file to be read, the caller needs **Read** permissions.
-* For all the folders in the folder structure that contain the file, the caller needs **Execute** permissions.
-
-### Permissions needed to append to a file
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
-
-* For the file to be appended to, the caller needs **Write** permissions.
-* For all the folders that contain the file, the caller needs **Execute** permissions.
-
-### Permissions needed to delete a file
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
-
-* For the parent folder, the caller needs **Write + Execute** permissions.
-* For all the other folders in the file’s path, the caller needs **Execute** permissions.
-
+|    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
+|--------------------------|---------|----------|-----------|--------------|
+| Read Data.txt            |   --X   |   --X    |  --X      | R--          |
+| Append to Data.txt       |   --X   |   --X    |  --X      | RW-          |
+| Delete Data.txt          |   --X   |   --X    |  -WX      | ---          |
+| Create Data.txt          |   --X   |   --X    |  -WX      | ---          |
+| List /                   |   R-X   |   ---    |  ---      | ---          |
+| List /Seattle/           |   --X   |   R-X    |  ---      | ---          |
+| List /Seattle/Portland/  |   --X   |   --X    |  R-X      | ---          |
 
 
 > [!NOTE]
@@ -222,7 +207,7 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## The mask
+### The mask
 
 As illustrated in the Access Check Algorithm, the mask limits access for **named users**, the **owning group**, and **named groups**.  
 
@@ -231,54 +216,30 @@ As illustrated in the Access Check Algorithm, the mask limits access for **named
 >
 >
 
-### The sticky bit
+#### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed.
-
-The following table shows how the sticky bit works in Data Lake Storage Gen1.
-
-| User group         | File    | Folder |
-|--------------------|---------|-------------------------|
-| Sticky bit **OFF** | No effect   | No effect.           |
-| Sticky bit **ON**  | No effect   | Prevents anyone except **super-users** and the **owning user** of a child item from deleting or renaming that child item.               |
+The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a folder,  a child item can only be deleted or renamed by the child item's owning user.
 
 The sticky bit is not shown in the Azure portal.
 
-## Permissions on new files and folders
+## Default permissions on new files and folders
 
 When a new file or folder is created under an existing folder, the Default ACL on the parent folder determines:
 
 - A child folder’s Default ACL and Access ACL.
 - A child file's Access ACL (files do not have a Default ACL).
 
-### The Access ACL of a child file or folder
-
-When a child file or folder is created, the parent's Default ACL is copied as the Access ACL of the child file or folder. Also, if **other** user has RWX permissions in the parent's default ACL, it is removed from the child item's Access ACL.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
-
-In most scenarios, the previous information is all you need to know about how a child item’s Access ACL is determined. However, if you are familiar with POSIX systems and want to understand in-depth how this transformation is achieved, see the section [Umask’s role in creating the Access ACL for new files and folders](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) later in this article.
-
-
-### A child folder's Default ACL
-
-When a child folder is created under a parent folder, the parent folder's Default ACL is copied over as is to the child folder's Default ACL.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
-
-## Advanced topics for understanding ACLs in Data Lake Storage Gen1
-
-Following are some advanced topics to help you understand how ACLs are determined for Data Lake Storage Gen1 files or folders.
-
 ### umask
 
-When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on  parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
+When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
 The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-* umask.owning_user =  0 # ---
-* umask.owning_group = 0 # ---
-* umask.other =        7 # RWX
+| umask component     | Value    |
+|---------------------|----------|
+| umask.owning_user   | 0 (---)  |
+| umask.owning_group  | 0 (---)  |
+| umask.other         | 7 (RWX)  |
 
 This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
@@ -300,11 +261,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-
-
 ## Common questions about ACLs in Data Lake Storage Gen1
-
-Here are some questions that come up often about ACLs in Data Lake Storage Gen1.
 
 ### Do I have to enable support for ACLs?
 
@@ -347,19 +304,12 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 ### Where can I learn more about POSIX access control model?
 
 * [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
-
 * [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-
 * [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
-
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-
 * [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-
 * [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-
 * [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-
 * [ACL using access control lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## See also
