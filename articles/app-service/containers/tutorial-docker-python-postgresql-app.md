@@ -133,11 +133,17 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) command in the Cloud Shell.
 
-In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user credentials are for the database admin user account.
+In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The user credentials are for the database admin user account. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure.
+
+> [!IMPORTANT]
+> The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name GP_Gen4_2
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name B_Gen4_1
 ```
+
+> [!Note]
+> The sku-name parameter specifies the configuration of the database server, including processor type, number of cores, and amount of memory available. For our sample application, we've selected a Basic Server with 1 core. For real world applications, see the [pricing tiers documentation]( ../../postgresql/concepts-pricing-tiers.md) to determine the type of server best suited for your needs.
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
@@ -150,18 +156,22 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
   "name": "<postgresql_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
-    "capacity": 100,
-    "family": null,
-    "name": "PGSQLS3M100",
+    "capacity": 1,
+    "family": "Gen4",
+    "name": "B_Gen4_1",
     "size": null,
     "tier": "Basic"
   },
-  "sslEnforcement": null,
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "9.6"
 }
 ```
 
