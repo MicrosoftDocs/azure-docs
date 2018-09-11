@@ -25543,6 +25543,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-apps-index.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/availability-zones/index.md",
             "redirect_url": "/azure/availability-zones/az-overview",
             "redirect_document_id": false
