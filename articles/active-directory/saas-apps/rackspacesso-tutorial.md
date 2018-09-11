@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Rackspace SSO, you need to co
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Rackspace SSO test user](#create-a-rackspacesso-test-user)** - to have a counterpart of Britta Simon in Rackspace SSO that is linked to the Azure AD representation of user.
+3. **[Create a Rackspace SSO test user](#create-a-rackspace-sso-test-user)** - to have a counterpart of Britta Simon in Rackspace SSO that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
