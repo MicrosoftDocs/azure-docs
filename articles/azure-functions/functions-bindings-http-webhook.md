@@ -602,7 +602,7 @@ By default, all function routes are prefixed with *api*. You can also customize 
 Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  A standard HTTP trigger may require such an API key be present in the request. Webhooks may use keys to authorize requests in a variety of ways, depending on what the provider supports.
 
 > [!IMPORTANT]
-> While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more about how to secure your function app HTTP endpoints in production, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
+> While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
 
 There are two types of keys:
 
