@@ -648,15 +648,15 @@ For an example of a webhook secured with a key, see [Create a function triggered
 
 ### Secure an HTTP endpoint in production
 
-Further down there is a section on Key Management, and I’d like to suggest the three options below for programmatically managed security options.
+To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options:
 
-* Secure your Function App using App Service Authorization/Authentication. Leverage Azure AAD, service principal authentication, or several social media single-sign-on providers to secure you HTTP triggered Functions. Read a tutorial here
+* Turn on App Service authorization/authentication for your function app. The App Service platform lets use Azure Active Directory (AAD), service principal authentication, and many third-party identity provider to authenticate users. With authentication enabled, only authenticated users can access your function app. To learn more, see [Configure your App Service app to use Azure Active Directory login](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
-* Use Azure API Management to provide any number of API security options, and configure your Functions IP restrictions to only accept traffic from your APIM IP address. Read about API M Security and Functions/App Service IP Restrictions
+* Use Azure API Management (APIM) to authenticate requests. APIM provides a variety of API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-authentication-policies.md). With APIM in place, you can configure your function app to accept requests only from the PI address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
 
-*Deploy you Function Apps into an App Service Environment using the dedicated hosting plan and configure a single front end gateway to authenticate all incoming users. Learn more here
+* Deploy your function app to an Azure App Service Environment (ASE). ASE provides a dedicated hosting environment in which to run your functions. ASE lets you configure a single front-end gateway that you can use to authenticate all incoming requests. For more information, see [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
-When using one of these function app-level security methods, you should set the HTTP-triggered function authentication level to `anonymous`. 
+When using one of these function app-level security methods, you should set the HTTP-triggered function authentication level to `anonymous`.
 
 ## Trigger - limits
 
