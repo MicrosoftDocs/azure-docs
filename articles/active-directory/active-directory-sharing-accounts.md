@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
@@ -67,7 +67,7 @@ To use Azure AD to share an account, you need to:
 You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](authentication/concept-mfa-whichversion.md)) and you can delegate the ability to manage who has access to the application using [Azure AD Self-service](users-groups-roles/groups-self-service-management.md) Group Management.
 
 ## Related articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Application Management in Azure Active Directory](manage-apps/what-is-application-management.md)
 * [Protecting apps with conditional access](active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](users-groups-roles/groups-self-service-management.md)
 

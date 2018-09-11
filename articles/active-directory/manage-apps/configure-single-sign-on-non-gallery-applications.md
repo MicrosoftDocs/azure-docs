@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 
@@ -168,8 +168,6 @@ After selecting **Next**, you will be prompted to enter the URL of the applicati
 >
 
 ## Related Articles
-
-- [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 - [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](../develop/active-directory-saml-claims-customization.md)
 - [Troubleshooting SAML-Based Single Sign-On](../develop/howto-v1-debug-saml-sso-issues.md)
 

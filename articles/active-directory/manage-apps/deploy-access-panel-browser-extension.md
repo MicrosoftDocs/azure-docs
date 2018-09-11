@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -157,7 +157,6 @@ Follow the steps below to verify if the extension deployment was successful:
     ![Verify that the Access Panel Extension is installed and enabled.](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## Related Articles
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [Application access and single sign-on with Azure Active Directory](what-is-single-sign-on.md)
 * [Troubleshooting the Access Panel Extension for Internet Explorer](manage-access-panel-browser-extension.md)
 
