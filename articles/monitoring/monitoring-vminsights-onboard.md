@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/11/2018
 ms.author: magoedte
 ---
 
@@ -130,6 +130,80 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
+## Enable using Azure Policy
+To enable the solution for multiple Azure VMs that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  Using Azure Policy with the policies provided delivers the following benefits for new VMs:
+
+* Enabling VM Insights for each VM in the defined scope
+* Deploy Log Analytics Agent and configure performance collection rules to measure  performance utilization
+* Deploy Dependency Agent to discover application dependencies and show in the Map
+* Audit if your Azure VM OS image is in a pre-defined list in policy definition  
+* Audit if your Azure VM  is logging to workspace other than one specified
+* Report on compliance results 
+* Support remediation for non-compliant VMs
+
+To activate it for your tenant, this process requires:
+
+- Configure a Log Analytics Workspace using the steps listed here
+- Import the initiative defintion to your tenant (at the Management Group or Subscription level)
+- Assign the policy to the desired scope
+- Review the compliance results
+
+### Add the policies and initiative to your subscription
+To use the policies, we have provided a script `Add-VMInsightsPolicy.ps1` which adds the policies and an initiative to your subscription.  Perform the following steps to configure Azure Policy in your subscription. 
+
+1. Download the PowerShell script to your local file system by running the following commands:
+
+    ```powershell  
+    $client = new-object System.Net.WebClient  
+    $client.DownloadFile(“https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/Add-VMInsightsPolicy.ps1”,“Add-VMInsightsPolicy.ps1”)  
+    ```  
+
+2. Use the following PowerShell command in the folder to add policies. The script supports the following optional parameters: 
+
+    ```powershell
+    -UseLocalPolicies [<SwitchParameter>]
+      <Optional> Load the policies from a local folder instead of https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/
+
+    -SubscriptionId <String>
+      <Optional> SubscriptionId to add the Policies/Initiatives to
+    -ManagementGroupId <String>
+      <Optional> Management Group Id to add the Policies/Initiatives to
+
+    -Approve [<SwitchParameter>]
+      <Optional> Gives the approval to add the Policies/Initiatives without any prompt
+    ```  
+
+    >[!NOTE]
+    >Note: If you plan to assign the initiative/policy to multiple subscriptions, the definitions must be stored in the management group that contains the subscriptions you will assign the policy to. Therefore you must use the -ManagementGroupID parameter.
+    >
+   
+    Example without parameters:  `.\Add-VMInsightsPolicy.ps1`
+
+### Create a policy assignment
+After you run the `Add-VMInsightsPolicy.ps1` PowerShell script, the following initiative and policies are added:
+
+**Enable VM Insights for VMs Preview**  
+- **Deploy Log Analytics Agent for Windows VMs Preview**  
+- **Deploy Log Analytics Agent for Linux VMs Preview**  
+- **Deploy Dependency Agent for Windows VMs Preview**  
+- **Deploy Dependency Agent for Linux VMs Preview**  
+- **VMs not in OS scope of Log Analytics Agent deployment policy Preview**  
+- **VMs not in OS scope of Dependency Agent deployment policy Preview**  
+
+The following initiative parameter is added:
+
+- Log Analytice Workspace (The ResourceID if applying an assignment using PowerShell/CLI)
+
+    For VMs found as not-compliant from the audit policies **VMs not in OS scope...** the criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not.  If it is not, then you will need to duplicate the deployment policy and update/modify it to make the image in scope.
+
+The following standalone optional policy is added:
+
+- **VM is configured for mismatched Log Analytics Workspace - Preview**
+
+    This can be used to identify VMs already configured with the [Log Analytics VM Extension](../virtual-machines/extensions/oms-windows.md), but are configured with a different Workspace than intended (as indicated by the policy assignment). This takes a parameter for the WorkspaceID.
+
+With this initial release, you can only create the policy assignment from the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../azure-policy/assign-policy-definition.md).
+
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
@@ -150,18 +224,18 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 ![Enable VM Insights monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
 ## Enable with PowerShell
-To onboard multiple VMs or VM Scale Sets, you use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM Scale Set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or Scale Set specified by *Name*.  For each VM or VM Scale Set, the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
+To enable VM Insights for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
 
 This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 To download the PowerShell script to your local file system, run the following commands:
 
-```posh
+```powershell
 $client = new-object System.Net.WebClient
 $client.DownloadFile(“https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/master/Install-VMInsights.ps1”,“Install-VMInsights.ps1”) 
 ```
 
-To get Help about the script, you can run `Get-Help` to get a list of argument details and example usage.   
+To get help about the script, you can run `Get-Help` to get a list of argument details and example usage.   
 
 ```powershell
 Get-Help .\Install-VMInsights.ps1 -Detailed
@@ -237,7 +311,7 @@ PARAMETERS
     <SubscriptionId> -ResourceGroup <ResourceGroup>        
 ```
 
-Example of running:
+The following example demonstrates using the PowerShell commands in the folder to enable VM Insights and understand the expected output:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -285,6 +359,7 @@ Not running - start VM to configure: (0)
 
 Failed: (0)
 ```
+
 ## Enable for Hybrid environment
 This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment for monitoring by VM Insights.  
 
