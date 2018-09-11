@@ -108,7 +108,7 @@ To view all vaults in the subscription, use **[Get-AzureRmRecoveryServicesVault]
 
 ```powershell
 Get-AzureRmRecoveryServicesVault
-`` `
+```
 
 The output is similar to the following example, notice the associated ResourceGroupName and Location are provided.
 
