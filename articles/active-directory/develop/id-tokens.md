@@ -75,3 +75,13 @@ Try this sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhb
 |`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. Only issued in v1.0 id_tokens. |
 |`uti` |  Opaque String | An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
 |`ver` |  String, either 1.0 or 2.0 | Indicates the version of the id_token. | 
+
+## Validating id_tokens
+
+Validating an id_token is very similar to the first step of [validating an access token](access-tokens.md#validating-tokens) - your client should validate that the correct issuer has sent back the token and that it hasn't been tampered with.  Because id_tokens are always a JWT, many libraries exist to validate these tokens - we recommend you use one of these rather than doing it yourself.  
+
+To manually validate the token, see the steps details in [validating an access token](access-tokens.md#validating-tokens).  After validating the signature on the token, the following claims should be validated in the id_token (these may also be done by your token validation library):
+
+* Timestamps: the `iat`, `nbf`, and `exp` timestamps should all fall before or after the current time, as appropriate.  
+* Audience: the `aud` claim should match the app ID for your application.
+* Nonce: the `nonce` claim in the payload must match the nonce parameter passed into the /authorize endpoint during the initial request.
