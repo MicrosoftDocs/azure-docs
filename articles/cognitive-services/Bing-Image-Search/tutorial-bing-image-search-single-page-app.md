@@ -1,18 +1,19 @@
 ---
-title: Bing Image Search single-page Web app | Microsoft Docs
-description: Shows how to use the Bing Image Search API in a single-page Web application.
+title: Bing Image Search single-page Web app
+titleSuffix: Microsoft Docs
+description: Learn how to embed images and Bing Image Search options in a single-page Web application.
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: aahi
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 10/04/2017
-ms.author: v-jerkin
+ms.date: 9/12/2018
+ms.author: aahi
 ---
-# Tutorial: Display images within a single-page Web app
+# Tutorial: Display images and search options in a single-page Web app
 
-The Bing Image Search API enables you search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage.
+The Bing Image Search API enables you search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search. 
 
 <!-- Remove until we can sanitize images
 ![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
@@ -29,42 +30,39 @@ The tutorial app illustrates how to:
 > * Display and page through search results
 > * Request and handle an API subscription key, and Bing client ID.
 
-In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](tutorial-bing-image-search-single-page-app-source.md). Copy and paste this code into a text editor and save it as `bing.html`.
-
-> [!NOTE]
-> This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with image search results.
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+The full source code for this tutorial is available on Github.
 
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
-* The [Express.js](https://expressjs.com/) framework for Node.js.
+* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available on Github. 
+
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## App components
 
 Like any single-page web app, the tutorial application includes three parts:
 
 > [!div class="checklist"]
-> * HTML - Defines the structure and content of the page
-> * CSS - Defines the appearance of the page
-> * JavaScript - Defines the behavior of the page
+> * HTML - Defines the page structure and content.
+> * CSS - Defines the page's appearance.
+> * JavaScript - Defines the page's behavior, and the express app that contains it.  
 
-This tutorial doesn't cover most of the HTML or CSS in detail, as they are straightforward.
+This tutorial focuses primarily on the JavaScript part of this app. 
 
-The HTML contains the search form in which the user enters a query and chooses search options. The form is connected to the JavaScript that actually performs the search by the `<form>` tag's `onsubmit` attribute:
+The HTML contains a search form with options that's connected to Javascript that sends search requests, using the `<form>` tag's `obsumbit attribute`. 
+
+the search form in which the user enters a query and chooses search options. The form is connected to the JavaScript that actually performs the search by the `<form>` tag's `onsubmit` attribute:
 
 ```html
 <form name="bing" onsubmit="return newBingImageSearch(this)">
 ```
 
-The `onsubmit` handler returns `false`, which keeps the form from being submitted to a server. The JavaScript code actually does the work of collecting the necessary information from the form and performing the search.
+By default, the `onsubmit` handler returns `false`, which keeps the form from being submitted to a server.
 
-The HTML also contains the divisions (HTML `<div>` tags) where the search results appear.
+## Managing and storing user subscription keys
 
-## Managing subscription key
-
-To avoid having to include the Bing Search API subscription key in the code, we use the browser's persistent storage to store the key. If no key is stored, we prompt for the user's key and store it for later use. If the key is later rejected by the API, we invalidate the stored key so the user is again.
+To avoid including the Bing Search API subscription key in the application source code, we use the browser's persistent storage to store the key. If no key is stored, the app will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will invalidate it, and.
 
 We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
 
