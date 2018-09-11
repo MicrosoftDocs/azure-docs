@@ -29,17 +29,17 @@
   - name: What's the difference between the Azure AD portal and the Azure AD admin center?
     href: active-directory-portal-vs-admin-center.md
 - name: 'How-to guides'
+  expanded: true
   items:
-    - name: 'Organization'
-      items:
-      - name: Sign up for Azure Active Directory as an organization
-        href: sign-up-organization.md
-      - name: Add a custom domain name to Azure Active Directory
-        href: add-custom-domain.md
-      - name: Add company branding to your sign-in page in Azure Active Directory
-        href: customize-branding.md
-      - name: Associate an Azure subscription to Azure Active Directory
-        href: active-directory-how-subscriptions-associated-directory.md
+  - name: 'Organization'
+    - name: Sign up for Azure Active Directory as an organization
+      href: sign-up-organization.md
+    - name: Add a custom domain name to Azure Active Directory
+      href: add-custom-domain.md
+    - name: Add company branding to your sign-in page in Azure Active Directory
+      href: customize-branding.md    
+    - name: Associate an Azure subscription to Azure Active Directory
+      href: active-directory-how-subscriptions-associated-directory.md       
   - name: 'Groups'
     items:
     - name: Create a basic group and add members
