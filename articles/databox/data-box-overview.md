@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom:
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/11/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box?
@@ -42,7 +42,7 @@ Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenario
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
 
- - **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure in less than a week.
+- **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure in less than a week.
 
 - **Secure** - Data Box has built-in security protections for the device, data, and the service.
     - The device has a rugged device casing secured by tamper-resistant screws and tamper-evident stickers. 
@@ -62,7 +62,7 @@ The Data Box device has the following features in this release.
 | Weight                                                  | < 50 lbs.                |
 | Dimensions                                              | Device - Width: 309.0 mm Height: 430.4 mm Depth: 502.0 mm |            
 | Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
-| Cables required                                         | 1 X power cable <br> 2 X 1 Gbps RJ45 cables <br> 2 X 10 Gbps SFP+ copper cables|
+| Cables required                                         | 1 X power cable (included) <br> 2 RJ45 cables <br> 2 X SFP+ Twinax copper cables|
 | Storage capacity                                        | 100 TB <br> 80 TB usable capacity after RAID 5 protection|
 | Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
@@ -76,7 +76,7 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the device. The Data Box device has a usable storage capacity of 80 TB. 
 
-    ![Front and back plane of Data Box ](media/data-box-overview/data-box-combined2.png)
+    ![Front and back plane of Data Box ](media/data-box-overview/data-box-combined3.png)
 
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  

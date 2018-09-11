@@ -106,16 +106,18 @@ If the device is not available, you receive a notification. If the device is ava
 
 When the device preparation is complete, the portal shows the order in **Processed** state.
 
+![Data Box order processed](media/data-box-overview/data-box-order-status-processed.png)
+
 Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
+
+![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
 
 ## Cancel the order
 
 To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
 
 After placing an order, you can cancel it at any point before the order status is marked processed.
-
-   [![Data Box status ordered](media/data-box-deploy-ordered/data-box-ordered.png)](media/data-box-deploy-ordered/data-box-ordered.png#lightbox)   
-
+ 
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
 ## Next steps
