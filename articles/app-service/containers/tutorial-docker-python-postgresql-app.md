@@ -119,8 +119,6 @@ The Flask sample application stores user data in the database. If you are succes
 
 To stop the Flask server at anytime, type Ctrl+C in the terminal.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## Create a production PostgreSQL database
 
 In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, it uses this cloud database.
