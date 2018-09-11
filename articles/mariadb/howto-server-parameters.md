@@ -3,11 +3,10 @@ title: How To Configure Server Parameters in Azure Database for MariaDB
 description: This article describes how to configure MariaDB server parameters in Azure Database for MariaDB using the Azure portal.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 

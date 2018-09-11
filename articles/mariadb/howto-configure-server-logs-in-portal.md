@@ -3,11 +3,10 @@ title: Configure and access server logs for Azure Database for MariaDB in Azure 
 description: This article describes how to configure and access the server logs in Azure Database for MariaDB from the Azure Portal.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 

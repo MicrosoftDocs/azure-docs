@@ -4,10 +4,9 @@ description: Instructions for how to properly configure Azure Database for Maria
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
-manager: kfile
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
@@ -25,7 +24,7 @@ For existing connections, you can bind SSL by right-clicking on the connection i
 
 ### Connecting to server using the MySQL CLI over SSL
 Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following command:
-```dos
+```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
@@ -42,8 +41,8 @@ az mariadb server update --resource-group myresource --name mydemoserver --ssl-e
 
 ## Verify the SSL connection
 Execute the mysql **status** command to verify that you have connected to your MariaDB server using SSL:
-```dos
-mysql> status
+```sql
+status
 ```
 Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is AES256-SHA** 
 

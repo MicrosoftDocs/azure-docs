@@ -3,7 +3,6 @@ title: 'Tutorial: Design an Azure Database for MariaDB using Azure portal'
 description: This tutorial explains how to create and manage Azure Database for MariaDB server and database using Azure Portal.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb

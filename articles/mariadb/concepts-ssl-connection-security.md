@@ -4,10 +4,9 @@ description: Information for configuring Azure Database for MariaDB and associat
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
-manager: kfile
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 

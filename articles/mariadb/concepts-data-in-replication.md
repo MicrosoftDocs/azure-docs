@@ -3,11 +3,10 @@ title: Replicate data into Azure Database for MariaDB.
 description: This article describes data-in replication for Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 

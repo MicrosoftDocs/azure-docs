@@ -3,11 +3,10 @@ title: Backup and restore in Azure Database for MariaDB
 description: Learn about automatic backups and restoring your Azure Database for MariaDB server.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
@@ -35,6 +34,8 @@ Azure Database for MariaDB provides the flexibility to choose between locally re
 Azure Database for MariaDB provides up to 100% of your provisioned server storage as backup storage at no additional cost. Typically, this is suitable for a backup retention of seven days. Any additional backup storage used is charged in GB-month.
 
 For example, if you have provisioned a server with 250 GB, you have 250 GB of backup storage at no additional charge. Storage in excess of 250 GB is charged.
+
+For more information on backup storage cost, visit the [MariaDB pricing page](https://azure.microsoft.com/pricing/details/mariadb/).
 
 ## Restore
 

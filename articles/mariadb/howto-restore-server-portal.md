@@ -3,12 +3,11 @@ title: How To Restore a Server in Azure Database for MariaDB
 description: This article describes how to restore a server in Azure Database for MariaDB using the Azure portal.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ---
 
 # How to backup and restore a server in Azure Database for MariaDB using the Azure portal
@@ -36,9 +35,11 @@ For more information about setting these values during create, see the [Azure Da
 
 The backup retention period can be changed on a server through the following steps:
 1. Sign into the [Azure portal](https://portal.azure.com/).
+
 2. Select your Azure Database for MariaDB server. This action opens the **Overview** page.
+
 3. Select **Pricing Tier** from the menu, under **SETTINGS**. Using the slider you can change the **Backup Retention Period** to your preference between 7 and 35 days.
-In the screenshot below it has been increased to 34 days.
+In the screenshot below it has been increased to 35 days.
 ![Backup retention period increased](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
 4. Click **OK** to confirm the change.

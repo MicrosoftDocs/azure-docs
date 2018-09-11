@@ -4,10 +4,9 @@ description: This article describes how you can create new user accounts to inte
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: kfile
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
@@ -76,7 +75,7 @@ Once the Azure Database for MariaDB server is created, you can use the first ser
 
 5. Log in to the server, specifying the designated database, using the new user name and password. This example shows the mysql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
 
-   ```azurecli-interactive
+   ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 For more information regarding user account management, see MariaDB documentation for [User account management](https://mariadb.com/kb/en/library/user-account-management/), [GRANT Syntax](https://mariadb.com/kb/en/library/grant/), and [Privileges](https://mariadb.com/kb/en/library/grant/#privilege-levels).

@@ -3,7 +3,6 @@ title: 'Quickstart: Create an Azure Database for MariaDB server - Azure CLI'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
@@ -121,13 +120,13 @@ Type the next commands:
  mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 ```
 
-2. View server status:
+2. View server status at the mysql> prompt:
 ```sql
- mysql> status
+status
 ```
 If everything goes well, the command-line tool should output the following text:
 
-```dos
+```bash
 C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.

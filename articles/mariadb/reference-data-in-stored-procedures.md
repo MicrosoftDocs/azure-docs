@@ -3,11 +3,10 @@ title: Azure Database for MariaDB Data-in Replication Stored Procedures
 description: This article introduces all stored procedures used for Data-in Replication.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: reference
 ms.date: 09/24/2018
 ---
 
