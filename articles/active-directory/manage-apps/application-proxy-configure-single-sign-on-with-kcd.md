@@ -132,12 +132,12 @@ If delegated login identity is used, the value might not be unique across all th
    * On-premises SAM account name (depends on the domain controller configuration)
 
 ### Troubleshooting SSO for different identities
-If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 But, in some cases, the request is successfully sent to the backend application while this application replies in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the connector machine in the Application Proxy session event log. The user identity that was used for delegation appears in the “user” field within the event details. To turn on session log, select **Show analytic and debug logs** in the event viewer view menu.
 
 ## Next steps
 
-* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 
 

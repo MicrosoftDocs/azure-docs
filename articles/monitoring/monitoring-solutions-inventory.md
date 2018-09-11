@@ -60,7 +60,7 @@ Explanations of the columns are as follows:
 | [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP handshakes every 5 seconds, data sent every 3 minutes |
 | [Office 365 Analytics (Preview)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
-| [Service Fabric Analytics (Preview)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minutes |
+| [Service Fabric Analytics](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutes |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 15 seconds |
 | [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |on arrival |
