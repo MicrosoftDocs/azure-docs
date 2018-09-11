@@ -178,6 +178,9 @@ From the triggers list, select this trigger:
 
    ![Advanced schedule](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
+   For more information about advanced scheduling options, see 
+   [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md)
+
 1. Add other actions you want by selecting from 
 [200+ connectors](../connectors/apis-list.md). 
 Under the trigger, choose **Next step**. 
@@ -216,13 +219,25 @@ see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-polici
 
 ## Handle exceptions and errors
 
-An error action can be executed in Scheduler should the default action failed to execute, the same can be done in Logic Apps as well.
+In Azure Scheduler, if the default action fails to run, 
+you can run an action that addresses the error condition. 
+In Azure Logic Apps, you can also perform the same task.
 
-Hover about the action in which you want to handle the exception for, and add a parallel action as error action. Select `...`, `Configure run-after`, and check `has failed`, `is skipped`, and `has timed out`.
+1. In Logic App Designer, above the action where you want to add 
+error and exception handling, move your pointer over the arror, 
+and select and **Add a parallel branch**. 
+
+1. Find and select the action you want to run instead as the alternative action.
+
+1. On the alternative action, opent the (**...**) menu, and select **Configure run after**.
+
+1. Clear the **is successful** property, and select these properties: 
+**has failed**, **is skipped**, and **has timed out**
 
 ![Exception handling](./media/migrate-from-scheduler-to-logic-apps/error-action.png)
 
-To learn more about exception handling, see [here](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling#catch-and-handle-failures-with-the-runafter-property).
+To learn more about exception handling, see 
+[Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
 
 ## FAQ
 
@@ -241,22 +256,34 @@ To learn more about exception handling, see [here](https://docs.microsoft.com/az
 **Q**: Where can I get support for migrating my Scheduler jobs? <br>
 **A**: Here are some ways to get support: 
 
- **Azure portal**
+**Azure portal**
 
- 1. In the [Azure portal](https://portal.azure.com), select **Help + Support**.
- 1. For **Issue Type**, select **Technical**.
- 1. Select your Azure subscription.
- 1. For **Service**, select **Scheduler**.
+If your Azure subscription has a paid support plan, you can 
+create a technical support request in the Azure portal. 
+Otherwise, you can select a different support option.
+
+1. On the [Azure portal](https://portal.azure.com) main menu, 
+select **Help + support**.
+
+1. Under **Support**, select **New support request**. 
+Provide these details for your request:
+
+   | Setting | Value |
+   |---------|-------|
+   | **Issue type** | **Technical** | 
+   | **Subscription** | <*your-Azure-subscription*> | 
+   | **Service** | Under **Monitoring & Management**, select **Scheduler**. | 
+   ||| 
+
+1. Select the support option you want. If you have a paid support plan, 
+choose **Next**.
 
 **Community**
 
+* [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 
+* [Create regularly running tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md)
 * [Tutorial: Check traffic with a schedule-based logic app](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
