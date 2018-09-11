@@ -22,7 +22,6 @@ The list of regions supported and available are as follows:
 
 (This is for ExpressRoute - please edit)
 
-
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
 | **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
@@ -92,15 +91,15 @@ If your branch device partner is not listed in the section below, please contact
 
 You can check the following links to gather more information about services offered by the preferred partners. 
 
-|Partner| Links |
+|Preferred Partner| |
 |---|---|
-|Barracuda Networks | [Link](https://www.barracuda.com/AzurevWAN)|
-| Check Point | |
-|Citrix | [Link](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)|
-|Palo Alto Networks |(https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |
-|Netfoundry | [Link](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|
-|Riverbed Technology |[Link](https://www.riverbed.com/go/steelconnect-azurewan.html)|
-|128 Technology | [Link](https://www.128technology.com/partners/azure)
+|[Barracuda Networks](https://www.barracuda.com/AzurevWAN)|
+| [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |
+| [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)|
+|[Netfoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|
+|[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |
+|[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|
+|[128 Technology](https://www.128technology.com/partners/azure) |
 
 ## Next Steps
 
