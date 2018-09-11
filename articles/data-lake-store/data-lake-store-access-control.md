@@ -95,9 +95,29 @@ Following are some common scenarios to help you understand which permissions are
 >
 >
 
+### Permissions needed to enumerate a folder
+
+![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
+
+* For the folder to enumerate, the caller needs **Read + Execute** permissions.
+* For all the ancestor folders, the caller needs **Execute** permissions.
+
+
+From the **Data Explorer** blade of the Data Lake Storage Gen1 account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastorage** account.
+
+![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+
+On this blade, the top section shows the owners permissions. (In the screenshot, the owning user is Bob.) Following that, the assigned Access ACLs are shown. 
+
+![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
+
+Click **Advanced View** to see the more advanced view, where the Default ACLs, mask, and a description of super-users are shown.  This blade also provides a way to recursively set Access and Default ACLs for child files and folders based on the permissions of the current folder.
+
+![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
+
 ## The super-user
 
-A super-user has the most rights of all the users in the Data Lake Store. A super-user:
+A super-user has the most rights of all the users in the Data Lake Storage Gen1 account. A super-user:
 
 * Has RWX Permissions to **all** files and folders.
 * Can change the permissions on any file or folder.
@@ -215,11 +235,11 @@ When creating a file or folder, umask is used to modify how the default ACLs are
 
 The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-| umask component     | Value    |
-|---------------------|----------|
-| umask.owning_user   | 0 (---)  |
-| umask.owning_group  | 0 (---)  |
-| umask.other         | 7 (RWX)  |
+| umask component     | Numeric form | Short form | Meaning |
+|---------------------|--------------|------------|---------|
+| umask.owning_user   |    0         |   ---      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
+| umask.owning_group  |    0         |   ---      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
+| umask.other         |    7         |   RWX      | For other, remove all permissions on the child's Access ACL |
 
 This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 

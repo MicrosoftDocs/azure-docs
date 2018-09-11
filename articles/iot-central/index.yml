@@ -14,6 +14,10 @@ metadata:
 abstract:
   description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials.
 sections:
+- title: Upcoming change
+  items:
+  - type: paragraph
+    text: Azure IoT Central will transition to using Azure IoT Hub Device Provisioning service (DPS) for all device connections in the next few weeks. Once this change goes live, you will be required to update your device code to use the DPS SDK to register and connect devices. All applications using the continuous data export feature and/or the Power BI solutions template will be required to change the destination storage container and create a new solution template. <a href="https://aka.ms/iotcentral-create-technical-support-ticket">Please contact technical support to learn more.</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
