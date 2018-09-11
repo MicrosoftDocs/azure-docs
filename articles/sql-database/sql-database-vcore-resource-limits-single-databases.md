@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 09/26/2018
 ms.author: carlrab
 
 ---
@@ -79,7 +79,7 @@ For single databases, the following tables show the resources available for a si
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memory (GB)|7|14|28|56|112|168|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|1|2|4|8|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
@@ -120,46 +120,46 @@ For single databases, the following tables show the resources available for a si
 ### Hyperscale service tier
 
 #### Generation 4 compute platform
-|Performance level|L1|L2|L3|L4|L5|
-|:--- | --: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|
-|vCores|2|6|8|9|22|
-|Memory (GB)|14|42|56|63|154|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (TB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
-|Max log size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
-|TempDB size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
-|Target IOPS (64 KB)|?|?|?|?|?|
-|IO latency (approximate)|?|?|?|?|?||
-|Max concurrent workers (requests)|?|?|?|?|?|?||
-|Max allowed sessions|?|?|?|?|?|?||
-|Number of replicas|?|?|?|?|?|?||
+|Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |--: |
+|H/W generation|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Memory (GB)|7|14|28|56|112|168|
+|Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
+|Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
+|TempDB size (GB)|?|?|?|?|?|?|
+|Target IOPS (64 KB)|?|?|?|?|?|?|
+|IO latency (approximate)|?|?|?|?|?|?|
+|Max concurrent workers (requests)|?|?|?|?|?|?|
+|Max allowed sessions|?|?|?|?|?|?|
+|Number of replicas|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage|?|?|?|?|?|?|
+|Included backup storage|7|7|7|7|7|7|
 |||
 ### Generation 5 compute platform
-|Performance level|L1|L2|L3|L4|L5|
-|:--- | --: |--: |--: |--: |--: |
-|H/W generation|5|5|5|5|5|
-|vCores|2|6|8|9|22|
-|Memory (GB)|14|42|56|63|154|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (TB)|Unlimited|Unlimited|Unlimited|10Unlimited0|Unlimited|
-|Max log size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
-|TempDB size (GB)|Unlimited|Unlimited|Unlimited|Unlimited|Unlimited|
-|Target IOPS (64 KB)|?|?|?|?|?|
-|IO latency (approximate)|?|?|?|?|?||
-|Max concurrent workers (requests)|?|?|?|?|?|?||
-|Max allowed sessions|?|?|?|?|?|?||
-|Number of replicas|?|?|?|?|?|?||
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage|?|?|?|?|?|?|
+|Performance level|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|40|80|
+|Memory (GB)|11|22|44|88|132|176|220|440|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
+|Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
+|TempDB size (GB)|?|?|?|?|?|?|?|?|
+|Target IOPS (64 KB)|?|?|?|?|?|?|?|?|
+|IO latency (approximate)|?|?|?|?|?|?|?|?|
+|Max concurrent workers (requests)|?|?|?|?|?|?|?|?|
+|Max allowed sessions|?|?|?|?|?|?|?|?|
+|Number of replicas|2|2|2|2|2|2|2|2|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage (preview limit)|7|7|7|7|7|7|7|7|
 |||
 
 ## Next steps

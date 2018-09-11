@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.author: carlrab
 
 ---

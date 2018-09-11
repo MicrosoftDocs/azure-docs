@@ -7,7 +7,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
