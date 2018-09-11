@@ -25,7 +25,7 @@ Azure SQL Analytics is a cloud monitoring solution for monitoring performance of
 
 By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
-Currently, this preview solution supports up to 200,000 Azure SQL Databases and 5,000 SQL Elastic Pools per workspace.
+Currently, this preview solution supports up to 200,000 Azure SQL databases and 5,000 SQL elastic pools per workspace.
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
@@ -57,9 +57,9 @@ Perform the following steps to add the Azure SQL Analytics solution to your work
 5. In the **Create new solution** area, create new, or select an existing workspace that you want to add the solution to, and then click **Create**.  
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
-### Configure Azure SQL Databases and Elastic Pools to stream diagnostics telemetry
+### Configure Azure SQL Databases and elastic pools to stream diagnostics telemetry
 
-Once you've created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL Databases and/or Elastic Pools, you will need to **configure each** of Azure SQL Database and elastic pool resource you wish to monitor to stream its diagnostics telemetry to the solution.
+Once you've created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL Databases and/or elastic pools, you will need to **configure each** of Azure SQL Database and elastic pool resource you wish to monitor to stream its diagnostics telemetry to the solution.
 
 - Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
@@ -112,13 +112,13 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
-### Elastic Pool and Database reports
+### Elastic pool and Database reports
 
-Both Elastic Pools and Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
+Both elastic pools and Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
 
 ![Azure SQL Analytics Database](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
-![Azure SQL Analytics Elastic Pool](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+![Azure SQL elastic pool](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
 
 ### Query reports
 
@@ -145,7 +145,7 @@ AzureMetrics
 > - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
-*High CPU on Azure SQL Database Elastic Pools*
+*High CPU on Azure SQL Database elastic pools*
 
 ```
 AzureMetrics 
