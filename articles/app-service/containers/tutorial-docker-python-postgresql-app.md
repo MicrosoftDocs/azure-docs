@@ -200,13 +200,13 @@ In this step, you connect your Flask sample app to the Azure Database for Postgr
 
 ### Create empty database and user access
 
-In the Cloud Shell, connect to the database by running `psql`. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
+In the Cloud Shell, connect to the database by running the command below. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
 ```
 
-Create the database and user from the PostgreSQL CLI.
+Just like on our local database, let's create the database and user for our web app from the PostgreSQL CLI.
 
 ```bash
 CREATE DATABASE eventregistration;
@@ -215,6 +215,9 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
 Type `\q` to exit the PostgreSQL client.
+
+> [!NOTE]
+> It's best practice to create database users with restricted permissions for specific applications, instead of using the admin user. In this example, the `manager` user has full privileges to _only_ the `eventregistration` database.
 
 ### Test app connectivity to production database
 
