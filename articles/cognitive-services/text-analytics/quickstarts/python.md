@@ -1,5 +1,6 @@
 ---
-title: Python Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using Python to call the Text Analytics API | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: ashmaka
@@ -10,7 +11,7 @@ ms.date: 05/02/2018
 ms.author: ashmaka
 ---
 
-# Quickstart for Text Analytics API with Python 
+# Quickstart: Using Python to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This walkthrough shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Python.
