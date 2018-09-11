@@ -73,6 +73,8 @@
     items:
     - name: Create users
       href: howto-create-users.md
+    - name: Connection strings
+      href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
   - name: Configure server parameters
