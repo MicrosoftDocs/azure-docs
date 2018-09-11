@@ -3,7 +3,7 @@ title: How to fill out specific fields for a custom-developed application | Micr
 description: Guidance on how to fill out specific fields when you are registering a custom developed application with Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
-ms.author: barbkess
+ms.date: 09/11/2018
+ms.author: celested
 
 ---
 
