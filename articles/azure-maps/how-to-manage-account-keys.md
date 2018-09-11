@@ -20,11 +20,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. Search for and select **Maps**, then click **Create**.
+3. Search for and select **Maps**, then click **Create**.
 
-3. Enter the information for your new account. 
+4. Enter the information for your new account.
 
 ![Enter account information in the portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
@@ -36,7 +36,7 @@ You can find your keys in the Azure portal. Navigate to your account then select
 
 ![Manage account keys in the portal](./media/how-to-manage-account-keys/account-keys-portal.png)
 
-From this page you can copy your keys or generate new ones. 
+From this page you can copy your keys or generate new ones.
 
 ## Delete an account
 
