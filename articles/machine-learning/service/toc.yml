@@ -90,6 +90,8 @@
          href: how-to-deploy-to-aks.md
        - name: Deploy to FPGAs
          href: how-to-deploy-fpga-web-service.md  
+  - name: Manage quotas
+    href: how-to-manage-and-request-quotas.md
 - name: Reference
   items:    
   - name: Machine learning SDK
