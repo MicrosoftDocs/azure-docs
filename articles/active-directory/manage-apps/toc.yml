@@ -233,19 +233,11 @@
         href: access-panel-manage-self-service-access.md
       - name: Error using self-service app access
         href: access-panel-troubleshoot-self-service-access.md
-    - name: Monitor
-      items:
-      - name: Application health
-        items: 
-      - name: Application security
-        items:
-      - name: Application usage
-        items:
     - name: Migration
       items:
       - name: Migrate an ADFS app to Azure
         href: migrate-adfs-apps-to-azure.md
-    - name: User sign-in problems
+    - name: Troubleshoot user sign-in
       items:
       - name: Unexpected consent prompt
         href: application-sign-in-unexpected-user-consent-prompt.md
