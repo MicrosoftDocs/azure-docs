@@ -1,6 +1,6 @@
 ---
-title: Deploy the local agent and test virtual machines| Microsoft Docs
-description: Deploy the local agent and test image virtual machines for Azure Stack Validation as a Service.
+title: Deploy the local agent | Microsoft Docs
+description: Deploy the local agent for Azure Stack Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,7 +17,7 @@ ms.reviewer: johnhas
 
 ---
 
-# Deploy the local agent and upload test virtual machine images
+# Deploy the local agent
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -117,7 +117,6 @@ The tests perform remote operations. The machine that runs the tests must have a
     ````
 
       **Parameters**  
-    
     | Parameter | Description |
     | --- | --- |
     | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName@Contoso.com) |

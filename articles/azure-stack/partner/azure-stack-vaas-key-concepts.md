@@ -74,4 +74,4 @@ A VaaS agent drives test execution. Two types of agents execute VaaS tests:
 
 Local agents are not tied to any particular Azure Stack or VaaS solution. As a best practice, they should run outside of an Azure Stack environment.
 
-For instructions on adding a local agent, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
+For instructions on adding a local agent, see [Deploy the local agent](azure-stack-vaas-local-agent.md).

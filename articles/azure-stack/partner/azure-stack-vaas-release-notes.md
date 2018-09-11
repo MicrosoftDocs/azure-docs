@@ -29,7 +29,7 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
 - VaaS pre-requisite and VHD updates
 
-    `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during package validation. The documentation at [Download and install the agent](azure-stack-vaas-test-vm.md#download-and-install-the-agent) has been updated with the following:
+    `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during package validation. The documentation at [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) has been updated with the following:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -46,7 +46,7 @@ This article contains the release notes for Azure Stack Validation as a Service.
 
 - Local agent update
 
-    The previous version of the local agent is not compatible with the 4.0.0 release of the service. All users must update the version of the agent they are using. See [Download and install the agent](azure-stack-vaas-test-vm.md#download-and-install-the-agent) for instructions on installing the newest agent.
+    The previous version of the local agent is not compatible with the 4.0.0 release of the service. All users must update the version of the agent they are using. See [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) for instructions on installing the newest agent.
 
 - PowerShell automation update
 

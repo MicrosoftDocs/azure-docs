@@ -31,7 +31,7 @@ In this quickstart, you will create a Test Pass workflow and run any test provid
 Before you follow this quickstart, you will need to have completed the following items:
 
 - [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)
-- (Recommended) [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md)
+- (Recommended) [Deploy the local agent](azure-stack-vaas-local-agent.md)
 - (Recommended) [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)
 
 ## Start a new Test Pass workflow
