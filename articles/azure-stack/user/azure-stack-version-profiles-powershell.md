@@ -37,10 +37,10 @@ Install-Module -Name AzureRm.BootStrapper
 
 ## Install a profile
 
-Use the **Install-AzureRmProfile** cmdlet with the **2018-03-01-hybrid** API version profile to install the AzureRM modules required by Azure Stack. The Azure Stack operator modules are not installed with this API version profile. They should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+Use the **Install-AzureRmProfile** cmdlet with the **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. The Azure Stack operator modules are not installed with this API version profile. They should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
 
 ```PowerShell 
-Install-AzureRMProfile -Profile 2018-03-01-hybrid
+Install-AzureRMProfile -Profile 2017-03-09-profile
 ```
 ## Install and import modules in a profile
 
@@ -51,17 +51,17 @@ Use the **Use-AzureRmProfile** cmdlet to install and import modules that are ass
 
 ```PowerShell
 # Installs and imports the specified API version profile into the current PowerShell session.
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser
+Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
 
 # Installs and imports the specified API version profile into the current PowerShell session without any prompts
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
 ```
 
 To install and import selected AzureRM modules from an API version profile, run the Use-AzureRMProfile cmdlet with the **Module** parameter:
 
 ```PowerShell
 # Installs and imports the compute, Storage and Network modules from the specified API version profile into your current PowerShell session.
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
+Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
 ```
 
 ## Get the installed profiles
@@ -90,7 +90,7 @@ Update-AzureRmProfile -Profile 2017-03-09-profile
 To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
 
 ```PowerShell 
-Update-AzureRmProfile -Profile 2018-03-01-hybrid -RemovePreviousVersions
+Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
 ```
 
 This cmdlet runs the following tasks:  
@@ -105,7 +105,7 @@ This cmdlet runs the following tasks:
 Use the **Uninstall-AzureRmProfile** cmdlet to uninstall the specified API version profile.
 
 ```PowerShell 
-Uninstall-AzureRmProfile -Profile 2018-03-01-hybrid
+Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
 ## Next steps
