@@ -1,5 +1,5 @@
 ---
-title: LinkedIn account connection data sharing in Azure Active Directory | Microsoft Docs
+title: LinkedIn account connections user consent for data sharing in Azure Active Directory | Microsoft Docs
 description: Explains how LinkedIn account connections share data via Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ---
 
-# Understand how LinkedIn account connections integrate into your organization
+# User consent and LinkedIn account connections data
 
 As an Azure Active Directory (Azure AD) administrator, you can enable users in your organization to consent to connect their Microsoft work or school account with their LinkedIn account. When users connect their accounts, information and highlights from LinkedIn are available in some Microsoft apps and services. Users can also expect their networking experience on LinkedIn to be improved and enriched with information from Microsoft.
 
@@ -56,6 +56,7 @@ When you connect your Microsoft and LinkedIn accounts, you allow LinkedIn to pro
 * Connections data - includes your [LinkedIn network](https://www.linkedin.com/help/linkedin/answer/110) including profiles and contact information of your 1st-degree connections.
 
 Data that is accessed from LinkedIn is not stored permanently in Microsoft services. For more information about Microsoft’s use of personal data, see the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement/).
+
 
 ### Microsoft work or school account data
 
