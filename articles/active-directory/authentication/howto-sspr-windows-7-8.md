@@ -14,13 +14,13 @@ manager: mtillman
 ms.reviewer: sahenry
 
 ---
-# How to: Enable password reset from Windows 7 and 8.1
+# How to: Enable password reset from Windows 7, 8, and 8.1
 
-As an administrator you have enabled self-service password reset (SSPR), but users keep calling the helpdesk to reset their password because they can't get to a browser window to access the [SSPR portal](https://aka.ms/sspr). For Windows 10 machines, you can enable the "Reset password" link at the logon screen using the tutorial [Azure AD password reset from the login screen](tutorial-sspr-windows.md), but for Windows 7 and 8.1 devices this configuration does not work.
+As an administrator you have enabled self-service password reset (SSPR), but users keep calling the helpdesk to reset their password because they can't get to a browser window to access the [SSPR portal](https://aka.ms/sspr). For Windows 10 machines, you can enable the "Reset password" link at the logon screen using the tutorial [Azure AD password reset from the login screen](tutorial-sspr-windows.md), the following guidance, will help you to enable Windows 7, 8, and 8.1 users to reset their password using SSPR at the Windows logon screen.
 
-The following guidance, will help you to enable Windows 7 and 8.1 users to reset their password using SSPR at the Windows logon screen.
+Unlike Windows 10 machines, Windows 7, 8, and 8.1 machines do not have an Azure AD domain-joined or Active Directory domain-joined requirement for password reset.
 
-Unlike Windows 10 machines, Windows 7 and 8.1 machines do not have an Azure AD domain-joined or Active Directory domain-joined requirement for password reset.
+![Example Windows 7 logon screen with "Forgot password?" link shown](media/howto-sspr-windows-7-8/windows-7-logon-screen.png)
 
 ## Prerequisites
 
@@ -33,11 +33,21 @@ Unlike Windows 10 machines, Windows 7 and 8.1 machines do not have an Azure AD d
 
 ## Install
 
-1. Download the appropriate installer for the version of Windows x86/x64 where you would like to enable.
+1. Download the appropriate installer for the version of Windows you would like to enable.
+
+   1. Software is available on the Microsoft download center at [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+
 1. Sign in to the machine where you would like to install, and run the installer.
 1. After installation, a reboot is highly recommended.
+1. After the reboot, at the logon screen choose a user and click "Forgot password?" to initiate the password reset workflow.
+1. Complete the workflow following the onscreen steps to reset your password.
 
-![Example Windows 7 logon screen with "Forgot password?" link shown](media/howto-sspr-windows-7-8/windows-7-logon-screen.png)
+![Example Windows 7 clicked "Forgot password?" self-service password reset flow](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+
+### Silent installation
+
+* For silent install use command “msiexec /i SsprWindowsLogon.PROD.msi /qn”
+* For silent un-install use command “msiexec /x SsprWindowsLogon.PROD.msi /qn”
 
 ## Caveats
 
@@ -45,7 +55,7 @@ You must register for SSPR before you will be able to use the "Forgot password" 
 
 ![Additional security info is needed to reset your password](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
-Using the Microsoft Authenticator app for notifications and codes to reset your password does not work in the initial release. A future update will include this functionality. Users must have alternate methods registered that meet the requirements of your policy.
+Using the Microsoft Authenticator app for notifications and codes to reset your password does not work in this initial release. Users must have alternate methods registered that meet the requirements of your policy.
 
 ## Troubleshooting
 
@@ -56,6 +66,13 @@ Azure AD Events will include information about the IP address and ClientType whe
 ![Example Windows 7 logon screen password reset in the Azure AD Audit log](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 If additional logging is required a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only.
+
+```
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
+```
+
+* To enable verbose logging Create a REG_DWORD: “EnableLogging”, and set it to 1.
+* To disable verbose logging change the REG_DWORD “EnableLogging” to 0.
 
 ## Next steps
 
