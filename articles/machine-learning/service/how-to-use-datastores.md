@@ -1,6 +1,6 @@
 ---
-title: <insert title>
-description: <insert description>
+title: Use datastores in Azure Machine Learning
+description: How to use datastores to access data storage during training
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -117,20 +117,41 @@ ds.download(target_path='your target path',
 `target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
 ## Use datastore for training
+You can access a datastore during a training run (e.g. for training or validation data) on a remote compute target via the Python SDK. 
+
+First, you need to create a `DataReference` object from your datastore and pass it to an [Estimator]() that submits your training job to the compute target. A `DataReference` represents a particular path in a datastore. This path could be the root `/`, a directory within the datastore, or a specific file in the datastore.
+
+Currently, there are two supported ways to make your datastore available on the remote compute:
+* **Mount**  
+`ds.as_mount(path_on_compute='your path on compute)'` creates a `DataReference` object with mount mode, so that the datastore will get mounted for you on the remote compute at the relative path location specified by `path_on_compute` (or at the root if `path_on_compute`=None). 
+* **Download**  
+`ds.as_download(path_on_compute='your path on compute)` creates a `DataReference` object with download mode. With this mode, the data will get downloaded from your datastore to the remote compute to the location specified by `path_on_compute`.
+
+If you don't want to mount/download your entire datastore, you can instead specify a particular path. If your datastore has a directory with relative path `./foo` and you're only interested in mounting this directory to the compute target, you can do so as follows: `ds.path(path='./foo').as_mount()`
+
+The location on the compute target of the DataReference is made available in the environment variable on the compute target, which you can pass into your training script as a command-line argument via `script_params`:
+
+```Python
+from azureml.train.estimator import Estimator
+script_params = {
+    '--data_dir': ds.as_mount()
+}
+
+est = Estimator(source_directory='your code directory',
+                script_params=script_params,
+                compute_target=compute_target,
+                entry_script='train.py')
+```
+
+Alternatively, you can pass in a list of DataReferences to the `inputs` parameter of the Estimator constructor to mount/copy your datastore(s):
+
+```Python
+est = Estimator(source_directory='your code directory',
+                compute_target=compute_target,
+                entry_script='train.py',
+                inputs=[ds1.as_mount(), ds2.as_download()])
+```
+The above code will mount one datastore `ds1` and download the other `ds2` to the remote compute before your training script `train.py` is invoked.
 
 ## Next steps
-
-## Misc
-- DataReference
-- Mounting things via run config?
-
-## Appendix
-A datastore is a storage abstraction over an Azure Storage Account. The datastore can use either an Azure blob container or an Azure file share as the backend storage. Each workspace has a default datastore, and you may register additional datastores.
-
-Use the Python SDK API or Azure Machine Learning CLI to store and retrieve files from the datastore.
-
-Below is a guide that shows all of the features of datastore. You can choose to use datastores in the data plane or in the control plane.
-
-In the data plane, you can get datastores in your scripts and download data from them and upload data to them. You have full control of when to download data and when to upload data.
-
-In the control plane, by adding datastore config to your run config, you can have datastores mounted in the remote compute target, or you can tell us to download data from different datastores to different locations on the remote compute target before your scripts are invoked and upload data from different locations on the remote compute target to different datastores after your scripts have been ran.
+* [Train a model](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-train-ml-models)
