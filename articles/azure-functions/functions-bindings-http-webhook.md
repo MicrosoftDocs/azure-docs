@@ -272,7 +272,7 @@ module.exports = function(context, req) {
 
 ### Trigger - Java example
 
-The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function returns a HTTP status code 200 response with arequest body that prefixes the triggering request body with a "Hello, " greeting.
+The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function returns an HTTP status code 200 response with a request body that prefixes the triggering request body with a "Hello, " greeting.
 
 
 Here's the *function.json* file:
@@ -500,7 +500,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
 
-For C# and F# functions, you can declare the type of your trigger input to be either `HttpRequestMessage` or a custom type. If you choose `HttpRequestMessage`, you get full access to the request object. For a custom type, Functions tries to parse the JSON request body to set the object properties. 
+For C# and F# functions, you can declare the type of your trigger input to be either `HttpRequestMessage` or a custom type. If you choose `HttpRequestMessage`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
 For JavaScript functions, the Functions runtime provides the request body instead of the request object. For more information, see the [JavaScript trigger example](#trigger---javascript-example).
 
@@ -611,7 +611,7 @@ There are two types of keys:
 
 Each key is named for reference, and there is a default key (named "default") at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
 
-Each function app also has a special **master key**. This is a host key named `_master`, which provides administrative access to the runtime APIs. This key cannot be revoked. When you set an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
+Each function app also has a special **master key**. This key is a host key named `_master`, which provides administrative access to the runtime APIs. This key cannot be revoked. When you set an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
 
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin authorization level.
@@ -626,11 +626,11 @@ There is no supported API for programmatically obtaining function keys.
 
 ### API key authorization
 
-Most HTTP trigger templates requires an API key in the request. So your HTTP request normally looks like the following:
+Most HTTP trigger templates require an API key in the request. So your HTTP request normally looks like the following URL:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-The key can be included in a query string variable named `code`, as above, or it can be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
+The key can be included in a query string variable named `code`, as above. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 
 You can allow anonymous requests, which do not require keys. You can also require that the master key be used. You change the default authorization level by using the `authLevel` property in the binding JSON. For more information, see [Trigger - configuration](#trigger---configuration).
 
@@ -650,7 +650,7 @@ For an example of a webhook secured with a key, see [Create a function triggered
 
 To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options:
 
-* Turn on App Service authorization/authentication for your function app. The App Service platform lets use Azure Active Directory (AAD), service principal authentication, and many third-party identity provider to authenticate users. With authentication enabled, only authenticated users can access your function app. To learn more, see [Configure your App Service app to use Azure Active Directory login](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+* Turn on App Service authorization/authentication for your function app. The App Service platform lets use Azure Active Directory (AAD), service principal authentication, and trusted third-party identity providers to authenticate users. With this feature enabled, only authenticated users can access your function app. To learn more, see [Configure your App Service app to use Azure Active Directory login](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 * Use Azure API Management (APIM) to authenticate requests. APIM provides a variety of API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-authentication-policies.md). With APIM in place, you can configure your function app to accept requests only from the PI address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
 
@@ -660,9 +660,9 @@ When using one of these function app-level security methods, you should set the 
 
 ## Trigger - limits
 
-The HTTP request length is limited to 100MB (104,857,600 bytes), and the URL length is limited to 4KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-If a function that uses the HTTP trigger doesn't complete within about 2.5 minutes, the gateway will timeout and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan). 
+If a function that uses the HTTP trigger doesn't complete within about 2.5 minutes, the gateway will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan). 
 
 ## Trigger - host.json properties
 
@@ -676,7 +676,7 @@ Use the HTTP output binding to respond to the HTTP request sender. This binding 
 
 ## Output - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file. For C# class libraries there are no attribute properties that correspond to these *function.json* properties. 
+The following table explains the binding configuration properties that you set in the *function.json* file. For C# class libraries, there are no attribute properties that correspond to these *function.json* properties. 
 
 |Property  |Description  |
 |---------|---------|
