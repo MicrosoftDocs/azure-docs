@@ -37,6 +37,9 @@
   items:
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
+  - name: Server protection with WATP (Preview)
+    href: security-center-wdatp.md
+  - name: Set Security policy
   - name: Set security policies
     href: security-center-azure-policy.md
   - name: Security policy settings
@@ -53,8 +56,8 @@
     - name: Security configurations
       href: security-center-customize-os-security-config.md
     - name: Tenant-wide visibility
-      href: security-center-management-groups.md  
-  
+      href: security-center-management-groups.md
+
   - name: Implement security recommendations
     href: security-center-recommendations.md
   - name: Monitor security health
@@ -156,12 +159,15 @@
       href: security-center-alert-validation.md
     - name: Alert confidence score
       href: security-center-confidence-score.md
-    - name: Threat intelligence map
+    - name: Security alerts map and threat intelligence
       href: security-center-threat-intel.md
     - name: Investigation
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
+    - name: UEBA for Azure resources and users
+      href: security-center-ueba-mcas.md
+
   
   - name: Automate security workflows
     items:

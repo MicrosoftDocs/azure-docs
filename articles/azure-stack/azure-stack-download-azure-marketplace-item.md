@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -146,7 +146,7 @@ There are two parts to this scenario:
 2. Use the admin portal to upload the marketplace item package (the .azpkg file) to Azure Stack Blob storage. Upload of the package makes it available to Azure Stack so you can later publish the item the Azure Stack Marketplace.
 
    Upload requires you to have a storage account with a publicly accessible container (see the prerequisites for this scenario)   
-   1. In the Azure Stack admin portal, go to **More services** > **Storage accounts**.  
+   1. In the Azure Stack admin portal, go to **All services** and then under the **DATA + STORAGE** category, select **Storage accounts**.  
    
    2. Select a storage account from your subscription, and then under **BLOB SERVICE**, select **Containers**.  
       ![Blob service](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -194,7 +194,7 @@ There are two parts to this scenario:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. After you publish a gallery item, you can view it from **More services** > **Marketplace**.  If your download is a solution template, make sure you add any dependent VHD image for that solution template.  
+5. After you publish a gallery item, it by going to **All services**. Next, under the **GENERAL** category, select **Marketplace**.  If your download is a solution template, make sure you add any dependent VHD image for that solution template.  
   ![View marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

@@ -35,6 +35,8 @@
   items:
   - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
+  - name: Connect with PowerShell
+    href: azure-stack-powershell-configure-user.md
   - name: Use the Azure Stack API
     href: azure-stack-rest-api-use.md
   - name: Security & compliance
@@ -57,6 +59,8 @@
         href: azure-stack-vm-sizes.md
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
+      - name: Managed disks considerations
+        href: azure-stack-managed-disk-considerations.md
       - name: Protect VMs
         href: azure-stack-manage-vm-protect.md
       - name: SQL Server VM considerations
@@ -97,6 +101,13 @@
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
+    - name: Azure Stack Monitor
+      href: azure-stack-metrics-azure-data.md
+      items: 
+      - name: Supported metrics
+        href: azure-stack-metrics-supported.md
+      - name: Consume Azure monitoring data
+        href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
       - name: Deploy a Service Fabric cluster

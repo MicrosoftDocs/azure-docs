@@ -86,7 +86,11 @@
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Add group access to SaaS apps    
       href: groups-saasapps.md
-    - name: Restore deleted groups   
+    - name: Groups naming reference
+      href: groups-naming-policy.md
+    - name: Groups expiration reference    
+      href: groups-lifecycle.md
+    - name: Restore expired or deleted groups   
       href: groups-restore-deleted.md
     - name: Manage group settings    
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
@@ -134,12 +138,12 @@
         href: directory-emergency-access.md
     - name: Administrative units    
       href: directory-administrative-units.md
-    - name: Configure token lifetimes   
-      href: /azure/active-directory/active-directory-configurable-token-lifetimes?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Integrate services with Azure AD
     items: 
     - name: Integrate LinkedIn with Azure AD    
       href: linkedin-integration.md
+    - name: User consent and data sharing    
+      href: linkedin-user-consent.md
   - name: Troubleshoot
     items:
     - name: Get support for Azure AD    

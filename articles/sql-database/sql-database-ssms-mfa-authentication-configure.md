@@ -10,7 +10,7 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: mireks
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ---
 # Configure multi-factor authentication for SQL Server Management Studio and Azure AD
 
