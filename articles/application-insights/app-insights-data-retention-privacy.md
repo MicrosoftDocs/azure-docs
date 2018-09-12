@@ -179,7 +179,11 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 ### NodeJS
 
-The local folder can be overridden by changing the runtime value of the static variable `Sender.TEMPDIR_PREFIX` found in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384). This value controls the subfolder within the TEMP directory.
+By default `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` is used for persisting data. Permissions to access this folder are restricted to the current user and Administrators. (See [implementation](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) here.)
+
+The folder prefix `appInsights-node` can be overridden by changing the runtime value of the static variable `Sender.TEMPDIR_PREFIX` found in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+
+
 
 ## How do I send data to Application Insights using TLS 1.2?
 
