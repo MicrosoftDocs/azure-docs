@@ -32,9 +32,7 @@
   - name: FPGA accelerations
     href: concept-accelerate-with-fpgas.md  
   - name: ML pipelines
-    href: concept-ml-pipelines.md        
-  - name: ONNX
-    href: concept-onnx.md    
+    href: concept-ml-pipelines.md         
 - name: How-to guides
   items:  
   - name: Manage workspaces
@@ -79,6 +77,8 @@
         href: how-to-train-pytorch.md
       - name: Train TensorFlow models
         href: how-to-train-tensorflow.md
+    - name: Create and deploy ONNX models
+      href: how-to-build-deploy-onnx.md   
     - name: Tune hyperparameters
       href: how-to-tune-hyperparameters.md    
   - name: Track and evaluate models	
