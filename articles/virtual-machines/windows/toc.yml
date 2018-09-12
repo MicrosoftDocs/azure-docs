@@ -449,13 +449,14 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
+    - name: Throttling errors
+      href: troubleshooting-throttling-errors.md
     - name: Troubleshoot boot errors
       items:
       - name: BitLocker errors 
         href: troubleshoot-bitlocker-boot-error.md  
       - name: Checking file system errors
         href: troubleshoot-check-disk-boot-error.md
-
 - name: Reference
   items:
   - name: Azure CLI
