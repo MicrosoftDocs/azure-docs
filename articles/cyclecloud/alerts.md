@@ -22,14 +22,14 @@ Any user may view recent notifications by clicking the envelope icon in the uppe
 of the screen. Selecting a notification will display its full subject and body. Each of these
 notifications has a priority level. From low to high, these are:
 
-* Info: for informational purposes only. No action is necessary.
-* Warn: indicates a possible issue. Further investigation may be warranted.
-* Error: indicates a likely problem. Action may be needed to resolve this.
+* **Info**: for informational purposes only. No action is necessary.
+* **Warn**: indicates a possible issue. Further investigation may be warranted.
+* **Error**: indicates a likely problem. Action may be needed to resolve this.
 
 ## Customizing Alerts
 
 Administrators can view, create or modify alerts by going to the alert configuration page. This
-page may be reached by selecting "Alerting" from the user menu in the upper right­-hand corner
+page may be reached by selecting **Alerting** from the user menu in the upper right­-hand corner
 of the screen.
 
 On the left­-hand side of the screen there is a list of named alerting rules (e.g. "Hosts Not
@@ -41,7 +41,7 @@ Plugin-­based rules use CycleCloud's plugin architecture to allow alerts which 
 generated through a SQL­-style query. Plugin­-based rules may support different levels of
 customization depending on the plugin.
 
-After making changes to a rule, be sure to click the "Apply" button in the lower right­hand corner
+After making changes to a rule, be sure to click the **Apply** button in the lower right­hand corner
 to save your changes.
 
 ## Common Rule Configuration Options
@@ -57,11 +57,11 @@ are displayed at the top of the rule form:
 
 Query­-based rules are the most common type, and are highly customizable. Queries are written using CycleCloud's SQL­-like query language.
 
-Queries are run every 5 minutes, or when the "Run Now" button is clicked at the bottom of the
+Queries are run every 5 minutes, or when the **Run Now** button is clicked at the bottom of the
 rule editing form. If a query returns one or more results, a notification will be generated. For
 most queries, this can result in messages being sent every 5 minutes until no results are
-returned. To limit the number of messages sent, there is an option to "Generate messages only
-when the result count changes". If this box is checked, each time the query runs the number of
+returned. To limit the number of messages sent, there is an option to **Generate messages only
+when the result count changes**. If this box is checked, each time the query runs the number of
 results will be checked against the previous result count. If the numbers match, no notification
 will be generated.
 
@@ -82,7 +82,7 @@ the "WHERE" clause with a filter expression. Below are some examples of various 
 filters. See the datastore query language documentation for more information on how to write
 filter expressions.
 
-Example 1: Alert on instances running outside of the "us­east­1" region
+Example 1: Alert on instances running outside of the "us­east­" region
 
 ``` Query
 WHERE !startswith("us­east", Region)
@@ -138,7 +138,7 @@ Logging in CycleCloud can be configured to output different levels of detail. Th
 
 By default, CycleCloud includes all log messages. However, if less
 detail is desired, the level of logging can be adjusted. To do this,
-change the value of the *Logging Level* CycleCloud system setting to
+change the value of the **Logging Level** CycleCloud system setting to
 either *INFO* or *WARN*, or *ERROR*.
 
 Additionally, CycleCloud can be configured to email a user or group

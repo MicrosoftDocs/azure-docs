@@ -20,7 +20,7 @@ There are two types of blob: **project blobs** and **user blobs**.
 
 ### Project Blobs
 
-Project Blobs are binary files provided by the author of the project with the assumption that they can be distributed (i.e. a binary file for an open source project you are legally allowed to redistribute). Project Blobs go into the "blobs" directory of a project, and when uploaded to a locker they will be located at `/project/blobs`.
+Project Blobs are binary files provided by the author of the project with the assumption that they can be distributed (i.e. a binary file for an open source project you are legally allowed to redistribute). Project Blobs go into the _blobs_ directory of a project, and when uploaded to a locker they will be located at _/project/blobs_.
 
 To add blobs to projects, add the file(s) to your **project.ini**:
 
@@ -33,7 +33,7 @@ Multiple blobs can be separated by a comma. You can also specify the relative pa
 
 ### User Blobs
 
-User Blobs are binary files that the author of the project cannot legally redistribute, such as UGE binaries. These files are not packaged with the project, but instead must be staged to the locker manually. The files will be located at `/blobs//my-blob.tgz`. User Blobs do not need to be defined in the project.ini.
+User Blobs are binary files that the author of the project cannot legally redistribute, such as UGE binaries. These files are not packaged with the project, but instead must be staged to the locker manually. The files will be located at _/blobs//my-blob.tgz_. User Blobs do not need to be defined in the _project.ini_.
 
 To download any blob, use the `jetpack download` command from the CLI, or the `jetpack_download` Chef resource. CycleCloud will look for the user blob first. If that file is not located, the project level blob will be used.
 
@@ -51,8 +51,8 @@ Project contents are stored within a **locker**. You can upload the contents of 
 If you add more than one locker, you can set your default with `cyclecloud project default_target (locker)`, then simply run `cyclecloud project upload`. You can also set a global default locker that can be shared by projects with the command `cyclecloud project default locker (locker) -global`.
 
 > [!NOTE]
-> Default lockers will be stored in the cyclecloud config file (usually located in ~/.cycle/config.ini),
-> not in the project.ini. This is done to allow project.ini to be version controlled.
+> Default lockers will be stored in the CycleCloud config file (usually located in _~/.cycle/config.ini_),
+> not in the _project.ini_. This is done to allow _project.ini_ to be version controlled.
 
 Uploading your project contents will zip the chef directories and sync both chef and cluster init to your target locker. These will be stored at:
 

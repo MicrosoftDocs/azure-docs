@@ -13,11 +13,11 @@ ms.author: a-kiwels
 # Monitoring
 
 Azure CycleCloud supports monitoring of external services through its pluggable
-architecture. As of version 5.0, administrators can enable automatic monitoring
-of these systems going to the "Settings" page under the user menu in the top
-right-hand corner of the web interface, double-clicking the "CycleCloud"
-settings item, and checking the box labelled "Enable monitoring for CycleCloud
-services".
+architecture. Administrators can enable automatic monitoring
+of these systems going to the **Settings** page under the user menu in the top
+right-hand corner of the web interface, double-clicking the **CycleCloud**
+settings item, and checking the box labelled **Enable monitoring for CycleCloud
+services**.
 
 When this option is enabled, supported services in each cluster will
 automatically register with CycleCloud, which will configure monitoring for that

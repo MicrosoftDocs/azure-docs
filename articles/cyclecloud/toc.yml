@@ -94,6 +94,8 @@
     href: end-cluster.md
   - name: Work with Custom Images
     href: custom-images.md
+  - name: Install Jetpack
+    href: jetpack-install.md
   - name: Transfer Data
     href: transfer-data.md
   - name: Enable Return Proxy
@@ -104,8 +106,6 @@
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
-  - name: Update CycleCloud
-    href: update-install.md
 - name: Reference
   items:
   - name: Cluster Reference
@@ -128,18 +128,33 @@
         href: ~/cluster-references/input-endpoint.md
       - name: Cluster Configuration
         href: ~/cluster-references/cluster-configuration.md
+      - name: (beta) Environment
+        href: ~/cluster-references/environment.md
+      - name: (beta) Noderef
+        href: ~/cluster-references/noderef.md
       - name: Cluster Parameters
         href: ~/cluster-references/parameter-reference.md
+      - name: Cluster Parameter Special Parsing
+        href: ~/cluster-references/special-parsing.md
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
+  - name: CycleCloud Application
+    items: 
+    - name: Performance Tuning
+      href: ~/cyclecloud-references/performance-tuning.md
+    - name: Backup and Restore
+      href: ~/cyclecloud-references/backup-and-restore.md
+    - name: Upgrade and Migrate
+      href: ~/cyclecloud-references/upgrade-and-migrate.md
+    - name: HTTP Proxy Configuration
+      href: ~/cyclecloud-references/running-behind-proxy.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
     href: cookbook-reference.md
   - name: Node Configuration
     href: node-configuration-reference.md
-  - name: Performance Tuning
-    href: performance-tuning.md
+
   - name: pogo
     items:
     - name: Overview
@@ -168,6 +183,8 @@
     items:
     - name: Current Release
       href: release-notes.md
+    - name: v7.5.2
+      href: ~/release-notes/7-5-2.md
     - name: v7.5.1
       href: ~/release-notes/7-5-1.md
     - name: v7.5.0

@@ -45,7 +45,7 @@ This tutorial illustrates how you could use CycleCloud Projects to install [Salm
 [CycleCloud Project](~/projects.md) consists of three main components: templates, specs, and blobs.
 
 * **Templates** define the architecture of the CycleCloud cluster. They dictate how the nodes of a cluster are laid out, and how each node is configured.
-* **Specs** define the configuration of each node. These configuration steps are captured in scripts. You can can no specs or multiple specs assigned to each node in a cluster template.
+* **Specs** define the configuration of each node. These configuration steps are captured in scripts. You can have no specs or multiple specs assigned to each node in a cluster template.
 * **Blobs** are collections of files that can be accessed by all cluster nodes configured to use a spec of a project. Application installers and sample test data are stored in blobs.
 
 ## Installing Salmon using CycleCloud Projects

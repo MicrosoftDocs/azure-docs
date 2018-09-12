@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Data Management
 
-Azure CycleCloud's data manager is based on the Cycle telemetry engine operating on a nosql datastore.
+Azure CycleCloud's data manager is based on the Cycle telemetry engine operating on a NoSQL datastore.
 It has a pluggable architecture and makes use of components to support various operations.
 It provides a rich query interface, along with rich alerts and reporting framework that can be used
 to create custom reports or alerts on the datastore information. Information such as user actions,

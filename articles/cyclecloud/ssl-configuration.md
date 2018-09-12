@@ -14,23 +14,23 @@ ms.author: a-kiwels
 
 ## Enable SSL
 
-SSL can easily be enabled by editing the `cycle_server.properties` file found within the CycleCloud installation directory. Open the `cycle_server.properties` file with a text editor and set the following values appropriately:
+SSL can easily be enabled by editing the _/opt/cycle_server/config/cycle_server.properties_ file found within the CycleCloud installation directory. Open the _cycle_server.properties_ file with a text editor and set the following values appropriately:
 
 ``` properties
 # True if SSL is enabled
 webServerEnableHttps=true
 ```
 
-Please note that when editing the `cycle_server.properties` file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
+Please note that when editing the _cycle_server.properties_ file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
 
 The default SSL port for CycleCloud is port 8443. If you'd like to run encrypted web communications on some other port, you can change the `webServerSslPort` property to the new port value. Please make sure the `webServerSslPort` and the `webServerPort` values **DO NOT CONFLICT**.
 
-After editing your `cycle_server.properties` file, you will need to restart CycleCloud for the encrypted communication channel to activate. On Windows, use `C:\Program Files\CycleServer\cycle_server.cmd restart` and in Linux, use `/opt/cycle_server/cycle_server restart`.
+After editing your _cycle_server.properties_ file, you will need to restart CycleCloud to activate the encrypted communication channel. You can restart by running `/opt/cycle_server/cycle_server restart`.
 
 Assuming you did not change the SSL port for CycleCloud when configuring it for encrypted communications, you can now go to `http://<my CycleCloud address>:8443/` to verify the SSL connection.
 
 > [!NOTE]
-> If the HTTPS URL does not work, check the`<CycleCloud Home>/logs/tomcat.log` and `<CycleCloud Home>/logs/cycle_server.log` for error messages that might indicate why the encrypted channel is not responding.
+> If the HTTPS URL does not work, check the _/opt/cycle_server/logs/tomcat.log_ and _/opt/cycle_server/logs/cycle_server.log_ for error messages that might indicate why the encrypted channel is not responding.
 
 ## Self-Generated Certificates
 
@@ -46,8 +46,7 @@ CycleCloud supports certificates from [Let's Encrypt](https://letsencrypt.org/).
 * enable SSL on port 443
 * ensure CycleCloud is publicly reachable over port 443 with an external domain name
 
-You can enable Let's Encrypt support with the "SSL" option on the settings page, or with `cycle_server keystore automatic DOMAIN_NAME` from the CycleCloud machine.
-
+You can enable Let's Encrypt support with the **SSL** option on the settings page, or with `cycle_server keystore automatic DOMAIN_NAME` from the CycleCloud machine.
 
 ## Working With CA-Generated Certificates
 
@@ -85,7 +84,7 @@ implementation. This default works well on all supported platforms.
 To improve performance when running on Linux platforms, CycleCloud may
 optionally be configured to use the Tomcat Native HTTPS implementation.
 
-To enable Native HTTPS on Linux, add the `webServerEnableHttps` and `webServerUseNativeHttps` attributes to your cycle_server.properties file. Open the cycle_server.properties file with a text editor and set the following values:
+To enable Native HTTPS on Linux, add the `webServerEnableHttps` and `webServerUseNativeHttps` attributes to your _cycle_server.properties_ file. Open the _cycle_server.properties_ file with a text editor and set the following values:
 
 ``` properties
 # Turn on HTTPS
