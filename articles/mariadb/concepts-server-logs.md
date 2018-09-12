@@ -39,4 +39,4 @@ Other parameters you can adjust include:
 See the MariaDB [slow query log documentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) for full descriptions of the slow query log parameters.
 
 ## Next Steps
-- [How to configure and access server logs from the Azure portal](howto-configure-server-logs-in-portal.md).
+- [How to configure and access server logs from the Azure portal](howto-configure-server-logs-portal.md).

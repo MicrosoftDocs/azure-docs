@@ -26,7 +26,7 @@ Configure access to the slow query log.
 2. Select your Azure Database for MariaDB server.
 
 3. Under the **Monitoring** section in the sidebar, select **Server Logs**. 
-   ![Select Server logs, Click to configure](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   ![Select Server logs, Click to configure](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
 4. Select the heading **Click here to enable logs and configure log parameters** to see the server parameters.
 
@@ -34,7 +34,7 @@ Configure access to the slow query log.
 
    Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
 
-   ![Click save or discard](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   ![Click save or discard](./media/howto-configure-server-logss-portal/3-save-discard.png)
 
 6. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
 
@@ -47,7 +47,7 @@ Once logging begins, you can view a list of available logs and download individu
 
 3. Under the **Monitoring** section in the sidebar, select **Server Logs**. The page shows a list of your log files, as shown:
 
-   ![List of Logs](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   ![List of Logs](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
 
    > [!TIP]
    > The naming convention of the log is **mysql-slow-< your server name>-yyyymmddhh.log**. The date and time used in the file name is the time is when the log was issued. Logs files are rotated every 24 hours or 7.5 GB, whichever comes first.
@@ -56,7 +56,7 @@ Once logging begins, you can view a list of available logs and download individu
 
 5. Download individual log files using the **download** button (down arrow icon) next to each log file in the table row as shown:
 
-   ![Click download icon](./media/howto-configure-server-logs-in-portal/5-download.png)
+   ![Click download icon](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## Next steps
 - Learn more about [Server Logs](concepts-server-logs.md) in Azure Database for MariaDB.
