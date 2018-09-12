@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Active Directory developer documentation
 metadata:
   title: Azure Active Directory developer documentation
-  description: Learn how you can use Azure Active Directory to build apps that securely sign in users with personal Microsoft accounts and work accounts from Azure Active Directory. 
+  description: Learn how you can use the Azure Active Directory platform to build apps that securely sign in users in all Microsoft identities. 
   services: active-directory
   author: CelesteDG
   manager: mtillman
@@ -15,7 +15,7 @@ metadata:
   ms.date: 09/24/2018
   ms.author: celested
 abstract:
-  description: Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps that securely sign in users with a Microsoft work or school account. In addition to basic sign in, Azure AD also lets apps call Microsoft APIs like Microsoft Graph and custom APIs that are built on the Azure AD platform. Find the SDK for your platform and use these quickstarts, tutorials, samples, and how-tos to build both single-tenant and multi-tenant line-of-business (LOB) apps with Azure AD support using industry standard protocols like OAuth 2.0 and OpenID Connect.
+  description: Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps that securely signs in all Microsoft identities, get tokens to call your own APIs, Microsoft Graph, or legacy Microsoft APIs. Find the SDK for your platform and use these quickstarts, tutorials, samples, and how-tos to build both single-tenant and multi-tenant line-of-business (LOB) apps with Azure AD support using industry standard protocols like OAuth 2.0 and OpenID Connect.
   aside:
     image:
       alt: 
@@ -53,81 +53,21 @@ sections:
         image:
           src: ./media/index/i_data-collection.svg
         title: ID tokens
-      - href: /azure/active-directory/develop/sample-v2-code/
-        html: <p>Find installation and setup requirements, and download code samples that show you how to add authentication and authorization to your app.</p>
-        image:
-          src: ./media/index/i_code-samples.svg
-        title: v2.0 code samples by scenario
       - href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
         html: <p>Learn how to use the Azure AD REST APIs in Microsoft Graph to create unique workflows between Azure AD resources and third-party resources.</p>
         image:
           src: ./media/index/i_queries.svg
         title: Azure AD identity and access management API
+      - href: /azure/active-directory/active-directory-b2c/active-directory-b2c-overview
+        html: <p>Learn how to use the Azure AD B2C identity management service to customize and control how customers sign up, sign in, and manage their profiles when using your apps.</p>
+        image:
+          src: ./media/index/i_account-management.svg
+        title: Azure Active Directory B2C
    
   - title: Quickstarts
     items:
     - type: paragraph
       text: 'Follow these quickstarts to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.'
-    - type: paragraph
-      text: 'Mobile & desktop apps'
-    - type: table
-      style: dataMatrix
-      columns:
-        - image:
-            src: ./media/index/logo_ios.svg
-          title: iOS
-        - image:
-            src: ./media/index/logo_android.svg
-          title: Android
-        - image:
-            src: ./media/index/logo_Windows.svg
-          title: Windows Desktop .NET
-        - image:
-            src: ./media/index/logo_Windows.svg
-          title: Universal Windows Platform
-      rows:
-        - title: v2.0
-          values:
-          - href: 
-          - href: 
-          - href: 
-          - href: 
-        - title: v1.0
-          values:
-          - href: quickstart-v1-ios.md
-          - href: quickstart-v1-android.md
-          - href: quickstart-v1-dotnet.md
-          - href:
-    - type: paragraph
-      text: 'Web apps'
-    - type: table
-      style: dataMatrix
-      columns:
-        - image:
-            src: ./media/index/logo_NET.svg
-          title: ASP .NET
-        - image:
-            src: ./media/index/logo_nodejs.svg
-          title: NodeJS
-        - image:
-            src: ./media/index/logo_java.svg
-          title: Java
-        - image:
-            src: ./media/index/logo_python.svg
-          title: Python
-      rows:
-        - title: v2.0
-          values:
-          - href: 
-          - href: 
-          - href:
-          - href:
-        - title: v1.0
-          values:
-          - href: quickstart-v1-aspnet-webapp.md
-          - href: quickstart-v1-nodejs-webapp.md
-          - href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
-          - href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
     - type: paragraph
       text: 'Single page apps'
     - type: table
@@ -173,6 +113,70 @@ sections:
           - href: quickstart-v1-dotnet-webapi.md
           - href:
           - href: quickstart-v1-nodejs-webapi.md
+    - type: paragraph
+      text: 'Web apps'
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: ./media/index/logo_NET.svg
+          title: ASP .NET
+        - image:
+            src: ./media/index/logo_nodejs.svg
+          title: NodeJS
+        - image:
+            src: ./media/index/logo_java.svg
+          title: Java
+        - image:
+            src: ./media/index/logo_python.svg
+          title: Python
+      rows:
+        - title: v2.0
+          values:
+          - href: 
+          - href: 
+          - href:
+          - href:
+        - title: v1.0
+          values:
+          - href: quickstart-v1-aspnet-webapp.md
+          - href: quickstart-v1-nodejs-webapp.md
+          - href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+          - href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+    - type: paragraph
+      text: 'Mobile & desktop apps'
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: ./media/index/logo_ios.svg
+          title: iOS
+        - image:
+            src: ./media/index/logo_android.svg
+          title: Android
+        - image:
+            src: ./media/index/logo_Windows.svg
+          title: Windows Desktop .NET
+        - image:
+            src: ./media/index/logo_Windows.svg
+          title: Universal Windows Platform
+        - image:
+            src: ./media/index/logo_xamarin.svg
+          title: Xamarin
+      rows:
+        - title: v2.0
+          values:
+          - href: 
+          - href: 
+          - href: 
+          - href: 
+        - title: v1.0
+          values:
+          - href: quickstart-v1-ios.md
+          - href: quickstart-v1-android.md
+          - href: quickstart-v1-dotnet.md
+          - href:
+          - href: quickstart-v1-xamarin.md
     - type: paragraph
       text: 'Service to service'
     - type: table

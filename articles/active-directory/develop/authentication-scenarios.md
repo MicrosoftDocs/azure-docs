@@ -77,7 +77,7 @@ In Azure AD, an **application object** describes an application as an abstract e
 
 The following diagram shows a simplified Azure AD provisioning flow driven by consent.
 
-![Simplified provisioning flow driven by consent](./media/authentication-scenarios/azure-ad-simplified-provisioning-flow-consent.png)
+![Simplified provisioning flow driven by consent](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
 In this provisioning flow:
 
