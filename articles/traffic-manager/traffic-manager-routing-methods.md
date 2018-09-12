@@ -19,7 +19,7 @@ ms.author: kumud
 
 # Traffic Manager routing methods
 
-Azure Traffic Manager supports four traffic-routing methods to determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
+Azure Traffic Manager supports six traffic-routing methods to determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
 
 There are four traffic routing methods available in Traffic Manager:
 
