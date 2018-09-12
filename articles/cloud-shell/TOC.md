@@ -15,8 +15,8 @@
 ## [Embed Cloud Shell](embed-cloud-shell.md)
 ## DevOps
 ### Ansible
-#### [Run Ansible playbook](/azure/ansible/ansible-run-playbook-in-cloudshell)
-#### [Manage your Azure dynamic inventories](/azure/ansible/ansible-manage-azure-dynamic-inventories)
+#### [Run Ansible playbook](/azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+#### [Manage your Azure dynamic inventories](/azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
 ### Terraform
 #### [Create resources](example-terraform-bash.md)
 
