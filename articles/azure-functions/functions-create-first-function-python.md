@@ -86,7 +86,7 @@ Writing local.settings.json
 Writing /MyFunctionProj/.vscode/extensions.json
 ```
 
-A new folder named _MyFunctionProj_ is created. To continue, change directory to this folder:
+A new folder named _MyFunctionProj_ is created. To continue, change directory to this folder.
 
 ```bash
 cd MyFunctionProj
@@ -131,7 +131,7 @@ A sub-folder named _HttpTriggerPython_ is created. This contains `__init__.py` w
 
 ## Run the function locally
 
-To run your project locally, run the Functions host using the following command. The host enables triggers for all functions in the project:
+Use the following command to run the Functions host locally.
 
 ```bash
 func host start
@@ -164,11 +164,13 @@ Http Functions:
 
 Copy the URL of your function from the output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request.
 
+    http://localhost:7071/api/HttpTriggerPython?name=<yourname>
+
 The following screenshot shows the response from the function, when it is triggered from the browser using an HTTP request:
 
 ![test](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-Now that you've tested the function locally, you are ready to create the function app and other required resources for publishing to Azure.
+Once you've tested the function locally, you are ready to create a Function App and other required resources for publishing to Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -178,7 +180,7 @@ Now that you've tested the function locally, you are ready to create the functio
 
 The function app provides an environment for executing your function code. It lets you group functions as a logical unit for easier management, deployment, and sharing of resources. Create a **Python function app running on Linux** using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command.
 
-In the following command, use a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure.
+Run the following command using a unique function app name in place of the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure.
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -195,7 +197,7 @@ Your serverless Linux function app 'myfunctionapp' has been successfully created
 To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
 ```
 
-You're now ready to publish your local python functions project to the Function App in Azure.
+You're now ready to publish your local functions project to the Function App in Azure.
 
 ## Deploy the function app project to Azure
 
