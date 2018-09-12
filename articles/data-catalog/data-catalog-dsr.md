@@ -364,7 +364,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Only legacy DocumentDB collections (SQL API collections in Cosmos DB) are compatible.</td>
     </tr>
     <tr>
       <td>Generic ODBC table</td>
@@ -529,32 +529,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>
