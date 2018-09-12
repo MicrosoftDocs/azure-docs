@@ -15,7 +15,7 @@ metadata:
   ms.date: 09/24/2018
   ms.author: celested
 abstract:
-  description: Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps that that securely signs in all Microsoft identities, get tokens to call your own APIs, Microsoft Graph, or legacy Microsoft APIs. Find the SDK for your platform and use these quickstarts, tutorials, samples, and how-tos to build both single-tenant and multi-tenant line-of-business (LOB) apps with Azure AD support using industry standard protocols like OAuth 2.0 and OpenID Connect.
+  description: Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps that securely signs in all Microsoft identities, get tokens to call your own APIs, Microsoft Graph, or legacy Microsoft APIs. Find the SDK for your platform and use these quickstarts, tutorials, samples, and how-tos to build both single-tenant and multi-tenant line-of-business (LOB) apps with Azure AD support using industry standard protocols like OAuth 2.0 and OpenID Connect.
   aside:
     image:
       alt: 
@@ -59,7 +59,7 @@ sections:
           src: ./media/index/i_queries.svg
         title: Azure AD identity and access management API
       - href: /azure/active-directory/active-directory-b2c/active-directory-b2c-overview
-        html: <p>Learn how to use the Azure AD B2C ideneity management service to customize and control how customers sign up, sign in, and manage their profiles when using your apps.</p>
+        html: <p>Learn how to use the Azure AD B2C identity management service to customize and control how customers sign up, sign in, and manage their profiles when using your apps.</p>
         image:
           src: ./media/index/i_account-management.svg
         title: Azure Active Directory B2C
