@@ -168,12 +168,12 @@ This section shows how to use the Maps Search API to find a point of interest on
                 position: poiPosition[1] + ", " + poiPosition[0]
            });
        });
- 
+
        // Add pins to the map for each POI
        map.addPins(searchPins, {
            name: searchLayerName
        });
- 
+
        // Set the camera bounds
        map.setCameraBounds({
            bounds: geojsonResponse.getGeoJsonResults().bbox,
