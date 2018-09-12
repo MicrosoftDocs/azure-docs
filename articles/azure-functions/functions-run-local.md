@@ -34,16 +34,6 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
-### <a name="v1"></a>Version 1.x
-
-The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework (4.7.1) and is only supported on Windows computers. Before you install the version 1.x tools, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.
-
-Use the following command to install the version 1.x tools:
-
-```bash
-npm install -g azure-functions-core-tools
-```
-
 ### <a name="v2"></a>Version 2.x
 
 >[!NOTE]
@@ -111,6 +101,16 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
+### <a name="v1"></a>Version 1.x
+
+The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework (4.7.1) and is only supported on Windows computers. Before you install the version 1.x tools, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.
+
+Use the following command to install the version 1.x tools:
+
+```bash
+npm install -g azure-functions-core-tools@v1
+```
 
 ## Create a local Functions project
 
@@ -414,11 +414,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x.
 
-In version 2.x, you must have [registered your extensions](#register-extensions) in your project before publishing. Projects that require compilation should be built so that the binaries can be deployed.
+In version 2.x, you must have [registered your extensions](#register-extensions) in your project before publishing. Projects that require compilation should be built so that the binaries can be deployed. 
 
 ### Project file deployment  
 
-The most common deployment method involves using Core Tools to package your function app project and deploy the package to your function app. You can optionally [run your functions directly from the deployment package](run-functions-from-deployment-package.md).
+The most common deployment method involves using Core Tools to package your function app project, binaries, and dependencies and deploy the package to your function app. You can optionally [run your functions directly from the deployment package](run-functions-from-deployment-package.md).
 
 To publish a Functions project to a function app in Azure, use the `publish` command:
 
@@ -439,14 +439,14 @@ az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
 ```
 
-You can use the following publish options, which apply for both versions, 1.x and 2.x:
+The following project publish options apply for both versions, 1.x and 2.x:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the storage emulator, you change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 
-The following publish options are only supported in version 2.x:
+The following project publish options are only supported in version 2.x:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
@@ -469,7 +469,7 @@ Functions lets you deploy your function project in a custom Linux container. For
 func deploy
 ```
 
-The following custom container deployment options are available: 
+The following custom container deployment options are available:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |

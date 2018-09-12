@@ -160,6 +160,8 @@
        href: functions-create-maven-intellij.md
      - name: Eclipse development
        href: functions-create-maven-eclipse.md
+     - name: Create Linux function app  
+       href: create-function-app-linux-app-service-plan.md
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
