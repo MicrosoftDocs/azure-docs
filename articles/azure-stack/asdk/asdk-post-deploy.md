@@ -36,6 +36,8 @@ Set-PSRepository `
 
 You can use API version profiles  to specify Azure Stack compatible AzureRM modules.  API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. The **AzureRM.Bootstrapper** module that is available through the PowerShell Gallery provides PowerShell cmdlets that are required to work with API version profiles.
 
+If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+
 You can install the latest Azure Stack PowerShell module with or without Internet connectivity to the ASDK host computer:
 
 > [!IMPORTANT]
@@ -50,7 +52,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile `
-    -Profile 2017-03-09-profile -Force
+    -Profile 2018-03-01-hybrid -Force
 
   # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
   Install-Module -Name AzureStack -RequiredVersion 1.4.0 

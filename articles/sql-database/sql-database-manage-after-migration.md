@@ -11,7 +11,7 @@ ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
-ms.component: migration
+ms.component: data-movement
 ---
 
 # New DBA in the cloud – Managing your database in Azure SQL Database

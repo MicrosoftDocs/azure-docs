@@ -36,6 +36,9 @@ The **UpdateMySQLProvider.ps1** script creates a new VM with the latest resource
 >[!NOTE]
 >We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
 
+>[!NOTE]  
+>If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+
 The script requires use of the same arguments that are described for the DeployMySqlProvider.ps1 script. Provide the certificate here as well.  
 
 Following is an example of the *UpdateMySQLProvider.ps1* script that you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed:  
@@ -46,7 +49,7 @@ Following is an example of the *UpdateMySQLProvider.ps1* script that you can run
 ```powershell 
 # Install the AzureRM.Bootstrapper module and set the profile. 
 Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2017-03-09-profile 
+Use-AzureRmProfile -Profile 2018-03-01-hybrid 
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 
