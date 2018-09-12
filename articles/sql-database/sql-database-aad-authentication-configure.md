@@ -10,7 +10,7 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ---
 # Configure and manage Azure Active Directory authentication with SQL Database, Managed Instance, or SQL Data Warehouse
 
