@@ -23443,6 +23443,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Web-Search/tutorial-bing-web-search-single-page-app-source.md",
+            "redirect_url": "https://github.com/erhopf/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
             "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
             "redirect_document_id": true
@@ -25543,6 +25548,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-apps-index.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/availability-zones/index.md",
             "redirect_url": "/azure/availability-zones/az-overview",
             "redirect_document_id": false
@@ -26213,6 +26223,61 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/application-dev-api-find-an-api-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/api-find-an-api-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-consent-framework.md",
+            "redirect_url": "/azure/active-directory/develop/consent-framework",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-delegated-and-app-perms.md",
+            "redirect_url": "/azure/active-directory/develop/delegated-and-app-perms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-perms-for-given-api.md",
+            "redirect_url": "/azure/active-directory/develop/perms-for-given-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-change-token-lifetime-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-change-token-lifetime-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-grant-permissions-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-grant-permissions-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-multi-tenant-application-add-to-gallery-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-specific-application-property-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-specific-application-property-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-registration-config-sso-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/registration-config-sso-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-dev-setup-multi-tenant-app.md",
+            "redirect_url": "/azure/active-directory/develop/setup-multi-tenant-app",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-b2b-add-guest-to-role.md",
             "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
             "redirect_document_id": true
@@ -26690,6 +26755,316 @@
         {
             "source_path": "articles/active-directory/active-directory-application-proxy-wildcard.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-wildcard",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-app-provisioning.md",
+            "redirect_url": "/azure/active-directory/manage-apps/user-provisioning",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-custom-apps.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
+            "redirect_url": "/azure/active-directory/manage-apps/customize-application-attributes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-ie-group-policy.md",
+            "redirect_url": "/azure/active-directory/manage-apps/deploy-access-panel-browser-extension",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-ie-troubleshooting.md",
+            "redirect_url": "/azure/active-directory/manage-apps/manage-access-panel-browser-extension",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-provisioning-reporting.md",
+            "redirect_url": "/azure/active-directory/manage-apps/check-status-user-account-provisioning",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-scoping-filters.md",
+            "redirect_url": "/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings.md",
+            "redirect_url": "/azure/active-directory/manage-apps/functions-for-customizing-application-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-assignment-how-to-remove-assignment.md",
+            "redirect_url": "/azure/active-directory/manage-apps/methods-for-removing-user-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-panel-extension-problem-installing.md",
+            "redirect_url": "/azure/active-directory/manage-apps/access-panel-extension-problem-installing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-panel-self-service-applications-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/access-panel-manage-self-service-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-panel-self-service-applications-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-panel-unexpected-application-appears.md",
+            "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-panel-unexpected-application-not-appearing.md",
+            "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-panel-web-sign-in-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-self-service-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/manage-self-service-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-unexpected-application.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-types",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-access-unexpected-user-assignment.md",
+            "redirect_url": "/azure/active-directory/manage-apps/ways-users-get-assigned-to-applications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-add-app-problem-how-to-choose-application-type.md",
+            "redirect_url": "/azure/active-directory/manage-apps/choose-application-type",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
+            "redirect_url": "/azure/active-directory/manage-apps/adding-gallery-app-common-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-add-app-problem-problem-adding-non-gallery-app.md",
+            "redirect_url": "/azure/active-directory/manage-apps/adding-non-gallery-app-common-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-how-to-choose-sign-on-method.md",
+            "redirect_url": "/azure/active-directory/manage-apps/single-sign-on-modes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-problem-configure-federated-sso-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-problem-configure-federated-sso-non-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-federated-single-sign-on-non-gallery-applications-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-problem-configure-password-sso-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-gallery-applications-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-config-sso-problem-configure-password-sso-non-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-provisioning-config-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-provisioning-config-problem-no-users-provisioned.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-provisioning-config-problem-wrong-users-provisioned.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-provisioning-config-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-config-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish-specific-user.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-back-end-ping-access-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-config-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-config-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-config-sso-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-config-sso-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-connectivity-no-working-connector.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectivity-no-working-connector",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-connectivity-ports-how-to.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-connector-installation-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connector-installation-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-page-appearance-broken-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-appearance-broken-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-page-links-broken-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-links-broken-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-page-load-speed-problem.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-page-load-speed-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-sign-in-bad-gateway-timeout-error.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-sign-in-bad-gateway-timeout-error",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-other-problem-access-panel.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-other-problem-deeplink.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-application-error.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-application-error",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-custom-dev.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-custom-dev",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-non-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-first-party-microsoft.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-first-party-microsoft",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-on-premises-application-proxy.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-on-premises-application-proxy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-password-sso-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-problem-password-sso-non-gallery.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-error.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-prompt.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt",
             "redirect_document_id": true
         },
         {
@@ -27171,11 +27546,6 @@
             "source_path": "articles/active-directory/active-directory-saas-access-panel-user-help.md",
             "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-user-help",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
-            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
