@@ -92,7 +92,7 @@
          href: how-to-deploy-fpga-web-service.md  
   - name: Export and delete data
     href: how-to-export-delete-data.md
-  - name: Reference
+- name: Reference
   items:    
   - name: Machine learning SDK
     href: reference-azure-machine-learning-sdk.md
