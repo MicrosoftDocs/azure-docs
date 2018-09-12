@@ -48,7 +48,7 @@ ms.technology: cognitive-services
                             </div>
                             <div class="cardText">
                                 <h3>Create a Cognitive Services account</h3>
-                                <p>Learn the different ways to create an Azure Cognitive Services account</p>
+                                <p>Learn how to create an Azure Cognitive Services account.</p>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ ms.technology: cognitive-services
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Human languages support in Cognitive Services</h3>
+                                <h3>Language support in Cognitive Services</h3>
                                 <p>Learn about the human languages supported by Cognitive Services APIs.</p>
                             </div>
                         </div>
@@ -109,6 +109,7 @@ ms.technology: cognitive-services
                         <h3>Recognize speech using Speech Service</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Using C#</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">Using C++</a></p>
                     </div>
                 </div>
             </div>
