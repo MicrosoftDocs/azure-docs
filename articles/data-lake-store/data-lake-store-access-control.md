@@ -81,13 +81,13 @@ Following are some common scenarios to help you understand which permissions are
 
 |    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   --X   |   --X    |  --X      | R--          |
-| Append to Data.txt       |   --X   |   --X    |  --X      | RW-          |
-| Delete Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| Create Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| List /                   |   R-X   |   ---    |  ---      | ---          |
-| List /Seattle/           |   --X   |   R-X    |  ---      | ---          |
-| List /Seattle/Portland/  |   --X   |   --X    |  R-X      | ---          |
+| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
