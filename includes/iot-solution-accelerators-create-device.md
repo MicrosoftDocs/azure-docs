@@ -68,6 +68,7 @@ To follow this how-to guide, you need:
 
 * Visual Studio Code. You can [download Visual Studio Code for Mac, Linux, and Windows](https://code.visualstudio.com/download).
 * .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://www.microsoft.com/net/download).
+* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman. You can download [Postman for Mac, Windows, or Linux](https://www.getpostman.com/apps).
 * An [IoT hub deployed to your Azure subscription](../articles/iot-hub/iot-hub-create-through-portal.md). You need the IoT hub's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 * A Cosmos DB database that uses the SQL API and that is configured for [strong consistency](../articles/cosmos-db/manage-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
@@ -84,13 +85,11 @@ The instructions in this article assume you're using Windows. If you're using an
 
 ### Download the microservices
 
-Download and unzip the [storage adapter microservice](https://github.com/Azure/pcs-storage-adapter-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine.
-
-Download and unzip the [device simulation microservice](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine.
+Download and unzip the [remote monitoring microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) from GitHub to a suitable location on your local machine.
 
 ### Run the storage adapter microservice
 
-Open the **pcs-storage-adapter-dotnet-master** folder in Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
+Open the **remote-monitoring-services-dotnet-master\storage-adapter** folder in Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
 
 Open the **.vscode/launch.json** file and assign your Cosmos DB connection string to the **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** environment variable.
 
@@ -415,7 +414,7 @@ In this section, you test the device types you created in the previous sections 
 
 ### Run the device simulation microservice
 
-Open the **device-simulation-dotnet-master** folder you downloaded from GitHub in a new instance of Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
+Open the **remote-monitoring-services-dotnet-master\device-simulation** folder you downloaded from GitHub in a new instance of Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
 
 Open the **.vscode/launch.json** file and assign your IoT Hub connection string to the **PCS_IOTHUB_CONNSTRING** environment variable.
 
