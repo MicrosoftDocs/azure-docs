@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/05/2018
 ms.author: azfuncdf
 ---
 
@@ -87,7 +87,7 @@ There are several options for customizing the automatic retry policy. They inclu
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
 * **Max retry interval**: The maximum amount of time to wait in between retry attempts.
 * **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
-* **Custom**: A user-defined callback can be specified which determines whether or not a function call should be retried.
+* **Handle**: A user-defined callback can be specified which determines whether or not a function call should be retried.
 
 ## Function timeouts
 

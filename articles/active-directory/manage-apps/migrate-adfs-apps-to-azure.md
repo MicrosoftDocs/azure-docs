@@ -50,7 +50,7 @@ For an organization that already uses AD FS, Ping, or another on-premises authen
 - Azure AD, as an identity provider for SaaS apps, supports additional capabilities such as:
   - Token signing certificates per application.
   - [Configurable certificate expiration dates](manage-certificates-for-federated-single-sign-on.md).
-  - [Automated provisioning](../active-directory-saas-app-provisioning.md) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
+  - [Automated provisioning](user-provisioning.md) of user accounts (in key Azure Marketplace apps) based on Azure AD identities.
 
 **Keeping the benefits of an on-premises identity provider**
 - While you're gaining the Azure AD benefits, you can keep using your on-premises solution for authentication. That way, benefits like on-premises Multi-Factor Authentication solutions, logging, and auditing stay in place. 
@@ -227,7 +227,7 @@ Because of the configuration created earlier under **Identity** > **Single sign-
 ![Selecting Azure AD as the authentication service](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### Optional: Configure user provisioning in Azure AD
-If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
+If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md).
 
 ## Next steps
 
