@@ -75,7 +75,7 @@ When you create a new route or edit an existing route, you should test the route
 ## Latency
 When you route device-to-cloud telemetry messages using built-in endpoints, there is a slight increase in the end-to-end latency after the creation of the first route.
 
-In most cases, the average increase in latency is less than 500ms. You can monitor the latency using **d2c.endpoints.latency.builtIn.events** IoT Hub metric. Creating or deleting any route after the first one does not impact the end-to-end latency.
+In most cases, the average increase in latency is less than 500ms. You can monitor the latency using **Routing: message latency for messages/events** or **d2c.endpoints.latency.builtIn.events** IoT Hub metric. Creating or deleting any route after the first one does not impact the end-to-end latency.
 
 ## Monitoring and troubleshooting
 IoT Hub provides several routing and endpoint related metrics to give you an overview of the health of your hub and messages sent. You can combine information from multiple metrics to identify root cause for issues. For example use metric **Routing: telemetry messages dropped** or **d2c.telemetry.egress.dropped** to identify the number of messages that were dropped when they didn't match queries on any of the routes and fallback route was disabled. [IoT Hub metrics](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) lists all metrics that are enabled by default for your IoT Hub.

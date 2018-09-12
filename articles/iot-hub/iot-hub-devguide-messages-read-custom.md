@@ -20,8 +20,8 @@ IoT Hub [Message Routing](iot-hub-devguide-routing-query-syntax.md) enables user
 | ------------- | ----------- |
 | **Name**      | The unique name that identifies the query. |
 | **Source**    | The origin of the data stream to be acted upon. For example, device telemetry. |
-| **Condition** | The query expression for the routing query that is run against the message's message application properties, system properties, message body, device twin tags and device twin properties determine if it is a match for the endpoint. For more information about constructing a query, see the see [Message Routing query syntax](iot-hub-devguide-routing-query-syntax.md) |
-| **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the query. Endpoints should be in the same region as the IoT hub, otherwise you may be charged for cross-region writes. |
+| **Condition** | The query expression for the routing query that is run against the message application properties, system properties, message body, device twin tags and device twin properties to determine if it is a match for the endpoint. For more information about constructing a query, see the see [message routing query syntax](iot-hub-devguide-routing-query-syntax.md) |
+| **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the query. We recommend that you choose an endpoint in the same region as your IoT hub. |
 
 A single message may match the condition on multiple routing queries, in which case IoT Hub delivers the message to the endpoint associated with each matched query. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple queries that have the same destination, it is only written once to that destination.
 
@@ -46,19 +46,11 @@ For more information about reading from custom endpoints, see:
 * Reading from [Service Bus queues][lnk-getstarted-queue].
 * Reading from [Service Bus topics][lnk-getstarted-topic].
 
-## Latency
-
-When you route device-to-cloud telemetry messages using built-in endpoints, there is a slight increase in the end-to-end latency after the creation of the first route.
-
-In most cases, the average increase in latency is less than one second. You can monitor the latency using **d2c.endpoints.latency.builtIn.events** [IoT Hub metric](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). Creating or deleting any route after the first one does not impact the end-to-end latency.
-
 ### Next steps
 
-For more information about IoT Hub endpoints, see [IoT Hub endpoints][lnk-devguide-endpoints].
-
-For more information about the query language you use to define routing queries, see [Message Routing query syntax](iot-hub-devguide-routing-query-syntax.md).
-
-The [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial shows you how to use routing queries and custom endpoints.
+* For more information about IoT Hub endpoints, see [IoT Hub endpoints][lnk-devguide-endpoints].
+* For more information about the query language you use to define routing queries, see [Message Routing query syntax](iot-hub-devguide-routing-query-syntax.md).
+* The [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial shows you how to use routing queries and custom endpoints.
 
 [lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
