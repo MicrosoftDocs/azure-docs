@@ -194,7 +194,7 @@ Add the two VMs running the IIS servers - *myIISVMEastUS*  & *myIISVMWEurope* to
 4. Repeat steps 2 and 3 to add another endpoint named *myProductionEndpoint* for the public IP address *myIISVMWEurope-ip* that is associated with the IIS server VM named *myIISVMWEurope*. For **Subnet routing settings**, add the IP address of the test VM - *myVMWestEurope*. Any user query from this test VM will be routed to the endpoint - *myProductionWebsiteEndpoint*.
 5.	When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
-    ![Add a Traffic Manager endpoint](./media/traffic-manager-subnet-routing-method/add-endpoints.png)
+    ![Add a Traffic Manager endpoint](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png)
   
 ## Test Traffic Manager profile
 In this section, you test how the Traffic Manager routes user traffic from a given subnet to a specific endpoint. To view the Traffic Manager in action, complete the following steps:
