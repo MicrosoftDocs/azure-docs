@@ -185,8 +185,9 @@ Follow the steps based on your choice of device authentication scheme (X509/SAS)
     
      Flash the device with **Scope ID, Device ID, Device cert/SAS key** and then turn on the device to connect to IoT Central app.
 
-1. **Approve/Associate devices** Once switched on the devices connect to DPS/IoTCentral for registration and show up under **UnAssociated Devices** in **Device Explorer**. The device provisioning status is **Registered**. The operator has to **Associate** the device to the appropriate device template and approve the device to connect to the IoT Central app.
-1. The device then connects the provisioning status is changed to **Provisioned**, and starts sending data.
+1. **Connect device to IoT Central:** Once switched on the devices connect to DPS/IoTCentral for registration.
+
+1. **Associate Device to a template:** The connected device will show up under **UnAssociated Devices** in **Device Explorer**. The device provisioning status is **Registered**. **Associate** the device to the appropriate device template and approve the device to connect to the IoT Central app. The device gets the conection details for the IoT Central app, it connects and starts sending data. Device provioning is now complete and the provisioning status turns to **Provisioned**.
 
 ## Device Provisioning status
 There are a series of steps involved when a real device is connected to Azure IoT Central 

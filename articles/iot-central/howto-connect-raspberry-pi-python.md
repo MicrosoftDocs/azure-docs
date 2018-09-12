@@ -38,7 +38,7 @@ For full details on the configuration of the device template refer to [Raspberry
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection details( **Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection details(**Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
   > [!NOTE]
    > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
