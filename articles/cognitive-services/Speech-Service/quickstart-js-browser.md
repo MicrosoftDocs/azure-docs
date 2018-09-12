@@ -54,6 +54,8 @@ Now create a new file in the folder, named `index.html` and open this file with 
 
     <!-- SDK reference goes here -->
 
+    <!-- Optional authorization token request goes here -->
+
     <!-- Sample code goes here -->
   </body>
   </html>
@@ -80,7 +82,9 @@ That way, your subscription key will never leave your server while allowing user
 
   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
-1. Edit the `index.html` file and add the following code near the end of your file:
+1. Edit the `index.html` file and add the following code to your file:
+
+  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
 > Authorization tokens only have a limited lifetime.
