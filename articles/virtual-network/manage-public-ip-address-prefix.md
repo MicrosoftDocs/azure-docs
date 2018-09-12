@@ -43,40 +43,54 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 3. Under **Public IP address prefix**, select **Create**.
 4. Enter, or select values for the following settings, under **Create public IP address prefix**, then select **Create**:
 
-	|Setting|Required?|Details|
-	|---|---|---|
-    |Name|Yes|The name must be unique within the resource group you select.|
-    |Prefix|Yes| The prefix.
-	|Subscription|Yes|Must exist in the same [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to.|
-	|Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
-	|Location|Yes|Must exist in the same [location](https://azure.microsoft.com/regions), also referred to as region, as the public IP addresses you'll assign addresses from the range to.|
+   |Setting|Required?|Details|
+   |---|---|---|
+   |Subscription|Yes|Must exist in the same [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to.|
+   |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
+   |Name|Yes|The name must be unique within the resource group you select.|
+   |Prefix|Yes| The prefix.
+   |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions)as the public IP addresses you'll assign addresses from the range.|
 
 **Commands**
 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip-prefix create](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-create)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
 
 ## Create a static public IP address from a prefix
-Once you create a prefix, you must allocate a static IP address from the prefix. In order to do this, follow steps below:
+Once you create a prefix, you must create static IP addresses from the prefix. In order to do this, follow steps below.
 
+1. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address prefix*. When **Public IP address prefixes** appear in the search results, select it.
+2. Select the prefix, you want to create public IPs from.
+3. Navigate to the *Public IP addresses* blade, select **+Add**
+4. Enter or select values for the following settings under **Create public IP address**. Since a prefix is for Standard SKU, IPv4, and static, you only need to provide the following informtion:
 
-## View, change settings for, or delete a prefix
+   |Setting|Required?|Details|
+	|---|---|---|
+    |Name|Yes|The name must be unique within the resource group you select.|
+   |Subscription|Yes|Must exist in the same [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to.|
+   |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
+   |Name|Yes|The name of the public IP address must be unique within the resource group you select.|
+   |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions) as the resource you want to associate the public IP address to.|
+   |Idle timeout (minutes)|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
+   |DNS name label|No|Must be unique within the Azure location you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet such as *location.cloudapp.azure.com* (where location is the location you select) to the name you provide, to create the fully qualified DNS name. If you choose to create both address versions, the same DNS name is assigned to both the IPv4 and IPv6 addresses. Azure's default DNS contains both IPv4 A and IPv6 AAAA name records and responds with both records when the DNS name is looked up. The client chooses which address (IPv4 or IPv6) to communicate with. Instead of, or in addition to, using the DNS name label with the default suffix, you can use the Azure DNS service to configure a DNS name with a custom suffix that resolves to the public IP address. For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Availability zone|	No | This setting only appears if you select a supported region. For a list of supported locations, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).Zone-redundant is automatically selected for you and makes your data path resilient to zone failure. If you prefer to guarantee a specific zone, which is not resilient to zone failure, you may select a specific zone.
+
+## View or delete a prefix
 
 1. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address prefix*. When **Public IP address prefixes** appear in the search results, select it.
 2. Select the name of the public IP address prefix that you want to view, change settings for, or delete from the list.
 3. Complete one of the following options, depending on whether you want to view, delete, or change the public IP address prefix.
 	- **View**: The **Overview** section shows key settings for the public IP address prefix, such as prefix.
-	- **Delete**: To delete the public IP address prefix, select **Delete** in the **Overview** section. If addresses within the prefix are assigned to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
-	- **Change**: select **Configuration**. Change settings using the information in step 4 of [Create a public IP address prefix](#create-a-public-ip-address-prefix).
+	- **Delete**: To delete the public IP address prefix, select **Delete** in the **Overview** section. If addresses within the prefix are associated to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Commands**
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip-prefix list](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-list) to list public IP addresses, [az network public-ip-prefix show](/cli/azure/network/public-ip#az-network-public-ip-prefix-show) to show settings; [az network public-ip-prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) to update; [az network public-ip-prefix delete](/cli/azure/network/public-ip#az-network-public-ip-prefix-delete) to delete|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-list) to list public IP addresses, [az network public-ip prefix show](/cli/azure/network/public-ip#az-network-public-ip-prefix-show) to show settings; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) to update; [az network public-ip prefix delete](/cli/azure/network/public-ip#az-network-public-ip-prefix-delete) to delete|
 |PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) to retrieve a public IP address object and view its settings, [Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) to update settings; [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) to delete|
 
 ## Permissions
@@ -85,12 +99,11 @@ To perform tasks on public IP address prefixes, your account must be assigned to
 
 | Action                                                                   | Name                                                           |
 | ---------                                                                | -------------                                                  |
-| Microsoft.Network/publicIPAddressPrefixes/read                           | Read a public IP address prefix                                |
-| Microsoft.Network/publicIPAddressPrefixes/write                          | Create or update a public IP address prefix                    |
-| Microsoft.Network/publicIPAddressPrefixes/delete                         | Delete a public IP address prefix                              |
+| Microsoft.Network/publicIPPrefixes/read                           | Read a public IP address prefix                                |
+| Microsoft.Network/publicIPPrefixes/write                          | Create or update a public IP address prefix                    |
+| Microsoft.Network/publicIPPrefixes/delete                         | Delete a public IP address prefix                              |
+|Microsoft.Network/publicIPPrefixes/join/action | Create a public IP address from a prefix |
 
 ## Next steps
 
-- Create a public IP address prefix using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for public IP address prefixes
-- [Create](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address) a public IP address
+- Use a prefix to [reference outbound rules](../load-balancer-load-balancer-outbound-rules-overview.md) in your load balancer
