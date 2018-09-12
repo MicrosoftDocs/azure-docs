@@ -177,7 +177,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 (See [AspNetCore Custom Configuration](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for more information. )
 
-### NodeJS
+### Node.js
 
 By default `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` is used for persisting data. Permissions to access this folder are restricted to the current user and Administrators. (See [implementation](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) here.)
 
