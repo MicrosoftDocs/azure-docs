@@ -25,7 +25,7 @@ If your on-premises app uses SAML-based authentication, you can easily make thes
 
 You must do both of the following:
 
-- Integrate the SAML app by using the non-gallery application template, as described in [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md). Make sure to note what you use for the **Sign-on URL** value.
+- Integrate the SAML app by using the non-gallery application template, as described in [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Make sure to note what you use for the **Sign-on URL** value.
 -  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    When you configure the **Internal Url** setting, use the sign-on URL that you specified in the non-gallery application template. In this way, users can access the app from outside the organization boundary. Application Proxy performs the SAML single sign-on for the on-premises app.

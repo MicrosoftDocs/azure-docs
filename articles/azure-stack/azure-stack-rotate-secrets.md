@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -77,7 +77,7 @@ Running secret rotation using the instructions below will remediate these alerts
 ## Pre-steps for secret rotation
 
    > [!IMPORTANT]  
-   > Ensure secret rotation hasn't been previously successfully executed on your environment. If secret rotation has already been performed update to Azure Stack version 1807 or later prior to rotating secrets. 
+   > Ensure secret rotation hasn't been successfully executed on your environment. If secret rotation has already been performed, update Azure Stack to version 1807 or later before you execute secret rotation. 
 1.  Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.

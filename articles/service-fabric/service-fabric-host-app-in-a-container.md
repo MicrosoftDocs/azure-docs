@@ -221,7 +221,7 @@ Follow the deployment progress in the output window.  When the application is de
 ![Fabrikam web sample][fabrikam-web-page-deployed]
 
 ## Set up Continuous Integration and Deployment (CI/CD) with a Service Fabric cluster
-To learn how to use VSTS to configure CI/CD application deployment to a Service Fabric cluster, see 
+To learn how to use Azure DevOps to configure CI/CD application deployment to a Service Fabric cluster, see 
 [Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). The process described in the tutorial is the same for this (FabrikamFiber) project, just skip downloading the Voting sample and substitute FabrikamFiber as the repository name instead of Voting.
 
 ## Clean up resources

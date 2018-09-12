@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 06/13/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 
 ---
@@ -156,7 +156,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> For PowerShell examples in the context of a quick start, see [Create DB - PowerShell](sql-database-get-started-powershell.md) and [Create a single database and configure a firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+> For PowerShell examples in the context of a quick start, see [Create DB - PowerShell](sql-database-powershell-samples.md) and [Create a single database and configure a firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
 >
 
 ## Manage firewall rules using Azure CLI
@@ -176,7 +176,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> For an Azure CLI example in the context of a quick start, see [Create DDB - Azure CLI](sql-database-get-started-cli.md) and [Create a single database and configure a firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+> For an Azure CLI example in the context of a quick start, see [Create DB - Azure CLI](sql-database-cli-samples.md) and [Create a single database and configure a firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
 >
 
 ## Manage firewall rules using REST API

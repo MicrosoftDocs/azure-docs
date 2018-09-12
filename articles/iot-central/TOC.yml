@@ -61,6 +61,8 @@
         href: howto-create-webhooks.md
       - name: Build workflows in Microsoft Flow
         href: howto-add-microsoft-flow.md
+      - name: Trigger Azure Functions
+        href: howto-trigger-azure-functions.md
       - name: Configure homepage
         href: howto-configure-homepage.md
       - name: Prepare and upload images

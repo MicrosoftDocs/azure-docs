@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Configure managed identities for Azure resources on a virtual machine scale set using the Azure portal
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
@@ -27,7 +27,9 @@ In this article, using PowerShell, you learn how to perform the following manage
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following role assignment:
+- To perform the management operations in this article, your account needs the following Azure role based access control assignments:
+    > [!NOTE]
+    > No additional Azure AD directory role assignments required.
     - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to enable and remove system-assigned managed identity from a virtual machine scale set.
 
 ## System-assigned managed identity

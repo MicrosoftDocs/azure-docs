@@ -3,15 +3,11 @@ title: Function chaining in Durable Functions - Azure
 description: Learn how to run a Durable Functions sample that executes a sequence of functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: azfuncdf
 ---

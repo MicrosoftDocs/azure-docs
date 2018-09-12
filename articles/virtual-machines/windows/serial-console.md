@@ -73,7 +73,7 @@ If needed SAC can be enabled offline as well,
 
 ### How do I know if SAC is enabled?
 
-If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. In some cases, VM Health information will be shown, and in other cases it will be blank.  
+If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. In some cases, VM Health information will be shown, and in other cases it will be blank. If you are using a Windows Server image created before February 2018, SAC will likely not be enabled.
 
 ## Enable the Windows Boot Menu in Serial Console 
 
@@ -192,7 +192,7 @@ There is no option with virtual machine scale set instance serial console | At t
 Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causers Windows to fail to properly connect to the serial port.
 Only health information is shown when connecting to a Windows VM| This will show up if the Special Administrative Console has not been enabled for your Windows image. See [Access Serial Console for Windows](#access-serial-console-for-windows) for instructions on how to manually enable SAC on your Windows VM. More details can be found at [Windows Health Signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
-Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to remove the PSReadLine module. `Remove-Module PSReadLine` will remove the PSReadLine module from the current session.
+Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to unload the PSReadLine module from the current session. Run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session - this will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (e.g. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape sequences are not supported by the SAC prompt.
 A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
 

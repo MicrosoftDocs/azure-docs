@@ -276,7 +276,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-- <!-- TBD - IS. ASDK --> When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), will generate a WARN message for the ERCS VM. You can continue to use the ASDK. 
+- <!-- TBD - IS. ASDK --> When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), the test will generate a WARN/FAIL message for the ERCS VM. You can continue to use the ASDK.
 
 #### Compute
 - <!-- 2494144 - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  

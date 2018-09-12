@@ -5,14 +5,10 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na 
 ms.date: 08/12/2018
 ms.author: glenga
 
@@ -94,7 +90,7 @@ You can also choose to run your functions directly from the deployment package f
 > [!NOTE]
 > The ability to run your function app from the deployment package is in preview.
 
-Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_ZIP` to a value of `1`. For more information, see [Run your functions from a deployment package file](run-functions-from-deployment-package.md).
+Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_PACKAGE` to a value of `1`. For more information, see [Run your functions from a deployment package file](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

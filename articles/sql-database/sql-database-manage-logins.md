@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 
 ---
@@ -44,7 +44,7 @@ The **Server admin** and **Azure AD admin** accounts has the following character
 - Can view the `sys.sql_logins` system table.
 
 ### Configuring the firewall
-When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-get-started-powershell.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
+When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-powershell-samples.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### Administrator access path
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
