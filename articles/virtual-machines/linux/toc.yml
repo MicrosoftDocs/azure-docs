@@ -531,6 +531,8 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
+    - name: Throttling errors
+      href: troubleshooting-throttling-errors.md
 - name: Reference
   items:
   - name: Azure CLI
