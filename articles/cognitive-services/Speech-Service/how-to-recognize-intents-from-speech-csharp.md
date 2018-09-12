@@ -20,28 +20,55 @@ ms.author: wolfma
 The Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) integrates with the [Language Understanding service (LUIS)](https://www.luis.ai/home) to provide **intent recognition.** An intent is something the user wants to do: book a flight, check the weather, or make a call. The user can use whatever terms feel natural. Using machine learning, LUIS maps user requests to the intents you have defined in your application.
 
 > [!NOTE]
-> A LUIS application defines the intents you want to recognize. It's separate from the C# application that uses the Speech service.
+> A LUIS application defines the intents and entities you want to recognize. It's separate from the C# application that uses the Speech service. In this article, "app" means the LUIS app, while "application" means the C# code.
 
-LUIS provides two keys: 
-
-In this tutorial, you use the Speech SDK to develop a C# console application that derives intents from user utterances, including these tasks.
+In this tutorial, you use the Speech SDK to develop a C# console application that derives intents from user utterances through your device's microphone. You'll learn how to:
 
 > [!div class="checklist"]
-> * CReate a Visual Studio project with the Speech SDK NuGet package
-> * Create a speech factory using a LUIS endpoint key
-> * Get an intent recognizer from the speech factory
+> * Create a Visual Studio project referencing the Speech SDK NuGet package
+> * Create a speech factory and get an intent recognizer
 > * Get the model for your LUIS app and add the intents you need
-> * Connect event handlers to the recognizer
-> * Begin single-shot or continuous recognition
+> * Specify the language for speech recognition
 
 ## Prerequisites
 
-Get the following before you begin this tutorial.
+Be sure you have the following before you begin this tutorial.
 
-* A LUIS account. You can get one for free through the [LUIS Portal](https://www.luis.ai/home). There is a free pricing tier suitable for working through this tutorial.
-* A LUIS application. If you are just trying things out, follow the [LUIS prebuilt Home Automation](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart to create one using an existing model.
-* A free [Speech service subscription]](get-started.md).
+* A LUIS account. You can get one for free through the [LUIS portal](https://www.luis.ai/home).
 * Visual Studio 2017 (any edition).
+
+## Enable LUIS integration
+
+LUIS integrates with the Speech service to recognize intents from speech. You don't need a Speech service subscription, just LUIS.
+
+LUIS uses two kinds of keys: 
+
+|Key type|Purpose|
+|--------|-------|
+|authoring|lets you create and modify LUIS apps programmatically|
+|endpoint |authorizes access to a particular LUIS app|
+
+The endpoint key is the LUIS key needed for this tutorial. This tutorial uses the example Home Automation LUIS app, which you can create by following [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). If you have created a LUIS app of your own, you can use it instead.
+
+When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key does not enable the Speech integration and won't work with this tutorial. You must create a LUIS resource in your Azure dashboard and assign its subscription keys to LUIS the app. You can use the free subscription tier for this tutorial. 
+
+After creating the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the My Apps page, then switch to the app's Publish page.
+
+![LUIS portal Publish page](media/sdk/luis-publish.png)
+
+On the Publish page:
+
+1. Scroll down to the Resources and Keys section and click **Add key**.
+1. In the **Assign a key to your app** dialog, choose tho following:
+
+    * Choose Microsoft as the Tenant.
+    * Under Subscription Name, choose the Azure subscription that contains the LUIS resource you want to use.
+    * Under Key, choose the LUIS resource that you want to use with the app.
+
+After a momment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
+
+![LUIS app subscription keys](media/sdk/luis-keys.png)
+
 
 ## Create Visual Studio project with Speech SDK
 
@@ -86,55 +113,114 @@ Get the following before you begin this tutorial.
     ![On 64-bit Windows, add a new platform named "x64"](media/sdk/qs-csharp-dotnet-windows-07-cfg-manager-add-x64.png "Add x64 platform")
 
 
-## Create the application
+## Add code to the solution
 
-1. Create a speech factory with a LUIS subscription key and [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition) as parameters. The LUIS subscription key is called **endpoint key** in the service documentation. You can't use the LUIS authoring key. (See the note later in this section.)
-
-1. Get an intent recognizer from the speech factory. A recognizer can use your device's default microphone, an audio stream, or audio from a file.
-
-1. Get the language understanding model that's based on your **AppId**. Add the intents you require. 
-
-1. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results (includes intents). If you don't tie up the events, your application receives only a final transcription result.
-
-1. Start intent recognition. For single-shot recognition, such as command or query recognition, use the `RecognizeAsync()` method. This method returns the first recognized utterance. For long-running recognition, use the `StartContinuousRecognitionAsync()` method. Tie up the events for asynchronous recognition results.
-
-See the following code snippets for intent recognition scenarios that use the Speech SDK. Replace the values in the sample with your own LUIS subscription key (endpoint key), the [region of your subscription](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition), and the **AppId** of your intent model.
-
-> [!NOTE]
-> In contrast to other services supported by the Speech SDK, intent recognition requires a specific subscription key (LUIS endpoint key). For information about the intent recognition technology, see the [LUIS website](https://www.luis.ai). For information on how to acquire the **endpoint key**, see [Create a LUIS endpoint key](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
-
-
-
-## Top-level declarations
-
-For all code in the following sections, these top-level declarations should be in place:
+Open the file `Program.cs` in the Visual Studio project and replace the block of `using` statements at the beginning of the file with the following declarations.
 
 [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-## Intent recognition from a microphone
+Inside the provided `Main()` method, add the following code.
 
-The following code shows how to recognize intent from microphone input in the default language (en-US).
+```csharp
+RecognizeIntentAsync().Wait();
+Console.WriteLine("Please press Enter to continue.");
+Console.ReadLine();```
+```
+
+Create an empty asynchronous method `RecognizeIntentAsync()`, as shown here.
+
+```csharp
+static async Task RecognizeIntentAsync()
+{
+}
+```
+In the body of this new method, add this code.
 
 [!code-csharp[Intent recognition by using a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-## Intent recognition for a specified language
+Replace the placeholders in this method with your LUIS subscription key, region, and app ID as follows.
 
-The following code shows how to recognize intent from microphone input in a specified language. In this example, the language is German (de-de).
+|Placeholder|Replace with|
+|-----------|------------|
+|YourLanguageUnderstandingSubscriptionKey|Your LUIS endpoint key. As previously noted, this must be a key obtained from your Azure dashboard, not a "starter key." You can find it on your app's Publish page in the [LUIS portal](https://www.luis.ai/home).|
+|YourLanguageUnderstandingServiceRegion|The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md)|
+|YourLanguageUnderstandingAppId|The LUIS app ID. You can find it on your app's Settings page of the [LUIS portal](https://www.luis.ai/home).|
 
-[!code-csharp[Intent recognition by using a microphone in a specified language](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithLanguage)]
+With these changes made, you can build (Control-Shift-B) and run (F5) the tutorial application. When prompted, try saying "Turn off the lights" into your PC's  microphone. The result is displayed in the console window.
 
-## Intent recognition from a file with events
 
-The following code shows how to recognize intent in the default language (en-US) in a continuous way. The code allows access to additional information like intermediate results. Input is taken from an audio file. The supported format is single-channel (mono) WAV/PCM with a sampling rate of 16 kHz.
+## Creating an intent recognizer
 
-[!INCLUDE [Sample audio](../../../includes/cognitive-services-speech-service-sample-audio.md)]
+The first step in recognizing intents in speech is to create a `SpeechFactory` from our LUIS endpoint key and region. The factory is used to create Recognizers for the various capabilities of the Speech SDK. The factory has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
+
+> [!NOTE]
+> Be sure to use the region of your LUIS subscription, not your Speech subscription region.
+
+Next, create an intent recognizer using the factory's `CreateIntentRecognizer()` method. Since the factory already knows which subscription to use, there's no need to specify the subscription key and endpoint again when creating the recognizer.
+
+## Importing the LUIS model and adding intents
+
+Now import the model from the LUIS app using `LanguageUnderstandingModel.FromAppId()` and add the LUIS intents that you wish to recognize via the recognizer's `AddIntent()` method. These two steps improve the accuracy of speech recognition by indicating words that the user is likely to use in their requests. It is not necessary to add all the app's intents if you do not need to recognize them all in your application.
+
+Adding intents requires three arguments: an ID, the LUIS model (just created and named `model`), and the intent name. The difference between the ID and the name is as follows.
+
+|`AddIntent()` argument|Purpose|
+|--------|-------|
+|intentID    |An ID assigned to a recognized intent by the Speech SDK. Can be whatever you like; does not need to correspond to the intent name as defined in the LUIS app. If multiple intents are handled by the same code, for instance, you could use the same ID for them.|
+|intentName |The name of the intent as defined in the LUIS app. Must match the LUIS intent name exactly.|
+
+The HomeAutomation LUIS app has two intents: one for turning a device on, and one for turning a device off. The lines below add these intents to the recognizer; replace the three `AddIntent` lines in the `RecognizeIntentAsync()` method with this code.
+
+```csharp
+recognizer.AddIntent("off", model, "HomeAutomation.TurnOff");
+recognizer.AddIntent("on", model, "HomeAutomation.TurnOn");
+```
+
+You may also add intents that aren't defined in the LUIS app. These non-LUIS intents need to be short imperative phrases that don't require any additional information. You add such intents using a two-parameter overload of `AddIntent()` that takes the desired `intentID` and the phrase to be recognized, both as strings. For example:
+
+```csharp
+recognizer.AddIntent("exit", "exit application");
+```
+
+## Starting recognition
+
+Finally, recognition can begin. The Speech SDK supports both single-shot and continuous recognition.
+
+|Recognition mode|Methods to call|Result|
+|----------------|-----------------|---------|
+|Single-shot|`RecognizeAsynnc()`|Returns the recognized intent, if any.|
+|Continuous|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Emits events (e.g. `IntermediateResultReceived`) when results are available.|
+
+The tutorial application uses single-shot mode and so calls `RecognizeAsynnc()` to begin recognition. This method returns an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression
+
+```csharp
+result.Properties.Get<string>(ResultPropertyKind.LanguageUnderstandingJson) 
+```
+
+The tutorial application doesn't parse the JSON result, just displaying it in the console window.
+
+![LUIS recognition results](media/sdk/luis-results.png)
+
+## Specifying recognition language
+
+By default, the intent recognizer recognizes intents in US English (`en-us`). By passing a locale code to `CreateIntentRecognizer()`, you can recognize intents in other languages. For example, change `factory.CreateIntentRecognizer()` in our tutorial application to `factory.CreateIntentRecognizer("de-de")` to recognize intents in German.
+
+## Continuous recognition from a file
+
+The following code illustrates two additional capabilities of intent recognition using the Speech SDK. First, as previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. To do this, you call the recognizer's `StartContinuousRecognitionAsync()` to start recognition instead of `RecognizeAsynnc()`.
+
+The other capability is reading the audio containing the intents from a WAV file. This involves calling the factory's `CreateIntentRecognizerWithFileInput()` method instead of `CreateIntentRecognizer()`. The file must be single-channel (mono) with a sampling rate of 16 kHz.
+
+To try out these features, replace the body of the `RecognizeIntentAsync()` method with the following code. 
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for the code from this article in the samples/csharp/sharedcontent/console folder.
+Revise the code to include your LUIS endpoint key, region, and app ID and to add the Home Automation intents, as before. Change `whatstheweatherlike.wav` to the name of your file. Then build and run.
 
 ## Next steps
+
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Look for the code from this article in the samples/csharp/sharedcontent/console folder.
 
 - [How to recognize speech](how-to-recognize-speech-csharp.md)
 - [How to translate speech](how-to-translate-speech-csharp.md)
