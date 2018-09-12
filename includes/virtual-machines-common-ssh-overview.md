@@ -19,4 +19,4 @@ SSH is an encrypted connection protocol that allows secure sign-ins over unsecur
 
 Depending on your organization's security policies, you can reuse a single public-private key pair to access multiple Azure VMs and services. You do not need a separate pair of keys for each VM or service you wish to access. 
 
-Your public key can be shared with anyone; but only you (or your local security infrastructure) should possess your private key.
+Your public key can be shared with anyone, but only you (or your local security infrastructure) should possess your private key.
