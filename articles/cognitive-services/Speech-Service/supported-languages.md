@@ -24,13 +24,22 @@ The Microsoft speech recognition API supports the following languages.
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
  It-IT | Italian (Italy) | No | Yes | No 
  de-DE | German (Germany) | No | Yes | Yes
- ja-JP | Japanese (Japan) | No | Yes | No
- en-US | English (United States) | Yes | Yes | Yes
- pt-BR | Portuguese (Brazil) | No | Yes | No
- es-ES | Spanish (Spain) | No | Yes | No
- ru-RU | Russian (Russia) | No | Yes | No
  fr-FR | French (France) | No | Yes | No
+ en-US | English (United States) | Yes | Yes | Yes
+ en-GB | English (British) | No | Yes | No
+ en-CA | English (Canadian) | No | Yes | No
+ en-AU | English (Australian) | No | Yes | No
+ es-ES | Spanish (Spain) | No | Yes | No
+ nl-NL | Dutch (Netherlands) | No | Yes | No
+ pt-PT | Portoguese (Portogal) | No | Yes | No
+ tr-TR | Turkish (Turkey) | No | Yes | No
+ pt-BR | Portuguese (Brazil) | No | Yes | No
+ ru-RU | Russian (Russia) | No | Yes | No
  zh-CN | Chinese (Mandarin, simplified) | No | Yes | No
+ zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
+ zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
+ ja-JP | Japanese (Japan) | No | Yes | No
+ ko-KR | Korean (Korea) | No | Yes | No
 
 ## Text to Speech
 
