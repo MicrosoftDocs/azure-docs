@@ -129,7 +129,7 @@ Some steps can be automated as part of the migration process using the in-built 
 - Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations. 
 - Perform final application and migration acceptance testing on the migrated application now running in Azure.
 - The [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security.
-    - If you're migrating VMware machines and physical servers, the Mobility Service installer installs available Azure VM agent on Windows machines. On Linux VMs the agent is installed as part of the failover process.
+    - If you're migrating VMware machines and physical servers, the Mobility Service installer installs available Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after failover. a
     - If you’re migrating Azure VMs to a secondary region, the Azure VM agent must be provisioned on the VM before the migration.
     - If you’re migrating Hyper-V VMs to Azure, install the Azure VM agent on the Azure VM after the migration.
 - Manually remove any Site Recovery provider/agent from the VM. If you migrate VMware VMs or physical servers, [uninstall the Mobility service][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] from the Azure VM.
