@@ -25,7 +25,7 @@ For Debian, use:
 dpkg -i cyclecloud_7.5.2-amd64.deb
 ```
 
-For RedHat-variant, use:
+For RedHat variants, use:
 
 ```bash
 rpm -U cyclecloud_7.5.2.rpm
