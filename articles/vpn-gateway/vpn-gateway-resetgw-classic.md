@@ -71,7 +71,7 @@ When you receive a return result, you can assume the gateway reset was successfu
 
 ### <a name="resetclassic"></a>Classic deployment model
 
-The cmdlet for resetting a gateway is **Reset-AzureVNetGateway**. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). The following example resets the gateway for a virtual network named "ContosoVNet":
+The cmdlet for resetting a gateway is **Reset-AzureVNetGateway**. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). The following example resets the gateway for a virtual network named "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

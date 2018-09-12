@@ -38,7 +38,7 @@ You can use two approaches to authenticate using Azure Active Directory.
 
 
 ## Create a Data Lake Store account
-This operation is based on the REST API call defined [here](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/create).
+This operation is based on the REST API call defined [here](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
 Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
@@ -55,7 +55,7 @@ In the above command, replace \<`REDACTED`\> with the authorization token you re
     }    
 
 ## Delete a Data Lake Store account
-This operation is based on the REST API call defined [here](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/delete).
+This operation is based on the REST API call defined [here](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
 Use the following cURL command to delete a Data Lake Store account. Replace **\<yourstorename>** with your Data Lake Store name.
 

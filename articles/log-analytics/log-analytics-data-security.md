@@ -45,9 +45,9 @@ We do not recommend explicitly setting your agent to only use TLS 1.2 unless abs
 |Platform/Language | Support | More Information |
 | --- | --- | --- |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
-| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
+| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
 | Windows Server 2008 SP2 | Support for TLS 1.2 requires an update. | See [Update to add support for TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
 
 ## Data segregation
@@ -80,7 +80,7 @@ The following table shows examples of data types:
 | State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## Physical security
-The Log Analytics service is managed by Microsoft personnel and all activities are logged and can be audited. Log Analytics is operated as an Azure Service and meets all Azure Compliance and Security requirements. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Physical access rights to secure areas are changed within one business day for anyone who no longer has responsibility for the Log Analytics service, including transfer and termination. You can read about the global physical infrastructure we use at [Microsoft Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
+The Log Analytics service is managed by Microsoft personnel and all activities are logged and can be audited. Log Analytics is operated as an Azure Service and meets all Azure Compliance and Security requirements. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Physical access rights to secure areas are changed within one business day for anyone who no longer has responsibility for the Log Analytics service, including transfer and termination. You can read about the global physical infrastructure we use at [Microsoft Datacenters](https://azure.microsoft.com/global-infrastructure/).
 
 ## Incident management
 Log Analytics has an incident management process that all Microsoft services adhere to. To summarize, we:

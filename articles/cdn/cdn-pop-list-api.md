@@ -30,4 +30,4 @@ For security purposes, you can use this IP list to enforce that requests to your
 
 ## Next steps
 
-For information about the REST API, see [Azure CDN REST API](https://docs.microsoft.com/en-us/rest/api/cdn/).
+For information about the REST API, see [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/).

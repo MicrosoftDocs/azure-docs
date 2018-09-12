@@ -15,7 +15,7 @@ ms.author: v-jansko
 
 The Microsoft Custom Translator preview is feature of the Microsoft Translator service, which allows users to customize Microsoft Translator’s advanced neural machine translation when translating text using the Microsoft Translator Text API (version 3 only). 
 
-The feature can also be used to customize speech translation when used with [Cognitive Services Speech preview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/).
+The feature can also be used to customize speech translation when used with [Cognitive Services Speech preview](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## Custom Translator
 With Custom Translator, you can build neural translation systems that understand the terminology used in your own business and industry. The customized translation system will then integrate into existing applications, workflows, and websites. 

@@ -21,7 +21,7 @@ ms.author: shvija
 
 Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 
-The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](http://msdn.microsoft.com/en-us/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
+The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](http://msdn.microsoft.com/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
 
 ## Home security scenario
 
