@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -206,13 +206,39 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail.
+A.  If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail.
 
 ### Q. How do I verify the data I copied onto Data Box?
 A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify that against files in the source data.
 
 ### Q. What happens to my data after I have returned the Data Box?
 A.  Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines.  
+
+## Chain of custody
+
+### How does Azure Data Box service help support customers chain of custody procedure?
+A.  Azure Data Box service provides specific reports that you can use for your chain of custody documentation.
+
+### What can customers do today that they could not do before based on this feature announcement?
+A. Additional reporting is available to the customers to support their chain of custody requirements when migrating on-premises data to Azure using the Data Box service
+
+### What are the pricing and/or licensing implications for this announcement?
+A.  The chain of custody feature is native to Data Box and is available at no extra cost.
+
+### What type of reporting is available to support chain of custody?
+A.  Following reporting is available to support chain of custody:
+    - Transport logistics from DHL and UPS.
+    - Logging of power on and user share access.
+    - Manifest file with checksum (CRC 64) for each file ingested successfully into the Data Box.
+    - Reporting of files that failed to upload to Azure storage account.
+    - Sanitization of the Data Box device (adhere to NIST 800 88R1) after data is copied to the your Azure storage account.
+
+### Are the carrier tracking logs (UPS / DHL) available? 
+A.  Carrier tracking logs are captured in the Data Box audit log report. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
+
+### Can I transport the Data Box to Azure DC? 
+A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS/DHL.
+
 
 ## Next steps
 
