@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: tutorial
-ms.date: 09/06/2018
+ms.date: 09/12/2018
 ms.author: erhopf
 ---
 
