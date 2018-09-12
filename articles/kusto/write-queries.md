@@ -29,7 +29,7 @@ A Kusto query is a read-only request to process data and return results. The req
 
 The query consists of a sequence of query statements, delimited by a semicolon (`;`), with at least one statement being a [**tabular expression statement**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_tabularexpressionstatements.html), which is a statement that produces data arranged in a table-like mesh of columns and rows. The query's tabular expression statements produce the results of the query.
 
-The syntax of the tabular expression statement has tabular data flow from one tabular query operator to another, starting with data source (e.g. a table in a database, or an operator that produces data) and then flowing through a set of data transformation operators that are bound together through the use of the pipe (`|`) delimiter.
+The syntax of the tabular expression statement has tabular data flow from one tabular query operator to another, starting with data source (for example, a table in a database, or an operator that produces data) and then flowing through a set of data transformation operators that are bound together through the use of the pipe (`|`) delimiter.
 
 For example, the following Kusto query has a single statement, which is a tabular expression statement. The statement starts with a reference to a table called `StormEvents` (the database that host this table is implicit here, and part of the connection information). The data (rows) for that table are then filtered by the value of the `StartTime` column, and then filtered by the value of the `State` column. The query then returns the count of "surviving" rows.
 
@@ -231,7 +231,7 @@ This section covers some of the most important scalar operators.
 
 [**bin()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_binfunction.html): Rounds values down to an integer multiple of a given bin size.
 
-The following query calculates the count with a bucket size of 1 day.
+The following query calculates the count with a bucket size of one day.
 
 **\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWwU0hJLEktATI1jAwMzHUNjHQNTTQVEvNSkBTZYCoyMtQEGVdcmpubWJRZlaqQCrIiPjm%2fNK9EwVYBTGtoKiRVKiRl5mnAjdJRMEzRBABIhjnmkwAAAA%3d%3d)**\]**
 ```Kusto
@@ -240,7 +240,7 @@ StormEvents
 | summarize event_count = count() by bin(StartTime, 1d)
 ```
 
-[**case()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_casefunction.html): Evaluates a list of predicates, and returns the first result expression whose predicate is satisfied, or the final **else** expression. You can use this to categorize or group data:
+[**case()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_casefunction.html): Evaluates a list of predicates, and returns the first result expression whose predicate is satisfied, or the final **else** expression. You can use this operator to categorize or group data:
 
 The following query returns a new column `deaths_bucket` and groups the deaths by number.
 
@@ -267,7 +267,7 @@ MyData
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s)
 ```
 
-This query uses a **let** statement, which binds a name (in this case `MyData`) to an expression. For the rest of the scope in which the **let** statement appears (global scope or in a function body scope), the name can be used to refer to its bound value.
+This query uses a **let** statement, which binds a name (in this case `MyData`) to an expression. For the rest of the scope, in which the **let** statement appears (global scope or in a function body scope), the name can be used to refer to its bound value.
 
 [**parse_json()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_parsejsonfunction.html?q=parse_json): Interprets a string as a JSON value, and returns the value as dynamic. It is superior to using the **extractjson()** function when you need to extract more than one element of a compound JSON object.
 
@@ -419,7 +419,7 @@ MyTrace
 
 [make-series](https://kusto.azurewebsites.net/docs/query/make-seriesoperator.html): aggregates together groups of rows like [summarize](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html), but generates a (time) series vector per each combination of by values.
 
-The following query returns a set of time series for the count of storm events per day. The query covers a three month period for each state, filling missing bins with the constant 0:
+The following query returns a set of time series for the count of storm events per day. The query covers a three-month period for each state, filling missing bins with the constant 0:
 
 **\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUchNzE7VLU4tykwtVsizTc4vzSvR0FRISU1LLM0psTVQyM9TCC5JLCoJycxNVcjMUyhKzEtP1UhJLEktAYpoGBkYmOsaGAKRpo4CmqixrjFI1DBFUyGpEmRKSSoAazsM0n0AAAA%3d)**\]**
 ```Kusto
@@ -440,7 +440,7 @@ StormEvents
 | render timechart
 ```
 
-Please review the full list of [series functions](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_scalarfunctions.html#series-processing-functions).
+For more information, review the full list of [series functions](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_scalarfunctions.html#series-processing-functions).
 
 ## Advanced aggregations
 
@@ -561,7 +561,7 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95)
 ```
 
-The following query calculates percentiles for storm duration by state and normalizes the data by five minute bins (`5m`).
+The following query calculates percentiles for storm duration by state and normalizes the data by five-minute bins (`5m`).
 
 **\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG1NSwrCMBTcC95hli1EKEpBQd31BHUvafOgAZNI8uIPD28SEBVcDDMM8%2bnZedNdyHKYz56gG5NVUNFL1s5ih86qgzaEBXqWnrPOwetEnj65PZrwx95iNWU7RGOk1w8C5avj6KLlNF64qjHcMWhbvXsCralFPmT6rZ%2fJj2lAnyh8pwWWTaKEdcKmLYul%2fgLODFs%2b4AAAAA%3d%3d)**\]**
 ```Kusto
@@ -654,8 +654,7 @@ StormEvents
     
 [Cross-Database and Cross-Cluster Queries](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_syntax.html?q=cross): You can query a database on the same cluster by referring it as `database("MyDatabase").MyTable`. You can query a database on a remote cluster by referring to it as `cluster("MyCluster").database("MyDatabase").MyTable`.
 
-The following query is called from one cluster and queries data from
-`MyCluster` cluster. To run this, use your own clusters.
+The following query is called from one cluster and queries data from `MyCluster` cluster. To run this query, use your own cluster name and database name.
 
 ```Kusto
 cluster("MyCluster").database("Wiki").PageViews
@@ -665,7 +664,7 @@ cluster("MyCluster").database("Wiki").PageViews
 
 ### User Analytics 
 
-This section include elements and queries that demonstrate how easy it is perform analysis of user behaviors in Kusto.
+This section includes elements and queries that demonstrate how easy it is to perform analysis of user behaviors in Kusto.
 
 [**activity_counts_metrics plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_counts_metrics_plugin.html): Calculates useful activity metrics (total count values, distinct count values, distinct count of new values, and aggregated distinct count). Metrics are calculated for each time window, then they are compared, and aggregated to and with all previous time windows.
 
