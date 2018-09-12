@@ -19,7 +19,7 @@ ms.author: glenga
 
 This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 ## Programming model
 
@@ -113,11 +113,11 @@ When the function is invoked, the HTTP request is passed to the function as `req
 
 ## Outputs
 
-Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you will have to use output parameters.
+Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you'll have to use output parameters.
 
 To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in `function.json`.
 
-To produce multiple output values, use the `set()` method provided by the `azure.functions.Out` interface to assign a value to the output parameter. For example, the following function can push a message to a queue and also return an HTTP response.
+To produce multiple outputs, use the `set()` method provided by the `azure.functions.Out` interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
 
 ```json
 {
@@ -158,9 +158,9 @@ def main(req: func.HttpRequest,
 
 ## Logging
 
-Access to the Functions runtime logger is available via a root [`logging`](https://docs.python.org/3/library/logging.html#module-logging) handler in your function app. This logger is tied to Application Insights and allows you to flag warnings and errors encountered during the function execution.
+Access to the Azure Functions runtime logger is available via a root [`logging`](https://docs.python.org/3/library/logging.html#module-logging) handler in your function app. This logger is tied to Application Insights and allows you to flag warnings and errors encountered during the function execution.
 
-The following example code logs an info message when the function is invoked via an HTTP trigger.
+The following example logs an info message when the function is invoked via an HTTP trigger.
 
 ```python
 import logging
@@ -234,13 +234,13 @@ For example, the following command installs the latest version of the `requests`
 pip install requests
 ```
 
-When you're ready for publishing, ensure that all your dependencies are listed in the `requirements.txt` file. You can use the `pip freeze` command to automatically generate the requirements file.
+Once you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file. You can use the `pip freeze` command to automatically generate the requirements.
 
 ```bash
 pip freeze > requirements.txt
 ```
 
-To successfully execute your Azure Functions, the `requirements.txt` file should contain a minimum of the following packages:
+To successfully execute your Azure Functions, `requirements.txt` should contain a minimum of the following packages:
 
 ```txt
 azure-functions
@@ -251,13 +251,18 @@ protobuf==3.6.1
 six==1.11.0
 ```
 
-If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using `pip`, publishing to Azure will fail. To build the required binaries locally, install [Docker](https://docs.docker.com/install/) and run the following command to publish using the Azure Functions Core Tools:
+If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using _pip_, publishing to Azure will fail. To build the required binaries locally, install [Docker](https://docs.docker.com/install/) and run the following command to publish using the Azure Functions Core Tools:
 
 ```bash
 func azure functionapp <app name> --build-native-deps
 ```
 
+## Known issues and FAQ
+
+All known issues should be tracked in the [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
+
 ## Next steps
+
 For more information, see the following resources:
 
 * [Best practices for Azure Functions](functions-best-practices.md)
