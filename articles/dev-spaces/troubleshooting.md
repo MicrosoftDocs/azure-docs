@@ -6,7 +6,7 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: "05/11/2018"
+ms.date: "09/11/2018"
 ms.topic: "article"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -20,7 +20,7 @@ This guide contains information about common problems you may have when using Az
 
 In order to troubleshoot problems more effectively, it may help to create more detailed logs for review.
 
-For the Visual Studio extension, you can do this by setting the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs will be written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+For the Visual Studio extension, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs will be written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
 In the CLI, you can output more information during command execution by using the `--verbose` switch.
 
@@ -65,14 +65,14 @@ When using _azds.exe_, use the --verbose command-line option, and use the --outp
 
 In Visual Studio:
 
-1. Open **Tools > Options** and under **Projects and Solutions**, choose and **Build and Run**.
+1. Open **Tools > Options** and under **Projects and Solutions**, choose **Build and Run**.
 2. Change the settings for **MSBuild project build output verbosity** to **Detailed** or **Diagnostic**.
 
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
     
 ## DNS name resolution fails for a public URL associated with a Dev Spaces service
 
-When this happens, you might see a "Page cannot be displayed" or "This site cannot be reached" error in your web browser when attempting to connect to the public URL associated with a Dev Spaces service.
+When DNS name resolution fails, you might see a "Page cannot be displayed" or "This site cannot be reached" error in your web browser when attempting to connect to the public URL associated with a Dev Spaces service.
 
 ### Try:
 
@@ -82,7 +82,7 @@ You can use the following command to list out all URLs associated with your Dev 
 azds list-uris
 ```
 
-If a URL is in the *Pending* state, that means that Dev Spaces is still waiting for DNS registration to complete. Sometimes, it takes a few minutes for this to happen. Dev Spaces also opens a localhost tunnel for each service, which you can use while waiting on DNS registration.
+If a URL is in the *Pending* state, that means that Dev Spaces is still waiting for DNS registration to complete. Sometimes, it takes a few minutes for registration to complete. Dev Spaces also opens a localhost tunnel for each service, which you can use while waiting on DNS registration.
 
 If a URL remains in the *Pending* state for more than 5 minutes, it may indicate a problem with the external DNS pod that creates the public endpoint and/or the nginx ingress controller pod that acquires the public endpoint. You can use the following commands to delete these pods. They will be recreated automatically.
 
@@ -119,7 +119,7 @@ Azure Dev Spaces provides native support for C# and Node.js. When you run *azds 
 You can still use Azure Dev Spaces with code written in other languages, but you will need to create the Dockerfile yourself prior to running *azds up* for the first time.
 
 ### Try:
-If your application is written in a language that Azure Dev Spaces does not natively support, you'll need to provide an appropriate Dockerfile to build a container image running your code. Docker provides a [list of best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) as well as a [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) that can help you do this.
+If your application is written in a language that Azure Dev Spaces does not natively support, you'll need to provide an appropriate Dockerfile to build a container image running your code. Docker provides a [list of best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) as well as a [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) that can help you write a Dockerfile that suits your needs.
 
 Once you have an appropriate Dockerfile in place, you can proceed with running *azds up* to run your application in Azure Dev Spaces.
 
@@ -150,7 +150,7 @@ You must run `azds up` from the root directory of the code you want to run, and 
 1. If you do not have a _azds.yaml_ file in the code folder, run `azds prep` to generate Docker, Kubernetes, and Azure Dev Spaces assets.
 
 ## Error: 'The pipe program 'azds' exited unexpectedly with code 126.'
-Starting the VS Code debugger may sometimes result in this error. This is a known issue.
+Starting the VS Code debugger may sometimes result in this error.
 
 ### Try:
 1. Close and reopen VS Code.
@@ -160,7 +160,7 @@ Starting the VS Code debugger may sometimes result in this error. This is a know
 Running the VS Code debugger reports the error: `Failed to find debugger extension for type:coreclr.`
 
 ### Reason
-You do not have the VS Code extension for C# installed on your development machine which includes debugging support for .Net Core (CoreCLR).
+You do not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .Net Core (CoreCLR).
 
 ### Try:
 Install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
