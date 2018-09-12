@@ -30,18 +30,11 @@ This quickstart requires preview approval and whitelisting. Managed Instance is 
 2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
 3. Click **Create**.
 
-   ![managed instance create](./media/sql-database-managed-instance-get-started/managed-instance-create-preview.png)
-
 4. Select your subscription, click **Preview terms**, and then provide the requested information.
 
-   ![managed instance preview terms](./media/sql-database-managed-instance-get-started/preview-terms.png)
 
 5. Click **OK** when completed.
 
-   ![managed instance preview terms](./media/sql-database-managed-instance-get-started/preview-approval-pending.png)
-
-   > [!NOTE]
-   > Complete this quickstart after your preview has been approved. Approval generally takes up to 24 hours.
 
 ## Prepare network environment
 
