@@ -19,7 +19,7 @@ ms.author: v-deasim
 ---
 # Custom Reports from Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 By using Verizon Custom Reports via the Manage portal for Verizon profiles, you can define the type of data to be collected for edge CNAMEs reports.
 

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -22,6 +22,8 @@ ms.reviewer: brbartle
 # Register Azure Stack with Azure
 
 Registering Azure Stack with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration.
+
+The information in this article describes registering Azure Stack integrated systems with Azure. For information about registering the ASDK with Azure, see [Azure Stack registration](.\asdk\asdk-register.md) in the ASDK documentation.
 
 > [!IMPORTANT]  
 > Registration is required to support full Azure Stack functionality, including offering items in the marketplace. In addition, you will be in violation of Azure Stack licensing terms if you do not register when using the pay-as-you-use billing model. To learn more about Azure Stack licensing models, please see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
@@ -40,7 +42,7 @@ You will need the following in place before you register:
 
 Before registering Azure Stack with Azure, you must have:
 
-- The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
+- The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **All services**. Then, under the **GENERAL** category, select **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
 
   > [!Note]  
   > Germany cloud subscriptions are not currently supported.
@@ -51,11 +53,13 @@ Before registering Azure Stack with Azure, you must have:
 
 - Registered the Azure Stack resource provider (see the Register Azure Stack Resource Provider section below for details).
 
-  If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
+After registration, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
+
+If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
 ### PowerShell language mode
 
-To successfully register Azure Stack, the PowerShell language mode must be set to **FullLanguageMode**.  To verify that the current language mode is set to full, open an elevated PowerShell window and run the following PowerShell cmdlts:
+To successfully register Azure Stack, the PowerShell language mode must be set to **FullLanguageMode**.  To verify that the current language mode is set to full, open an elevated PowerShell window and run the following PowerShell cmdlets:
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -98,7 +102,7 @@ Use these steps to register Azure Stack with Azure using the pay-as-you-use bill
 
 Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
-1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlts with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
+1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlets with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
 2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
@@ -158,7 +162,7 @@ Use these steps to register Azure Stack with Azure using the pay-as-you-use bill
 
 Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
-1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlts with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
+1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlets with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
 2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
@@ -211,7 +215,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. To get the registration token, run the following PowerShell cmdlts:  
+2. To get the registration token, run the following PowerShell cmdlets:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -248,7 +252,7 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 
 Next, you need to retrieve an activation key from the registration resource created in Azure during Register-AzsEnvironment.
 
-To get the activation key, run the following PowerShell cmdlts:  
+To get the activation key, run the following PowerShell cmdlets:  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -261,7 +265,7 @@ To get the activation key, run the following PowerShell cmdlts:
 
 ### Create an Activation Resource in Azure Stack
 
-Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you will create an activation resource in Azure Stack using that activation key. To create an activation resource, run the following PowerShell cmdlts:  
+Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you will create an activation resource in Azure Stack using that activation key. To create an activation resource, run the following PowerShell cmdlets:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -280,7 +284,7 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 Use these steps to verify that Azure Stack is successfully registered with Azure.
 
 1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;//adminportal.*&lt;region>.&lt;fqdn>*.
-2. Select **More Services** > **Marketplace Management** > **Add from Azure**.
+2. Select **All Services**, and then under the **ADMINISTRATION** category, select **Marketplace management** > **Add from Azure**.
 
 If you see a list of items available from Azure (such as WordPress), your activation was successful. However, in disconnected environments you will not see Azure marketplace items in the Azure Stack marketplace.
 
@@ -327,13 +331,13 @@ You’ll need to update or renew your registration in the following circumstance
 
 You will first need to remove the activation resource from Azure Stack, and then the registration resource in Azure.  
 
-To remove the activation resource in Azure Stack, run the following PowerShell cmdlts in your Azure Stack environment:  
+To remove the activation resource in Azure Stack, run the following PowerShell cmdlets in your Azure Stack environment:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, sign in to the correct Azure PowerShell context, and run the appropriate PowerShell cmdlts as described below.
+Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, sign in to the correct Azure PowerShell context, and run the appropriate PowerShell cmdlets as described below.
 
 You can use the registration token used to create the resource:  
 
@@ -384,6 +388,8 @@ For Azure Stack environments that use a capacity billing model, turn off usage r
 
 2. Save this registration token for use on the Azure connected machine. You can copy the file or the text from $FilePathForRegistrationToken.
 
+## Move a registration resource
+Moving a registration resource between resource groups under the same subscription **is** supported for all environments. However, moving a registration resource between subscriptions is only supported for CSPs when both subscriptions resolve to the same Partner ID. For more information about moving resources to a new resource group, see [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## Registration reference
 

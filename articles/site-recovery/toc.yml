@@ -65,6 +65,10 @@
       href: azure-to-azure-architecture.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
+    - name: Accelerated networking for Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-accelerated-networking.md
+    - name: ExpressRoute with Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-expressroute.md
   - name: VMware VMs and physical servers
     items:
     - name: Replication to Azure
@@ -135,10 +139,6 @@
         href: azure-to-azure-network-mapping.md
       - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
-      - name: Accelerated Networking with Azure VM disaster recovery
-        href: azure-vm-disaster-recovery-with-accelerated-networking.md
-      - name: ExpressRoute with Azure VM disaster recovery
-        href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Disaster recovery
       items:
       - name: Disaster recovery of Azure VMs after migration to Azure
@@ -195,20 +195,22 @@
         href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment for VMware VMs
         href: vmware-azure-set-up-target.md
-      - name: Configure replication settings
+      - name: Configure replication settings for VMware VMs
         href: vmware-azure-set-up-replication.md
-      - name: Enable VMware VM replication
+      - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
-      - name: Exclude disks from replication
+      - name: Exclude disks from VMware VM replication
         href: vmware-azure-exclude-disk.md
-      - name: Multi-tenancy with CSP for VMWare VMs
+      - name: Set up replication with multi-tenancy and CSP for VMWare VMs
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: Set up the source environment for physical servers
-        href: physical-azure-set-up-source.md
-      - name: Set up the target environment for physical servers
-        href: physical-azure-set-up-target.md
-      - name: Disaster recovery of physical servers to Azure
+      - name: Set up disaster recovery of physical servers to Azure
         href: physical-azure-disaster-recovery.md
+      - name: Set up the source environment for physical server replication
+        href: physical-azure-set-up-source.md
+      - name: Set up the target environment for physical server replication
+        href: physical-azure-set-up-target.md
+      - name: Set up disaster recovery for Azure Stack VMs
+        href: azure-stack-site-recovery.md
     - name: Deploy the Mobility service
       items:
       - name: Mobility service overview

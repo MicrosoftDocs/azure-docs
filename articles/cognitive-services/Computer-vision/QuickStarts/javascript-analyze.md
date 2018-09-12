@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API JavaScript quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Analyze a remote image - REST, JavaScript - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using Computer Vision with JavaScript in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -9,10 +9,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/16/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Analyze an image with JavaScript
+# Quickstart: Analyze a remote image - REST, JavaScript - Computer Vision
 
 In this quickstart, you analyze an image using Computer Vision.
 

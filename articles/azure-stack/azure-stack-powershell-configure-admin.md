@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure Stack PowerShell environment | Microsoft Docs
-description: Learn how to Configure the Azure Stack PowerShell environment.
+title: Connect to Azure Stack with PowerShell as an operator | Microsoft Docs
+description: Learn how to connect to Azure Stack with PowerShell as an operator
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,12 +12,12 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
 
-# Configure the Azure Stack PowerShell environment
+# Connect to Azure Stack with PowerShell as an operator
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 

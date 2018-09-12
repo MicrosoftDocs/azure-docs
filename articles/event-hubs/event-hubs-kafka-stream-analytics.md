@@ -80,6 +80,7 @@ You can now stream events from your applications that use the Kafka protocol int
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
+
 5. Navigate to `azure-event-hubs/samples/kafka/quickstart/producer/src/main/java/com/example/app`, and open **TestDataReporter.java** file in an editor of your choice. 
 6. Comment out the following line of code:
 

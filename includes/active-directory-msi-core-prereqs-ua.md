@@ -10,4 +10,4 @@ ms.author: daveba
 ms.custom: include file
 ---
 
-If you're unfamiliar with MSI, check out the [Managed Service Identity overview](~/articles/active-directory/managed-service-identity/overview.md), and **be sure to review the [difference between a system-assigned and user-assigned MSI](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)**. If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+If you're unfamiliar with managed identities for Azure resources, check out the [Managed identities for Azure resources overview](~/articles/active-directory/managed-identities-azure-resources/overview.md), and **be sure to review the [difference between system and user assigned managed identities](~/articles/active-directory/managed-identities-azure-resources/overview.md#how-does-it-work)**. If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.

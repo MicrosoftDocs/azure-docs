@@ -34,7 +34,8 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
+* Java modules for IoT Edge don't support Windows devices.
 
 Cloud resources:
 
@@ -43,11 +44,12 @@ Cloud resources:
 Development resources:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Visual Studio Code Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+* [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for Visual Studio Code.
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
-* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/overview/index.html), and ensure `JAVA_HOME` environment variable is set and points to your JDK installation.
+* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
+   * If you're developing on a Windows device, make sure Docker is [configured to use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 
 ## Create a container registry
@@ -99,7 +101,7 @@ The environment file stores the credentials for your container registry and shar
 
 1. In the VS Code explorer, open **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
 
-5. Import new referenced classes at the top of the file.
+5. Add the following code at the top of the file to import new referenced classes.
 
     ```java
     import java.io.StringReader;
@@ -209,7 +211,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
    ```
    Use the username, password, and login server that you copied from your Azure container registry in the first section. You can also retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, open the deployment.template.json file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **JavaModule**. The **JavaModule.image** value is set to a Linux amd64 version of the image. 
+2. In the VS Code explorer, open the deployment.template.json file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **JavaModule**. The **JavaModule.image** value is set to a Linux amd64 version of the image. Change the image version to **arm32v7** if that is your IoT Edge device's architecture. 
 
    Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
 
@@ -245,6 +247,8 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 3. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
 4. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**. 
+
+   ![Create deployment for single device](./media/tutorial-java-module/create-deployment.png)
 
 5. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
 
