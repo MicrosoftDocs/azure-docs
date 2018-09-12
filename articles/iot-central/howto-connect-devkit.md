@@ -70,7 +70,7 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
     ```
 
     > [!NOTE]
-    > If the screen displays anything else, press the **A**  and **B** buttons on the device at the same time to reboot the device. 
+    > If the screen displays anything else, reset the device and press the **A**  and **B** buttons on the device at the same time to reboot the device. 
 
 1. The device is now in access point (AP) mode. You can connect to this WiFi access point from your computer or mobile device.
 
