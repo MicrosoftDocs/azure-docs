@@ -22,7 +22,7 @@ abstract:
       src: ../media/index/luis-landing-page-video.png
       width: 250  
     title: What's new with LUIS (18:28)
-    href: https://azure.microsoft.com/en-us/resources/videos/whats-new-with-language-understanding-service-luis
+    href: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
     width: 250
 
 sections:
