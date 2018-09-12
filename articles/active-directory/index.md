@@ -19,7 +19,7 @@ ms.author: mtillman
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory Documentation</h1>
-        <p>Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and identity management service.</p>
+        <p>Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory, and identity management service.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
             <li>
