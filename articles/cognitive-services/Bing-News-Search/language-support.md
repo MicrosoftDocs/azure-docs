@@ -1,6 +1,7 @@
 ---
-title: Supported countries/regions and languages for Bing News Search API on Azure | Microsoft Docs
-description: Find out which countries/regions and languages are supported by the Bing Image Search API.
+title: Language support - Bing News Search API
+titleSuffix: Azure Cognitive Services
+description: A list of natural languages, countries and regions that are supported by the Bing News Search API.
 services: cognitive-services
 author: MikeDodaro
 manager: rosh
@@ -10,7 +11,8 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-gedod
 ---
-# Bing News Search countries/regions and languages
+
+# Language and region support for the Bing News Search API
 
 The Bing News Search API supports numerous countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 
@@ -21,13 +23,13 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 ## Supported markets for news search endpoint
 
 For the `/news/search` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
-  
+
 For a list of country/region codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
-  
+
 |Country/region|Language|Market code|  
-|---------------------|--------------|-----------------| 
+|---------------------|--------------|-----------------|
 |Denmark|Danish|da-DK|
-|Austria|German|de-AT| 
+|Austria|German|de-AT|
 |Switzerland|German|de-CH|
 |Germany|German|de-DE|
 |Australia|English|en-AU|
@@ -48,15 +50,15 @@ For a list of country/region codes that you may specify in the `cc` query parame
 |Chile|Spanish|es-CL|
 |Spain|Spanish|es-ES|
 |Mexico|Spanish|es-MX|
-|United States|Spanish|es-US| 
+|United States|Spanish|es-US|
 |Spanish|general|es-XL|
 |Finland|Finnish|fi-FI|  
 |France|French|fr-BE|
-|Canada|French|fr-CA| 
+|Canada|French|fr-CA|
 |Belgium|Dutch|nl-BE|
 |Switzerland|French|fr-CH|
 |France|French|fr-FR|  
-|Italy|Italian|it-IT| 
+|Italy|Italian|it-IT|
 |Hong Kong SAR|Traditional Chinese|zh-HK|  
 |Taiwan|Traditional Chinese|zh-TW|
 |Japan|Japanese|ja-JP|  
@@ -70,11 +72,11 @@ For a list of country/region codes that you may specify in the `cc` query parame
 
 ## Supported markets for news endpoint
 For the `/news` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
-  
+
 For a list of country/region codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
-  
+
 |Country/region|Language|Market code|  
-|---------------------|--------------|-----------------| 
+|---------------------|--------------|-----------------|
 |Denmark|Danish|da-DK|
 |Germany|German|de-DE|
 |Australia|English|en-AU|
@@ -83,21 +85,21 @@ For a list of country/region codes that you may specify in the `cc` query parame
 |English|general|en-WW|
 |Chile|Spanish|es-CL|
 |Mexico|Spanish|es-MX|
-|United States|Spanish|es-US| 
+|United States|Spanish|es-US|
 |Finland|Finnish|fi-FI|  
 |Canada|French|fr-CA|
 |France|French|fr-FR|  
-|Italy|Italian|it-IT| 
+|Italy|Italian|it-IT|
 |Brazil|Portuguese|pt-BR|
 |People's republic of China|Chinese|zh-CN|
 
 ## Supported markets for news trending endpoint
 For the `/news/trendingtopics` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
-  
+
 For a list of country/region codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
-  
+
 |Country/region|Language|Market code|  
-|---------------------|--------------|-----------------| 
+|---------------------|--------------|-----------------|
 |Germany|German|de-DE|
 |Australia|English|en-AU|
 |United Kingdom|English|en-GB|
@@ -114,7 +116,7 @@ For a list of country/region codes that you may specify in the `cc` query parame
 ### Country codes  
 
 The following are the country/region codes that you may specify in the `cc` query parameter. The list is subject to change.  
-  
+
 |Country/region|Country code|  
 |---------------------|------------------|  
 |Argentina|AR|  

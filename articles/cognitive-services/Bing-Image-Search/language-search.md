@@ -1,5 +1,6 @@
 ---
-title: Supported countries/regions and languages for Bing Image Search API on Azure | Microsoft Docs
+title: Language support - Bing Image Search API
+titleSuffix: Azure Cognitive Services
 description: Find out which countries/regions and languages are supported by the Bing Image Search API.
 services: cognitive-services
 author: v-jerkin
@@ -11,7 +12,7 @@ ms.date: 10/06/2017
 ms.author: v-jerkin
 ---
 
-# Bing Image Search countries/regions and languages
+# Language and region support for the Bing Image Search API
 
 The Bing Image Search API supports more than three dozen countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/regions or language.
 
@@ -21,9 +22,9 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 
 > [!NOTE]
 > The Trending Images API currently supports only the following markets:
-> - en-US (English, United States) 
-> - en-CA (English, Canada) 
-> - en-AU (English, Australia) 
+> - en-US (English, United States)
+> - en-CA (English, Canada)
+> - en-AU (English, Australia)
 > - zh-CN (Chinese, China)
 
 ## Countries

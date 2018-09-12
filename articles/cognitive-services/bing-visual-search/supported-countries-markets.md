@@ -1,6 +1,6 @@
 ---
-title: Supported countries/regions and languages for Bing Visual Search API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: Language support - Bing Visual Search API
+titleSuffix: Azure Cognitive Services
 description: Find out which countries/regions and languages are supported by Bing Visual Search API.
 services: cognitive-services
 author: swhite-msft
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
 ---
-# Bing Visual Search countries/regions and languages
+# Language and region support for the Bing Visual Search API
 
 Bing Visual Search API supports more than three dozen countries/regions, many with more than one language. Each request should include the user's country/region and language of choice. Knowing the user's market helps Bing return appropriate results. If you don't specify a country/region and language, Bing makes a best effort to determine the user's country/region and language. Because the results may contain links to Bing, knowing the country/region and language may provide a preferred localized Bing user experience if the user clicks the Bing links.
 
@@ -24,9 +24,9 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 
 > [!NOTE]
 > The following market restrictions apply:
-> 
-> - Image recognition annotations are available in English only. 
-> - Recipe, shopping, and pages-including insights are available in the en-US market only. 
+>
+> - Image recognition annotations are available in English only.
+> - Recipe, shopping, and pages-including insights are available in the en-US market only.
 
 
 ## Countries

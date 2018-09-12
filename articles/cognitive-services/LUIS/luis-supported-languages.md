@@ -1,6 +1,7 @@
 ---
-title: Support localization - Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
-description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set. 
+title: Language support - LUIS
+titleSuffix: Azure Cognitive Services
+description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -11,9 +12,9 @@ ms.date: 08/17/2017
 ms.author: diberry
 ---
 
-# Culture-specific understanding in LUIS apps
+# Language and region support for LUIS
 
-LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set. 
+LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 
 ## Multi-language LUIS apps
 If you need a multi-language LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use [Microsoft Translator API](../Translator/translator-info-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
@@ -22,7 +23,7 @@ If you need a multi-language LUIS client application such as a chatbot, you have
 LUIS understands utterances in the following languages:
 
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)| 
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | Canadian French |`fr-CA` |-|   -   |-|✔|
@@ -38,7 +39,7 @@ LUIS understands utterances in the following languages:
 | Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
 
 
-Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md). 
+Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md).
 
 ### *Chinese support notes
 
@@ -49,12 +50,12 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 
 ### *Japanese support notes
 
- - Because LUIS does not provide syntactic analysis and will not understand the difference between Keigo and informal Japanese, you need to incorporate the different levels of formality as training examples for your applications. 
-     - でございます is not the same as です. 
-     - です is not the same as だ. 
+ - Because LUIS does not provide syntactic analysis and will not understand the difference between Keigo and informal Japanese, you need to incorporate the different levels of formality as training examples for your applications.
+     - でございます is not the same as です.
+     - です is not the same as だ.
 
 ### **Text analytics support notes
-Text analytics includes keyPhrase prebuilt entity and sentiment analysis. Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). 
+Text analytics includes keyPhrase prebuilt entity and sentiment analysis. Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages).
 
 ### Speech API supported languages
 See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) for Speech dictation mode languages.
@@ -69,7 +70,7 @@ In the `en-us` culture, LUIS learns to distinguish most English words, including
 Hybrid languages combine words from two cultures such as English and Chinese. These languages are not supported in LUIS because an app is based on a single culture.
 
 ## Tokenization
-To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossary.md#token) based on culture. 
+To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossary.md#token) based on culture.
 
 |Language|  every space or special character | character level|compound words|[tokenized entity returned](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
@@ -85,5 +86,3 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 |Portuguese (Brazil)|✔||||
 |Spanish (es-ES)|✔||||
 |Spanish (es-MX)|✔||||
-
- 

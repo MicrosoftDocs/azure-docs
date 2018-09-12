@@ -1,6 +1,7 @@
 ---
-title: Supported Languages of Microsoft Speech Service | Microsoft Docs
-description: A list of spoken languages that are supported by Microsoft Speech Service.
+title: Language support - Speech API
+titleSuffix: Azure Cognitive Services
+description: A list of natural languages that are supported by the Speech API.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -10,11 +11,11 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# Supported languages
+# Language and region support for Speech API
 
 ## Interactive and dictation mode
 
-The Microsoft speech recognition API supports the following languages in `interactive` and `dictation` modes. 
+The Microsoft speech recognition API supports the following languages in `interactive` and `dictation` modes.
 
 |Code | Language | Code | Language |
 |-----|-----|-----|-----|
@@ -36,7 +37,7 @@ The Microsoft speech recognition API supports the following languages in `intera
 
 ## Conversation mode
 
-The Microsoft speech recognition API supports the following languages in `conversation` modes. 
+The Microsoft speech recognition API supports the following languages in `conversation` modes.
 
 | Code | Language | Code | Language |
 |-----|-----|-----|-----|

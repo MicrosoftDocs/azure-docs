@@ -1,6 +1,7 @@
 ---
-title: Languages supported by Azure Content Moderator | Microsoft Docs
-description: Here's a list of languages supported by Content Moderator.
+title: Language support - Content Moderator API
+titleSuffix: Azure Cognitive Services
+description: A list of natural languages supported by Content Moderator API
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -11,7 +12,7 @@ ms.date: 03/21/2018
 ms.author: sajagtap
 ---
 
-# Text moderation - supported languages by feature
+# Language and region support for Content Moderator API
 
 > [!NOTE]
 > For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.

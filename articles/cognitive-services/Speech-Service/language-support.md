@@ -1,7 +1,7 @@
 ---
-title: Speech service supported languages - Microsoft Cognitive Services
-description: A list of the languages supported by the Speech service.
-titleSuffix: "Microsoft Cognitive Services"
+title: Language support - Speech Service API
+description: A list of natural languages supported by Speech Service.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 
@@ -11,18 +11,19 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# Supported languages for Speech service
+
+# Language and region support for Speech Service API
 
 Different languages are supported for different Speech services functions. The tables below summarize language support.
 
 ## Speech to Text
 
-The Microsoft speech recognition API supports the following languages. 
+The Microsoft speech recognition API supports the following languages.
 
   Code | Language | Acoustic Adaptation | Language Adaptation | Pronunciation Adaptation
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
- It-IT | Italian (Italy) | No | Yes | No 
+ It-IT | Italian (Italy) | No | Yes | No
  de-DE | German (Germany) | No | Yes | Yes
  ja-JP | Japanese (Japan) | No | Yes | No
  en-US | English (United States) | Yes | Yes | Yes
@@ -64,7 +65,7 @@ en-IN | English (India) | Female | "Microsoft Server Speech Text to Speech Voice
 en-US | English (US) |Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
-| | |Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+| | |Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 es-ES | Spanish (Spain) |Female | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
@@ -160,7 +161,7 @@ You can obtain the list of languages programmatically using the REST API's Langu
 | Bulgarian      | `bg`          |
 | Cantonese (Traditional)      | `yue`          |
 | Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          | 
+| Chinese Simplified      | `zh-Hans`          |
 | Chinese Traditional      | `zh-Hant`          |
 | Croatian      | `hr`          |
 | Czech      | `cs`          |

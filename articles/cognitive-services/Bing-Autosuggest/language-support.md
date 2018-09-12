@@ -1,20 +1,20 @@
 ---
-title: Supported languages in Bing Spell Check API (Microsoft Cognitive Services on Azure) | Microsoft Docs
-description: List of generally available and preview language support for Bing Spell Check API operations.
+title: Language support - Bing Autosuggest API
+titleSuffix: Azure Cognitive Services
+description: A list of supported languages and regions for the Bing Autosuggest API.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: swhite-msft
+manager: ehansen
 ms.service: cognitive-services
-ms.component: bing-spell-check
-ms.topic: conceptual
-ms.date: 05/08/2018
-ms.author: nolachar
+ms.component: bing-autosuggest
+ms.topic: article
+ms.date: 09/26/2017
+ms.author: scottwhi
 ---
-# Supported language list and status
 
-These languages are supported by the Bing Spell Check API (only in `spell` mode). 
+# Language and region support for the Bing Autosuggest API
 
-Please note that to work with any other language than `en-US`, the `mkt` should be set and either `Accept-Language` or `setLang` should be set as it has been described in [Spell Check API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+The following lists the languages supported by Bing Autosuggest API.
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -61,5 +61,5 @@ Please note that to work with any other language than `en-US`, the `mkt` should 
 
 ## See also
 
-- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)
-- [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
+- [Azure Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)
+- [Azure Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
