@@ -208,9 +208,9 @@ ms.author: mtillman
 														<br><br>
 														<h3><a href="reports-monitoring/index.yml">Reporting and monitoring</a></h3>
                                                         <p>
-                                                            <a href="reports-monitoring/quickstart-download-sign-in-report.md">Download sign-in report</a><br>
-                                                            <a href="reports-monitoring/quickstart-download-audit-report.md">Download audit report</a><br>
-                                                            <a href="reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md">Route logs to Azure storage account</a>
+                                                            <a href="reports-monitoring/howto-find-activity-reports.md">Find activity reports</a><br>
+                                                            <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Use Azure AD logs in Azure Monitor</a><br>
+                                                            <a href="reports-monitoring/concept-reporting-api.md">Programmatic access</a>
                                                         </p>
                                                     </div>
                                                 </div>
