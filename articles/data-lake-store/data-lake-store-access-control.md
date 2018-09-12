@@ -65,10 +65,10 @@ The permissions on a filesystem object are **Read**, **Write**, and **Execute**,
 
 | Numeric form | Short form |      What it means     |
 |--------------|------------|------------------------|
-| 7            | RWX        | Read + Write + Execute |
-| 5            | R-X        | Read + Execute         |
-| 4            | R--        | Read                   |
-| 0            | ---        | No permissions         |
+| 7            | `RWX`        | Read + Write + Execute |
+| 5            | `R-X`        | Read + Execute         |
+| 4            | `R--`        | Read                   |
+| 0            | `---`        | No permissions         |
 
 
 ### Permissions do not inherit
@@ -217,9 +217,9 @@ The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. 
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   ---      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
-| umask.owning_group  |    0         |   ---      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
-| umask.other         |    7         |   RWX      | For other, remove all permissions on the child's Access ACL |
+| umask.owning_user   |    0         |   `---`      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
+| umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
+| umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's Access ACL |
 
 The umask value used by Azure Data Lake Storage Gen1 effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
