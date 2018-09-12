@@ -1,6 +1,6 @@
 ---
-title: Quickstart to learn how to use Azure SignalR Service | Microsoft Docs
-description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
+title: Quickstart - Azure SignalR Service REST API with Python | Microsoft Docs
+description: A quickstart for using the Azure SignalR Service REST API with Python.
 services: signalr
 documentationcenter: ''
 author: sffamily
@@ -9,9 +9,9 @@ editor:
 
 ms.assetid: 
 ms.service: signalr
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
+ms.tgt_pltfrm: Python
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
@@ -19,3 +19,4 @@ ms.author: zhshang
 ---
 # Quickstart: Create a chat room with Python
 
+A quickstart on how to use the REST API from a Python app. Potentially use Zhidi's demo from Ignite.

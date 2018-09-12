@@ -19,3 +19,5 @@ ms.author: zhshang
 ---
 # Tutorial: Azure SignalR Service authentication with Azure Functions
 
+A step by step tutorial to build a chat room with authentication and private messaging using Azure Functions, App Service Authentication, and SignalR Service.
+

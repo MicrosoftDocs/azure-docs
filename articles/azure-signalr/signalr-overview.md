@@ -1,6 +1,6 @@
 ---
 title: What is Azure SignalR | Microsoft Docs
-description: An overview of the Azure SignalR service.
+description: An overview of Azure SignalR service.
 services: signalr
 documentationcenter: ''
 author: sffamily

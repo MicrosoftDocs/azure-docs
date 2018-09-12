@@ -1,6 +1,6 @@
 ---
 title: Easily Scale ASP.NET Core SignalR with Azure SignalR | Microsoft Docs
-description: An overview of the Azure SignalR service.
+description: An overview of using Azure SignalR service with ASP.NET Core applications.
 services: signalr
 documentationcenter: ''
 author: sffamily

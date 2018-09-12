@@ -1,6 +1,6 @@
 ---
-title: Quickstart to learn how to use Azure SignalR Service | Microsoft Docs
-description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
+title: Quickstart - Azure SignalR Service with Azure Functions in C# | Microsoft Docs
+description: A quickstart for using Azure SignalR Service to create a chat room with Azure Functions in C#.
 services: signalr
 documentationcenter: ''
 author: sffamily
@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
+ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
@@ -19,3 +19,4 @@ ms.author: zhshang
 ---
 # Quickstart: Create a chat room with Azure Functions and Azure SignalR using C#
 
+A quickstart on how to use Azure Functions bindings and C# to build a chat room with Azure SignalR Service. 
