@@ -139,6 +139,7 @@ KeyPairLocation | Integer | Where CycleCloud will find a ssh keypair on the loca
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud.
 ReturnPath.WebserverPort | Integer | Webserver port where node can reach CycleCloud.
 ReturnPath.BrokerPort | Integer | Broker where node can reach CycleCloud.
+AuthorizedKeysPath | String | Path on node where public keypair will be placed. e.g. _/opt/cycle/home/cyclecloud/.ssh/authorized_keys_
 
 ### Tags
 

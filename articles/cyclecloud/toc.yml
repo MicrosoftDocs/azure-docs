@@ -94,6 +94,8 @@
     href: end-cluster.md
   - name: Work with Custom Images
     href: custom-images.md
+  - name: Install Jetpack
+    href: jetpack-install.md
   - name: Transfer Data
     href: transfer-data.md
   - name: Enable Return Proxy
