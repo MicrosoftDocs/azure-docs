@@ -1,6 +1,6 @@
 ---
-title: Write data with the Azure Data Prep SDK
-description: Learn about writing data with Azure Data Prep SDK
+title: Write data with the Azure Machine Learning Data Prep SDK
+description: Learn about writing data with Azure Machine Learning Data Prep SDK
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,20 +9,19 @@ ms.author: cforbe
 author: cforbe
 ms.date: 08/30/2018
 ---
-
-# Writing data with the data preparation SDK
-It is possible to write out the data at any point in a Dataflow. These writes are added as steps to the resulting Dataflow and will be executed every time the Dataflow is executed. Since there are no limitations to how many write steps there are in a pipeline, this makes it easy to write out intermediate results for troubleshooting or to be picked up by other pipelines. It is important to note that the run of each write results in a full pull of the data in the Dataflow. A Dataflow with three write steps will, for example, read and process every record in the dataset three times.
+# Write data with the Azure Machine Learning Data Prep SDK
+You can write out data at any point in a data flow. These writes are added as steps to the resulting data flow and are run every time the data flow is. Since there are no limitations to how many write steps there are in a pipeline, it is easy to write out intermediate results for troubleshooting or to be picked up by other pipelines. It is important to note that the run of each write step results in a full pull of the data in the data flow. For example, a data flow with three write steps will read and process every record in the dataset three times.
 
 ## Writing to files
-Data can be written to files in any of our supported locations (Local File System, Azure Blob Storage, and Azure Data Lake Storage). In order to parallelize the write, the data is written to multiple partition files. A sentinel file named SUCCESS is also output once the write has completed. This makes it possible to identify when an intermediate write has completed without having to wait for the whole pipeline to complete.
+With the Azure Machine Learning Data Prep SDK, you can write data to files in any of our supported locations (local file system, Azure Blob Storage, and Azure Data Lake Storage). Data is written to multiple partition files to allow parallel writes. Once a write is completed, a sentinel file named SUCCESS is also generated. This helps you identify when an intermediate write has completed without having to wait for the whole pipeline to complete.
 
-When running a Dataflow in Spark, attempting to run a write to an existing folder will fail. It is important to ensure the folder is empty or use a different target location for each run.
+When running a data flow in Spark, you must write to an empty folder. attempting to run a write to an existing folder will fail. Make sure your target folder is empty or use a different target location for each run, or the write will fail.
 
-The following file formats are currently supported:
--	Delimited Files (CSV, TSV, etc.)
--	Parquet Files
+The Azure Machine Learning Data Prep SDK supports the following file formats:
+-	Delimited files (CSV, TSV, etc.)
+-	Parquet files
 
-We'll start by loading data into a Dataflow. We will re-use this with different formats.
+For this example, start by loading data into a data flow. We will reuse this data with different formats.
 
 ```
 
@@ -46,13 +45,12 @@ t.head(10)
 |9|	10030.0|	99999.0|	None|	NO|	SV|		|77000.0|	15500.0|	120.0|
 
 ## Delimited files
-The line below creates a new Dataflow with a write step, but the actual write has not been
-run yet. When the Dataflow is run, the write will take place.
+The line below creates a new data flow with a write step, but the actual write has not yet occurred. When the data flow runs, the write will execute.
 
 ```
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
 ```
-We now run the Dataflow, which runs the write operation.
+Now run the data flow, which runs the write operation.
 ```
 write_t.run_local()
 
@@ -72,7 +70,7 @@ written_files.head(10)
 |8| 10020.0|    99999.0|    ERROR |   NO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    ERROR |   NO| SV|     |77000.0|   15500.0|    120.0|
 
-The data we wrote out contains several errors in the numeric columns due to numbers that we were unable to parse. When written out to CSV, these are replaced with the string "ERROR" by default. We can parameterize this as part of our write call. In the same vein, it is also possible to set what string to use to represent null values.
+The written data contains several errors in the numeric columns because of numbers that were not parsed correctly. When written to CSV, these null values are replaced with the string "ERROR" by default. You can add parameters as part of your write call and specify a string to use to represent null values.
 
 ```
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
@@ -96,13 +94,13 @@ written_files.head(10)
 |9| 10030.0|    99999.0|    BadData |   NO| SV|     |77000.0|   15500.0|    120.0|
 ## Parquet files
 
- Similarly to `write_to_csv` above, `write_to_parquet` returns a new Dataflow with a write Parquet step which hasn't been executed yet.
+ Similarly to the `write_to_csv` function above, `write_to_parquet` returns a new data flow with a write Parquet step that will be executed when the data flow runs.
 
 ```
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
 error='MiscreantData')
 ```
- We now execute the Dataflow, which executes the write operation.
+ We now run the data flow, which executes the write operation.
 
 ```
 write_parquet_t.run_local()
