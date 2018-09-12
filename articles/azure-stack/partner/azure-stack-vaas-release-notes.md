@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Release notes for validation as a service
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 This article contains the release notes for Azure Stack validation as a service.
 

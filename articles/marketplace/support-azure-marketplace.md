@@ -38,7 +38,8 @@ The support options for the Marketplace.
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Slack environment to support Partners with technical issues. There about 350+ Partners currently working in this environment. |  
 | MSDN forums: Marketplace located at [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network forum. |  
 | Stack Overflow: Azure located at [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow environment to get solutions and ask questions about everything related to Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace located at [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager located at [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines on Azure located at [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers on Azure located at [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-| Support for AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Support publishing for you Dynamics Apps |
+| Support for AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Support publishing for Dynamics Apps |
+
 ## Marketing resources  
 
 | Support channel | Description | Availability |  

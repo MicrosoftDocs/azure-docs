@@ -107,16 +107,6 @@ The Azure Active Directory team publishes the My Apps mobile app. When you insta
 
 > [!NOTE]
 > You can sign in to applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and more than 70 others) on virtually any web browser, on any device, without needing a plug-in or mobile app. To be used on a mobile device, the other [MyApps portal experiences](https://myapps.microsoft.com/) also do not require the My Apps mobile app.
->
->
-
-### My Apps for Android
-
-My Apps for Android is supported on any Android device that is running Android version 4.1 or later.  
-
-It is available at the [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![My Apps for Android][3]   
 
 ### My Apps for iPhone and iPad
 
@@ -127,13 +117,13 @@ It is available at the [Apple App Store](https://itunes.apple.com/us/app/my-apps
 ![My Apps for iOS][4]    
 
 
-## Managed browser for My Apps
+## Intune Managed Browser for My Apps
 
-My Apps is also integrated with the Intune Managed Browser. The Intune Managed Browser for iOS and Android devices plays a key role in helping ensure that data on mobile devices stays secure. The browser lets you safely view and navigate webpages that might contain company information, and it helps provide a secure web-browsing experience.  
+My Apps is also integrated with the Intune Managed Browser. The Intune Managed Browser for iOS and Android devices helps you to more safely view and navigate webpages that might contain company information, helping to provide a more secure web-browsing experience.  
 
-You get quick access to My Apps on your Managed Browser home page and in your bookmarks, so fewer clicks are required to reach any application you want to access.
+You can get to My Apps from both the Managed Browser home page and from your bookmarks, which means there are fewer clicks needed to reach your apps.
 
-Intune Managed Browser is available at the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Intune Managed Browser is available at the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
 ![Managed browser for My Apps][5]    
 
@@ -214,11 +204,10 @@ For example, if an application is configured to authenticate users by using AD F
  
 - To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
  
-- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md).
+- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png

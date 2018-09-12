@@ -68,7 +68,7 @@ Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes developmen
 
 For more information, see [Azure Dev Spaces][azure-dev-spaces].
 
-Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in VSTS that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
+Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in Azure DevOps Services that includes a build pipeline for CI, sets up a release pipeline for CD, and then creates an Azure Application Insights resource for monitoring.
 
 For more information, see [Azure DevOps project][azure-devops].
 
