@@ -11,7 +11,7 @@ ms.author: victorh
 
 # FQDN tags overview
 
-An FQDN tag represents a group of fully qualified domain names (FQDNs) associated with well known Azure services. You can use an FQDN tag in application rules to allow the required outbound network traffic through your firewall.
+A FQDN tag represents a group of fully qualified domain names (FQDNs) associated with well known Microsoft services. You can use a FQDN tag in application rules to allow the required outbound network traffic through your firewall.
 
 For example, to manually allow Windows Update network traffic through your firewall, you need to create multiple application rules per the Microsoft documentation. Using FQDN tags, you can create an application rule, include the **Windows Updates** tag, and now network traffic to Microsoft Windows Update endpoints can flow through your firewall.
 
