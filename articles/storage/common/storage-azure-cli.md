@@ -99,7 +99,7 @@ Next, we'll work with a small shell script that issues a few basic Azure CLI com
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -204,7 +204,7 @@ Now that you have the key, you can define it and the account name as environment
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 Another way to set a default storage account is by using a connection string. First, get the connection string with the `show-connection-string` command:
@@ -222,7 +222,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> All examples in the following sections of this article assume that you've set the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY` environment variables.
+> All examples in the following sections of this article assume that you've set the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY` environment variables.
 
 ## Create and manage blobs
 Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts).
@@ -251,6 +251,8 @@ az storage blob upload \
     --container-name <container_name> \
     --name <blob_name>
 ```
+
+If you would like to upload directly into a folder inside the container in your storage account, replace `--name <blob_name>` with `--name <folder/blob_name>`.
 
  By default, the `blob upload` command uploads *.vhd files to page blobs, or block blobs otherwise. To specify another type when you upload a blob, you can use the `--type` argument--allowed values are `append`, `block`, and `page`.
 

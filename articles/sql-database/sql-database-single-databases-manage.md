@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 
 ---
 
 # Create and manage logical servers and single databases in Azure SQL Database 
 
-You can create and manage Azure SQL Databases logical servers and single databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
+You can create and manage Azure SQL database logical servers and single databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
 
 ## Azure portal: Manage logical servers and databases
 
@@ -34,7 +34,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 > [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
+To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md)
 
 ### Manage an existing SQL server
 
@@ -81,7 +81,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 To create and manage Azure SQL server, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create a single Azure SQL database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Description |

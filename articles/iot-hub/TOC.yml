@@ -300,8 +300,6 @@
         href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Extended IoT scenarios
       items:
-      - name: Manage cloud device messaging with iothub-explorer
-        href: iot-hub-explorer-cloud-device-messaging.md
       - name: Manage cloud device messaging with Azure IoT Toolkit for VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
       - name: Save IoT Hub messages to Azure Blob storage
@@ -314,8 +312,6 @@
         href: iot-hub-weather-forecast-machine-learning.md
       - name: Device management with Azure IoT Toolkit for VS Code
         href: iot-hub-device-management-iot-toolkit.md
-      - name: Device management with iothub-explorer
-        href: iot-hub-device-management-iothub-explorer.md
       - name: Device management with IoT extension for Azure CLI
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Remote monitoring and notifications with ​Logic ​Apps
@@ -404,8 +400,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: iothub-explorer tool
-    href: https://github.com/Azure/iothub-explorer
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum

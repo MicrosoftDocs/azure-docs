@@ -6,7 +6,7 @@ author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
 
@@ -138,7 +138,7 @@ Publish this app to Azure to see it live as a web app, and to see that you can f
 
 ## Enable a managed identity for the web app
 
-Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-service-identity/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 1. Return to the Azure CLI.
 2. Run the assign-identity command to create the identity for this application:
@@ -164,7 +164,7 @@ Then, run this command by using the name of your key vault and the value of **Pr
 
 ```azurecli
 
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
 
