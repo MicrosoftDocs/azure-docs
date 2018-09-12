@@ -18,15 +18,15 @@ This topic describes some concepts of the Video Indexer service.
  	
 ## Summarized insights
 
-Summarized insights contain an aggregated view of the data: faces, topics, sentiments. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
+Summarized insights contain an aggregated view of the data: faces, topics, emotions. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
 
 ## Topics
 
-Topics are in the list of key phrases that Video Indexer extracts from the text. For example, a Scott Guthrie video might contain the following topics: Security, Azure, Microsoft Cloud, Revenue.
+Video Indexer makes inference of main topics from transcripts. The 1st-level IPTC taxonomy is included.
 
-## Sentiments
+## Emotion 
 
-When Video Indexer analyzes transcripts, it detects sentiments as well. For example, "this is a very exciting event" is a positive sentiment.
+Video Indexer analyzes emotional moments based on speech and audio cues and divides them to: joy, sadness, anger, fear.
 
 ## time range vs. adjusted time range
 
