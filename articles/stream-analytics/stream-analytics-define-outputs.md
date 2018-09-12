@@ -143,7 +143,7 @@ Once you have the Power BI account authenticated, you can configure the properti
 | Property name | description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this PowerBI output. |
-| Group workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
+| Group workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose "My Workspace" if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
 | Dataset name |Provide a dataset name that it is desired for the Power BI output to use |
 | Table name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
 
@@ -167,7 +167,7 @@ bigint | Int64
 nvarchar(max) | String
 datetime | Datetime
 float | Double
-Record array | String type, Constant value “IRecord” or “IArray”
+Record array | String type, Constant value "IRecord" or "IArray"
 
 ### Schema Update
 Stream Analytics infers the data model schema based on the first set of events in the output. Later, if necessary, the data model schema is updated to accommodate incoming events that may not fit into the original schema.

@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/11/2018
+ms.date: 09/06/2018
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
@@ -71,7 +71,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -124,7 +124,7 @@ Create the Terraform configuration file that declares the resources for the Kube
         agent_pool_profile {
             name            = "default"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS2_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }

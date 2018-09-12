@@ -422,4 +422,4 @@ For more information, see the [Python Developer Center](https://azure.microsoft.
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[cloud service]:/services/cloud-services/
+[cloud service]:/azure/cloud-services/
