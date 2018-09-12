@@ -15,10 +15,14 @@
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Tutorials
   items:
-  - name: Create encrypted storage account
+  - name: Create an encrypted storage account
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Create multiple resources
+  - name: Create multiple storage account instances
+    href: resource-manager-tutorial-create-multiple-instances.md
+  - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+  - name: Create linked templates
+    href: resource-manager-tutorial-create-linked-templates.md
 - name: Concepts
   items:
   - name: Resource providers and types
@@ -91,7 +95,7 @@
       href: resource-group-template-deploy-rest.md
     - name: Multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
-    - name: Continuous integration with Visual Studio Team Services
+    - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
     - name: Pass secure values during deployment

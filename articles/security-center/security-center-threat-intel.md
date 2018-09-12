@@ -1,6 +1,6 @@
 ---
-title: Threat intelligence in Azure Security Center | Microsoft Docs
-description: Learn how to use the threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
+title: Threat intelligence and Security alert map in Azure Security Center | Microsoft Docs
+description: Learn how to use the secuity alert map and threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -10,14 +10,14 @@ editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 
 ---
-# Security alerts map Azure Security Center
+# Security alerts map and threat intelligence
 This article helps you to use the Azure Security Center security alerts map and security event-based threat intelligence map to address security-related issues.
 
 ## How the security alerts map works
@@ -46,7 +46,8 @@ The security alerts map is based on alerts. These alerts are based on activities
 The map provides alerts across any subscriptions you previously selected in Azure. 
 
 The alerts on the map are displayed according to the geographical location where they are detected as originating from, and they are color coded by severity. 
- 
+ 	![Threat intelligence information](./media/security-center-threat-intel/security-center-alert-map.png)
+
 ## Viewing the event-based Threat intelligence dashboard
 To view the Threat intelligence map based on raw security events, you can follow this procedure. This map displays only events that involve an IP address that is considered risk, for example an IP address of a known botnet.
 

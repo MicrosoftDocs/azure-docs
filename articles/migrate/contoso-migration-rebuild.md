@@ -18,19 +18,21 @@ This document is one in a series of articles that show how the fictitious compan
 
 **Article** | **Details** | **Status**
 --- | --- | ---
-[Article 1: Overview](contoso-migration-overview.md) | Overview of the article series, Contoso's migration strategy, and the sample apps that are used in the series. | Available
-[Article 2: Deploy Azure infrastructure](contoso-migration-infrastructure.md) | Contoso prepares its on-premises infrastructure and its Azure infrastructure for migration. The same infrastructure is used for all migration articles in the series. | Available
-[Article 3: Assess on-premises resources for migration to Azure](contoso-migration-assessment.md)  | Contoso runs an assessment of its on-premises SmartHotel360 app running on VMware. Contoso assesses app VMs using the Azure Migrate service, and the app SQL Server database using Data Migration Assistant. | Available
-[Article 4: Rehost an app on an Azure VM and SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso runs a lift-and-shift migration to Azure for its on-premises SmartHotel360 app. Contoso migrates the app front-end VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrates the app database to an Azure SQL Database Managed Instance using the [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Available	
-[Article 5: Rehost an app on Azure VMs](contoso-migration-rehost-vm.md) | Contoso migrates its SmartHotel360 app VMs to Azure VMs by using the Site Recovery service. | Available	[Article 5: Rehost an app on Azure VMs](contoso-migration-rehost-vm.md) | Contoso migrates its SmartHotel360 app VMs to Azure VMs using the Site Recovery service. | Available
-[Article 6: Rehost an app on Azure VMs and in a  SQL Server AlwaysOn availability group](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrates the SmartHotel360 app. Contoso uses Site Recovery to migrate the app VMs. It uses the Database Migration Service to migrate the app database to a SQL Server cluster that's protected by an AlwaysOn availability group. | Available	[Article 7: Rehost a Linux app on Azure VMs](contoso-migration-rehost-linux-vm.md) | Contoso completes a lift-and-shift migration of its Linux osTicket app to Azure VMs, using the Site Recovery service. | Available
-[Article 8: Rehost a Linux app on Azure VMs and Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrates its Linux osTicket app to Azure VMs by using Site Recovery. It migrates the app database to Azure Database for MySQL by using MySQL Workbench. | Available
-[Article 9: Refactor an app in an Azure web app and Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrates its SmartHotel360 app to an Azure web app and migrates the app database to an Azure SQL Server instance with the Database Migration Assistant. | Available	
-[Article 10: Refactor a Linux app in an Azure web app and Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrates its Linux osTicket app to an Azure web app on multiple Azure regions using Azure Traffic Manager, integrated with GitHub for continuous delivery. Contoso migrates the app database to an Azure Database for MySQL instance. | Available
-[Article 11: Refactor Team Foundation Server on Visual Studio Team Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Visual Studio Team Services in Azure. | Available
-[Article 12: Rearchitect an app in Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel360 app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the database with Azure SQL Database. | Available	
-Article 13: Rebuild an app in Azure | Contoso rebuilds its SmartHotel360 app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | This article
+[Article 1: Overview](contoso-migration-overview.md) | Provides an overview of Contoso's migration strategy, the article series, and the sample apps we use. | Available
+[Article 2: Deploy an Azure infrastructure](contoso-migration-infrastructure.md) | Describes how Contoso prepares its on-premises and Azure infrastructure for migration. The same infrastructure is used for all migration articles. | Available
+[Article 3: Assess on-premises resources](contoso-migration-assessment.md)  | Shows how Contoso runs an assessment of an on-premises two-tier SmartHotel360 app running on VMware. Contoso assesses app VMs with the [Azure Migrate](migrate-overview.md) service, and the app SQL Server database with the [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Available
+[Article 4: Rehost an app on Azure VMs and a SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstrates how Contoso runs a lift-and-shift migration to Azure for the SmartHotel360 app. Contoso migrates the app frontend VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database to a SQL Managed Instance, using the [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Available
+[Article 5: Rehost an app on Azure VMs](contoso-migration-rehost-vm.md) | Shows how Contoso migrate the SmartHotel360 app VMs using Site Recovery only. | Available
+[Article 6: Rehost an app to Azure VMs and SQL Server Always On Availability Group](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel360 app. Contoso uses Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server cluster protected by an AlwaysOn availability group. | Available
+[Article 7: Rehost a Linux app on Azure VMs](contoso-migration-rehost-linux-vm.md) | Shows how Contoso does a lift-and-shift migration of the Linux osTicket app to Azure VMs, using Site Recovery | Available
+[Article 8: Rehost a Linux app on Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery, and migrates the app database to an Azure MySQL Server instance using MySQL Workbench. | Available
+[Article 9: Refactor an app on Azure Web Apps and Azure SQL database](contoso-migration-refactor-web-app-sql.md) | Demonstrates how Contoso migrates the SmartHotel360 app to an Azure Web App, and migrates the app database to Azure SQL Server instance | Available
+[Article 10: Refactor a Linux app to Azure Web Apps and Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Shows how Contoso migrates the Linux osTicket app to Azure Web Apps in multiple sites, integrated with GitHub for continuous delivery. They migrate the app database to an Azure MySQL instance. | Available
+[Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Shows how Contoso migrates the on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. | Available
+[Article 12: Rearchitect an app to Azure containers and SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
+Article 13: Rebuild an app to Azure | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | This article.
 
+In this article, Contoso migrates the two-tier Windows. NET SmartHotel360 app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## Business drivers
 
@@ -72,10 +74,10 @@ After pinning down goals and requirements, Contoso designs and review a deployme
 - The frontend of the app is deployed as an Azure App Services Web app, in the primary Azure region.
 - An Azure function provides uploads of pet photos, and the site interacts with this functionality.
 - The pet photo function leverages Cognitive Services Vision API, and CosmosDB.
-- The back end of the site uses microservices. These are deployed to containers managed on the Azure Kubernetes service (AKS).
-- Containers are built using VSTS, and pushed to the Azure Container Registry (ACR).
-- For now, Contoso manually deploys the Web app and function code using Visual Studio.
-- Microservices are deployed using a PowerShell script that calls Kubernetes command-line tools.
+- The back end of the site is built using microservices. These will be deployed to containers managed on the Azure Kubernetes service (AKS).
+- Containers will be built using Azure DevOps, and pushed to the Azure Container Registry (ACR).
+- For now, Contoso will manually deploy the Web app and function code using Visual Studio.
+- Microservices will be deployed using a PowerShell script that calls Kubernetes command-line tools.
 
     ![Scenario architecture](./media/contoso-migration-rebuild/architecture.png) 
 
@@ -93,17 +95,11 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 ### Migration process
 
-1. Contoso prepares and provisions the services and infrastructure they need:
-
- - A managed Kubernetes cluster using AKS and ACR.
- - A Cosmos DB for pet photos.
- - An Azure Function to provide uploads of pet photos.
- - A storage acccount to hold containers for pet photos and front-end app settings.
- - Computer Vision API to evaluate pet photos for the app.
- - An Azure Web app.
- 
-2. After the infrastructure is in place, Contoso sets up a DevOps build and release pipeline to create, push, and continually integrate the containers to the ACR.  
-3. Finally, Contoso deploys VSTS projects for the front-end of the site, and sets up a pipeline to push and continually integrate the code into Azure.
+1. Contoso provision the ACR, AKS, and CosmosDB.
+2. They provision the infrastructure for the deployment, including the Azure Web App, storage account, function, and API. 
+3. After the infrastructure is in place, they'll build their microservices container images using Azure DevOps, which pushes them to the ACR.
+4. Contoso will deploy these microservices to ASK using a PowerShell script.
+5. Finally, they'll deploy the Azure function and Web App.
 
     ![Migration process](./media/contoso-migration-rebuild/migration-process.png) 
 
@@ -133,10 +129,12 @@ Here's what Contoso needs for this scenario:
 Here's how Contoso will run the migration:
 
 > [!div class="checklist"]
-> * **Step 1: Provision back-end resources**: Contoso provisions the managed Kubernetes cluster using AKS and the Azure container registry.
-> * **Step 2: Set up a pipeline for the back-end**: Contoso sets up a DevOps workflow. They import the git repo into VSTS, and create a new build pipeline. They build Docker containers, and pushes them to the ACR. AFter the build process the new repos (populated with the containers) will appear in the ACR. Contoso then deploys the rest of the backend infrastructure, to migrate the backend.
-> * **Step 3: Provision front-end resources**: Contoso deploys the front-end infrastructure, including blob storage for the pet photos, the Cosmos database to store documents with pet information, and the Vision API for the website.
-> * **Step 4: Set up a pipeline for the front-end**: Contoso publishes the SmartHotel360 app to the Azure App service, and deploys the PetCheck function app. This is handled in two separate pipelines to allow for different release cycles.
+> * **Step 1: Provision AKS and ACR**: Contoso provisions the managed AKS cluster and Azure container registry using PowerShell
+> * **Step 2: Build Docker containers**: They set up CI for Docker containers using Azure DevOps, and push them to the ACR.
+> * **Step 3: Deploy back-end microservices**: They deploy the rest of the infrastructure that will be leveraged by back-end microservices.
+> * **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, inlcuding blob storage for the pet phones, the Cosmos DB, and Vision API.
+> * **Step 5: Migrate the back end**: They deploy microservices and run on AKS, to migrate the back end.
+> * **Step 6: Publish the front end**: They publish the SmartHotel360 app to the Azure App service, and the Function App that will be called by the pet service.
 
 
 
@@ -210,68 +208,68 @@ The Contoso admins provision as follows:
 
 ## Step 2: Configure the back-end pipeline
 
-### Create a VSTS project and build the pipeline
+### Create an Azure DevOps project and build
 
-Contoso admins create a VSTS project, and configure a CI Build to create the container and then pushes it to the ACR. The instructions in this section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repository.
+Contoso creates an Azure DevOps project, and configures a CI Build to create the container and then pushes it to the ACR. The instructions in this section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repository.r
 
-1. From visualstudio.com, they create a new account (**contosodevops360.visualstudio.com**), and configure it to use Git.
+1. From visualstudio.com, they create a new organization (**contosodevops360.visualstudio.com**), and configure it to use Git.
 
 2. They create a new project (**SmartHotelBackend**) using Git for version control, and Agile for the workflow.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts1.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
 3. They import the GitHub repo.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts2.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. In **Build and Release**, they create a new build pipeline using VSTS Git as a source, from the imported **SmartHotelBackend** repository. 
+4. In **Build and Release**, they create a new pipeline using Azure Repos Git as a source, from the imported **smarthotel** repository. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts3.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
 6. They select to start with an empty pipeline.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts4.png)  
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
-7. They select **Hosted Linux Preview** for the build definition.
+7. They select **Hosted Linux Preview** for the build pipeline.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts5.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts5.png) 
  
 8. In **Phase 1**, they add a **Docker Compose** task. This task builds the Docker compose.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts6.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts6.png) 
 
 9. They repeat and add another **Docker Compose** task. This one pushes the containers to ACR.
 
-     ![VSTS](./media/contoso-migration-rebuild/vsts7.png) 
+     ![Azure DevOps](./media/contoso-migration-rebuild/vsts7.png) 
 
 8. They select the first task (to build), and configure the build with the Azure subscription, authorization, and the ACR. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts8.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-9. They specify the path of the **docket-compose.yaml** file, in the **src** folder of the repo. They select to build service images, and include the latest tag. When the action changes to **Build service images**, the name of the VSTS task changes to **Build services automatically**
+9. They specify the path of the **docket-compose.yaml** file, in the **src** folder of the repo. They select to build service images, and include the latest tag. When the action changes to **Build service images**, the name of the Azure DevOps task changes to **Build services automatically**
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts9.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 
 10. Now, they configure the second Docker task (to push). They select the subscription and the **smarthotelacreus2** ACR. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts10.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts10.png)
 
-11. Again, they enter the file to the docker-compose.yaml file, and select **Push service images** and include the latest tag. When the action changes to **Push service images**, the name of the VSTS task changes to **Push services automatically**
+11. Again, they enter the file to the docker-compose.yaml file, and select **Push service images** and include the latest tag. When the action changes to **Push service images**, the name of the Azure DevOps task changes to **Push services automatically**
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts11.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts11.png)
 
-12. With the VSTS tasks configured, Contoso admins save the build definition, and start the build process.
+12. With the Azure DevOps tasks configured, Contoso saves the build pipeline, and starts the build process.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts12.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts12.png)
 
 13. They click on the build job to check progress.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts13.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts13.png)
 
 14. After the build finishes, the ACR shows the new repos, which are populated with the containers used by the microservices.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts14.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts14.png)
 
 
 ### Deploy the back-end infrastructure
