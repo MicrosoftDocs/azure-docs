@@ -311,7 +311,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 3. On the **Add a Route** pane, click +**Add** next to the Endpoint field. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane. 
 
-   ![Screenshot adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sb-ep.png)
+   ![Screenshot adding a service bus endpoint](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
 4. Fill in the fields:
 
