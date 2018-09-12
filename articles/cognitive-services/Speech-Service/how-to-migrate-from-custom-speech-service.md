@@ -1,7 +1,7 @@
 ---
-title: Migrate from custom speech serivce - Unified - Speech service
+title: Migrate from custom speech serivce - Speech service
 titlesuffix: Azure Cognitive Services 
-description: Learn how to migration from the Custom Speech service to the unified Speech Service.
+description: Learn how to migration from the Custom Speech service to the Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -12,15 +12,15 @@ ms.date: 09/24/2018
 ms.author: panosper
 ---
 # Migration guide for Custom Speech service
-Learn how to migrate from the Custom Speech service to the unified Speech Service.
+Learn how to migrate from the Custom Speech service to the **Speech Service**.
 
-Custom Speech Service and its corresponding Client libraries and APIs are being deprecated. Switch to the unified Speech Service and SDK to benefit from the latest quality and feature updates. 
+Custom Speech Service and its corresponding Client libraries and APIs are being deprecated. Switch to the Speech Service and SDK to benefit from the latest quality and feature updates. 
  
 ## Migration for new customers
 
-The pricing model is simpler, moving to an hour-based pricing model for the unified Speech Service.   
+The pricing model is simpler, moving to an hour-based pricing model for the Speech Service.   
 
-1. Create an Azure resource in each region where your application is available. The new Azure resource name is **Speech**. You can use a single Azure resource for the following services in the same region, instead of creating separate resources:
+1. Create an Azure resource in each region where your application is available. The Azure resource name is **Speech**. You can use a single Azure resource for the following services in the same region, instead of creating separate resources:
 
     * Speech-to-text
     * Custom speech-to-text
