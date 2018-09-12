@@ -82,7 +82,7 @@ After you've created your custom branding, you can go back and change anything y
 
 2. Select **Azure Active Directory**, and then select **Company branding**, and then select **Configure**.
 
-    ![Contoso - Company branding blade, with default configuration shown](media/customize-branding/company-branding-configure-button.png) - Update
+    ![Contoso - Company branding blade, with default configuration shown](media/customize-branding/company-branding-default-config.png)
 
 3. On the **Configure company branding** blade, add, remove or change any of the information, based on the descriptions in the [Customize your Azure AD sign-in page](#customize-your-azure-ad-sign-in-page) section of this article.
 
@@ -99,12 +99,12 @@ You can't change your original configuration's language from your default langua
 
 2. Select **Azure Active Directory**, and then select **Company branding**, and then select **New language**.
 
-    ![Contoso - Company branding blade, with New language option highlighted](media/customize-branding/company-branding-configure-button.png) - UPDATE
+    ![Contoso - Company branding blade, with New language option highlighted](media/customize-branding/company-branding-new-language.png)
 
-3. On the **Configure company branding** blade, select your language and then add your language-specific information, based on the descriptions in the [Customize your Azure AD sign-in page](#customize-your-azure-ad-sign-in-page) section of this article.
+3. On the **Configure company branding** blade, select your language (for example, French) and then add your translated information, based on the descriptions in the [Customize your Azure AD sign-in page](#customize-your-azure-ad-sign-in-page) section of this article.
 
 4. Select **Save**.
 
-  The **Contoso – Company branding** blade updates to show your new configuration.
+    The **Contoso – Company branding** blade updates to show your new French configuration.
 
-  IMAGE
+    ![Contoso - Company branding blade, with default configuration shown](media/customize-branding/company-branding-french-config.png)
