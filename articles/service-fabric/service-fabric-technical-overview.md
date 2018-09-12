@@ -35,11 +35,13 @@ The concepts listed in this section are also discussed in the following Microsof
 
 ### Service Fabric Mesh Application concepts
 
+**Application**: An application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of services, a network, volumes, and code packages. An application resource is defined using the Azure Resource Model schema.
+
 **Resources**: Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using the Azure Resource Model schema. Each resource is described declaratively in a resource file, which is a simple YAML or JSON document that describes the Mesh Application, and is provisioned by the Service Fabric platform. 
 
 **Application resource**: An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice.
 
-**Service resource**: Each Service resource is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
+**Service**: A service in an application represents a microservice. Each service is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
 
 **Volume resource**: Volumes are directories that get mounted inside your container instances that you can use to persist state. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
 
@@ -56,7 +58,7 @@ All the code packages defined as part of an application resource are deployed an
 
 ### Service Fabric Native Application concepts
 
-**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. Two different types of application run on Service Fabric: Service Fabric Mesh Applications and Service Fabric Native Applications.
+**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. 
 
 **Service**: A service performs a complete and standalone function and can start and run independently of other services. A service is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service.
 
