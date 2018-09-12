@@ -23,9 +23,9 @@ ms.author: anavin
 
 A public IP address prefix is a contiguous range of IP addresses for your public endpoints in Azure. Azure allocates a contiguous range of addresses to your subscription based on how many you specify. If you're not familiar with public addresses, see [Public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
-Public IP addresses are assigned from a pool of addresses in each Azure region. You can [download](https://www.microsoft.com/en-us/download/details.aspx?id=41653) the list of ranges Azure uses for each region. For example, 40.121.0.0/16 is one of over 100 ranges Azure uses in the East US region. The range includes the usable addresses of 40.121.0.1 - 40.121.255.254.
+Public IP addresses are assigned from a pool of addresses in each Azure region. You can [download](https://www.microsoft.com/download/details.aspx?id=41653) the list of ranges Azure uses for each region. For example, 40.121.0.0/16 is one of over 100 ranges Azure uses in the East US region. The range includes the usable addresses of 40.121.0.1 - 40.121.255.254.
 
-You create a public IP address prefix in an Azure region and subscription by specifying a name, and how many addresses you want the prefix to include. For example, If you create a public IP address prefix of /28, Azure allocates 16 addresses from one of its ranges for you. You don't know which range Azure will assign until you create the range, but the addresses are contiguous. Public IP address prefixes have a fee. For details, see [[public IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses).
+You create a public IP address prefix in an Azure region and subscription by specifying a name, and how many addresses you want the prefix to include. For example, If you create a public IP address prefix of /28, Azure allocates 16 addresses from one of its ranges for you. You don't know which range Azure will assign until you create the range, but the addresses are contiguous. Public IP address prefixes have a fee. For details, see [public IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 > [!IMPORTANT]
 > Public IP Prefix is in a public preview in limited regions. You can [learn what it means to be in preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Public IP prefix is currently available in: West Central US, West US, West US 2, Central US, North Europe, West Europe, and Southeast Asia. For an updated list of regions, please visit [Azure updates](https://azure.microsoft.com/updates/?product=virtual-network).
@@ -50,7 +50,7 @@ You can associate the following resources to a static public IP address from a p
 |---|---|---|
 |Virtual Machines| Associating public IPs from a prefix to your virtual machines in Azure reduces management overhead when it comes to whitelisting IPs in a firewall. You can simply whitelist an entire prefix with a single firewall rule. As you scale with virtual machines in Azure, you can associate IPs from the same prefix saving cost, time, and management overhead.| To associate IPs from a prefix to your virtual machine: 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. [Associate the IP to your virtual machine's network interface.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Load Balancers | Associating public IPs from a prefix to your frontend IP configuration or outbound rule of a Load Balancer ensures simplification of your Azure public IP address space. You can simplify your scenario by grooming outbound connections to be originated from a range of contiguous IP addresses defined by  public IP prefix. | |
-| Azure Firewall | You can use a public IP from a prefix for outbound SNAT. This means all outbound virtual network traffic is translated to the [Azure Firewall](../azure/firewall/overview.md) public IP. Since this IP comes from a predetermined prefix, it is very easy to know ahead of time what your public IP footprint in Azure will look like. | 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. When you [deploy the Azure firewall](../azure/firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall), be sure to select the IP you previosuly allocated from the prefix.|
+| Azure Firewall | You can use a public IP from a prefix for outbound SNAT. This means all outbound virtual network traffic is translated to the [Azure Firewall](../firewall/overview.md) public IP. Since this IP comes from a predetermined prefix, it is very easy to know ahead of time what your public IP footprint in Azure will look like. | 1. [Create a prefix.](manage-public-ip-address-prefix.md) 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) 3. When you [deploy the Azure firewall](../firewall/tutorial-firewall-deploy-portal.md), be sure to select the IP you previosuly allocated from the prefix.|
 
 ## Constraints
 
@@ -58,11 +58,12 @@ You can associate the following resources to a static public IP address from a p
 - You can't change the range, once you've created the prefix.
 - The range is for IPv4 addresses only. The range does not contain IPv6 addresses.
 - Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
-- Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses cannot be assigned resources in the classic deployment model.
-- All public IP addresses created with from the prefix must exist in the same Azure region and subscription as the prefix, and must be assigned to resources in the same region and subscription.
+- Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses cannot be assigned to resources in the classic deployment model.
+- All public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix, and must be assigned to resources in the same region and subscription.
 - You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first.
 
 
 ## Next steps
 
-- [Create](manage-public-ip-address-prefix.md#create-a-public-ip-prefix) a public IP address prefix
+- [Create](manage-public-ip-address-prefix.md) a public IP address prefix
+- [Learn how to use Outbound Rules with a public IP prefix](.md) reference in an Azure Load Balancer
