@@ -60,6 +60,8 @@
     items:    
     - name: Use automated modeling	
       items:
+      - name: Configure auto training
+        href: how-to-automl.md 
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
     - name: Access data
@@ -88,10 +90,14 @@
          href: how-to-deploy-to-aks.md
        - name: Deploy to FPGAs
          href: how-to-deploy-fpga-web-service.md  
+  - name: Manage quotas
+    href: how-to-manage-quotas.md
+  - name: Export and delete data
+    href: how-to-export-delete-data.md
 - name: Reference
   items:    
   - name: Machine learning SDK
-    href: reference-azure-machine-learning-sdk.md
+    href: http://aka.ms/aml-sdk
   - name: Machine learning CLI
     href: reference-azure-machine-learning-cli.md    
 - name: Resources

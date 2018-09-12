@@ -30,7 +30,7 @@ The following table and article explain what you can do with your existing asset
 |Registered images|No|You must re-create the deployment Docker image under a new workspace.|
 |Deployed web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
-|Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](reference-azure-machine-learning-sdk.md) for new work.|
+|Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](http://aka.ms/aml-sdk) for new work.|
 
 
 Learn more about [what changed in this release](overview-what-happened-to-workbench.md)?
@@ -61,7 +61,7 @@ To migrate your projects, attach the local directory containing your scripts to 
   az ml project attach -w <my_workspace_name> -p <proj_dir_path> --history <run_history_name>
   ```
 
-+ For the new [SDK](reference-azure-machine-learning-sdk.md), use:
++ For the new <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, use:
   ```python
   from azureml.core import Workspace, Project
     

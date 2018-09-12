@@ -303,7 +303,7 @@
 ##### [Problem with on-premises app - Application Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Document library](active-directory-apps-index.md)
+
 
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)

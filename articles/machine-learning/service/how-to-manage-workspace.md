@@ -25,8 +25,6 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
 
 1. In top left corner of the portal, select **All services**. 
 
-   ![all services](media/how-to-manage-workspace/allservices.png)
-
 1. In the **All services** filter field, type **Machine Learning Workspace**.  
 
    ![search for Azure Machine Learning workspace](media/how-to-manage-workspace/allservices-search1.png)
