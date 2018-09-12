@@ -3,7 +3,7 @@ title: Python Quickstart - predict intent - LUIS
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you learn to call a LUIS app using Python.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding

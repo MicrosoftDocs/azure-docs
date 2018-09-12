@@ -3,7 +3,7 @@ title: Ruby Quickstart - change model and train LUIS app
 titleSuffix: Azure Cognitive Services
 description: In this Ruby quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding

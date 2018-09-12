@@ -3,7 +3,7 @@ title: Javascript  Quickstart - predict intent - LUIS
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using Javascript, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.  
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding

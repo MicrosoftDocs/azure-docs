@@ -3,7 +3,7 @@ title: 10 minutes to your first LUIS app
 titleSuffix: Azure Cognitive Services
 description:  Create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
