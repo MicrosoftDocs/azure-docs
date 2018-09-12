@@ -42,7 +42,7 @@ You can create the management group by using the portal, PowerShell, or Azure CL
 
 ### Create in PowerShell
 
-Within PowerShell, you use the Add-AzureRmManagementGroups cmdlets:
+Within PowerShell, you use the Add-AzureRmManagementGroups cmdlets, the process will take arround 15 min, wait until it finished :
 
 ```azurepowershell-interactive
 C:\> New-AzureRmManagementGroup -GroupName Contoso
@@ -60,7 +60,7 @@ Use the **ParentId** parameter to have this management group be created under a 
 
 ### Create in Azure CLI
 
-On Azure CLI, you use the az account management-group create command.
+On Azure CLI, you use the az account management-group create command. The process will take arround 15 min, wait until it finished.
 
 ```azure-cli
 C:\ az account management-group create --group-name <YourGroupName>
