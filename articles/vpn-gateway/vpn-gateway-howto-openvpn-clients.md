@@ -45,24 +45,17 @@ Send ali.zaman@microsoft.com the subscription ID and the name of the newly creat
   For more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 2. Verify that the **AzureRM.Network** version is 6.3.0 or greater
 
-![Certificate data](./media/vpn-gateway-howto-point-to-site-openvpn/rmnetworkversion.png)
+![Certificate data](./media/vpn-gateway-howto-openvpn/rmnetworkversion.png)
 
 ## <a name="cmdlets"></a>4. Update the gateway with OpenVPN protocol
 
+Once you have confirmation that the 'AllowVnetGatewayOpenVpnProtocol' feature flag has been enabled for your subscription, enable OpenVPN on your gateway. Make sure that the gateway is already configured for point-to-site (IKEv2 or SSTP) before running the commands below.
 
+```powershell
+$gw = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $rgname -name $name
+Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
+```
 
+## Next Steps
 
-
-
-
-
-
-
-
-
-
-
-
-## Next steps
-
-For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+To configure clients for OpenVPN, see [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md)
