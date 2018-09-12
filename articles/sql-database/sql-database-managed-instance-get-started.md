@@ -22,14 +22,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Prerequisite - whitelist your subscription
-
-This quickstart requires preview approval and whitelisting. Managed Instance is being released initially as a gated public preview that requires your subscription to be whitelisted. If your subscription is not already whitelisted, use the following steps to be offered and accept preview terms and send a request for whitelisting.
-
-
 ## Prepare network environment
 
-SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create the Managed Instance, this quickstart creates the following network resources:
+SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create the Managed Instance, this quickstart creates the following network resources:  
     - A Managed Instance subnet for the Managed Instance itself.
     - A user-defined route in the Managed Instance subnet that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
     - A default subnet for client connectivity to the Managed Instance
