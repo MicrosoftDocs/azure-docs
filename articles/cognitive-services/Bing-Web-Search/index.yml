@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing Web Search Documentation
+title: Bing Web Search API Documentation
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
-  title: Bing Web Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Web Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use Bing Web Search API to obtain results from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: nitinme
