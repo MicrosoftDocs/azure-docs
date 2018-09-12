@@ -24,14 +24,14 @@ A managed image resource can be created from a generalized virtual machine (VM) 
 
 ## Generalize the Windows VM using Sysprep
 
-Sysprep removes all your personal account and security information and prepares the machine to be used as an image for cloning. For information about Sysprep, see [Sysprep (System Preparation) overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Sysprep removes all your personal account and security information and prepares the machine to be used as an image. For information about Sysprep, see [Sysprep overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
 > After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a [copy of the VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize its copy. 
 >
-> If you plan to run Sysprep before you've uploaded your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 
@@ -60,11 +60,7 @@ To generalize your Windows VM, follow these steps:
 
 3. In the **Virtual machine** page for the VM, on the upper menu, select **Capture**.
 
-    ![Create image](./media/upload-generalized-managed/select-capture.png)
-
    The **Create image** page appears.
-
-    ![Create image](./media/upload-generalized-managed/create-image.png)
 
 4. In **Name**, either accept the pre-populated name or enter a name that you would like to use for the image.
 
@@ -85,7 +81,7 @@ To generalize your Windows VM, follow these steps:
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
 
-Before you begin, make sure that you have the latest version of the AzureRM PowerShell module, which must be version 5.7.0 or later. To find the version, run `Get-Module -ListAvailable AzureRM` in PowerShell. If you need to upgrade, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, run `Connect-AzureRmAccount` to create a connection with Azure.
+Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module, which must be version 5.7.0 or later. To find the version, run `Get-Module -ListAvailable AzureRM.Compute` in PowerShell. If you need to upgrade, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, run `Connect-AzureRmAccount` to create a connection with Azure.
 
 
 > [!NOTE]
@@ -132,7 +128,7 @@ To create a VM image, follow these steps:
 
 ## Create an image from a managed disk using PowerShell
 
-If you want to create only an image of the OS disk, you can do so by specifying the managed disk ID as the OS disk:
+If you want to create an image of only the OS disk, specify the managed disk ID as the OS disk:
 
 	
 1. Create some variables. 
@@ -206,7 +202,7 @@ You can create a managed image from a snapshot of a generalized VM by following 
 
 ## Create an image from a VHD in a storage account
 
-Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the following format: https://&lt;storageaccount&gt;.blob.core.windows.net/&lt;container&gt;/&lt;vhdfilename.vhd&gt;. In this example, the VHD is in *mystorageaccount* in a container named *vhdcontainer* and the VHD filename is *osdisk.vhd*.
+Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the following format: https://*storageaccount*.blob.core.windows.net/*container*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount* in a container named *vhdcontainer* and the VHD filename is *osdisk.vhd*.
 
 
 1.  Create some variables.
