@@ -41,14 +41,15 @@ In this part, you call the default IoT hub manager microservice API. The API ret
 2. Locate where you downloaded Postman and open it.
 3. In Postman, enter the following in the GET: http://localhost:8080/iothubmanager/v1/status.
 4. View the return and you should see, "Status": "OK:Alive and Well".
-![Alive and Well Postman Message](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+
+    ![Alive and Well Postman Message](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## Change the status and build the image
 
 Now change the status message of the Iot Hub Manager microservice to "New Edits Made Here!" and then rebuild the docker image with this new status. If you run into issues here, refer to our [Troubleshooting](#Troubleshoot) section.
 
 1. Make sure your terminal is open and change to the directory where you have cloned the Remote Monitoring solution. 
-2. Change your directory to "..azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/WebService/v1/Controllers".
+2. Change your directory to "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers".
 3. Open StatusController.cs in any text editor or IDE that you like. 
 4. Locate the following code:
 
@@ -63,7 +64,7 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
     ```
 
 5. Go back to your terminal but now change to the following directory:
- "...azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker".
+ "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. To build your new docker image, type
 
     ```cmd/sh
@@ -109,7 +110,7 @@ Before you can push your new docker image to a docker hub, Docker expects your i
 You now need to update your local docker-compose.yml to pull your new docker image from your docker hub. If you run into issues here, refer to our [Troubleshooting](#Troubleshoot) section.
 
 1. Go back to the terminal and change to the following directory:
-"..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+"azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
 2. Open docker-compose.yml in any text editor or IDE that you like.
 3. Locate the following code:
 
@@ -126,7 +127,7 @@ You now need to update your local docker-compose.yml to pull your new docker ima
 ## View the new response status
 Finish up by redeploying a local instance of the Remote Monitoring solution and viewing the new status response in Postman.
 
-1. Go back to your terminal and change to the following directory: "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+1. Go back to your terminal and change to the following directory: "azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
 2. Start your local instance of the Remote Monitoring solution by typing the following command into the terminal:
 
     ```cmd/sh
