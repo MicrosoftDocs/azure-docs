@@ -25,7 +25,7 @@ If you don't already have a functioning point-to-site environment, follow the in
 
 ## <a name="enroll"></a>2. Enroll in the preview
 
-Send ali.zaman@microsoft.com the subscription ID and the name of the newly created gateway to get the Microsoft.Network/AllowVnetGatewayOpenVpnProtocol feature enabled.
+Send *ali.zaman@microsoft.com* the subscription ID and the name of the newly created gateway to get the 'Microsoft.Network/AllowVnetGatewayOpenVpnProtocol' feature enabled.
 
 ## <a name="cmdlets"></a>3. Install PowerShell cmdlets
 
@@ -50,6 +50,6 @@ $gw = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $rgname -name $name
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
 ```
 
-## Next Steps
+## Next steps
 
 To configure clients for OpenVPN, see [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md).
