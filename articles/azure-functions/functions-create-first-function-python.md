@@ -17,7 +17,11 @@ manager: jeconnoc
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
+<<<<<<< HEAD
 This quickstart walks you through creating an HTTP triggered function written in Python, testing it locally and publishing it to Azure as a serverless Function App. By the end of this article, you'll be able to invoke the function from anywhere using an HTTP request.
+=======
+This quickstart article walks you through how to use the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
+>>>>>>> fc878330279... Initial CLI topic
 
 The following steps are supported on a Mac, Windows, or Linux machine.
 
