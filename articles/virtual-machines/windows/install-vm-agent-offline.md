@@ -56,10 +56,7 @@ Use the following steps to install the VM Agent in offline mode.
 
 6.  Browse to the \windows\system32\config\SOFTWARE folder on the OS disk that you attached. For the name of the hive software, enter **BROKENSOFTWARE**.
 
-7.  If the VM Agent isn't working, back up the current configuration.
-
-    >[!NOTE]
-    >If the VM doesn't have the agent installed, proceed to step 8. 
+7. If the Attached OS disk has the VM agent installed, perform a backup of the current configuration. If it does not have VM agent installed, move to the next step.
       
     1. Rename the \windowsazure folder to \windowsazure.old.
 
