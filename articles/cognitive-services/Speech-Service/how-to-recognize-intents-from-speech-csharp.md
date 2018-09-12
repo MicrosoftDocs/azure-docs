@@ -65,7 +65,7 @@ On the Publish page:
     * Under Subscription Name, choose the Azure subscription that contains the LUIS resource you want to use.
     * Under Key, choose the LUIS resource that you want to use with the app.
 
-After a momment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
+After a moment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
 
 ![LUIS app subscription keys](media/sdk/luis-keys.png)
 
