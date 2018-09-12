@@ -24,8 +24,6 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
-Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](cassandra-introduction.md#sign-up-now).
-
 In addition:
 * [Python](https://www.python.org/downloads/) version v2.7.14
 * [Git](http://git-scm.com/)

@@ -289,11 +289,17 @@
       items: 
       - name: Overview
         href: cassandra-introduction.md
+      - name: Cassandra support
+        href: cassandra-support.md
       - name: Tutorials
         items:
-        - name: 1 - Create account
-          href: tutorial-develop-cassandra-java.md
-        - name: 2 - Migrate data
+        - name: 1 - Create account & database
+          href: create-cassandra-api-account-java.md
+        - name: 2 - Load data
+          href: cassandra-api-load-data.md
+        - name: 3 - Query data
+          href: cassandra-api-query-data.md
+        - name: 4 - Migrate data
           href: cassandra-import-data.md
     - name: Table API Docs
       items:
