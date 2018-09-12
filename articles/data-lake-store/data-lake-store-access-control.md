@@ -125,11 +125,16 @@ The user who created the item is automatically the owning user of the item. An o
 
 ## The owning group
 
+**Background**
+
 In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
-Assiging the owning group for a new file or folder:
+**Assiging the owning group for a new file or folder**
+
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
+
+**Changing the owning group**
 
 The owning group can be changed by:
 * Any super-users.
