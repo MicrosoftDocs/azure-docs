@@ -37,11 +37,11 @@ sections:
           html: <p>Learn how auto suggest works for your search query</p>
           image:
             src: ../media/index/i_guidelines.svg
-          title: Autosuggest for your Bing query
+          title: Autosuggest for Bing queries
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Bing Web Search API by making a query and viewing the JSON response:'
+    text: 'Get started with the Bing Web Search API by making a query and viewing the JSON response:'
   - type: list
     style: icon48
     items:
@@ -80,7 +80,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-web-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">Source code</a>
+    - html: <a href="tutorial-bing-web-search-single-page-app">Single-page web app</a>
 #    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a>
 - title: Samples
   items:
