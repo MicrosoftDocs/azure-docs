@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/11/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to be able to set up Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Cable and connect to your Azure Data Box
 
@@ -48,7 +49,7 @@ Perform the following steps to cable your device.
 
 1. Inspect the device for any evidence of tampering, or any other obvious damage. If the device is tampered or severely damaged, do not proceed. Contact Microsoft Support immediately to help you assess whether the device is in good working order and if they need to ship you a replacement.
 2. Transport the device to the location where you wish to power it on. Place the device on a flat surface. The device can also be placed on a standard rack shelf.
-3. Connect the power and network cables. The backplane of a connected device is shown below. 
+3. Connect the power and network cables. The backplane of a connected device for a common configruation is shown below. 
     
     ![Data Box device backplane cabeled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
@@ -99,5 +100,5 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the next tutorial to learn how to copy data on your Data Box.
 
 > [!div class="nextstepaction"]
-> [Ship your Azure Data Box back to Microsoft](./data-box-deploy-copy-data.md)
+> [Copy your data to Azure Data Box](./data-box-deploy-copy-data.md)
 

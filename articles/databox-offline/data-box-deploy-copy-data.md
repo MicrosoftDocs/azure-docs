@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data to Azure Data Box 
 

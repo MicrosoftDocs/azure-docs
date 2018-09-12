@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
 # Tutorial: Return Azure Data Box and verify data upload to Azure

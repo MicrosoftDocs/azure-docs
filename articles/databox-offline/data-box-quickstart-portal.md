@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/11/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 # Quickstart: Deploy Azure Data Box using the Azure portal
 
@@ -32,6 +33,14 @@ Before you begin:
     - Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+- You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+    - Run a [Supported operating system](data-box-system-requirements.md).
+    - Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 
+- You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+- You have procured the following cables to connect your Data Box to the host computer.
+    - Two 10 GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
+    - One RJ-45 CAT 6 network cable (use with MGMT network interface)
+    - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
 ## Sign in to Azure
 
@@ -123,6 +132,6 @@ This step takes 2-3 minutes to complete.
 In this quickstart, you’ve deployed an Azure Data Box to help import your data into Azure. To learn more about Azure Data Box management, advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
-> [Use the Azure portal to administer Data Box](data-box-deploy-ordered.md)
+> [Use the Azure portal to administer Data Box](data-box-portal-admin.md)
 
 

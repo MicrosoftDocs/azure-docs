@@ -52,13 +52,13 @@ A. Data Box is available at a nominal charge for 10 days. When you select the pr
 A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer upto 80 TB of data with Data Box. To transfer more data, you need to order more devices.
 
 ### Q. How can I check if Data Box is available in my region? 
-A.  Data Box is available in US and all the countries in European Union during the preview phase.  
+A.  For information on which countries the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box?
 A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported. For more information, go to [Region availability](data-box-overview.md#region-availability).
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
-A. If you encounter any issues with Data Box, please contact Microsoft Support.
+A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 
 ## Order device
@@ -217,16 +217,13 @@ A.  After the data copy is complete, when you run **Prepare to ship**, your data
 ### Q. What happens to my data after I have returned the Data Box?
 A.  Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines. For more information, go to [Erasure of data from Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).
 
-## Chain of custody
+## Audit report
 
 ### How does Azure Data Box service help support customers chain of custody procedure?
 A.  Azure Data Box service provides specific reports that you can use for your chain of custody documentation.
 
-### What can customers do today that they could not do before based on this feature announcement?
-A. Additional reporting is available to the customers to support their chain of custody requirements when migrating on-premises data to Azure using the Data Box service
-
-### What are the pricing and/or licensing implications for this announcement?
-A.  The chain of custody feature is native to Data Box and is available at no extra cost.
+### What is the price associated with these reports?
+A.  Audit reports are a native feature for Data Box and are available at no extra cost.
 
 ### What type of reporting is available to support chain of custody?
 A.  Following reporting is available to support chain of custody:

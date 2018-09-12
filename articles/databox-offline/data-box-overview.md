@@ -16,6 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/11/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure.
 ---
 # What is Azure Data Box?
 
@@ -42,10 +43,10 @@ Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenario
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
 
-- **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure in less than a week.
+- **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure.
 
 - **Secure** - Data Box has built-in security protections for the device, data, and the service.
-    - The device has a rugged device casing secured by tamper-resistant screws and tamper-evident stickers. 
+    - The device has a rugged casing secured by tamper-resistant screws and tamper-evident stickers. 
     - The data on the device is secured with an AES 256-bit encryption at all times.
     - The device can only be unlocked with a password provided in the Azure portal.
     - The service is protected by the Azure security features.
@@ -117,9 +118,7 @@ Data Box can transfer data based on the region in which service is deployed, cou
     - UK - UK South and UK West.
     - France - France Central and France South.
 
-- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions for public cloud. The regions where the storage accounts store Data Box data should be located for optimum performance.
-
-    We strongly recommend that you create storage accounts in the same region or very close to the region where the device is deployed. A storage account located far from the device results in long latencies and slower performance. 
+- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.  
 
 
 ## Next steps
