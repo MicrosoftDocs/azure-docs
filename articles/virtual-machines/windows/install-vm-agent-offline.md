@@ -106,7 +106,7 @@ Use the following steps to install the VM Agent in offline mode.
 
 12.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
 
-If you created the VM by using the Resource Manager deployment deployment model, you're done.
+If you created the VM by using the Resource Manager deployment model, you're done.
 
 ### Use the ProvisionGuestAgent property for classic VMs
 
