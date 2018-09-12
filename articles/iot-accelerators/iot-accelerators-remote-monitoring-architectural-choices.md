@@ -38,7 +38,7 @@ For stream processing the Remote Monitoring solution uses Azure Stream Analytics
 For storage, the Remote Monitoring solution accelerator uses both Azure Time Series Insights and Azure Cosmos DB. Azure Time Series Insights stores the messages coming through IoT Hub from your connected devices. The solution accelerator uses Azure Cosmos DB for all other storage such as cold storage, rules definitions, alarms, and configuration settings. Azure Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases. With Azure Time Series Insights you can gain deeper insights into your time-series sensor data by spotting trends and anomalies, which allows you to conduct root-cause analyses and avoid costly downtime. 
 
 > [!NOTE]
-> Azure Time Series Insights for the Remote Monitoring solution accelerator is currently in preview and is only available in [select regions](https://azure.microsoft.com/en-us/global-infrastructure/services/). If you deploy the Remote Monitoring solution accelerator outside of these regions, Cosmos DB is the default storage option.
+> Azure Time Series Insights for the Remote Monitoring solution accelerator is currently in preview and is only available in [select regions](https://azure.microsoft.com/global-infrastructure/services/). If you deploy the Remote Monitoring solution accelerator outside of these regions, Cosmos DB is the default storage option.
 
 ### Business integration
 Business integration in the Remote Monitoring solution is limited to generation of alarms, which are placed in warm storage. Further business integrations can be performed by integrating the solution with Azure Logic Apps.
