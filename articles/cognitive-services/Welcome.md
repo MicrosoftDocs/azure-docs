@@ -14,7 +14,7 @@ ms.author: nitinme
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge. Azure Cognitive Services expand on Microsoft’s evolving portfolio of machine learning APIs and enable developers to easily add cognitive features – such as emotion and video detection; facial, speech, and vision recognition; and speech and language understanding – into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge. Azure Cognitive Services expand on Microsoft’s evolving portfolio of machine learning APIs and enable developers to easily add cognitive features – such as emotion and video detection; facial, speech, and vision recognition; and speech and language understanding – into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Search, and Knowledge.
 
 ## Vision APIs
 
@@ -48,7 +48,8 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator text provides for machine-based text translation in near real-time.||
 |[Web Language Model](https://docs.microsoft.com/azure/cognitive-services/web-language-model/home "Web Language Model") (Preview)|Natural language processing for predicting word sequencing, completions, and word breaking of strings with no spaces.|
 
-## Search
+## Search APIs
+
 |Service Name|Service Description|
 |:-----------|:------------------|
 |[Bing News Search](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Bing News Search")|Bing News Search returns a list of news articles determined to be relevant to the user's query.|
@@ -60,16 +61,19 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing Image Search")|Bing Image Search returns a display of images determined to be relevant to the user's query.|
 |[Bing Visual Search](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search provides returns insights about an image such as visually similar images, shopping sources for products found in the image, and related searches.|
 
-## Knowledge
+## Knowledge APIs
+
 |Service Name|Service Description|
 |:-----------|:------------------|
 | [Custom Decision Service](https://docs.microsoft.com/azure/cognitive-services/custom-decision-service/ "Custom Decision Search") (Preview)|Custom Decision Service helps you create intelligent systems with contextual decision making for personalizing and optimizing user experience.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content.|
 
 ## Use free trials
+
 [Signing up for free trials] (https://azure.microsoft.com/try/cognitive-services/ "Sign-up Help") only takes an email and a few simple steps. You need a Microsoft Account if you don't already have one. You'll receive a unique pair of keys for each API requested. The second one is just a spare. Don't share the secret keys with anyone. Trials have both a rate limit, transactions per second or minute, and a monthly usage cap. A transaction is simply an API call. You can upgrade to paid tiers to unlock the restrictions.
 
 ## Subscription management
+
 Once you are signed in with your Microsoft Account, you can access [My subscriptions] (https://www.microsoft.com/cognitive-services/en-us/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
 
 ## Upgrade to unlock limits
@@ -77,6 +81,7 @@ Once you are signed in with your Microsoft Account, you can access [My subscript
 All APIs have a free trial plan.  As paid offerings become available for each API, you'll be directed to the Azure portal to complete the purchase.  You can find *Buy* links in your Subscriptions page if you're already using them or you can skip trial altogether and purchase with provided links on [Pricing](https://www.microsoft.com/cognitive-services/en-us/pricing "pricing").  You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
 
 ## Regional availability
+
 The APIs in Cognitive Services are hosted on a growing network of Microsoft-managed data centers. You can find the regional availability for each API in [Azure region list](https://azure.microsoft.com/regions).
 
 Looking for a region we don't support yet? Let us know by filing a feature request on our [UserVoice forum](https://cognitive.uservoice.com/).
