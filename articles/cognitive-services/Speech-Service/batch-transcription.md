@@ -94,56 +94,71 @@ After you obtain the token, you must specify the SAS URI pointing to the audio f
 ```cs
    static async Task TranscribeAsync()
         { 
+            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
+            private const string HostName = "cris.ai";
+            private const int Port = 443;
+    
             // Creating a Batch transcription API Client
-            var client = 
-                await CrisClient.CreateApiV1ClientAsync(
-                    "<your msa>", // MSA email
-                    "<your api key>", // API key
-                    "stt.speech.microsoft.com",
-                    443).ConfigureAwait(false);
+            var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var newLocation = 
-                await client.PostTranscriptionAsync(
-                    "<selected locale i.e. en-us>", // Locale 
-                    "<your subscription key>", // Subscription Key
-                    new Uri("<SAS URI to your file>")).ConfigureAwait(false);
+            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
-            var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
+            var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+
+            // get the transcription Id from the location URI
+            var createdTranscriptions = new List<Guid>();
+            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
 
             while (true)
             {
-                transcription = await client.GetTranscriptionAsync(transcription.Id).ConfigureAwait(false);
+                // get all transcriptions for the user
+                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+                completed = 0; running = 0; notStarted = 0;
 
-                if (transcription.Status == "Failed" || transcription.Status == "Succeeded")
+                // for each transcription in the list we check the status
+                foreach (var transcription in transcriptions)
                 {
-                    Console.WriteLine("Transcription complete!");
-
-                    if (transcription.Status == "Succeeded")
+                    switch(transcription.Status)
                     {
-                        var resultsUri = transcription.ResultsUrls["channel_0"];
+                        case "Failed":
+                        case "Succeeded":
 
-                        WebClient webClient = new WebClient();
-
-                        var filename = Path.GetTempFileName();
-                        webClient.DownloadFile(resultsUri, filename);
-
-                        var results = File.ReadAllText(filename);
-                        Console.WriteLine(results);
+                            // we check to see if it was one of the transcriptions we created from this client.
+                            if (!createdTranscriptions.Contains(transcription.Id))
+                            {
+                                // not creted form here, continue
+                                continue;
+                            }
+                            
+                            completed++;
+                            
+                            // if the transcription was successfull, check the results
+                            if (transcription.Status == "Succeeded")
+                            {
+                                var resultsUri = transcription.ResultsUrls["channel_0"];
+                                WebClient webClient = new WebClient();
+                                var filename = Path.GetTempFileName();
+                                webClient.DownloadFile(resultsUri, filename);
+                                var results = File.ReadAllText(filename);
+                                Console.WriteLine("Transcription succedded. Results: ");
+                                Console.WriteLine(results);
+                            }
+                            break;
+                        case "Running":
+                            running++;
+                            break;
+                        case "NotStarted":
+                            notStarted++;
+                            break;
                     }
-
-                    await client.DeleteTranscriptionAsync(transcription.Id).ConfigureAwait(false);
-
-                    break;
                 }
-                else
-                {
-                    Console.WriteLine("Transcription status: " + transcription.Status);
-                }
+
+                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
 
                 await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
 
-            Console.ReadLine();
+            Console.WriteLine("Press any key...");
         }
 ```
 
