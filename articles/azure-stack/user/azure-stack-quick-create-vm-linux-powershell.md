@@ -7,7 +7,6 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na

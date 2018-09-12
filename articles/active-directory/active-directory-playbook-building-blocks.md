@@ -337,7 +337,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 | Step | Resources |
 | --- | --- |
 | Remove the user from the group the app is assigned to | [Manage group membership for users in your Azure Active Directory tenant](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | On a separate browser session, log in as the information worker to my apps portal and confirm that tile is missing | http://myapps.microsoft.com |
 
 
