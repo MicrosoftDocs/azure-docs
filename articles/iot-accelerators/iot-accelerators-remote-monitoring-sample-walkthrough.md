@@ -45,7 +45,7 @@ You can provision physical devices from the dashboard in the solution portal.
 
 ### Device simulation microservice
 
-The solution includes the [device simulation microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) that enables you to manage a pool of simulated devices from the solution dashboard to test the end-to-end flow in the solution. The simulated devices:
+The solution includes the [device simulation microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) that enables you to manage a pool of simulated devices from the solution portal to test the end-to-end flow in the solution. The simulated devices:
 
 * Generate device-to-cloud telemetry.
 * Respond to cloud-to-device method calls from IoT Hub.
@@ -82,9 +82,9 @@ This service also runs IoT Hub queries to retrieve devices belonging to user-def
 
 The microservice provides a RESTful endpoint to manage devices and device twins, invoke methods, and run IoT Hub queries.
 
-### Telemetry microservice
+### Device telemetry microservice
 
-The [telemetry microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) provides a RESTful endpoint for read access to device telemetry, CRUD operations on rules, and read/write access for alarm definitions from storage.
+The [device telemetry microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) provides a RESTful endpoint for read access to device telemetry stored in Time Series Insights. The RESTful endpoint also enables CRUD operations on rules and read/write access for alarm definitions from storage.
 
 ### Storage adapter microservice
 
@@ -94,21 +94,27 @@ Values are organized in collections. You can work on individual values or fetch 
 
 The service provides a RESTful endpoint for CRUD operations on key-value pairs. values
 
-### Cosmos DB
+### Azure Cosmos DB
 
-The standard deployment of the solution accelerator uses [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) as its main storage service.
+Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alarms, configuration settings, and all other cold storage.
 
 ### Azure Stream Analytics manager microservice
 
 The [Azure Stream Analytics manager microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) manages Azure Stream Analytics (ASA) jobs, including setting their configuration, starting and stopping them, and monitoring their status.
 
-The ASA job is supported by two reference data sets. One data set defines rules and one defines device groups. The rules reference data is generated from the information managed by the telemetry microservice. The Azure Stream Analytics manager microservice transforms telemetry rules into stream processing logic.
+The ASA job is supported by two reference data sets. One data set defines rules and one defines device groups. The rules reference data is generated from the information managed by the device telemetry microservice. The Azure Stream Analytics manager microservice transforms telemetry rules into stream processing logic.
 
 The device groups reference data is used to identify which group of rules to apply to an incoming telemetry message. The device groups are managed by the configuration microservice and use Azure IoT Hub device twin queries.
+
+The ASA jobs deliver the telemetry from the connected devices to Time Series Insights for storage and analysis.
 
 ### Azure Stream Analytics
 
 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) is an event-processing engine that allows you to examine high volumes of data streaming from devices.
+
+### Azure Time Series Insights
+
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) stores the telemetry from the devices connected to the solution accelerator. It also enables visualizing and querying device telemetry in the solution web UI.
 
 ### Configuration microservice
 
@@ -120,7 +126,7 @@ The [authentication and authorization microservice](https://github.com/Azure/rem
 
 ### Azure Active Directory
 
-The standard deployment of the solution accelerator uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) as an OpenID Connect provider. Azure Active Directory stores user information and provides certificates to validate JWT token signatures. 
+Solution accelerator deployments use [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) as an OpenID Connect provider. Azure Active Directory stores user information and provides certificates to validate JWT token signatures.
 
 ## Presentation
 
@@ -136,6 +142,8 @@ The user interface presents all the solution accelerator functionality, and inte
 
 * The authentication and authorization microservice to protect user data.
 * The IoT Hub manager microservice to list and manage the IoT devices.
+
+The user interface integrates the Azure Time Series Insights explorer to enable querying and analysis of device telemetry.
 
 The configuration microservice enables the user interface to store and retrieve configuration settings.
 
