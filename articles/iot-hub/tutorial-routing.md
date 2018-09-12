@@ -285,9 +285,9 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 7. Use the defaults for the rest of the fields. Click **Create** to add the storage endpoint. You return to the **Add a route** pane.
 
-8.  Now complete the rest of the routing rule information. This rule sends messages to the storage container you just added as an endpoint. Fill in the fields on the screen. 
+8.  Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen. 
 
-   **Name**: Enter a name for your routing rule. This tutorial uses **StorageRule**.
+   **Name**: Enter a name for your routing query. This tutorial uses **StorageRule**.
 
    **Endpoint**: This shows the endpoint you just set up. 
    
@@ -297,9 +297,9 @@ Now set up the routing for the storage account. You go to the Message Routing pa
    
    **Routing query**: Enter `level="storage"` as the query string. 
 
-   ![Screenshot showing creating a routing rule for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
+   ![Screenshot showing creating a routing query for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   Click **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing rule for storage. Close the Routes pane, which returns you to the Resource group page.
+   Click **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
 
 ### Routing to a Service Bus queue 
 
@@ -323,9 +323,9 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 5. Click **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane. 
 
-6.  Now you complete the rest of the routing rule information. This rule sends messages to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
+6.  Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
 
-   **Name**: Enter a name for your routing rule. This tutorial uses **SBQueueRule**. 
+   **Name**: Enter a name for your routing query. This tutorial uses **SBQueueRule**. 
 
    **Endpoint**: This shows the endpoint you just set up.
 
@@ -333,7 +333,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
    **Routing query**: Enter `level="critical"` as the query string. 
 
-   ![Screenshot showing creating a routing rule for the Service Bus queue.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   ![Screenshot showing creating a routing query for the Service Bus queue.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
 7. Click **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
 
