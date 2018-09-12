@@ -33,7 +33,7 @@ sections:
           image:
             src: ../media/index/i_guidelines.svg
           title: Image Search queries
-        - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-image
+        - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
           html: <p>Understand the Image Search response</p>
           image:
             src: ../media/index/i_guidelines.svg
