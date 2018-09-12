@@ -138,12 +138,12 @@
         href: directory-emergency-access.md
     - name: Administrative units    
       href: directory-administrative-units.md
-    - name: Configure token lifetimes   
-      href: /azure/active-directory/active-directory-configurable-token-lifetimes?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Integrate services with Azure AD
     items: 
     - name: Integrate LinkedIn with Azure AD    
       href: linkedin-integration.md
+    - name: User consent and data sharing    
+      href: linkedin-user-consent.md
   - name: Troubleshoot
     items:
     - name: Get support for Azure AD    

@@ -143,7 +143,7 @@ The configuration microservice enables the user interface to store and retrieve 
 
 If you want to explore the source code and developer documentation, start with one of the two GitHub repositories:
 
-* [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 * [Solution accelerator for Remote Monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 Detailed solution architecture diagrams:
