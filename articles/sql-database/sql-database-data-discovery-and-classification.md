@@ -4,13 +4,13 @@ description: Azure SQL Database Data Discovery & Classification
 services: sql-database
 author: giladmit
 manager: craigg
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: giladm
-ms.reviewer: carlrab
+
 
 ---
 # Azure SQL Database Data Discovery and Classification

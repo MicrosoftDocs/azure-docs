@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
+ms.date: 09/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
@@ -44,7 +44,7 @@ The template can deploy Ethereum consortium for leader and member join in a vari
 The consortium leader template configures the first member's footprint in the network. 
 
 1. Download the [leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. In the Azure Stack Administration portal, select **New > Template deployment** to deploy from a custom template.
+2. In the Azure Stack Administration portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you previously downloaded.
     
@@ -99,7 +99,7 @@ To verify leader’s deployment, browse leader’s admin site. You can find admi
 ### Joining consortium member deployment
 
 1. Download the [consortium member template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. In the Azure Stack Administration portal, select **New > Template deployment** to deploy from a custom template.
+2. In the Azure Stack Administration portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you downloaded previously.
 5. Select **Save**.
@@ -151,7 +151,7 @@ As shown in the picture, member’s nodes status is **Not running**. This is bec
 This template creates a connection from the leader to a remote member. 
 
 1. Download the [connect member and leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. In the Azure Stack Administration portal, select **New > Template deployment** to deploy from a custom template.
+2. In the Azure Stack Administration portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you downloaded previously.
     
