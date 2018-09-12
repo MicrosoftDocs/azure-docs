@@ -68,6 +68,8 @@
       items:
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
+    - name: Access data
+      href: how-to-access-data.md
     - name: Train ML models
       href: how-to-train-ml-models.md
       items:
