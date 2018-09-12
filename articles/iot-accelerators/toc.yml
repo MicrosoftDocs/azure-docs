@@ -27,10 +27,10 @@
     href: iot-accelerators-remote-monitoring-automate.md
   - name: Configure and manage devices
     href: iot-accelerators-remote-monitoring-manage.md
+  - name: Conduct a root cause analysis on an alert
+    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
   - name: Use alerts and fix device issues
     href: iot-accelerators-remote-monitoring-maintain.md
-  - name: Diagnose an issue with Azure Time Series Insights
-  - href: iot-accelerators-remote-monitoring-diagnose.md
 
 - name: Concepts
   items:
