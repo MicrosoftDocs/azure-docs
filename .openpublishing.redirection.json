@@ -17980,6 +17980,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-named-locations.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
             "redirect_document_id": false
