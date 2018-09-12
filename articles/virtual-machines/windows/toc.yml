@@ -220,15 +220,9 @@
       href: nested-virtualization.md
   - name: Manage costs
     items:
-<<<<<<< HEAD
     - name: Prepay for VMs - Azure reservations
       href: prepay-reserved-vm-instances.md
     - name: What are Azure reservations?
-=======
-    - name: Prepay for VMs - Azure Reservations
-      href: prepay-reserved-vm-instances.md
-    - name: What are Azure Reservations?
->>>>>>> ba52403599f5ee1e45089a8e36b86bd210b9dccb
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
@@ -393,80 +387,8 @@
         href: migration-classic-resource-manager-community-tools.md
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
-<<<<<<< HEAD
 - name: Troubleshoot
   href: ../troubleshooting/index.md
-=======
-  - name: Troubleshoot
-    items:
-    - name: Remote Desktop connections
-      href: troubleshoot-rdp-connection.md
-      items:
-      - name: Detailed steps
-        href: detailed-troubleshoot-rdp.md
-      - name: Error messages
-        href: troubleshoot-specific-rdp-errors.md
-    - name: Reset RDP password
-      href: reset-rdp.md
-    - name: Reset local password without Azure agent
-      href: reset-local-password-without-agent.md
-    - name: Understand a system reboot
-      href: understand-vm-reboot.md
-    - name: Reset NIC
-      href: reset-network-interface.md
-    - name: Boot diagnostics
-      href: boot-diagnostics.md
-    - name: Serial console 
-      href: serial-console.md
-      items:
-        - name: CMD and PowerShell commands
-          href: serial-console-cmd-ps-commands.md
-    - name: Creating a VM
-      href: troubleshoot-deployment-new-vm.md
-    - name: Deployment issues
-      href: troubleshoot-deploy-vm.md
-    - name: Restarting or resizing a VM
-      href: restart-resize-error-troubleshooting.md
-    - name: Application access
-      href: troubleshoot-app-connection.md
-    - name: Activation problems
-      href: troubleshoot-activation-problems.md
-    - name: Allocation failures
-      href: allocation-failure.md
-    - name: Allocation failures-classic VM
-      href: allocation-failure-classic.md
-    - name: Redeploy a VM
-      href: redeploy-to-new-node.md
-    - name: Common error messages
-      href: error-messages.md
-    - name: VM recovery access
-      items:
-      - name: Azure PowerShell
-        href: troubleshoot-recovery-disks.md
-      - name: Azure portal
-        href: troubleshoot-recovery-disks-portal.md
-    - name: Use PerfInsights
-      href: how-to-use-perfInsights.md
-    - name: Performance Diagnostics VM Extension 
-      href: performance-diagnostics-vm-extension.md
-    - name: Use nested virtualization 
-      href: troubleshoot-vm-by-use-nested-virtualization.md
-    - name: Install the VM agent in offline mode
-      href: install-vm-agent-offline.md
-    - name: Troubleshoot attached VHDs
-      items:
-      - name: Storage resource deletion errors
-        href: storage-resource-deletion-errors.md  
-      - name: Unexpected reboots of VMs with attached VHDs  
-        href: unexpected-reboots-attached-vhds.md
-    - name: Troubleshoot boot errors
-      items:
-      - name: BitLocker errors 
-        href: troubleshoot-bitlocker-boot-error.md  
-      - name: Checking file system errors
-        href: troubleshoot-check-disk-boot-error.md
-
->>>>>>> ba52403599f5ee1e45089a8e36b86bd210b9dccb
 - name: Reference
   items:
   - name: Azure CLI

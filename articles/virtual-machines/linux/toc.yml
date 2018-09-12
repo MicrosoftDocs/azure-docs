@@ -232,17 +232,11 @@
       href: metrics-vm-usage-rest.md
   - name: Manage costs
     items:
-<<<<<<< HEAD
     - name: Prepay for VMs - Azure reservations
-      href: prepay-reserved-vm-instances.md
-    - name: What are Azure reservations?
-=======
-    - name: Prepay for VMs - Azure Reservations
       href: prepay-reserved-vm-instances.md       
     - name: Prepay for SUSE software  
       href: prepay-suse-software-charges.md 
-    - name: What are Azure Reservations?
->>>>>>> ba52403599f5ee1e45089a8e36b86bd210b9dccb
+    - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
@@ -492,57 +486,7 @@
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
-<<<<<<< HEAD
     href: ../troubleshooting/index.md
-=======
-    items:
-    - name: SSH connections
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: Detailed troubleshooting steps
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: Reset Linux VM password
-      href: reset-password.md
-    - name: Understand system reboot
-      href: understand-vm-reboot.md
-    - name: Boot diagnostics
-      href: boot-diagnostics.md
-    - name: Serial console 
-      href: serial-console.md
-      items:
-      - name: Serial Console GRUB/Single user mode
-        href: serial-console-grub-single-user-mode.md
-      - name: Serial Console NMI/SysRq
-        href: serial-console-nmi-sysrq.md
-    - name: Access to applications
-      href: troubleshoot-app-connection.md
-    - name: Allocation failures 
-      href: allocation-failure.md
-    - name: Allocation failures-classic VM
-      href: allocation-failure-classic.md
-    - name: Deployment issues
-      href: troubleshoot-deploy-vm.md
-    - name: Creating a VM
-      href: troubleshoot-deployment-new-vm.md
-    - name: Device names are changed
-      href: troubleshoot-device-names-problems.md
-    - name: Redeploy VM to a new Azure node
-      href: redeploy-to-new-node.md
-    - name: Common error messages
-      href: error-messages.md
-    - name: VM recovery access
-      items:
-      - name: Azure CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure portal
-        href: troubleshoot-recovery-disks-portal.md
-    - name: Attached VHDs
-      items:
-      - name: Storage resource deletion errors
-        href: storage-resource-deletion-errors.md  
-      - name: Unexpected reboots of VMs with attached VHDs  
-        href: unexpected-reboots-attached-vhds.md
->>>>>>> ba52403599f5ee1e45089a8e36b86bd210b9dccb
 - name: Reference
   items:
   - name: Azure CLI
