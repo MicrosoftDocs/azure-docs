@@ -13,7 +13,8 @@ ms.custom: mvc
 ---
 
 # Tutorial: Conduct a root cause analysis on an alert
-In this tutorial, you will learn how to use the Remote Monitoring solution accelerator to diagnose the root cause of an alert that has been triggered in the Remote Monitoring dashboard using Azure Time Series Insights.
+
+In this tutorial, you learn how to use the Remote Monitoring solution accelerator to diagnose the root cause of an alert. You see the alert that has been triggered in the Remote Monitoring solution dashboard and then use the Azure Time Series Insights explorer to investigate the root cause.
 
 The tutorial uses two simulated delivery truck devices that send location, altitude, speed, and cargo temperature telemetry. The trucks are managed by an organization called Contoso and are connected to the Remote Monitoring solution accelerator. As a Contoso operator, you need to understand why one of your trucks (delivery-truck-02) has logged a low temperature alert.
 
@@ -34,11 +35,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To select which connected devices display on the **Dashboard** page, use filters. To display only the **Truck** devices, choose the built-in **Trucks** filter in the filter drop-down:
 
-[![Filter for trucks on the dashboard](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks.png/#lightbox)
+[![Filter for trucks on the dashboard](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png/#lightbox)
 
-When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard** page. You can see that there are two trucks connected to the solution accelerator, including delivery-truck-02.
-
-To create, edit, and delete filters, click **Manage device groups**.
+When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard** page. You can see that there are two trucks connected to the solution accelerator, including **truck-02**.
 
 ## View real-time telemetry
 
