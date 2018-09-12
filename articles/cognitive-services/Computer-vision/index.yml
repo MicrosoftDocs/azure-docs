@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Computer Vision Documentation 
+title: Computer Vision API Documentation 
 metadata:
-  title: Computer Vision Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  title: Computer Vision API Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Computer Vision to process images and return information. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: nitinme
@@ -24,7 +24,7 @@ abstract:
       src: ../media/index/computer-vision-landing-page-video.png
       width: 250  
     title: Infuse intelligence in your apps with Vision APIs (05:41)
-    href: https://azure.microsoft.com/en-us/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
     width: 250
 sections:
 - items:
@@ -34,20 +34,20 @@ sections:
       columns: 3
       items:
         - href: /azure/cognitive-services/computer-vision/home
-          html: <p>Learn about the Computer Vision API</p>
+          html: <p>Learn about the Computer Vision API.</p>
           image:
             src: ../media/index/i_overview.svg
           title: What is Computer Vision?
         - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
-          html: <p>Learn how to obtain subscription keys for Computer Vision API</p>
+          html: <p>Learn how to get subscription keys for Computer Vision API.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Obtain subscription keys for Computer Vision
+          title: Subscription keys for Computer Vision
         - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
-          html: <p>Learn the basics of calling a Computer Vision API</p>
+          html: <p>Learn the basics of calling a Computer Vision API.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Calling the Computer Vision API
+          title: Call the Computer Vision API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
