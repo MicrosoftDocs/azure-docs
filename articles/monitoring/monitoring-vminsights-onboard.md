@@ -1,6 +1,6 @@
 ---
-title: Onboard Azure Monitor VM Insights | Microsoft Docs
-description: This article describes how you onboard and configure Azure Monitor VM Insights so you can start understanding how your distributed application is performing and what  health issues have been identified.
+title: Onboard Azure Monitor VM insights | Microsoft Docs
+description: This article describes how you onboard and configure Azure Monitor VM insights so you can start understanding how your distributed application is performing and what  health issues have been identified.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -17,12 +17,12 @@ ms.date: 09/12/2018
 ms.author: magoedte
 ---
 
-# How to onboard the Azure Monitor VM Insights 
-This article describes how to set up VM Insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
+# How to onboard the Azure Monitor VM insights 
+This article describes how to set up Azure Monitor VM insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
-Enabling VM Insights is accomplished by using one of the following methods, and details on using each method are provided later in the article.  
+Enabling VM insights is accomplished by using one of the following methods, and details on using each method are provided later in the article.  
 
-* A single Azure virtual machine by selecting VM Insights directly from the VM.
+* A single Azure virtual machine by selecting VM insights directly from the VM.
 * Multiple Azure VMs or virtual machine scale sets using Azure Policy to ensure existing and new VMs evaluated have the required dependencies installed and are properly configured.  Non-compliant VMs are reported so you can decide based on what isn't compliant, how you want to remediate.  
 * Multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using PowerShell.
 
@@ -39,7 +39,7 @@ A Log Analytics workspace in the following regions are currently supported:
   - Southeast Asia<sup>1</sup>  
 
 <sup>1</sup> 
-This region does not currently support the Health feature of VM Insights.   
+This region does not currently support the Health feature of VM insights.   
 
 If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
 
@@ -49,7 +49,7 @@ To enable the solution, you need to be a member of the Log Analytics contributor
 
 ### Supported operating systems
 
-The following versions of the Windows and Linux operating systems are officially supported with VM Insights:
+The following versions of the Windows and Linux operating systems are officially supported with VM insights:
 
 |OS version |Performance |Maps |Health |  
 |-----------|------------|-----|-------|  
@@ -67,10 +67,10 @@ The following versions of the Windows and Linux operating systems are officially
 |Debian 9.4, 8 | X<sup>1</sup> | | X | 
 
 <sup>1</sup> 
-The Performance feature of VM Insights is only available from Azure Monitor, it is not available when you access VM Insights from the left-hand pane of the Azure VM directly.  
+The Performance feature of VM insights is only available from Azure Monitor, it is not available when you access VM insights from the left-hand pane of the Azure VM directly.  
 
 ### Hybrid environment connected sources
-VM Insights Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
+VM insights Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
@@ -99,7 +99,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Performance Counters enabled
-VM Insights configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
+VM insights configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
 
 ### Windows performance counters
 
@@ -141,7 +141,7 @@ VM Insights configures a Log Analytics Workspace to collect performance counters
 ## Enable using Azure Policy
 To enable the solution for multiple Azure VMs that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  Using Azure Policy with the policies provided delivers the following benefits for new VMs:
 
-* Enabling VM Insights for each VM in the defined scope
+* Enabling VM insights for each VM in the defined scope
 * Deploy Log Analytics Agent and configure performance collection rules to measure  performance utilization
 * Deploy Dependency Agent to discover application dependencies and show in the Map
 * Audit if your Azure VM OS image is in a pre-defined list in policy definition  
@@ -190,7 +190,7 @@ To use the policies, we have provided a script `Add-VMInsightsPolicy.ps1` which 
 ### Create a policy assignment
 After you run the `Add-VMInsightsPolicy.ps1` PowerShell script, the following initiative and policies are added:
 
-**Enable VM Insights for VMs Preview**  
+**Enable VM insights for VMs Preview**  
 - **Deploy Log Analytics Agent for Windows VMs Preview**  
 - **Deploy Log Analytics Agent for Linux VMs Preview**  
 - **Deploy Dependency Agent for Windows VMs Preview**  
@@ -218,9 +218,9 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 1. In the Azure portal, select **Virtual Machines**. 
 2. From the list, select a VM. 
 3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
-4. On the **Insights (preview)** page, select **Try VM Insights**.
+4. On the **Insights (preview)** page, select **Try VM insights**.
 
-    ![Enable VM Insights for a VM](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal.png)
+    ![Enable VM insights for a VM](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal.png)
 
 5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
@@ -229,10 +229,10 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 
 After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
 
-![Enable VM Insights monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
+![Enable VM insights monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
 ## Enable with PowerShell
-To enable VM Insights for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
+To enable VM insights for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
 
 This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
@@ -249,7 +249,7 @@ To get help about the script, you can run `Get-Help` to get a list of argument d
 Get-Help .\Install-VMInsights.ps1 -Detailed
 
 SYNOPSIS
-    Configure VM's and VM Scale Sets for VM Insights:
+    Configure VM's and VM Scale Sets for VM insights:
     - Installs Log Analytics VM Extension configured to supplied Log Analytics Workspace
     - Installs Dependency Agent VM Extension
 
@@ -319,7 +319,7 @@ PARAMETERS
     <SubscriptionId> -ResourceGroup <ResourceGroup>        
 ```
 
-The following example demonstrates using the PowerShell commands in the folder to enable VM Insights and understand the expected output:
+The following example demonstrates using the PowerShell commands in the folder to enable VM insights and understand the expected output:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -369,18 +369,18 @@ Failed: (0)
 ```
 
 ## Enable for Hybrid environment
-This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment for monitoring by VM Insights.  
+This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment for monitoring by VM insights.  
 
-The VM Insights Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Map is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
+The VM insights Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Map is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
 
 Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).
 
 Summarized steps:
 
 1. Install Log Analytics Agent for Windows or Linux
-2. Install VM Insights Dependency agent
+2. Install VM insights Dependency agent
 3. Enable collection of performance counters
-4. Onboard VM Insights solution
+4. Onboard VM insights solution
 
 ### Install the Dependency agent on Windows 
 The Dependency agent can be installed manually on Windows computers by running  `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install interactively.  
@@ -523,4 +523,4 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 
 ## Next steps
 
-With monitoring enabled for your virtual machine, this information is available for analysis with VM Insights.  To learn how to use the health feature, see [View Azure VM health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-maps.md).  
+With monitoring enabled for your virtual machine, this information is available for analysis with VM insights.  To learn how to use the Health feature, see [View Azure VM  insights Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM insights Map](monitoring-vminsights-maps.md).  
