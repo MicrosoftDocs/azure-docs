@@ -77,7 +77,7 @@ Use the following steps to install the VM Agent in offline mode.
 
         ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. We also need to check the **ImagePath**. We will need to copy the corresponding folder to the attached OS disk.
+    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. Remember the **ImagePath** of the VM agent. We will need to copy the corresponding folder to the attached OS disk. 
 
         ![Change the registry subkey values](./media/install-vm-agent-offline/change-reg.png)
 
@@ -88,33 +88,23 @@ Use the following steps to install the VM Agent in offline mode.
         - WindowsAzureTelemetryService
         - RdAgent
 
-    5. Copy the installation files of VM Agent to the attached OS disk: 
+    5. Copy the installation files of the VM Agent to the attached OS disk: 
 
-        1. Check the ImagePath of the VM Agent in the following regsitry key:
-
-        	HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-
-            In this case, we assume the ImagePath is 
-            **C:\WindowsAzure\GuestAgent_2.7.41491.888\WaAppAgent.exe**.
+        1. Check the **ImagePath** of the current VM Agent. In this case, the **ImagePath** is: **C:\WindowsAzure\GuestAgent_2.7.41491.888\WaAppAgent.exe**.
         
         2. On the OS disk that you attached, create a folder named **WindowsAzure** in the root path.
             
-        3. Copy the **GuestAgent_2.7.41491.888** folder from **C:\WindowsAzure** to the **WindowsAzure** folder in the attached OS disk. 
+        3. Copy the **GuestAgent_version** folder from **C:\WindowsAzure** to the **WindowsAzure** folder in the attached OS disk. 
 
-9.  Copy the VM Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
+            ![Copy GuestAgent folder](./media/install-vm-agent-offline/copy-files.png)
 
-    ![Copy the VM Agent files to the OS disk](./media/install-vm-agent-offline/copy-package.png)
-      
-    >[!NOTE]
-    >Don’t copy the **logs** folder. After the service starts, new logs are generated.
+9.  Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive**​.
 
-10.  Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive**​.
+10.  Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive**​.
 
-11.  Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive**​.
+11.  Detach the OS disk, and then recreate the VM by using the OS disk.
 
-12.  Detach the OS disk, and then recreate the VM by using the OS disk.
-
-13.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
+12.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
 
 If you created the VM by using the Resource Manager deployment deployment model, you're done.
 
