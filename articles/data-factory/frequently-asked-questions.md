@@ -78,7 +78,7 @@ Since the initial Public Preview release in 2017, Data Factory has added the fol
 -	Support for three more configurations/variants of Azure SQL Database (DB) to host SSIS catalog of projects/packages (SSISDB):
 -	Azure SQL DB with VNet service endpoints
 -	Managed Instance (MI)
--	Elastic Pool
+-	Elastic pool
 -	Support for Azure Resource Manager Virtual Network (VNet) on top of Classic VNet that will be deprecated in the future – This lets you inject/join your Azure-SSIS Integration Runtime (IR) to a VNet that is configured for Azure SQL DB with VNet service endpoints/MI/on-premises data access, see:
 https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -	Support for Azure Active Directory (AAD) authentication on top of SQL authentication to connect to your SSISDB - This lets you use AAD authentication with your ADF Managed Service Identity (MSI)
