@@ -3,11 +3,11 @@
 
 Environment is rank 1.  An environment corresponds to a [Resource Manager Deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy).
 
-While environment is rank 1 a cluster object is required to manage the environment.
-
 CycleCloud can now manage Azure Resource Manager deployments with ARM templates.
-These environments are loaded into the CycleCloud namespace so that they can be 
-referred to in CycleCloud template objects.
+These environments can be 
+referred to from within CycleCloud template objects.
+
+While environment is rank 1, a cluster object is required in the cluster template file.
 
 ## Example
 
@@ -16,7 +16,7 @@ referred to in CycleCloud template objects.
   ManagedLifecycle=true
   TemplateURL = az://mystorageaccount/mycontainer/${ProjectVersion}/vnet.json
   ParameterValues.backendIpAddress1 = 10.0.1.4
-  VariableOverrides.virtualNetworkName = VPC
+  VariableOverrides.virtualNetworkName = azure-vnet
 
 [environment appgateway]
   TemplateURL = https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-application-gateway-waf/azuredeploy.json
@@ -31,6 +31,10 @@ referred to in CycleCloud template objects.
 
 The `$` is a reference to a parameter name. The `${}` is another way of referencing
 a parameter name and allows reference to an environment.
+
+This examples will launch the ARM template existing at _az://mystorageaccount/mycontainer/${ProjectVersion}/vnet.json_
+as an ARM deployment, and provided the **Resource** and **Outputs** as nested data
+within the `vnet` variable.
 
 ## Attribute Reference
 
@@ -64,7 +68,7 @@ name.
 [cluster my-cluster]
     [[node proxy]]
         IsReturnProxy = True
-        SubnetId = ${vnet.resources.'VPC/ProxySubnet'.id}
+        SubnetId = ${vnet.resources.'azure-vnet/ProxySubnet'.id}
 ```
 
 Following the ARM deployment model, environments will create resources and expose
@@ -77,3 +81,28 @@ Attribute | Definition
 ------ | ----- | ----------
 Outputs. | Use as `${environment-name.Outputs.my-output}` in template where my-output is the name of an output in the ARM template.
 Resources. | Use as `${environment-name.Resources.my-resource-name.key1.key2}` in template where my-resource-name is the name of a resource in the ARM template and key1, key2 are related keys in the resource object.
+
+### Referring to Nested Resources
+
+Environments managed by cyclecloud are represented by a nested
+data structure.  It is often useful to reference data within this structure.
+
+```ini
+[environment db]
+TemplateContents = @raw-db-json
+ParameterValues.DBName = @DBNameParameter
+
+[cluster my-cluster]
+  [[node my-node]]
+
+     SubnetId = ${network.resources.'vnet/ComputeSubnet'.id}
+
+     [[[configuration database]]]
+        connection_string = ${db.Outputs.JDBCConnectionString}
+        database_id = ${db.resources[ClusterName].id}
+```
+
+The indices of nested variables can depend on the ARM resource
+type being created. `env.resources.my-resource-name.id`, `env.resources['my-resource-name'].id`,
+`env.resources[MyResourceParam]` are all valid formats for
+references to nested variables. 

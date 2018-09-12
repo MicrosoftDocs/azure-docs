@@ -130,8 +130,14 @@
         href: ~/cluster-references/input-endpoint.md
       - name: Cluster Configuration
         href: ~/cluster-references/cluster-configuration.md
+      - name: (beta) Environment
+        href: ~/cluster-references/environment.md
+      - name: (beta) Noderef
+        href: ~/cluster-references/noderef.md
       - name: Cluster Parameters
         href: ~/cluster-references/parameter-reference.md
+      - name: Cluster Parameter Special Parsing
+        href: ~/cluster-references/special-parsing.md
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
   - name: CycleCloud Application
