@@ -145,7 +145,7 @@ This section shows how to use the Maps Search API to find a point of interest on
 2. To instantiate the client service, add the following Javascript code to the script block, after the code that initializes the map.
 
     ```JavaScript
-    var client = new atlas.service.Client(subscriptionKey);
+    var client = new atlas.service.Client(MapsAccountKey);
     ```
 
 3. Add the following script block to build the query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like any combination of address and point of interest (POI) tokens. It searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and converted into point features, which are added to the map as pins. The last part of the script adds camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
@@ -195,7 +195,7 @@ At this point, the MapSearch page can display the locations of points of interes
 
 ## Add interactive data
 
-The map that we've made so far only looks at the latitude/longitude data for the search results. If you look at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive pop-up boxes. 
+The map that we've made so far only looks at the latitude/longitude data for the search results. If you look at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive pop-up boxes.
 
 1. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
 
