@@ -22,11 +22,6 @@ ms.custom: seohack1
 In this world of mobility, with users accessing data and applications in the cloud and from any device, securing this information has become paramount.  Every day there is a new headline about a security breach.  Although, there is no guarantee against such breaches, multi-factor authentication, provides an additional layer of security to help prevent these breaches.
 Start by evaluating the organizations requirements for multi-factor authentication. That is, what is the organization trying to secure.  This evaluation is important to define the technical requirements for setting up and enabling the organizations users for multi-factor authentication.
 
-> [!NOTE]
-> If you are not familiar with MFA and what it does, it is strongly recommended that you read the article [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) prior to continue reading this section.
-> 
-> 
-
 Make sure to answer the following:
 
 * Is your company trying to secure Microsoft apps? 

@@ -39,7 +39,7 @@ You can use this guide to understand how to design a hybrid identity solution th
 
 The following graphic shows an example a hybrid identity solution that enables IT Admins to manage to integrate their current Windows Server Active Directory solution located on-premises with Microsoft Azure Active Directory to enable users to use Single Sign-On (SSO) across applications located in the cloud and on-premises.
 
-![](./media/hybrid-id-design-considerations/hybridID-example.png)
+![Example](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 
 The above illustration is an example of a hybrid identity solution that is leveraging cloud services to integrate with on-premises capabilities in order to provide a single experience to the end-user authentication process and to facilitate IT managing those resources. Although this example can be a common scenario, every organization’s hybrid identity design is likely to be different than the example illustrated in Figure 1 due to different requirements. 
 

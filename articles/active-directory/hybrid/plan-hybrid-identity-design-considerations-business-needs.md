@@ -1,4 +1,4 @@
----
+﻿---
 title: Identity requirements for hybrid cloud identity design Azure | Microsoft Docs
 description: Identify the company’s business needs that will lead you to define the requirements for the hybrid identity design.
 documentationcenter: ''
@@ -24,7 +24,7 @@ The first step in designing a hybrid identity solution is to determine the requi
 You need to go over these key aspects of the business to understand what it is a requirement now and what the company plans for the future. If you don’t have the visibility of the long term strategy for hybrid identity design, chances are that your solution will not be scalable as the business needs grow and change.   T he diagram below shows an example of a hybrid identity architecture and the workloads that are being unlocked for users. This is just an example of all the new possibilities that can be unlocked and delivered with a solid hybrid identity strategy. 
 
 Some components that are part of the hybrid identity architecture
-![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
+![](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## Determine business needs
 Each company will have different requirements, even if these companies are part of the same industry, the real business requirements might vary. You can still leverage best practices from the industry, but ultimately it is the company’s business needs that will lead you to define the requirements for the hybrid identity design. 

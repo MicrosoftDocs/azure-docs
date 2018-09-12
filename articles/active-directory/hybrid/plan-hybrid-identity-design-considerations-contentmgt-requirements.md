@@ -1,4 +1,4 @@
----
+﻿---
 title: Hybrid identity design - content management requirements Azure | Microsoft Docs
 description: Provides insight into how to determine the content management requirements of your business. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage.
 documentationcenter: ''
@@ -22,7 +22,7 @@ Understanding the content management requirements for your business may direct a
 
 Your identity solution will be leveraged by different technical controls in order to provide content management as shown in the figure below:
 
-![](./media/hybrid-id-design-considerations/securitycontrols.png)
+![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Security controls that will be leveraging your identity management system**
 
