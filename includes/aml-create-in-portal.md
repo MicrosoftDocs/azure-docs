@@ -8,7 +8,7 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ---
 
 Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
@@ -21,7 +21,7 @@ Select the **Create a resource** button (+) in the upper-left corner of the port
 
 Enter **Machine Learning** in the search bar. Select the search result named **Machine Learning Workspace**.
 
-   ![search for workspace](./media/aml-create-in-portal/workspace-search.png)
+   ![search for workspace](./media/aml-create-in-portal/allservices-search.PNG)
 
 In the **Machine Learning Workspace** pane, scroll to the bottom and select **Create** to begin.
 
