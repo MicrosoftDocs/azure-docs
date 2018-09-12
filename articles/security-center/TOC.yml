@@ -162,6 +162,8 @@
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
+    - name: UEBA for Azure resources and users
+      href: security-center-ueba-mcas.md
   
   - name: Automate security workflows
     items:
