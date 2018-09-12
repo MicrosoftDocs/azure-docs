@@ -84,6 +84,9 @@ No. All data transferred into the vault, before the backup job was canceled, sta
 
 If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
+### How does Azure Backup leverage full and incremental backups in its recovery points?<br/>
+Azure Backup manages data by storing blocks and mapping them with pointers. For each recovery point after the initial full backup, Azure Backup stores the changed blocks, maps pointers to old or changed blocks, and increments the number of pointers pointing to those blocks. Each recovery point is simply a set of pointers that point to a block. When a recovery point has been deleted, its pointers are removed and blocks without any pointers are deleted.
+
 ### Are there limits on when or how many times a backup job can be scheduled?<br/>
 Yes. You can run backup jobs on Windows Server or Windows workstations up to three times/day. You can run backup jobs on System Center DPM up to two times a day. You can run a backup job for IaaS VMs once a day. Use the scheduling policy for Windows Server or Windows workstation to specify daily or weekly schedules. With System Center DPM, you can specify daily, weekly, monthly, and yearly schedules.
 
