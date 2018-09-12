@@ -5,7 +5,7 @@ services: container-service
 author: iainfoulds
 
 ms.service: container-service
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ---
 
@@ -14,13 +14,7 @@ ms.author: iainfou
 To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have fast provisioning of pods, and only pay per second for their execution time. In a scaling scenario, you don't need to wait for the Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
 
 > [!IMPORTANT]
-> Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
-
-## Before you begin
-
-To enable network communication between pods that run on virtual nodes and the AKS cluster, virtual nodes need their own virtual network subnet and delegated permissions. Virtual nodes only work with AKS clusters created using *advanced* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
-
-The virtual nodes feature is currently rolling out to supported AKS regions.
+> Virtual nodes for AKS are currently in **private preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Sign in to Azure
 
@@ -30,34 +24,21 @@ Sign in to the Azure portal at http://portal.azure.com.
 
 In the top left-hand corner of the Azure portal, select **Create a resource** > **Kubernetes Service**.
 
-To create an AKS cluster, complete the following steps:
+On the **Basics** page, configure the following options:
 
-1. **Basics** - Configure the following options:
-    - *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
-    - *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
-    - *SCALE*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
-        - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
-        - Under **Virtual nodes**, select *Enabled*.
-    
-    ![Create AKS cluster and enable the virtual nodes](media/virtual-nodes-portal/enable-virtual-nodes.png)
+- *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
+- *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
+- *SCALE*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
+    - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
+    - Under **Virtual nodes**, select *Enabled*.
 
-    Select **Next: Networking** when complete.
+![Create AKS cluster and enable the virtual nodes](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-1. **Networking**: Configure the following options:
-    - For **HTTP application routing**, choose *No*.
-    - Select the **Advanced** network configuration using the [Azure CNI][azure-cni] plugin. Virtual nodes requires a delegated subnet, which is configured through advanced networking. For more information on networking options, see [AKS networking overview][aks-network].
-    - If you need to create a virtual network and subnet, under *Virtual network*, choose **Create new**.
-        - A default virtual network is populated named *default-aks-vnet* with an **Address range** of *10.0.0.0/8*
-        - Under **Subnets**, a *default* subnet is defined with the **Address range** of *10.240.0.0/16*.
-        - An additional *virtual-node-aci* subnet is defined with the **Address range** of *10.241.0.0/16*.
-        - To accept these defaults, select **Create**.
+By default, an Azure Active Directory service principal is created. This service principal is used for cluster communication and integration with other Azure services.
 
-        ![Configure advanced networking for the virtual nodes](media/virtual-nodes-portal/create-virtual-network.png)
+The cluster is also configured for advanced networking. The virtual nodes are configured to use their own Azure virtual network subnet. This subnet has delegated permissions to connect Azure resources between the AKS cluster. If you don't already have delegated subnet, the Azure portal creates and configures the Azure virtual network and subnet for use with the virtual nodes.
 
-    - Under **Virtual nodes subnet**, choose the subnet created in the previous step, such as *virtual-node-aci*.
-    - Leave the default addresses for **Kubernetes service address range**, **Kubernetes DNS service IP address**, and **Docker Bridge address**.
-
-    Select **Review + create** and then **Create** when ready.
+Select **Review + create**. After the validation is complete, select **Create**.
 
 It takes a few minutes to create the AKS cluster and to be ready for use.
 
@@ -81,14 +62,14 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-linux*:
+The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-aci-linux*:
 
 ```
 $ kubectl get nodes
 
-NAME                       STATUS    ROLES     AGE       VERSION
-virtual-node-linux         Ready     agent     28m       v1.8.3
-aks-agentpool-14693408-0   Ready     agent     32m       v1.11.2
+NAME                           STATUS    ROLES     AGE       VERSION
+virtual-node-aci-linux         Ready     agent     28m       v1.11.2
+aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 ```
 
 ## Deploy a sample app
@@ -113,7 +94,7 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-node-linux
+        kubernetes.io/hostname: virtual-node-aci-linux
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -132,11 +113,49 @@ Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to o
 ```
 $ kubectl get pods -o wide
 
-NAME                                     READY     STATUS    RESTARTS   AGE       IP              NODE
-virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   virtual-node-linux
+NAME                                     READY     STATUS    RESTARTS   AGE       IP           NODE
+virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
 
+The pod is assigned an internal IP address from the Azure virtual network subnet delegated for use with virtual nodes.
+
+## Test the virtual node pod
+
+To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
+
+```console
+kubectl run -it --rm virtual-node-test --image=debian
+```
+
+Install `curl` in the pod using `apt-get`:
+
+```console
+apt-get update && apt-get install -y curl
+```
+
+Now access the address of your pod using `curl`, such as *http://10.241.0.4*. Provide your own internal IP address shown in the previous `kubectl get pods` command:
+
+```console
+curl -L http://10.241.0.4
+```
+
+The demo application is displayed, as shown in the following condensed example output:
+
+```
+$ curl -L 10.240.0.42
+
+<html>
+<head>
+  <title>Welcome to Azure Container Instances!</title>
+</head>
+[...]
+```
+
+Close the terminal session to your test pod with `exit`. When your session is ended, the pod is the deleted.
+
 ## Next steps
+
+In this article, a pod was scheduled on the virtual node and assigned a private, internal IP address. You could instead create a service deployment and route traffic to your pod through a load balancer or ingress controller. For more information, see [Create a basic ingress controller in AKS][aks-basic-ingress].
 
 Virtual nodes are one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
 
@@ -156,3 +175,4 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
+[aks-basic-ingress]: ingress-basic.md

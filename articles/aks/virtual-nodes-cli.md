@@ -14,7 +14,7 @@ ms.author: iainfou
 To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
 
 > [!IMPORTANT]
-> Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Virtual nodes for AKS are currently in **private preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Before you begin
 
@@ -123,14 +123,19 @@ After several minutes, the command completes and returns JSON-formatted informat
 
 ## Enable virtual nodes
 
-To enable virtual nodes, use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step. *Both* the Linux and Windows virtual nodes are enabled.
+To provide additional functionality, the virtual nodes connector uses an Azure CLI extension. Before you can enable the virtual nodes connector, first install the extension using the [az extension add][az-extension-add] command:
+
+```azurecli-interactive
+az extension add --name aks-virtual-nodes
+```
+
+To enable virtual nodes, now use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step:
 
 ```azurecli-interactive
 az aks enable-addons \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --addons virtual-nodes \
-    --os-type both \
+    --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
 
@@ -148,14 +153,14 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-linux*:
+The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-aci-linux*:
 
 ```
 $ kubectl get nodes
 
-NAME                       STATUS    ROLES     AGE       VERSION
-virtual-node-linux        Ready     agent     28m       v1.8.3
-aks-agentpool-14693408-0   Ready     agent     32m       v1.11.2
+NAME                          STATUS    ROLES     AGE       VERSION
+virtual-node-aci-linux        Ready     agent     28m       v1.11.2
+aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 ```
 
 ## Deploy a sample app
@@ -180,7 +185,7 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-node-linux
+        kubernetes.io/hostname: virtual-node-aci-linux
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -194,14 +199,50 @@ Run the application with the [kubectl create][kubectl-create] command.
 kubectl apply -f virtual-node.yaml
 ```
 
-Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `virtual-node-linux` node.
+Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `virtual-node-aci-linux` node.
 
 ```
 $ kubectl get pods -o wide
 
-NAME                            READY     STATUS    RESTARTS   AGE       IP              NODE
-aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        40.83.166.145   virtual-node-linux
+NAME                            READY     STATUS    RESTARTS   AGE       IP           NODE
+aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
+
+The pod is assigned an internal IP address from the Azure virtual network subnet delegated for use with virtual nodes.
+
+## Test the virtual node pod
+
+To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
+
+```console
+kubectl run -it --rm virtual-node-test --image=debian
+```
+
+Install `curl` in the pod using `apt-get`:
+
+```console
+apt-get update && apt-get install -y curl
+```
+
+Now access the address of your pod using `curl`, such as *http://10.241.0.4*. Provide your own internal IP address shown in the previous `kubectl get pods` command:
+
+```console
+curl -L http://10.241.0.4
+```
+
+The demo application is displayed, as shown in the following condensed example output:
+
+```
+$ curl -L 10.240.0.42
+
+<html>
+<head>
+  <title>Welcome to Azure Container Instances!</title>
+</head>
+[...]
+```
+
+Close the terminal session to your test pod with `exit`. When your session is ended, the pod is the deleted.
 
 ## Remove virtual nodes
 
@@ -212,6 +253,8 @@ az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-ad
 ```
 
 ## Next steps
+
+In this article, a pod was scheduled on the virtual node and assigned a private, internal IP address. You could instead create a service deployment and route traffic to your pod through a load balancer or ingress controller. For more information, see [Create a basic ingress controller in AKS][aks-basic-ingress].
 
 Virtual nodes are often one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
 
@@ -232,7 +275,9 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+[az-extension-add]: /cli/azure/extension#az-extension-add
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
+[aks-basic-ingress]: ingress-basic.md
