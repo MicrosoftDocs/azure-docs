@@ -19,13 +19,13 @@ ms.author: rkarlin
 ---
 # UEBA for Azure resources and users 
 
-[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
-
 Azure Security Center partners with Microsoft Cloud App Security to bring you alerts based on user and entity behavioral analytics (UEBA) for your Azure resources and users (Azure activity). These alerts detect anomalies in user behavior and are based on user and entity behavioral analytics and machine learning (ML) so that you can immediately run advanced threat detection across your subscriptions' activities. Because they are automatically enabled, the new anomaly detections provide immediate results by providing immediate detections, targeting numerous behavioral anomalies across the users and resources associated with your subscription. In addition, these alerts leverage additional data that already exists in the Microsoft Cloud App Security detection engine, to help you speed up the investigation process and contain ongoing threats. 
 
 > [!NOTE]
 > Azure Security Center, which may store a copy of security-related customer data, collected from or associated with a customer resource (e.g. virtual machine or Azure Active Directory tenant): (a) in the same Geo as that resource, except in those Geos where Microsoft has yet to deploy Azure Security Center, in which case a copy of such data will be stored in the United States; and (b) where Azure Security Center uses another Microsoft Online Service to process such data, it may store such data in accordance with the geolocation rules of that other Online Service.
 >
+
+[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## Prerequisites
 
