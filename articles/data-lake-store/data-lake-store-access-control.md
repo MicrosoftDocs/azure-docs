@@ -65,10 +65,10 @@ The permissions on a filesystem object are **Read**, **Write**, and **Execute**,
 
 | Numeric form | Short form |      What it means     |
 |--------------|------------|------------------------|
-| 7            | RWX        | Read + Write + Execute |
-| 5            | R-X        | Read + Execute         |
-| 4            | R--        | Read                   |
-| 0            | ---        | No permissions         |
+| 7            | `RWX`        | Read + Write + Execute |
+| 5            | `R-X`        | Read + Execute         |
+| 4            | `R--`        | Read                   |
+| 0            | `---`        | No permissions         |
 
 
 ### Permissions do not inherit
@@ -81,13 +81,13 @@ Following are some common scenarios to help you understand which permissions are
 
 |    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   --X   |   --X    |  --X      | R--          |
-| Append to Data.txt       |   --X   |   --X    |  --X      | RW-          |
-| Delete Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| Create Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| List /                   |   R-X   |   ---    |  ---      | ---          |
-| List /Seattle/           |   --X   |   R-X    |  ---      | ---          |
-| List /Seattle/Portland/  |   --X   |   --X    |  R-X      | ---          |
+| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -104,13 +104,8 @@ A super-user has the most rights of all the users in the Data Lake Storage Gen1 
 * Can change the permissions on any file or folder.
 * Can change the owning user or owning group of any file or folder.
 
-In Azure, a Data Lake Storage Gen1 account has several Azure roles, including:
+All users that are part of the **Owners** role for a Data Lake Storage Gen1 account are automatically a super-user.
 
-* Owners
-* Contributors
-* Readers
-
-Everyone in the **Owners** role for a Data Lake Storage Gen1 account is automatically a super-user for that account. To learn more, see [Role-based access control](../role-based-access-control/role-assignments-portal.md).
 If you want to create a custom role-based-access control (RBAC) role that has super-user permissions, it needs to have the following permissions:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -130,11 +125,16 @@ The user who created the item is automatically the owning user of the item. An o
 
 ## The owning group
 
+**Background**
+
 In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
-Assiging the owning group for a new file or folder:
+**Assiging the owning group for a new file or folder**
+
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
+
+**Changing the owning group**
 
 The owning group can be changed by:
 * Any super-users.
@@ -172,14 +172,15 @@ def access_check( user, desired_perms, path ) :
       return ( (desired_perms & perms & mask ) == desired_perms)
 
   # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  member_count = 0
+  perms = 0
+  for g in get_groups(path) :
+    if (user_is_member_of_group(user, g)) :
+      member_count += 1
+      perms | =  get_perms_for_group(path,g)
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -195,7 +196,7 @@ As illustrated in the Access Check Algorithm, the mask limits access for **named
 >
 >
 
-#### The sticky bit
+### The sticky bit
 
 The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a folder,  a child item can only be deleted or renamed by the child item's owning user.
 
@@ -216,9 +217,9 @@ The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. 
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   ---      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
-| umask.owning_group  |    0         |   ---      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
-| umask.other         |    7         |   RWX      | For other, remove all permissions on the child's Access ACL |
+| umask.owning_user   |    0         |   `---`      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
+| umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
+| umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's Access ACL |
 
 The umask value used by Azure Data Lake Storage Gen1 effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
