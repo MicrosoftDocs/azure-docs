@@ -109,4 +109,4 @@ To perform tasks on public IP address prefixes, your account must be assigned to
 
 ## Next steps
 
-- Use a prefix to [reference outbound rules](../load-balancer-load-balancer-outbound-rules-overview.md) in your load balancer
+- Use a prefix to [reference outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md) in your load balancer
