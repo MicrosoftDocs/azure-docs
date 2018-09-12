@@ -1,16 +1,16 @@
 ---
-title: 'How to configure OpenVPN on Azure VPN Gateway: Azure Portal| Microsoft Docs'
+title: 'How to configure OpenVPN on Azure VPN Gateway: PowerShell| Microsoft Docs'
 description: Steps to configure OpenVPN for Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/012/2018
+ms.date: 09/21/2018
 ms.author: cherylmc
 
 ---
-# Configure OpenVPN for Azure point-to-site VPN Gateway
+# Configure OpenVPN for Azure point-to-site VPN Gateway (Preview)
 
 This article helps you set up OpenVPN on Azure VPN Gateway. The article assumes that you already have a working point-to-site environment. If you do not, use the instructions in step 1 to create a point-to-site VPN.
 
