@@ -1,5 +1,5 @@
 ---
-title: Introduction to device management in Azure Active Directory | Microsoft Docs
+title: What is device management in Azure Active Directory? | Microsoft Docs
 description: Learn how device management can help you to get control over the devices that are accessing resources in your environment.
 services: active-directory
 documentationcenter: ''
@@ -13,13 +13,14 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/21/2018
+ms.topic: overview
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
+#Customer intent: As a IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ---
-# Introduction to device management in Azure Active Directory
+# What is device management in Azure Active Directory?
 
 In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices - including Bring Your Own Device (BYOD), IT professionals are faced with two opposing goals:
 
@@ -118,7 +119,7 @@ For more than a decade, many organizations have used the domain join to their on
 
 Typically, organizations with an on-premises footprint rely on imaging methods to provision devices, and they often use **System Center Configuration Manager (SCCM)** or **group policy (GP)** to manage them.
 
-If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are both, joined to your on-premises Active Directory and your Azure Active Directory.
+If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
 
 ![Azure AD registered devices](./media/overview/01.png)
 

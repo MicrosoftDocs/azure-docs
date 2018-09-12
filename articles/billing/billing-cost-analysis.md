@@ -1,5 +1,5 @@
 ---
-title: Explore Azure costs with Cost analysis | Microsoft Docs
+title: Explore Azure costs with cost analysis | Microsoft Docs
 description: This article helps you use cost analysis to explore and analyze your Azure organizational costs.
 services: billing
 keywords:
@@ -11,7 +11,7 @@ ms.service: billing
 manager: dougeby
 ms.custom:
 ---
-# Explore and analyze costs with Cost analysis
+# Explore and analyze costs with cost analysis
 
 Before you can properly control and optimize your Azure costs, you need to understand where costs originated within your organization. It's also useful to know how much money your services cost, and in support of what environments and systems. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns, which can be used to enforce cost control mechanisms, like budgets.
 

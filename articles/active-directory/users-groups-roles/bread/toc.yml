@@ -27,11 +27,11 @@
   topicHref: /azure/index
   items:  
   - name: Active Directory       
-    tocHref: /azure/active-directory
+    tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/index
     items:
     - name: Users, groups, and roles
-      tocHref: /azure/active-directory
+      tocHref: /azure/active-directory/
       topicHref: /azure/active-directory/users-groups-roles/index
 
 - name: Azure

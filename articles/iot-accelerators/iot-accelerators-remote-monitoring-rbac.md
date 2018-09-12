@@ -48,7 +48,7 @@ Use the Azure portal to add or remove a user from the Remote Monitoring solution
 
 1. Check the [user is in the directory](../active-directory/fundamentals/add-users-azure-active-directory.md) you're using. You chose the directory to use when you signed in to the [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) site. The directory name is visible in the top-right corner of the [page](https://www.azureiotsolutions.com/Accelerators).
 
-1. Find the **Enterprise application** for your solution in the Azure portal. The application name is the name of your Remote Monitoring solution. In the following screenshot, the solution and application display names are **contoso-rm4**.
+1. Find the **Enterprise application** for your solution in the Azure portal. Once there, filter the list by setting **Application Type** to **All Applications**. Search for your application by application name. The application name is the name of your Remote Monitoring solution. In the following screenshot, the solution and application display names are **contoso-rm4**.
 
     ![Enterprise application](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 

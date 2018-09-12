@@ -57,7 +57,7 @@ For more information about users and roles in AAD, see the following resources:
 
 The Azure admin roles control the ability to map an Azure subscription to an AAD tenant.
 
-Find out more about the Azure admin roles in the article [How to add or change Azure Co-Administrator, Service Administrator, and Account Administrator][lnk-admin-roles].
+Find out more about the Azure admin roles in the article [Add or change Azure subscription administrators][lnk-admin-roles].
 
 ## FAQ
 

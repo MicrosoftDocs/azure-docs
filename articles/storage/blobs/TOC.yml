@@ -94,7 +94,7 @@
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authenticate from an application
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authenticate from a Managed Service Identity
+        - name: Authenticate with managed identities
           href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use an Azure AD identity with CLI or PowerShell
           href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -113,69 +113,69 @@
       href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Geo-redundant storage
       href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Access tiers
-      href: storage-blob-storage-tiers.md
-    - name: Managing the Azure Blob Storage Lifecycle
-      href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Reacting to events
-      href: storage-blob-event-overview.md
-    - name: Scalability and performance targets
-      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Performance and scalability checklist
-      href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Concurrency
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Disaster recovery guidance
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Move data to and from Storage
-      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Page blob features
-      href: storage-blob-pageblob-overview.md
-    - name: Azure Disks
+  - name: Access tiers
+    href: storage-blob-storage-tiers.md
+  - name: Managing the Azure Blob Storage Lifecycle
+    href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Reacting to events
+    href: storage-blob-event-overview.md
+  - name: Scalability and performance targets
+    href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Performance and scalability checklist
+    href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Concurrency
+    href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Disaster recovery guidance
+    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Move data to and from Storage
+    href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Page blob features
+    href: storage-blob-pageblob-overview.md
+  - name: Azure Disks
+    items:
+    - name: Premium Storage
       items:
-      - name: Premium Storage
-        items:
-          - name: Linux
-            items: 
-              - name: High-performance Premium Storage for VM Disks
-                href: ../../virtual-machines/linux/premium-storage.md
-              - name: Migrating to Premium Storage using Azure Site Recovery
-                href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
-              - name: Design for high performance
-                href: ../../virtual-machines/linux/premium-storage-performance.md
-          - name: Windows
-            items: 
-              - name: High-performance Premium Storage for VM Disks
-                href: ../../virtual-machines/windows/premium-storage.md
-              - name: Migrating to Premium Storage using Azure Site Recovery
-                href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
-              - name: Design for high performance
-                href: ../../virtual-machines/windows/premium-storage-performance.md
-      - name: Standard Storage 
-        items:
-          - name: Linux
-            items: 
-              - name: Standard Storage for VM Disks
-                href: ../../virtual-machines/linux/standard-storage.md
-          - name: Windows
-            items: 
-              - name: Standard Storage for VM Disks
-                href: ../../virtual-machines/windows/standard-storage.md
-      - name: Troubleshoot attached VHDs
-        href: storage-troubleshoot-vhds.md 
-        items:
-          - name: Linux
-            items: 
-            - name: Storage resource deletion errors
-              href: ../../virtual-machines/linux/storage-resource-deletion-errors.md  
-            - name: Unexpected reboots of VMs with attached VHDs  
-              href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md            
-          - name: Windows
-            items: 
-            - name: Storage resource deletion errors
-              href: ../../virtual-machines/windows/storage-resource-deletion-errors.md  
-            - name: Unexpected reboots of VMs with attached VHDs  
-              href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md            
+        - name: Linux
+          items: 
+            - name: High-performance Premium Storage for VM Disks
+              href: ../../virtual-machines/linux/premium-storage.md
+            - name: Migrating to Premium Storage using Azure Site Recovery
+              href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: Design for high performance
+              href: ../../virtual-machines/linux/premium-storage-performance.md
+        - name: Windows
+          items: 
+            - name: High-performance Premium Storage for VM Disks
+              href: ../../virtual-machines/windows/premium-storage.md
+            - name: Migrating to Premium Storage using Azure Site Recovery
+              href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: Design for high performance
+              href: ../../virtual-machines/windows/premium-storage-performance.md
+    - name: Standard Storage 
+      items:
+        - name: Linux
+          items: 
+            - name: Standard Storage for VM Disks
+              href: ../../virtual-machines/linux/standard-storage.md
+        - name: Windows
+          items: 
+            - name: Standard Storage for VM Disks
+              href: ../../virtual-machines/windows/standard-storage.md
+    - name: Troubleshoot attached VHDs
+      href: storage-troubleshoot-vhds.md 
+      items:
+        - name: Linux
+          items: 
+          - name: Storage resource deletion errors
+            href: ../../virtual-machines/linux/storage-resource-deletion-errors.md  
+          - name: Unexpected reboots of VMs with attached VHDs  
+            href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md            
+        - name: Windows
+          items: 
+          - name: Storage resource deletion errors
+            href: ../../virtual-machines/windows/storage-resource-deletion-errors.md  
+          - name: Unexpected reboots of VMs with attached VHDs  
+            href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md            
   - name: Secure
     items:
     - name: Security guide

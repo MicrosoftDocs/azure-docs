@@ -61,6 +61,12 @@ The following properties are supported for the Oracle linked service.
 >[!TIP]
 >If you hit error saying "ORA-01025: UPI parameter out of range" and your Oracle is of version 8i, add `WireProtocolMode=1` to your connection string and try again.
 
+To enable encryption on Oracle connection, you have two options:
+
+1.	On Oracle server side, go to Oracle Advanced Security (OAS) and configure the encryption settings, which supports Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES), refer to details [here](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle connector automatically negotiates the encryption method to use the one you configure in OAS when establishing connection to Oracle.
+
+2.	On client side, you can add `EncryptionMethod=1` in the connection string. This will use SSL/TLS as the encryption method. To use this, you need to disable non-SSL encryption settings in OAS on the Oracle server side to avoid encryption conflict.
+
 **Example:**
 
 ```json

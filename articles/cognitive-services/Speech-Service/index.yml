@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service and SDK Documentation (Preview)
+title: Speech Service and SDK (Preview)
 metadata:
   title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: |
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. 
+    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
     Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
@@ -20,7 +20,7 @@ metadata:
 
 abstract:
   description: |
-    Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.<br/>
+    Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.
     Features include&#58; <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS).
 
 sections:
@@ -46,7 +46,16 @@ sections:
       - image:
           src: media/index/logo_rest_tts.svg
     rows:
-      - title: Windows (x86/x64)
+      - title: Windows 10 (x64)
+        values:
+        - href: quickstart-csharp-uwp
+        - href: quickstart-csharp-windows
+        - href: quickstart-cpp-windows
+        - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-java-jre
+        - href:
+        - href:
+      - title: Windows 10 (x86)
         values:
         - href: quickstart-csharp-uwp
         - href: quickstart-csharp-windows
@@ -55,11 +64,22 @@ sections:
         - href:
         - href:
         - href:
-      - title: Linux (x86/x64)
+      - title: Linux (x64)
         values:
         - href:
         - href:
         - href: quickstart-cpp-linux
+        - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-java-jre
+        - href:
+        - href:
+      - title: Linux (x86)
+        values:
+        - href:
+        - href:
+        - href: quickstart-cpp-linux
+        - href:
+        - href:
         - href:
         - href:
       - title: Android (ARM32/ARM64)
@@ -106,6 +126,11 @@ sections:
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
+    - title: FAQs
+      html: |
+        &nbsp;&#8226; <a href="faq-stt">Speech-to-text</a><br/>
+        &nbsp;&#8226; <a href="faq-text-to-speech">Text-to-speech</a><br/>
+        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Translation</a>
   - type: paragraph
     text: Use the samples and API above with your subscription key (see <a href="get-started.md">Try the speech service for free</a>).
 
