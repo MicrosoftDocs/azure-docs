@@ -30,15 +30,15 @@ sections:
             src: ../media/index/i_overview.svg
           title: What is Text Analytics?
         - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
-          html: <p>Learn how to sign up for the Text Analytics Service.</p>
+          html: <p>Learn how to sign up for the Text Analytics API.</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Sign up for the Text Analytics Service
+          title: Sign up for the Text Analytics API
         - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-          html: <p>Learn how to obtain the access keys and endpoints for Text Analytics API</p>
+          html: <p>Learn how to get the access keys and endpoints for Text Analytics API.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Obtain access keys for Text Analytics API
+          title: Get access keys for Text Analytics API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
