@@ -46,7 +46,7 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 > If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
 
 #### Before you start configuring the device:
-1. In your IoT Central **Sample Devkits** go to `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device` (on the top right) 
+1. In your IoT Central **Sample Devkits** go to `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect` (on the top right) 
 2. Copy the **Scope ID, Device ID, and Primary key**
 3. Make sure to save these details, as you will temporaritly get disconnected from the internet as you prepare the DevKit device. 
 

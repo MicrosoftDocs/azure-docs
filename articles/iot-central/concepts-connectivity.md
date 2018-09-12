@@ -53,8 +53,6 @@ Connecting a single device to IoT Central using SAS is easy and takes only a few
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-         \\
-         
          static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
          static const char* const REGISTRATION_NAME = "Enter Device Id here";
         ```
@@ -167,18 +165,17 @@ Follow the steps based on your choice of device authentication scheme (X509/SAS)
 
         Use the below instructions to generate device SAS key           
 
-            ```cmd/sh
-            git clone https://github.com/Azure/dps-keygen
-            cd dps-keygen
-            npm i -g
-            ```
+        ```
+        git clone https://github.com/Azure/dps-keygen
+        cd dps-keygen
+        npm i -g
+        ```
     
         **Usage**
                         
-            ```cmd/sh
-            dps-keygen <Group_SAS_key> <Device_id>
-            ```
-
+        ```
+        dps-keygen <Group_SAS_key> <Device_id>
+        ```
 
 1. **Device setup** 
     
@@ -205,7 +202,10 @@ This happens when
 ## Getting device connection string
 If you already have an IoT Central app and have devices connected, you can get still get device connection strings to Azure IoT Hub for temporary use, while you migrate your device code to use DPS SDK. 
 
-Use the below instructions to get the device connection string.
+You can get connection the details such as **Scope ID, Device ID, Device Primary key** from the device page.
+  ![Connection details](media\concepts-connectivity\device-connect.PNG)
+
+Use the below instructions to get the device connection string
 
  ```cmd/sh
 git clone https://github.com/Azure/dps-keygen
@@ -217,7 +217,7 @@ In order to create a connection string, find your binary under bin/ folder
  ```cmd/sh
 dps_cstr <scope_id> <device_id> <device_key>
  ```
-You can get connection the details such as **Scope ID, Device ID, Device Primary key** from the device page.
+
 
 
 ## SDK support
