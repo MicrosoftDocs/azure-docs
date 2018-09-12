@@ -82,6 +82,6 @@ For more information regarding user account management, see MariaDB documentatio
 
 ## Next steps
 Open the firewall for the IP addresses of the new users' machines to enable them to connect:
-[Create and manage Azure Database for MariaDB firewall rules by using the Azure portal](howto-manage-firewall-using-portal.md)  
+[Create and manage Azure Database for MariaDB firewall rules by using the Azure portal](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

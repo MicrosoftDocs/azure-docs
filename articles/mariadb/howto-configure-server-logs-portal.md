@@ -34,7 +34,7 @@ Configure access to the slow query log.
 
    Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
 
-   ![Click save or discard](./media/howto-configure-server-logss-portal/3-save-discard.png)
+   ![Click save or discard](./media/howto-configure-server-logs-portal/3-save-discard.png)
 
 6. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
 

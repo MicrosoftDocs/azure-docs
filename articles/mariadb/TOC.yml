@@ -60,7 +60,7 @@
   - name: Firewall rules
     items:
     - name: Azure portal
-      href: howto-manage-firewall-using-portal.md
+      href: howto-manage-firewall-portal.md
   - name: Restore a server
     items:
     - name: Azure portal
