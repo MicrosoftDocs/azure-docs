@@ -56,7 +56,7 @@ These alerts are enabled by default, but you can disable them:
 
    ![threat detection alert](./media/security-center-ueba-mcas/security-center-mcas-optout.png)
 
-> ![NOTE]
+> [!NOTE]
 > There is an initial learning period of seven days during which not all anomaly detection alerts are raised. After that, each session is compared to the activity, when users were active, IP addresses, devices, etc. detected over the past month and the risk score of these activities. These detections are part of the machine learning anomaly detection engine that profiles your environment and triggers alerts with respect to a baseline that was learned on your organization’s activity. These detections also leverage machine learning algorithms designed to profile the users and log-on pattern to reduce false positives.
 >
   
