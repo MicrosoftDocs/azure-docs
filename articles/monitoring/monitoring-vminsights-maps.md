@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: magoedte
 ---
 
@@ -57,17 +57,6 @@ The **Connections** pane displays standard connectivity metrics for the selected
 
 ![Network connectivity charts pane example](./media/monitoring-vminsights-maps/map-group-network-conn-pane-01.png)  
 
-### Role icons
-Certain processes serve particular roles on virtual machines: web servers, application servers, database, and so on. VM Insights Map annotates process and VMs with role icons to help identify at a glance the role a process or server plays. The following table describes the role icons.  
-
-|Role icon |Description |  
-|----------|------------|  
-| ![Web server](./media/monitoring-vminsights-maps/role-web-server.png) | Web server |  
-| ![App server](./media/monitoring-vminsights-maps/role-application-server.png) | Application server |  
-| ![Database server](./media/monitoring-vminsights-maps/role-database.png) | Database server |  
-| ![LDAP server](./media/monitoring-vminsights-maps/role-ldap.png) | LDAP server |  
-| ![SMB server](./media/monitoring-vminsights-maps/role-smb.png) | SMB server |  
-
 ### Failed connections
 Failed connections are shown in the map for processes and computers, with a dashed red line indicating that a client system is failing to reach a process or port. Failed connections are reported from any system with the dependency agent if that system is the one attempting the failed connection. Map measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
@@ -80,7 +69,7 @@ Client Groups on the map represent client machines that do not have the Dependen
 
 ![Client Groups example on the map](./media/monitoring-vminsights-maps/map-group-client-groups-01.png)
 
-To see the IP addresses of the systems in a Client Group, select the group. The contents of the group are listed beneath the group.  
+To see the monitored clients and IP addresses of the systems in a Client Group, select the group. The contents of the group are listed beneath the group.  
 
 ![Client group IP address list example on the map](./media/monitoring-vminsights-maps/map-group-client-group-iplist-01.png)
 
@@ -105,8 +94,10 @@ Map visualizes the VMs dependencies, that is running process groups and processe
 From Azure Monitor, the Map feature provides a global view of your virtual machines and their dependencies.  To access VM Insights from Azure Monitor, perform the following. 
 
 1. In the Azure portal, select **Monitor**. 
-2. Choose **Virtual Machines (preview)** in the **Solutions** section.
+2. Choose **Virtual Machines (preview)** in the **Insights** section.
 3. Select the **Map** tab.
+
+![Azure Monitor multi-VM map overview](./media/monitoring-vminsights-maps/map-multivm-azure-monitor-01.png)
 
 From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution and has virtual machines reporting to it.  You then select from the **Group** selector, a subscription or resource group to view a set of VMs and their dependencies matching the group, over a specified period of time.  By default, the map shows the last 30 minutes.  Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
 
