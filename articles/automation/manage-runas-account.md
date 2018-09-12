@@ -344,7 +344,7 @@ To renew the certificate, do the following:
 
     ![Renew certificate for Run As account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
+1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu. 
 
 ## Limiting Run As account permissions
 
