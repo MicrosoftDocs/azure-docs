@@ -125,12 +125,12 @@ For single databases, the following tables show the resources available for a si
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memory (GB)|7|14|28|56|112|168|
-|Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
-|TempDB size (GB)|?|?|?|?|?|?|
+|TempDB size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
 |Target IOPS (64 KB)|?|?|?|?|?|?|
 |IO latency (approximate)|?|?|?|?|?|?|
 |Max concurrent workers (requests)|?|?|?|?|?|?|
@@ -151,7 +151,7 @@ For single databases, the following tables show the resources available for a si
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
-|TempDB size (GB)|?|?|?|?|?|?|?|?|
+|TempDB size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
 |Target IOPS (64 KB)|?|?|?|?|?|?|?|?|
 |IO latency (approximate)|?|?|?|?|?|?|?|?|
 |Max concurrent workers (requests)|?|?|?|?|?|?|?|?|
