@@ -77,6 +77,11 @@ When you route device-to-cloud telemetry messages using built-in endpoints, ther
 
 In most cases, the average increase in latency is less than 500ms. You can monitor the latency using **d2c.endpoints.latency.builtIn.events** IoT Hub metric. Creating or deleting any route after the first one does not impact the end-to-end latency.
 
+## Monitoring and troubleshooting
+IoT Hub provides several routing and endpoint related metrics to give you an overview of the health of your hub and messages sent. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **d2c.telemetry.egress.invalid** to identify the number of messages that were not delivered due to incompatibility with the endpoint. [IoT Hub metrics](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) lists all metrics that are enabled by default for your IoT Hub.
+
+Using the **routes** diagnostic logs in Azure Monitor [diagnostic settings](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health), you can tracks errors that occur during evaluation of a routing query and endpoint health as perceived by IoT Hub. These diagnostic logs can be sent to Log Analytics, Event Hubs, or Azure Storage for custom processing.
+
 ## Next steps
 * To learn how to create Message Routes, see the [Process IoT Hub device-to-cloud messages using routes](../iot-hub/tutorial-routing.md) tutorial.
 * The [Quickstarts](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node) show you how to send device-to-cloud messages from simulated devices.
