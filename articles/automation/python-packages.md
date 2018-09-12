@@ -55,8 +55,8 @@ for group in groups:
 
 ## Develop and test runbooks offline
 
-To develop and test your Python 2 runbooks offline, you can use the [Azure Automation python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on Github.
+To develop and test your Python 2 runbooks offline, you can use the [Azure Automation python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on Github. This module allows you to reference your shared resources such as credentials, varaiables, connections, and certificates.
 
 ## Next steps
 
-- To get started with Python 2 runbooks, see [My first Python 2 runbook](automation-first-runbook-textual-python2.md)
+To get started with Python 2 runbooks, see [My first Python 2 runbook](automation-first-runbook-textual-python2.md)
