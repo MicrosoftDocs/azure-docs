@@ -26149,13 +26149,18 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-time-series-insights",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-integrate-monitoring-time-series-insights",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-accelerators-time-series-insights.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-time-series-insights",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-accelerators-remote-monitoring-time-series-insights.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
