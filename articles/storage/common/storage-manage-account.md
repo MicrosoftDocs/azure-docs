@@ -6,13 +6,13 @@ author: tamram
 
 ms.service: storage
 ms.topic:  article
-ms.date: 08/18/2018
+ms.date: 09/11/2018
 ms.author: tamram
 ---
 
 # Manage Azure storage accounts
 
-intro
+
 
 ## Authenticate access to blobs and queues with Azure Active Directory (Preview)
 
@@ -34,7 +34,7 @@ To view your storage account credentials:
 4. Find the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 5. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
 
-    ![Screen shot showing how to view access keys in the Azure portal](media/storage-account-overview/portal-connection-string.png)
+    ![Screen shot showing how to view access keys in the Azure portal](media/storage-manage-account/portal-connection-string.png)
 
 ### Regenerate account access keys
 

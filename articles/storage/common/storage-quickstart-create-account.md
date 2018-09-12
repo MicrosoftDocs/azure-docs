@@ -7,7 +7,7 @@ ms.custom: mvc
 
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/18/2018
+ms.date: 09/11/2018
 ms.author: tamram
 ms.component: common
 ---

@@ -5,12 +5,11 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-f1_keywords: 
-  - "sql13.swb.windowsazurestorage.connect.f1"
 ms.date: 10/11/2017
 ms.author: tamram
 ms.component: common
 ---
+
 # About Azure storage accounts
 
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
@@ -28,8 +27,6 @@ An Azure storage account provides a unique namespace to store and access your Az
 
 > [!NOTE]
 > When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
-> 
-> 
 
 ## Storage account endpoints
 Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
