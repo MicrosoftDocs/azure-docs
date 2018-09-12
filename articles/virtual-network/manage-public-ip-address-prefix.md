@@ -25,6 +25,9 @@ Learn about a public IP address prefix and how to create, change, and delete one
 
 ## Before you begin
 
+> [!IMPORTANT]
+> Public IP Prefix is in a public preview in limited regions. You can [learn what it means to be in preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Public IP prefix is currently available in: West Central US, West US, West US 2, Central US, North Europe, West Europe, and Southeast Asia. For an updated list of regions, please visit [Azure updates](https://azure.microsoft.com/updates/?product=virtual-network).
+
 Complete the following tasks before completing steps in any section of this article:
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
@@ -75,7 +78,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
    |Name|Yes|The name of the public IP address must be unique within the resource group you select.|
    |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions) as the resource you want to associate the public IP address to.|
    |Idle timeout (minutes)|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
-   |DNS name label|No|Must be unique within the Azure location you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet such as *location.cloudapp.azure.com* (where location is the location you select) to the name you provide, to create the fully qualified DNS name. If you choose to create both address versions, the same DNS name is assigned to both the IPv4 and IPv6 addresses. Azure's default DNS contains both IPv4 A and IPv6 AAAA name records and responds with both records when the DNS name is looked up. The client chooses which address (IPv4 or IPv6) to communicate with. Instead of, or in addition to, using the DNS name label with the default suffix, you can use the Azure DNS service to configure a DNS name with a custom suffix that resolves to the public IP address. For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |DNS name label|No|Must be unique within the Azure region you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet such as *location.cloudapp.azure.com* (where location is the location you select) to the name you provide, to create the fully qualified DNS name.For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
    |Availability zone|	No | This setting only appears if you select a supported region. For a list of supported locations, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).Zone-redundant is automatically selected for you and makes your data path resilient to zone failure. If you prefer to guarantee a specific zone, which is not resilient to zone failure, you may select a specific zone.
 
 ## View or delete a prefix
