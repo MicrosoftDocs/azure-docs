@@ -68,7 +68,8 @@ Or you can also use…
 2.  Scroll to the bottom of the page and copy the **LEGENCY API TOKEN**.   Copy this value.  This this the **Pivotal Network Token** that will be used later.
 
 ## Verify Deployment
-1.  Your PCF cluster should show a deployment status
+
+1. Your PCF cluster should show a deployment status
 
 <img src="media/deploy/deployment4.png">  
 
@@ -85,6 +86,6 @@ Or you can also use…
 >
 > If Internet Explorer browser fails due to site not secure warning message, click on “More information” and “Go on to the webpage.  For Firefox, click on Advance and add the certification to proceed
 
-5. Your PCF Ops Manager show display the deployed Azure instances
+5. Your PCF Ops Manager should display the deployed Azure instances
                
 <img src="media/deploy/Ops-Mgr7.png">  
