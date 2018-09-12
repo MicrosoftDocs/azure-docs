@@ -1,5 +1,5 @@
 ---
-title: How to manage and request quotas  | Microsoft Docs
+title: How to manage and request quotas for Azure Machine Learning service | Microsoft Docs
 description: This how-to guide explains the various quotas on resources for Azure Machine Learning and how to view and request more quota.
 services: machine-learning
 author: nishankgu
