@@ -29,6 +29,8 @@ In this tutorial, you use the Speech SDK to develop a C# console application tha
 > * Create a speech factory and get an intent recognizer
 > * Get the model for your LUIS app and add the intents you need
 > * Specify the language for speech recognition
+> * Recognize speech from a file
+> * Use asynchronous, event-driven continuous recognition
 
 ## Prerequisites
 
