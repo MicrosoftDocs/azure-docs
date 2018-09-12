@@ -1,4 +1,4 @@
----
+﻿---
 title: Database-per-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs 
 description: Deploy and explore the Wingtip Tickets SaaS multitenant application that demonstrates the database-per-tenant pattern and other SaaS patterns by using Azure SQL Database.
 keywords: sql database tutorial
@@ -50,7 +50,7 @@ Choose your names now, and write them down.
 
    <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. Enter values in the template for the required parameters.
+1. Enter values in the template for the required parameters.
 
     > [!IMPORTANT]
     > Some authentication and server firewalls are intentionally unsecured for demonstration purposes. We recommend that you create a new resource group. Don't use existing resource groups, servers, or pools. Don't use this application, scripts, or any deployed resources for production. Delete this resource group when you're finished with the application to stop related billing.
@@ -59,13 +59,13 @@ Choose your names now, and write them down.
     - **Location**: Select a location from the drop-down list.
     - **User**: Use the user name value you chose earlier.
 
-3. Deploy the application.
+1. Deploy the application.
 
     a. Select to agree to the terms and conditions.
 
     b. Select **Purchase**.
 
-4. To monitor deployment status, select **Notifications** (the bell icon to the right of the search box). Deploying the Wingtip Tickets SaaS app takes approximately five minutes.
+1. To monitor deployment status, select **Notifications** (the bell icon to the right of the search box). Deploying the Wingtip Tickets SaaS app takes approximately five minutes.
 
    ![Deployment succeeded](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -77,11 +77,11 @@ While the application deploys, download the source code and management scripts.
 > Executable contents (scripts and DLLs) might be blocked by Windows when .zip files are downloaded from an external source and extracted. Follow the steps to unblock the .zip file before you extract the scripts. Unblocking makes sure the scripts are allowed to run.
 
 1. Browse to the [WingtipTicketsSaaS-DbPerTenant GitHub repo][github-wingtip-dpt].
-2. Select **Clone or download**.
-3. Select **Download ZIP**, and then save the file.
-4. Right-click the **WingtipTicketsSaaS-DbPerTenant-master.zip** file, and then select **Properties**.
-5. On the **General** tab, select **Unblock** > **Apply**.
-6. Select **OK**, and extract the files
+1. Select **Clone or download**.
+1. Select **Download ZIP**, and then save the file.
+1. Right-click the **WingtipTicketsSaaS-DbPerTenant-master.zip** file, and then select **Properties**.
+1. On the **General** tab, select **Unblock** > **Apply**.
+1. Select **OK**, and extract the files
 
 Scripts are located in the ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules folder.
 
@@ -90,8 +90,8 @@ Scripts are located in the ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning 
 Before you run any scripts, update the resource group and user values in the User Config file. Set these variables to the values you used during deployment.
 
 1. In the PowerShell ISE, open ...\\Learning Modules\\**UserConfig.psm1** 
-2. Update **ResourceGroupName** and **Name** with the specific values for your deployment (on lines 10 and 11 only).
-3. Save the changes.
+1. Update **ResourceGroupName** and **Name** with the specific values for your deployment (on lines 10 and 11 only).
+1. Save the changes.
 
 These values are referenced in nearly every script.
 
@@ -107,7 +107,7 @@ A central **Events Hub** page provides a list of links to the tenants in your de
 
     ![Events Hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Select **Fabrikam Jazz Club** in the Events Hub.
+1. Select **Fabrikam Jazz Club** in the Events Hub.
 
     ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -142,8 +142,8 @@ Now that the app is deployed, let's put it to work.
 The *Demo-LoadGenerator* PowerShell script starts a workload that runs against all tenant databases. The real-world load on many SaaS apps is sporadic and unpredictable. To simulate this type of load, the generator produces a load with randomized spikes or bursts of activity on each tenant. The bursts occur at randomized intervals. It takes several minutes for the load pattern to emerge. Let the generator run for at least three or four minutes before you monitor the load.
 
 1. In the PowerShell ISE, open the ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
-2. Press F5 to run the script and start the load generator. Leave the default parameter values for now.
-3. Sign in to your Azure account, and select the subscription you want to use, if necessary.
+1. Press F5 to run the script and start the load generator. Leave the default parameter values for now.
+1. Sign in to your Azure account, and select the subscription you want to use, if necessary.
 
 The load generator script starts a background job for each database in the catalog and then stops. If you rerun the load generator script, it stops any background jobs that are running before it starts new ones.
 
@@ -163,16 +163,16 @@ If you want to control and monitor the background jobs, use the following cmdlet
 
     - Both .ps1 files are stored under the folders Learning Modules\\Utilities\\.
 
-2. *LoadGenerator.ps1* loops through all tenant databases in the catalog.
+1. *LoadGenerator.ps1* loops through all tenant databases in the catalog.
 
-3. *LoadGenerator.ps1* starts a background PowerShell job for each tenant database:
+1. *LoadGenerator.ps1* starts a background PowerShell job for each tenant database:
 
     - By default, the background jobs run for 120 minutes.
     - Each job causes a CPU-based load on one tenant database by executing *sp_CpuLoadGenerator*. The intensity and duration of the load varies depending on `$DemoScenario`. 
     - *sp_CpuLoadGenerator* loops around a SQL SELECT statement that causes a high CPU load. The time interval between issues of the SELECT varies according to parameter values to create a controllable CPU load. Load levels and intervals are randomized to simulate more realistic loads.
     - This .sql file is stored under *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-4. If `$OneTime = $false`, the load generator starts the background jobs and then continues to run. Every 10 seconds, it monitors for any new tenants that are provisioned. If you set `$OneTime = $true`, the LoadGenerator starts the background jobs and then stops running in the foreground. For this tutorial, leave `$OneTime = $false`.
+1. If `$OneTime = $false`, the load generator starts the background jobs and then continues to run. Every 10 seconds, it monitors for any new tenants that are provisioned. If you set `$OneTime = $true`, the LoadGenerator starts the background jobs and then stops running in the foreground. For this tutorial, leave `$OneTime = $false`.
 
   Use Ctrl-C or Stop Operation Ctrl-Break if you want to stop or restart the load generator. 
 
@@ -187,8 +187,8 @@ Before you continue with the next section, leave the load generator running in t
 The initial deployment creates three sample tenants. Now you create another tenant to see the impact on the deployed application. In the Wingtip app, the workflow to provision new tenants is explained in the [Provision and catalog tutorial](saas-dbpertenant-provision-and-catalog.md). In this phase, you create a new tenant, which takes less than one minute.
 
 1. Open a new PowerShell ISE.
-2. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
-3. To run the script, press F5. Leave the default values for now.
+1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
+1. To run the script, press F5. Leave the default values for now.
 
    > [!NOTE]
    > Many Wingtip SaaS scripts use *$PSScriptRoot* to browse folders to call functions in other scripts. This variable is evaluated only when the full script is executed by pressing F5. Highlighting and running a selection with F8 can result in errors. To run the scripts, press F5.
@@ -214,11 +214,11 @@ Now that you've started running a load against the collection of tenants, let's 
 
    ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
-2. Go back to your list of SQL servers.
+1. Go back to your list of SQL servers.
 
-3. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
+1. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
 
-4. See the following items:
+1. See the following items:
 
     - Each tenant database is an **Elastic Standard** database in a 50-eDTU standard pool.
     - The Red Maple Racing database is the tenant database you provisioned previously.

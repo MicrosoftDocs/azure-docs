@@ -1,20 +1,13 @@
 ---
-title: Manage Azure file shares using Azure Storage Explorer 
+title: Manage Azure file shares using Azure Storage Explorer
 description: Learn how to use Azure Storage Explorer to manage Azure Files.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Manage Azure file shares with Azure Storage Explorer 

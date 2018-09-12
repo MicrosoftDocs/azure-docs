@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/31/2018
 ms.author: juliako
 
 ---
@@ -43,4 +43,3 @@ For information about how to get started, see [How to sign up and upload your fi
 ## See also
 
 [Video Indexer overview](video-indexer-overview.md)
-

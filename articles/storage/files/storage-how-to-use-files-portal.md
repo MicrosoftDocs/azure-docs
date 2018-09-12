@@ -2,19 +2,12 @@
 title: Managing Azure file shares with Azure portal
 description: Learn to use the Azure portal to manage Azure Files.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Managing Azure file shares with the Azure portal 

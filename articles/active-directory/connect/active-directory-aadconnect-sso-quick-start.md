@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -38,6 +38,9 @@ Ensure that the following prerequisites are in place:
 
 * **Use a supported Azure AD Connect topology**: Ensure that you are using one of Azure AD Connect's supported topologies described [here](active-directory-aadconnect-topologies.md).
 
+    >[!NOTE]
+    >Seamless SSO supports multiple AD forests, whether there are AD trusts between them or not.
+
 * **Set up domain administrator credentials**: You need to have domain administrator credentials for each Active Directory forest that:
     * You synchronize to Azure AD through Azure AD Connect.
     * Contains users you want to enable for Seamless SSO.
@@ -52,9 +55,12 @@ Enable Seamless SSO through [Azure AD Connect](active-directory-aadconnect.md).
 
 If you're doing a fresh installation of Azure AD Connect, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the **User sign-in** page, select the **Enable single sign on** option.
 
+>[!NOTE]
+> The option will be available for selection only if the Sign On method is **Password Hash Synchronization** or **Pass-through Authentication**.
+
 ![Azure AD Connect: User sign-in](./media/active-directory-aadconnect-sso/sso8.png)
 
-If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**.
+If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**. If you are using Azure AD Connect versions 1.1.880.0 or above, the **Enable single sign on** option will be selected by default. If you are using older versions of Azure AD Connect, select the **Enable single sign on** option.
 
 ![Azure AD Connect: Change the user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -172,7 +178,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 
 #### Safari (macOS)
 
-Ensure that the machine running the macOS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Ensure that the machine running the macOS is joined to AD. Instructions for AD-joining your macOS device is outside the scope of this article.
 
 #### Google Chrome (all platforms)
 

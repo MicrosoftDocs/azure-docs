@@ -39,3 +39,5 @@ The differences between models are internal to the translation engine. End users
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to translate speech in C#](how-to-translate-speech-csharp.md)
+* [See how to translate speech in C++](how-to-translate-speech-cpp.md)
+* [See how to translate speech in Java](how-to-translate-speech-java.md)

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -69,7 +69,8 @@ This update includes the following improvements for Azure Stack.
 ## Before you begin    
 
 ### Prerequisites
-- Install the Azure Stack [1804 Update](azure-stack-update-1804.md) before you apply the Azure Stack 1805 update.    
+- Install the Azure Stack [1804 Update](azure-stack-update-1804.md) before you apply the Azure Stack 1805 update.  
+- Install the latest available [update or hotfix for version 1804](azure-stack-update-1804.md#post-update-steps).   
 - Before you start installation of update 1805, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found. Also review active alerts, and resolve any that require action. 
 
 ### Known issues with the update process   
@@ -87,6 +88,8 @@ After the installation of 1805, install any applicable Hotfixes. For more inform
 The following are post-installation known issues for this build version.
 
 ### Portal  
+- <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
+
 - <!-- TBD - IS ASDK --> You cannot apply driver updates by using an OEM Extension package with this version of Azure Stack.  There is no workaround for this problem.
 
 - <!-- 2551834 - IS, ASDK --> When you select **Overview** for a storage account in either the admin or user portals, the information from the *Essentials* pane does not display.  The Essentials pane displays information about the account like its *Resource group*, *Location*, and *Subscription ID*.  Other options for Overview  are accessible, like *Services* and *Monitoring*, as well as options to *Open in Explorer* or to *Delete storage account*. 

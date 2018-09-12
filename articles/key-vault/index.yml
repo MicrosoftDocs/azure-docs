@@ -16,8 +16,20 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys that access and encrypt your resources and solutions.
+  description: Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys and secrets that access and encrypt your resources and solutions.
 sections:
+
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - href: /azure/key-vault/key-vault-whatis
+        html: <p>Learn foundational concepts related to Azure Key Vault.</p>
+        image:
+          src: https://docs.microsoft.com/en-us/media/common/i_article.svg
+        title: Concepts
 
 - title: 5-Minute Quickstarts
   items:
@@ -26,10 +38,6 @@ sections:
   - type: list
     style: icon48
     items: 
-    - image: 
-        src: media/index/logo_NET.svg
-      text: .NET
-      href: /azure/key-vault/quick-create-net
     - image: 
         src: media/index/cli.svg
       text: Azure CLI
@@ -42,6 +50,15 @@ sections:
         src: media/index/portal.svg
       text: Azure Portal
       href: /azure/key-vault/quick-create-portal
+    - image: 
+        src: media/index/logo_NET.svg
+      text: .NET
+      href: /azure/key-vault/quick-create-net
+    - image: 
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/key-vault/quick-create-node
+    
 - title: Step-by-Step Tutorials
   items:
   - type: list
@@ -53,11 +70,6 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application
-    - title:  Set up Azure Key Vault with end-to-end key rotation and auditing
-      href: /azure/key-vault/key-vault-key-rotation-log-monitoring
-      image: 
-        src: media/index/tutorial.svg
-        href: /azure/key-vault/key-vault-key-rotation-log-monitoring
 - title: Reference
   items:
   - type: list

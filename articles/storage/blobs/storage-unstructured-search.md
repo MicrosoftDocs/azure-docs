@@ -2,7 +2,7 @@
 title: Search unstructured data in Azure cloud storage
 description: Searching unstructured data using Azure search.
 author: roygara
-manager: twooley
+
 services: storage
 
 ms.service: storage

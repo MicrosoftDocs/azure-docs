@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API C# quickstart create thumbnail | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Generate a thumbnail - REST, C# - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using Computer Vision with C# in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -9,10 +9,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/14/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Generate a thumbnail with C&#35;
+# Quickstart: Generate a thumbnail - REST, C&#35; - Computer Vision
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
@@ -200,7 +200,7 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
 
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API C&#35; Tutorial](../Tutorials/CSharpTutorial.md)

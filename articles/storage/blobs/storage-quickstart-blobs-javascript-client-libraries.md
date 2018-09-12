@@ -4,7 +4,7 @@ description: Learn to use an instance of BlobService to upload, list, and delete
 services: storage
 keywords: storage, javascript, html
 author: craigshoemaker
-manager: jeconnoc
+
 
 ms.custom: mvc
 ms.service: storage

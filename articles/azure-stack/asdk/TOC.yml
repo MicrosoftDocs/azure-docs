@@ -39,6 +39,8 @@
     href: asdk-telemetry.md  
   - name: Start and stop the ASDK
     href: asdk-start-stop.md
+  - name: Validate an Azure Stack backup
+    href: asdk-validate-backup.md
   - name: Troubleshooting
     href: asdk-troubleshooting.md
 - name: Reference

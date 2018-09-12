@@ -4,13 +4,10 @@ description: Learn how to find inbound and outbound IP addresses for function ap
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
 ---
@@ -35,19 +32,11 @@ Each function app has a single inbound IP address. To find that IP address:
 3. Select **Platform features**.
 4. Select **Properties**, and the inbound IP address appears under **Virtual IP address**.
 
-Under **Platform features**, an alternative way to find IP addresses is to select **Diagnose and Solve Problems > Check IP Configuration**.
-
-## Function app outbound IP addresses
+## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
 Each function app has a set of available outbound IP addresses. Any outbound connection from a function, such as to a back-end database, uses one of the available outbound IP addresses as the origin IP address. You can't know beforehand which IP address a given connection will use. For this reason, your back-end service must open its firewall to all of the function app's outbound IP addresses.
 
 To find the outbound IP addresses available to a function app:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the function app.
-3. Select **Platform features > Diagnose and Solve Problems > Check IP Configuration**.
-
-To find the IP addresses that would be available when the function app scales to other pricing tiers:
 
 1. Sign in to the [Azure Resource Explorer](https://resources.azure.com).
 2. Select **subscriptions > {your subscription} > providers > Microsoft.Web > sites**.

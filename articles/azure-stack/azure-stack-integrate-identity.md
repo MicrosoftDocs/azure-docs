@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/07/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -21,7 +21,7 @@ The following table shows the differences between the two identity choices:
 |---------|---------|---------|
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|
-|Marketplace syndication|Supported<br>BYOL licensing|Supported<br>BYOL licensing|
+|Marketplace |Supported<br>BYOL licensing|Supported<br>BYOL licensing|
 |Registration|Recommended, requires removable media<br> and a separate connected device.|Automated|
 |Patch and update|Required, requires removable media<br> and a separate connected device.|Update package can be downloaded directly<br> from the Internet to Azure Stack.|
 
@@ -146,7 +146,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 ## Setting up AD FS integration by providing federation metadata file
 
-Use this method if the either of the following conditions are true:
+Beginning with version 1807, use this method if the either of the following conditions are true:
 
 - The certificate chain is different for AD FS compared to all other endpoints in Azure Stack.
 - There’s no network connectivity to the existing AD FS server from Azure Stack’s AD FS instance.
@@ -158,6 +158,8 @@ The following information is required as input for the automation parameters:
 |---------|---------|---------|
 |CustomAdfsName|Name of the claims provider. It appears that way on the AD FS landing page.|Contoso|
 |CustomADFSFederationMetadataFileContent|Metadata content|$using:federationMetadataFileContent|
+
+
 
 ### Create federation metadata file
 

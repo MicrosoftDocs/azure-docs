@@ -1,161 +1,195 @@
 ---
-title: Set up messaging with Azure Service Bus for Azure Logic Apps | Microsoft Docs
-description: Send and receive messages with your logic apps by using Azure Service Bus
+title: Send and receive messages with Azure Service Bus - Azure Logic Apps | Microsoft Docs
+description: Set up enterprise cloud messaging with Azure Service Bus in Azure Logic Apps
 services: logic-apps
-documentationcenter: 
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
-ms.date: 02/06/2018
-ms.author: ladocs
+tags: connectors
+ms.date: 08/25/2018
 ---
 
-# Send and receive messages with the Azure Service Bus connector
+# Exchange messages in the cloud with Azure Service Bus and Azure Logic Apps
 
-To send and receive messages with your logic app, 
-connect to [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
-You can perform actions such as send to a queue, send to a topic, 
-receive from a queue, and receive from a subscription. 
-Learn more about [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 
-and [how pricing works for Logic Apps triggers](../logic-apps/logic-apps-pricing.md).
+With Azure Logic Apps and the Azure Service Bus connector, 
+you can create automated tasks and workflows that transfer data, 
+such as sales and purchase orders, journals, and inventory movements 
+across applications for your organization. The connector not only monitors, 
+sends, and manages messages, but also performs actions with queues, sessions, 
+topics, subscriptions, and so on, for example:
+
+* Monitor when messages arrive (auto-complete) or are received 
+(peek-lock) in queues, topics, and topic subscriptions. 
+* Send messages.
+* Create and delete topic subscriptions.
+* Manage messages in queues and topic subscriptions, for example, 
+get, get deferred, complete, defer, abandon, and dead-letter.
+* Renew locks on messages and sessions in queues and topic subscriptions.
+* Close sessions in queues and topics.
+
+You can use triggers that get responses from Service Bus and 
+make the output available to other actions in your logic apps. 
+You can also have other actions use the output from Service Bus actions. 
+If you're new to Service Bus and Logic Apps, review 
+[What is Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md) 
+and [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## Prerequisites
 
-Before you can use the Service Bus connector, you must have these items, 
-which must exist in the same Azure subscription so that they're visible to each other:
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* A [Service Bus namespace and messaging entity, such as a queue](../service-bus-messaging/service-bus-create-namespace-portal.md)
-* A [logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* A Service Bus namespace and messaging entity, such as a queue. 
+If you don't have these items, learn how to 
+[create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md). 
+
+  These items must exist in the same Azure subscription 
+  as your logic apps that use these items.
+
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* The logic app where you want to use Service Bus. Your logic app 
+must exist in the same Azure subscription as your service bus. 
+To start with a Service Bus trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To use a Service Bus action, start your logic app with another trigger, 
+for example, the **Recurrence** trigger.
 
 <a name="permissions-connection-string"></a>
 
-## Connect to Azure Service Bus
+## Check permissions
 
-Before your logic app can access any service, 
-you have to create a [*connection*](./connectors-overview.md) 
-between your logic app and the service, if you haven't already. 
-This connection authorizes your logic app to access data. 
-For your logic app to access your Service Bus account, 
-check your permissions.
+Confirm that your logic app has permissions for accessing your Service Bus namespace. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Go to your Service Bus *namespace*, not a specific "messaging entity". 
-On the namespace page, under **Settings**, choose **Shared access policies**. 
-Under **Claims**, check that you have **Manage** permissions for that namespace.
+2. Go to your Service Bus *namespace*. On the namespace page, 
+under **Settings**, select **Shared access policies**. 
+Under **Claims**, check that you have **Manage** permissions for that namespace
 
    ![Manage permissions for your Service Bus namespace](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
-3. If you want to later manually enter your connection information, 
-get the connection string for your Service Bus namespace. 
-Choose **RootManageSharedAccessKey**. Next to your primary key connection string, 
-choose the copy button. Save the connection string for later use.
+3. Get the connection string for your Service Bus namespace. 
+You need this string when you enter your connection information in your logic app.
 
-   ![Copy Service Bus namespace connection string](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+   1. Select **RootManageSharedAccessKey**. 
+   
+   1. Next to your primary connection string, 
+   choose the copy button. Save the connection string for later use.
+
+      ![Copy Service Bus namespace connection string](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > To confirm whether your connection string is 
-   > associated with your Service Bus namespace or with a specific entity, 
-   > check the connection string for the `EntityPath` parameter. 
+   > To confirm whether your connection string is associated with 
+   > your Service Bus namespace or a messaging entity, such as a queue, 
+   > search the connection string for the `EntityPath` parameter. 
    > If you find this parameter, the connection string is for a specific entity, 
-   > and is not the correct string to use with your logic app.
+   > and isn't the correct string to use with your logic app.
 
-## Trigger workflow when your Service Bus gets new messages
+## Add trigger or action
 
-A [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-is an event that starts a workflow in your logic app. To start a workflow
-when new messages are sent to your Service Bus, follow these steps for adding 
-the trigger that detects these messages.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. In the [Azure portal](https://portal.azure.com "Azure portal"), 
-go to your existing logic app or create a blank logic app.
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and open your logic app in Logic App Designer, if not open already.
 
-2. In Logic Apps Designer, enter "service bus" in the search box as your filter. 
-Select the **Service Bus** connector. 
+1. To add a *trigger* to a blank logic app, in the search box, 
+enter "Azure Service Bus" as your filter. 
+Under the triggers list, select the trigger you want. 
 
-   ![Select Service Bus connector](./media/connectors-create-api-azure-service-bus/select-service-bus-connector.png) 
-
-3. Select the trigger that you want to use. 
-For example, to run a logic app when a new item gets sent to a Service Bus queue, 
-select this trigger: **Service Bus - When a message is received in a queue (auto-complete)**
+   For example, to trigger your logic app when a new item 
+   gets sent to a Service Bus queue, select this trigger: 
+   **When a message is received in a queue (auto-complete)**
 
    ![Select Service Bus trigger](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Some triggers return one or messages, such as the *Service Bus - When one or more messages arrive in a queue (auto-complete)* trigger.
-   > When these triggers fire, they return between one and the number of messages specified by the trigger's **Maximum message count** property.
+   > Some triggers can return one or messages, for example, the trigger, 
+   > **When one or more messages arrive in a queue (auto-complete)**. 
+   > When these triggers fire, they return between one 
+   > and the number of messages specified by the 
+   > trigger's **Maximum message count** property.
 
-   1. If you don't already have a connection to your Service Bus namespace, 
-   you're prompted to create this connection now. Give your connection a name, 
-   and select the Service Bus namespace that you want to use.
+   *All Service Bus triggers are long-polling triggers*, 
+   which means when the trigger fires, the trigger 
+   processes all the messages and then waits 30 seconds for 
+   more messages to appear in the queue or topic subscription. 
+   If no messages appear in 30 seconds, the trigger run is skipped. 
+   Otherwise, the trigger continues reading messages until the 
+   queue or topic subscription is empty. The next trigger poll is 
+   based on the recurrence interval specified in the trigger's properties.
 
-      ![Create Service Bus connection](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+1. To add an *action* to an existing logic app, follow these steps: 
 
-      Or, to manually enter the connection string, 
+   1. Under the last step where you want to add an action, choose **New step**. 
+
+      To add an action between steps, move your 
+      pointer over the arrow between steps. 
+      Choose the plus sign (**+**) that appears, 
+      and then select **Add an action**.
+
+   1. In the search box, enter "Azure Service Bus" as your filter. 
+   Under the actions list, select the action you want. 
+ 
+      For example, select this action: **Send message**
+
+      ![Select Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+
+1. If you're connecting your logic app to your Service 
+Bus namespace for the first time, the Logic App Designer 
+now prompts you for your connection information. 
+
+   1. Provide a name for your connection, and select your Service Bus namespace.
+
+      ![Create Service Bus connection, part 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+
+      To manually enter the connection string instead, 
       choose **Manually enter connection information**. 
-      Learn [how to find your connection string](#permissions-connection-string).
-      
+      If you don't have your connection string, learn 
+      [how to find your connection string](#permissions-connection-string).
 
-   2. Now select the Service Bus policy to use, and choose **Create**.
+   1. Now select your Service Bus policy, and then choose **Create**.
 
       ![Create Service Bus connection, part 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-2.png)
 
-4. Select the Service Bus queue to use, 
-and set up the interval and frequency for when to check the queue.
+1. For this example, select the messaging entity you want, 
+such as a queue or topic. In this example, select your Service Bus queue. 
+   
+   ![Select Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue.png)
 
-   ![Select Service Bus queue, set up polling interval](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+1. Provide the necessary details for your trigger or action. 
+For this example, follow the relevant steps for your trigger or action: 
 
-   > [!NOTE]
-   > All Service Bus triggers are **long-polling** triggers, which means that when a trigger fires, the trigger processes all the messages
-   > and then waits for 30 seconds for more messages to appear in the queue or topic subscription.
-   > If no messages are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty.
-   > The next trigger poll is based on the recurrence interval specified in the trigger's properties.
+   * **For the sample trigger**: Set the polling interval and 
+   frequency for checking the queue.
 
-5. Save your logic app. On the designer toolbar, choose **Save**.
+     ![Set up polling interval](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
-Now, when your logic app checks the selected queue and finds 
-a new message, the trigger runs the actions in your logic app 
-for the found message.
+     When you're done, continue building your logic app's workflow 
+     by adding the actions you want. For example, you can add an 
+     action that sends email when a new message arrives.
+     When your trigger checks your queue and finds a new message, 
+     your logic app runs your selected actions for the found message.
 
-## Send messages from your logic app to your Service Bus
+   * **For the sample action**: Enter the message content and any other details. 
 
-An [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-is a task performed by your logic app workflow. After you add a trigger to your logic app, 
-you can add an action to perform operations with data generated by that trigger. 
-To send a message to your Service Bus messaging entity from your logic app, follow these steps.
+     ![Provide message content and details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
-1. In Logic Apps Designer, under your trigger, choose **+ New step** > **Add an action**.
+     When you're done, continue building your logic app's workflow 
+     by adding any other actions you want. For example, you can add 
+     an action that sends email confirming your message was sent.
 
-2. In the search box, enter "service bus" as your filter. 
-Select this connector: **Service Bus**
+1. Save your logic app. On the designer toolbar, choose **Save**.
 
-   ![Select Service Bus connector](./media/connectors-create-api-azure-service-bus/select-service-bus-connector-for-action.png) 
+## Connector reference
 
-3. Select this action: **Service Bus - Send message**
-
-   ![Select "Service Bus - Send message"](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
-
-4. Select the messaging entity, which is the queue or topic name, 
-for where to send the message. Then, enter the message content and any other details.
-
-   ![Select messaging entity and provide message details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)    
-
-5. Save your logic app. 
-
-You've now set up an action that sends messages from your logic app. 
-
-## Connector-specific details
-
-To learn more about triggers and actions defined by the Swagger file and any limits, 
-review the [connector details](/connectors/servicebus/).
+For technical details about triggers, actions, and limits, which are 
+described by the connector's OpenAPI (formerly Swagger) description, 
+review the connector's [reference page](/connectors/servicebus/).
 
 ## Get support
 
@@ -164,4 +198,4 @@ review the [connector details](/connectors/servicebus/).
 
 ## Next steps
 
-* Learn more about [other connectors for Azure Logic apps](../connectors/apis-list.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

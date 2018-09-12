@@ -1,6 +1,6 @@
 ---
-title: Image Search SDK Python quickstart | Microsoft Docs
-description: Setup for Image Search SDK console application.
+title: "Quickstart: Request and filter images using the SDK in Python"
+description: In this quickstart, you request and filter the images returned by Bing Image Search, using Python.
 titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
 ---
-# Image Search SDK Python quickstart
+ # Quickstart: Request and filter images using the SDK and Python
 
 The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results. 
 

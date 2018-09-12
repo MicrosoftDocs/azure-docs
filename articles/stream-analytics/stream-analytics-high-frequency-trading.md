@@ -439,7 +439,7 @@ Finally, we output to the Power BI dashboard for visualization.
 ## Summary
 We can implement a realistic high-frequency trading model with a moderately complex query in Azure Stream Analytics. We have to simplify the model from five input variables to two, because of the lack of a built-in linear regression function. But for a determined user, algorithms with higher dimensions and sophistication can possibly be implemented as JavaScript UDA as well. 
 
-It's worth noting that most of the query, other than the JavaScript UDA, can be tested and debugged in Visual Studio through [Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio.md). After the initial query was written, the author spent less than 30 minutes testing and debugging the query in Visual Studio. 
+It's worth noting that most of the query, other than the JavaScript UDA, can be tested and debugged in Visual Studio through [Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md). After the initial query was written, the author spent less than 30 minutes testing and debugging the query in Visual Studio. 
 
 Currently, the UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, note that the fields reaching the UDA have lowercase names. This was not an obvious behavior during query testing. But with Azure Stream Analytics compatibility level 1.1, we preserve the field name casing so the behavior is more natural.
 

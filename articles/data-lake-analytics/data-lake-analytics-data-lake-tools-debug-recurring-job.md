@@ -3,9 +3,8 @@ title: Debug recurring jobs in Azure Data Lake Analytics
 description: Learn how to use Azure Data Lake Tools for Visual Studio to debug an abnormal recurring job.
 services: data-lake-analytics
 author: yanancai 
-manager: kfile
-editor: jasonwhowell
 ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual

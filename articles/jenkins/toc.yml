@@ -9,6 +9,7 @@
   items:
   - name: Create a Jenkins server
     href: /azure/jenkins/install-jenkins-solution-template
+    maintainContext: true
 - name: Tutorials
   items:
   - name: CI/CD to App Service
@@ -37,7 +38,7 @@
     - name: Publish to Azure Storage
       href: /azure/storage/storage-java-jenkins-continuous-integration-solution
       maintainContext: true
-    - name: Use Jenkins with VSTS
+    - name: Use Jenkins with Azure DevOps
       href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
     - name: Deploy Service Fabric apps
       href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins

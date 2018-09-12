@@ -65,7 +65,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 
 **If you are a developer:**
  
-* Check out the [Developers Guide](../develop/active-directory-developers-guide.md) to Azure Active Directory
+* Check out the [Developers Guide](../develop/azure-ad-developers-guide.md) to Azure Active Directory
 
 * [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30-day trial today and  start integrating your apps with Azure AD
 

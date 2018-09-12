@@ -5,7 +5,7 @@ services: storage
 author: roygara
 
 ms.service: storage
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
