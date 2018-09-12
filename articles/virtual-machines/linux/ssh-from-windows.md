@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: danlep
 
 ---
 # How to use SSH keys with Windows on Azure
 
-This article describes ways to generate and use secure shell (SSH) keys on a Windows computer to create and connect to a Linux virtual machine (VM) in Azure. To use SSH keys from a Linux or macOS client, see the [quick](mac-create-ssh-keys.md) or [detailed](create-ssh-keys-detailed.md) guidance.
+This article describes ways to generate and use *secure shell* (SSH) keys on a Windows computer to create and connect to a Linux virtual machine (VM) in Azure. To use SSH keys from a Linux or macOS client, see the [quick](mac-create-ssh-keys.md) or [detailed](create-ssh-keys-detailed.md) guidance.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -84,7 +84,7 @@ To create an SSH RSA key pair with PuTTYgen:
 
 To create a Linux VM that uses SSH keys for authentication, provide your SSH public key when creating the VM using the Azure portal or other methods.
 
-The following example shows how you would copy and paste this public key into the Azure portal when you create a Linux VM. The public key is typically then stored in the `~/.ssh/authorized_keys` directory on your new VM.
+The following example shows how you would copy and paste this public key into the Azure portal when you create a Linux VM. The public key is typically then stored in the ~/.ssh/authorized_key directory on your new VM.
 
    ![Use public key when you create a VM in the Azure portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
