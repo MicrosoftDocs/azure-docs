@@ -1,6 +1,6 @@
 ---
-title: Managed Service Identity in App Service and Azure Functions | Microsoft Docs
-description: Conceptual reference and setup guide for Managed Service Identity support in Azure App Service and Azure Functions
+title: Managed identities in App Service and Azure Functions | Microsoft Docs
+description: Conceptual reference and setup guide for managed identities in Azure App Service and Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -15,15 +15,15 @@ ms.author: mahender
 
 ---
 
-# How to use Azure Managed Service Identity in App Service and Azure Functions
+# How to use managed identities for App Service and Azure Functions
 
 > [!NOTE] 
-> App Service on Linux and Web App for Containers do not currently support Managed Service Identity.
+> App Service on Linux and Web App for Containers do not currently support managed identities.
 
 > [!Important] 
-> Managed Service Identity for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can be done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources will also need to have access policies updated to use the new identity.
+> Managed identities for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can be done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources will also need to have access policies updated to use the new identity.
 
-This topic shows you how to create a managed app identity for App Service and Azure Functions applications and how to use it to access other resources. A managed service identity from Azure Active Directory allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about Managed Service Identity, see the [Managed Service Identity overview](../active-directory/managed-identities-azure-resources/overview.md).
+This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. A managed identity from Azure Active Directory allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Creating an app with an identity
 
@@ -31,21 +31,21 @@ Creating an app with an identity requires an additional property to be set on th
 
 ### Using the Azure portal
 
-To set up a managed service identity in the portal, you will first create an application as normal and then enable the feature.
+To set up a managed identity in the portal, you will first create an application as normal and then enable the feature.
 
 1. Create an app in the portal as you normally would. Navigate to it in the portal.
 
 2. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
 
-3. Select **Managed service identity**.
+3. Select **Managed identity**.
 
 4. Switch **Register with Azure Active Directory** to **On**. Click **Save**.
 
-![Managed Service Identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
 
 ### Using the Azure CLI
 
-To set up a managed service identity using the Azure CLI, you will need to use the `az webapp identity assign` command against an existing application. You have three options for running the examples in this section:
+To set up a managed identity using the Azure CLI, you will need to use the `az webapp identity assign` command against an existing application. You have three options for running the examples in this section:
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
@@ -148,13 +148,13 @@ Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId pro
 An app can use its identity to get tokens to other resources protected by AAD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
 > [!IMPORTANT]
-> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Managed Service Identity tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> You may need to configure the target resource to allow access from your application. For example, if you request a token to Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 There is a simple REST protocol for obtaining a token in App Service and Azure Functions. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library provides an abstraction over this protocol and supports a local development experience.
 
 ### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-For .NET applications and functions, the simplest way to work with a managed service identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
+For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
 
 1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet packages to your application.
 
@@ -165,7 +165,7 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
@@ -174,7 +174,7 @@ To learn more about Microsoft.Azure.Services.AppAuthentication and the operation
 
 ### Using the REST protocol
 
-An app with a managed service identity has two environment variables defined:
+An app with a managed identity has two environment variables defined:
 - MSI_ENDPOINT
 - MSI_SECRET
 
@@ -202,7 +202,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
-> Environment variables are set up when the process first starts, so after enabling Managed Service Identity for your application you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are available to your code.
+> Environment variables are set up when the process first starts, so after enabling a managed identity for your application, you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are available to your code.
 
 ### REST protocol examples
 An example request might look like the following:
@@ -273,11 +273,11 @@ An identity can be removed by disabling the feature using the portal, PowerShell
 Removing the identity in this way will also delete the principal from AAD. System-assigned Identities are automatically removed from AAD when the app resource is deleted.
 
 > [!NOTE] 
-> There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show MSI as "on" or "enabled." As a result, use of this setting is not recommmended.
+> There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommmended.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Access SQL Database securely using managed service identity](app-service-web-tutorial-connect-msi.md)
+> [Access SQL Database securely using a managed identity](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452
