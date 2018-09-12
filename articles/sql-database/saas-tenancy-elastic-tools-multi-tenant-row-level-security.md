@@ -32,7 +32,7 @@ The goal is to use the elastic database client library [data-dependent routing](
 ### Prerequisites
 
 - Use Visual Studio (2012 or higher) 
-- Create three Azure SQL Databases 
+- Create three Azure SQL databases 
 - Download sample project: [Elastic DB Tools for Azure SQL - Multi-Tenant Shards](http://go.microsoft.com/?linkid=9888163)
   - Fill in the information for your databases at the beginning of **Program.cs** 
 
