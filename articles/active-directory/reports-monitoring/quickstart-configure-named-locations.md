@@ -30,7 +30,7 @@ In this quickstart, you learn how to configure named locations in your environme
 
 To complete this quickstart, you need:
 
-* An Azure AD tenant. Sign up for a [free trial](https://azure.microsoft.com/en-us/trial/get-started-active-directory/). 
+* An Azure AD tenant. Sign up for a [free trial](https://azure.microsoft.com/trial/get-started-active-directory/). 
 * A user, who is a global administrator for the tenant.
 * An IP range that is established and credible in your organization. The IP range needs to be in **Classless Interdomain Routing (CIDR)** format.
 
@@ -39,9 +39,11 @@ To complete this quickstart, you need:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the left pane, select **Azure Active Directory**, then select **Conditional access** from the **Security** section.
+
     ![Conditional access tab](./media/quickstart-configure-named-locations/entrypoint.png)
 
 3. On the **Conditional Access** page, select **Named locations** and select **New location**.
+
     ![Named location](./media/quickstart-configure-named-locations/namedlocation.png)
 
 6. Fill out the form on the new page. 
@@ -49,6 +51,7 @@ To complete this quickstart, you need:
     * In the **Name** box, type a name for your named location.
     * In the **IP ranges** box, type the IP range in CIDR format.  
     * Click **Create**.
+    
 	![The New blade](./media/quickstart-configure-named-locations/61.png)
 
 
