@@ -33,16 +33,16 @@ sections:
           html: <p>Learn how to sign up for the Text Analytics API.</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Sign up for the Text Analytics API
+          title: Sign up for Text Analytics API
         - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
           html: <p>Learn how to get the access keys and endpoints for Text Analytics API.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Get access keys for Text Analytics API
+          title: Access keys for Text Analytics API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Text Analytics API by detecting language, analyzing sentiment, and extracting key phrases:'
+    text: 'Get started with the Text Analytics API by detecting language, analyzing sentiment, and extracting key phrases:'
   - type: list
     style: icon48
     items: 
