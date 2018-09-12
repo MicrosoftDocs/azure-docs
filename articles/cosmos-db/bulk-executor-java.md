@@ -43,7 +43,7 @@ Now let's switch to working with code by downloading a sample Java application f
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-The cloned repository contains two samples “bulkimport” and “bulkupdate” relative to the “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor” folder. The “bulkimport” application generates random documents and imports them to Azure Cosmos DB. The “bulkupdate” application updates some documents in Azure Cosmos DB. In the next sections, we will review the code in each of these sample apps. 
+The cloned repository contains two samples "bulkimport" and "bulkupdate" relative to the "\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor" folder. The "bulkimport" application generates random documents and imports them to Azure Cosmos DB. The "bulkupdate" application updates some documents in Azure Cosmos DB. In the next sections, we will review the code in each of these sample apps. 
 
 ## Bulk import data to Azure Cosmos DB
 
@@ -118,7 +118,7 @@ The cloned repository contains two samples “bulkimport” and “bulkupdate”
    |List<Exception> getErrors() |  Gets the list of errors if some documents out of the batch supplied to the bulk import API call failed to get inserted.       |
    |List<Object> getBadInputDocuments()  |    The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).     |
 
-5. After you have the bulk import application ready, build the command-line tool from source by using the ‘mvn clean package’ command. This command generates a jar file in the target folder:  
+5. After you have the bulk import application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
    ```java
    mvn clean package
@@ -182,7 +182,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    |Duration getTotalTimeTaken()  |   The total time taken by the bulk update API call to complete execution.      |
    |List<Exception> getErrors()   |   	Gets the list of errors if some documents out of the batch supplied to the bulk update API call failed to get inserted.      |
 
-3. After you have the bulk update application ready, build the command-line tool from source by using the ‘mvn clean package’ command. This command generates a jar file in the target folder:  
+3. After you have the bulk update application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
    ```
    mvn clean package

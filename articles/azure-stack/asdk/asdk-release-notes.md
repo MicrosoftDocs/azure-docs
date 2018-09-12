@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018 
+ms.date: 09/11/2018 
 git ms.author: brenduns
 ms.reviewer: misainat
 
@@ -40,6 +40,10 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2489570 | IS ASDK--> **Support for custom IPSec/IKE policy configurations** for [VPN gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
+- <!-- | IS ASDK--> **Kubernetes marketplace item**. You can now deploy Kubernetes clusters using the [Kubernetes Marketplace item](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Users can select the Kubernetes item and fill out a few parameters to deploy a Kubernetes cluster to Azure Stack. The purpose of the templates is to make it simple to users to setup dev/test Kubernetes deployments in a few steps.
+
+- <!-- | IS ASDK--> **Blockchain templates**. You can now execute [Ethereum consortium deployments](/azure/azure-stack/azure-stack-ethereum) on Azure Stack. You can find three new templates in the [Azure Stack Quick Start Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to setup dev/test Blockchain deployments in a few steps.
+
 
 ### Fixed issues
 - <!-- IS ASDK--> We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1.
@@ -57,6 +61,8 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
 
 - <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
+
+- <!-- TBD | IS, ASDK --> **+ Create a resource** replaces **+ New** in the Azure Stack admin and user portals.  You can now use *+ Create a resource* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals. 
 
 - <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](.\.\azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template. 
 
@@ -276,7 +282,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-- <!-- TBD - IS. ASDK --> When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), will generate a WARN message for the ERCS VM. You can continue to use the ASDK. 
+- <!-- TBD - IS. ASDK --> When running the Test-AzureStack cmdlet on the privilege endpoint (PEP), the test will generate a WARN/FAIL message for the ERCS VM. You can continue to use the ASDK.
 
 #### Compute
 - <!-- 2494144 - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  

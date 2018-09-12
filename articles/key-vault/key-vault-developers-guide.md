@@ -5,7 +5,7 @@ services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
@@ -49,7 +49,7 @@ Resources mentioned in above video:
 
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed identities for Azure resources makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code. 
 
-For more information on managed identities for Azure resources, see [the managed identities overview](../active-directory/managed-service-identity/overview.md). For more information on working with AAD, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+For more information on managed identities for Azure resources, see [the managed identities overview](../active-directory/managed-identities-azure-resources/overview.md). For more information on working with AAD, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
 
