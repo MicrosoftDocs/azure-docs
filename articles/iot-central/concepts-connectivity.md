@@ -165,7 +165,7 @@ Follow the steps based on your choice of device authentication scheme (X509/SAS)
 
 1. **Generate device credentials** 
     *   **Certificates X509:** Generate the leaf-certificates for your devices using the root/intermediate certificate you have added to this app. Make sure you use the **Device ID** as a cname in the leaf certificates and is in **lower case**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for testing.
-      *   **SAS** Device SAS keys can be generated using this [command line tool](https://github.com/Azure/dps-keygen). Use the Primary SAS key (group SAS key) from the previous step. Make sure the Device ID you use is all in **lower case**.
+    *   **SAS** Device SAS keys can be generated using this [command line tool](https://github.com/Azure/dps-keygen). Use the Primary SAS key (group SAS key) from the previous step. Make sure the Device ID you use is all in **lower case**.
 
             Use the below instructions to generate device SAS key
 

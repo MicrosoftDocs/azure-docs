@@ -50,30 +50,13 @@ The following steps describe how to download and configure the sample Python app
 * Sends telemetry and property values to Azure IoT Central.
 * Responds to setting changes made in Azure IoT Central.
 
+To configure the device [follow the step-by-step instructions on GitHub.](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi)
+
 > [!NOTE]
 > For more information about the Raspberry Pi Python sample, see the [Readme](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi) file on GitHub.
 
-1. Use the Web browser in the Raspberry Pi desktop to navigate to the [Azure IoT Central firmware releases](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi) page.
 
-1. Download the zip file that contains the most recent firmware to your home folder on the Raspberry Pi. The file name looks like `RaspberryPi-IoTCentral-X.X.X.zip`.
-
-1. To unzip the firmware file, use the **File Manager** in the Raspberry Pi desktop. Right-click the zip file and choose **Extract here**. This operation creates a folder called `RaspberryPi-IoTCentral-X.X.X` in your home folder.
-
-1. If you don't have a **Sense Hat** board attached to your Raspberry Pi, you need to enable the emulator:
-    1. In **File Manager**, in the `RaspberryPi-IoTCentral-X.X.X` folder, right-click the **config.iot** file and choose **Text Editor**.
-    1. Change the line `"simulateSenseHat": false,` to `"simulateSenseHat": true,`.
-    1. Save the changes and close **Text Editor**.
-
-1. Start a **Terminal** session and use the `cd` command to navigate to the folder you created in the previous step.
-
-1. To start the sample application running, type `./start.sh` in the **Terminal** window. If you are using the **Sense HAT Emulator**, its GUI displays. You can use the GUI to change the telemetry values sent to your Azure IoT Central application.
-
-1. The **Terminal** window displays a message that looks like `Device information being served at http://192.168.0.60:8080`. The URL may be different in your environment. Copy the URL and use the Web browser  to navigate to the configuration page:
-
-    ![Configure device](media/howto-connect-raspberry-pi-python/configure.png)
-
-1. Enter the device connection string you made a note of when you added a real device to your Azure IoT Central application. Then choose **Configure Device**. You see a message **Device configured, your device should start sending data to Azure IoT Central momentarily**.
-
+1. Once the device is configured, your device should start sending data to Azure IoT Central momentarily.
 1. In your Azure IoT Central application, you see how the code running on the Raspberry Pi interacts with the application:
 
     * On the **Measurements** page for your real device, you can see the telemetry sent from the Raspberry Pi. If you are using the **Sense HAT Emulator**, you can modify the telemetry values in the GUI on the Raspberry Pi.
