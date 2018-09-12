@@ -172,14 +172,15 @@ def access_check( user, desired_perms, path ) :
       return ( (desired_perms & perms & mask ) == desired_perms)
 
   # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  member_count = 0
+  perms = 0
+  for g in get_groups(path) :
+    if (user_is_member_of_group(user, g)) :
+      member_count += 1
+      perms | =  get_perms_for_group(path,g)
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
