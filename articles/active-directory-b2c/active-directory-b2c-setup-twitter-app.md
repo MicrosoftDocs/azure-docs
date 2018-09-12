@@ -30,13 +30,9 @@ To use a Twitter account as an identity provider in Azure Active Directory (Azur
 ## Configure Twitter as an identity provider in your tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**. 
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.  
 
     ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-twitter-app/switch-directories.png)
-
-    Choose the directory that contains your tenant.
-
-    ![Select directory](./media/active-directory-b2c-setup-twitter-app/select-directory.png)
 
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
