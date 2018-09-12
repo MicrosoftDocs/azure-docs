@@ -37,7 +37,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## What can I do with Azure Machine Learning service?
 
-Using the [Azure Machine Learning SDK for Python](./reference-azure-machine-learning-sdk.md), you can build and train highly accurate machine learning and deep learning models in an Azure Machine Learning workspace.
+Using the Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, you can build and train highly accurate machine learning and deep learning models in an Azure Machine Learning workspace.
 
 You can choose from many machine learning frameworks available in open-source Python packages, such as the following machine learning frameworks:
 
