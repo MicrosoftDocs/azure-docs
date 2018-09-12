@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ---
 
@@ -93,7 +93,7 @@ provisioned into your Azure subscription at cost:
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master and 3 agents for hosting microservices with redundancy |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IoT Hub]([https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard tier | Device management, command and control |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard tier | Device management, command and control |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |
 | 5     | [Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over SSL |
