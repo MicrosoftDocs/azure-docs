@@ -56,12 +56,6 @@
       href: how-to-write-data.md
   - name: Train and tune models
     items:    
-    - name: Choose an ML algorithm	
-      items:
-      - name: Choose algorithms
-        href: algorithm-choice.md
-      - name: Algorithm cheat sheet
-        href: algorithm-cheat-sheet.md
     - name: Use automated modeling	
       items:
       - name: Configure auto training
