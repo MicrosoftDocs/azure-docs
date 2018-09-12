@@ -31,17 +31,17 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 1. To add a new telemetry-based rule to your application, in the left navigation menu, choose **Device Explorer**:
 
-    ![Device Explorer page](media/tutorial-configure-rules/explorerpage.png)
+    ![Device Explorer page](media/tutorial-configure-rules/explorerpage1.png)
 
     You see the **Connected Air Conditioner (1.0.0)** device template and the **Connected Air Conditioner-1** device you created in the previous tutorial.
 
 2. To start customizing your connected air conditioner device, choose the device you created in the previous tutorial:
 
-    ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist.png)
+    ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist1.png)
 
 3. To start adding a rule in the **Rules** view, choose **Rules**:
 
-    ![Rules view](media/tutorial-configure-rules/builderrulesview.png)
+    ![Rules view](media/tutorial-configure-rules/builderrulesview1.png)
 
 4. To start creating the threshold-based telemetry rule, select **Edit Template**, click **New Rule**, and then **Telemetry**.
 
@@ -55,7 +55,7 @@ Before you begin, you should complete the [Define a new device type in your appl
     | Condition                                    | Temperature is greater than 90    |
     | Aggregation                                  | None                              |
 
-    ![Temperature rule condition](media/tutorial-configure-rules/buildertemperaturerule.png)
+    ![Temperature rule condition](media/tutorial-configure-rules/buildertemperaturerule1.png)
 
 ## Add an action
 
@@ -63,7 +63,7 @@ When you define a rule, you also define an action to run when the rule condition
 
 1. To add an **Action**, first **Save** the rule and then scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**:
 
-    ![Temperature rule action](media/tutorial-configure-rules/builderaddaction.png)
+    ![Temperature rule action](media/tutorial-configure-rules/builderaddaction1.png)
 
 2. To define your action, use the information in the following table:
 
@@ -79,7 +79,7 @@ When you define a rule, you also define an action to run when the rule condition
 
 3. Choose **Save**. Your rule is listed on the **Rules** page:
 
-    ![Application Builder rules](media/tutorial-configure-rules/builderrules.png)
+    ![Application Builder rules](media/tutorial-configure-rules/builderrules1.png)
 
 ## Test the rule
 
