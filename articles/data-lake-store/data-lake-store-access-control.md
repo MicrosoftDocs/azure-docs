@@ -195,7 +195,7 @@ As illustrated in the Access Check Algorithm, the mask limits access for **named
 >
 >
 
-#### The sticky bit
+### The sticky bit
 
 The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a folder,  a child item can only be deleted or renamed by the child item's owning user.
 
