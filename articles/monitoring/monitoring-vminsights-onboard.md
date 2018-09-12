@@ -20,7 +20,7 @@ ms.author: magoedte
 # How to onboard the Azure Monitor VM Insights 
 This article describes how to set up VM Insights to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
-Enabling VM Insights is accomplished by using one of the following methods and details on using each method are provided later in the article.  
+Enabling VM Insights is accomplished by using one of the following methods, and details on using each method are provided later in the article.  
 
 * A single Azure virtual machine by selecting VM Insights directly from the VM.
 * Multiple Azure VMs or virtual machine scale sets using Azure Policy to ensure existing and new VMs evaluated have the required dependencies installed and are properly configured.  Non-compliant VMs are reported so you can take steps to remediate based on your configuration management requirements.  
