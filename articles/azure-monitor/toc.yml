@@ -29,12 +29,6 @@
       href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
     - name: Collect - Windows computer
       href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
-  - name: Alerts
-    items:
-    - name: Alert (classic) on metric condition
-      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
-    - name: Alert on subscription activity
-      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
 - name: Tutorials
   items:
   - name: 1 - Analyze data
