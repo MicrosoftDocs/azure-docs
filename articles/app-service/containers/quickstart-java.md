@@ -1,5 +1,5 @@
 ---
-title: A quickstart for creating a Java web app in Azure App Service on Linux 
+title: A quickstart for deploying a Java web app into Azure App Service on Linux 
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: msangapu
 ms.custom: mvc
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
-# Quickstart: Create a Java web app in App Service on Linux
+# Quickstart: Deploy a Java web app in App Service on Linux
 
 App Service on Linux currently provides a preview feature to support Java web apps. Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information on previews. 
 
@@ -30,7 +30,6 @@ App Service on Linux currently provides a preview feature to support Java web ap
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
 ## Prerequisites
 
 To complete this quickstart: 
@@ -38,9 +37,19 @@ To complete this quickstart:
 * [Azure CLI 2.0 or later](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed locally.
 * [Apache Maven](http://maven.apache.org/).
 
+## Create a Resource Group
 
+Before you start, authenticate with Azure CLI on your command-line and then create a resource group:
 
-## Create a Java app
+```sh
+az login
+...
+az group create --name <YOUR_RESOURCE_GROUP> --location eastus2
+```
+
+* You can choose whatever location is available using [this command](https://docs.microsoft.com/en-us/cli/azure/appservice#az-appservice-list-locations).
+
+## Create a Java app with Maven Archetype Generator
 
 Execute the following command using Maven to create a new *helloworld* web app:  
 
@@ -48,20 +57,19 @@ Execute the following command using Maven to create a new *helloworld* web app:
 
 Change to the new *helloworld* project directory and build all modules using the following command:
 
-    mvn verify
+    mvn package
 
-This command will verify and create all modules including the *helloworld.war* file in the *helloworld/target* subdirectory.
-
+This command will compile and package the *helloworld.war* file in the *helloworld/target* subdirectory.
 
 ## Deploying the Java app to App Service on Linux
 
-There are multiple deployment options for deploying your Java web apps to App Service on Linux. These options include:
+In this quickstart, you will use the Maven plugin for Azure web apps. It has advantages in that it is easy to use from Maven, and creates the necessary Azure resources for you (resource group, app service plan, and web app).
 
-* [Deploying via Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)
+But there are other options for deploying your Java web apps to App Service on Linux. These options include:
+
+* [Deploying via Maven Plugin for Azure Web Apps](hhttps://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)
 * [Deploying via ZIP or WAR](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip)
 * [Deploying via FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)
-
-In this quickstart, you will use the Maven plugin for Azure web apps. It has advantages in that it is easy to use from Maven, and creates the necessary Azure resources for you (resource group, app service plan, and web app).
 
 ### Deploy with Maven
 
@@ -69,29 +77,16 @@ To deploy from Maven, add the following plugin definition inside the `<build>` e
 
 ```xml
     <plugins>
-      <plugin>
-        <groupId>com.microsoft.azure</groupId> 
-        <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.2.0</version>
-        <configuration> 
-          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
-          <appName>YOUR_WEB_APP</appName> 
-          <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
-          <deploymentType>ftp</deploymentType> 
-          <resources> 
-              <resource> 
-                  <directory>${project.basedir}/target</directory> 
-                  <targetPath>webapps</targetPath> 
-                  <includes> 
-                      <include>*.war</include> 
-                  </includes> 
-                  <excludes> 
-                      <exclude>*.xml</exclude> 
-                  </excludes> 
-              </resource> 
-          </resources> 
-        </configuration>
-      </plugin>
+        <plugin>
+            <groupId>com.microsoft.azure</groupId> 
+            <artifactId>azure-webapp-maven-plugin</artifactId> 
+            <version>1.4.0</version>
+            <configuration> 
+                <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+                <appName>YOUR_WEB_APP</appName> 
+                <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+            </configuration>
+        </plugin>
     </plugins>
 ```    
 
@@ -113,7 +108,7 @@ The `linuxRuntime` element of the configuration controls what built-in Linux ima
 >      <plugin>
 >        <groupId>com.microsoft.azure</groupId> 
 >        <artifactId>azure-webapp-maven-plugin</artifactId> 
->        <version>1.2.0</version>
+>        <version>1.4.0</version>
 >        <configuration> 
 >          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
 >          <appName>YOUR_WEB_APP</appName> 
@@ -136,19 +131,14 @@ The `linuxRuntime` element of the configuration controls what built-in Linux ima
 >    </plugins>
 >```    
 
-Execute the following command and follow all directions to authenticate with the Azure CLI:
-
-    az login
-
 Deploy your Java app to the web app using the following command:
 
     mvn clean package azure-webapp:deploy
 
-
 Once deployment has completed, browse to the deployed application using the following URL in your web browser.
 
 ```bash
-http://<app_name>.azurewebsites.net/helloworld
+http://<your_web_app>.azurewebsites.net/helloworld
 ```
 
 The Java sample code is running in a web app with built-in image.
@@ -157,9 +147,7 @@ The Java sample code is running in a web app with built-in image.
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
 
-
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
 
 ## Next steps
 
@@ -167,4 +155,3 @@ In this quickstart, you used Maven to create a Java web app, then you deployed t
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers](https://docs.microsoft.com/java/azure/)
-
