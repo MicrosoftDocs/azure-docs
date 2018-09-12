@@ -14,7 +14,7 @@ ms.author: sajagtap
 # Moderate with custom image lists in .NET
 
 This article provides information and code samples to help you get started using 
-the Content Moderator SDK for .NET to:
+the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 - Create a custom image list
 - Add and remove images from the list
 - Get the IDs of all images in the list
@@ -1024,4 +1024,4 @@ The log file written by the program has the following output:
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.

@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: carlrab
 
 ---
 # Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
 
-Save money with Azure SQL Database by prepaying for Azure SQL Database compute resources compared to pay-as-you-go prices. With Azure SQL Database reserved capacity, you make an upfront commitment on SQL Database for a period of one or three years to get a significant discount on the compute costs. To purchase SQL Database reserved capacity, you need to specify the Azure region, deployment type, service, and term. 
+Save money with Azure SQL Database by prepaying for Azure SQL Database compute resources compared to pay-as-you-go prices. With Azure SQL Database reserved capacity, you make an upfront commitment on SQL Database for a period of one or three years to get a significant discount on the compute costs. To purchase SQL Database reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. 
 
 You do not need to assign the reservation to SQL Database instances. Matching SQL Database instances, that are already running or ones that are newly deployed, will automatically get the benefit. By purchasing a reservation, you are pre-paying for the compute costs for the SQL Database instances for a period of one or three years. As soon as you buy a reservation, the SQL Database compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the SQL Database instance. At the end of the reservation term, the billing benefit expires and the SQL Databases are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [SQL Database reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
@@ -47,7 +47,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
     |Scope       |The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The vCore reservation discount is applied to SQL Database instances in this subscription. </li><li>Shared - The vCore reservation discount is applied to SQL Database instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions (except dev/test subscriptions) within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
     |Region      |The Azure region that’s covered by the SQL Database reserved capacity reservation.|    
     |Deployment Type|The SQL deployment type that you want to buy the reservation for.|
-    |Service Tier|The service tier for the SQL Database Instances.
+    |Performance Tier|The performance tier for the SQL Database instances.
     |Term        |One year or three years.|
     |Quantity    |The number of instances being purchased within the SQL Database reserved capacity reservation. The quantity is the number of running SQL Database instances that can get the billing discount. For example, if you are running 10 SQL Database instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
 
@@ -55,7 +55,14 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 6. Select **Purchase**.
 7. Select **View this Reservation** to see the status of your purchase.
 
-## Next steps 
+## Cancellations and exchanges
+
+If you need to cancel your SQL Database reserved capacity reservation, there may be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To request a cancellation, go to the reservation in the Azure portal and select **Refund** to create a support request.
+
+If you need to change your SQL Database reserved capacity reservation to another region, deployment type, performance tier, or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3 year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
+
+## Next steps
+
 The vCore reservation discount is applied automatically to the number of SQL Database instances that match the SQL Database reserved capacity reservation scope and attributes. You can update the scope of the SQL Database reserved capacity reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
 To learn how to manage the SQL Database reserved capacity reservation, see [Manage SQL Database reserved capacity](../billing/billing-manage-reserved-vm-instance.md).

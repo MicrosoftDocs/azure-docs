@@ -64,7 +64,7 @@ Given the sample family document above, the following query returns the document
 
 **Query**
     
-    db.families.find({ id: “WakefieldFamily”})
+    db.families.find({ id: "WakefieldFamily"})
 
 **Results**
 
@@ -114,7 +114,7 @@ The next query returns all the children in the family.
 
 **Query**
     
-    db.families.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **Results**
 

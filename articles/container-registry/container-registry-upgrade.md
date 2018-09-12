@@ -3,7 +3,6 @@ title: Upgrade a Classic Azure container registry
 description: Take advantage of the expanded feature set of Basic, Standard, and Premium managed container registries by upgrading your unmanaged Classic container registry.
 services: container-registry
 author: mmacy
-manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
@@ -19,7 +18,7 @@ The Classic SKU is being deprecated, and will be unavailable after March 2019. T
 
 ## Why upgrade?
 
-The Classic registry SKU is being **deprecated**, and will be unavailable from **March 2019**. All existing Classic registries should be upgrade prior to March 2019.
+The Classic registry SKU is being **deprecated**, and will be unavailable from **March 2019**. All existing Classic registries should be upgraded prior to March 2019.
 
 Because of the planned deprecation and limited capabilities of Classic unmanaged registries, all Classic registries be upgraded to Basic, Standard, or Premium managed registries. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure.
 

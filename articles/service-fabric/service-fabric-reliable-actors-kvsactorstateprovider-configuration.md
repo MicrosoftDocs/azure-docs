@@ -1,5 +1,5 @@
 ---
-title: Change KVSActorStateProvider settings in Azure microservices | Microsoft Docs
+title: Change KVSActorStateProvider settings in Azure Service Fabric actors | Microsoft Docs
 description: Learn about configuring Azure Service Fabric stateful actors of type KVSActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
