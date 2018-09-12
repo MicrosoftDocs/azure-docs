@@ -53,20 +53,20 @@ In this case, the channels of communication are initiated outbound from CycleClo
 and will be re-established after migration automatically.
 
 To migrate a CycleCloud host:
+
 1. Stop cycle_server on the source host: `service cycle_server stop` (LSB init scripts) or `systemctl stop cycle_server` (*systemd* init)
 2. Run `groupadd cycle_server` and `useradd cycle_server` on the target host. Use the original GID and UID if possible.
-1. Install openjdk version 8 on the target host by running `apt-get -y install openjdk-8-jre-headless` or `yum install -y java-1.8.0-openjdk`
-1. Transfer to the target host using `rsync -a /opt/cycle_server username@remote_host:/opt/cycle_server` or another meta-data preserving transfer tool.
-1. Enable the LSB init or *systemd* init for CycleCloud by running `/opt/cycle_server/util/autostart.sh on`
-1. Start the CycleCloud service with either `service cycle_server start` or `systemctl start cycle_server`
+3. Install openjdk version 8 on the target host by running `apt-get -y install openjdk-8-jre-headless` or `yum install -y java-1.8.0-openjdk`
+4. Transfer to the target host using `rsync -a /opt/cycle_server username@remote_host:/opt/cycle_server` or another meta-data preserving transfer tool.
+5. Enable the LSB init or *systemd* init for CycleCloud by running `/opt/cycle_server/util/autostart.sh on`
+6. Start the CycleCloud service with either `service cycle_server start` or `systemctl start cycle_server`
 
-The instructions are shortened if instead of migrating to a new host
-it's intended to migrate the installation from a non-standard
-directory to _/opt/cycle_server_:
+The instructions are shortened, if, instead of migrating to a new host, it's intended to migrate the installation from a non-standard directory to _/opt/cycle_server_:
+
 1. Stop cycle_server on the source host: `service cycle_server stop` (LSB init scripts) or `systemctl stop cycle_server` (*systemd* init)
-1. Transfer to the default location `rsync -a /usr/share/hpc/cycle_server /opt/cycle_server`.
-1. Enable the LSB init or *systemd* init for CycleCloud by running `/opt/cycle_server/util/autostart.sh on`
-1. Start the CycleCloud service with either `service cycle_server start` or `systemctl start cycle_server`
+2. Transfer to the default location `rsync -a /usr/share/hpc/cycle_server /opt/cycle_server`.
+3. Enable the LSB init or *systemd* init for CycleCloud by running `/opt/cycle_server/util/autostart.sh on`
+4. Start the CycleCloud service with either `service cycle_server start` or `systemctl start cycle_server`
 
 After migrating to a new host, or migrating to the default installation
 directory, upgrades can be performed as described in the first section.
