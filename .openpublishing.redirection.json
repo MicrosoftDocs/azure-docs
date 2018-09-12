@@ -7240,7 +7240,7 @@
         },
         {
             "source_path": "articles/cosmos-db/tutorial-develop-cassandra-java.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-cassandra-api-account-java",
+            "redirect_url": "/azure/cosmos-db/create-cassandra-api-account-java",
             "redirect_document_id": false
         },
         {
