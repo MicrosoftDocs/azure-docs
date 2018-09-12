@@ -3,14 +3,14 @@ title: Azure SQL logins and users | Microsoft Docs
 description: Learn about SQL Database and SQL Data Warehouse security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: carlrab
+ms.author: vanto
 
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
