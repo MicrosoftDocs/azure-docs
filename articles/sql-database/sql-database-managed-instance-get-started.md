@@ -45,13 +45,13 @@ The following steps show you how to create a Managed Instance.
    |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Do not use "serveradmin" as that is a reserved server-level role.| 
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Resource Group**|A new or existing resource group|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Location**|The location in which you want create the Managed Instance|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
+   |**Location**|The location in which you want to create the Managed Instance|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|Select either **Create new virtual network** or a virtual network that you previously created in the resource group that you previously provided in this form| To configure a virtual network for a Managed Instance with custom settings, see [Configure SQL Managed Instance virtual network environment template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) in Github. For information regarding the requirements for configuring the network environment for a Managed Instance, see [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) |
    |**Pricing tier**| Select a pricing tier and performance level| The General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.| 
 
-   ![managed instance create form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
+   ![managed instance form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-6. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. he General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.
+6. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. The General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.
 7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
 8. When complete, click **Apply** to save your selection.  
 9. Click **Create** to deploy the Managed Instance.
