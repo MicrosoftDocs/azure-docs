@@ -419,9 +419,9 @@ You see previously registered guests that were saved to the Azure production dat
 
 **Congratulations!** You're running a Python app in Web App for Containers.
 
-## Update data model and redeploy
+## Making changes and redeploying
 
-In this step, you add the number of attendees to each event registration by updating the `Guest` model.
+As we work on our app, we're going to make changes that will require a redeploy. In this step, you'll add the number of attendees to each event registration by updating the `Guest` model.
 
 In the local terminal window, check out the *0.2-migration* release with the following git command:
 
@@ -467,15 +467,19 @@ In the Cloud Shell, restart the app to make sure the latest container is pulled 
 az webapp restart --resource-group myResourceGroup --name <app_name>
 ```
 
-Navigate to your Azure web app and try out the new functionality again. Create another event registration.
+Navigate to your Azure web app and try out the new functionality again.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
+Make sure you refresh the page and see the newly added attendees column. Then create another event registration.
+
 ![Docker Python Flask app in Azure App Service](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-## Manage your Azure web app
+## Manage your web app in the Azure Portal
+
+We've been using the Azure CLI command line interface, but there's also a portal with a rich interface available to help you manage your application.
 
 Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
 
@@ -493,3 +497,19 @@ Advance to the next tutorial to learn how to map a custom DNS name to your web a
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+
+## Clean up resources
+
+If you're done with your app and database, clean up the resources created in this tutorial.
+
+You can clean up all the resources at once by deleting the resource group. First, verify the contents of the resource group. The group you created at the start of the tutorial should contain a PostgreSQL server, a container registry, an app service plan, and an app.
+
+```bash
+az resource list --resource-group myResourceGroup
+```
+
+Next, delete the resource group. Enter `y` at the prompt to confirm. This operation may take a few minutes to complete.
+
+```bash
+az group delete --name myResourceGroup
+```
