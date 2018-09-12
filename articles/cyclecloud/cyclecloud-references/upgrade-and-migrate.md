@@ -12,21 +12,20 @@ ms.author: mirequa
 
 # Upgrade CycleCloud
 
-It is possible to upgrade the CycleCloud application in-place as new versions become
+It is possible to upgrade the Azure CycleCloud application in place as new versions become
 available. CycleCloud versions _7.5.0_ and later are released via
-[Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57182)
-as either a Debian or RPM package.
+[Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57182) as either a Debian or RPM package.
 
 To upgrade, copy the installer to the host running CycleCloud and run the platform-specific
-package upgrade command:
+package upgrade command.
 
-For Debian:
+For Debian, use:
 
 ```bash
 dpkg -i cyclecloud_7.5.2-amd64.deb
 ```
 
-For RedHat-variant:
+For RedHat-variant, use:
 
 ```bash
 rpm -U cyclecloud_7.5.2.rpm
@@ -39,10 +38,7 @@ rpm -U cyclecloud_7.5.2.rpm
 
 While the first time installation of CycleCloud configures the service user and
 startup configuration, these will be absent if the installation data is simply
-copied from host-to-host.
-
-These instructions describe how to migrate a CycleCloud installation to another
-host.
+copied from host to host. The following instructions describe how to migrate a CycleCloud installation to another host.
 
 ### A Note on Running Clusters
 
@@ -74,4 +70,3 @@ directory to _/opt/cycle_server_:
 
 After migrating to a new host, or migrating to the default installation
 directory, upgrades can be performed as described in the first section.
-
