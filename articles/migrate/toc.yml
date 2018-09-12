@@ -26,7 +26,7 @@
       href: contoso-migration-infrastructure.md
     - name: 3. Contoso-Assess on-premises resources for migration to Azure
       href: contoso-migration-assessment.md
-    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Managed Instance
+    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
       href: contoso-migration-rehost-vm-sql-managed-instance.md
     - name: 5. Contoso-Rehost an app on Azure VMs
       href: contoso-migration-rehost-vm.md
