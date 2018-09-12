@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/16/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -346,7 +346,6 @@ To renew the certificate, do the following:
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
-If you are un-able to renew the Run As certificate
 ## Limiting Run As account permissions
 
 To control targeting of automation against resources in Azure Automation, the Run As account by default is granted contributor rights in the subscription. If you need to restrict what the RunAs service principal can do, you can remove the account from the contributor role to the subscription and add it as a contributor to the resource groups you want to specify.
