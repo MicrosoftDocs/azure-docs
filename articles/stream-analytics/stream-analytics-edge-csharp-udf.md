@@ -140,7 +140,7 @@ You can debug your C# UDF locally the same way you debug standard C# code.
 ## Publish your job to Azure
 Once you've tested your query locally, select **Submit to Azure** in the script editor to publish the job to Azure. Be sure to set the **Location** to **West Centeral US**.
 
-   <img src=./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png alt="Submit your Stream Analytics Edge job to Azure from Visual Studio" width="400px">
+<img src=./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png alt="Submit your Stream Analytics Edge job to Azure from Visual Studio" width="400px">
 
 
 ## Deploy to IoT Edge devices

@@ -41,19 +41,19 @@ To reference a local C# project:
 
 In this example, **UDFTest** is a C# class library project and **ASAEdgeUDFDemo** is the Azure Stream Analytics Edge project, which will reference **UDFTest**. 
 
-   <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png alt="Azure Stream Analytics IoT Edge project in Visual Studio" width=300px>
+<img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png alt="Azure Stream Analytics IoT Edge project in Visual Studio" width=300px>
 
 1. Build your C# project, which will enable you to add a reference to your C# UDF from the Azure Stream Analytics query.
 
-    <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png alt="Build an Azure Stream Analytics IoT Edge project in Visual Studio" width=300px>
+   <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png alt="Build an Azure Stream Analytics IoT Edge project in Visual Studio" width=300px>
 
 2. Add the reference to the C# project in the ASA edge project. Right-click the References node and choose Add Reference.
 
-    <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png alt="Add a reference to a C# project in Visual Studio" width=300px>
+   <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png alt="Add a reference to a C# project in Visual Studio" width=300px>
 
 3. Choose the C# project name from the list. 
 
-    <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png alt="Choose your C# project name from the reference list" width=500px>
+   <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png alt="Choose your C# project name from the reference list" width=500px>
 
 4. You should see the **UDFTest** listed under **References** in **Solution Explorer**.
     
