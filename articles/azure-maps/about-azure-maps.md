@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # What is Azure Maps?
 
-Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps, searching points of interest, routes to points of interests, traffic conditions, time zones, and finding a location from an IP address. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. In addition to its REST APIs, the web-based [JavaScript map control](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control) is provided to make development easy, flexible, and portable across multiple mediums.
+Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps and searching points of interest. The APIs can also find routes to points of interest, traffic conditions, time zones, and a location from an IP address. The APIs work with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. In addition to its REST APIs, the web-based [JavaScript map control](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control) is provided to make development easy, flexible, and portable across multiple mediums.
 
 The following video explains Azure Maps in depth:
 
@@ -118,5 +118,5 @@ Check your current IP address and verify that the location of your IP address is
 
 * For more information on the new features of Azure Maps:
   * [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/).
-* Proceed to trying out a sample app showcasing the service
+* Proceed to trying out a sample app showcasing the service:
   * [Launch a demo interactive search map](quick-demo-map-app.md)
