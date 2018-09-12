@@ -1,6 +1,6 @@
 ---
 title: Migrate from Azure Scheduler to Azure Logic Apps
-description: Learn how you can replace Azure Scheduler apps, which is being retired, with Azure Logic Apps 
+description: Learn how you can replace jobs in Azure Scheduler, which is being retired, with Azure Logic Apps 
 services: scheduler
 ms.service: scheduler 
 ms.suite: infrastructure-services
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/17/2018
 ---
 
-# Migrate to Azure Logic Apps from Azure Scheduler 
+# Migrate Azure Scheduler jobs to Azure Logic Apps
 
 > [!IMPORTANT]
 > Azure Logic Apps is replacing Azure Scheduler, 
@@ -249,6 +249,8 @@ To learn more about exception handling, see
 [Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
 
 ## FAQ
+
+<a name="retire-date"></a> 
 
 **Q**: When is Azure Scheduler retiring? <br>
 **A**: Azure Scheduler is scheduled to retire on September 17, 2019.
