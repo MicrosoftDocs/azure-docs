@@ -66,8 +66,8 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 Once you create a prefix, you must create static IP addresses from the prefix. In order to do this, follow steps below.
 
 1. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address prefix*. When **Public IP address prefixes** appear in the search results, select it.
-2. Select the prefix, you want to create public IPs from.
-3. Navigate to the *Public IP addresses* blade, select **+Add**
+2. Select the prefx you want to create public IPs from.
+3. Search for Public IP addresses. When it appears in the search results, select it and click on **+Add**
 4. Enter or select values for the following settings under **Create public IP address**. Since a prefix is for Standard SKU, IPv4, and static, you only need to provide the following informtion:
 
    |Setting|Required?|Details|
