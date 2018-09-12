@@ -66,6 +66,8 @@
         href: algorithm-cheat-sheet.md
     - name: Use automated modeling	
       items:
+      - name: Configure auto training
+        href: how-to-automl.md 
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
     - name: Train ML models

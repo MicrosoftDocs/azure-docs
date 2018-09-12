@@ -1,5 +1,5 @@
 ---
-title: Configure your automatic Machine Learning experiment
+title: Configure your automatic Machine Learning experiment in Azure Machine Learning
 description: Learn how to define configuration settings to automatically train a machine learning model in Azure Machine Learning
 services: machine-learning
 author: nacharya1
@@ -118,7 +118,7 @@ cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the
 
 You can specify separate train and validation set either through the get_data() or directly in the `AutoMLConfig`  method.
 
-### Cross Validation split options
+## Cross validation split options
 
 ### K-Folds Cross Validation
 
@@ -198,19 +198,20 @@ Property |	Description	| Default Value
 `data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
 
 
-## Run AutoML Experiment
+## Run `AutoML` experiment
 
-Next, we can initiate the experiment to run and generate a model for us. Generating the model is simply using the submit method and passing the AutoMLConfig.
+Next, we can initiate the experiment to run and generate a model for us. Pass the `AutoMLConfig` to the `submit` method to generate the model.
 
 ```python
 run = experiment.submit(automl_config, show_output=True)
 ```
 
-Note: Running an experiment on a new DSVM may take up to 10mins for dependencies to install before output is shown.
-Setting `show_output` to True results in output being shown on the console.
+>[!NOTE]
+>Dependencies are first installed on a new DSVM.  It may take up to 10 minutes before output is shown.
+>Setting `show_output` to True results in output being shown on the console.
 
 
-## Explore Model Metrics
+## Explore model metrics
 You can view your results in a widget or inline if you are in a notebook. See details to “Track and evaluate models”. (ensure AML content contains relevant information to AutoML)
 
 The following metrics are saved in each iteration
