@@ -37,11 +37,11 @@ The concepts listed in this section are also discussed in the following Microsof
 
 **Application**: An application is the unit of deployment, versioning, and lifetime of a Mesh application. The lifecycle of each application instance can be managed independently.  Applications are composed of one or more service code packages and settings. An application is defined using the Azure Resource Model (RM) schema.  Services, networks, and volumes are described as properties of the application resource in a RM template.  When creating an application, the application, service(s), network, and volume(s) are modeled using the Service Fabric Resource Model.
 
-**Service**: A service in an application represents a microservice. Each service is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
+**Service**: A service in an application represents a microservice. Each service is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.  The number of services in an application can be scaled up and down.
 
-**Volume**: Volumes are directories that get mounted inside your container instances that you can use to persist state. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
+**Volume**: Volumes are directories that get mounted inside your container instances that you can use to persist state. The Azure Files volume driver mounts an Azure Files share to a container and provides reliable data storage through any API which supports file storage.
 
-**Network**: A network resource is a private network for your applications and is independent of applications or services that may refer to it. Multiple Services from different Applications can be part of the same network.
+**Network**: A network resource creates a private network for your applications and is independent of the applications or services that may refer to it. Multiple services from different applications can be part of the same network.
 
 **Code package**: Code packages describe everything needed to run the container image associated with the code package, including the following:
 
