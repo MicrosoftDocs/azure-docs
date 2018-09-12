@@ -10719,6 +10719,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/custom-search-sdk-quickstart.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/sdk-csharp-quick-start",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/sdk-csharp-quick-start",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/get-custom-suggestions.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-custom-suggestions",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Bing-Custom-Search/how-it-works.md",
             "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
             "redirect_document_id": false
