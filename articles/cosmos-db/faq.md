@@ -115,7 +115,6 @@ Container and database level throughput provisioning are separate offerings and 
 Currently you can create collection with a partition key throughput by using the [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) method of .Net SDK or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Creating a fixed collection by using Azure portal is not currenlty supported.  
 
 ### Does Azure CosmosDB support time series analysis? 
-
 Yes Azure CosmosDB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
 
 
