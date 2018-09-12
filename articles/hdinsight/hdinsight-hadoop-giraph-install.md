@@ -3,7 +3,7 @@ title: Install and use Giraph on Hadoop clusters in HDInsight - Azure
 description: Learn how to customize HDInsight cluster with Giraph, and how to use Giraph.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual

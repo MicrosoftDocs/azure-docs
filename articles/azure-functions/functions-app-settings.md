@@ -3,22 +3,20 @@ title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 08/22/2018
 ms.author: glenga
 ---
 
 # App settings reference for Azure Functions
 
 App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in environment variables. This article lists the app settings that are available in function apps.
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
 
 There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
 
@@ -122,7 +120,7 @@ For consumption plans only. Connection string for storage account where the func
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-## WEBSITE_CONTENTSHARE
+## WEBSITE\_CONTENTSHARE
 
 For consumption plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -148,6 +146,19 @@ Default is "6.5.0".
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+
+## WEBSITE\_RUN\_FROM\_ZIP
+
+Enables your function app to run from a mounted package file.
+
+> [!NOTE]
+> This setting is for a preview feature.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE\_RUN\_FROM\_ZIP|1|
+
+Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location.  For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
 ## Next steps
 

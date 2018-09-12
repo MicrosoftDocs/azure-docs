@@ -28,7 +28,7 @@ You can have many network security groups in your network with flow logging enab
 
 Network security group flow logs are enabled using Network Watcher. Flow logs flow in to Azure blob storage. A Logstash plugin is used to connect and process flow logs from blob storage and send them to Graylog. Once the flow logs are stored in Graylog, they can be analyzed and visualized into customized dashboards.
 
-![Graylog workflow]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Graylog workflow](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## Installation Steps
 
@@ -72,9 +72,6 @@ Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. 
    ```
 
 3. Add the following content to the file. Change the highlighted values to reflect your storage account details:
-
-   > [!WARNING]
-   > The following steps work with flow logs version 1. The format of NSG flow logs will be upgraded to version 2 soon. For details, see [Network security group flow log changes](prepare-flow-log.md). The following instructions will not work with version 2 of the log files, without modification.
 
    ```
     input {

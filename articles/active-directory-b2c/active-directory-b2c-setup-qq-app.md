@@ -36,7 +36,7 @@ To use a QQ account as an identity provider in Azure Active Directory (Azure AD)
 1. Go to [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 2. Select **应用管理** (app management).
 5. Select **创建应用** (create app) and enter the required information.
-7. Enter `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` in **授权回调域** (callback URL). For example, if your `tenant_name` is contoso.onmicrosoft.com, set the URL to be `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. Enter `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` in **授权回调域** (callback URL). For example, if your `tenant_name` is contoso, set the URL to be `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Select **创建应用** (create app).
 9. On the confirmation page, select **应用管理** (app management) to return to the app management page.
 10. Select **查看** (view) next to the app you created.

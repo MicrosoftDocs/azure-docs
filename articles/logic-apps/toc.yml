@@ -174,7 +174,7 @@
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
-      - name: Excel
+      - name: Excel Online for Business or OneDrive
         href: ../connectors/connectors-create-api-excel.md
       - name: Facebook
         href: ../connectors/connectors-create-api-facebook.md
@@ -216,6 +216,8 @@
         href: ../connectors/connectors-create-api-onedriveforbusiness.md
       - name: Oracle Database
         href: ../connectors/connectors-create-api-oracledatabase.md
+      - name: Outlook.com
+        href: ../connectors/connectors-create-api-outlook.md
       - name: Project Online
         href: ../connectors/connectors-create-api-projectonline.md
       - name: Request / Response
@@ -232,12 +234,12 @@
         href: ../connectors/connectors-create-api-sendgrid.md
       - name: SFTP
         href: ../connectors/connectors-create-api-sftp.md  
-      - name: SharePoint Online
-        href: ../connectors/connectors-create-api-sharepointonline.md
-      - name: SharePoint Server
-        href: ../connectors/connectors-create-api-sharepointserver.md
+      - name: SharePoint
+        href: ../connectors/connectors-create-api-sharepoint.md
       - name: Slack
         href: ../connectors/connectors-create-api-slack.md
+      - name: SMTP
+        href: ../connectors/connectors-create-api-smtp.md
       - name: SQL Server
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Transform XML
@@ -262,6 +264,8 @@
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
+    - name: Migrate to latest schema
+      href: ../connectors/connectors-schema-migration.md  
   - name: Deploy
     items:
       - name: Define and deploy logic apps

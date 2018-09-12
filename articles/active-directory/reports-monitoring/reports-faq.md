@@ -128,6 +128,12 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
+**Q: What does the risk event "Sign-in with additional risk detected" signify?**
+
+**A:** To give you an insight into all the risky sign-ins in your environment, "Sign-in with additional risk detected" functions as placeholder for sign-ins for detections that are exclusive to Azure AD Identity Protection subscribers.
+
+---
+
 ## Conditional access
 
 **Q: What's new with this feature?**

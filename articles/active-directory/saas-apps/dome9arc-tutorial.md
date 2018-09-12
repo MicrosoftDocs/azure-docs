@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 08/22/2018
 ms.author: jeedes
 
 ---
@@ -46,30 +46,32 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Dome9 Arc from the gallery
-1. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD single sign-on
 
 ## Adding Dome9 Arc from the gallery
+
 To configure the integration of Dome9 Arc into Azure AD, you need to add Dome9 Arc from the gallery to your list of managed SaaS apps.
 
 **To add Dome9 Arc from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+
+3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-1. In the search box, type **Dome9 Arc**, select **Dome9 Arc** from result panel then click **Add** button to add the application.
+4. In the search box, type **Dome9 Arc**, select **Dome9 Arc** from result panel then click **Add** button to add the application.
 
 	![Dome9 Arc in the results list](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
@@ -79,15 +81,13 @@ In this section, you configure and test Azure AD single sign-on with Dome9 Arc b
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Dome9 Arc is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Dome9 Arc needs to be established.
 
-In Dome9 Arc, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with Dome9 Arc, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a Dome9 Arc test user](#create-a-dome9-arc-test-user)** - to have a counterpart of Britta Simon in Dome9 Arc that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Create a Dome9 Arc test user](#create-a-dome9-arc-test-user)** - to have a counterpart of Britta Simon in Dome9 Arc that is linked to the Azure AD representation of user.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
 
-1. On the **Dome9 Arc Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Dome9 Arc Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Dome9 Arc Domain and URLs single sign-on information](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
@@ -114,24 +114,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> You will select your company name value in the dome9 admin portal, which is explained later in the tutorial.
 
-1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Dome9 Arc Domain and URLs single sign-on information](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
-	 
+ 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Dome9 Arc Client support team](https://dome9.com/about/contact-us/) to get these values. 
 
-1. The Dome9 Arc Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+5. The Dome9 Arc Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On attb](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
-1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 	
 	| Attribute Name  | Attribute Value | 
 	| --------------- | --------------- | 
-	| memberof | user.assignedroles | 
+	| memberof | user.assignedroles |
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -142,32 +142,35 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
 	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
 
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	d. Click **Ok**.
+	
+	> [!NOTE]
+	> Please refer to this [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
+
+7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
 
-1. Click **Save** button.
+8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/dome9arc-tutorial/tutorial_general_400.png)
-	
-1. On the **Dome9 Arc Configuration** section, click **Configure Dome9 Arc** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+9. On the **Dome9 Arc Configuration** section, click **Configure Dome9 Arc** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Dome9 Arc Configuration](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
 
-1. In a different web browser window, log into your Dome9 Arc company site as an administrator.
+10. In a different web browser window, log into your Dome9 Arc company site as an administrator.
 
-1. Click on the **Profile Settings** on the right top corner and then click **Account Settings**. 
+11. Click on the **Profile Settings** on the right top corner and then click **Account Settings**. 
 
 	![Dome9 Arc Configuration](./media/dome9arc-tutorial/configure1.png)
 
-1. Navigate to **SSO** and then click **ENABLE**.
+12. Navigate to **SSO** and then click **ENABLE**.
 
 	![Dome9 Arc Configuration](./media/dome9arc-tutorial/configure2.png)
 
-1. In the SSO Configuration section, perform the following steps:
+13. In the SSO Configuration section, perform the following steps:
 
 	![Dome9 Arc Configuration](./media/dome9arc-tutorial/configure3.png)
 
@@ -181,9 +184,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. Click **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -196,15 +196,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/dome9arc-tutorial/create_aaduser_01.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+2. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/dome9arc-tutorial/create_aaduser_02.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/dome9arc-tutorial/create_aaduser_03.png)
 
-1. In the **User** dialog box, perform the following steps:
+4. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/dome9arc-tutorial/create_aaduser_04.png)
 
@@ -215,28 +215,28 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Dome9 Arc test user
 
 To enable Azure AD users to log in to Dome9 Arc, they must be provisioned into application. Dome9 Arc supports just-in-time provisioning but for that to work properly, user have to select particular **Role** and assign the same to the user.
 
-   >[!Note] 
+   >[!Note]
    >For **Role** creation and other details contact [Dome9 Arc Client support team](https://dome9.com/about/contact-us/).
 
 **To provision a user account manually, perform the following steps:**
 
 1. Log in to your Dome9 Arc company site as an administrator.
 
-1. Click on the **Users & Roles** and then click **Users**.
+2. Click on the **Users & Roles** and then click **Users**.
 
 	![Add Employee](./media/dome9arc-tutorial/user1.png)
 
-1. Click **ADD USER**.
+3. Click **ADD USER**.
 
 	![Add Employee](./media/dome9arc-tutorial/user2.png)
 
-1. In the **Create User** section, perform the following steps:
-	
+4. In the **Create User** section, perform the following steps:
+
 	![Add Employee](./media/dome9arc-tutorial/user3.png)
 
 	a. In the **Email** textbox, type the email of user like Brittasimon@contoso.com.
@@ -261,24 +261,24 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-1. In the applications list, select **Dome9 Arc**.
+2. In the applications list, select **Dome9 Arc**.
 
 	![The Dome9 Arc link in the Applications list](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
 
-1. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-1. Click **Select** button on **Users and groups** dialog.
+6. Click **Select** button on **Users and groups** dialog.
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
+7. Click **Assign** button on **Add Assignment** dialog.
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
@@ -290,8 +290,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

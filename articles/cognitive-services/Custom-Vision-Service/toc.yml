@@ -21,6 +21,8 @@
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
       href: export-model-python.md
+    - name: Train a model using the REST API
+      href: rest-api-tutorial.md
   - name: Build apps
     items:
     - name: Image Classification
@@ -29,12 +31,16 @@
         href: csharp-tutorial.md
       - name: Python tutorial
         href: python-tutorial.md
+      - name: Java tutorial
+        href: java-tutorial.md
     - name: Object Detection
       items:
       - name: C# tutorial
         href: csharp-tutorial-od.md
       - name: Python tutorial
         href: python-tutorial-od.md
+      - name: Java tutorial
+        href: java-tutorial-od.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
@@ -53,6 +59,8 @@
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Resources
   items:
+  - name: Release Notes
+    href: release-notes.md
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Pricing
