@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Monitor VM Insights | Microsoft Docs
-description: VM Insights is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article provides an overview.
+title: Overview of Azure Monitor VM insights | Microsoft Docs
+description: VM insights is a feature of Azure Montitor that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article provides an overview.
 services:  monitoring
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/07/2018
+ms.date: 09/12/2018
 ms.author: magoedte
 
 ---
 
-## Overview of Azure Monitor VM Insights
+## Overview of Azure Monitor VM insights
 
-Azure Monitor VM Insights monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  VM Insights includes three key features to deliver this in-depth insight:
+Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  VM insights includes three key features to deliver this in-depth insight:
 
 * Logical components of Azure VMs running Windows and Linux operating system are measured based on a set of pre-configured health criteria and alerts when the evaluated condition is met.  ​
 * Core performance metrics from processor, memory, disk, and network adapter of the guest VM operating system are collected and presented in pre-defined trending performance charts.
@@ -40,13 +40,13 @@ Integration with Log Analytics delivers powerful aggregation, filtering, and abi
 
 You can view this data in the context of single instance of the VM from the virtual machine directly, and as an aggregated view of all VMs in your subscription from Azure Monitor. 
 
-![Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/vminsights-solution-perspectives.png)
+![Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/vminsights-azmon-directvm-01.png)
 
 DevOps can effectively deliver predictable performance and availability of vital applications by identifying critical operating system events and performance bottlenecks, network issues, and understand if an issue is related to other dependencies.  
 
 ## Data usage 
 
-As soon as you onboard the solution, data collected by your VMs is ingested and stored in Azure Monitor.  VM Insights is billed for the data ingested and retained, number of health criteria metric time-series monitored, alert rules created, notifications sent, per pricing published on the Azure Monitor [pricing page](https://azure.microsoft.com/pricing/details/monitor/)
+As soon as you onboard the solution, data collected by your VMs is ingested and stored in Azure Monitor.  VM insights is billed for the data ingested and retained, number of health criteria metric time-series monitored, alert rules created, notifications sent, per pricing published on the Azure Monitor [pricing page](https://azure.microsoft.com/pricing/details/monitor/)
 
 The cost of data can be considerable depending on the following factors: 
 
@@ -65,4 +65,4 @@ Based on our testing with the default configuration of the solution, the followi
 The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters.  If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied.  If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Azure Monitor.​
 
 ## Next steps
-[Onboard VM Insights](monitoring-vminsights-onboard.md) to begin monitoring your Azure virtual machines.
+[Onboard VM insights](monitoring-vminsights-onboard.md) to begin monitoring your Azure virtual machines.
