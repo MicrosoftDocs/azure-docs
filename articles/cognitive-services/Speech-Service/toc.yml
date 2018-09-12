@@ -91,6 +91,10 @@
   - name: Customize device wake word (Devices SDK)
     href: speech-devices-sdk-create-kws.md
     displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+    - name: Migrate
+    items:
+      - name: Migrating to the Azure Cognitive Services Speech API
+        href: migrating-to-speech-api.md
 - name: Concepts
   items:
   - name: Speech-to-Text
