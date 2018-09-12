@@ -81,6 +81,8 @@
       href: api-management-capacity.md
     - name: Upgrade and scale
       href: upgrade-and-scale.md
+    - name: Configure autoscale
+      href: api-management-howto-autoscale.md
     - name: Configure a custom domain
       href: configure-custom-domain.md
   - name: Cache
@@ -99,6 +101,8 @@
       href: api-management-howto-integrate-internal-vnet-appgateway.md
     - name: Mutual Certificate authentication
       href: api-management-howto-mutual-certificates.md
+    - name: Manage CA certificates
+      href: api-management-howto-ca-certificates.md
     - name: Manage protocols and ciphers
       href: api-management-howto-manage-protocols-ciphers.md
   - name: Customize the developer experience

@@ -15,13 +15,21 @@ manager: douge
 ### Run the service
 
 1. Hit F5 (or type `azds up` in the Terminal Window) to run the service. The service will automatically run in your newly selected space `default/scott`. 
-1. You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of `mywebapi` is now running in the `default/scott` space (the version running in the `default` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text "scott.s.". This URL is unique to the `default/scott` space. The special URL signifies that requests sent to the "scott URL" will try to first route to services in the `default/scott` space, but if that fails, they will fall back to services in the `default` space.
+1. You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of `mywebapi` is now running in the `default/scott` space (the version running in the `default` is still running but it is not listed). If you run `azds list-uris`, you will notice that the access point URL for `webfrontend` is prefixed with the text "scott.s.". This URL is unique to the `default/scott` space. The special URL signifies that requests sent to the "scott URL" will try to first route to services in the `default/scott` space, but if that fails, they will fall back to services in the `default` space.
 
 ```
-Name         Space          Chart              Ports   Updated     Access Points
------------  --------       -----------------  ------  ----------  -------------
-mywebapi     default/scott  mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
-webfrontend  default        webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name                      DevSpace  Type     Updated  Status
+------------------------  --------  -------  -------  -------
+mywebapi                  scott     Service  3m ago   Running
+mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
+webfrontend               default   Service  26m ago  Running
+```
+
+```
+Uri                                                            Status
+-------------------------------------------------------------  ---------
+http://localhost:53831 => mywebapi.scott:80                    Tunneled
+http://webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
 ```
 
 ![](../media/common/space-routing.png)
@@ -31,4 +39,4 @@ This built-in feature of Azure Dev Spaces lets you test code in a shared space w
 ### Test code in a space
 To test your new version of `mywebapi` with `webfrontend`, open your browser to the public access point URL for `webfrontend` and go to the About page. You should see your new message displayed.
 
-Now, remove the "scott.s." part of the URL, and refresh the browser. You should see the old behavior (with the `mywebapi` version running in `default`)
+Now, remove the "scott.s." part of the URL, and refresh the browser. You should see the old behavior (with the `mywebapi` version running in `default`).

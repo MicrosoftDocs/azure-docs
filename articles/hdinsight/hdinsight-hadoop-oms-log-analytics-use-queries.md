@@ -3,7 +3,7 @@ title: Query Azure Log Analytics to monitor Azure HDInsight clusters
 description: Learn how to run queries on Azure Log Analytics to monitor jobs running in an HDInsight cluster.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

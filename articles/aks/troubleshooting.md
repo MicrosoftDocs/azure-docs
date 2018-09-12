@@ -21,17 +21,17 @@ When you create or manager AKS clusters, you may occasionally encounter issues. 
 
 ### I am getting a quota exceeded error during create or upgrade. What should I do? 
 
-You will need to request cores [here](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)
+You will need to request cores [here](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 ### What is the max pods per node setting for AKS?
 
 The max pods per node are set to 30 by default if you deploy an AKS cluster in the Azure portal.
 The max pods per node are set to 110 by default if you deploy an AKS cluster in the Azure CLI. (Ensure you are using the latest version of the Azure CLI). This default setting can be changed using the –max-nodes-per-pod flag in the az aks create command.
 
-### I am getting  “insufficientSubnetSize” error while deploying an AKS cluster with Advanced networking. What should I do?
+### I am getting “insufficientSubnetSize” error while deploying an AKS cluster with Advanced networking. What should I do?
 
 In Custom VNET option selected for networking during AKS creates, the Azure CNI is used for IPAM. The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based upon 2) above the subnet size should be greater than product of the number of nodes and the max pod per node 
-Subnet size > no of nodes in the cluster * max pods per node
+Subnet size > no of nodes in the cluster * max pods per node.
 
 ### My pod is stuck in ‘CrashLoopBackOff’ mode. What should I do?
 

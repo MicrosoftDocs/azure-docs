@@ -41,15 +41,17 @@ This action takes you to the Azure portal, where you can import the exported tem
 
 Select **Load file** to select the exported Resource Manager template and provide all the configuration values (for example, linked services).
 
-**Connection strings**. You can find the info required to create connection strings in the individual articles about the respective connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In this view, however, the password or account key portion of the connection string is removed.
-
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Connection strings**. You can find the info required to create connection strings in the articles about the individual connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In code view, however, the password or account key portion of the connection string is removed. To open code view, select the icon highlighted in the following screen shot.
+
+![Open code view to see connection string](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## Continuous integration lifecycle
 Here is the entire lifecycle for continuous integration & deployment
-that you can use after you enable VSTS GIT integration in the Data Factory UI:
+that you can use after you enable Azure DevOps Services GIT integration in the Data Factory UI:
 
-1.  Set up a development data factory with VSTS in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
+1.  Set up a development data factory with Azure DevOps Services in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
 
 1.  Then developers can modify resources such as pipelines. As they make their modifications, they can select **Debug** to see how the pipeline runs with the most recent changes.
 
@@ -61,25 +63,25 @@ that you can use after you enable VSTS GIT integration in the Data Factory UI:
 
 1.  The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.
 
-## Automate continuous integration with VSTS Releases
+## Automate continuous integration with Azure DevOps Services Releases
 
-Here are the steps to set up a VSTS Release so you can automate the deployment of a data factory to multiple environments.
+Here are the steps to set up a Azure DevOps Services Release so you can automate the deployment of a data factory to multiple environments.
 
-![Diagram of continuous integration with VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram of continuous integration with Azure DevOps Services](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### Requirements
 
--   An Azure subscription linked to Team Foundation Server or VSTS using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   An Azure subscription linked to Team Foundation Server or Azure DevOps Services using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   A Data Factory with VSTS Git configured.
+-   A Data Factory with Azure DevOps Services Git configured.
 
 -   An [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) containing the secrets.
 
-### Set up a VSTS Release
+### Set up a Azure DevOps Services Release
 
-1.  Go to your VSTS page in the same project as the one configured with the Data Factory.
+1.  Go to your Azure DevOps Services page in the same project as the one configured with the Data Factory.
 
-1.  Click on the top menu **Build and Release** &gt; **Releases** &gt; **Create release definition**.
+1.  Click on the top menu **Azure Pipelines** &gt; **Releases** &gt; **Create release definition**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -107,15 +109,15 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Save the release definition.
+1.  Save the release pipeline.
 
-1.  Create a new release from this release definition.
+1.  Create a new release from this release pipeline.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### Optional - Get the secrets from Azure Key Vault
 
-If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release.
+If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the Azure DevOps Services release.
 
 There are two ways to handle the secrets:
 
@@ -142,7 +144,7 @@ There are two ways to handle the secrets:
 
     -   The parameters file needs to be in the publish branch as well.
 
-1.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
+1.  Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
 
     -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
@@ -150,13 +152,13 @@ There are two ways to handle the secrets:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### Grant permissions to the VSTS agent
-The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the VSTS agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
+### Grant permissions to the Azure DevOps Services agent
+The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure DevOps Services agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
 ### Update active triggers
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and start them after the deployment. You can add an Azure Powershell task for this purpose, as shown in the following example:
 
-1.  In the Tasks tab of the VSTS Release, search for **Azure Powershell** and add it.
+1.  In the Tasks tab of the Azure DevOps Services Release, search for **Azure Powershell** and add it.
 
 1.  Choose **Azure Resource Manager** as the connection type and select your subscription.
 
@@ -174,7 +176,7 @@ You can follow similar steps and use similar code (with the `Start-AzureRmDataFa
 
 ## Sample deployment template
 
-Here is a sample deployment template that you can import in VSTS.
+Here is a sample deployment template that you can import in Azure DevOps Services.
 
 ```json
 {

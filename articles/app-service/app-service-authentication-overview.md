@@ -3,7 +3,7 @@ title: Authentication and authorization in Azure App Service | Microsoft Docs
 description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service
 services: app-service
 documentationcenter: ''
-author: mattchenderson
+author: cephalin
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/29/2016
-ms.author: mahender
+ms.date: 08/24/2018
+ms.author: mahender,cephalin
 
 ---
 # Authentication and authorization in Azure App Service
@@ -131,7 +131,7 @@ With this option, you don't need to write any authentication code in your app. F
 
 The option is **Allow Anonymous requests**. This option turns on authentication and authorization in App Service, but defers authorization decisions to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
 
-This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in options](app-service-authentication-how-to.md#configure-multiple-sign-in-options) to your users. However, you have to write code. 
+This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) to your users. However, you must write code. 
 
 ## More resources
 

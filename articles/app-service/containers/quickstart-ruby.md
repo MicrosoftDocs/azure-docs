@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -41,11 +41,18 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## Run the application locally
 
-The rails server needs to be running in order for the application to work. Change to the `hello-world` directory, and use the `rails server` command to start the server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window, change to the `hello-world` directory, and use the `rails server` command to start the server.
+
+The first step is to install the required gems. There's a `Gemfile` included in the sample so you don't need to specify the gems to install. We'll use bundler for this, and we'll save the gems locally in a `.gems` directory. Feel free to change the name if you like:
+
+```
+bundle install --path=.gems
+```
+
+Once the gems are installed, we'll use bundler to start the app for us:
 
 ```bash
-cd hello-world\bin
-rails server
+bundle exec rails server
 ```
 
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.

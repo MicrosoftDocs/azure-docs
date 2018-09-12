@@ -39,9 +39,9 @@ You can get started with Azure AD via EMS licenses using one of the following li
 - Purchase [Enterprise Mobility + Security E3 licenses](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
 ### Microsoft volume licensing
-Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
+Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
 
-You can learn more about volume licensing purchase options on the [How to purchase through Volume Licensing](https://www.microsoft.com/Licensing/how-to-buy/how-to-buy.aspx) page.
+You can learn more about volume licensing purchase options on the [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) page.
 
 > [!NOTE]
 > Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).

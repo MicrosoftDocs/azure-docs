@@ -25,6 +25,9 @@ ms.author: ryanwi
 
 Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
+> [!NOTE]
+> This article applies to a Linux development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Linux containers on a Windows cluster.
+
 ## Prerequisites
 * A development computer running:
   * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
@@ -429,13 +432,13 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -458,7 +461,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

@@ -59,18 +59,12 @@
       items:
       - name: Create standalone Automation account
         href: automation-create-standalone-account.md
-      - name: Create Azure AD user account
-        href: automation-create-aduser-account.md
+      - name: Manage Automation Run As account
+        href: manage-runas-account.md
       - name: Configure authentication with AWS
         href: automation-config-aws-account.md
-      - name: Create Automation Run As account
-        href: automation-create-runas-account.md
-      - name: Validate Automation account config
-        href: automation-verify-runas-authentication.md
       - name: Manage role-based access control
         href: automation-role-based-access-control.md
-      - name: Manage Automation account
-        href: automation-manage-account.md
     - name: Create runbooks
       items:
         - name: Runbook types
@@ -175,7 +169,7 @@
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
-        - name: Source control integration with VSTS
+        - name: Source control integration with Azure DevOps
           href: automation-scenario-source-control-integration-with-VSTS.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md

@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: mvc
-ms.date: 06/06/2018
+ms.date: 08/06/2018
 ms.author: bahariri
 
 ---

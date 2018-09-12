@@ -65,7 +65,7 @@ Rather than research every resource provider and the specific version supported 
 
 API profiles work with tools that use Azure Resource Manager, such as PowerShell, Azure CLI, code provided in the SDK, and Microsoft Visual Studio. Tools and SDKs can use profiles to read which version of the modules and libraries to include when building an application.
 
-For example, if use PowerShell to create a storage account using the **Microsoft.Storage** resource provider, which supports api-version 2016-03-30 and a VM using the Microsoft.Compute resource provider with api-version 2015-12-01, you would need to look up  which PowerShell Module supports 2016-03-30 for Storage and which Module supports 2015-02-01 for Compute and install them. Instead, you can use a profile. Use the cmdlet **Install-Profile *profilename***, and PowerShell loads the right version of the modules.
+For example, if you use PowerShell to create a storage account using the **Microsoft.Storage** resource provider, which supports api-version 2016-03-30 and a VM using the Microsoft.Compute resource provider with api-version 2015-12-01, you would need to look up  which PowerShell Module supports 2016-03-30 for Storage and which Module supports 2015-02-01 for Compute and install them. Instead, you can use a profile. Use the cmdlet **Install-Profile *profilename***, and PowerShell loads the right version of the modules.
 
 Similarly, when using the Python SDK to build a Python-based application, you can specify the profile. The SDK loads the right modules for the resource providers that you have specified in your script.
 

@@ -5,7 +5,7 @@ services: storage,event-grid
 author: cbrooksmsft
 
 ms.author: cbrooks
-ms.date: 07/05/2018
+ms.date: 08/23/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
@@ -60,7 +60,7 @@ az storage account create \
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/dbarkol/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
 
@@ -69,7 +69,7 @@ sitename=<your-site-name>
 
 az group deployment create \
   --resource-group <resource_group_name> \
-  --template-uri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
 ```
 

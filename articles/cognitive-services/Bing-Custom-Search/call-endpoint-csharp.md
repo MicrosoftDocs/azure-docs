@@ -118,6 +118,7 @@ To run this example, follow these steps:
     <pre>
     dotnet build 
     </pre>
+    
 7. Run the application using the following command replacing **PATH TO OUTPUT** with the path referenced by the build step.
 
     <pre>    

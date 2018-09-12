@@ -4,7 +4,7 @@ description: Learn how to deploy, monitor and manage Apache Storm topologies usi
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: jasonh

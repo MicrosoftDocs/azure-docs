@@ -439,7 +439,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
-     consensus:      6000
+     consensus:      36000
      max_messages:   20</b>
      
      interface { 

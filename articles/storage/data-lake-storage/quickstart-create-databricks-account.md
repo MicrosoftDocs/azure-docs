@@ -8,7 +8,7 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.custom: mvc
+
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal

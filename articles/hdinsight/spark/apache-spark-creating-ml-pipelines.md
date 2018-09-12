@@ -5,7 +5,7 @@ services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018

@@ -3,7 +3,7 @@ title: PowerShell cmdlets for Azure SQL Data Warehouse
 description: Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
