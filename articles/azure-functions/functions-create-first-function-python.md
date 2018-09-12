@@ -58,7 +58,7 @@ env\scripts\activate
 
 You can now create a local Functions project. This directory is the equivalent of a Function App in Azure. It can contain multiple functions that share the same local and hosting configuration.
 
-In the terminal window or from a command prompt, run the following command to create the project:
+In the terminal window or from a command prompt, run the following command:
 
 ```bash
 func init MyFunctionProj
@@ -73,7 +73,7 @@ Select a worker runtime:
 3. python
 ```
 
-When the command executes, you will see something like the following output.
+You will see something like the following output.
 
 ```output
 Installing wheel package
@@ -118,7 +118,7 @@ Choose option: 5
 Function name: [HttpTriggerPython]
 ```
 
-When the command executes, you will see something like the following output.
+You will see something like the following output.
 
 ```output
 Writing /MyFunctionProj/HttpTriggerPython/sample.dat
@@ -127,7 +127,9 @@ Writing /MyFunctionProj/HttpTriggerPython/function.json
 The function "HttpTriggerPython" was created successfully from the "HTTP trigger" template.
 ```
 
+
 A sub-folder named _HttpTriggerPython_ is created. This contains `__init__.py` which is the primary script file and `function.json` file which describes the trigger and bindings used by the function. To learn more about the programming model, you can refer to the [Azure Functions Python developer guide](functions-reference-python.md).
+
 
 ## Run the function locally
 
@@ -137,7 +139,8 @@ Use the following command to run the Functions host locally.
 func host start
 ```
 
-When the Functions host starts, it outputs the URL of your HTTP-triggered function. (Note that the entire output has been  truncated for readability.)
+When the Functions host starts, it outputs the URL of your HTTP-triggered function. 
+(Note that the entire output has been  truncated for readability.)
 
 ```output
 
@@ -166,11 +169,12 @@ Copy the URL of your function from the output and paste it into your browser's a
 
     http://localhost:7071/api/HttpTriggerPython?name=<yourname>
 
-The following screenshot shows the response from the function, when it is triggered from the browser using an HTTP request:
+The following screenshot shows the response from the function, when it is triggered from the browser:
 
 ![test](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-Once you've tested the function locally, you are ready to create a Function App and other required resources for publishing to Azure.
+
+You are now ready to create a Function App and other required resources for publishing to Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -197,7 +201,7 @@ Your serverless Linux function app 'myfunctionapp' has been successfully created
 To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
 ```
 
-You're now ready to publish your local functions project to the Function App in Azure.
+You are now ready to publish your local functions project to the Function App in Azure.
 
 ## Deploy the function app project to Azure
 
@@ -207,7 +211,7 @@ Using the Azure Functions Core Tools, run the following command. Replace `<app_n
 func azure functionapp publish <app_name>
 ```
 
-When this command executes, you see something like the following output, which has been truncated for readability:
+You will see something like the following output, which has been truncated for readability.
 
 ```output
 Getting site publishing info...
@@ -227,9 +231,9 @@ Enter the URL below in your browser's address bar. Replace the `<app_name>` plac
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerPython?name=<yourname>
 
-The following screenshot shows the response to your function:
+The screenshot below shows the response to your function.
 
-![Function response shown in a browser.](../media/functions-test-function-code/functions-azure-cli-function-test-browser.png)
+![Function response shown in a browser.](../../media/functions-test-function-code/functions-azure-cli-function-test-browser.png)
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
