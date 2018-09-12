@@ -29,7 +29,7 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 The managed identities for Azure resources feature is free with Azure AD for Azure subscriptions. There's no additional cost.
 
 > [!NOTE]
-> Managed identities for azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
+> Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
 ## How does the feature work?<a name="how-does-it-work"></a>
 

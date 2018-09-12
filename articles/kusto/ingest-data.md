@@ -38,7 +38,7 @@ Kusto has connectors to the following messaging services, which can be managed u
 - **Azure IoT Hub**: Stream your IoT Hub data directly to Kusto.
 - **Azure Event Grid**: Configure blob creation notifications on a blob container to be delivered to Kusto, to trigger ingestion of new blobs.
 
-### Programmatic Ingestion​
+### Programmatic ingestion​
 
 Kusto provides SDKs that can be used both for query and data ingestion into Kusto.
 Programmatic ingestion is optimized for reducing ingestion costs (COGs), by attempting to minimize storage transactions during and following the ingestion process.
