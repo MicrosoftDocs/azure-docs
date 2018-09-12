@@ -63,3 +63,4 @@ It is common to scale SignalR with SQL Server, Azure Service Bus, or Redis Cache
 ## Next steps
 * [Quickstart: Create a chat room with Azure SignalR](signalr-quickstart-dotnet-core.md)  
   
+
