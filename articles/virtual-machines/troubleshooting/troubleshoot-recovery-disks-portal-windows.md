@@ -29,7 +29,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-For the VM that uses managed disk, we can now use Azure PowerShell to change the OS disk for a VM. We no longer need to delete and recreate the VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using Azure PowerShell](troubleshoot-recovery-disks.md).
+For the VM that uses managed disk, we can now use Azure PowerShell to change the OS disk for a VM. We no longer need to delete and recreate the VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using Azure PowerShell](troubleshoot-recovery-disks-windows.md).
 
 ## Determine boot issues
 To determine why your VM is not able to boot correctly, examine the boot diagnostics VM screenshot. A common example would be a failed application update, or an underlying virtual hard disk being deleted or moved.
