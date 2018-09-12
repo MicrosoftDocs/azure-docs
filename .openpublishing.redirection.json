@@ -23443,6 +23443,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Web-Search/computer-vision-web-search-tutorial.md",
+            "redirect_url": "/azure/cognitive-services/bing-web-search/overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
             "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
             "redirect_document_id": true
