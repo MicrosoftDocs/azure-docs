@@ -15,7 +15,7 @@ ms.author: v-jerkin
 
 The Speech service provides Text to Speech functionality through a straightforward HTTP request. You POST the text to be spoken to the appropriate endpoint, and the service returns an audio file (`.wav`) containing synthesized speech. Your application can then use this audio as it likes.
 
-The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an [authorization](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
+The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an [authorization](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token.
 
 The regional Text to Speech endpoints are shown here. Use the one appropriate to your subscription.
 
@@ -33,11 +33,11 @@ To specify a voice, use the `<voice>` [SSML](speech-synthesis-markup.md) tag. Fo
 </speak>
 ```
 
-See [Text to Speech voices](supported-languages.md#text-to-speech) for a list of the available voices and their names.
+See [Text to Speech voices](language-support.md#text-to-speech) for a list of the available voices and their names.
 
 ## Make a request
 
-A Text to Speech HTTP request is made in POST mode with the text to be spoken in the body of the request. The maximum length of the HTTP request body is 1024 characters. The request must have the following headers: 
+A Text to Speech HTTP request is made in POST mode with the text to be spoken in the body of the request. The maximum length of the HTTP request body is 1024 characters. The request must have the following headers:
 
 Header|Values|Comments
 -|-|-
@@ -47,7 +47,7 @@ Header|Values|Comments
 | `Authorization`	| Authorization token obtained by presenting your subscription key to the token service. Each token is valid for ten minutes. See [REST APIs: Authentication](rest-apis.md#authentication).
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats. 
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
 
 A sample request is shown below.
 

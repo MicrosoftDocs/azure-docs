@@ -21,9 +21,9 @@ The **Speech to Text** API offers the following features:
 
 - Real-time continuous recognition. **Speech to Text** allows users to transcribe audio into text in real time. It also supports receiving intermediate results of the words that have been recognized so far. The service automatically recognizes the end of speech. Users can also choose additional formatting options, including capitalization and punctuation, profanity masking, and inverse text normalization.
 
-- Optimized **Speech to Text** results for interactive, conversation, and dictation scenarios. 
+- Optimized **Speech to Text** results for interactive, conversation, and dictation scenarios.
 
-- Support for many spoken languages and dialects. For the full list of supported languages in each recognition mode, see [Supported languages](supported-languages.md#speech-to-text).
+- Support for many spoken languages and dialects. For the full list of supported languages in each recognition mode, see [Supported languages](language-support.md#speech-to-text).
 
 - Customized language and acoustic models, so you can tailor your application to your users' specialized domain vocabulary, speaking environment and way of speaking.
 
