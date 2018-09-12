@@ -77,7 +77,7 @@ Use the following steps to install the VM Agent in offline mode.
 
         ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file.
+    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. We also need to check the **ImagePath**. We will need to copy the corresponding folder to the attached OS disk.
 
         ![Change the registry subkey values](./media/install-vm-agent-offline/change-reg.png)
 
@@ -87,6 +87,19 @@ Use the following steps to install the VM Agent in offline mode.
         - WindowsAzureGuestAgent
         - WindowsAzureTelemetryService
         - RdAgent
+
+    5. Copy the installation files of VM Agent to the attached OS disk: 
+
+        1. Check the ImagePath of the VM Agent in the following regsitry key:
+
+        	HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+
+            In this case, we assume the ImagePath is 
+            **C:\WindowsAzure\GuestAgent_2.7.41491.888\WaAppAgent.exe**.
+        
+        2. On the OS disk that you attached, create a folder named **WindowsAzure** in the root path.
+            
+        3. Copy the **GuestAgent_2.7.41491.888** folder from **C:\WindowsAzure** to the **WindowsAzure** folder in the attached OS disk. 
 
 9.  Copy the VM Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
 
