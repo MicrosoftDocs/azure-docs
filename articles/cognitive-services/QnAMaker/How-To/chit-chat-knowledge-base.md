@@ -18,14 +18,14 @@ Adding chitchat to your bot makes it more conversational and engaging. The Chitc
 
 This dataset has about 100 scenarios of chit-chat  in the voice of three personas - The Professional, The Friend, The Comic. Choose the persona that most closely resembles your chatbot's voice. Given a user query, QnA Maker tries to match it with the closest known chit-chat QnA. 
 
-Some examples of personality differentiation:
-
+Some examples of the different personalities:
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |User query|Professional|Friendly|Humorous|
 |--|--|--|--|
-|You are awesome|I aim to serve.|That's so nice of you!|Flattery. I like it.|
-|Are you hungry?|I don't need to eat.|I only do food for thought.|Eating would require a lot of things I don't have. Like a digestive system. And silverware.|
-|Sing a song|I'm afraid I'm not musically inclined.|La la la, tra la la. I'm awesome at this.|You can't handle my dulcet tones.|
-|Who made you?|There wouldn't be time to list everyone.|So many people!|Nerds.|
+|`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
+|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
+|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`You can't handle my dulcet tones.`|
+|`Who made you?`|`There wouldn't be time to list everyone.`|`So many people!`|`Nerds.`|
 
 
 > [!NOTE]
