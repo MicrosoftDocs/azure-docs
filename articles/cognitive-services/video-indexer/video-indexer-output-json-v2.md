@@ -772,31 +772,31 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 
 ```json
 "topics": [{
-"id": 0,
-"name": "INTERNATIONAL RELATIONS",
-"referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
-"referenceType": "VideoIndexer",
-"confidence": 1,
-"language": "en-US",
-"instances": [{
-"adjustedStart": "0:00:00",
-"adjustedEnd": "0:03:36.25",
-"start": "0:00:00",
-"end": "0:03:36.25"
-}]
+    "id": 0,
+    "name": "INTERNATIONAL RELATIONS",
+    "referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
+    "referenceType": "VideoIndexer",
+    "confidence": 1,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
 }, {
-"id": 1,
-"name": "Politics and Government",
-"referenceType": "VideoIndexer",
-"iptcName": "Politics",
-"confidence": 0.9041,
-"language": "en-US",
-"instances": [{
-"adjustedStart": "0:00:00",
-"adjustedEnd": "0:03:36.25",
-"start": "0:00:00",
-"end": "0:03:36.25"
-}]
+    "id": 1,
+    "name": "Politics and Government",
+    "referenceType": "VideoIndexer",
+    "iptcName": "Politics",
+    "confidence": 0.9041,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
 }]
 . . .
 ```
