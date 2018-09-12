@@ -255,7 +255,6 @@ Next, create a device identity and save its key for later use. This device ident
 ## Set up message routing
 
 You are going to route messages to different resources based on properties attached to the message by the simulated device. Messages that are not custom routed are sent to the default endpoint (messages/events). 
-**robin -- are all messages routed to the default endpoint?? Or is it just the ones that are not routed a different way? 
 
 |value |Result|
 |------|------|
