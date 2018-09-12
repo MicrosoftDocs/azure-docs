@@ -38,7 +38,7 @@ Add additional group owners to a group using the Azure AD portal.
     After you select the new owner, you can refresh the **Owners** blade and see the name added to the list of owners.
 
 ## Remove an owner from a group
-Remove an onwer from a group using the Azure AD portal.
+Remove an owner from a group using the Azure AD portal.
 
 ### To remove an owner
 1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
