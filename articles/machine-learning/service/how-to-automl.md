@@ -20,13 +20,13 @@ To view examples of an automated ML, see [Tutorial: Automatically train a classi
 
 Configuration options available in automated ML:
 
-•	Select your experiment type, e.g.,  Classification, Regression 
-•	Data source, formats, and fetch data
-•	Choose your compute target that is, local or remote 
-•	`AutoML` experiment settings
-•	Run `AutoML` experiment
-•	Explore model metrics
-•	Register and deploy model
+* Select your experiment type, e.g.,  Classification, Regression 
+* Data source, formats, and fetch data
+* Choose your compute target that is, local or remote 
+* `AutoML` experiment settings
+* Run `AutoML` experiment
+* Explore model metrics
+* Register and deploy model
 
 ## Select your experiment type
 Before you begin your experiment, you should determine the kind of Machine Learning problem you are solving. Automated ML supports two categories of supervised learning Classification and Regression. Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
