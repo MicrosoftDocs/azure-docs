@@ -43,7 +43,6 @@ The following steps show you how to create a Managed Instance.
    |**Resource Group**|A new or existing resource group|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Location**|The location in which you want to create the Managed Instance|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|Select either **Create new virtual network** or a virtual network that you previously created in the resource group that you previously provided in this form| To configure a virtual network for a Managed Instance with custom settings, see [Configure SQL Managed Instance virtual network environment template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) in Github. For information regarding the requirements for configuring the network environment for a Managed Instance, see [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) |
-   |**Pricing tier**| Select a pricing tier and performance level| The General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.| 
 
    ![managed instance form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
