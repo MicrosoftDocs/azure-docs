@@ -1,4 +1,4 @@
----
+﻿---
 title: How to configure managed identities for Azure resources on an Azure VM using PowerShell
 description: Step by step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Configure managed identities for Azure resources on an Azure VM using PowerShell
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
@@ -29,7 +29,11 @@ In this article, using PowerShell, you learn how to perform the following manage
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following role assignments:
+- To perform the management operations in this article, your account needs the following Azure role based access control assignments:
+
+    > [!NOTE]
+    > No additional Azure AD directory role assignments required.
+
     - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a VM and enable and remove system and/or user-assigned managed identity from an Azure VM.
     - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user-assigned managed identity.
     - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a VM.
