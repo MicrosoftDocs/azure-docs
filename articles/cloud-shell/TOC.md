@@ -13,12 +13,11 @@
 ## [Use the window](using-the-shell-window.md)
 ## [Use MSI in Cloud Shell](msi-authorization.md)
 ## [Embed Cloud Shell](embed-cloud-shell.md)
-## DevOps
-### Ansible
-#### [Run Ansible playbook](/azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
-#### [Manage your Azure dynamic inventories](/azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
-### Terraform
-#### [Create resources](example-terraform-bash.md)
+## Ansible
+### [Run Ansible playbook](/azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+### [Manage your Azure dynamic inventories](/azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+## Terraform
+### [Create an execution plan](example-terraform-bash.md)
 
 # [Use the Cloud Shell editor](using-cloud-shell-editor.md)
 
