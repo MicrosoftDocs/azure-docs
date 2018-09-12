@@ -11,9 +11,9 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ---
 
-# Write a C# user-defined function for an Azure Stream Analytics Edge job (Preview)
+# Tutorial: Write a C# user-defined function for an Azure Stream Analytics Edge job (Preview)
 
-C# user-defined functions (UDF) allow you to extend Azure Stream Analytics query language with your own functions. With UDF, you can reuse existing code (including DLLs), implement custom logic to manipulate complex strings, and run mathematical or complex logic. UDF can be implemented in three different ways: CodeBehind files in an ASA project, UDF from a local C# project, or an existing package from a storage account. This tutorial demonstrates how to use a basic C# function written in CodeBehind. UDF for Azure Stream Analytics Edge jobs is currently in preview and should not be used in production workloads.
+C# user-defined functions (UDF) allow you to extend the Azure Stream Analytics query language with your own functions. You can reuse existing code (including DLLs) and use mathematical or complex logic with C#. There are three ways to implement UDFs: CodeBehind files in a Stream Analytics project, UDFs from a local C# project, or UDFs from an existing package from a storage account. This tutorial uses the CodeBehind method to implement a basic C# function. The UDF feature for Stream Analytics Edge jobs is currently in preview and shouldn't be used in production workloads.
 
 In this tutorial, you learn how to:
 
@@ -24,14 +24,14 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start, make sure you have the following:
+Before you start, make sure you've completed the following prerequisites:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
 * Take a look at the existing [Stream Analytics Edge development guide](stream-analytics-tools-for-visual-studio-edge-jobs.md).
 
 ## Create a container in your Azure Storage Account
-The container you create will be used to store the compiled C# package and deploy the package to your IoT Edge device. If you already have a storage account with existing containers, you may reuse them. If not, you will need to [create a new container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal).
+The container you create will be used to store the compiled C# package and deploy the package to your IoT Edge device. If you already have a storage account with existing containers, you may reuse them. If not, you'll need to [create a new container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 ## Create an Edge project in Visual Studio
 
@@ -43,7 +43,7 @@ The container you create will be used to store the compiled C# package and deplo
 
 4.  Input the project **Name**, **Location**, and **Solution name**, and select **OK**.
 
-    ![Create ASA Edge project](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
+    ![Create an Azure Stream Analytics Edge project in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
 
 ## Configure assembly package path
 
@@ -51,7 +51,7 @@ The container you create will be used to store the compiled C# package and deplo
 
 2. Double-click the job configuration file, `EdgeJobConfig.json`.
 
-3. Expand the **User-Defined Code Configuration** section, and fill out the configuration with the following:
+3. Expand the **User-Defined Code Configuration** section, and fill out the configuration with the following suggested values:
 
     |**Setting**  |**Suggested value**  |
     |---------|---------|
@@ -60,17 +60,17 @@ The container you create will be used to store the compiled C# package and deplo
     |Subscription  |  Choose your subscription.   |
     |Storage Account  |  Choose your storage account.   |
     |Container  |  Choose the container you created in your storage account.   |
-    |Assembly Package Destination  |  udf.zip   |
+    |Assembly Package Destination  |  `udf.zip`   |
 
-    ![ASA Edge job configuration](./media/stream-analytics-edge-csharp-udf/stream-analytics-edge-job-config.png)
+    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-edge-job-config.png)
 
 
 ## Write a C# UDF with CodeBehind
-A CodeBehind file is a C# file associated with a single ASA Edge query script. Visual Studio tools will automatically zip the CodeBehind file and upload it to the storage account upon submission. All classes must be defined as *public* and all objects must be defined as *static public*.
+A CodeBehind file is a C# file associated with a single ASA Edge query script. Visual Studio tools will automatically zip the CodeBehind file and upload it to your Azure storage account upon submission. All classes must be defined as *public* and all objects must be defined as *static public*.
 
 1. In **Solution Explorer**, expand **Script.asql** to find the **Script.asaql.cs** CodeBehind file.
 
-2. Replace the code with the following:
+2. Replace the code with the following sample:
 
     ```csharp
         using System; 
@@ -110,42 +110,45 @@ A CodeBehind file is a C# file associated with a single ASA Edge query script. V
 
 2. In **Solution Explorer**, expand **Inputs**, right-click **Input.json**, and select **Add Local Input**.
 
-    ![Add local input](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+
+    <img src=./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png alt="Add local input to Azure Stream Analytics job in Visual Studio" width=350px>
+
 
 3. Specify the local input file path for the sample data you downloaded and **Save**.
 
-    ![Local input configuration](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Local input configuration for Azure Stream Analytics job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. Click **Run Locally** in the script editor. Once the local run has successfully saved the output results, press any key to see the results in table format. 
 
-    ![Run job locally](./media/stream-analytics-edge-csharp-udf/stream-analytics-run-locally.png)
+    ![Run Azure Stream Analytics job locally with Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-run-locally.png)
 
 5. You can also select **Open Results Folder** to see the raw files in JSON and CSV format.
 
-    ![View results](./media/stream-analytics-edge-csharp-udf/stream-analytics-view-local-results.png)
+    ![View results of local Azure Stream Analytics job with Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-view-local-results.png)
 
-## Debug UDF
+## Debug a UDF
 You can debug your C# UDF locally the same way you debug standard C# code. 
 
 1. Add breakpoints in your C# function.
 
-    ![Add breakpoints](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![Add breakpoints to Azure Stream Analytics user-defined function for Edge job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. Press **F5** to start debugging. The program will stop at your breakpoints as expected.
 
-    ![View results](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![View Azure Stream Analytics user-defined function for Edge job in Visual Studio debugging results](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## Publish your job to Azure
-Once you have tested your query locally, select **Submit to Azure** in the script editor to publish the job to Azure. Ensure **Location** is set to **West Centeral US**.
+Once you've tested your query locally, select **Submit to Azure** in the script editor to publish the job to Azure. Be sure to set the **Location** to **West Centeral US**.
 
-   ![Submit job to Azure](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
+   <img src=./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png alt="Submit your Stream Analytics Edge job to Azure from Visual Studio" width="400px">
+
 
 ## Deploy to IoT Edge devices
 Your Stream Analytics job is now ready to be deployed as an IoT Edge module. Follow the [IoT Edge quickstart](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) to create an IoT Hub, register an IoT Edge device, and install and start the IoT Edge runtime on your device. Then follow the [deploy the job](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) tutorial to deploy your Stream Analytics job as an IoT Edge module. 
 
 ## Next steps
 
-In this tutorial, you have created a simple C# user-defined function using CodeBehind, published your job to Azure, and deployed the job to IoT Edge devices using the IoT Hub portal. 
+In this tutorial, you created a simple C# user-defined function using CodeBehind, published your job to Azure, and deployed the job to IoT Edge devices using the IoT Hub portal. 
 
 To learn more about the different ways to use C# user-defined functions for Stream Analytics Edge jobs, continue to this article:
 
