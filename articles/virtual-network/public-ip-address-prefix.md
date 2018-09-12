@@ -1,5 +1,5 @@
 ﻿---
-title: Public IP address prefix | Microsoft Docs
+title: Azure Public IP address prefix | Microsoft Docs
 description: Learn about what an Azure public IP address prefix is and how it can help you assign predictable public IP addresses to your resources.
 services: virtual-network
 documentationcenter: na
