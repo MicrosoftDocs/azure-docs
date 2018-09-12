@@ -51,9 +51,9 @@ The following steps describe how to download and configure the sample Python app
 * Responds to setting changes made in Azure IoT Central.
 
 > [!NOTE]
-> For more information about the Raspberry Pi Python sample, see the [Readme](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md) file on GitHub.
+> For more information about the Raspberry Pi Python sample, see the [Readme](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi) file on GitHub.
 
-1. Use the Web browser in the Raspberry Pi desktop to navigate to the [Azure IoT Central firmware releases](https://github.com/Azure/iot-central-firmware/releases) page.
+1. Use the Web browser in the Raspberry Pi desktop to navigate to the [Azure IoT Central firmware releases](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi) page.
 
 1. Download the zip file that contains the most recent firmware to your home folder on the Raspberry Pi. The file name looks like `RaspberryPi-IoTCentral-X.X.X.zip`.
 
