@@ -63,13 +63,13 @@ Adding headings, explanations, and commentary to your workbooks helps turn a set
 
 To add a text section to your workbook, use the **Add text** button at the bottom of the workbook, or at the bottom of any section.
 
-## Adding Application Insights analytics sections
+## Adding query sections
 
-![Analytics section in Workbooks](./media/app-insights-usage-workbooks/analytics-section-new.png)
+![Query section in Workbooks](./media/app-insights-usage-workbooks/analytics-section-new.png)
 
-To add an Application Insights Analytics query section to your workbook, use the **Add Analytics query** button at the bottom of the workbook, or at the bottom of any section.
+To add query section to your workbook, use the **Add query** button at the bottom of the workbook, or at the bottom of any section.
 
-Analytics query sections are highly flexible and can be used to answer questions like:
+Query sections are highly flexible and can be used to answer questions like:
 
 * How many exceptions did your site throw during the same time period as a decline in usage?
 * What was the distribution of page load times for users viewing some page?
