@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -30,6 +30,7 @@ Questions and answers are arranged in the following categories:
 - Copy data 
 - Ship device
 - Verify and upload data 
+- Chain of custody support
 
 ## About the service
 
@@ -54,7 +55,7 @@ A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can t
 A.  Data Box is available in US and all the countries in European Union during the preview phase.  
 
 ### Q. Which regions can I store data in with Data Box?
-A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported. For more information, go to [Region availability](data-box-overview.md#region-availability).
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please contact Microsoft Support.
@@ -73,13 +74,13 @@ Check your subscription. Data Box is only available for Enterprise Agreement (EA
 If you have a supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
 
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
-A. We allow for a maximum of 3 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription.
+A. We allow for a maximum of 5 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription.
 
 ### Q. When I try to create an order, I receive a notification that the Data Box service is not available. What does this mean?
 A. What this means is that the Data Box service is not available for the combination of country and region you have selected. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
 
 ### Q. I placed my Data Box order few days back. When will I receive my Data Box?
-A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you will be notified.
+A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you can track the status change in the Azure portal. If your order is not fulfilled in 90 days, the order is automatically canceled. 
 
 ### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
 A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
@@ -96,7 +97,7 @@ A.  Yes. You can use Data Box to connect to SMB and NFS clients. For more inform
 A.  You can only cancel the order after the Data Box is ordered and before the order is processed. Once the Data Box order is processed, you can no longer cancel the order. 
 
 ### Q. Can I connect a Data Box at the same to multiple host computers to transfer data?
-A. Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel.
+A. Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel. For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -170,7 +171,7 @@ A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob sto
 <!--### Q. How do I schedule a pickup for my Data Box?--> 
 
 ### Q. My device was delivered but the device seems to be damaged. What should I do?
-A. If your device has arrived damaged or there is evidence of tampering, do not use the device. Contact Microsoft Support and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
+A. If your device has arrived damaged or there is evidence of tampering, do not use the device. [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md) and return the device at your earliest. You can also create a new Data Box order for a replacement device. In this case, you will not be charged for the replacement device.
 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
@@ -206,13 +207,15 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A.  If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail.
+A.  If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more information on best practices for naming shares, containers, files, go to: 
+- [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Block blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### Q. How do I verify the data I copied onto Data Box?
-A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify that against files in the source data.
+A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify that against files in the source data. For more information, go to [Prepare to ship](data-box-deploy-copy-data.md#prepare-to-ship).
 
 ### Q. What happens to my data after I have returned the Data Box?
-A.  Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines.  
+A.  Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines. For more information, go to [Erasure of data from Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).
 
 ## Chain of custody
 
@@ -228,15 +231,15 @@ A.  The chain of custody feature is native to Data Box and is available at no ex
 ### What type of reporting is available to support chain of custody?
 A.  Following reporting is available to support chain of custody:
     - Transport logistics from DHL and UPS.
-    - Logging of power on and user share access.
-    - Manifest file with checksum (CRC 64) for each file ingested successfully into the Data Box.
+    - Logging of powering on and user share access.
+    - Manifest file with a 64-bit cyclic redundancy check (CRC-64) or checksum for each file ingested successfully into the Data Box.
     - Reporting of files that failed to upload to Azure storage account.
-    - Sanitization of the Data Box device (adhere to NIST 800 88R1) after data is copied to the your Azure storage account.
+    - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
-### Are the carrier tracking logs (UPS / DHL) available? 
+### Are the carrier tracking logs ( from UPS/DHL) available? 
 A.  Carrier tracking logs are captured in the Data Box audit log report. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
 
-### Can I transport the Data Box to Azure DC? 
+### Can I transport the Data Box to Azure datacenter? 
 A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS/DHL.
 
 

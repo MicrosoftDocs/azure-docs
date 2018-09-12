@@ -278,7 +278,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
         
         ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
 
-    3. Download the list of files that were copied in this process. You can later use this list to verify the files uploaded to Azure.
+    3. Download the list of files (manifest) that were copied in this process. You can later use this list to verify the files uploaded to Azure.
         
         ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
 
