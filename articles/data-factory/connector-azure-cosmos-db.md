@@ -36,13 +36,12 @@ Specifically, this Azure Cosmos DB connector supports:
 
 Data Factory integrates with [Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to provide the best performance writing into Cosmos DB.
 
+>[!TIP]
+>Watch [this video](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) which walks through copying data from Azure Blob storage to Cosmos DB and describes performance tuning considerations for ingesting data into Cosmos DB in general.
+
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
-Watch the following video which demonstrates copying data from Azure Blob to Cosmos DB and performance tuning considerations when ingest data into Cosmos DB:
-
-> [!VIDEO https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Cosmos DB.
 

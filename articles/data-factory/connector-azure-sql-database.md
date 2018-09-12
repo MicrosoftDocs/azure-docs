@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2018
+ms.date: 09/12/2018
 ms.author: jingwang
 
 ---
@@ -564,6 +564,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>If you write to Money/Smallmoney data type by invoking Stored Procedure, values may be rounded. Specify the corresponding data type in TVP as Decimal instead of Money/Smallmoney to mitigate. 
 
 ## Data type mapping for Azure SQL Database
 
