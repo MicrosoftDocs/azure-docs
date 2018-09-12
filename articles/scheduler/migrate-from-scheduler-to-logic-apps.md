@@ -227,14 +227,22 @@ In Azure Logic Apps, you can also perform the same task.
 error and exception handling, move your pointer over the arror, 
 and select and **Add a parallel branch**. 
 
+   ![Add parallel branch](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
+
 1. Find and select the action you want to run instead as the alternative action.
+
+   ![Add parallel action](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
 1. On the alternative action, opent the (**...**) menu, and select **Configure run after**.
 
-1. Clear the **is successful** property, and select these properties: 
+   ![Configure run after](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
+
+1. Clear the **is successful** property. Select these properties: 
 **has failed**, **is skipped**, and **has timed out**
 
-![Exception handling](./media/migrate-from-scheduler-to-logic-apps/error-action.png)
+   ![Set up "run after" properties](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
+
+1. When you're finished, choose **Done**.
 
 To learn more about exception handling, see 
 [Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
