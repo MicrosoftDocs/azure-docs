@@ -10,18 +10,16 @@ ms.date: 08/01/2018
 ms.author: mirequa
 ---
 
-# Installing Jetpack
+# Jetpack Installation
 
-Jetpack is typically downloaded from the **Cloud.Locker** and installed as a 
+Jetpack is typically downloaded from the **Cloud.Locker** and installed as a
 CycleCloud-managed VM starts up. This initial setup step can be skipped by first
-installing jetpack on a VM and capturing as an image, as one would when creating
+installing Jetpack on a VM and capturing as an image, as one would when creating
 any other custom VM image.
 
-## Locating the Jetpack Installer
+## Locate the Jetpack Installer
 
-The jetpack installer has specific version for different linux and windows platforms.
-The installer also has releases matching the CycleCloud application versions.
-The jetpack installers are staged in _/opt/cycle_server/work/staging/jetpack/_
+The Jetpack installer has specific version for different Linux and Windows platforms, as well as releases matching the CycleCloud application versions. The Jetpack installers are staged in _/opt/cycle_server/work/staging/jetpack/_
 
 ```txt
 /opt/cycle_server/work/staging/jetpack/
@@ -40,20 +38,20 @@ The jetpack installers are staged in _/opt/cycle_server/work/staging/jetpack/_
 ```
 
 These installers support the platforms identified in the file name.
-The **centos** installers are also valid for **Enterprise RedHat Linux**.
 
-_7.5.1._ and _7.5.2_ represent CycleCloud Application releases and in general the 
-jetpack installer should match the CycleCloud version.
+> [!NOTE]
+> The **centos** installers are also valid for **Enterprise RedHat Linux**.
 
+_7.5.1._ and _7.5.2_ represent CycleCloud Application releases. In general, the Jetpack installer should match the CycleCloud version.
 
-## Installing Jetpack
+## Install Jetpack
 
 Use the following instructions to install Jetpack on the desired system.
 After the installer runs, perform a VM image capture according to the
 platform-specific Azure instructions.
 
 > [!NOTE]
-> Do not use a VM from a VMSS for installing Jetpack and customizing an image. It's not possible to capture a VM image from VMSS.
+> Do not use a VM from a VMSS for installing Jetpack and customizing an image. It is not possible to capture a VM image from VMSS.
 
 ### On Windows
 
@@ -79,10 +77,10 @@ $ ./install.sh
 This command will install jetpack to _/opt/cycle/jetpack_ and will log installation
 details to _/var/log/jetpack-install.log_.
 
-#### Change the **cyclecloud** user home directory
+#### Change the **cyclecloud** User Home Directory
 
 Running the installer on a linux OS creates the *cyclecloud*
-user with a home directory in _/home_. A somewhat common use-case
+user with a home directory in _/home_. A somewhat common use case
 is to mount _/home_ as an NFS mount, in which case the local *cyclecloud* user would be impaired.
 
 To work around this, configure the installer to move the *cyclecloud* home directory
@@ -100,7 +98,6 @@ $ ./install.sh
 Installing to: /opt/cycle/jetpack
 Installation complete, see install.log for details.
 ```
-
 
 It's safe to ignore _Can't do inplace edit_ errors resulting from perl operating
 on a directory.
@@ -121,13 +118,13 @@ on all nodes using this image.
 In this case `AuthorizedKeysPath` redirects the public keypair from
 the default location to the new *cyclecloud* home directory.
 
-## Capturing the Custom Image and Using with CycleCloud
+## Capturing the Custom Image and Using it with CycleCloud
 
 After installing Jetpack and performing any other custom image configurations the
 VM is ready for image capture. Note the instructions differ between [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource)
 and [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image) VMs.
 
 Using these instructions a VM image will be available in the subscription
-and location where the image was capture.  To then use the image
-in a CycleCloud cluster, refer to our reference on [using custom
-vm image](~/cluster-references/nodes-in-cluster-templates.md).
+and location where the image was capture. To use the image
+in a CycleCloud cluster, refer to our documentation on [using custom
+VM images](~/cluster-references/nodes-in-cluster-templates.md).
