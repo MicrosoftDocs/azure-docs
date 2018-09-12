@@ -1,5 +1,5 @@
 ---
-title: Create a Cassandra API account, database and a table by using a Java application | Microsoft Docs
+title: Create a Azure Cosmos DB Cassandra API account, database and a table by using a Java application | Microsoft Docs
 description: This article shows how to create a Cassandra API account, add a database (also referred as a keyspace) and a table to that account by using a java application.
 services: cosmos-db
 author: kanshiG
@@ -13,7 +13,7 @@ ms.reviewer: sngun
  
 ---
 
-# Create a Cassandra API account, database, and a table by using a Java application
+# Create a Azure Cosmos DB Cassandra API account, database, and a table by using a Java application
 
 This article shows how to create a Cassandra API account, add a database (also referred as a keyspace) and a table to that account by using a java application. The java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
 
