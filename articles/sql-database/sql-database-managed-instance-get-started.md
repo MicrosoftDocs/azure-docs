@@ -26,15 +26,6 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 This quickstart requires preview approval and whitelisting. Managed Instance is being released initially as a gated public preview that requires your subscription to be whitelisted. If your subscription is not already whitelisted, use the following steps to be offered and accept preview terms and send a request for whitelisting.
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
-3. Click **Create**.
-
-4. Select your subscription, click **Preview terms**, and then provide the requested information.
-
-
-5. Click **OK** when completed.
-
 
 ## Prepare network environment
 
