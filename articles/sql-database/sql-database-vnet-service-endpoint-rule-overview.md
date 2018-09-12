@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
