@@ -52,12 +52,14 @@ $VmssName                  = "prnninnxj"
 New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
+    -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+    -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -78,10 +80,12 @@ $certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $Certificate
 $vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
+    -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
+Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
+    -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
 
 ## Download and update the template from the portal
@@ -103,10 +107,10 @@ Next, open the template file in a text editor and make three updates to support 
 1. In the **parameters** section, add a *certificateCommonName* parameter:
     ```json
     "certificateCommonName": {
-      "type": "string",
-      "metadata": {
-        "description": "Certificate Commonname"
-      }
+        "type": "string",
+        "metadata": {
+            "description": "Certificate Commonname"
+        }
     },
     ```
 
@@ -114,34 +118,36 @@ Next, open the template file in a text editor and make three updates to support 
 
 2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
-    "virtualMachineProfile": {
-              "extensionProfile": {
-                "extensions": [
-                  {
+        "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
                     "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
                     "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": true,
-                      "protectedSettings": {
-                        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
-                        "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
-                      },
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[variables('vmNodeType0Name')]",
-                        "dataPath": "D:\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "enableParallelJobs": true,
-                        "nicPrefixOverride": "[variables('subnet0Prefix')]",
-                        "certificate": {
-                          "commonNames": ["[parameters('certificateCommonName')]"],                          
-                          "x509StoreName": "[parameters('certificateStoreValue')]"
-                        }
-                      },
-                      "typeHandlerVersion": "1.0"
+                        "type": "ServiceFabricNode",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                            "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                            "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                        },
+                        "publisher": "Microsoft.Azure.ServiceFabric",
+                        "settings": {
+                            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                            "nodeTypeRef": "[variables('vmNodeType0Name')]",
+                            "dataPath": "D:\\SvcFab",
+                            "durabilityLevel": "Bronze",
+                            "enableParallelJobs": true,
+                            "nicPrefixOverride": "[variables('subnet0Prefix')]",
+                            "certificate": {
+                                "commonNames": [
+                                    "[parameters('certificateCommonName')]"
+                                ],
+                                "x509StoreName": "[parameters('certificateStoreValue')]"
+                            }
+                        },
+                        "typeHandlerVersion": "1.0"
                     }
-                  },
+                },
     ```
 
 3.  In the **Microsoft.ServiceFabric/clusters** resource, update the API version to "2018-02-01".  Also add a **certificateCommonNames** setting with a **commonNames** property and remove the **certificate** setting (with the thumbprint property) as in the following example:
@@ -152,22 +158,22 @@ Next, open the template file in a text editor and make three updates to support 
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
         "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+            "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
         ],
         "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
-            }
+            "addonFeatures": [
+                "DnsService",
+                "RepairManager"
             ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
+            "certificateCommonNames": {
+                "commonNames": [
+                    {
+                        "certificateCommonName": "[parameters('certificateCommonName')]",
+                        "certificateIssuerThumbprint": ""
+                    }
+                ],
+                "x509StoreName": "[parameters('certificateStoreValue')]"
+            },
         ...
     ```
 
@@ -180,7 +186,8 @@ $clusterloc="southcentralus"
 
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
+    -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
 ## Next steps
