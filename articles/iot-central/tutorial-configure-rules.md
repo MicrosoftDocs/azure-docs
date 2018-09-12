@@ -47,11 +47,12 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 5. To define your rule, use the information in the following table:
 
-    | Setting     | Value                          |
-    | ----------- | ------------------------------ |
-    | Name        | Air conditioner temperature    |
-    | Enable rule | On                             |
-    | Condition   | Temperature is greater than 90 |
+    | Setting                                      | Value                          |
+    | -------------------------------------------- | ------------------------------ |
+    | Name                                         | Air conditioner temperature    |
+    | Enable rule for all devices of this template | On                             |
+    | Enable rule on this device                   | On                             |
+    | Condition                                    | Temperature is greater than 90 |
 
     ![Temperature rule condition](media/tutorial-configure-rules/buildertemperaturerule.png)
 
@@ -59,7 +60,7 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you add an action to send an email as a notification that the rule triggered.
 
-1. To add an **Action**, scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**:
+1. To add an **Action**, first save the rule and then scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**:
 
     ![Temperature rule action](media/tutorial-configure-rules/builderaddaction.png)
 
@@ -68,7 +69,7 @@ When you define a rule, you also define an action to run when the rule condition
     | Setting   | Value                          |
     | --------- | ------------------------------ |
     | To        | Your email address             |
-    | Notes     | Temperature in air conditioner exceeded threshold. |
+    | Notes     | Air conditioner temperature exceeded the threshold. |
 
     > [!NOTE]
     > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
