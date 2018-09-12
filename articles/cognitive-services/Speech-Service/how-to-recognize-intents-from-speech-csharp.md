@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Recognize intents from speech by using the Speech SDK for C#
+title: "Tutorial: Recognize intents from speech by using the Speech SDK for C#"
 titleSuffix: "Microsoft Cognitive Services"
 description: |
   Tutorial explains how to recognize intents from speech from a file or a microphone by using the Speech SDK for C#.
