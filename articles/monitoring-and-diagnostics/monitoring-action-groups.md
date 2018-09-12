@@ -91,6 +91,17 @@ For information on how to use Azure Resource Manager templates to configure acti
 <dt>Webhook</dt>
 <dd>You may have up to 10 Webhook actions in an Action Group
 <dd>Retry logic - The timeout period for a response is 10 seconds. The webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and last retry happens after 100 seconds.</dd>
+<dd>Source IP address ranges
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert](./monitoring-service-notifications.md) which monitors for Informational notifications about the Action Groups service.
+</dd>
 </dl>
 
 ## Manage your action groups ##
