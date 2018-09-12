@@ -320,7 +320,6 @@ Example:
     ]
 }
 ] 
-
 ```
 
 #### faces
@@ -768,7 +767,7 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 |referenceId|Breadcrumbs reflecting the topics hierarchy. For example: "Health and wellbeing / Medicine and healthcare / Pharmaceuticals".|
 |confidence|The confidence score in the range [0,1]. Higher is more confident.|
 |language|The language used in the topic.|
-|iptcName|THE IPTC media code name, if detected.|
+|iptcName|The IPTC media code name, if detected.|
 |instances |Currently, the whole video.|
 
 ```json
