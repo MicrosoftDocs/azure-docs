@@ -23488,8 +23488,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/Bing-Web-Search/computer-vision-web-search-tutorial.md",
-            "redirect_url": "/azure/cognitive-services/bing-web-search/overview",
+            "source_path": "articles/cognitive-services/Bing-Web-Search/tutorial-bing-web-search-single-page-app-source.md",
+            "redirect_url": "https://github.com/erhopf/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search",
             "redirect_document_id": true
         },
         {
