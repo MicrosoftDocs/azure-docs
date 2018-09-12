@@ -48,4 +48,4 @@ QnA Maker makes it very simple to onboard your existing data sources to create a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add chit-chat personal](./chit-chat.md)
+> [Add chit-chat personal](./chit-chat-knowledge-base.md)

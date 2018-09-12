@@ -66,7 +66,7 @@ If you do not have pre-existing content to populate the knowledge base, you can 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add personality to answers with chit-chat personas](./chitchat.md)
+> [Add personality to answers with chit-chat personas](./chit-chat-knowledge-base.md)
 
 ## See also 
 
