@@ -15,7 +15,6 @@ ms.reviewer: librown
 ---
 
 # Sign in with your phone, not your password
-
 The Microsoft Authenticator app helps you keep your accounts secure by performing two-step verification after you enter your password. But did you know that it can replace the password for your personal Microsoft account entirely?
 
 This feature is available on iOS and Android devices, and works with personal Microsoft accounts.
@@ -47,7 +46,7 @@ Today most people sign in to web sites or apps using a username and password.  U
 The key used is similar to the keys used in Windows Hello and the FIDO Alliance UAF specifications. Your bio data is only used to protect the key locally, and is never sent to, or stored in, the cloud. 
  
 ### Where can I use my phone to replace my password, and where would I still need the password?  
-Today, the phone sign-in feature only works with web apps and services that are powered by personal Microsoft accounts, iOS or Android apps that use a personal Microsoft account, and apps on Windows 10 that use a personal Microsoft account. When you sign in to one of these web sites or apps, on the page where you usually enter your password there's a link that says **Use an app instead**. 
+Today, the phone sign-in feature only works with web apps and services that are powered by personal Microsoft accounts, iOS or Android apps that use a personal Microsoft account, and apps on Windows 10 that use a personal Microsoft account. When you sign in to one of these web sites or apps, on the page where you usually enter your password there's a link that says, **Use an app instead**. 
 
 Phone sign-in can't be used to unlock a Windows PC, XBOX, or any desktop versions of Microsoft apps such as Office apps at this time.
  
