@@ -34,7 +34,7 @@ The Network Watcher Agent extension can be configured for the following Linux di
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS, and 12.04 LTS |
+| Ubuntu | 12+ |
 | Debian | 7 and 8 |
 | Red Hat | 6 and 7 |
 | Oracle Linux | 6.8+ and 7 |
@@ -43,7 +43,6 @@ The Network Watcher Agent extension can be configured for the following Linux di
 | CentOS | 6.5+ and 7 |
 | CoreOS | 899.17.0+ |
 
-CoreOS is not supported.
 
 ### Internet connectivity
 

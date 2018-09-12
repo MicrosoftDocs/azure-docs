@@ -85,6 +85,8 @@ You can require eligible members of a role to run MFA before they can activate. 
 
 To require an eligible member to run MFA before activation, check the **Require Multi-Factor Authentication on activation** box.
 
+For more information, see [Multi-factor authentication (MFA) and PIM](pim-how-to-require-mfa.md).
+
 ## Activation maximum duration
 
 Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be between 1 and 24 hours.

@@ -21,7 +21,7 @@ ms.author: mbullwin
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
-![sample data](./media/app-insights-java-get-started/5-results.png)
+![Screenshot of overview sample data](./media/app-insights-java-get-started/overview-graphs.png)
 
 Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -218,7 +218,9 @@ package devCamp.WebApp.configurations;
     }
 ```
 
-[!NOTE] If you're using Spring Boot 1.3.8 or older replace the FilterRegistrationBean with the line below
+> [!NOTE]
+> If you're using Spring Boot 1.3.8 or older replace the FilterRegistrationBean with the line below
+
 ```Java
     import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```
