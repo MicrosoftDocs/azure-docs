@@ -73,7 +73,7 @@ As a result of having only outbound traffic, there's no need to configure inboun
 
 If WPAD is enabled in the environment and configured appropriately, the connector automatically discovers the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy.
 
-To do so, edit the `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file`, and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on. The value must have the prefix `http://` even if you are using an IP address.
+To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file, and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on. The value must have the prefix http:// even if you are using an IP address.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
