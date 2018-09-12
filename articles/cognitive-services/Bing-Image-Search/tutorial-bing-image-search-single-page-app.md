@@ -54,7 +54,15 @@ This tutorial focuses primarily on the JavaScript part of this app.
 
 This application uses web browsers' persistent storage to store API subscription keys. If no key is stored, the webpage will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will remove it from storage.
 
+<<<<<<< Updated upstream
 Define `storeValue` and `retrieveValue` functions to use either the `localStorage` object (if the browser supports it) or a cookie.
+=======
+<<<<<<< Updated upstream
+We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
+=======
+The `getSubscriptionKey()` function attempts to retrieve a previously stored key using `retrieveValue()`. If one isn't found, it will prompt the user for their key, and store it using `storeValue()`.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 ```javascript
 // Cookie names for data being stored
@@ -127,7 +135,7 @@ By default, the `onsubmit` handler returns `false`, keeping the form from being 
 
 ![[Bing Image Search form]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) to narrow filter search results. The HTML form in this application uses and displays the following parameter options:
+The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
 
 | | |
 |-|-|
@@ -169,7 +177,15 @@ function bingSearchOptions(form) {
 
 ## Performing the request
 
+<<<<<<< Updated upstream
 Using the search query, options string, and API key, the `BingImageSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Image Search endpoint.
+=======
+<<<<<<< Updated upstream
+Given the query, the options string, and the API key, the `BingImageSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Image Search endpoint.
+=======
+Using the search query, options string, and API key, the `BingImageSearch()` function uses an XMLHttpRequest object to make the request to the Bing Image Search endpoint.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 ```javascript
 // perform a search given query, options string, and API key
@@ -219,7 +235,15 @@ function bingImageSearch(query, options, key) {
 }
 ```
 
+<<<<<<< Updated upstream
 Upon successful completion of the HTTP request, JavaScript calls our `load` event handler `handleBingResponse()` to handle a successful HTTP GET request. 
+=======
+<<<<<<< Updated upstream
+Upon successful completion of the HTTP request, JavaScript calls our `load` event handler, the `handleBingResponse()` function, to handle a successful HTTP GET request to the API. 
+=======
+Upon successful completion of the HTTP request, JavaScript calls the "load" event handler `handleBingResponse()` to handle a successful HTTP GET request. 
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 ```javascript
 // handle Bing search request results
@@ -286,11 +310,29 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
+<<<<<<< Updated upstream
 > Successful HTTP requests may contain failed search information. If an error occurs during the search operation, the Bing Image Search API returns a non-200 HTTP status code and error information in the JSON response. Additionally, if the request was rate-limited, the API will return an empty response.
+=======
+<<<<<<< Updated upstream
+> A successful HTTP request does *not* necessarily mean that the search itself succeeded. If an error occurs in the search operation, the Bing Image Search API returns a non-200 HTTP status code and includes error information in the JSON response. Additionally, if the request was rate-limited, the API returns an empty response.
+
+Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
+
+|Stage|Potential error(s)|Handled by|
+|-|-|-|
+|Building JavaScript request object|Invalid URL|`try`/`catch` block|
+|Making the request|Network errors, aborted connections|`error` and `abort` event handlers|
+|Performing the search|Invalid request, invalid JSON, rate limits|tests in `load` event handler|
+
+Errors are handled by calling `renderErrorMessage()` with any details known about the error. If the response passes the full gauntlet of error tests, we call `renderSearchResults()` to display the search results in the page.
+=======
+> Successful HTTP requests may contain failed search information. If an error occurs during the search operation, the Bing Image Search API will return a non-200 HTTP status code and error information in the JSON response. Additionally, if the request was rate-limited, the API will return an empty response.
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 ## Display the search results
 
-The main function for displaying the search results is `renderSearchResults()`. This function takes the JSON returned by the Bing Image Search service and renders the images and the related searches, if any.
+Search results are displayed by the `renderSearchResults()` function, which takes the JSON returned by the Bing Image Search service and renders any found images and related searches.
 
 ```javascript
 function renderSearchResults(results) {
@@ -306,7 +348,7 @@ function renderSearchResults(results) {
 }
 ```
 
-The main image search results are returned as the top-level `value` object in the JSON response. We pass them to our function `renderImageResults()`, which iterates through them and calls a separate function to render each item into HTML. The resulting HTML is returned to `renderSearchResults()`, where it is inserted into the `results` division in the page.
+The main image search results are contained in the top-level `value` object in the JSON response. These are passed to `renderImageResults()`, which iterates through them and calls `renderImageResults()` to render each item into HTML and inserted into the `results` division in the page.
 
 ```javascript
 function renderImageResults(items) {
