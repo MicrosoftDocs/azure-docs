@@ -17,7 +17,7 @@ This article shows you how to search for location of interest and show the searc
 
 There are two ways to search for a location of interest, one way is by using a service module to make a search request and the other is by making a search request through a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). We discuss both below.
 
-## Use service module to make a search request
+## Making a search request via service module
 
 ### Understand the code
 
@@ -31,7 +31,7 @@ The second block of code uses Fuzzy search [Azure Maps Fuzzy Search API](https:/
 The last block of code adjusts the camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
 
 
-## Search by XMLHttpRequest
+##  Making a search request via XMLHttpRequest
 
 ### Understand the code
 
