@@ -94,7 +94,7 @@ Values are organized in collections. You can work on individual values or fetch 
 
 The service provides a RESTful endpoint for CRUD operations on key-value pairs. values
 
-### Cosmos DB
+### Azure Cosmos DB
 
 Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alarms, configuration settings, and all other cold storage.
 
