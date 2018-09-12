@@ -72,13 +72,13 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 
 ### Managed Identities for Azure Resources
 
-Hybrid Runbook Workers running on Azure virtual machines can use the virtual machines Managed Service Identities (MSI) to authenticate to Azure resources. There are many benefits to using Managed Service Identities over Run As accounts.
+Hybrid Runbook Workers running on Azure virtual machines can use managed identities for Azure resources to authenticate to Azure resources. There are many benefits to using managed identities for Azure resources over Run As accounts.
 
 * No need to export the Run As certificate and then import it to Hybrid Runbook Worker
 * No need to renew the certificate used by the Run As account
 * No need to handle the Run As connection object in your runbook code
 
-To use an MSI on a Hybrid Runbook worker you need to complete the following steps:
+To use a managed identity for Azure resources on a Hybrid Runbook worker you need to complete the following steps:
 
 1. Create an Azure VM
 2. [Configure managed identities for Azure resources on your VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
