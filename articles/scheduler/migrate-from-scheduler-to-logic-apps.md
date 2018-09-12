@@ -25,7 +25,7 @@ jobs with Logic Apps, you get these benefits:
 * You don't have to worry about the concept of a *job collection* 
 because each logic app is a separate Azure resource.
 
-* You can run multipe one-time jobs by using a single logic app.
+* You can run multiple one-time jobs by using a single logic app.
 
 * The Azure Logic Apps service supports time zone and daylight savings time (DST).
 
@@ -83,7 +83,7 @@ for you to select later in your workflow.
 1. In the search box, enter "delay until" as your filter. 
 Under the actions list, select this action: **Delay until**
 
-   This action pauses your logic app workflow until a specificed date and time.
+   This action pauses your logic app workflow until a specified date and time.
 
    ![Add "Delay until" action](./media/migrate-from-scheduler-to-logic-apps/delay-until.png)
 
@@ -126,7 +126,7 @@ send a manual request that triggers your logic app.
 To manually run or trigger a one-time job, send a call 
 to the endpoint URL for your logic app's Request trigger. 
 In this call, specify the input or payload to send, 
-which you might have described earlier by providing a schema. 
+which you might have described earlier by specifying a schema. 
 
 For example, using the Postman app, you can create 
 a POST request with the settings similar to this sample, 
@@ -156,8 +156,8 @@ app appears under the **raw** box on the **Body** tab.
 In Logic Apps, each one-time job executes as a single logic 
 app run instance. To cancel a one-time job, you can use 
 [Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) 
-in the Logic Apps REST API. You need to provide the 
-[workflow run ID](#workflow-run-id) when you call the trigger.
+in the Logic Apps REST API. When you send a call to the trigger, 
+provide the [workflow run ID](#workflow-run-id).
 
 ## Schedule recurring jobs
 
@@ -203,8 +203,8 @@ Here are other ways you can customize your jobs.
 
 ### Retry policy
 
-To control the how often an action retries running in your 
-logic app during intermittent failures, you can set the 
+To control the way that an action tries to rerun in your 
+logic app when intermittent failures happen, you can set the 
 [retry policy](../logic-apps/logic-apps-exception-handling.md#retry-policies) 
 in each action's settings, for example:
 
@@ -220,11 +220,11 @@ see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-polici
 ## Handle exceptions and errors
 
 In Azure Scheduler, if the default action fails to run, 
-you can run an action that addresses the error condition. 
+you can run an alterative action that addresses the error condition. 
 In Azure Logic Apps, you can also perform the same task.
 
-1. In Logic App Designer, above the action where you want to add 
-error and exception handling, move your pointer over the arror, 
+1. In Logic App Designer, above the action you want to handle, 
+move your pointer over the arrow between steps, 
 and select and **Add a parallel branch**. 
 
    ![Add parallel branch](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
@@ -233,11 +233,11 @@ and select and **Add a parallel branch**.
 
    ![Add parallel action](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. On the alternative action, opent the (**...**) menu, and select **Configure run after**.
+1. On the alternative action, open the (**...**) menu, and select **Configure run after**.
 
    ![Configure run after](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
-1. Clear the **is successful** property. Select these properties: 
+1. Clear the box for the **is successful** property. Select these properties: 
 **has failed**, **is skipped**, and **has timed out**
 
    ![Set up "run after" properties](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
@@ -259,7 +259,7 @@ To learn more about exception handling, see
 **A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs. 
 
 **Q**: Is there a tool that can help me migrate my jobs from Scheduler to Logic Apps? <br>
-**A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, various scripts wil be available for you to fit to your needs. Please check back for availability.
+**A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, various scripts will be available for you to modify for your needs. For script availability, check back later.
 
 **Q**: Where can I get support for migrating my Scheduler jobs? <br>
 **A**: Here are some ways to get support: 
