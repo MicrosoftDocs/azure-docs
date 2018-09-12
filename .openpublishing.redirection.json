@@ -27538,11 +27538,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
-            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
             "redirect_url": "/azure/active-directory/user-help/user-help-register-device-on-network",
             "redirect_document_id": true
