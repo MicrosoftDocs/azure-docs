@@ -14,16 +14,17 @@ ms.date: 09/24/2018
 
 # Configure your automated Machine Learning experiment
 
-Automated machine learning is capability that is part of Azure Machine Learning. Automated Machine Learning (ML) automatically generates a model ready for deployment. The model can be downloaded to be customized further as well. There are several knobs and levers that you can use to configure automated ML experiments. In this guide, you will learn how to define various configuration settings.
+Automated Machine Learning (ML) picks an algorithm for you and generates a model ready for deployment. The model can be downloaded to be further customized as well. There are several options that you can use to configure automated ML experiments. In this guide, you will learn how to define various configuration settings.
 
 To view examples of an automated ML, see [Tutorial: Automatically train a classification model](tutorial-auto-train-models.md) or [Train models automatically in the cloud](how-to-auto-train-remote.md).
 
 Configuration options available in automated ML:
+
 •	Select your experiment type, e.g.,  Classification, Regression 
 •	Data source, formats, and fetch data
 •	Choose your compute target that is, local or remote 
-•	AutoML experiment settings
-•	Run AutoML experiment
+•	`AutoML` experiment settings
+•	Run `AutoML` experiment
 •	Explore model metrics
 •	Register and deploy model
 
@@ -194,7 +195,7 @@ Property |	Description	| Default Value
 `sample_weight` |	_Optional_ A weight value for each sample. Use when you would like to assign different weights for your data points 	None
 `sample_weight_valid`	| 	_Optional_ A weight value for each validation sample. If not specified, sample_weight is split between train and validate	| None
 `run_configuration` |	RunConfiguration object.  Used for remote runs. |None
-data_script  |	Path to a file containing the get_data method.  Required for remote runs.	|None
+`data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
 
 
 ## Run AutoML Experiment
