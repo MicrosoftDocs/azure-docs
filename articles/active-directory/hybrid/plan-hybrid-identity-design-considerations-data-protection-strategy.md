@@ -1,4 +1,4 @@
-﻿---
+---
 title: Hybrid identity design - data protection strategy Azure | Microsoft Docs
 description: You define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined.
 documentationcenter: ''
@@ -112,7 +112,7 @@ Once the user is authenticated using Azure AD, it is important to evaluate the l
 
 Each interaction in the diagram showed in Figure X represents one access control scenario that can be covered by Azure AD. Below you have a description of each scenario:
 
-  1. Conditional Access to applications that are hosted on-premises: You can use registered devices with access policies for applications that are configured to use AD FS with Windows Server 2012 R2. For more information about setting up conditional access for on-premises, see [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](active-directory-conditional-access-azure-portal.md).
+  1. Conditional Access to applications that are hosted on-premises: You can use registered devices with access policies for applications that are configured to use AD FS with Windows Server 2012 R2.
 
   2. Access Control to the Azure portal:  Azure also lets you control access to the portal by using role-based access control (RBAC)). This method enables the company to restrict the number of operations that an individual can do in the Azure portal. By using RBAC to control access to the portal, IT Admins can delegate access by using the following access management approaches:
 
@@ -124,14 +124,14 @@ Each interaction in the diagram showed in Figure X represents one access control
    > If you are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
 
 
-  3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md).
-
+  3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. 
+  
   4. Conditional Access for Saas apps: [This feature](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 
 Since the options for access control use a multilayer approach, comparison between those options are not applicable for this task. Ensure that you are leveraging all options available for each scenario that requires you to control access to your resources.
 
 ## Define incident response options
-Azure AD can assist IT to identity potential security risks in the environment by monitoring user’s activity. IT can use Azure AD Access and Usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, an IT admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.  [Azure AD Premium subscription](../fundamentals/active-directory-get-started-premium.md) has a set of security reports that can enable IT to obtain this information. [Azure AD reports](active-directory-view-access-usage-reports.md) are categorized as follows:
+Azure AD can assist IT to identity potential security risks in the environment by monitoring user’s activity. IT can use Azure AD Access and Usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, an IT admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.  [Azure AD Premium subscription](../fundamentals/active-directory-get-started-premium.md) has a set of security reports that can enable IT to obtain this information. [Azure AD reports](../report-monitoring/overview-reports.md) are categorized as follows:
 
 * **Anomaly reports**: Contain sign-in events that were found to be anomalous. The goal is to make you aware of such activity and enable you to make a determination about whether an event is suspicious.
 * **Integrated Application report**: Provides insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.
