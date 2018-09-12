@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
@@ -20,6 +20,9 @@ ms.reviewer: jeffgo
 # Deploy the SQL Server resource provider on Azure Stack
 
 Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
+
+> [!IMPORTANT]
+> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.
 
 ## Prerequisites
 
@@ -86,7 +89,10 @@ You can specify the following parameters from the command line. If you don't, or
 
 ## Deploy the SQL resource provider using a custom script
 
-To eliminate any manual configuration when deploying the resource provider, you can customize the following script. Change the default account information and passwords as needed for your Azure Stack deployment.
+To eliminate any manual configuration when deploying the resource provider, you can customize the following script.  
+-  
+- Change the default account information and passwords as needed for your Azure Stack deployment.
+
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -140,8 +146,8 @@ You can use the following steps verify that the SQL resource provider is success
 2. Select **Resource Groups**.
 3. Select the **system.\<location\>.sqladapter** resource group.
 4. On the summary page for Resource group Overview, there should be no failed deployments.
-
       ![Verify deployment of the SQL resource provider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Finally, select **Virtual machines** in the admin portal to verify that the SQL resource provider VM was successfully created and is running.
 
 ## Next steps
 

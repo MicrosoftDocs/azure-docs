@@ -15,13 +15,14 @@ ms.author: sngun
 
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB and Node.js SDK (Preview)
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 This Node.js tutorial shows you how to use Azure Cosmos DB SQL API account to store and access data from a Node.js Express application that is hosted on Azure Websites. In this tutorial, you will build a simple web-based application (Todo app), that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. The following image shows a screen shot of the Todo application:

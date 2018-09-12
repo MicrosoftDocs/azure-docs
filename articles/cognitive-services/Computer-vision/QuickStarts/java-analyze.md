@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API Java quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Analyze a remote image - REST, Java - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using Computer Vision with Java in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Analyze a remote image - REST, Java
+# Quickstart: Analyze a remote image - REST, Java - Computer Vision
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 

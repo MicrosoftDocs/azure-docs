@@ -2,13 +2,13 @@
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Partitioned queues and topics

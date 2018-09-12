@@ -123,7 +123,7 @@ To configure transparent data encryption through the REST API, you must be conne
 
 ## Next steps
 
-- For a general description of transparent data encryption, see [Transparent data encryption]((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption).
+- For a general description of transparent data encryption, see [Transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - To learn more about transparent data encryption with Bring Your Own Key support for SQL Database and Data Warehouse, see [Transparent data encryption with Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).
 - To start using transparent data encryption with Bring Your Own Key support, see the how-to guide [Turn on transparent data encryption by using your own key from Key Vault by using PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - For more information about Key Vault, see the [Key Vault documentation page](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
