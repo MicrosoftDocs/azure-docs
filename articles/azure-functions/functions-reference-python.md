@@ -63,7 +63,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Optionally, you can also declare the parameter types and the return type in the function using Python type annotations. For example, the same function can be written using annotations, as follows:
+Optionally, you can also declare the parameter types and return type in the function using Python type annotations. For example, the same function can be written using annotations, as follows:
 
 ```python
 import azure.functions
@@ -189,7 +189,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-If the main() function is synchronous (no `async` qualifier) we automatically run it in an `asyncio` thread-pool:
+If the main() function is synchronous (no `async` qualifier) we automatically run it in an `asyncio` thread-pool.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -234,7 +234,7 @@ For example, the following command installs the latest version of the `requests`
 pip install requests
 ```
 
-Once you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file. You can use the `pip freeze` command to automatically generate the requirements.
+Once you're ready for publishing, make sure that all your dependencies are listed in the `requirements.txt` file,located at the root of your project. You can automatically generate this file using the `pip freeze` command in your virtual environment.
 
 ```bash
 pip freeze > requirements.txt
@@ -251,7 +251,7 @@ protobuf==3.6.1
 six==1.11.0
 ```
 
-If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using _pip_, publishing to Azure will fail. To build the required binaries locally, install [Docker](https://docs.docker.com/install/) and run the following command to publish using the Azure Functions Core Tools:
+If you're using a package that requires a compiler but does not support the installation of manylinux-compatible wheels for Python 3.6 using the standard package installer (pip), publishing to Azure will fail. To build the required binaries locally, install [Docker](https://docs.docker.com/install/) and run the following command to publish using the Azure Functions Core Tools:
 
 ```bash
 func azure functionapp <app name> --build-native-deps
@@ -259,7 +259,7 @@ func azure functionapp <app name> --build-native-deps
 
 ## Known issues and FAQ
 
-All known issues should be tracked in the [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
+All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 
 ## Next steps
 
