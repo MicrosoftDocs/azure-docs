@@ -4,14 +4,14 @@ hide_bc: true
 title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
 description: Azure Active Directory (Azure AD) is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
 services: active-directory
-author: rolyon
+author: barbkess
 manager: mtillman
 ms.assetid:	
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mtillman
 
 ---
@@ -59,7 +59,7 @@ ms.author: mtillman
                                                     </div>
                                                 </a>
                                             </li>
-<!--This is the learning section -->
+<!--This is the learning section 
                                             <li>
                                                 <a href="">
                                                     <div class="cardSize">
@@ -82,7 +82,7 @@ ms.author: mtillman
                                                     </div>
                                                 </a>
                                             </li>
-<!--End of thelearning section -->
+ End of the learning section -->
 										</ul>
                                     </li>
                                     <li>
