@@ -23,27 +23,31 @@ ms.reviewer: johnhas
 
 The following are common problems unrelated to software releases and their solutions.
 
-## The portal shows local agent in debug mode
+## Local agent
+
+### The portal shows local agent in debug mode
 
 This is likely because the agent is unable to send heartbeats to the service because of an unstable network connection. A heartbeat is sent every five minutes. If the service does not receive a heartbeat for 15 minutes, then the service considers the agent inactive and tests will no longer be scheduled on it. Check the error message in the *Agenthost.log* file located in the directory where the agent was started.
 
 > [!Note]
 > Any tests already running on the agent will continue to run, but if the heartbeat is not restored before the test ends, then the agent will fail to update the test status or upload logs. The test will always show up as **running** and will need to be canceled.
 
-## Agent process on machine was shut down while executing test. What to expect?
+### Agent process on machine was shut down while executing test. What to expect?
 
-If the agent process is shut down ungracefully for example, machine restarted, process killed (CTRL+C on the agent window is considered graceful shutdown) then the test that was running on it will continue to show as **running**. If the agent is restarted, then the agent will update the status of the test to **cancelled**. If the agent is not restarted, then the test appears as **running** and you must manually cancel the test
+If the agent process is shut down ungracefully for example, machine restarted, process killed (CTRL+C on the agent window is considered graceful shutdown) then the test that was running on it will continue to show as **running**. If the agent is restarted, then the agent will update the status of the test to **cancelled**. If the agent is not restarted, then the test appears as **running** and you must manually cancel the test.
 
 > [!Note]
 > Tests within a workflow are scheduled to run sequentially. **Pending** tests will not get executed until tests in the **running** state in the same workflow complete.
 
-## Handle slow network connectivity
+## VM images
+
+### Handle slow network connectivity
 
 You can download the PIR image to a share in your local datacenter. And then you can verify the image.
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-### Download PIR image to local share in case of slow network traffic
+#### Download PIR image to local share in case of slow network traffic
 
 1. Download AzCopy from: [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
 
@@ -62,7 +66,7 @@ You can download the PIR image to a share in your local datacenter. And then you
 > [!Note]  
 > LocalFileShare is the share path or local path.
 
-### Verifying PIR Image file hash value
+#### Verifying PIR Image file hash value
 
 You can use **Get-HashFile** cmdlet to get the hash value for the downloaded public image repository image files to check the integrity of the images.
 
@@ -74,7 +78,7 @@ You can use **Get-HashFile** cmdlet to get the hash value for the downloaded pub
 | Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
 | Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 
-## Failure occurs when uploading VM image in the VaaSPreReq script
+### Failure occurs when uploading VM image in the `VaaSPreReq` script
 
 First verify that the environment is healthy:
 
