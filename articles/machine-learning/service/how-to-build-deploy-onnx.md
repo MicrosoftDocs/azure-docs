@@ -169,7 +169,7 @@ Here is an example for deploying an ONNX model:
            return json.dumps({"error": result})
    ```
 
-   The file `myenv.yml` describes the dependencies needed for the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) for instructions on how to create an environment file. An example file for an ONNX model is shown below:
+   The file `myenv.yml` describes the dependencies needed for the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) for instructions on how to create an environment file, such as this sample file:
 
    ```
    name: myenv
@@ -178,8 +178,6 @@ Here is an example for deploying an ONNX model:
    dependencies:
      - pip:
        - onnxruntime
-       # Required packages for AzureML
-       - --extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
        - azureml-core
    ```
 
