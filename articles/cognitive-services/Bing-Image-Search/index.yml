@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bing Image Search Documentation 
+title: Bing Image Search API Documentation 
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Image Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Image Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use Bing Image Search API to obtain images from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: nitinme
