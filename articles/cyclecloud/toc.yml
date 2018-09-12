@@ -106,8 +106,6 @@
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
-  - name: Update CycleCloud
-    href: update-install.md
 - name: Reference
   items:
   - name: Cluster Reference
@@ -146,6 +144,8 @@
       href: ~/cyclecloud-references/performance-tuning.md
     - name: Backup and Restore
       href: ~/cyclecloud-references/backup-and-restore.md
+    - name: Upgrade and Migrate
+      href: ~/cyclecloud-references/upgrade-and-migrate.md
     - name: HTTP Proxy Configuration
       href: ~/cyclecloud-references/running-behind-proxy.md
   - name: Jetpack
