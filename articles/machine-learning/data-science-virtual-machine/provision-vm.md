@@ -36,7 +36,7 @@ The Microsoft Data Science Virtual Machine (DSVM) is a Windows Azure virtual mac
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Visual data mining and machine learning software in Java.
   * [Apache Drill](https://drill.apache.org/). A schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage.  It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services.
-* Git, including Git Bash, to work with source code repositories that include GitHub and Visual Studio Team Services. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
+* Git, including Git Bash, to work with source code repositories that include GitHub and Azure DevOps. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
 
 Data science involves iterating on a sequence of tasks:
 
