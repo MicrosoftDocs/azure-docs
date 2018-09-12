@@ -42,7 +42,7 @@ sections:
           html: <p>Learn how to get subscription keys for Computer Vision API.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Subscription keys for Computer Vision
+          title: Subscription keys for Computer Vision API
         - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
           html: <p>Learn the basics of calling a Computer Vision API.</p>
           image:
