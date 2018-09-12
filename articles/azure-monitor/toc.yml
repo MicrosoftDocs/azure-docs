@@ -793,6 +793,43 @@
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+ - name: Query language reference
+   href: https://docs.loganalytics.io/docs/Language-Reference
+ - name: Azure CLI
+   href: /cli/azure/monitor?view=azure-cli-latest
+ - name: Azure PowerShell
+   items:
+   - name: Monitor
+     href: /powershell/module/azurerm.insights
+   - name: Logs
+     href: /powershell/module/azurerm.operationalinsights
+ - name: REST API
+   items:
+   - name: Monitor
+     href: /rest/api/monitor/
+   - name: Logs
+     href: /rest/api/loganalytics 
+ - name: Metrics
+   items:
+   - name: Supported metrics
+     href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+   - name: Supported metrics for newer alerts
+     href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
+ - name: Schemas
+   items:
+   - name: Diagnostic logs services, categories, and schemas
+     href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+   - name: Activity log event schema
+     href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+   - name: Azure Diagnostics extension schema
+     href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
+     items:
+     - name: 1.3 and later
+       href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
+     - name: 1.2
+       href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
+     - name: 1.0
+       href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json- name: Resources
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -815,42 +852,3 @@
     href: https://stackoverflow.com/search?q=monitoring
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-  - name: Reference
-    items:
-    - name: Query language reference
-      href: https://docs.loganalytics.io/docs/Language-Reference
-    - name: Azure CLI
-      href: /cli/azure/monitor?view=azure-cli-latest
-    - name: Azure PowerShell
-      items:
-      - name: Monitor
-        href: /powershell/module/azurerm.insights
-      - name: Logs
-        href: /powershell/module/azurerm.operationalinsights
-    - name: REST API
-      items:
-      - name: Monitor
-        href: /rest/api/monitor/
-      - name: Logs
-        href: /rest/api/loganalytics 
-    - name: Metrics
-      items:
-      - name: Supported metrics
-        href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
-      - name: Supported metrics for newer alerts
-        href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
-    - name: Schemas
-      items:
-      - name: Diagnostic logs services, categories, and schemas
-        href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
-      - name: Activity log event schema
-        href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
-      - name: Azure Diagnostics extension schema
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
-        items:
-        - name: 1.3 and later
-          href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
-        - name: 1.2
-          href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
-        - name: 1.0
-          href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
