@@ -1,6 +1,6 @@
 ---
-title: Load data with the Azure Data Prep SDK
-description: Learn about loading data with Azure Data Prep SDK
+title: Load data with the Azure Machine Learning Data Prep SDK
+description: Learn about loading data with Azure Machine Learning Data Prep SDK
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ author: cforbe
 ms.date: 08/30/2018
 ---
 
-#Load data with the data preparation SDK
+#Load data with the Azure Machine Learning Data Prep SDK
 
-Data preparation has the ability to load different types of input data. While it is possible to use our smart reading functionality to detect the type of a file, it is also possible to specify a file type and its parameters.
+The Azure Machine Learning Data Prep SDK allows you to load different types of input data. You can specify the data file type and its parameters or use the SDK smart reading functionality to automatically detect the type of a file.
 
 ## Read Lines
-One of the simplest ways to read a file into a dataframe is to just read it as text lines.
+One of the simplest ways to load data is to read it as text lines.
 
 ```
 dataflow = dprep.read_lines(path='./data/text_lines.txt')
@@ -29,7 +29,7 @@ dataflow.head(5)
 |3|2015-07-3 \|\|  -7.0 \|\|  10.5|
 |4|2015-07-4 \|\|  -5.5 \|\|  9.3|
 
-With our ingestion done, we can go ahead and retrieve a Pandas DataFrame for the full dataset.
+After the data is ingested, you can retrieve a pandas DataFrame for the full dataset.
 
 ```
 df = dataflow.to_pandas_dataframe()
@@ -45,7 +45,7 @@ df
 |4|2015-07-4\|\| 5.5\|\| 9.3|
 
 ## Read CSV
-When reading delimited files, we can let the underlying runtime infer the parsing parameters (i.e. separator, encoding, whether to use headers) simply by not providing them. In this case, we will attempt to read a file by specifying only its location. 
+When reading delimited files, you can let the underlying runtime infer the parsing parameters (such as a separator, encoding, whether to use headers, etc.) rather than providing them. For this example, attempt to read a file by specifying only its location. 
 
 ```
 # SAS expires June 16th, 2019
@@ -61,7 +61,7 @@ dataflow.head(5)
 |3|ALABAMA|1|101710|Hale County|10171002156| |
 |4|ALABAMA|1|101710|Hale County|10171000588|2|
 
-One of the parameters we can specify is a number of lines to skip from the files we are reading. We will do so to filter out the duplicate line.
+One of the parameters you can specify is a number of lines to skip in the files you are reading. Use the following code to filter out the duplicate line.
 ```
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
@@ -76,7 +76,7 @@ dataflow.head(5)
 |3|ALABAMA|1|101710|Hale County|10171000588|2|
 |4|ALABAMA|1|101710|Hale County|10171000589|23 |
 
-Next, we can take a look at the data types of the columns.
+Next, you can look at the data types of the columns.
 ```
 dataflow.head(1).dtypes
 
@@ -89,7 +89,7 @@ schnam10                  object
 MAM_MTH00numvalid_1011    object
 dtype: object
 ```
-Unfortunately, all of our columns came back as strings. This is because, by default, data preparation will not change the type of your data. Since the data source we are reading from is a text file, we keep all values as strings. In this case, however, we do want to parse numeric columns as numbers. To do this, we can set the `inference_arguments` parameter to `current_culture`.
+Unfortunately, all of our columns came back as strings. This is because, by default, the Azure Machine Learning Data Prep SDK does not change your data type. The data source we are reading from is a text file, so the SDK reads all values as strings. For this example, however, we want to parse numeric columns as numbers. To do this, you can set the inference_arguments parameter to current_culture.
 
 ```
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
@@ -106,7 +106,7 @@ schnam10                   object
 ALL_MTH00numvalid_1011    float64
 dtype: object
 ```
-Now we can see several of the columns were correctly detected as numbers and their type is set to float64. With our ingestion done, we can go ahead and retrieve a Pandas DataFrame for the full dataset.
+Several of the columns were correctly detected as numbers and their type is set to float64. With ingestion done, you can retrieve a pandas DataFrame for the full dataset.
 
 ```
 df = dataflow.to_pandas_dataframe()
@@ -122,7 +122,7 @@ df
 |4|ALABAMA|Hale County|1.017100e+10|23.0|
 
 ## Read Excel
-Data preparation also can load excel files using `read_excel` function.
+The Azure Machine Learning Data Prep SDK includes a `read_excel` function to load Excel files.
 ```
 dataflow = dprep.read_excel(path='./data/excel.xlsx')
 dataflow.head(5)
@@ -135,7 +135,7 @@ dataflow.head(5)
 |3|Canyon Diablo|Iron, IAB-MG|30000000.0|Found|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
 |4|Armanty|Iron, IIIE|28000000.0|Found|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
 
-Here, we have loaded the first sheet in the Excel document. We could have achieved the same result by specifying the name of the sheet we want to load explicitly. Alternatively, if we wanted to load the second sheet instead, we would provide its name as an argument.
+You have loaded the first sheet of the Excel file. You can achieve the same result by explicitly specifying the name of the sheet you want to load. If you want to load the second sheet instead, you can provide its name as an argument.
 ```
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dataflow.head(5)
@@ -149,7 +149,7 @@ dataflow.head(5)
 |3|Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^|
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
-As you can see, the table in the second sheet had headers as well as 3 empty rows, so we should modify the function's arguments accordingly.
+As you can see, the table in the second sheet had headers and three empty rows. You need to modify the function's arguments accordingly.
 ```
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
 df = dataflow.to_pandas_dataframe()
@@ -165,7 +165,7 @@ df
 |4|5|Frozen|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
 ## Read Fixed Width Files
-For fixed-width files, we can specify a list of offsets. The first column is always assumed to start at offset 0.
+For fixed-width files, you can specify a list of offsets. The first column is always assumed to start at offset 0.
 
 ```
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
@@ -180,9 +180,7 @@ dataflow.head(5)
 |4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 
-When there are no headers in the files, we want to treat the first row as data.
-
-By passing in `PromoteHeadersMode.NONE` to the header keyword argument, we can avoid header detection and get the correct data.
+If there are no headers in the files, you'll want to treat the first row as data. By passing `PromoteHeadersMode.NONE` to the header keyword argument, you can avoid header detection and get the correct data.
 
 ```
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
@@ -202,8 +200,8 @@ df
 |5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 ## Read SQL
-Data preparation can also get data from SQL servers. Currently, only Microsoft SQL Server is supported.
-To read data from a SQL server, we have to create a data source object that contains the connection information.
+The Azure Machine Learning Data Prep SDK can also load data from SQL servers. Currently, only Microsoft SQL Server is supported.
+To read data from a SQL server, create a data source object that contains the connection information.
 
 ```
 secret = dprep.register_secret("dpr3pTestU$er", "anySecretId")
@@ -213,11 +211,11 @@ ds = dprep.MSSQLDataSource(server_name="dprep-sql-test.database.windows.net",
                            user_name="dprepTestUser",
                            password=secret)
 ```
-As you can see, the password parameter of `MSSQLDataSource` accepts a Secret object. You can get a Secret object in two ways:
--	Register the secret and its value with the execution engine 
--	Create the secret with just an ID (useful if the secret value was already registered in the execution environment)
+As you can see, the password parameter of `MSSQLDataSource` accepts a secret object. You can get a secret object in two ways:
+-	Register the secret and its value with the execution engine. 
+-	Create the secret with only an ID (useful if the secret value is already registered in the execution environment).
 
-Now that we have created a data source object, we can proceed to read data.
+After you create a data source object, you can proceed to read data.
 ```
 dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dataflow.head(5)
@@ -256,16 +254,16 @@ ModifiedDate              datetime64[ns, UTC+00:00]
 dtype: object
 ```
 
-## Read from ADLS
-There are two ways the data preparation API can acquire the necessary OAuth token to access Azure DataLake Storage:
+## Read from Azure Data Lake Storage
+There are two ways the SDK can acquire the necessary OAuth token to access Azure Data Lake Storage:
 -	Retrieve the access token from a recent login session of the user's Azure CLI login
--	Using a ServicePrincipal (SP) and a certificate as secret
+-	Use a service principal (SP) and a certificate as secret
 
-### Using Access Token from a recent Azure CLI session
+### Use an access token from a recent Azure CLI session
 On your local machine, run the following command:
 
 > [!NOTE] 
-> If your user account is a member of more than one Azure tenant, it will be necessary to specify the tenant in the AAD url hostname form.
+> If your user account is a member of more than one Azure tenant, you need to specify the tenant in the AAD URL hostname form.
 
 
 ```
@@ -273,26 +271,26 @@ az login
 az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
-### Create a ServicePrincipal via Azure CLI
-A ServicePrincipal and the corresponding certificate can be created via Azure CLI. This particular SP is configured as Reader, with its scope reduced to just the ADLS account 'dpreptestfiles'.
+### Create a service principal with the Azure CLI
+You can use the Azure CLI to create a service principal and the corresponding certificate. This particular service principal is configured as Reader, with its scope reduced to only the Azure Data Lake Storage account 'dpreptestfiles'
 ```
 az account set --subscription "Data Wrangling development"
 az ad sp create-for-rbac -n "SP-ADLS-dpreptestfiles" --create-cert --role reader --scopes /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/dpreptestfiles/providers/Microsoft.DataLakeStore/accounts/dpreptestfiles
 ```
 This command emits the `appId` and the path to the certificate file (usually in the home folder). The .crt file contains both the public cert and the private key in PEM format.
 
-Extract the thumbprint with:
+Extract the thumbprint:
 ```
 openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint
 ```
 
-##### Configure ADLS Account for ServicePrincipal
-To configure the ACL for the ADLS filesystem, use the `objectId` of the user or, here, ServicePrincipal:
+##### Configure an Azure Data Lake Storage account for the service principal
+To configure the ACL for the Azure Data Lake Storage file system, use the objectId of the user or, for this example, the service principal:
 ```
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
-##### Configure Read and Execute access for the ADLS file system
-Since the underlying HDFS ACL model doesn't support inheritance, folders and files need to be ACL-ed individually.
+##### Configure Read and Execute access for the Azure Data Lake Storage file system.
+Since the underlying HDFS ACL model doesn't support inheritance, you need to configure the ACL for folders and files individually.
 ```
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r--" --path /farmers-markets.csv

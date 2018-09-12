@@ -10,23 +10,17 @@ author: cforbe
 ms.date: 08/30/2018
 ---
 
-# What is the data prep SDK?
+# Prepare your data for modeling
  
-Having data preparation as part of the ML workflow will allow an easy way to read in data of various formats, transform it to be more usable, and write out the data to be consumed by models or another storage where models read from. 
+Data preparation is an important part of a machine learning workflow. Your models will be more accurate and efficient if they have access to clean data in a format that is easier to consume. You can use the <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a> to load data of various formats, transform it to be more usable, and write that data to a location for your models to access. 
 
-Models become more accurate when they have access to more clean data. Data can come in different kinds of formats, so having an SDK that can read that data as part of the workflow makes it more efficient. 
 
-Then when it becomes time to clean the data, using transforms makes it simple to add columns, filter out unwanted rows or columns, and impute missing values.
+## Steps for data preparation with Azure Machine Learning 
+1. [Load data](how-to-load-data.md )
+2. [Transform data](how-to-transform-data.md )
+3. [Write data](how-to-write-data.md )
 
-For models to consume the data that has been cleaned, it is easier to be able to access it in known formats like CSV or Parquet files. 
+![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
 
-## The steps for data preparation with Azure Machine Learning 
-1. [Load Data](how-to-load-data.md )
-2. [Transform Data](how-to-transform-data.md )
-3. [Write Data](how-to-write-data.md )
-
-[ ![Data preparation process](./media/concept-data-preparation/data-prep-process.png) ]
-(./media/concept-data-preparation/data-prep-process.png#lightbox)
-
-## Next Steps
-Here is an [example notebook](https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation.
+## Next steps
+Review an [example notebook](https://github.com/Microsoft/PendletonDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.

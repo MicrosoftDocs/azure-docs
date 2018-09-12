@@ -1,6 +1,6 @@
 ---
-title: Transform data with Azure Data Prep SDK
-description: Learn about transforming data with Azure Data Prep SDK
+title: Transform  data with Azure Machine Learning Data Prep SDK
+description: Learn about transforming data with Azure Machine Learning Data Prep SDK
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,20 +10,20 @@ author: cforbe
 ms.date: 08/30/2018
 ---
 
-# Transform data with the data preparation SDK
+# Transform data with the Azure Machine Learning Data Prep SDK
 
-The data preparation SDK offers different transforms to clean up your data. 
+The Azure Machine Learning Data Prep SDK offers different transform methods to clean your data. These methods make it simple to add columns, filter out unwanted rows or columns, and impute missing values.
 
-Currently there are:
-- [Add Column using Expression](#add-column-using-expression)
+Currently there are methods for the following tasks:
+- [Add column using an expression](#add-column-using-expression)
 - [Impute missing values](#impute-missing-values)
-- [Derive Column by Example](#derive-column-by-example)
+- [Derive column by example](#derive-column-by-example)
 - [Filtering](#filtering)
-- [Custom Python Transforms](#custom-python-transforms)
+- [Custom Python transforms](#custom-python-transforms)
 
-## Add column using expression
+## Add column using an expression
 
-Data preparation can add a new column to data using an expression to calculate the value from existing columns. In this case, we'll try to add additional columns to the input data.
+The Azure Machine Learning Data Prep SDK includes `substring` expressions you can use to calculate a value from existing columns, and then put that value in a new column. In this example, we'll load data and try to add columns to that input data.
 
 ```
 import azureml.dataprep as dprep
@@ -40,10 +40,8 @@ dataflow.head(3)
 |2|10140270|HY329253|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-```
-substring(start, length)
-```
-Add a new column Case Category using the `substring(start, length)` expression to extract the prefix from the Case Number column.
+
+Use the `substring(start, length)` expression to extract the prefix from the Case Number column and put that data in a new column: Case Category.
 
 ```
 substring_expression = dprep.col('Case Number').substring(0, 2)
@@ -59,11 +57,9 @@ case_category.head(3)
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
-```
-substring(start)
-```
 
-Add a new column Case Id using the `substring(start)` expression to extract just the number from Case Number column and convert it to numeric.
+
+Use the `substring(start)` expression to extract only the number from the Case Number column, then convert it to a numeric data type and put it in a new column: Case Id.
 ```
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dataflow.add_column(new_column_name='Case Id',
@@ -81,7 +77,7 @@ case_id.head(3)
 
 ## Impute missing values
 
-The data preparation SDK can impute missing values in specified columns. In this case, we'll try to impute the missing Latitude and Longitude values in the input data.
+The Azure Machine Learning Data Prep SDK can impute missing values in specified columns. In this example, you will load latitude and longitude values and then try to impute missing values in the input data.
 
 ```
 import azureml.dataprep as dprep
@@ -101,9 +97,9 @@ df.head(5)
 |3|10139885|false|41.902152|-87.754883|
 |4|10140379|false|41.885610|-87.657009|
 
-The third record from input data has Latitude and Longitude missing. To impute those missing values, we can use `ImputeMissingValuesBuilder` to learn a fixed program. It can impute the columns with either a calculated `MIN`, `MAX`, or `MEAN` value or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
+The third record is missing latitude and longitude values. To impute those missing values, you can use `ImputeMissingValuesBuilder` to learn a fixed program. It can impute the columns with either a calculated `MIN`, `MAX`, or `MEAN` value or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
 
-Firstly, let us quickly see check the `MEAN` value of Latitude column.
+Firstly, quickly check the `MEAN` value of the latitude column.
 ```
 df_mean = df.summarize(group_by_columns=['Arrest'],
                        summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
@@ -117,7 +113,7 @@ df_mean.head(1)
 |-----|-----|----|
 |0|false|41.878961|
 
-The `MEAN` value of Latitude looks good. So we'll impute Latitude with it. As for Longitude, we'll impute it using 42 based on external knowledge.
+The `MEAN` value of latitudes looks good, so you can use it to impute latitude. For the missing longitude value, we will impute it with 42 based on external knowledge.
 
 
 ```
@@ -132,7 +128,7 @@ impute_builder = df.builders.impute_missing_values(impute_columns=[impute_mean, 
                                                    group_by_columns=['Arrest'])
 # call learn() to learn a fixed program to impute missing values
 impute_builder.learn()
-# call to_dataflow() to get a dataflow with impute step added
+# call to_dataflow() to get a data flow with impute step added
 df_imputed = impute_builder.to_dataflow()
 
 # check impute result
@@ -147,14 +143,14 @@ df_imputed.head(5)
 |3|10139885|false|41.902152|-87.754883|
 |4|10140379|false|41.885610|-87.657009|
 
-As the result above, the missing Latitude has been imputed with the `MEAN` value of `Arrest=='false'` group. Also, the missing Longitude has been imputed with 42.
+As shown in the result above, the missing latitude was imputed with the `MEAN` value of `Arrest=='false'` group. The missing longitude was imputed with 42.
 ```
 imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
 ## Derive column by example
-One of the more advanced tools in the data preparation SDK is the ability to derive columns by giving examples of wanted results. Letting the data preparation SDK generate code to achieve the intended derivation.
+One of the more advanced tools in the Azure Machine Learning Data Prep SDK is the ability to derive columns using examples of wanted results. This lets you give the SDK an example so it can generate code to achieve the intended derivation.
 
 ```
 import azureml.dataprep as dprep
@@ -175,9 +171,9 @@ df
 |8|1/1/2015 6:54|FM-15|23|50|14|
 |9|1/1/2015 7:00|FM-12|23|50|14|
 
-As you can see, this file is fairly simple. However, let's assume that we need to have to join this file with a dataset where date and time come in a format 'Mar 10, 2018 | 2AM-4AM'.
+As you can see, this file is fairly simple. However, assume that you need to join this file with a dataset where date and time are in a format 'Mar 10, 2018 | 2AM-4AM'.
 
-Let's wrangle the data into the shape we need.
+You can transform the data into the shape you need.
 
 ```
 builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
@@ -198,11 +194,13 @@ builder.preview()
 |8|1/1/2015 6:54|Jan 1, 2015 6AM-8AM|
 |9|1/1/2015 7:00|Jan 1, 2015 6AM-8AM|
 
-The code above first creates a builder for the derived column. It does it by providing an array of source columns to consider (`DATE`) and name for the new column to be added.
+The code above first creates a builder for the derived column. You provided an array of source columns to consider (`DATE`) and a name for the new column to be added.
 
-Then, we provide the first example by passing in the second row (index 1) of the DataFrame printed above and giving an expected value for the derived column.
+Then, as the first example, you passed in the second row (index 1) and gave an expected value for the derived column.
 
-Finally, we call `builder.preview()` and observe the derived column next to the source column. So far everything seems fine, but we also only see values for the same date "Jan 1, 2015", so we should look at rows further down by passing in the number of rows we want to `skip` from the top.
+Finally, you called `builder.preview()` and can see the derived column next to the source column. The format seems fine, but you only see values for the same date "Jan 1, 2015".
+
+Now, pass in the number of rows you want to `skip` from the top to see rows further down.
 
 ```
 preview_df = builder.preview(skip=30)
@@ -222,9 +220,9 @@ preview_df
 |38|11/2/2015 4:00|Feb 1, 2015 4AM-6AM|
 |39|11/2/2015 4:54|Feb 1, 2015 4AM-6AM|
 
-Here we can see an issue with the generated program: based solely on one example we provided above, the derive program chose to parse the date as "Day/Month/Year", which is not what we want in this case.
+Here you can see an issue with the generated program: based solely on the one example you provided above, the derive program chose to parse the date as "Day/Month/Year", which is not what you want in this case.
 
-To fix this issue, we need to provide another example.
+To fix this issue, you need to provide another example.
 
 ```
 builder.add_example(source_data=preview_df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
@@ -246,7 +244,7 @@ preview_df
 |39|1/2/2015 4:54|Jan 2, 2015 4AM-6AM|
 
 
-Now, rows correctly handle '1/2/2015' as 'Jan 2, 2015', but when we look further down the derived column we can see that values at the end have nothing in derived column. To fix that, we need to provide another example for row 66.
+Now, rows correctly handle '1/2/2015' as 'Jan 2, 2015', but if you look further down the derived column, you can see that values at the end have nothing in derived column. To fix that, you need to provide another example for row 66.
 
 ```
 builder.add_example(source_data=preview_df.iloc[66], example_value='Jan 29, 2015 8PM-10PM')
@@ -266,9 +264,9 @@ builder.preview(count=10)
 |8|1/2/2015 4:00|Jan 2, 2015 4AM-6AM|
 |9|1/2/2015 4:54|Jan 2, 2015 4AM-6AM|
 
-Everything looks good here. However, we just noticed that it's not quite what we wanted. We forgot to separate date and time range by '|' to generate the format we need.
+Everything looks good but you'll notice that it's not exactly what we wanted. You need to separate date and time with '|' to generate the correct format.
 
-To fix that, we will add another example. This time, instead of passing in a row from the preview, we just construct a dictionary of column name to value for the `source_data` parameter.
+To fix that, you can add another example. This time, instead of passing in a row from the preview, construct a dictionary of column name to value for the `source_data` parameter.
 
 ```
 builder.add_example(source_data={'DATE': '11/11/2015 0:54'}, example_value='Nov 11, 2015 | 12AM-2AM')
@@ -287,7 +285,7 @@ builder.preview(count=10)
 |8|1/2/2015 4:00|None|
 |9|1/2/2015 4:54|None|
 
-This clearly had negative effects, as now the only rows that have any values in derived column are the ones that match exactly with the examples we have provided.
+This clearly had negative effects, as now the only rows that have any values in derived column are the ones that match exactly with the examples we provided.
 
 Let's look at the examples:
 ```
@@ -302,9 +300,9 @@ examples
 |2|1/29/2015 20:54|Jan 29, 2015 8PM-10PM|-3|
 |3|11/11/2015 0:54|Nov 11, 2015 \| 12AM-2AM|-4|
 
-Here we can see that we have provided inconsistent examples. To fix the issue, we need to replace the first three examples with correct ones (including '|' between date and time).
+You can see that we have provided inconsistent examples. To fix the issue, we need to replace the first three examples with correct ones (including '|' between date and time).
 
-We can achieve it by deleting examples that are incorrect (by either passing in `example_row` from examples DataFrame, or by just passing in `example_id` value) and then adding new modified examples back.
+We can achieve it by deleting examples that are incorrect (by either passing in `example_row` from the pandas DataFrame, or by passing in `example_id` value) and then adding new modified examples back.
 
 ```
 builder.delete_example(example_id=-1)
@@ -329,7 +327,7 @@ builder.preview()
 | 8 | 1/1/2015 6:54 | Jan 1, 2015 \| 6AM-8AM|
 | 9 | 1/1/2015 7:00 | Jan 1, 2015 \| 6AM-8AM|
 
-Now the data looks correct and we can finally call `to_dataflow()` on the builder, which would return a dataflow with the desired derived columns added.
+Now the data looks correct and we can finally call `to_dataflow()` on the builder, which will return a data flow with the desired derived columns added.
 
 ```
 dataflow = builder.to_dataflow()
@@ -339,9 +337,9 @@ df
 
 ## Filtering
 
-Data preparation has the ability to filter out columns or rows using `Dataflow.drop_columns` or `Dataflow.filter`.
+The SDK includes the methods `Dataflow.drop_columns` and `Dataflow.filter` to let you filter out columns or rows.
 
-### Initial set-up
+### Initial setup
 ```
 import azureml.dataprep as dprep
 from datetime import datetime
@@ -377,7 +375,7 @@ dataflow.head(5)
 |4|2013-08-01 10:38:35|2013-08-01 10:38:51|0|0|0|0|1|.00|0|0|3.25|
 
 #### Filtering columns with regex
-Alternatively, a ColumnSelector can be used to drop columns that match a regex expression. In this example, we drop all the columns that match the expression `Column*|.*longitude|.*latitude`.
+Alternatively, you can use the `ColumnSelector` expression to drop columns that match a regex expression. In this example, we drop all the columns that match the expression `Column*|.*longitude|.*latitude`.
 
 ```
 dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
@@ -393,13 +391,13 @@ dataflow.head(5)
 
 ## Filtering rows
 
-To filter rows, use `DataFlow.filter`. This method takes an Expression as an argument, and returns a new dataflow with the rows in which the expression evaluates to True. Expressions are built using expression builders (`col`, `f_not`, `f_and`, `f_or`) and regular operators (>, <, >=, <=, ==, !=).
+To filter rows, use `DataFlow.filter`. This method takes an Azure Machine Learning Data Prep SDK expression as an argument, and returns a new data flow with the rows that the expression evaluates as True. Expressions are built using expression builders (`col`, `f_not`, `f_and`, `f_or`) and regular operators (>, <, >=, <=, ==, !=).
 
-### Filtering rows with simple expressions
+### Filtering rows with simple Expressions
 
-Use the expression builder col, specifying the column name as a string argument `col('column_name')` and in combination with one of the following standard operators >, <, >=, <=, ==, !=, build an expression such as `col('Tip_amount') > 0`. Finally, pass the built expression into the `Dataflow.filter` function.
+Use the expression builder `col`, specify the column name as a string argument `col('column_name')` and, in combination with one of the following standard operators >, <, >=, <=, ==, !=, build an expression such as `col('Tip_amount') > 0`. Finally, pass the built expression into the `Dataflow.filter` function.
 
-In this example, `dataflow.filter(col('Tip_amount') > 0)` returns a new dataflow with the rows in which the value of `Tip_amount` is greater than 0.
+In this example, `dataflow.filter(col('Tip_amount') > 0)` returns a new data flow with the rows in which the value of `Tip_amount` is greater than 0.
 
 > [!NOTE] 
 > `Tip_amount` is first converted to numeric, which allows us to build an expression comparing it against other numeric values.
@@ -419,9 +417,9 @@ dataflow.head(5)
 
 ### Filtering rows with complex expressions
 
-To filter using complex expressions, combine one or more simple expressions with the expression builders `f_not`, `f_and`, `f_or`.
+To filter using complex expressions, combine one or more simple expressions with the expression builders `f_not`, `f_and`, or `f_or`.
 
-In this example, `Dataflow.filter` returns a new dataflow with the rows in which `Passenger_count` is less than 5 and `Tolls_amount` is greater than 0.
+In this example, `Dataflow.filter` returns a new data flow with the rows where `'Passenger_count'` is less than 5 and `'Tolls_amount'` is greater than 0.
 
 ```
 dataflow = dataflow.to_number(['Passenger_count', 'Tolls_amount'])
@@ -466,17 +464,17 @@ dataflow.head(5)
 
 ## Custom Python transforms 
 
-There will be scenarios when the easiest thing for you to do is just to write some Python code. This SDK provides three extension points that you can use:
+There will be scenarios when the easiest thing for you to do is to write some Python code. The SDK provides three extension points that you can use.
 
-- New Script Column
-- New Script Filter
-- Transform Partition
+- New script column
+- New script filter
+- Transform partition
 
-Each of the extensions is supported in both the scale-up and the scale-out runtime. A key advantage of using these extension points is that you don't need to pull all of the data in order to create a dataframe. Your custom Python code will be run just like other transforms, at scale, by partition, and typically in parallel.
+Each of the extensions is supported in both the scale-up and scale-out runtime. A key advantage of using these extension points is that you don't need to pull all of the data in order to create a data frame. Your custom Python code will run just like other transforms, at scale, by partition, and typically in parallel.
 
 ### Initial data preparation
 
-We start by loading some data from Azure Blob.
+Start by loading some data from Azure Blob.
 
 ```
 import azureml.dataprep as dprep
@@ -493,7 +491,7 @@ df.head(5)
 |3|ALABAMA|1|101710|Hale County|10171000588|2|
 |4|ALABAMA|1|101710|Hale County|10171000589| |
 
-We trim down the dataset and do some basic transforms.
+Trim down the dataset and do some basic transforms.
 
 ```
 df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
@@ -509,7 +507,7 @@ df.head(5)
 |3|ALABAMA|Hale County|1.017100e+10|2|
 |4|ALABAMA|Hale County|1.017100e+10|None|
 
-We look for null values using a filter. We found some, so now we'll look at a way to fill these missing values.
+Look for null values using a filter. You will find some, so now fill these missing values.
 
 ```
 df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
@@ -525,7 +523,7 @@ df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 
 ### Transform partition
 
-We want to replace all null values with a 0, so we decide to use a handy pandas function. This code will be run by partition, not on all of the dataset at a time. It means that on a large dataset, this code may run in parallel as the runtime processes the data partition by partition.
+You can use a handy pandas function to replace all null values with a 0. This code will be run by partition, not on all of the dataset at a time. It means that on a large dataset, this code may run in parallel as the runtime processes the data, partition by partition.
 
 ```
 df = df.transform_partition("""
@@ -546,7 +544,7 @@ h
 
 ### New script column
 
-We want to create a new column that has the county name and the state name. We also want the state name to be title cased. We can do this using Python code by using the `new_script_column()` method on the dataflow.
+You can use Python code to create a new column that has the county name and the state name, and also to capitalize the state name. To do this, use the `new_script_column()` method on the data flow.
 
 ```
 df = df.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
@@ -565,7 +563,7 @@ h
 |4|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 ### New Script Filter
 
-Now we want to filter the dataset down to only rows where 'Hale' is not in the new `county_state` column. We can build a Python expression that returns `True` if we want to keep the row, and `False` to drop the row.
+Now, build a Python expression to filter the dataset to only rows where 'Hale' is not in the new `county_state` column. The expression returns `True` if we want to keep the row, and `False` to drop the row.
 
 ```
 df = df.new_script_filter("""
