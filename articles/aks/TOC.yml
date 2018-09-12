@@ -122,7 +122,7 @@
   - name: DevOps
     items:
     - name: Use Ansible to create AKS clusters
-      href: /azure/ansible/ansible-create-configure-aks.md
+      href: /azure/ansible/ansible-create-configure-aks
       maintainContext: true
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
