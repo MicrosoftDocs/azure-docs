@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # What is Azure Maps?
 
-Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps, searching points of interest, routes to points of interests, traffic conditions, time zones, and finding a location from an IP address. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. In addition to its REST APIs, a full web-based JavaScript SDK is provided to make development easy, flexible, and portable across multiple mediums.
+Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps, searching points of interest, routes to points of interests, traffic conditions, time zones, and finding a location from an IP address. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. In addition to its REST APIs, the web-based [JavaScript map control](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control) is provided to make development easy, flexible, and portable across multiple mediums.
 
 The following video explains Azure Maps in depth:
 
@@ -93,7 +93,7 @@ For information on the REST APIs for IP to Location service, visit the [Azure Ma
 
 Azure Maps is built for mobility and can power cross-platform applications. It uses a programming model that is language agnostic and supports JSON output through [REST APIs](https://docs.microsoft.com/rest/api/maps/).
 
-Additionally, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) with a simple programming model for quick and easy development of both web and mobile applications.
+Additionally, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control) with a simple programming model for quick and easy development of both web and mobile applications.
 
 ## Usage
 
