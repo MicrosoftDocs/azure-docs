@@ -9,7 +9,7 @@ ms.custom: security, managed instance
 ms.topic: conceptual
 ms.date: 09/23/2018
 ms.author: ronmat
-ms.reviewer: carlrab
+ms.reviewer: vanto
 
 ---
 # Azure SQL Database Managed Instance Threat Detection

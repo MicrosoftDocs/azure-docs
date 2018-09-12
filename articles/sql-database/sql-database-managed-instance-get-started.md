@@ -24,7 +24,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Prepare network environment
 
-SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create the Managed Instance, this quickstart creates the following network resources:
+SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create the Managed Instance, this quickstart creates the following network resources:  
     - A Managed Instance subnet for the Managed Instance itself.
     - A user-defined route in the Managed Instance subnet that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
     - A default subnet for client connectivity to the Managed Instance
