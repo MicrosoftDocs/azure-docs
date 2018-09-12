@@ -14,7 +14,7 @@ ms.author: saneppal
 
 # Collaborate on your knowledge base
 
-QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 Perform the following steps to share your QnA Maker service with someone:
 

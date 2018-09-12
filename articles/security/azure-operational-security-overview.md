@@ -66,7 +66,7 @@ Azure AD also includes a full suite of [identity management capabilities](https:
 With Azure Active Directory, all applications that you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
 
 ## Azure Security Center
-[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) helps you prevent, detect, and respond to threats with increased visibility into (and control over) the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions. It helps detect threats that might otherwise go unnoticed, and it works with a broad ecosystem of security solutions.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helps you prevent, detect, and respond to threats with increased visibility into (and control over) the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions. It helps detect threats that might otherwise go unnoticed, and it works with a broad ecosystem of security solutions.
 
 [Safeguard virtual machine (VM) data](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) in Azure by providing visibility into your virtual machine’s security settings and monitoring for threats. Security Center can monitor your virtual machines for:
 
