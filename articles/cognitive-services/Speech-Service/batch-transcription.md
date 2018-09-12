@@ -94,7 +94,7 @@ After you obtain the token, you must specify the SAS URI pointing to the audio f
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
+            private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "cris.ai";
             private const int Port = 443;
     
@@ -163,7 +163,7 @@ After you obtain the token, you must specify the SAS URI pointing to the audio f
 ```
 
 > [!NOTE]
-> In the preceding code, the subscription key is from the Speech(Preview) resource that you create on the Azure portal. Keys obtained from the Custom Speech Service resource do not work.
+> In the preceding code, the subscription key is from the Speech resource that you create on the Azure portal. Keys obtained from the Custom Speech Service resource do not work.
 
 Notice the asynchronous setup for posting audio and receiving transcription status. The client created is a .NET Http client. There is a `PostTranscriptions` method for sending the audio file details, and a `GetTranscriptions` method to receive the results. `PostTranscriptions` returns a handle, and  `GetTranscriptions` uses this handle to create a handle to obtain the transcription status.
 
