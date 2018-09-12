@@ -62,9 +62,12 @@ The following versions of the Windows and Linux operating systems are officially
 |Cent OS Linux 7, 6 | X | X| X |  
 |SLES 12 | X | X | X |  
 |SLES 11 | X | X | X |  
-|Oracle Linux 7 | X | | X |  
+|Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
-|Debian 9.4, 8 | X | | X | 
+|Debian 9.4, 8 | X<sup>1</sup> | | X | 
+
+<sup>1</sup> 
+The Performance feature of VM Insights is only available from Azure Monitor, it is not available when you access VM Insights from the left-hand pane of the Azure VM directly.  
 
 ### Hybrid environment connected sources
 VM Insights Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
