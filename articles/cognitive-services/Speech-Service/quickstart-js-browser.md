@@ -104,4 +104,3 @@ Look for this sample in the `quickstart/js-browser` folder.
 ## Next steps
 
 * [Get our samples](speech-sdk.md#get-the-samples)
-
