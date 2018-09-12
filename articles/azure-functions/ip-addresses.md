@@ -4,13 +4,10 @@ description: Learn how to find inbound and outbound IP addresses for function ap
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
 ---

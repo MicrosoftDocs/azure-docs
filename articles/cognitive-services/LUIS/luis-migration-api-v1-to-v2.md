@@ -1,6 +1,6 @@
 ---
-title: API Migrate guide from v1 to v2 | Microsoft Docs
-titleSuffix: Azure
+title: API Migration guide from v1 to v2 
+titleSuffix: Azure Cognitive Services
 description: Learn how to migration to the latest API set.
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
 ---
 

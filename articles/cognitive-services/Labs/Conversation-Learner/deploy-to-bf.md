@@ -91,7 +91,7 @@ Publish your Conversation Learner bot similar to the same way you would publish 
 
 Once the bot is deployed and running you can connect different channels to it such as Facebook, Teams, Skype etc using an Azure Bot Channel Registration. For documentation on that process see: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
 
-Below are step-by-step instructions for deploying a Conversation Learner Bot to Azure.  These instructions assume that your bot source is available from a cloud-based source such as VSTS, GitHub, BitBucket, or OneDrive, and will configure your bot for continuous deployment.
+Below are step-by-step instructions for deploying a Conversation Learner Bot to Azure.  These instructions assume that your bot source is available from a cloud-based source such as Azure DevOps Services, GitHub, BitBucket, or OneDrive, and will configure your bot for continuous deployment.
 
 1. Log into the Azure portal at https://portal.azure.com
 

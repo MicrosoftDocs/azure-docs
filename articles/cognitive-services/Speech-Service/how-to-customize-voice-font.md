@@ -25,13 +25,11 @@ You also need an Azure account and a subscription to the Speech service. [Create
 
 1. Log on to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account you used to apply for access.
 
-2. Go to ‘Subscriptions’ under your account name on the top right.
+2. Go to ‘All Subscriptions’ under your account name on the top right.
 
     ![Subscriptions](media/custom-voice/subscriptions.png)
 
 3. On the ‘Subscriptions’ page, choose ‘Connect existing subscription’.
-
-     ![Connect existing subscription](media/custom-voice/connect-existing-sub.png)
 
 4. Paste your subscription key into the table, as shown below. Each subscription has two keys and you may use either of them.
 
@@ -116,7 +114,7 @@ After preparing your audio file archive and transcripts, upload them via the [Cu
 > [!NOTE]
 > Free subscription users can upload two datasets at a time. Standard subscription users can upload five datasets simultaneously. If you reach the limit, wait until at least one of your datasets finishes importing, then try again.
 
-When the upload is complete, the My Voice Data table appears again. You should see an entry that corresponds to your just-uploaded dataset. 
+When the upload is complete, the My Voice Data table appears again. You should see an entry that corresponds to your just-uploaded dataset.
 
 Datasets are automatically validated after upload. Data validation includes a series of checks on the audio files to verify their file format, size, and sampling rate. Checks on the transcription files verify the file format and perform some text normalization. The utterances are transcribed using speech recognition, and the resulting text is compared with the transcript you provided.
 
@@ -183,17 +181,11 @@ Training time varies depending on the volume of audio data processed. Typical ti
 
 ## Test your voice font
 
-Once your voice font is successfully built, you can test it before deploying it for use. Click **Test** in the Operations column. The test page appears for the selected voice font. The table is empty if you haven’t yet submitted any test requests for the voice.
-
-![My Voice Fonts, part 2](media/custom-voice/my-voice-fonts2.png)
+Once your voice font is successfully built, you can test it before deploying it for use. Click **Test** in the Operations column of the My Voice Fonts table. The test page appears for the selected voice font. The table is empty if you haven’t yet submitted any test requests for the voice.
 
 Click **Test with text** button under the table title to display a pop-up menu for submitting text requests. You can submit your test request in either plain text or SSML. The maximum input size is 1,024 characters, including all tags for SSML request. The language of your text must be the same as the language of your voice font.
 
-![Voice Font Testing](media/custom-voice/voice-font-testing.png)
-
 After filling in the text box and confirming the input mode, click **Yes** to submit your test request and return to the test page. The table now includes an entry that corresponds to your new request, and the now-familiar status column. It can take a few minutes to synthesize speech. When the status column reads Succeeded, you can download the text input (a `.txt` file) and audio output (a `.wav` file) and audition the latter for quality.
-
-![Voice Font Testing, part 2](media/custom-voice/voice-font-testing2.png)
 
 ## Create and use a custom endpoint
 

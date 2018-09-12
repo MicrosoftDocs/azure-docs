@@ -10,20 +10,20 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 # Tutorial: Configure an Azure web application to read a secret from Key Vault
 
-In this tutorial, you go over the necessary steps for getting an Azure web application to read information from Key vault using managed service identities. You learn how to:
+In this tutorial, you go over the necessary steps for getting an Azure web application to read information from Key vault using managed identities for Azure resources. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Key Vault.
 > * Store a secret in Key Vault.
-> * Create an Azure Web Application.
-> * Enable managed service identities
+> * Create an Azure web Application.
+> * Enable a managed identity for the web application.
 > * Grant the required permissions for the application to read data from Key vault.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -214,9 +214,9 @@ There are two NuGet packages that your web application needs to have installed. 
 >[!IMPORTANT]
 > A browser window opens and you will see a 502.5 - Process Failure message. This is expected. You will need to grant the application identity rights to read secrets from Key Vault.
 
-## Enable Managed Service Identity
+## Enable a managed identity for the web app
 
-Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) makes solving this problem simpler, by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 1. Return to the Azure CLI
 2. Run the assign-identity command to create the identity for this application:
@@ -226,7 +226,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->This command is the equivalent of going to the portal and switching **Managed service identity** to **On** in the web application properties.
+>This command is the equivalent of going to the portal and switching the **Identity / System assigned** setting to **On** in the web application properties.
 
 ## Grant rights to the application identity
 
