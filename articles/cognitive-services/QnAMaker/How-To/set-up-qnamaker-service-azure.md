@@ -3,12 +3,12 @@ title: Setup a QnA Maker service - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service. 
 services: cognitive-services
-author: nitinme
+author: nstulasi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
 ---
 # Create a QnA Maker service

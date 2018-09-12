@@ -3,12 +3,12 @@ title: Resource and key management - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Your QnA Maker service deals with two kinds of keys, subscription keys and endpoint keys.
 services: cognitive-services
-author: nitinme
+author: nstulasi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
 ---
 
