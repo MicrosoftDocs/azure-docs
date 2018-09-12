@@ -3,7 +3,7 @@ title: VMware to Azure replication architecture in Azure Site Recovery | Microso
 description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs to Azure with Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 08/29/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ---
 
@@ -31,16 +31,23 @@ The following table and graphic provide a high-level view of the components used
 
 ## Replication process
 
-1. When you enable replication for a VM, it begins to replicate in accordance with the replication policy. 
+1. When you enable replication for a VM, initial replication to Azure storage begins, using the specified replication policy. Note the following:
+    - For VMware VMs, replication is block-level, near-continuous, using the Mobility service agent running on the VM.
+    - Any replication policy settings are applied:
+        - **RPO threshold**. This setting does not affect replication. It helps with monitoring. An event is raised, and optionally an email sent, if the current RPO exceeds the threshold limit that you specify.
+        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention on premium storage is 24 hours. On standard storage it's 72 hours. 
+        - **App-consistent snapshots**. App-consistent snapshot can be take every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
+
 2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
-3. An initial copy of the VM data is replicated to Azure storage.
-4. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
-5. Communication happens as follows:
+3. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
+4. Communication happens as follows:
 
     - VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
     - The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
+
+
 
 
 **VMware to Azure replication process**
