@@ -1,15 +1,13 @@
-﻿---
+---
 title: Requirements for Azure Import/Export service | Microsoft Docs
 description: Understand the software and hardware requirements for Azure Import/Export service.
 author: alkohli
-manager: jeconnoc
 services: storage
-
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-
+ms.component: common
 ---
 # Azure Import/Export system requirements
 

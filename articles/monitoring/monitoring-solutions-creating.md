@@ -74,7 +74,7 @@ While you are developing your solution, you will need to install and test it in 
 Once you have completed and tested your solution, you can make it available to customers through either the following sources.
 
 - **Azure Quickstart templates**.  [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) is a set of Resource Manager templates contributed by the community through GitHub.  You can make your solution available by following information in the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
-- **Azure Marketplace**.  The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) allows you to distribute and sell your solution to other developers, ISVs, and IT professionals.  You can learn how to publish your solution to Azure Marketplace at [How to publish and manage an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+- **Azure Marketplace**.  The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) allows you to distribute and sell your solution to other developers, ISVs, and IT professionals.  You can learn how to publish your solution to Azure Marketplace at [How to publish and manage an offer in the Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
 
 
 

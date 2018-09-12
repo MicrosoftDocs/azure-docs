@@ -4,22 +4,18 @@ description: Azure CLI Script Sample - Create an Azure Function that connects to
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: 
-tags: functions
+manager: jeconnoc
 ms.assetid: 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: 
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ---
 # Create a function app that connects to an Azure Storage account
 
-This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [[storage trigger or binding](..\functions-bindings-storage-blob.md). 
+This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [storage trigger or binding](..\functions-bindings-storage-blob.md). 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

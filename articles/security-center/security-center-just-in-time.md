@@ -3,18 +3,18 @@ title: Just in time virtual machine access in Azure Security Center | Microsoft 
 description: This document demonstrates how just in time VM access in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid:
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
+ms.date: 08/05/2018
+ms.author: rkarlin
 
 ---
 # Manage virtual machine access using just in time
@@ -164,10 +164,9 @@ You can download the log information by selecting **Click here to download all t
 
 Modify the filters and select **Apply** to create a search and log.
 
-## Using just in time VM access via PowerShell
+## Using just in time VM access via REST APIs
 
-In order to use the just in time solution via PowerShell, make sure you have the [latest](/powershell/azure/install-azurerm-ps) Azure PowerShell version.
-Once you do, you need to install the [latest](https://aka.ms/asc-psgallery) Azure Security Center from the PowerShell gallery.
+The just in time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. See [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), to learn more about the just in time REST API.
 
 ### Configuring a just in time policy for a VM
 

@@ -19,12 +19,12 @@ ms.custom: H1Hack27Feb2017, mvc
 ---
 
 # Azure and Linux
-Microsoft Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web&mdash;ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on-premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
+Microsoft Azure is a growing collection of integrated public cloud services including analytics, virtual machines, databases, mobile, networking, storage, and web&mdash;ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on-premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
 
 If you are familiar with the various features of Amazon's AWS, you can examine the Azure vs AWS [definition mapping document](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
 ## Regions
-Microsoft Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area. Azure currently (as of November 2017) has 36 regions generally available around the world with an additional 6 regions announced. An updated list of existing and newly announced regions can be found in the following page:
+Microsoft Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area. Azure currently (as of August 2018) has 42 regions generally available around the world with an additional 12 regions announced - more global regions than any other cloud provider. An updated list of existing and newly announced regions can be found in the following page:
 
 * [Azure Regions](https://azure.microsoft.com/regions/)
 

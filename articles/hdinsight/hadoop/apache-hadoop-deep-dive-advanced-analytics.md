@@ -1,17 +1,13 @@
 ---
-title: Deep dive - advanced analytics - Azure HDInsight | Microsoft Docs
+title: Deep dive - advanced analytics - Azure HDInsight 
 description: Learn how advanced analytics uses algorithms to process big data.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ---

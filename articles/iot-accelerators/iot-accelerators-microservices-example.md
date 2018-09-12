@@ -1,9 +1,8 @@
 ---
 title: Change and redeploy a microservice | Microsoft Docs
 description: This tutorial shows you how to change and redeploy a microservice in Remote Monitoring
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
@@ -184,7 +183,7 @@ In this tutorial, you saw how to:
 > * Pull the new docker image
 > * Visualize the changes 
 
-The next thing to try is [customizing the device simulator microservice in the Remote Monitoring solution](iot-accelerators-remote-monitoring-test.md)
+The next thing to try is [customizing the device simulator microservice in the Remote Monitoring solution](iot-accelerators-microservices-example.md)
 
 For more developer information about the Remote Monitoring solution, see:
 

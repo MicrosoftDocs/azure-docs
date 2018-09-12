@@ -1,17 +1,13 @@
 ---
-title: Run custom MapReduce programs - Azure HDInsight | Microsoft Docs
+title: Run custom MapReduce programs - Azure HDInsight 
 description: When and how to run custom MapReduce programs in HDInsight.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
 

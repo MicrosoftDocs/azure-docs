@@ -311,4 +311,8 @@ The following screenshot shows a message similar to what you might receive:
 
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
+<<<<<<< HEAD:articles/virtual-machines/troubleshooting/how-to-use-perfInsights.md
 After you sign in, you will find a dialog box to upload the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.
+=======
+After you sign in, you will find a dialog box to upload the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.
+>>>>>>> ba52403599f5ee1e45089a8e36b86bd210b9dccb:articles/virtual-machines/windows/how-to-use-perfInsights.md

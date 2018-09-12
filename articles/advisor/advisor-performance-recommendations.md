@@ -3,7 +3,7 @@ title: Azure Advisor Performance recommendations | Microsoft Docs
 description: Use Advisor to optimize the performance of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: KumudD
+author: manbeenkohli
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
+ms.author: makohli
 ---
 
 # Advisor Performance recommendations
@@ -48,6 +48,18 @@ Azure Advisor integrates best practices recommendations for improving your App S
 * Detection of instances where collocating resources like web apps and databases can improve performance and lower cost. 
 
 For more information about App Services recommendations, see [Best Practices for Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
+
+## Remove data skew on your SQL data warehouse table to increase query performance
+
+Data skew can cause unnecessary data movement or resource bottlenecks when running your workload. Advisor will detect distribution data skew greater than 15% and recommend that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+
+## Create or update outdated table statistics on your SQL data warehouse table to increase query performance
+
+Advisor identifies tables that do not have up-to-date [table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) and recommends creating or updating table statistics. The SQL data warehouse query optimizer uses up-to-date statics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan for fastest performance.
+
+## Migrate your Storage Account to Azure Resource Manager to get all of the latest Azure features
+
+Migrate your Storage Account deployment model to Azure Resource Manager (ARM) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the ARM deployment model. 
 
 ## How to access Performance recommendations in Advisor
 

@@ -3,8 +3,8 @@ title: Creating an on-premises virtual machine image for the Azure Marketplace |
 description: Understand and execute the steps to create an on-premises VM image and deploy to the Azure Marketplace for others to purchase.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: mbaldwin
+ms.author: hascipio; v-divte
 
 ---
 # Develop an on-premises virtual machine image for the Azure Marketplace
@@ -110,11 +110,11 @@ To create a storage account, you can use the [Microsoft Azure portal](https://po
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### Create a storage account by using PowerShell
-Using PowerShell, create a storage account by using the [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet.
+Using PowerShell, create a storage account by using the [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Then you can create a container within that storage account by using the [NewAzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet.
+Then you can create a container within that storage account by using the [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

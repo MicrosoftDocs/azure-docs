@@ -1,15 +1,9 @@
 ---
 title: Using the HDFS CLI with Azure Data Lake Storage Gen2 Preview
-description:  Introduction to HDFS CLI for Data Lake Storage Gen2 Preview
+description: Introduction to HDFS CLI for Data Lake Storage Gen2 Preview
 services: storage
-documentationcenter: ''
 author: artemuwka
-manager: jahogg
-
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek

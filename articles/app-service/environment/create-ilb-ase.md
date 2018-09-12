@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and use an internal load balancer with an Azure App Service Environment
 description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
@@ -51,19 +51,19 @@ There are some things that you can't do when you use an ILB ASE:
 
 To create an ILB ASE:
 
-1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **App Service Environment**.
+1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
 
-2. Select your subscription.
+1. Select your subscription.
 
-3. Select or create a resource group.
+1. Select or create a resource group.
 
-4. Select or create a VNet.
+1. Select or create a VNet.
 
-5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
+1. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
+1. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
-7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
+1. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
 	* net	
 
@@ -83,7 +83,7 @@ To create an ILB ASE:
 
    If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE because that won't conflict with custom domain names that end in *.contoso.com*.
 
-8. Select **OK**, and then select **Create**.
+1. Select **OK**, and then select **Create**.
 
 	![ASE creation][1]
 
@@ -100,19 +100,19 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web App**.
 
-2. Enter the name of the app.
+1. Enter the name of the app.
 
-3. Select the subscription.
+1. Select the subscription.
 
-4. Select or create a resource group.
+1. Select or create a resource group.
 
-5. Select your OS. 
+1. Select your OS. 
 
 	* If you want to create a Linux app using a custom Docker container, you can just bring your own container using the instructions [here][linuxapp]. 
 
-6. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
+1. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
 
-7. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
+1. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
 
 	![App Service plan creation][2]
 
@@ -151,27 +151,27 @@ To upload your own certificates and test access:
 
 1. After the ASE is created, go to the ASE UI. Select **ASE** > **Settings** > **ILB Certificate**.
 
-2. To set the ILB certificate, select the certificate .pfx file and enter the password. This step takes some time to process. A message appears stating that an upload operation is in progress.
+1. To set the ILB certificate, select the certificate .pfx file and enter the password. This step takes some time to process. A message appears stating that an upload operation is in progress.
 
-3. Get the ILB address for your ASE. Select **ASE** > **Properties** > **Virtual IP Address**.
+1. Get the ILB address for your ASE. Select **ASE** > **Properties** > **Virtual IP Address**.
 
-4. Create a web app in your ASE after the ASE is created.
+1. Create a web app in your ASE after the ASE is created.
 
-5. Create a VM if you don't have one in that VNet.
+1. Create a VM if you don't have one in that VNet.
 
 	> [!NOTE] 
 	> Don't try to create this VM in the same subnet as the ASE because it will fail or cause problems.
 	>
 
-6. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the web app name to the VIP IP address:
+1. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the web app name to the VIP IP address:
 
 	a. If your ASE has the domain name _.ilbase.com_ and you create the web app named _mytestapp_, it's addressed at _mytestapp.ilbase.com_. You then set _mytestapp.ilbase.com_ to resolve to the ILB address. (On Windows, the hosts file is at _C:\Windows\System32\drivers\etc\_.)
 
 	b. To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
 
-7. Use a browser on that VM and go to http://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
+1. Use a browser on that VM and go to http://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
 
-8. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
+1. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
 
 	The IP address for your ILB is listed under **IP addresses**. This list also has the IP addresses used by the external VIP and for inbound management traffic.
 
@@ -204,7 +204,7 @@ The SCM site name takes you to the Kudu console, called the **Advanced portal**,
 
 In the multitenant App Service and in an External ASE, there's single sign-on between the Azure portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console.
 
-Internet-based CI systems, such as GitHub and Visual Studio Team Services, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Visual Studio Team Services, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from VSTS git and deploy to ILB ASE. 
+Internet-based CI systems, such as GitHub and Azure DevOps, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Azure DevOps, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from Azure DevOps git and deploy to ILB ASE. 
 If you don't want to create your own build agent, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the subdomain *contoso.net* and an app named *mytest*, use *mytest.contoso.net* for FTP and *mytest.scm.contoso.net* for web deployment.

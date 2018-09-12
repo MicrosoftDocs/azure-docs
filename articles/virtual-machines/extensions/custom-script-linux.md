@@ -3,7 +3,7 @@ title: Run custom scripts on Linux VMs in Azure | Microsoft Docs
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: danis
+ms.author: roiyz
 
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
@@ -88,7 +88,7 @@ These items should be treated as sensitive data and specified in the extensions 
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":"123456789",          
+      "timestamp":123456789,          
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",

@@ -127,7 +127,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) command in the Cloud Shell.
+Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) command in the Cloud Shell.
 
 In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user credentials are for the database admin user account. 
 
@@ -163,7 +163,9 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 
 ### Create a firewall rule for the PostgreSQL server
 
-In the Cloud Shell, run the following Azure CLI command to allow access to the database from all IP addresses. When both starting IP and end IP are set to `0.0.0.0`, the firewall is opened only for other Azure resources. 
+In the Cloud Shell, run the following Azure CLI command to allow access to the database from all IP addresses. 
+> [!Note]
+> It is not advised to leave all ports open to your database, or to make your database internet-facing.  See other [Azure security articles](https://docs.microsoft.com/azure/security/) to properly secure your new database for production use.  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
@@ -333,7 +335,7 @@ In this step, you create an app in Azure App Service and configure it to use the
 
 ### Create a web app
 
-In the Cloud Shell, create a web app in the *myAppServicePlan* App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command.
+In the Cloud Shell, create a web app in the *myAppServicePlan* App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command.
 
 In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service.
 
@@ -362,7 +364,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 Earlier in the tutorial, you defined environment variables to connect to your PostgreSQL database.
 
-In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
+In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command.
 
 The following example specifies the database connection details as app settings. It also uses the *WEBSITES_PORT* variable to the container port 5000, which allows the container to receive HTTP traffic on port 80.
 
@@ -372,7 +374,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### Configure custom container deployment
 
-Even though you already specified the container image name, you still need to specify the custom registry URL and the user credentials. In the Cloud Shell, run the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command.
+Even though you already specified the container image name, you still need to specify the custom registry URL and the user credentials. In the Cloud Shell, run the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) command.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"

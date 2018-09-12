@@ -8,10 +8,10 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/15/2018
 ---
 # Create and manage Azure Database for PostgreSQL VNet service endpoints and VNet rules by using the Azure portal
-Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for PostgreSQL server. For an overview of Azure Database for PostgreSQL VNet service endpoints, including limitations, see [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in public preview in all supported regions for Azure Database for PostgreSQL.
+Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for PostgreSQL server. For an overview of Azure Database for PostgreSQL VNet service endpoints, including limitations, see [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for PostgreSQL.
 
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.

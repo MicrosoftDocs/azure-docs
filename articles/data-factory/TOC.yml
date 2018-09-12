@@ -27,13 +27,7 @@
     href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: 1 - Provision Azure-SSIS integration runtime
-    items:
-    - name: User interface (UI)
-      href: tutorial-deploy-ssis-packages-azure.md
-    - name: Azure PowerShell
-      href: tutorial-deploy-ssis-packages-azure-powershell.md    
-  - name: 2 - Copy data in cloud
+  - name: Copy data in cloud
     items:
     - name: Copy Data tool
       href: tutorial-copy-data-tool.md
@@ -41,7 +35,7 @@
       href: tutorial-copy-data-portal.md    
     - name: .NET
       href: tutorial-copy-data-dot-net.md
-  - name: 3 - Copy on-premises data to cloud
+  - name: Copy on-premises data to cloud
     items:
     - name: Copy Data tool
       href: tutorial-hybrid-copy-data-tool.md    
@@ -49,34 +43,34 @@
       href: tutorial-hybrid-copy-portal.md          
     - name: Azure PowerShell
       href: tutorial-hybrid-copy-powershell.md
-  - name: 4 - Copy data in bulk
+  - name: Copy data in bulk
     items:
     - name: User interface (UI)
       href: tutorial-bulk-copy-portal.md    
     - name: Azure PowerShell
       href: tutorial-bulk-copy.md
-  - name: 5 - Copy data incrementally
+  - name: Copy data incrementally
     href: tutorial-incremental-copy-overview.md
     items:
-    - name: 5.1 - Copy from one table
+    - name: 1 - Copy from one table
       items: 
       - name: User interface (UI)
         href: tutorial-incremental-copy-portal.md      
       - name: Azure PowerShell
         href: tutorial-incremental-copy-powershell.md
-    - name: 5.2 - Copy from multiple tables 
+    - name: 2 - Copy from multiple tables 
       items:
       - name: User interface (UI)
         href: tutorial-incremental-copy-multiple-tables-portal.md     
       - name: Azure PowerShell
         href: tutorial-incremental-copy-multiple-tables-powershell.md
-    - name: 5.3 - Use change tracking feature 
+    - name: 3 - Use change tracking feature 
       items:
       - name: User interface (UI)
         href: tutorial-incremental-copy-change-tracking-feature-portal.md      
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
-  - name: 6 - Transform data in cloud
+  - name: Transform data in cloud
     items:
     - name: HDInsight Spark
       items: 
@@ -88,18 +82,24 @@
       items:
       - name: User interface (UI)
         href: transform-data-using-databricks-notebook.md
-  - name: 7 - Transform data in virtual network
+  - name: Transform data in virtual network
     items: 
     - name: User interface (UI)
       href: tutorial-transform-data-hive-virtual-network-portal.md          
     - name: Azure PowerShell
       href: tutorial-transform-data-hive-virtual-network.md       
-  - name: 8 - Control flow
+  - name: Add branching and chaining
     items:
     - name: User interface (UI)
       href: tutorial-control-flow-portal.md    
     - name: .NET
       href: tutorial-control-flow.md    
+  - name: Run SSIS packages in Azure
+    items:
+    - name: User interface (UI)
+      href: tutorial-deploy-ssis-packages-azure.md
+    - name: Azure PowerShell
+      href: tutorial-deploy-ssis-packages-azure-powershell.md    
 - name: Samples
   items:
   - name: Code samples
@@ -180,6 +180,8 @@
       href: connector-ftp.md
     - name: GE Historian
       href: connector-odbc.md#ge-historian-source
+    - name: Google AdWords
+      href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
     - name: Greenplum
@@ -224,6 +226,8 @@
       href: connector-oracle-eloqua.md
     - name: Oracle Responsys
       href: connector-oracle-responsys.md
+    - name: Oracle Service Cloud
+      href: connector-oracle-service-cloud.md
     - name: Paypal
       href: connector-paypal.md
     - name: Phoenix
@@ -369,8 +373,6 @@
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
-    - name: Monitor with OMS
-      href: data-factory-monitor-oms.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime
@@ -409,6 +411,8 @@
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Configure disaster recovery for Azure-SSIS IR
       href: configure-bcdr-azure-ssis-integration-runtime.md
+    - name: Clean up SSISDB logs with Elastic Database Jobs
+      href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger

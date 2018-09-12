@@ -4,16 +4,12 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: fafc10c0-84da-4404-b4fa-eea03c7bf2b1
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
@@ -121,7 +117,8 @@ The webhook is now called when a resource group is created in your subscription.
     
         // Return an error if the resource in the activity log isn't a resource group. 
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
-            "Microsoft.Resources/subscriptions/resourcegroups"))
+            "Microsoft.Resources/subscriptions/resourceGroups", 
+            System.StringComparison.OrdinalIgnoreCase))
         {
             log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new

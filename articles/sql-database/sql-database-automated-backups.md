@@ -21,7 +21,7 @@ SQL Database automatically creates database backups and uses Azure read-access g
 
 ## What is a SQL Database backup?
 
-SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](http://msdn.microsoft.com/library/ms175526.aspx), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups for the purposes of Point-in-time restore (PITR). The transaction log backups generally occur every 5 - 10 minutes and differential backups generally occur every 12 hours, with the frequency based on the performance level and amount of database activity. Transaction log backups, with full and differential backups, allow you to restore a database to a specific point-in-time to the same server that hosts the database. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
+SQL Database uses SQL Server technology to create [full](https://msdn.microsoft.com/library/ms186289.aspx), [differential](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), and [transaction log](https://msdn.microsoft.com/library/ms191429.aspx) backups for the purposes of Point-in-time restore (PITR). The transaction log backups generally occur every 5 - 10 minutes and differential backups generally occur every 12 hours, with the frequency based on the performance level and amount of database activity. Transaction log backups, with full and differential backups, allow you to restore a database to a specific point-in-time to the same server that hosts the database. The backups are stored in RA-GRS storage blobs that are replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. When you restore a database, the service figures out which full, differential, and transaction log backups need to be restored.
 
 
 You can use these backups to:
@@ -46,12 +46,14 @@ If you need to keep the backups for longer than the maximum PITR retention perio
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL databases, all elastic pools and databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR will not be deleted and these databases can be restored.
 
-### PITR Retention for DTU-based service tiers
+### PITR retention period
 The default retention period for a database created using the DTU-based purchasing model depends on the service tier:
 
 * Basic service tier is 1 week.
 * Standard service tier is 5 weeks.
 * Premium service tier is 5 weeks.
+
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days. 
 
 If you reduce the current PITR retention period, all existing backups older than the new retention period will no longer be available. 
 

@@ -4,14 +4,11 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777  
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.custom: vs-azure
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: glenga
 ---
@@ -46,7 +43,7 @@ To create and deploy functions, you also need:
 
 * An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
 
-* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 ### Check your tools version
 
@@ -193,7 +190,7 @@ You can also manage application settings in one of these other ways:
 
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 
 ## Next steps
 

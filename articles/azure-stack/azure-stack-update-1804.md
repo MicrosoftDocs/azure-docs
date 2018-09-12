@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -77,7 +77,10 @@ The following are now available, but don't require Azure Stack update 1804.
 ## Before you begin    
 
 ### Prerequisites
-- Install the Azure Stack [1803 Update](azure-stack-update-1803.md) before you apply the Azure Stack 1804 update.    
+- Install the Azure Stack [1803 Update](azure-stack-update-1803.md) before you apply the Azure Stack 1804 update.  
+  
+- Install the latest available [update or hotfix for version 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### Known issues with the update process   
 - During installation of the 1804 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1804 completes.   

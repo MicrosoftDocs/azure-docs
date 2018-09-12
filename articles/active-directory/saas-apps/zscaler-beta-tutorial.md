@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Zscaler Beta from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Zscaler Beta from the gallery
 To configure the integration of Zscaler Beta into Azure AD, you need to add Zscaler Beta from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of Zscaler Beta into Azure AD, you need to add Zsca
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **Zscaler Beta**.
+1. In the search box, type **Zscaler Beta**.
 
 	![Creating an Azure AD test user](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_search.png)
 
-5. In the results panel, select **Zscaler Beta**, and then click **Add** button to add the application.
+1. In the results panel, select **Zscaler Beta**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_addfromgallery.png)
 
@@ -86,11 +86,11 @@ In Zscaler Beta, assign the value of the **user name** in Azure AD as the value 
 To configure and test Azure AD single sign-on with Zscaler Beta, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configuring proxy settings](#configuring-proxy-settings)** - to configure the proxy settings in Internet Explorer
-3. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Zscaler Beta test user](#creating-a-zscaler-beta-test-user)** - to have a counterpart of Britta Simon in Zscaler Beta that is linked to the Azure AD representation of user.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configuring proxy settings](#configuring-proxy-settings)** - to configure the proxy settings in Internet Explorer
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a Zscaler Beta test user](#creating-a-zscaler-beta-test-user)** - to have a counterpart of Britta Simon in Zscaler Beta that is linked to the Azure AD representation of user.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -102,11 +102,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_samlbase.png)
 
-3. On the **Zscaler Beta Domain and URLs** section, perform the following steps:
+1. On the **Zscaler Beta Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_url.png)
 
@@ -115,29 +115,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> You have to update this value with the actual Sign-On URL. Contact [Zscaler Beta Client support team](https://www.zscaler.com/company/contact) to get this value. 
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_general_400.png)
 
-6. On the **Zscaler Beta Configuration** section, click **Configure Zscaler Beta** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Zscaler Beta Configuration** section, click **Configure Zscaler Beta** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_configure.png) 
 
-7. In a different web browser window, log in to your Zscaler Beta company site as an administrator.
+1. In a different web browser window, log in to your Zscaler Beta company site as an administrator.
 
-8. In the menu on the top, click **Administration**.
+1. In the menu on the top, click **Administration**.
    
 	![Administration](./media/zscaler-beta-tutorial/ic800206.png "Administration")
 
-9. Under **Manage Administrators & Roles**, click **Manage Users & Authentication**.   
+1. Under **Manage Administrators & Roles**, click **Manage Users & Authentication**.   
    			
 	![Manage Users & Authentication](./media/zscaler-beta-tutorial/ic800207.png "Manage Users & Authentication")
 
-10. In the **Choose Authentication Options for your Organization** section, perform the following steps:   
+1. In the **Choose Authentication Options for your Organization** section, perform the following steps:   
    				
 	![Authentication](./media/zscaler-beta-tutorial/ic800208.png "Authentication")
    
@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. Click **Configure SAML Single Sign-On Parameters**.
 
-11. On the **Configure SAML Single Sign-On Parameters** dialog page, perform the following steps, and then click **Done**
+1. On the **Configure SAML Single Sign-On Parameters** dialog page, perform the following steps, and then click **Done**
 
 	![Single Sign-On](./media/zscaler-beta-tutorial/ic800209.png "Single Sign-On")
 	
@@ -157,7 +157,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Select **Enable SAML Auto-Provisioning**.
 
-12. On the **Configure User Authentication** dialog page, perform the following steps:
+1. On the **Configure User Authentication** dialog page, perform the following steps:
 
     ![Administration](./media/zscaler-beta-tutorial/ic800210.png "Administration")
     
@@ -170,17 +170,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Start **Internet Explorer**.
 
-2. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.   
+1. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.   
   	
 	 ![Internet Options](./media/zscaler-beta-tutorial/ic769492.png "Internet Options")
 
-3. Click the **Connections** tab.   
+1. Click the **Connections** tab.   
   
 	 ![Connections](./media/zscaler-beta-tutorial/ic769493.png "Connections")
 
-4. Click **LAN settings** to open the **LAN Settings** dialog.
+1. Click **LAN settings** to open the **LAN Settings** dialog.
 
-5. In the Proxy server section, perform the following steps:   
+1. In the Proxy server section, perform the following steps:   
    
 	![Proxy server](./media/zscaler-beta-tutorial/ic769494.png "Proxy server")
 
@@ -194,7 +194,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Click **OK** to close the **Local Area Network (LAN) Settings** dialog.
 
-6. Click **OK** to close the **Internet Options** dialog.
+1. Click **OK** to close the **Internet Options** dialog.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -211,15 +211,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/zscaler-beta-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Creating an Azure AD test user](./media/zscaler-beta-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Creating an Azure AD test user](./media/zscaler-beta-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/zscaler-beta-tutorial/create_aaduser_04.png) 
 
@@ -239,19 +239,19 @@ To enable Azure AD users to log in to Zscaler Beta, they must be provisioned to 
 
 1. Log in to your **Zscaler Beta** tenant.
 
-2. Click **Administration**.   
+1. Click **Administration**.   
    
 	![Administration](./media/zscaler-beta-tutorial/ic781035.png "Administration")
 
-3. Click **User Management**.   
+1. Click **User Management**.   
   		
 	 ![Add](./media/zscaler-beta-tutorial/ic781036.png "Add")
 
-4. In the **Users** tab, click **Add**.
+1. In the **Users** tab, click **Add**.
       
 	![Add](./media/zscaler-beta-tutorial/ic781037.png "Add")
 
-5. In the Add User section, perform the following steps:
+1. In the Add User section, perform the following steps:
    	   	
 	![Add User](./media/zscaler-beta-tutorial/ic781038.png "Add User")
    
@@ -274,23 +274,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Zscaler Beta**.
+1. In the applications list, select **Zscaler Beta**.
 
 	![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 

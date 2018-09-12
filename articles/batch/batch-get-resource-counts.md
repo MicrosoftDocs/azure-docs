@@ -7,13 +7,13 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/07/2018
 ms.author: danlep
 
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
 
-To monitor and manage large-scale Azure Batch solutions, you need accurate counts of resources in various states. Azure Batch provides efficient operations to get these counts for Batch *tasks* and *compute nodes*. Use these operations instead of potentially time-consuming API calls to return detailed information about large collections of tasks or nodes.
+To monitor and manage large-scale Azure Batch solutions, you need accurate counts of resources in various states. Azure Batch provides efficient operations to get these counts for Batch *tasks* and *compute nodes*. Use these operations instead of potentially time-consuming list queries that return detailed information about large collections of tasks or nodes.
 
 * [Get Task Counts][rest_get_task_counts] gets an aggregate count of active, running, and completed tasks in a job, and of tasks that succeeded or failed. 
 
@@ -46,19 +46,13 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 You can use a similar pattern for REST and other supported languages to get task counts for a job. 
- 
 
-### Consistency checking for task counts
-
-Batch provides additional validation for task state counts by performing consistency checks against multiple components of the system. In the unlikely event that the consistency check finds errors, Batch corrects the result of the Get Tasks Counts operation based on the results of the consistency check.
-
-The `validationStatus` property in the response indicates whether Batch performed the consistency check. If Batch hasn't checked state counts against the actual states held in the system, then the `validationStatus` property is set to `unvalidated`. For performance reasons, Batch doesn't perform the consistency check if the job includes more than 200,000 tasks, so the `validationStatus` property is set to `unvalidated` in this case. (The task count is not necessarily wrong in this case, as even a limited data loss is unlikely.) 
-
-When a task changes state, the aggregation pipeline processes the change within a few seconds. The Get Task Counts operation reflects the updated task counts within that period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
+> [!NOTE]
+> Batch Service API versions before 2018-08-01.7.0 also return a `validationStatus` property in the Get Task Counts response. This property indicates whether Batch checked the state counts for consistency with the states reported in the List Tasks API. A value of `validated` indicates only that Batch checked for consistency at least once for the job. The value of the `validationStatus` property does not indicate whether the counts that Get Task Counts returns are currently up-to-date.
+>
 
 ## Node state counts
 
@@ -98,7 +92,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
-The following C# snippet shows how to  list node counts for a given pool in the current account.
+The following C# snippet shows how to list node counts for a given pool in the current account.
 
 ```csharp
 foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))

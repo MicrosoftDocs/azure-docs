@@ -15,10 +15,15 @@ ms.author: wolfma
 Are you just starting to explore the functionality of the Speech service? Are you implementing a new feature to your application? Here are hints where you can get help as a developer.
 
 > [!div class="checklist"]
+> * Stay informed about new developments in *Microsoft Cognitive Services* or find the latest news related to *Speech service*.
 > * Search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists.
 > * If you can't find the answer from what you need, you may want to ask a question on *Stack Overflow*.
 > * If you find an issue with one of the samples you can find on GitHub, raise a *GitHub* issue.
 > * Search for a solution in the *User Voice Forum*.
+
+## Stay informed
+
+News about Microsoft Cognitive Services are collected in the [Cognitive Services blog](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). For the latest info about Speech service, track the [Speech Service blog](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
 ## Search
 

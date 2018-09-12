@@ -3,13 +3,13 @@ title: Azure Service Bus metrics in Azure Monitor (preview) | Microsoft Docs
 description: Use Azure Monitoring to monitor Service Bus entities
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 05/31/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Azure Service Bus metrics in Azure Monitor (preview)
@@ -17,6 +17,9 @@ ms.author: sethm
 Service Bus metrics gives you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
+
+> [!IMPORTANT]
+> When there has not been any interaction with an entity for 2 hours, the metrics will start showing "0" as a value until the entity is no longer idle.
 
 ## Access metrics
 
