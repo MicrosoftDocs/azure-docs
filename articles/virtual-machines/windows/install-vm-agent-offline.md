@@ -94,7 +94,7 @@ Use the following steps to install the VM Agent in offline mode.
         
         2. On the OS disk that you attached, create a folder named **WindowsAzure** in the root path.
             
-        3. Copy the GuestAgent folder from **C:\WindowsAzure** to the **WindowsAzure** folder in the attached OS disk. The following image shows an example of the GuestAgent folder that is copied to the attached OS disk. 
+        3. Copy the GuestAgent folder from C:\WindowsAzure to the **WindowsAzure** folder in the attached OS disk. The following image shows an example of the GuestAgent folder that is copied to the attached OS disk. 
 
             ![Copy GuestAgent folder](./media/install-vm-agent-offline/copy-files.png)
 
