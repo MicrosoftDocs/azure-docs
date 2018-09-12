@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # Quickstart: Create an Azure Kusto cluster and database
 
-Azure Kusto is a log analytics platform that is optimized for ad-hoc big data queries. To use Kusto, you first create a *cluster*, and create one or more *databases* in that cluster. Then you *ingest* (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database, then you ingest sample data into the database. This gives you a basic understanding of how Kusto works. 
+Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. To use Kusto, you first create a *cluster*, and create one or more *databases* in that cluster. Then you *ingest* (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database, then you ingest sample data into the database. This gives you a basic understanding of how Kusto works. 
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
