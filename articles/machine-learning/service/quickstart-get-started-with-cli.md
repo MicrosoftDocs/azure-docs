@@ -26,7 +26,7 @@ Using the CLI, you'll learn how to:
 
 The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
-This CLI was built on top of the [Python-based SDK for Azure Machine Learning service](reference-azure-machine-learning-sdk.md).
+This CLI was built on top of the Python-based <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> for Azure Machine Learning service.
 
 ## Prerequisites
 
