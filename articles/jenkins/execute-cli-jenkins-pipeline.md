@@ -1,21 +1,13 @@
 ---
-title: Execute the Azure CLI with Jenkins | Microsoft Docs
+title: Execute the Azure CLI with Jenkins
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-
-ms.assetid: 
 ms.service: jenkins
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
+keywords: jenkins, azure, devops, app service, cli
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 6/7/2017
-ms.author: mlearned
-ms.custom: Jenkins
 ---
 
 # Deploy to Azure App Service with Jenkins and the Azure CLI
@@ -42,7 +34,7 @@ Ensure you have version 1.2 or later:
 * Within the Jenkins dashboard, click **Manage Jenkins -> Plugin Manager ->** and search for **Azure Credential**. 
 * Update the plugin if the version is earlier than 1.2.
 
-Java JDK and Maven are also required in the Jenkins master. To install, log in to Jenkins master using SSH and run the following commands:
+Java JDK and Maven are also required in the Jenkins master. To install, sign in to Jenkins master using SSH and run the following commands:
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven

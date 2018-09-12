@@ -3,7 +3,7 @@ title: Get started with Azure Relay Hybrid Connections Websockets in .NET | Micr
 description: Write a C# console application for Azure Relay Hybrid Connections Websockets.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 

@@ -11,7 +11,7 @@
     href: luis-get-started-create-app.md
   - name: Use APIs
     items: 
-    - name: Get utterance prediction with endpoint query
+    - name: Get intent 
       items:
       - name: C#
         href: luis-get-started-cs-get-intent.md
@@ -29,7 +29,7 @@
         href: luis-get-started-python-get-intent.md
       - name: Ruby
         href: luis-get-started-ruby-get-intent.md
-    - name: Add utterance to intent and train app
+    - name: Change model
       items: 
       - name: C#
         href: luis-get-started-cs-add-utterance.md
@@ -89,6 +89,8 @@
   items:
   - name: Best practices
     href: luis-concept-best-practices.md
+  - name: Plan your app
+    href: luis-how-plan-your-app.md
   - name: Author App
     items: 
     - name: Authoring cycle
@@ -145,8 +147,6 @@
       href: luis-concept-keys.md
 - name: How-to guides
   items: 
-  - name: Plan your app
-    href: luis-how-plan-your-app.md
   - name: Start a new app
     href: luis-how-to-start-new-app.md
   - name: Build Model
@@ -239,7 +239,7 @@
 - name: Reference
   items: 
   - name: User privacy
-    href: luis-reference-gdpr.md
+    href: luis-user-privacy.md
   - name: Regions
     href: luis-reference-regions.md
   - name: Boundaries
@@ -290,22 +290,40 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
-    - name: .NET Authoring
-      href: https://aka.ms/luis-sdk-dotnet-authoring
-    - name: .NET Runtime
-      href: https://aka.ms/luis-sdk-dotnet-runtime
-    - name: Android
-      href: https://github.com/Microsoft/Cognitive-LUIS-Android
+    - name: C# 
+      items: 
+      - name: SDK
+        href: https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/LUIS
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS
+      - name: NuGet - authoring
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/  
+      - name: NuGet - runtime
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/
     - name: Go 
-      href: https://aka.ms/luis-sdk-go
-    - name: Java
-      href: https://aka.ms/luis-java-sdk
-    - name: Node.js Authoring
-      href: http://aka.ms/luis-sdk-node-authoring
-    - name: Node.js Runtime
-      href: http://aka.ms/luis-sdk-node-endpoint
-    - name: Python
-      href: https://aka.ms/luis-python-sdk
+      items:
+      - name: SDK
+        href: https://aka.ms/luis-sdk-go
+    - name: Java 
+      items: 
+      - name: SDK
+        href: https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/data-plane/language/luis
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding
+    - name: Node.js 
+      items: 
+      - name: SDK - authoring
+        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring
+      - name: SDK - runtime
+        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime    
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis
+    - name: Python 
+      items: 
+      - name: SDK
+        href: https://pypi.org/project/azure-cognitiveservices-language-luis/
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis
 - name: Related
   items: 
   - name: Azure Bot Service

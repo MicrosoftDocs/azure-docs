@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/29/2018
 ms.author: carlrab
 
 ---
@@ -17,8 +17,10 @@ ms.author: carlrab
 The current version of SQL Database is V12. Version V11 has been retired.
 
 ## What is the SLA for SQL Database?
-We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
+We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. 0.01% is reserved for patches, upgrades, and failovers. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/). For information about the availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md). 
 
+## Can I control when patching downtime occurs
+No. The impact of patching is generally not noticable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
 ## What is the new vCore-based purchasing model for Azure SQL Database?
 
 The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale their compute and storage rsources based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for more information. 
@@ -150,7 +152,7 @@ For example:
 - If you create a Managed Instance in the General Purpose tier with 8 vCores, and then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.
 
 > [!NOTE]
-> For a limited period through June 30th 2018, backup charges and IO charges are free of charge.
+> For a limited period, backup charges and IO charges are free of charge.
 
 ## How does the use of active geo-replication in an elastic pool show up on my bill?
 Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)

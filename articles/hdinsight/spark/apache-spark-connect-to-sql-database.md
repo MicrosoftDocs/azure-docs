@@ -4,7 +4,7 @@ description: Learn how to set up a connection between HDInsight Spark cluster an
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

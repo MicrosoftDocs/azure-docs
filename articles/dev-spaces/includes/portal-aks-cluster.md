@@ -37,7 +37,7 @@ manager: douge
 
    ![Enable Http Application Routing](../media/common/Kubernetes-Create-Cluster-3.PNG)
 
-    > [!IMPORTANT]
-    > You must be sure to enable Http Application Routing when you create your AKS cluster. It is not possible to change this setting later.
+    > [!Note]
+    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Select **Review + create** and then **Create** when complete.

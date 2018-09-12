@@ -145,7 +145,7 @@ If you are using your log for prediction analysis, do not capture test utterance
 
 No. The LUIS app’s data model is not used by LUIS to enhance LUIS as a platform or used by Microsoft in any way. Each app’s data is separate and owned only by the user and collaborators. 
 
-Learn more about [user privacy](luis-reference-gdpr.md), [additional security compliance](luis-concept-security.md#security-compliance), and [data storage](luis-concept-data-storage.md).
+Learn more about [user privacy](luis-user-privacy.md), [additional security compliance](luis-concept-security.md#security-compliance), and [data storage](luis-concept-data-storage.md).
 
 ## Language and translation support 
 

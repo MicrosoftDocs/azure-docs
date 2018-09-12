@@ -31,7 +31,7 @@ With this integration between Service Map and System Center Operations Manager, 
 * An Operations Manager management group (2012 R2 or later) that is managing a set of servers.
 * A Log Analytics workspace with the Service Map solution enabled.
 * A set of servers (at least one) that are being managed by Operations Manager and sending data to Service Map. Windows and Linux servers are supported.
-* A service principal with access to the Azure subscription that is associated with the Log Analytics workspace. For more information, go to [Create a service principal](#creating-a-service-principal).
+* A service principal with access to the Azure subscription that is associated with the Log Analytics workspace. For more information, go to [Create a service principal](#create-a-service-principal).
 
 ## Install the Service Map management pack
 You enable the integration between Operations Manager and Service Map by importing the Microsoft.SystemCenter.ServiceMap management pack bundle (Microsoft.SystemCenter.ServiceMap.mpb). You can download the management pack bundle from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). The bundle contains the following management packs:

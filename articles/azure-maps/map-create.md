@@ -51,7 +51,7 @@ Learn more about the classes and methods used in this article:
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
     
 For more code examples to add to your maps, see the following articles: 
-* [Add a pin](./map-add-pin.md)
-* [Add a popup](map-add-popup.md)
+* [Choose a map style](choose-map-style.md)
+* [Add map controls](map-add-controls.md)
     
 

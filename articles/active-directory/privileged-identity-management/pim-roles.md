@@ -1,6 +1,6 @@
 ---
-title: Roles in Azure AD Privileged Identity Management | Microsoft Docs
-description: Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension.
+title: Azure AD directory roles you can manage in PIM | Microsoft Docs
+description: Describes the Azure AD directory roles you can manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,7 +15,7 @@ ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ---
-# Directory roles you can manage using Azure AD PIM
+# Azure AD directory roles you can manage in PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 You can assign users in your organization to different administrative roles in Azure AD. These role assignments control which tasks, such as adding or removing users or changing service settings, the users are able to perform on Azure AD, Office 365, and other Microsoft Online Services and connected applications.  
@@ -58,28 +58,51 @@ If you want to give another user access to manage in PIM itself, the roles which
 ## Roles not managed in PIM
 Roles within Exchange Online or SharePoint Online, except for those mentioned above, are not represented in Azure AD and so are not visible in PIM. For more information on changing fine-grained role assignments in these Office 365 services, see [Permissions in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC, see [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md).
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## User roles and signing in
 For some Microsoft services and applications, assigning a user to a role may not be sufficient to enable that user to be an administrator.
 
-Access to the Azure portal requires the user be a service administrator or co-administrator on an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD, a user must be both a global administrator in Azure AD and a subscription co-administrator on an Azure subscription.  To learn how to add users to Azure subscriptions, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md).
+Access to the Azure portal requires the user be an Owner of an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD, a user must be both a Global Administrator in Azure AD and an Owner on an Azure subscription.  To learn how to add users to Azure subscriptions, see [Manage access using RBAC and the Azure portal](../..//role-based-access-control/role-assignments-portal.md).
 
 Access to Microsoft Online Services may require the user also be assigned a license before they can open the service's portal or perform administrative tasks.
 
 ## Assign a license to a user in Azure AD
-1. Sign in to the [Azure portal](http://portal.azure.com) with a global administrator account or a co-administrator account.
-3. Select Azure AD and the directory you want to work with and that has licenses associated with it.
-4. Select **Licenses** on the left. The list of available licenses will appear.
-5. Select the license plan that contains the licenses you want to distribute.
-6. Select **Assign Users**.
-7. Select the user that you want to assign a license to.
-8. Click the **Assign** button.  The user can now sign in to Azure.
+
+1. Sign in to the [Azure portal](http://portal.azure.com) with a Global Administrator or Owner role.
+
+1. Select the Azure AD directory you want to work with and that has licenses associated with it.
+
+1. In the left navigation, click **Azure Active Directory**.
+
+1. Click **Licenses**. The list of available licenses will appear.
+
+    ![Azure Active Directory Licenses](./media/pim-roles/licenses-overview.png)
+
+1. Click your **Product**.
+
+1. Click the license plan that contains the licenses you want to distribute.
+
+    ![Licenses Products](./media/pim-roles/licenses-products.png)
+
+1. Click **Assign** to open the Assign license pane.
+
+    ![Licensed users](./media/pim-roles/licenses-licensed-users.png)
+
+1. Select the user or group that you want to assign a license to.
+
+    ![Assign license](./media/pim-roles/licenses-assign-license.png)
+
+1. Click **Assignment options** to configure your assignment options.
+
+    ![Assignment options](./media/pim-roles/licenses-assignment-options.png)
+
+1. Click **Assign** to assign the license. The user now has the license.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Start using PIM](pim-getting-started.md)
+- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
 

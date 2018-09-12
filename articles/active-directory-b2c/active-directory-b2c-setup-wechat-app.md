@@ -28,7 +28,7 @@ To use a WeChat account as an identity provider in Azure Active Directory (Azure
 1. Sign in to [https://open.weixin.qq.com/](https://open.weixin.qq.com/) with your WeChat credentials.
 2. Select **管理中心** (management center).
 3. Follow the steps to register a new application.
-4. Enter `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` in **授权回调域** (callback URL). For example, if your `tenant_name` is contoso.onmicrosoft.com, set the URL to be `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+4. Enter `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` in **授权回调域** (callback URL). For example, if your `tenant_name` is contoso, set the URL to be `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 5. Copy the **APP ID** and **APP KEY**. You will need these to add the identity provider to your tenant.
 
 ## Configure WeChat as an identity provider in your tenant

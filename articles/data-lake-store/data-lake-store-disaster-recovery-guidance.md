@@ -16,7 +16,7 @@ ms.author: nitinme
 ---
 # Disaster recovery guidance for data in Data Lake Store
 
-Azure Data Lake Store provides locally-redundant storage (LRS). Hence, the data in your Azure Data Lake Store account is resilient to transient hardware failures within a region through automated replicas. This ensures durability and high availability, meeting the Azure Data Lake Store SLA. This article provides guidance on how to further protect your data from rare region-wide outages or accidental deletions.
+Azure Data Lake Store provides locally-redundant storage (LRS). Hence, the data in your Azure Data Lake Store account is resilient to transient hardware failures within a datacenter through automated replicas. This ensures durability and high availability, meeting the Azure Data Lake Store SLA. This article provides guidance on how to further protect your data from rare region-wide outages or accidental deletions.
 
 ## Disaster recovery guidance
 It is critical for every customer to prepare their own disaster recovery plan. Read the information in this article to build your disaster recovery plan. Here are some resources that can help you create your own plan.

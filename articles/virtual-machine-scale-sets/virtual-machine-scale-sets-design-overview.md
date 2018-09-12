@@ -30,7 +30,7 @@ Generally, scale sets are useful for deploying highly available infrastructure w
 - Once you specify the scale set configuration, you can update the *capacity* property to deploy more VMs in parallel. This process is better than writing a script to orchestrate deploying many individual VMs in parallel.
 - You can [use Azure Autoscale to automatically scale a scale set](./virtual-machine-scale-sets-autoscale-overview.md) but not individual VMs.
 - You can [reimage scale set VMs](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) but [not individual VMs](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- You can [overprovision](./virtual-machine-scale-sets-design-overview.md) scale set VMs for increased reliability and quicker deployment times. You cannot overprovision individual VMs unless you write custom code to perform this action.
+- You can [overprovision](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) scale set VMs for increased reliability and quicker deployment times. You cannot overprovision individual VMs unless you write custom code to perform this action.
 - You can specify an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md) to make it easy to roll out upgrades across VMs in your scale set. With individual VMs, you must orchestrate updates yourself.
 
 ### VM-specific features

@@ -76,7 +76,7 @@ If you have enabled Accelerated Networking on the source virtual machine after e
 2. Click on the name of the network interface under the **Network interfaces** section
 3. Select **Enabled** from the dropdown for Accelerated Networking under the **Target** column
 
-![Enable Accelerated Networking](./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png)
+![Enable Accelerated Networking](./media/azure-vm-disaster-recovery-with-accelerated-networking/network-interface-accelerated-networking-enabled.png)
 
 The above process should also be followed for existing replicated virtual machines, that did not previously have Accelerated Networking enabled automatically by Site Recovery.
 

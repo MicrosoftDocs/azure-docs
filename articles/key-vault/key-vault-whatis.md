@@ -12,8 +12,8 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/02/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: barclayn
 
 ---
@@ -37,14 +37,9 @@ Here are some key terms:
 - **Service Principal** - A Service Principal could be looked at as a credential for your application.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant. 
 - **Azure tenant ID**: A tenant ID is a unique way to identify an Azure AD instance within an Azure subscription.
-- **Managed Service Identity**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see [Managed Service Identity for Azure resources](../active-directory/managed-service-identity/overview.md).
+- **Managed identities for Azure resources**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see the image below and the [managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagram of how Managed Service Identity works](./media/key-vault-whatis/msi.png)
-    
-One of the functions of Azure Key Vault is that it's a Secret Store. But to authenticate to Key Vault you need to present a secret. There are 3 ways to authenticate to Key Vault
-- Managed Service Identity (**Recommended**)
-- Service Principal and Certificate
-- Service Principal and Secret
+    ![Diagram of how Managed identities for Azure resources works](./media/key-vault-whatis/msi.png)
 
 ## Key Vault roles
 

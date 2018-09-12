@@ -37,7 +37,12 @@
   items:
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
+  - name: Server protection with WATP (Preview)
+    href: security-center-wdatp.md
   - name: Set Security policy
+  - name: Set security policies
+    href: security-center-azure-policy.md
+  - name: Security policy settings
     href: security-center-policies-overview.md
     items:
     - name: Data collection
@@ -50,19 +55,19 @@
       href: security-center-pricing.md
     - name: Security configurations
       href: security-center-customize-os-security-config.md
-    - name: Security policy using Azure policy
-      href: security-center-azure-policy.md
     - name: Tenant-wide visibility
-      href: security-center-management-groups.md  
-  
+      href: security-center-management-groups.md
+
   - name: Implement security recommendations
     href: security-center-recommendations.md
   - name: Monitor security health
     href: security-center-monitoring.md
     items:
     - name: Compute & apps security
-      href: security-center-virtual-machine-recommendations.md
+      href: security-center-virtual-machine-protection.md
       items:
+      - name: Virtual machine recommendations
+        href: security-center-virtual-machine-recommendations.md
       - name: Apply disk encryption
         href: security-center-apply-disk-encryption.md
       - name: Apply system updates
@@ -152,12 +157,17 @@
       href: security-center-custom-alert.md
     - name: Alert validation
       href: security-center-alert-validation.md
-    - name: Threat intelligence map
+    - name: Alert confidence score
+      href: security-center-confidence-score.md
+    - name: Security alerts map and threat intelligence
       href: security-center-threat-intel.md
     - name: Investigation
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
+    - name: UEBA for Azure resources and users
+      href: security-center-ueba-mcas.md
+
   
   - name: Automate security workflows
     items:
@@ -197,10 +207,6 @@
     href: security-center-faq.md
   - name: Supported platforms
     href: security-center-os-coverage.md
-  - name: Platform migration
-    href: security-center-platform-migration.md
-  - name: Platform migration FAQ
-    href: security-center-platform-migration-faq.md
   - name: Planning and operations
     href: security-center-planning-and-operations-guide.md
   - name: Azure Security

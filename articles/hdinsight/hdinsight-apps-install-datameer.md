@@ -3,7 +3,7 @@ title: Install published application - Datameer - Azure HDInsight
 description: Install and use the Datameer third-party Hadoop application.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
