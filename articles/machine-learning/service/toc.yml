@@ -94,6 +94,8 @@
          href: how-to-deploy-to-aks.md
        - name: Deploy to FPGAs
          href: how-to-deploy-fpga-web-service.md  
+  - name: Export and delete data
+    href: how-to-export-delete-data.md
 - name: Reference
   items:    
   - name: Machine learning SDK
