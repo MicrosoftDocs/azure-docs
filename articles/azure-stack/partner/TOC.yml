@@ -30,11 +30,15 @@
     href: azure-stack-vaas-automate-with-powershell.md
 - name: Concepts
   items:
+  - name: Key concepts
+    href: azure-stack-vaas-key-concepts.md
+  - name: Best practices
+    href: azure-stack-vaas-best-practice.md
   - name: Monitor and manage tests in the VaaS portal
     href: azure-stack-vaas-monitor-test.md
-  - name: Validation configuration file
+  - name: Workflow common parameters
     href: azure-stack-vaas-parameters.md
-  - name: Troubleshoot validation as a service
+  - name: Troubleshoot Validation as a Service
     href: azure-stack-vaas-troubleshoot.md
 - name: Related
   items:
