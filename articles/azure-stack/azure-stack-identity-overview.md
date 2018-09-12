@@ -174,6 +174,9 @@ When all validations are complete, Azure Resource Manager uses the *objected* (o
 
 ![Diagram of the token exchange protocol](media/azure-stack-identity-overview/token-exchange.png)
 
+> [!NOTE]
+> After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
+
 ### Use Role-Based Access Control
 
 Role-Based Access Control (RBAC) in Azure Stack is consistent with the implementation in Microsoft Azure. You can manage access to resources by assigning the appropriate RBAC role to users, groups, and applications.
