@@ -96,6 +96,8 @@ During test execution, VaaS outputs diagnostic logs to an Azure Storage account.
 
 1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account).
 2. When selecting the type of storage account, select the **Blob storage** account type.
+    > [!TIP]
+    > In order to ensure that networking charges are not incurred for storing logs, it is recommended that the Azure storage account be configured to use only the **US West** region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs.
 
 For details on using the storage account for VaaS, see the following articles:
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Validation Best Practices. | Microsoft Docs
-description: This article contains the release notes for the Validation as a Service update for 1802 for Azure Stack.
+description: This article contains best practices for Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -19,32 +19,30 @@ ms.reviewer: John.Haskin
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-# Best Practices for Validation as a Service
+# Best practices for Validation as a Service
 
+This article covers best practices for managing resources in Validation as a Service (VaaS). For an overview of VaaS resources, see [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md).
 
-## Suggested Naming Convention for Solution Names
-In order to facilitate the sharing of information about solutions it is recommended that a consistent naming convention be use for all solutions registered in VaaS. For example, 
+## Solution management
 
-|Product Name | Unique Hardware Element 1 | Unique Hardware Element 2
-|---|:---:|---:|
-My Solution XYZ |  All Flash | My Switch X01
+### Naming convention for VaaS solutions
 
-Solution Name = MySolutionXYZ_AllFlash_MySwitchX01
+In order to facilitate the sharing of information about solutions, it is recommended that a consistent naming convention be used for all solutions registered in VaaS. For example, the solution name can be constructed from the hardware properties below as follows:
 
-## Suggested Re-use of Registered Solution Names
-In order to ensure that there is consistency in managing solution it is recommended that the same Solution name be used and only changed when there is a change to the hardware SKU.
+|Product Name | Unique Hardware Element 1 | Unique Hardware Element 2 | Solution Name
+|---|---|---|---|
+My Solution XYZ |  All Flash | My Switch X01 | MySolutionXYZ_AllFlash_MySwitchX01
 
+### When to create a new VaaS solution
 
-## Suggested Naming Convention for Test / Package / Validation Workflow Names
-In order to facilitate the sharing of information about specific validation runs it is recommended that a consistent naming convention be use for all solutions test runs. For example,
+In order to ensure that there is consistency in managing solutions, it is recommended that the same VaaS solution be used for running workflows against the same hardware SKU. A new VaaS solution should be created only when there is a change to the hardware SKU.
 
-|Build Number (Major) | Date | Solution Size | 
-|---|:---:|---:|
-1808 | 081518 | 4NODE
+## Workflow management
 
-Workflow Name = 1808_081518_4NODE
+### Naming convention for VaaS workflows
 
-## Considerations for Partner Storage Blob Settings Used for Log Collection
-In order to ensure that networking chargers are not incurred for storing logs it is recommended that the Azure storage blob be configured to use only the US West region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs. 
+In order to facilitate the sharing of information about specific test runs, it is recommended that a consistent naming convention be used for all workflows. For example, the workflow name can be constructed from the build properties below as follows:
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+|Build Number (Major) | Date | Solution Size | Workflow Name
+|---|---|---| ---|
+1808 | 081518 | 4NODE | 1808_081518_4NODE

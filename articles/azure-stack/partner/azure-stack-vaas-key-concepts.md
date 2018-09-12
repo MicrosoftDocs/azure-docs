@@ -28,7 +28,7 @@ A VaaS solution represents a Azure Stack solution with a particular hardware bil
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
 2. On the solutions dashboard, click on **New solution**.
-3. Enter a name for the solution.
+3. Enter a name for the solution. See [Naming convention for VaaS solutions](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions) for naming suggestions.
 4. Click **Save** to create the solution.
 
 ## Workflows
@@ -75,3 +75,7 @@ A VaaS agent drives test execution. Two types of agents execute VaaS tests:
 Local agents are not tied to any particular Azure Stack or VaaS solution. As a best practice, they should run outside of an Azure Stack environment.
 
 For instructions on adding a local agent, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
+
+## Next steps
+
+- [Best practices for Validation as a Service](azure-stack-vaas-best-practice.md)
