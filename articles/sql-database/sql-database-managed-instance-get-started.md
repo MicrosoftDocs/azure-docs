@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 09/06/2018
+ms.date: 09/12/2018
 ms.author: jovanpop
 
 ---
@@ -32,11 +32,7 @@ The following steps show you how to create a Managed Instance.
 
    ![Create managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Select your subscription and verify that the preview terms show **Accepted**.
-
-   ![managed instance preview accepted](./media/sql-database-managed-instance-get-started/preview-accepted.png)
-
-5. Fill out the Managed Instance form with the requested information, using the information in the following table:
+4. Fill out the Managed Instance form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -51,11 +47,11 @@ The following steps show you how to create a Managed Instance.
 
    ![managed instance form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-6. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. The General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.
-7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
-8. When complete, click **Apply** to save your selection.  
-9. Click **Create** to deploy the Managed Instance.
-10. Click the **Notifications** icon to view the status of deployment.
+5. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. The General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.
+6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
+7. When complete, click **Apply** to save your selection.  
+8. Click **Create** to deploy the Managed Instance.
+9. Click the **Notifications** icon to view the status of deployment.
 
     ![managed instance create form](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 

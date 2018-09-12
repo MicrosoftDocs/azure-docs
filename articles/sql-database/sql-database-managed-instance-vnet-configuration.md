@@ -96,7 +96,7 @@ The easiest way to create and configure virtual network is to use Azure Resource
 
 3. Configure network environment. On the following form you can configure parameters of your network environment:
 
-![Configure azure network](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Configure azure network](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
 
