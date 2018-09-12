@@ -104,13 +104,8 @@ A super-user has the most rights of all the users in the Data Lake Storage Gen1 
 * Can change the permissions on any file or folder.
 * Can change the owning user or owning group of any file or folder.
 
-In Azure, a Data Lake Storage Gen1 account has several Azure roles, including:
+All users that are part of the **Owners** role for a Data Lake Storage Gen1 account are automatically a super-user.
 
-* Owners
-* Contributors
-* Readers
-
-Everyone in the **Owners** role for a Data Lake Storage Gen1 account is automatically a super-user for that account. To learn more, see [Role-based access control](../role-based-access-control/role-assignments-portal.md).
 If you want to create a custom role-based-access control (RBAC) role that has super-user permissions, it needs to have the following permissions:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
