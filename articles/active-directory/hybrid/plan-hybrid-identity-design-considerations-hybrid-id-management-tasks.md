@@ -61,8 +61,8 @@ To proper design the synchronization of your hybrid identity solution ensure tha
 •    What are the options for identity federation between B2B and B2C?
 
 ## Next steps
-[Determine hybrid identity management adoption strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+[Determine hybrid identity management adoption strategy](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

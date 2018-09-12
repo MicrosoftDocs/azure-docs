@@ -20,9 +20,9 @@ ms.custom: seohack1
 # Define a hybrid identity adoption strategy
 In this task, you define the hybrid identity adoption strategy for your hybrid identity solution to meet the business requirements that were discussed in:
 
-* [Determine business needs](active-directory-hybrid-identity-design-considerations-business-needs.md)
-* [Determine directory synchronization requirements](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-* [Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+* [Determine business needs](plan-hybrid-identity-design-considerations-business-needs.md)
+* [Determine directory synchronization requirements](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+* [Determine multi-factor authentication requirements](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## Define business needs strategy
 The first task addresses determining the organizations business needs.  This can be very broad and scope creep can occur if you are not careful.  In the beginning, keep it simple but always remember to plan for a design that will accommodate and facilitate change in the future.  Regardless of whether it is a simple design or an extremely complex one, Azure Active Directory is the Microsoft Identity platform that supports Office 365, Microsoft Online Services, and cloud aware applications.
@@ -39,7 +39,7 @@ The scenarios defined in the above figure are:
 * **Federated**: these identities exist both on-premises and in the cloud.  Using Azure AD Connect, these users are either created or joined with existing Azure AD accounts.  
 
 > [!NOTE]
-> For more information about the Synchronization options, read [Integrating your on-premises identities with Azure Active Directory](connect/active-directory-aadconnect.md).
+> For more information about the Synchronization options, read [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
 > 
 > 
 
@@ -97,7 +97,7 @@ In this task you will define the tools that will be used to synchronize the orga
 Over the years, several synchronization tools have existed and used for various scenarios.  Currently Azure AD Connect is the go to tool of choice for all supported scenarios.  AAD Sync and DirSync are also still around and may even be present in your environment now. 
 
 > [!NOTE]
-> For the latest information regarding the supported capabilities of each tool, read [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md) article.  
+> For the latest information regarding the supported capabilities of each tool, read [Directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md) article.  
 > 
 > 
 
@@ -110,7 +110,7 @@ Single Forest Scenario
 It is common for large and even small organizations to have multiple forests, as shown in Figure 5.
 
 > [!NOTE]
-> For more information about the different on-premises and Azure AD topologies with Azure AD Connect sync read the article [Topologies for Azure AD Connect](hybrid/plan-connect-topologies.md).
+> For more information about the different on-premises and Azure AD topologies with Azure AD Connect sync read the article [Topologies for Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
@@ -130,7 +130,7 @@ If this is the case, then the multi-forest single Azure AD topology should be co
 * If you have a linked mailbox, then there is also another account in a different forest used to sign in.
 
 > [!NOTE]
-> Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](hybrid/plan-connect-design-concepts.md#sourceanchor) for more considerations regarding the use of SourceAnchor.
+> Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](plan-connect-design-concepts.md#sourceanchor) for more considerations regarding the use of SourceAnchor.
 > 
 > 
 
@@ -195,7 +195,7 @@ Even though you may have settled on a solution for your strategy, you still need
 | On-premises AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
+> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 
@@ -208,8 +208,8 @@ Multi-factor authentication is available by default for global administrators wh
 > 
 
 ## Next steps
-[Determine data protection requirements](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+[Determine data protection requirements](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

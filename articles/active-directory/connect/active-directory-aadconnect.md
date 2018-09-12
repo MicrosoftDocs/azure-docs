@@ -39,7 +39,7 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 
 * Users can use a single identity to access on-premises applications and cloud services such as Office 365.
 * Single tool to provide an easy deployment experience for synchronization and sign-in.
-* Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](../active-directory-hybrid-identity-design-considerations-tools-comparison.md).
+* Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md).
 
 ### How Azure AD Connect works
 Azure Active Directory Connect is made up of three primary components: the synchronization services, the optional Active Directory Federation Services component, and the monitoring component named [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
@@ -158,7 +158,7 @@ If your ADFS server has not been configured to automatically update certificates
 |Topic |Link|  
 | --- | --- |
 |Version history | [Version history](../hybrid/reference-connect-version-history.md)|
-|Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
+|Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md)|
 |Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](../hybrid/how-to-connect-fed-compatibility.md)|
 |Configuring a SAML 2.0 Idp|[Using a SAML 2.0 Identity Provider (IdP) for Single Sign On](../hybrid/how-to-connect-fed-saml-idp.md)|
 |Attributes synchronized | [Attributes synchronized](../hybrid/reference-connect-sync-attributes-synchronized.md)|

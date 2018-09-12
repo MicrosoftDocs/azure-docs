@@ -55,8 +55,8 @@ After answering the previous questions, you will be able to understand if there 
 * Do you need have MFA always enabled or only when the users are logged outside of your corporate network?
 
 ## Next steps
-[Define a hybrid identity adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+[Define a hybrid identity adoption strategy](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

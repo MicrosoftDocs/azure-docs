@@ -45,5 +45,5 @@ Monitoring the following resources often provides the latest news and updates on
 * [Microsoft System Center Configuration Manager Team blog](http://blogs.technet.com/b/configmgrteam/)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -98,13 +98,13 @@ You also have to evaluate the user requirements. This evaluation is important to
 * How will users sign-in to the cloud?
 
 > [!NOTE]
-> Make sure to take notes of each answer and understand the rationale behind the answer. [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) will go over the options available and pros/cons of each option.  By having answered those questions you will select which option best suits your business needs.
+> Make sure to take notes of each answer and understand the rationale behind the answer. [Determine incident response requirements](plan-hybrid-identity-design-considerations-incident-response-requirements.md) will go over the options available and pros/cons of each option.  By having answered those questions you will select which option best suits your business needs.
 > 
 > 
 
 ## Next steps
-[Determine directory synchronization requirements](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+[Determine directory synchronization requirements](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

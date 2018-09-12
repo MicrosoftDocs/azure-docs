@@ -27,7 +27,7 @@ The first step in protecting data is to identify who can access that data. Also,
 When planning your hybrid identity solution, you must understand the data protection requirements for your business and which options are available to best fulfil these requirements.
 
 > [!NOTE]
-> Once you finish planning for data security, review [Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) to ensure that your selections regarding multi-factor authentication requirements were not affected by the decisions you made in this section.
+> Once you finish planning for data security, review [Determine multi-factor authentication requirements](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md) to ensure that your selections regarding multi-factor authentication requirements were not affected by the decisions you made in this section.
 > 
 > 
 
@@ -73,13 +73,13 @@ Regulations, laws, and regulatory compliance requirements will vary according to
 * in capabilities that will enable your company to be compliant regulatory requirements? 
 
 > [!NOTE]
-> Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+> Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](plan-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
 > 
 > 
 
 ## Next steps
- [Determine content management requirements](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+ [Determine content management requirements](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

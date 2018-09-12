@@ -41,7 +41,7 @@ Make sure to answer the following questions:
   * Does your company use Microsoft Exchange?
     * Do they plan of having a hybrid exchange deployment?
 
-Now that you have an idea about your synchronization requirements, you need to determine which tool is the correct one to meet these requirements.  Microsoft provides several tools to accomplish directory integration and synchronization.  See the [Hybrid Identity directory integration tools comparison table](active-directory-hybrid-identity-design-considerations-tools-comparison.md) for more information. 
+Now that you have an idea about your synchronization requirements, you need to determine which tool is the correct one to meet these requirements.  Microsoft provides several tools to accomplish directory integration and synchronization.  See the [Hybrid Identity directory integration tools comparison table](plan-hybrid-identity-design-considerations-tools-comparison.md) for more information. 
 
 Now that you have your synchronization requirements and the tool that will accomplish this for your company, you need to evaluate the applications that use these directory services. This evaluation is important to define the technical requirements to integrate these applications to the cloud. Make sure to answer the following questions:
 
@@ -62,13 +62,13 @@ You also need to determine the security requirements and constraints directory s
 * If you have mutli-forest sync is the sync server able to get to each forest?
 
 > [!NOTE]
-> Make sure to take notes of each answer and understand the rationale behind the answer. [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) will go over the options available. By having answered those questions you will select which option best suits your business needs.
+> Make sure to take notes of each answer and understand the rationale behind the answer. [Determine incident response requirements](plan-hybrid-identity-design-considerations-incident-response-requirements.md) will go over the options available. By having answered those questions you will select which option best suits your business needs.
 > 
 > 
 
 ## Next steps
-[Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+[Determine multi-factor authentication requirements](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

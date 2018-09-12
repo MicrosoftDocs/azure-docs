@@ -25,7 +25,7 @@ When an organization is designing their hybrid identity solution, they can also 
 * Authorization
 * Auditing
 
-The sections that follow will cover authentication and authorization in more details, administration, and auditing are part of the hybrid identity lifecycle. Read [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) for more information about these capabilities.
+The sections that follow will cover authentication and authorization in more details, administration, and auditing are part of the hybrid identity lifecycle. Read [Determine hybrid identity management tasks](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) for more information about these capabilities.
 
 > [!NOTE]
 > Read [The Four Pillars of Identity - Identity Management in the Age of Hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) for more information about each one of those pillars.
@@ -67,13 +67,13 @@ While authentication and authorization are core elements to enable access to cor
   * If yes, where are those target resources located (on-premises or in the cloud)?
 
 > [!NOTE]
-> Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By answering those questions you will select which option best suits your business needs.
+> Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](plan-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By answering those questions you will select which option best suits your business needs.
 > 
 > 
 
 ## Next steps
-[Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+[Determine incident response requirements](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -25,7 +25,7 @@
 # Related
 ## [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md)
 ## [Azure AD Connect and Federation](../hybrid/how-to-connect-fed-whatis.md)
-## [Hybrid Identity Design Guide](../active-directory-hybrid-identity-design-considerations-overview.md)
+## [Hybrid Identity Design Guide](../hybrid/plan-hybrid-identity-design-considerations-overview.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

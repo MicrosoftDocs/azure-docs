@@ -48,7 +48,7 @@ Azure identity management and access control security best practices discussed i
 
 One important step towards securing your identity is to ensure that IT can manage accounts from one single location regarding where this account was created. While the majority of the enterprises IT organizations have their primary account directory on-premises, hybrid cloud deployments are on the rise and it is important that you understand how to integrate on-premises and cloud directories and provide a seamless experience to the end user.
 
-To accomplish this [hybrid identity](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenario we recommend two options:
+To accomplish this [hybrid identity](../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) scenario we recommend two options:
 
 * Synchronize your on-premises directory with your cloud directory using Azure AD Connect
 * Enable single sign-on with [password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) or federate your on-premises identity with your cloud directory using [Active Directory Federation Services](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)

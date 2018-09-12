@@ -18,7 +18,7 @@ ms.author: billmath
 ms.custom: seohack1
 ---
 # Determine hybrid identity lifecycle adoption strategy
-In this task, you’ll define the identity management strategy for your hybrid identity solution to meet the business requirements that you defined in [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
+In this task, you’ll define the identity management strategy for your hybrid identity solution to meet the business requirements that you defined in [Determine hybrid identity management tasks](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
 
 To define the hybrid identity management tasks according to the end-to-end identity lifecycle presented earlier in this step, you will have to consider the options available for each lifecycle phase.
 
@@ -67,7 +67,7 @@ License-based (Entitlement-based) Azure AD services work by activating a subscri
 
 ## Integration with other 3rd party providers
 
-Azure Active Directory provides single-sign on and enhanced application access security to thousands of SaaS applications and on-premises web applications. For more information, see [Integrating applications with Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+Azure Active Directory provides single-sign on and enhanced application access security to thousands of SaaS applications and on-premises web applications. For more information, see [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 
 ## Define synchronization management
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. With this integration, users and organizations can take advantage of the following:
@@ -91,10 +91,10 @@ Review the following table to compare the synchronization options:
 | Federation-based (through AD FS) |Enabled by Security Token Service (STS). When you configure an STS to provide single sign-on access with a Microsoft cloud service, you will be creating a federated trust between your on-premises STS and the federated domain you’ve specified in your Azure AD tenant. <br> Allows end users to use the same set of credentials to obtain access to multiple resources <br>end users do not have to maintain multiple sets of credentials. Yet, the users have to provide their credentials to each one of the participating resources.,B2B and B2C scenarios supported. |Requires specialized personnel for deployment and maintenance of dedicated on-prem AD FS servers. There are restrictions on the use of strong authentication if you plan to use AD FS for your STS. For more information, see [Configuring Advanced Options for AD FS 2.0](http://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]
-> For more information see, [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+> For more information see, [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
 > 
 > 
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

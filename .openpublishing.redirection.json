@@ -17307,6 +17307,76 @@
             "redirect_url": "/azure/virtual-machines/windows/hpcpack-cluster-active-directory",
             "redirect_document_id": false
         },
+		{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-business-needs.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-business-needs",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-data-protection-strategy.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-incident-response-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-nextsteps.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-nextsteps",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-overview.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-tools-comparison.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison",
+"redirect_document_id": false
+},
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-hpcpack-cluster-headnode.md",
             "redirect_url": "/azure/virtual-machines/windows/hpcpack-cluster-headnode",

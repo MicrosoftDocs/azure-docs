@@ -54,13 +54,13 @@ When planning your hybrid identity solution ensure that the following questions 
 * Does your company need to enforce corporate policies on certain kinds of emails (do no reply all, do not forward)?
 
 > [!NOTE]
-> Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+> Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](plan-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
 > 
 > 
 
 ## Next steps
-[Determine access control requirements](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+[Determine access control requirements](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -91,7 +91,7 @@ If your organization maintains a Windows Server Active Directory on premises alo
 | Article Guide |  |
 |:---:| --- |
 | An overview on the single sign-on options offered in Azure AD Connect, as well as information on managing hybrid environments |[User Sign On Options in Azure AD Connect](hybrid/plan-connect-user-signin.md) |
-| General guidance for managing environments with both on-premises Active Directory and Azure Active Directory |[Azure AD Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrating your On-Premises Identities with Azure Active Directory](active-directory-aadconnect.md) |
+| General guidance for managing environments with both on-premises Active Directory and Azure Active Directory |[Azure AD Hybrid Identity Design Considerations](hybrid/plan-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrating your On-Premises Identities with Azure Active Directory](active-directory-aadconnect.md) |
 | Guidance on using Password Sync to enable SSO |[Implement Password Synchronization with Azure AD Connect](hybrid/how-to-connect-password-hash-synchronization.md)<br /><br />[Troubleshoot Password Synchronization](https://support.microsoft.com/kb/2855271) |
 | Guidance on using Password Writeback to enable SSO |[Getting Started with Password Management in Azure AD](authentication/quickstart-sspr.md)<br /><br />[Troubleshoot Password Writeback](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Guidance on using third party identity providers to enable SSO |[List of Compatible Third-Party Identity Providers That Can Be Used to Enable Single Sign-On](https://aka.ms/ssoproviders) |
