@@ -22,7 +22,7 @@ When you have more devices and need more capabilities, there are three ways to a
 
 These changes can all occur without interrupting existing operations.
 
-If you want to downgrade your IoT hub, you can remove units and reduce the size of the IoT hub. However, you cannot downgrade to a lower tier. For example, you can move from the S2 tier to the S1 tier, but not from the S2 tier to the B1 tier. 
+If you want to downgrade your IoT hub, you can remove units and reduce the size of the IoT hub. However, you cannot downgrade to a lower tier. For example, you can move from the S2 tier to the S1 tier, but not from the S2 tier to the B1 tier. Also note that only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and B3, or S1 and S2.
 
 These examples are meant to help you understand how to adjust your IoT hub as your solution changes. For specific information about each tier's capabilities you should always refer to [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
@@ -41,7 +41,7 @@ These examples are meant to help you understand how to adjust your IoT hub as yo
 5. Select **Save** to save your changes. 
 
 Your IoT hub is now adjusted, and your configurations are unchanged. 
-Note that the partition limit for basic tier IoT Hub is 8. This limit will remains unchanged when you migrate from basic tier to standard tier.
+Note that the maximum partition limit for basic tier IoT Hub is 8 and for standard tier is 32. Most IoT Hubs only need 4 partitions. The partition limit is chosen when IoT Hub is created, and relates the device-to-cloud messages to the number of simultaneous readers of these messages. This value remains unchanged when you migrate from basic tier to standard tier. 
 
 ## Next steps
 

@@ -13,10 +13,12 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
+
+#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
 
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
@@ -46,6 +48,7 @@ This tutorial assumes that you are familiar with:
 
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
+-  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
 
 To configure the scenario in this tutorial, you need:

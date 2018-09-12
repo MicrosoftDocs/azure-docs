@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Envoy Domain and URLs single sign-on information](./media/envoy-tutorial/tutorial_envoy_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.Envoy.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
 	
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Envoy Client support team](https://envoy.com/contact/) to get this value.

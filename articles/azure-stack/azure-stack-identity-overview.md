@@ -133,7 +133,7 @@ For applications and users, the architecture of Azure Stack is described by four
 |Layer    |Authentication between layers  |
 |---------|---------|
 |Tools and clients, such as the Admin portal     | To access or modify a resource in Azure Stack, tools and clients use a [JSON Web Token](/azure/active-directory/develop/active-directory-token-and-claims) to place a call to Azure Resource Manager. <br>Azure Resource Manager validates the JSON Web Token and peeks at the *claims* in the issued token to estimate the level of authorization that user or service principal has in Azure Stack. |
-|Azure Resource Manager and its core services     |Azure Resource Manager communicates with resource providers to transfer communication from users. <br> Transfers use *direct imperative* calls or *declarative* calls via [Azure Resource Manager templates](/azure/azure-stack/user/azure-stack-arm-templates.md).|
+|Azure Resource Manager and its core services     |Azure Resource Manager communicates with resource providers to transfer communication from users. <br> Transfers use *direct imperative* calls or *declarative* calls via [Azure Resource Manager templates](/azure/azure-stack/user/azure-stack-arm-templates).|
 |Resource providers     |Calls that are passed to resource providers are secured with certificate-based authentication. <br>Azure Resource Manager and the resource provider then stay in communication through an API. For every call that's received from Azure Resource Manager, the resource provider validates the call with that certificate.|
 |Infrastructure and business logic     |Resource providers communicate with business logic and infrastructure by using an authentication mode of their choice. The default resource providers that ship with Azure Stack use Windows Authentication to secure this communication.|
 
@@ -163,6 +163,8 @@ When all validations are complete, Azure Resource Manager uses the *objected* (o
 
 ![Diagram of the token exchange protocol](media/azure-stack-identity-overview/token-exchange.png)
 
+> [!NOTE]
+> After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
 
 ### Use Role-Based Access Control  
 Role-Based Access Control (RBAC) in Azure Stack is consistent with the implementation in Microsoft Azure. You can manage access to resources by assigning the appropriate RBAC role to users, groups, and applications. 
@@ -177,7 +179,7 @@ For information about how to use RBAC with Azure Stack, see the following articl
 Details about using Azure PowerShell to authenticate with Azure Stack can be found at [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md).
 
 ### Authenticate with Azure CLI
-For information about using Azure PowerShell to authenticate with Azure Stack, see [Install and configure Azure CLI for use with Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli.md).
+For information about using Azure PowerShell to authenticate with Azure Stack, see [Install and configure Azure CLI for use with Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli).
 
 ## Next steps
 - [Identity architecture](azure-stack-identity-architecture.md)   

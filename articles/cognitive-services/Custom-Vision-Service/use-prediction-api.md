@@ -20,7 +20,7 @@ After you train your model, you can test images programmatically by submitting t
 
 ## Get the URL and prediction key
 
-From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab. To display information about using the Prediction API, select __Prediction URL__. Copy the following information for use in the application:
+From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab. To display information about using the Prediction API, including the __Prediction-key__, select __Prediction URL__. For projects attached to an Azure Resource, your __Prediction-key__ can also be found in the [Azure Portal](https://portal.azure.com) page for associated Azure Resource under __Keys__. Copy the following information for use in the application:
 
 * __URL__ for using an __image file__.
 * __Prediction-key__ value.

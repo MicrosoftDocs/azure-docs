@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -23,7 +23,7 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!note]  
-> The Azure Container Services (ACS) Kubernetes on Azure Stack is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
+> The AKS (Azure Kubernetes Service) Engine on Azure Stack is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
 
 You can offer a Kubernetes Cluster as a Marketplace item to your users. Your users can deploy Kubernetes in a single, coordinated operation.
 
@@ -63,7 +63,7 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **More services** > **Marketplace Management**.
+1. Select **All services**, and then under the **ADMINISTRATION** category, select **Marketplace management**.
 
 1. Select **+ Add from Azure**.
 
@@ -86,7 +86,7 @@ Add the Kubernetes Cluster from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **More services** > **Marketplace Management**.
+1. Select **ALL services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
 1. Select **+ Add from Azure**.
 
@@ -107,7 +107,7 @@ Add the Kubernetes Cluster from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **More services** > **Marketplace Management**.
+1. Select **A;; services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
 1. Select **+ Add from Azure**.
 

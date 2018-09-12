@@ -21,7 +21,7 @@ ms.custom: aaddev
 ---
 
 # Azure Active Directory v2.0 tokens reference
-The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](active-directory-v2-flows.md). This reference describes the format, security characteristics, and contents of each type of token.
+The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](v2-app-types.md). This reference describes the format, security characteristics, and contents of each type of token.
 
 > [!NOTE]
 > The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).

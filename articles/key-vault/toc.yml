@@ -20,12 +20,8 @@
   items:
   - name: Read a secret from Key Vault
     href: tutorial-web-application-keyvault.md
-  - name: Get started with Key Vault
-    href: key-vault-get-started.md
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
-  - name: Use Key Vault from a web app
-    href: key-vault-use-from-web-application.md
 - name: Samples
   items:
   - name: Code samples
@@ -42,32 +38,39 @@
     href: key-vault-ovw-storage-keys.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
+  - name: Virtual Network Service Endpoints
+    href: key-vault-overview-vnet-service-endpoints.md
+  - name: About keys, secrets and certificates
+    href: about-keys-secrets-and-certificates.md
+    items:
+    - name: Get started with certificates
+      href: certificate-scenarios.md
+    - name: Certificate creation methods
+      href: create-certificate.md
+    - name: Monitor and manage certificate creation
+      href: create-certificate-scenarios.md
 - name: How-to guides
   items:
-  - name: Manage
-    items:
-    - name: Azure Key Vault logging
-      href: key-vault-logging.md
-    - name: Access behind firewalls
-      href: key-vault-access-behind-firewall.md
-    - name: Availability and redundancy
-      href: key-vault-disaster-recovery-guidance.md
-    - name: Change tenant ID
-      href: key-vault-subscription-move-fix.md
-    - name: Create and manage using Azure CLI
-      href: key-vault-manage-with-cli2.md
-    - name: Use Key Vault soft-delete with CLI
-      href: key-vault-soft-delete-cli.md
-    - name: Use Key Vault soft-delete with Azure PowerShell
-      href: key-vault-soft-delete-powershell.md
-    - name: Use groups to grant access
-      href: key-vault-group-permissions-for-apps.md
-    - name: Secure your key vault
-      href: key-vault-secure-your-key-vault.md
-  - name: Automate
-    items:
-    - name: Azure automation
-      href: automation-manage-key-vault.md
+  - name: Azure Key Vault logging
+    href: key-vault-logging.md
+  - name: Access behind firewalls
+    href: key-vault-access-behind-firewall.md
+  - name: Availability and redundancy
+    href: key-vault-disaster-recovery-guidance.md
+  - name: Change tenant ID
+    href: key-vault-subscription-move-fix.md
+  - name: Create and manage using Azure CLI
+    href: key-vault-manage-with-cli2.md
+  - name: Use Key Vault soft-delete with CLI
+    href: key-vault-soft-delete-cli.md
+  - name: Use Key Vault soft-delete with Azure PowerShell
+    href: key-vault-soft-delete-powershell.md
+  - name: Use groups to grant access
+    href: key-vault-group-permissions-for-apps.md
+  - name: Secure your key vault
+    href: key-vault-secure-your-key-vault.md
+  - name: Configure firewalls and virtual networks
+    href: key-vault-network-security.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -86,8 +89,6 @@
     href: /rest/api/keyvault
   - name: Develop
     items:
-    - name: Developer quick start video
-      href: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start
     - name: Key Vault developer's guide
       href: key-vault-developers-guide.md
     - name: Service limits
@@ -116,34 +117,18 @@
   items:
   - name: Service overview
     href: https://azure.microsoft.com/services/key-vault/
-  - name: About keys, secrets and certificates
-    href: about-keys-secrets-and-certificates.md
-    items:
-    - name: Get started with certificates
-      href: certificate-scenarios.md
-    - name: Certificate creation methods
-      href: create-certificate.md
-    - name: Monitor and manage certificate creation
-      href: create-certificate-scenarios.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
-  - name: Customer data features
-    href: key-vault-customer-data.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
-  - name: Key Vault versions
-    href: key-vault-versions.md
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Customer Data 
+    href: key-vault-customer-data.md
   - name: Blog
     href: http://blogs.technet.com/b/kv/
-  - name: Code samples
-    href: https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=
-  - name: Forums
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Product feedback
+  - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault
+- name: Release Notes
+  href: key-vault-versions.md
+

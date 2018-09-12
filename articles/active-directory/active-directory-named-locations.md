@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 With named locations, you can label trusted IP address ranges in your organization. Azure Active Directory uses  named locations in the context of:
 
-- The detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of reported false positives.  
+- The detection of [risk events](reports-monitoring/concept-risk-events.md) to reduce the number of reported false positives.  
 
 - [Location-based conditional access](conditional-access/location-condition.md).
 
@@ -95,6 +95,6 @@ For more information, see:
 
 - [Location conditions in Azure Active Directory conditional access](conditional-access/location-condition.md)
 
-- [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
+- [Azure Active Directory risk events](reports-monitoring/concept-risk-events.md).
 
-- [Risky sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md).  
+- [Risky sign-ins report in the Azure Active Directory portal](reports-monitoring/concept-risky-sign-ins.md).  

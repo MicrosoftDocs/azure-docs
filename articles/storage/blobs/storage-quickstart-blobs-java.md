@@ -205,7 +205,7 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 > [!div class="nextstepaction"]
 > [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) 
-> [API Reference](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [API Reference](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 > [Code Samples for Java](../common/storage-samples-java.md)
 
 * For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

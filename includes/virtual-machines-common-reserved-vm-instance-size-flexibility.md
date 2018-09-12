@@ -16,7 +16,7 @@ With a reserved virtual machine instance that's optimized for instance size flex
 
 But that reservation discount doesn't apply to VMs sizes that are listed in different tables, like what's in the DSv2-series high memory table: Standard_DS11_v2, Standard_DS12_v2, and so on.
 
-Within the size series group, the number of VMs the reservation discount applies to depends on the VM size you pick when you buy a reserved instance. It also depends on the sizes of the VMs that you have running. The ratio column that's listed in the following tables compares the relative footprint for each VM size in that group. Use the ratio value to calculate how the reservation discount applies to the VMs you have running.
+Within the size series group, the number of VMs the reservation discount applies to depends on the VM size you pick when you buy a reservation. It also depends on the sizes of the VMs that you have running. The ratio column that's listed in the following tables compares the relative footprint for each VM size in that group. Use the ratio value to calculate how the reservation discount applies to the VMs you have running.
 
 ## Examples
 

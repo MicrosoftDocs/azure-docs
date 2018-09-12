@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 ---
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect
-The v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a 3rd party open source library, rather than using one of our [open source libraries](active-directory-v2-libraries.md).
+The v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a 3rd party open source library, rather than using one of our [open source libraries](reference-v2-libraries.md).
 
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -73,7 +73,7 @@ Further details of different types of tokens used in the v2.0 endpoint is availa
 
 ## Protocols
 If you're ready to see some example requests, get started with one of the below tutorials. Each one corresponds to a particular authentication scenario. If you need help determining which is the right flow for you,
-check out [the types of apps you can build with the v2.0](active-directory-v2-flows.md).
+check out [the types of apps you can build with the v2.0](v2-app-types.md).
 
 * [Build Mobile and Native Application with OAuth 2.0](v2-oauth2-auth-code-flow.md)
 * [Build Web Apps with Open ID Connect](v2-protocols-oidc.md)

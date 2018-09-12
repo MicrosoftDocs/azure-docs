@@ -73,6 +73,7 @@
     href: conditional-access-dev-guide.md
   - name: Permissions
     href: v1-permissions-and-consent.md
+    displayName: Scopes
   - name: OAuth & OpenID Connect
     items:
     - name: OpenID Connect protocol
@@ -103,9 +104,9 @@
   - name: Mobile & Desktop SSO
     items:
     - name: Enable SSO on Android
-      href: howto-v1-enable-sso-on-android.md
+      href: howto-v1-enable-sso-android.md
     - name: Enable SSO on iOS
-      href: howto-v1-enable-sso-on-ios.md
+      href: howto-v1-enable-sso-ios.md
   - name: Azure AD B2B
     href: ../active-directory-b2b-what-is-azure-ad-b2b.md
   - name: User provisioning with SCIM
@@ -116,9 +117,9 @@
     - name: Get started with AAD Graph
       href: active-directory-graph-api-quickstart.md
   - name: AppSource certification
-    href: active-directory-devhowto-appsource-certified.md
+    href: howto-get-appsource-certified.md
   - name: Azure AD app gallery
-    href: active-directory-app-gallery-listing.md
+    href: howto-app-gallery-listing.md
   - name: Office 365 Seller Dashboard
     href: https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard
   - name: Working with Visual Studio
@@ -149,8 +150,9 @@
     href: active-directory-authentication-libraries.md
   - name: Code samples by scenario
     href: sample-v1-code.md
+    displayName: ADAL
   - name: Glossary
-    href: active-directory-dev-glossary.md
+    href: developer-glossary.md
   - name: Authentication protocols
     href: active-directory-authentication-protocols.md
     items:
@@ -178,18 +180,19 @@
     - name: Apps and Azure AD
       href: active-directory-how-applications-are-added.md
   - name: Application manifest
-    href: active-directory-application-manifest.md
+    href: reference-app-manifest.md
   - name: Token lifetimes
     href: ../active-directory-configurable-token-lifetimes.md
   - name: Service limits
     href: ../active-directory-service-limits-restrictions.md
 - name: v2.0 endpoint
+  displayName: MSAL
   items:
   - name: Overview
     href: active-directory-appmodel-v2-overview.md
     items:
     - name: Types of apps
-      href: active-directory-v2-flows.md
+      href: v2-app-types.md
     - name: Limitations
       href: active-directory-v2-limitations.md
     - name: v1-v2 comparison
@@ -239,11 +242,14 @@
   - name: Reference
     items:
     - name: Authentication libraries
-      href: active-directory-v2-libraries.md
+      href: reference-v2-libraries.md
+      displayName: MSAL
     - name: v2.0 code samples by scenario
       href: sample-v2-code.md
+      displayName: MSAL
     - name: v2.0 authentication protocols
       href: active-directory-v2-protocols.md
+      displayName: MSAL
       items:
       - name: OpenID Connect
         href: v2-protocols-oidc.md
@@ -266,7 +272,7 @@
 - name: Resources
   items:
   - name: Getting help
-    href: active-directory-develop-help-support.md
+    href: developer-support-help-options.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Pricing calculator

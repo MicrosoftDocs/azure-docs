@@ -84,4 +84,5 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
     - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
     - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
     - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)

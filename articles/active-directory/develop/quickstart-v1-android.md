@@ -124,7 +124,7 @@ You can find all the configuration for this code sample in the ***src/main/java/
 3. Find any problems or have requests? You can create an issue or post on Stackoverflow with the tag `azure-active-directory`. 
 
 ### Cross-app SSO
-Learn [how to enable cross-app SSO on Android by using ADAL](howto-v1-enable-sso-on-android.md). 
+Learn [how to enable cross-app SSO on Android by using ADAL](howto-v1-enable-sso-android.md). 
 
 ### Auth telemetry
 the ADAL library exposes auth telemetry to help app developers understand how their apps are behaving and build better experiences. This allows you to capture sign in success, active users, and several other interesting insights. Using auth telemetry does require app developers to establish a telemetry service to aggregate and store events.

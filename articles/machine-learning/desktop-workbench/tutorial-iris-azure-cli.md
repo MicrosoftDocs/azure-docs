@@ -2,10 +2,8 @@
 title: Tutorial article for Azure Machine Learning preview features - Command Line Interface  | Microsoft Docs
 description: This tutorial walk through all the steps required to complete an Iris classification end-to-end from the command line interface.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -136,16 +134,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### Create a new project associated with a cloud Git repository
-You can create a new project associated with a VSTS (Visual Studio Team Service) Git repository. Every time an experiment is submitted, a snapshot of the entire project folder is committed to the remote Git repo. See [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) for more details.
+You can create a new project associated with a Azure DevOps Git repository. Every time an experiment is submitted, a snapshot of the entire project folder is committed to the remote Git repo. See [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) for more details.
 
 > [!NOTE]
-> Azure Machine Learning only supports empty Git repos created in VSTS.
+> Azure Machine Learning only supports empty Git repos created in Azure DevOps.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> If you are getting an error "Repository url might be invalid or user might not have access", you can create a security token in VSTS (under _Security_, _Add personal access tokens_ menu) and use the `--vststoken` argument when creating your project. 
+> If you are getting an error "Repository url might be invalid or user might not have access", you can create a security token in Azure DevOps (under _Security_, _Add personal access tokens_ menu) and use the `--vststoken` argument when creating your project. 
 
 ### <a name="sample_create"></a>Create a new project from a sample
 In this example, you create a new project using a sample project as a template.
@@ -249,7 +247,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 Using the web service ID from the output of the previous step, call the web service and test it. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

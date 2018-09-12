@@ -61,7 +61,7 @@ The following articles provide detailed information about APIs, protocol message
 | ----------------------------------------------------------------------------------| --- |
 | [Authentication Libraries (ADAL)](active-directory-authentication-libraries.md)   | An overview of the libraries and SDKs that are provided by Azure AD. |
 | [Code samples](sample-v1-code.md)                                  | A list of all of the Azure AD code samples. |
-| [Glossary](active-directory-dev-glossary.md)                                      | Terminology and definitions of words that are used throughout this documentation. |
+| [Glossary](developer-glossary.md)                                      | Terminology and definitions of words that are used throughout this documentation. |
 |  |  |
 
 

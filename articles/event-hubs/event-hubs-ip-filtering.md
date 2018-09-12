@@ -3,14 +3,14 @@ title: Azure Event Hubs IP connection filters | Microsoft Docs
 description: Use IP filtering to block connections from specific IP addresses to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
+ms.date: 08/26/2018
+ms.author: shvija
 
 ---
 

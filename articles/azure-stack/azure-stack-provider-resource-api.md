@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 08/24/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
 
@@ -90,6 +90,8 @@ meterID1",
 
 ## Retrieve usage information
 
+### PowerShell
+
 To generate the usage data, you should have resources that are running and actively using the system, For example, an active virtual machine, or a storage account containing some data etc. If you’re not sure whether you have any resources running in Azure Stack Marketplace, deploy a virtual machine (VM), and verify the VM monitoring blade to make sure it’s running. Use the following PowerShell cmdlets to view the usage data:
 
 1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
@@ -98,6 +100,22 @@ To generate the usage data, you should have resources that are running and activ
 ```powershell
 Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
 ```
+### REST API
+
+You can collect usage information for deleted subscriptions by calling the  Microsoft.Commerce.Admin service. 
+
+**To return all tenant usage for deleted for active users:**
+
+| **Method** | **Request URI** |
+| --- | --- |
+| GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview |
+
+**To return the usage for deleted or active tenant:**
+
+| **Method** | **Request URI** |
+| --- | --- |
+| GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview |
+
 
 ## Next steps
 [Tenant resource usage API reference](azure-stack-tenant-resource-usage-api.md)

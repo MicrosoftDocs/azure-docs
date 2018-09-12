@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/07/2018
+ms.date: 08/013/2018
 ms.author: genli
 
 ---
@@ -30,7 +30,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+For the VM that uses managed disk, we can now use Azure PowerShell to change the OS disk for a VM. We no longer need to delete and recreate the VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using Azure PowerShell](troubleshoot-recovery-disks.md).
 
 ## Determine boot issues
 To determine why your VM is not able to boot correctly, examine the boot diagnostics VM screenshot. A common example would be a failed application update, or an underlying virtual hard disk being deleted or moved.
@@ -96,9 +96,9 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 ## Mount the attached data disk
 
-1. Open a Remote Desktop connection to your VM. Select your VM in the portal and click **Connect**. Download and open the RDP connection file. Enter your credentials to log in to your VM as follows:
+1. Open a Remote Desktop connection to your VM. Select your VM in the portal and click **Connect**. Download and open the RDP connection file. Enter your credentials to sign in to your VM as follows:
 
-    ![Log in to your VM using Remote Desktop](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
+    ![Sign in to your VM using Remote Desktop](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
 
 2. Open **Server Manager**, then select **File and Storage Services**. 
 
@@ -144,13 +144,6 @@ The template is loaded into the Azure portal for deployment. Enter the names for
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:
 
 ![Update boot diagnostics settings](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
-
-## Troubleshoot a Managed Disk VM by attaching a new OS disk
-1. Stop the effected Managed Disk Windows VM.
-2. [Create a managed disk snapshot](snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
-3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attach the managed disk as a data disk of the VM](attach-disk-ps.md).
-5. [Change the data disk from step 4 to OS disk](os-disk-swap.md).
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

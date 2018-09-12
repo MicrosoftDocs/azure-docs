@@ -5,14 +5,11 @@ metadata:
   title: Azure HDInsight Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn Hadoop on HDInsight. Documentation shows you how to use Hadoop, Spark, Kafka, HBase, and more to process, analyze, and gain insights from big data. 
   services: hdinsight
-  author: nitinme
-  manager: cgronlun
+  author: jasonwhowell
+  ms.author: jasonh
   ms.service: hdinsight
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/07/2018
-  ms.author: nitinme
 abstract:
   description: Learn how to use Azure HDInsight to analyze streaming or historical data. Tutorials and other documentation show you how to create clusters, process and analyze big data, and develop solutions using the most popular open-source frameworks, like Hadoop, Spark, Hive, LLAP, Kafka, Storm, and Microsoft Machine Learning Server.<p>Azure HDInsight is a fully managed, full-spectrum, open-source analytics service for enterprises. HDInsight is a cloud service that makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight also supports a broad range of scenarios, like extract, transform, and load (ETL); data warehousing; machine learning; and IoT.</p>
   aside:
@@ -83,7 +80,7 @@ sections:
     - title: Tools
       html: <p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">HDInsight IntelliJ tool</a></p><p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">HDInsight Eclipse tool</a></p><p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode">HDInsight VSCode tool</a></p><p><a href="https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">HDInsight Visual Studio tool</a></p>
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.hdinsight">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p><p><a href="https://archive.codeplex.com/?p=hadoopsdk">.NET (Avro)</a></p>
     - title: REST

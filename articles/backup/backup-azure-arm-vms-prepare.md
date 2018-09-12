@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backups; backing up;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
@@ -40,6 +40,7 @@ If these conditions already exist in your environment, proceed to the [Back up y
 ## Limitations when backing up and restoring a VM
 Before you prepare your environment, be sure to understand these limitations:
 
+* Backing up VMs with Standard SSD is not currently supported.
 * Backing up virtual machines with more than 16 data disks is not supported.
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
