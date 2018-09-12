@@ -17,19 +17,19 @@ ms.author: fmegen
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK ZIP download, version 1.0.0.
+The application is based on the Microsoft Cognitive Services Speech SDK download, version 1.0.0.
 
 ## Prerequisites
 
 * A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
-* TODO the browser version we tested against
-* Optionally, a Web Server that supports hosting PHP scripts.
+* A current version of Chrome or Microsoft Edge.
+* Optionally, a web server that supports hosting PHP scripts.
 
 ## Create a new Website folder
 
-Create a new, empty Folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
+Create a new, empty folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
 
 The current version of the Cognitive Services Speech SDK is `1.0.0`.
 
@@ -40,7 +40,7 @@ The latter file is optional and used to help debugging into SDK code, if necessa
 
 ## Create an index.html page
 
-Now create a new file in the folder, named `index.html` and open this file with a text editor.
+Create a new file in the folder, named `index.html` and open this file with a text editor.
 
 1. Create the following HTML skeleton:
 
@@ -69,7 +69,7 @@ Now create a new file in the folder, named `index.html` and open this file with 
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Wire up handlers for the recognizeAsync button defined by the UI code:
+1. Wire up handlers for the startRecognizeAsyncButton button, subscriptionKey, and regionKey fields defined by the UI code:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
@@ -88,7 +88,7 @@ That way, your subscription key will never leave your server while allowing user
 
 > [!NOTE]
 > Authorization tokens only have a limited lifetime.
-> This simplified example does not show how to refresh authorization tokens.
+> This simplified example does not show how to refresh authorization tokens automatically. As a user, you can manually reload the page or hit F5 to refresh.
 
 ## Build and run the sample locally
 
@@ -96,7 +96,7 @@ To launch the app, double-click on the index.html file or open index.html with y
 
 ## Build and run the sample via a web server
 
-To launch your app, open your favorite web browser and point it to the public URL that you host the folder on. If configured, it will acquire a token from your token source.
+To launch your app, open your favorite web browser and point it to the public URL that you host the folder on and trigger a recognition using the microphone.. If configured, it will acquire a token from your token source.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/js-browser` folder.
