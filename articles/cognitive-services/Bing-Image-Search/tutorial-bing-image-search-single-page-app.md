@@ -54,15 +54,8 @@ This tutorial focuses primarily on the JavaScript part of this app.
 
 This application uses web browsers' persistent storage to store API subscription keys. If no key is stored, the webpage will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will remove it from storage.
 
-<<<<<<< Updated upstream
+
 Define `storeValue` and `retrieveValue` functions to use either the `localStorage` object (if the browser supports it) or a cookie.
-=======
-<<<<<<< Updated upstream
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
-=======
-The `getSubscriptionKey()` function attempts to retrieve a previously stored key using `retrieveValue()`. If one isn't found, it will prompt the user for their key, and store it using `storeValue()`.
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 ```javascript
 // Cookie names for data being stored
@@ -177,15 +170,8 @@ function bingSearchOptions(form) {
 
 ## Performing the request
 
-<<<<<<< Updated upstream
-Using the search query, options string, and API key, the `BingImageSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Image Search endpoint.
-=======
-<<<<<<< Updated upstream
-Given the query, the options string, and the API key, the `BingImageSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Image Search endpoint.
-=======
 Using the search query, options string, and API key, the `BingImageSearch()` function uses an XMLHttpRequest object to make the request to the Bing Image Search endpoint.
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
 
 ```javascript
 // perform a search given query, options string, and API key
@@ -235,15 +221,7 @@ function bingImageSearch(query, options, key) {
 }
 ```
 
-<<<<<<< Updated upstream
-Upon successful completion of the HTTP request, JavaScript calls our `load` event handler `handleBingResponse()` to handle a successful HTTP GET request. 
-=======
-<<<<<<< Updated upstream
-Upon successful completion of the HTTP request, JavaScript calls our `load` event handler, the `handleBingResponse()` function, to handle a successful HTTP GET request to the API. 
-=======
 Upon successful completion of the HTTP request, JavaScript calls the "load" event handler `handleBingResponse()` to handle a successful HTTP GET request. 
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 ```javascript
 // handle Bing search request results
@@ -310,29 +288,12 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-<<<<<<< Updated upstream
-> Successful HTTP requests may contain failed search information. If an error occurs during the search operation, the Bing Image Search API returns a non-200 HTTP status code and error information in the JSON response. Additionally, if the request was rate-limited, the API will return an empty response.
-=======
-<<<<<<< Updated upstream
-> A successful HTTP request does *not* necessarily mean that the search itself succeeded. If an error occurs in the search operation, the Bing Image Search API returns a non-200 HTTP status code and includes error information in the JSON response. Additionally, if the request was rate-limited, the API returns an empty response.
 
-Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
-
-|Stage|Potential error(s)|Handled by|
-|-|-|-|
-|Building JavaScript request object|Invalid URL|`try`/`catch` block|
-|Making the request|Network errors, aborted connections|`error` and `abort` event handlers|
-|Performing the search|Invalid request, invalid JSON, rate limits|tests in `load` event handler|
-
-Errors are handled by calling `renderErrorMessage()` with any details known about the error. If the response passes the full gauntlet of error tests, we call `renderSearchResults()` to display the search results in the page.
-=======
 > Successful HTTP requests may contain failed search information. If an error occurs during the search operation, the Bing Image Search API will return a non-200 HTTP status code and error information in the JSON response. Additionally, if the request was rate-limited, the API will return an empty response.
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 ## Display the search results
 
-Search results are displayed by the `renderSearchResults()` function, which takes the JSON returned by the Bing Image Search service and renders any found images and related searches.
+Search results are displayed by the `renderSearchResults()` function, which takes the JSON returned by the Bing Image Search service and calls an appropriate renderer function on any returned images and related searches.
 
 ```javascript
 function renderSearchResults(results) {
@@ -348,7 +309,7 @@ function renderSearchResults(results) {
 }
 ```
 
-The main image search results are contained in the top-level `value` object in the JSON response. These are passed to `renderImageResults()`, which iterates through them and calls `renderImageResults()` to render each item into HTML and inserted into the `results` division in the page.
+Image search results are contained in the top-level `value` object within the JSON response. These are passed to `renderImageResults()`, which iterates through the results and converts each item into HTML.
 
 ```javascript
 function renderImageResults(items) {
@@ -366,7 +327,7 @@ function renderImageResults(items) {
 }
 ```
 
-The Bing Image Search API returns up to four different kinds of related results, each in its own top-level object. They are:
+The Bing Image Search API can return four types of related search results, each in its own top-level object. They are:
 
 |||
 |-|-|
@@ -375,11 +336,11 @@ The Bing Image Search API returns up to four different kinds of related results,
 |`relatedSearches`|Queries that have also been entered by other users who entered the original search. For example, if you search for "Mount Rainier," a related search might be "Mt. Saint Helens."|
 |`similarTerms`|Queries that are similar in meaning to the original search. For example, if you search for "kittens," a similar term might be "cute."|
 
-As previously seen in `renderSearchResults()`, we render only the `relatedItems` suggestions and place the resulting links in the page's sidebar.
+This application only renders the `relatedItems` suggestions, and places the resulting links in the page's sidebar. 
 
-## Rendering result items
+## Rendering serach results
 
-In our JavaScript code is an object, `searchItemRenderers`, that contains *renderers:* functions that generate HTML for each kind of search result.
+In this application, the `searchItemRenderers` object contains renderer functions that generate HTML for each kind of search result.
 
 ```javascript
 searchItemRenderers = { 
@@ -398,7 +359,13 @@ A renderer function may accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-Let's take a closer look at the `images` renderer:
+Below is the source code for the images renderer, which performs the following functions:
+
+> [!div class="checklist"]
+> * Calculates the image thumbnail size (width varies, with a minimum of 120 pixels, while height is fixed at 90 pixels).
+> * Builds the HTML `<img>` tag to display the image thumbnail. 
+> * Builds the HTML `<a>` tags that link to the image and the page that contains it.
+> * Builds the description that displays information about the image and the site it's on.
 
 ```javascript
     images: function (item, index, count) {
@@ -418,17 +385,9 @@ Let's take a closer look at the `images` renderer:
     }, // relatedSearches renderer omitted
 ```
 
-Our image renderer function:
-
-> [!div class="checklist"]
-> * Calculates the image thumbnail size (width varies, with a minimum of 120 pixels, while height is fixed at 90 pixels).
-> * Builds the HTML `<img>` tag to display the image thumbnail. 
-> * Builds the HTML `<a>` tags that link to the image and the page that contains it.
-> * Builds the description that displays information about the image and the site it's on.
-
 We test the `index` variable in order to insert a `<p>` tag before the first image result. The thumbnails otherwise butt up against each other and wrap as needed in the browser window.
 
-The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
+The thumbnail image's `height` and `width` are used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
 
 ## Persisting client ID
 
