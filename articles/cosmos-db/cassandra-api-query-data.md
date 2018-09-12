@@ -88,5 +88,5 @@ You can now open Data Explorer in the Azure portal to confirm that the user tabl
 
 ## Next steps
 
-* To learn about Apache Cassandra features supported by Azure Cosmos DB Cassandra API, see [Cassandra support](cassandra-support) article.
+* To learn about Apache Cassandra features supported by Azure Cosmos DB Cassandra API, see [Cassandra support](cassandra-support.md) article.
 
