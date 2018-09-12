@@ -5,8 +5,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
+ms.author: prasantp
+author: prasanthpul
 ms.date: 09/24/2018
 ---
 
