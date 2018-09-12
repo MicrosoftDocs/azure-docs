@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/10/2018
+ms.date: 09/12/2018
 ms.author: ryanwi
 
 ---
@@ -35,17 +35,13 @@ The concepts listed in this section are also discussed in the following Microsof
 
 ### Service Fabric Mesh Application concepts
 
-**Application**: An application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of services, a network, volumes, and code packages. An application resource is defined using the Azure Resource Model schema.
-
-**Resources**: Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using the Azure Resource Model schema. Each resource is described declaratively in a resource file, which is a simple YAML or JSON document that describes the Mesh Application, and is provisioned by the Service Fabric platform. 
-
-**Application resource**: An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice.
+**Application**: An application is the unit of deployment, versioning, and lifetime of a Mesh application. The lifecycle of each application instance can be managed independently.  Applications are composed of one or more service code packages and settings. An application is defined using the Azure Resource Model (RM) schema.  Services, networks, and volumes are described as properties of the application resource in a RM template.  When creating an application, the application, service(s), network, and volume(s) are modeled using the Service Fabric Resource Model.
 
 **Service**: A service in an application represents a microservice. Each service is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package.
 
-**Volume resource**: Volumes are directories that get mounted inside your container instances that you can use to persist state. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
+**Volume**: Volumes are directories that get mounted inside your container instances that you can use to persist state. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
 
-**Network resource**: A network resource is individually deployable resource, independent of an application or service resource that may refer to it as their dependency. It is used to create a private network for your applications.
+**Network**: A network resource is a private network for your applications and is independent of applications or services that may refer to it. Multiple Services from different Applications can be part of the same network.
 
 **Code package**: Code packages describe everything needed to run the container image associated with the code package, including the following:
 
@@ -54,11 +50,11 @@ The concepts listed in this section are also discussed in the following Microsof
 * Network endpoints
 * Volumes to mount in the container, referencing a separate volume resource.
 
-All the code packages defined as part of an application resource are deployed and activated together as a group. 
+All the code packages defined as part of an application resource are deployed and activated together as a group.
 
 ### Service Fabric Native Application concepts
 
-**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently. 
+**Application**: An application is a collection of constituent services that perform a certain function or functions. The lifecycle of each application instance can be managed independently.
 
 **Service**: A service performs a complete and standalone function and can start and run independently of other services. A service is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service.
 
@@ -129,7 +125,7 @@ Read the [Deploy an application](service-fabric-deploy-remove-applications.md) a
 To deploy your services, you need to describe how they should run. Service Fabric supports three different deployment models:
 
 ### Resource model (preview)
-Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using a YAML file or JSON file using the Azure Resource Model schema. Resources can be deployed anywhere Service Fabric runs. The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services. To learn more, read [Introduction to the Service Fabric Resource Model](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
+Service Fabric Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using a YAML file or JSON file using the Azure Resource Model schema. Resources can be deployed anywhere Service Fabric runs. The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services. To learn more, read [Introduction to the Service Fabric Resource Model](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
 
 ### Native model
 The native application model provides your applications with full low-level access to Service Fabric. Applications and services are defined as registered types in XML manifest files.
