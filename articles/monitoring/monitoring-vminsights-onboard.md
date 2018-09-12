@@ -116,7 +116,7 @@ VM insights configures a Log Analytics Workspace to collect performance counters
 |LogicalDisk |Disk Write Bytes/sec |  
 |LogicalDisk |Disk Writes/sec |  
 |LogicalDisk |Free Megabytes |  
-|Memory |Available Mbytes |  
+|Memory |Available MBytes |  
 |Network Adapter |Bytes Received/sec |  
 |Network Adapter |Bytes Sent/sec |  
 |Processor |% Processor Time |  
@@ -133,7 +133,7 @@ VM insights configures a Log Analytics Workspace to collect performance counters
 |Logical Disk |Disk Writes/sec |  
 |Logical Disk |Free Megabytes |  
 |Logical Disk |Logical Disk Bytes/sec |  
-|Memory |Available Mbytes Memory |  
+|Memory |Available MBytes Memory |  
 |Network |Total Bytes Received |  
 |Network |Total Bytes Transmitted |  
 |Processor |% Processor Time |  
