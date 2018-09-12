@@ -59,7 +59,7 @@ After creating the LUIS resource in the Azure dashboard, log into the [LUIS port
 On the Publish page:
 
 1. Scroll down to the Resources and Keys section and click **Add key**.
-1. In the **Assign a key to your app** dialog, choose tho following:
+1. In the **Assign a key to your app** dialog, choose the following:
 
     * Choose Microsoft as the Tenant.
     * Under Subscription Name, choose the Azure subscription that contains the LUIS resource you want to use.
