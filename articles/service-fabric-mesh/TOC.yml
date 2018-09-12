@@ -15,15 +15,15 @@
   items:
   - name: Create, debug, and deploy a multi-service Service Fabric Mesh app to the cloud
     items:
-    - name: 1- Create a Service Fabric Mesh project in Visual Studio
+    - name: 1- Create a Service Fabric Mesh app
       href: service-fabric-mesh-tutorial-create-dotnetcore.md
-    - name: 2- Debug a Service Fabric Mesh app locally
+    - name: 2- Debug a Service Fabric Mesh app
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
     - name: 3- Deploy a Service Fabric Mesh app
       href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
-    - name: 4- View Service Fabric Mesh app logs
-      href: service-fabric-mesh-tutorial-view-logs.md
-    - name: 5- Upgrade a Service Fabric Mesh application
+    - name: 4- Monitor and diagnose
+      href: service-fabric-mesh-tutorial-appinsights.md
+    - name: 5- Upgrade a Service Fabric Mesh app
       href: service-fabric-mesh-tutorial-upgrade.md
     - name: 6- Clean up Service Fabric Mesh resources
       href: service-fabric-mesh-tutorial-cleanup-resources.md
