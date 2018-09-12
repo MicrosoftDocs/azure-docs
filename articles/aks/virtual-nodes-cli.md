@@ -233,7 +233,7 @@ curl -L http://10.241.0.4
 The demo application is displayed, as shown in the following condensed example output:
 
 ```
-$ curl -L 10.240.0.42
+$ curl -L 10.241.0.4
 
 <html>
 <head>
