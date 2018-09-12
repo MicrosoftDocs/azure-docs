@@ -17,12 +17,12 @@ ms.custom: it-pro
 
 # How to: Create a basic group and add members using the Azure Active Directory portal
 
-You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is assigned to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
 
-## Create a basic group and assign members
+## Create a basic group and add members
 You can create a basic group and add your members at the same time.
 
-### To create a basic group and assign members
+### To create a basic group and add members
 1. Sign in to the [Azure AD portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
@@ -35,9 +35,9 @@ You can create a basic group and add your members at the same time.
 
     - **Group type (required).** Select a pre-defined group type. This includes:
         
-        - **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can assign permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
+        - **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can give a set of permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
         
-        - **Office 365**. Provides a place to collaborate by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+        - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
     - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense.
 
@@ -45,7 +45,7 @@ You can create a basic group and add your members at the same time.
 
     - **Membership type (required).** Select a pre-defined membership type. This includes:
 
-        - **Assigned.** Lets you assign specific employees to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
+        - **Assigned.** Lets you add specific users to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
 
         - **Dynamic user.** Lets you use dynamic group rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 
@@ -56,7 +56,7 @@ You can create a basic group and add your members at the same time.
 
 4. Select **Create**.
 
-    Your group is created and ready for you to assign members.
+    Your group is created and ready for you to add members.
 
 5. Select the **Members** area from the **Group** blade, and then begin searching for the members to add to your group from the **Select members** blade.
 
@@ -64,14 +64,14 @@ You can create a basic group and add your members at the same time.
 
 6. When you're done adding members, choose **Select**.
 
-    The **Group Overview** blade updates to show the number of members who are now assigned to the group.
+    The **Group Overview** blade updates to show the number of members who are now added to the group.
 
     ![Group Overview blade with number of members highlighted](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
 ## Next steps
 Now that you've added a group and at least one user, you can:
 
-- [View your groups and assigned members](active-directory-groups-view-azure-portal.md)
+- [View your groups and members](active-directory-groups-view-azure-portal.md)
 
 - [Manage group membership](active-directory-groups-membership-azure-portal.md)
 

@@ -41,4 +41,5 @@ You can delete a group for any number of reasons, but typically it'll be because
 
 ## Next steps
 
-- [How to create a basic group and add members](active-directory-groups-create-azure-portal.md)
+- If you mistakenly delete a group, you can create it again. For more information, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
+- If you mistakenly delete an Office 365 group, you might be able to restore it. For more information, see [Restore a deleted Office 365 group in Azure AD](active-directory-groups-restore-azure-portal.md).

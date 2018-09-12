@@ -53,7 +53,7 @@ Using the Azure AD portal, you can edit a group's settings, including updating i
 ## Next steps
 These articles provide additional information on Azure Active Directory.
 
-- [View your groups and assigned members](active-directory-groups-view-azure-portal.md)
+- [View your groups and members](active-directory-groups-view-azure-portal.md)
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 

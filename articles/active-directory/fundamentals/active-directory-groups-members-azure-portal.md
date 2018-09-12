@@ -38,7 +38,7 @@ Using the Azure AD portal, you can continue to add and remove group members.
 
     ![Add members blade, with searched for member shown](media/active-directory-groups-members-azure-portal/update-members.png)
 
-6. Refresh the screen to see all of the member names assigned to the group.
+6. Refresh the screen to see all of the member names added to the group.
 
 ## To remove group members
 
@@ -50,7 +50,7 @@ Using the Azure AD portal, you can continue to add and remove group members.
 
 ## Next steps
 
-- [Search for and view your groups and associated members from the Azure AD portal](active-directory-groups-view-azure-portal.md)
+- [View your groups and members](active-directory-groups-view-azure-portal.md)
 
 - [Edit your group settings](active-directory-groups-settings-azure-portal.md)
 

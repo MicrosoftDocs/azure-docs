@@ -22,7 +22,7 @@ This article helps you to add and remove a group from another group using the Az
 >If you're trying to delete the parent group, see [How to update or delete a group and its members](active-directory-groups-delete-group.md).
 
 ## Add a group as a member to another group
-You can add an existing group to another existing group, creating a member group (subgroup) and an assigned-to (parent) group. The member group inherits the attributes and properties of the assigned-to group, saving you configuration time.
+You can add an existing group to another existing group, creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time.
 
 ### To add a group as a member to another group
 
@@ -69,7 +69,7 @@ You can remove an existing member group from another group. However, removing th
 ## Additional information
 These articles provide additional information on Azure Active Directory.
 
-- [View your groups and assigned members](active-directory-groups-view-azure-portal.md)
+- [View your groups and members](active-directory-groups-view-azure-portal.md)
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
