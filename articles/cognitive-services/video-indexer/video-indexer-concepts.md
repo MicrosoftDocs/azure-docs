@@ -14,7 +14,7 @@ ms.author: juliako
 ---
 # Video Indexer concepts
  
-This topic describes some concepts of the Video Indexer service.
+This article describes some concepts of the Video Indexer service.
  	
 ## Summarized insights
 
