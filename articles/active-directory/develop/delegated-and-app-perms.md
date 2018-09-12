@@ -3,7 +3,7 @@ title: How to recognize differences between delegated and application permission
 description: Learn about delegated and application permissions, how they are used by clients and exposed by resources for applications you are developing with Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
-ms.author: barbkess
+ms.date: 09/11/2018
+ms.author: celested
 
 ---
 
