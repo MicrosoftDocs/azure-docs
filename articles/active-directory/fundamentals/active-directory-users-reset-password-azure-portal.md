@@ -36,7 +36,7 @@ You can reset a user's password if the password is forgotten, if the user gets l
 
 4. Copy the password and give it to the user. The user will be required to change the password during the next sign-in process.
 
-    >![Note]
+    >[!Note]
     >The temporary password never expires. That means that whenever the user signs in again, no matter how much time has passed, the password will still work.
 
 ## Next steps
