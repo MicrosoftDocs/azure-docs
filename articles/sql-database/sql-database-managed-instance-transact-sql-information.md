@@ -421,7 +421,7 @@ Error logs that are available in managed instance are not persisted and their si
 ### Error logs are verbose
 Managed Instance places verbose information in error logs and many of them are not relevant. The amount of information in error logs will be decreased in the future.
 
-**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries as described in - https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/
+**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries. For details, see [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### Transaction Scope on two databases within the same instance is not supported
 `TransactionScope` class in .Net does not work if two queries are sent to the two databases within the same instance under the same transaction scope:
@@ -429,7 +429,7 @@ Managed Instance places verbose information in error logs and many of them are n
 ```C#
 using (var scope = new TransactionScope())
 {
-    using (var conn1 = new SqlConnection("Server=put-some-instance-name.lkgt1aeda54f909eb.com;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
     {
         conn1.Open();
         SqlCommand cmd1 = conn1.CreateCommand();
@@ -437,7 +437,7 @@ using (var scope = new TransactionScope())
         cmd1.ExecuteNonQuery();
     }
 
-    using (var conn2 = new SqlConnection("Server=put-some-instance-name.lkgt1aeda54f909eb.com;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
     {
         conn2.Open();
         var cmd2 = conn2.CreateCommand();
