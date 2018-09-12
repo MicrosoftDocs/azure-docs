@@ -1,6 +1,6 @@
 ---
 title: 'Migrate TDE certificate - Azure SQL Database Managed Instance | Microsoft Docs'
-description: Migrate certificate protecting Database Encryption Key of a database with transparent Data Encryption to Azure SQL Managed instance
+description: Migrate certificate protecting Database Encryption Key of a database with transparent Data Encryption to Azure SQL Database Managed Instance
 keywords: sql database tutorial, sql database managed instance, migrate TDE certificate
 services: sql-database
 author: MladjoA
@@ -13,9 +13,9 @@ ms.author: mlandzic
 manager: craigg
 ---
 
-# Migrate certificate of TDE protected database to Azure SQL Managed Instance
+# Migrate certificate of TDE protected database to Azure SQL Database Managed Instance
 
-When migrating a database protected by [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. This article walks you through the process of manual migration of the certificate to Azure SQL Database Managed Instance:
+When migrating a database protected by [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Database Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. This article walks you through the process of manual migration of the certificate to Azure SQL Database Managed Instance:
 
 > [!div class="checklist"]
 > * Export certificate to a Personal Information Exchange (.pfx) file
@@ -25,7 +25,7 @@ When migrating a database protected by [Transparent Data Encryption](https://doc
 For an alternative option using fully managed service for seamless migration of both TDE protected database and corresponding certificate, see [How to migrate your on-premises database to Managed Instance using Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Transparent Data Encryption for Azure SQL Managed Instance works in service-managed mode. Migrated certificate is used for restore of the TDE protected database only. Soon after restore is done, the migrated certificate gets replaced by a different, system-managed certificate.
+> Transparent Data Encryption for Azure SQL Database Managed Instance works in service-managed mode. Migrated certificate is used for restore of the TDE protected database only. Soon after restore is done, the migrated certificate gets replaced by a different, system-managed certificate.
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
 
 4. Follow the wizard to export certificate and private key to a Personal Information Exchange format
 
-## Upload certificate to Azure SQL Managed Instance using Azure PowerShell cmdlet
+## Upload certificate to Azure SQL Database Managed Instance using Azure PowerShell cmdlet
 
 1. Start with preparation steps in PowerShell:
 
@@ -134,6 +134,6 @@ The certificate is now available to the specified Managed Instance and backup of
 
 ## Next steps
 
-In this article, you learned how to migrate certificate protecting encryption key of database with Transparent Data Encryption, from the on-premises or IaaS SQL Server to Azure SQL Managed Instance.
+In this article, you learned how to migrate certificate protecting encryption key of database with Transparent Data Encryption, from the on-premises or IaaS SQL Server to Azure SQL Database Managed Instance.
 
 See [Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started-restore.md) to learn how to restore a database backup to an Azure SQL Database Managed Instance.

@@ -38,7 +38,7 @@ You can configure and get information about alert rules using
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
 2. This step is different for SQL DB and elastic pools versus SQL DW: 
 
-   - **SQL DB & Elastic Pools ONLY**: Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
+   - **SQL DB & Elastic pools ONLY**: Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
    
      ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   

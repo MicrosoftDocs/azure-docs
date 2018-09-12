@@ -11,7 +11,7 @@ ms.date: 07/16/2018
 ms.author: sstein
 
 ---
-# Create and manage scaled out Azure SQL Databases using elastic jobs (preview)
+# Create and manage scaled out Azure SQL databases using elastic jobs (preview)
 
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
