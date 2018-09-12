@@ -29,11 +29,13 @@ Each hyperparameter can either be discrete or continuous.
 
 #### Discrete hyperparameters 
 Discrete hyperparameters can be specified as a `choice` among discrete values. For example  
+
 ```Python
     {    
         "batch_size": choice(16, 32, 64, 128)
     }
 ```
+
 In this case, batch_size can take on one of the values [16, 32, 64, 128].
 
 #### Continuous hyperparameters 
@@ -48,12 +50,14 @@ Continuous hyperparameters can be specified as a distribution over a continuous 
 * `qlognormal(mu, sigma, q)` - Returns a value like round(exp(normal(mu, sigma)) / q) * q
 
 Here is an example of a parameter space definition -
+
 ```Python
     {    
         "learning_rate": normal(10, 3),
         "keep_probability": uniform(0.05, 0.1)
     }
 ```
+
 This example defines a search space with two parameters - learning_rate and keep_probability. learning_rate will have a normal distribution with mean value 10 and a standard deviation of 3. keep_probability will have a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
 
 ### Sampling the hyperparameter space
@@ -61,6 +65,7 @@ The user also specifies the parameter sampling method to use over the specified 
 
 #### Random Sampling
 In Random sampling, hyperparameter values are randomly selected from the defined search space. Random sampling allows the search space to include both discrete and continuous hyperparameters. For example
+
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
 param_sampling = RandomParameterSampling( {
@@ -73,6 +78,7 @@ param_sampling = RandomParameterSampling( {
 
 #### Grid Sampling
 Grid sampling performs a simple grid search over all feasible values in the defined search space. It can only be used with discrete hyperparameters. For example, the following space has a total of six samples -
+
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
 param_sampling = GridParameterSampling( {
@@ -88,6 +94,7 @@ Bayesian sampling tries to intelligently pick the next sample of hyperparameters
 When using Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence. This is because the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
 Bayesian sampling supports only `choice`, `uniform`, and `quniform` distributions over the search space. For example 
+
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
 param_sampling = BayesianParameterSampling( {
@@ -96,6 +103,7 @@ param_sampling = BayesianParameterSampling( {
     }
 )
 ```
+
 > [!NOTE]
 > Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you can set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
 >
@@ -108,11 +116,13 @@ param_sampling = BayesianParameterSampling( {
 In order to use Azure Machine Learning service for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric. See [Primary Metric](#primary-metric).
 
 You can update your training script to log this metric, using the following sample snippet -
+
 ```Python
 from azureml.core.run import Run
 run_logger = Run.get_submitted_run()
 run_logger.log("accuracy", float(val_accuracy))
 ```
+
 In this example, the training script calculates the val_accuracy and logs this "accuracy", which is used as the primary metric. It is up to the model developer to determine how frequently to report this metric.
 
 ## Specify an Early Termination Policy
@@ -131,22 +141,28 @@ Bandit Policy is a termination policy based on slack factor/slack amount and eva
     For example,  consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
 * `evaluation_interval`: the frequency for applying the policy.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
+
 Consider this example -
+
 ```Python
 from azureml.train.hyperdrive import BanditPolicy
 early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=1, delay_evaluation=5)
 ```
+
 In this example, the early termination policy is applied at every interval when metrics are reported, starting at evaluation interval 5. Any run whose best metric is less than (1/(1+0.1) or 91% of the best performing run will be terminated.
 
 ### Median Stopping Policy
 Median Stopping Policy is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters -
 * `evaluation_interval`: the frequency for applying the policy.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
+
 Consider this example -
+
 ```Python
 from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
+
 In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5 if its best primary metric is worse than the median of the running averages over intervals 1:5 across all training runs.
 
 ### Truncation Selection Policy
@@ -154,15 +170,19 @@ Truncation Selection Policy cancels a given percentage of lowest performing runs
 * `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. This should be an integer value between 1 and 99.
 * `evaluation_interval`: the frequency for applying the policy.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
+
 Consider this example -
+
 ```Python
 from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
+
 In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5, if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5.
 
 ### No Termination Policy
 If you want all training runs to run to completion, use NoTerminationPolicy. This will have the effect of not applying any early termination policy. For example 
+
 ```Python
 from azureml.train.hyperdrive import NoTerminationPolicy
 early_termination_policy = NoTerminationPolicy()
@@ -184,7 +204,8 @@ You can control your resource budget for your hyperparameter tuning experiment b
 * `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
 * `max_duration_minutes`: Maximum duration of the hyperparameter tuning experiment in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically canceled.
 
-[!NOTE] If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning experiment is terminated when the first of these two thresholds is reached.
+>
+>[!NOTE] If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning experiment is terminated when the first of these two thresholds is reached.
 
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 * `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel.
@@ -192,6 +213,7 @@ Additionally, you can specify the maximum number of training runs to run concurr
 Finally, in order to configure your hyperparameter tuning experiment, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators).
 
 Here is an example of how you can configure your hyperparameter tuning experiment -
+
 ```Python
 from azureml.train.hyperdrive import HyperDriveRunConfig
 hyperdrive_run_config = HyperDriveRunConfig(estimator=estimator,
@@ -202,21 +224,26 @@ hyperdrive_run_config = HyperDriveRunConfig(estimator=estimator,
                           max_total_runs=100,
                           max_concurrent_runs=4)
 ```
+
 ## Submit your hyperparameter tuning experiment
 Once you have defined your hyperparameter tuning configuration, you can submit an experiment using this configuration -
+
 ```Python
 from azureml.core.experiment import Experiment
 experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
+
 where `experiment_name` is the name you want to assign to your hyperparameter tuning experiment.
 
 ## Visualize your hyperparameter tuning experiment
 Azure Machine Learning SDK provides a Notebook widget that can be used to visualize the progress of your training runs. The following snippet can be used to visualize all your hyperparameter tuning runs in one place -
+
 ```Python
 from azureml.train.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
+
 This will display a table with details about the training runs for each of the hyperparameter configurations. For example
 
 ![hyperparameter tuning table](media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
@@ -235,6 +262,7 @@ Alternatively, you can visualize all your hyperparameter tuning runs in the Azur
 
 ## Find the configuration that resulted in the best performance
 Once all of the hyperparameter tuning runs have completed, you can identify the best performing configuration and the corresponding hyperparameter values using the following snippet -
+
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
 best_run_metrics = best_run.get_metrics()
