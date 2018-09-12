@@ -51,7 +51,7 @@
   - name: Backup and recover
     href: microsoft-authenticator-app-backup-and-recovery.md
   - name: Sign in with your phone
-    href: microsoft-authenticator-app-phone-signin-faq
+    href: microsoft-authenticator-app-phone-signin-faq.md
   - name: FAQ
     href: microsoft-authenticator-app-faq.md
 - name: My Apps portal help
