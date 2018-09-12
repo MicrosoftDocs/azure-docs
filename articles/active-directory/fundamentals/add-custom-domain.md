@@ -61,7 +61,7 @@ After you register your custom domain name, it can take a few seconds to a coupl
 
 2. Select **Azure Active Directory**, and then select **Custom domain names**.
 
-3. On the **Fabrikam - Custom domain names** blade select the custom domain name, **Contoso**.
+3. On the **Fabrikam - Custom domain names** blade, select the custom domain name, **Contoso**.
 
     ![Fabrikam - Custom domain names blade, with contoso highlighted](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 
