@@ -77,7 +77,7 @@ Use the following steps to install the VM Agent in offline mode.
 
         ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. Remember the **ImagePath** of the VM agent. We will need to copy the corresponding folder to the attached OS disk. 
+    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. Remember the **ImagePath** of the current VM agent. We will need to copy the corresponding folder to the attached OS disk. 
 
         ![Change the registry subkey values](./media/install-vm-agent-offline/change-reg.png)
 
@@ -88,13 +88,13 @@ Use the following steps to install the VM Agent in offline mode.
         - WindowsAzureTelemetryService
         - RdAgent
 
-    5. Copy the installation files of the VM Agent to the attached OS disk: 
+    5. Copy the installation folder of the current VM Agent to the attached OS disk: 
 
-        1. Check the **ImagePath** of the current VM Agent. In this case, the **ImagePath** is: **C:\WindowsAzure\GuestAgent_2.7.41491.888\WaAppAgent.exe**.
+        1. Check the **ImagePath** of the curent VM Agent. In this case, the **ImagePath** is: C:\WindowsAzure\GuestAgent_2.7.41491.888\WaAppAgent.exe. So the folder that we need to copy is C:\WindowsAzure\GuestAgent_2.7.41491.888.
         
         2. On the OS disk that you attached, create a folder named **WindowsAzure** in the root path.
             
-        3. Copy the **GuestAgent_version** folder from **C:\WindowsAzure** to the **WindowsAzure** folder in the attached OS disk. 
+        3. Copy the GuestAgent folder from **C:\WindowsAzure** to the **WindowsAzure** folder in the attached OS disk. The following image shows an example of the GuestAgent folder that is copied to the attached OS disk. 
 
             ![Copy GuestAgent folder](./media/install-vm-agent-offline/copy-files.png)
 
