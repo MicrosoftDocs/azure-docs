@@ -15,9 +15,9 @@ ms.date: 09/24/2018
 
 Hyperparameters are adjustable parameters chosen prior to training a model, that govern the training process itself. For example, prior to training a deep neural network, you will need to decide the number of hidden layers in the network and the number of nodes in each layer. These values usually stay constant during the training process.
 
-In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations and to find a good configuration, that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
+In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations to find a configuration that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
 
-Azure Machine Learning Service allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources, and these resources are instead used to explore other hyperparameter configurations.
+Azure Machine Learning Service allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
 
 In this article, we demonstrate how to efficiently perform a hyperparameter sweep. We will show you how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
 
@@ -42,7 +42,7 @@ Continuous hyperparameters can be specified as a distribution over a continuous 
 * `loguniform(low, high)` - Returns a value drawn according to exp(uniform(low, high)) so that the logarithm of the return value is uniformly distributed
 * `quniform(low, high, q)` - Returns a value like round(uniform(low, high) / q) * q
 * `qloguniform(low, high, q)` - Returns a value like round(exp(uniform(low, high)) / q) * q
-* `normal(mu, sigma)` - Returns a real value that's normally-distributed with mean mu and standard deviation sigma
+* `normal(mu, sigma)` - Returns a real value that's normally distributed with mean mu and standard deviation sigma
 * `lognormal(mu, sigma)` - Returns a value drawn according to exp(normal(mu, sigma)) so that the logarithm of the return value is normally distributed
 * `qnormal(mu, sigma, q)` - Returns a value like round(normal(mu, sigma) / q) * q
 * `qlognormal(mu, sigma, q)` - Returns a value like round(exp(normal(mu, sigma)) / q) * q
@@ -171,36 +171,27 @@ early_termination_policy = NoTerminationPolicy()
 ### Default Policy
 If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
-> [!NOTE]
-> Bayesian sampling does not support any early termination policy. If using Bayesian parameter sampling, you should set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
->
-> ```Python
-> from azureml.train.hyperdrive import NoTerminationPolicy
-> early_termination_policy = NoTerminationPolicy()
-> ```
-
-## Configure your hyperparameter tuning run
+## Configure your hyperparameter tuning experiment
 In addition to defining the hyperparameter search space and early termination policy, you will need to specify the metric that you want to optimize and configure resources allocated for hyperparameter tuning.
 
 ### Primary Metric
-The primary metric is the metric that the hyperparameter tuning run will optimize. Each training run is evaluated for this primary metric and poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to specifying the primary metric name, you also need to specify the goal of the optimization - whether to maximize or minimize the primary metric.
+The primary metric is the metric that the hyperparameter tuning experiment will optimize. Each training run is evaluated for this primary metric and poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to specifying the primary metric name, you also need to specify the goal of the optimization - whether to maximize or minimize the primary metric.
 * `primary_metric_name`: The name of the primary metric to optimize. The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Log metrics for hyperparameter tuning](#log-metrics-for-hyperparameter-tuning).
 * `primary_metric_goal`: It can be either PrimaryMetricGoal.MAXIMIZE or PrimaryMetricGoal.MINIMIZE and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
 
 ### Resources allocated to hyperparameter tuning
-You can control your resource budget for your hyperparameter tuning run by specifying the maximum total number of training runs and optionally, the maximum duration for your hyperparameter tuning run (in minutes). 
+You can control your resource budget for your hyperparameter tuning experiment by specifying the maximum total number of training runs and optionally, the maximum duration for your hyperparameter tuning experiment (in minutes). 
 * `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
-* `max_duration_minutes`: Maximum duration of the hyperparameter tuning run in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically canceled.
+* `max_duration_minutes`: Maximum duration of the hyperparameter tuning experiment in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically canceled.
 
-> [!NOTE]
-> If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning run is terminated when the first of these two thresholds is reached.
+[!NOTE] If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning experiment is terminated when the first of these two thresholds is reached.
 
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 * `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel.
 
-Finally, in order to configure your hyperparameter tuning run, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators).
+Finally, in order to configure your hyperparameter tuning experiment, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators).
 
-Here is an example of how you can configure your hyperparameter tuning run -
+Here is an example of how you can configure your hyperparameter tuning experiment -
 ```Python
 from azureml.train.hyperdrive import HyperDriveRunConfig
 hyperdrive_run_config = HyperDriveRunConfig(estimator=estimator,
@@ -211,14 +202,16 @@ hyperdrive_run_config = HyperDriveRunConfig(estimator=estimator,
                           max_total_runs=100,
                           max_concurrent_runs=4)
 ```
-## Launch your hyperparameter tuning run
-Once you have defined the configuration for your hyperparameter tuning run, you can launch the search across the hyperparameter space using -
+## Submit your hyperparameter tuning experiment
+Once you have defined your hyperparameter tuning configuration, you can submit an experiment using this configuration -
 ```Python
-hyperdrive_run = search(hyperdrive_run_config, run_name)
+from azureml.core.experiment import Experiment
+experiment = Experiment(workspace, experiment_name)
+hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
-where `run_name` is the name you want to assign to your hyperparameter tuning run.
+where `experiment_name` is the name you want to assign to your hyperparameter tuning experiment.
 
-## Visualize your hyperparameter tuning runs
+## Visualize your hyperparameter tuning experiment
 Azure Machine Learning SDK provides a Notebook widget that can be used to visualize the progress of your training runs. The following snippet can be used to visualize all your hyperparameter tuning runs in one place -
 ```Python
 from azureml.train.widgets import RunDetails
@@ -235,6 +228,10 @@ You can also visualize the performance of each of the runs as training progresse
 Finally, you can visually identify the correlation between performance and values of individual hyperparameters using a Parallel Coordinates Plot. For example 
 
 ![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
+
+Alternatively, you can visualize all your hyperparameter tuning runs in the Azure web portal as well. See [link](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal) for more information on how to view an experiment in the web portal. For example, -
+
+![hyperparameter tuning portal](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
 ## Find the configuration that resulted in the best performance
 Once all of the hyperparameter tuning runs have completed, you can identify the best performing configuration and the corresponding hyperparameter values using the following snippet -
@@ -256,5 +253,5 @@ print(helpers.get_run_history_url(best_run))
 Refer to [Sample Notebook]() for a tutorial on tuning hyperparameters for a Tensorflow model.
 
 ## Next steps
-* [Track run metrics during training](/how-to-track-experiments.md)
+* [Track an experiment](/how-to-track-experiments.md)
 * [Deploy a trained model](/how-to-deploy-and-where.md)
