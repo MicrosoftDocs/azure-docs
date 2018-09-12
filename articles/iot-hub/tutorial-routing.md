@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 ms.author: robinsh
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
@@ -14,9 +14,10 @@ ms.custom: mvc
 
 # Tutorial: Configure message routing with IoT Hub
 
-Message routing enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring message routing, you can create routing rules to customize the route that matches a certain rule. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
+[Message routing](iot-hub-devguide-messages-d2c.md) enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring message routing, you can create routing queries to customize the route that matches a certain condition. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
+<!--"routing queries" should be hyperlinked to (iot-hub-devguide-routing-query-syntax.md) [robin]-->
 
-In this tutorial, you learn how to set up and use routing rules with IoT Hub. You will route messages from an IoT device to one of multiple services, including blob storage and a Service Bus queue. Messages to the Service Bus queue will be picked up by a Logic App and sent via e-mail. Messages that do not have routing specifically set up are sent to the default endpoint, and viewed in a Power BI visualization.
+In this tutorial, you learn how to set up and use routing queries with IoT Hub. You will route messages from an IoT device to one of multiple services, including blob storage and a Service Bus queue. Messages to the Service Bus queue will be picked up by a Logic App and sent via e-mail. Messages that do not have routing specifically set up are sent to the default endpoint, and viewed in a Power BI visualization.
 
 In this tutorial, you perform the following tasks:
 
@@ -334,7 +335,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
    ![Screenshot showing creating a routing rule for the Service Bus queue.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
-7. Click **Save**. When it returns to the Routes pane, you see both of your new routing rules, as displayed here.
+7. Click **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
 
    ![Screenshot showing the routes you just set up.](./media/tutorial-routing/message-routing-show-both-rules.png)
 
