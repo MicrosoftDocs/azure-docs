@@ -13,8 +13,9 @@ ssh-keygen -t rsa -b 2048
 - Click here to see [instructions]( https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) for your environment
 
 ## Create Service Principle
-[! NOTE]
-Creating a service principle requires an owner account permission
+> [!NOTE]
+>
+> Creating a service principle requires an owner account permission
 
 1. Log into your azure
 
@@ -22,7 +23,7 @@ Creating a service principle requires an owner account permission
 
 <img src="media/deploy/az-logion-output2.png"> 
  
-Copy the ìidî value as your **subscription ID** and the **tenantId** value to be used later
+Copy the ‚Äúid‚Äù value as your **subscription ID** and the **tenantId** value to be used later
 2. Set your default subscription for this configuration
 
 `az account set -s *{id}*`
@@ -31,19 +32,19 @@ Copy the ìidî value as your **subscription ID** and the **tenantId** value to be
 
 `az ad app create --display-name "Svc Prinicipal for OpsManager" --password *{enter-your-password}* --homepage "http://MyOpsMgr" --identifier-uris http://MyOPsMgr`
 
-The copy ìappIdî value in the output as your **ClientID** to be used later.
+The copy ‚ÄúappId‚Äù value in the output as your **ClientID** to be used later.
 
-4. Create a service principle with your new ìappIdî
+4. Create a service principle with your new ‚ÄúappId‚Äù
 
 `az ad sp create --id *{appId}*`
 
 5. Set the permission role of your service principle as a **Contributor**.
 
-`az role assignment create --assignee ìhttp://MyOPsMgrî --role ìContributorî `
+`az role assignment create --assignee ‚Äúhttp://MyOPsMgr‚Äù --role ‚ÄúContributor‚Äù `
 
-Or you can also useÖ
+Or you can also use‚Ä¶
 
-`az role assignment create --assignee *{service-princ-name}* --role ìContributorî `
+`az role assignment create --assignee *{service-princ-name}* --role ‚ÄúContributor‚Äù `
 
  <img src="media/deploy/svc-princ3.png"> 
 
@@ -51,7 +52,7 @@ Or you can also useÖ
 
 `az login --service-principal -u *{appId}* -p *{your-passward}*  --tenant *{tenantId}*`
 
-7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values youíve copied above
+7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values you‚Äôve copied above
 
 ```json
 {
@@ -63,7 +64,7 @@ Or you can also useÖ
 ```
 
 ## Get the Pivotal Network Token
-1. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profileî
+1. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profile‚Äù
 2.  Scroll to the bottom of the page and copy the **LEGENCY API TOKEN**.   Copy this value.  This this the **Pivotal Network Token** that will be used later.
 
 ## Verify Deployment
@@ -72,7 +73,7 @@ Or you can also useÖ
 <img src="media/deploy/deployment4.png">  
 
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then the **Deployment Name** on the next page
-3. On the left-hand navigation, click on the **Outputs** link to get the URL, Username and Password to the PCF Ops Manager.  The ìOPSMAN-FQDNî value is the URL.
+3. On the left-hand navigation, click on the **Outputs** link to get the URL, Username and Password to the PCF Ops Manager.  The ‚ÄúOPSMAN-FQDN‚Äù value is the URL.
  
 <img src="media/deploy/deploy-outputs5.png">  
  
@@ -80,8 +81,10 @@ Or you can also useÖ
 
 <img src="media/deploy/pivotal-login6.png">  
          
-[! NOTE]
-If Internet Explorer browser fails due to site not secure warning message, click on ìMore informationî and ìGo on to the webpage.  For Firefox, click on Advance and add the certification to proceed
+> [!NOTE]
+>
+> If Internet Explorer browser fails due to site not secure warning message, click on ‚ÄúMore information‚Äù and ‚ÄúGo on to the webpage.  For Firefox, click on Advance and add the certification to proceed
+
 5. Your PCF Ops Manager show display the deployed Azure instances
                
 <img src="media/deploy/Ops-Mgr7.png">  
