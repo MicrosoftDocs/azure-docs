@@ -13,66 +13,65 @@ ms.devlang: python
 manager: jeconnoc
 ---
 
-# Create your first Python function using Core Tools and the Azure CLI (preview)
+# Create your first Python function in Azure
 
-Azure Functions supports Python for you to create, publish, and run your Python functions in Azure. This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
+[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-This quickstart article walks you through how to use Azure Functions with the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
+This quickstart walks you through creating an HTTP triggered function written in Python, testing it locally and publishing it as a serverless Function App in Azure. By the end of this article, you'll be able to invoke the function from anywhere using an HTTP request.
 
 The following steps are supported on a Mac, Windows, or Linux computer.
 
 ## Prerequisites
 
-To complete this tutorial:
+To build and test locally:
 
 + Install [Python 3.6](https://www.python.org/downloads/)
 
 + Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
 
-<!---Verify the correct version of Azure CLI.--->
+To publish and run in Azure:
 
-+ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.x or later. Run `az --version` to find the version you have.
++ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.x or later.
 
-+ You need an active Azure subscription.
++ You'll need an active Azure subscription.
+  [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## Create and activate a virtual environment
 
-## Create and activate a Python virtual environment
+To create a function app, it is required that you work in a Python 3.6 virtual environment. You can either use an existing environment or create and activate a new one. 
 
-You need a virtual environment to create a Python function app project locally using the Core Tools. The following command creates a virtual environment named `env`.
-
-```bash
-python -m venv env
-```
-
-Activate your environment using one of the following commands, depending on your operating system:
-
-+ Terminal
-
-    ```bash
-    source env/bin/activate
-    ```
-
-+ Command prompt
-
-    ```cmd
-    env\Scripts\activate.bat
-    ````
-+ Powershell
-
-    ```powershell
-    .\env\Scripts\activate.ps1
-    ```
-
-## Create the local function app project
-
-Run the following command in your `myenv` environment to create a Python function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
+For example, the following commands initiate a virtual environment named `env`.
 
 ```bash
-func init MyFunctionProj --worker-runtime python
+# In Bash
+python3.6 -m venv env
+source env/bin/activate
+
+# In PowerShell
+py -3.6 -m venv env
+env\scripts\activate
 ```
 
-When the command executes, you see something like the following output:
+## Create a local Functions project
+
+You can now create a local Functions project. This directory is the equivalent of a function app in Azure. It can contain multiple functions that share the same local and hosting configuration.
+
+In the terminal window or from a command prompt, run the following command to create the project:
+
+```bash
+> func init MyFunctionProj
+```
+
+A new folder with the name _MyFunctionProj_ is created. Pick Python as the desired runtime for your project.
+
+```output
+Select a worker runtime:
+1. dotnet
+2. node
+3. python
+```
+
+When the command executes, you will see something like the following output:
 
 ```output
 Installing wheel package
@@ -82,37 +81,55 @@ Running pip freeze
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
-Writing C:\functions\MyFunctionProj\.vscode\extensions.json
+```
+
+To continue, change directory to the newly created  _MyFunctionProj_ folder:
+
+```bash
+cd MyFunctionProj
 ```
 
 ## Create a function
 
-The following command navigates to the new project and creates an HTTP triggered function named `MyHtpTrigger` using the  Python-specific `HTTP Trigger` template.
+To create a new function, run the following command  and pick `HTTP Trigger` as the desired template or starting point. Press enter to use the default name for the function.
 
 ```bash
-cd MyFunctionProj
-func new --name MyHttpTrigger --template "Http Trigger"
+func new
 ```
 
-When the command executes, you see something like the following output:
+```output
+Select a template:
+1. Blob trigger
+2. Cosmos DB trigger
+3. Event Grid trigger
+4. Event Hub trigger
+5. HTTP trigger
+6. Queue trigger
+7. Service Bus Queue trigger
+8. Service Bus Topic trigger
+9. Timer trigger
+```
+
+Function code is generated in a subfolder with the provided function name, as you can see in the following output:
 
 ```output
-Select a language: Select a template: Http Trigger
-Function name: [HttpTrigger] 
-Writing C:\functions\MyFunctionProj\HttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\HttpTrigger\__init__.py
-Writing C:\functions\MyFunctionProj\HttpTrigger\function.json
+Choose option: 5
+Function name: [HttpTriggerPython]
+Writing /MyFunctionProj/HttpTriggerPython/sample.dat
+Writing /MyFunctionProj/HttpTriggerPython/__init__.py
+Writing /MyFunctionProj/HttpTriggerPython/function.json
+The function "HttpTriggerPython" was created successfully from the "HTTP trigger" template.
 ```
 
 ## Run the function locally
 
-The following command starts the function app. The app runs using the same Azure Functions runtime that is in Azure.
+To run a Functions project, run the Functions host using the following command. The host enables triggers for all functions in the project:
 
 ```bash
 func host start
 ```
 
-When the Functions host starts, it write something like the following output, which has been truncated for readability:
+When the Functions host starts, it outputs the URL of your HTTP-triggered function. (Note that the entire output has been  truncated for readability.)
 
 ```output
 
@@ -128,10 +145,9 @@ When the Functions host starts, it write something like the following output, wh
                 %%
                 %
 
-Azure Functions Core Tools (2.0.1-beta.35)
-Function Runtime Version: 2.0.11960.0
-Hosting environment: Production
-Content root path: C:\functions\MyFunctionProj
+Azure Functions Core Tools (2.0.1-beta.38)
+Function Runtime Version: 2.0.12050.0
+...
 Now listening on: http://0.0.0.0:7071
 Application started. Press Ctrl+C to shut down.
 
@@ -139,17 +155,19 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTriggerPython
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
 ```
 
-Copy the URL of your `HTTPTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the local function:
+Copy the URL of your function from the output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request.
+
+The following screenshot shows the response from your function, when it is triggered from the browser using an HTTP request:
 
 ![test](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-Now that you have run your function locally, you can create the function app and other required resources in Azure.
+Now that you have run your function locally, you can create the function app and other required resources for publishing to Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -178,23 +196,15 @@ To active this function app, publish your app content using Azure Functions Core
 
 Now, you can publish your python project to the new function app in Azure.
 
-## Generate the requirements.txt file
-
-Use the following Python command to generate a requirement file for your project. This file makes sure that all dependencies are deployed along with your function app.
-
-```bash
-pip freeze > requirements.txt
-```
-
 ## Deploy the function app project to Azure
 
-The following Core Tools command deploys your project to the new function app in Azure. Replace `<app_name>` with the function app name from the previous step.
+The following command (using the Azure Functions Core Tools) deploys your project to a function app in Azure. Replace `<app_name>` with the name of your app from the previous step.
 
 ```bash
 func azure functionapp publish <app_name>
 ```
 
-When deployment executes, you see something like the following output, which as been truncated for readability:
+When this command executes, you see something like the following output, which has been truncated for readability:
 
 ```output
 Getting site publishing info...
