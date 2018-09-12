@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Documentation (Preview) – Tutorials, API reference | Microsoft Docs
+title: Azure Machine Learning Documentation
 metadata:
-  title: Azure Machine Learning Documentation - Tutorials, API Reference
+  title: Azure Machine Learning Documentation – Tutorials, API reference | Microsoft Docs
   description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
@@ -15,7 +15,7 @@ metadata:
   ms.author: jmartens
 
 abstract:
-  description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how. 
+  description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud.  Tutorials, quickstarts, API references, and examples show you how.
 
 sections:
 
@@ -25,13 +25,13 @@ sections:
     className: cardsM
     columns: 2
     items:
-    - href: /azure/machine-learning/service/
-      html: <p>Learn how this service empowers data scientists to develop AI solutions<br/> using Python tools and libraries with a variety of Azure data and compute services.</p>
+    - href: /azure/machine-learning/service/overview-what-is-azure-ml
+      html: <p>Learn how this service empowers data scientists to develop AI solutions<br/> using Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning (preview)
+      title: Azure Machine Learning service (preview)
     - href: /azure/machine-learning/studio/
-      html: <p>Learn how this collaborative, drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      html: <p>Learn how this collaborative, drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. Learn more... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
       image:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
       title: Azure Machine Learning Studio
@@ -39,7 +39,7 @@ sections:
 - title: Quickstarts and Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Machine Learning (preview) and Studio:'
+    text: 'Learn how to quickly set up and use Azure Machine Learning service (preview) and Studio:'
 
   - type: table
     style: dataMatrix
@@ -49,11 +49,11 @@ sections:
       - image:
           src: media/index/machine-learning-studio.svg
     rows:
-      - title: Set up and get started
+      - title: Get started with the service
         values:
         - href: /azure/machine-learning/service/quickstart-get-started
         - href: /azure/machine-learning/studio/create-workspace
-      - title: Prepare data
+      - title: Prepare data for modeling
         values:
         - href: /azure/machine-learning/service/concept-data-preparation
         - href: /azure/machine-learning/studio/walkthrough-2-upload-data
@@ -74,9 +74,6 @@ sections:
         - href: 
         - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
 
-  - type: paragraph
-    text: 'Start experimenting without worrying about installing or configuring software using the <a href="/azure/machine-learning/data-science-virtual-machine">Data Science (DSVM) and Deep Learning (DLVM) virtual machines</a>. Popular tools commonly used for data analytics, machine learning and AI training come preinstalled.'
-
 - title: Other Microsoft Machine Learning Technologies
   items:
   - type: list
@@ -89,6 +86,11 @@ sections:
       image:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Cognitive Services
+    - href: /azure/batch-ai/
+      html: <p>Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.</p>
+      image:
+        src: /azure/machine-learning/media/index/batch.png
+      title: Batch AI Training
     - href: /sql/advanced-analytics/r/r-services
       html: <p>In-database analytics with support for both R and Python.</p>
       image:

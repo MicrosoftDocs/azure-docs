@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Documentation (Preview) – Tutorials, API reference | Microsoft Docs
+title: Azure Machine Learning service (Preview) Documentation
 metadata:
-  title: Azure Machine Learning Documentation (Preview)
+  title: Azure Machine Learning Documentation (Preview) – Tutorials, API reference | Microsoft Docs
   meta.description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
@@ -27,11 +27,11 @@ sections:
     - html: <p>Train and deploy your ML models in a fully-managed cloud service.</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning 
+      title: Azure Machine Learning service
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Set up your resources for Azure Machine Learning.'
+    text: 'Set up your resources for Azure Machine Learning service.'
   - type: list
     style: unordered
     items:
@@ -50,7 +50,8 @@ sections:
 
 - title: Reference
   items:
-  - html: <p><a href="https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py">Azure Machine Learning SDK for Python</a></p>
+  - html: <p><a href="http://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a></p>
+  - html: <p><a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a></p>
 
 - title: Other Azure Machine Learning Technologies
   items:

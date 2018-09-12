@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -187,10 +187,7 @@ Azure Stack does not back up tenant applications and data. You must plan for bac
 
 To back up Linux or Windows IaaS virtual machines, you must use backup products with access to the guest operating system to protect file, folder, operating system state, and application data. You can use Azure Backup, System Center Data Center Protection Manager, or supported third-party products.
 
-To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. (At the initial release of integrated systems, Azure Site Recovery won’t support failback. However, you can achieve failback through a manual process.) Also, applications that support native replication (like Microsoft SQL Server) can replicate data to another location where the application is running.
-
-> [!IMPORTANT]
-> At the initial release of integrated systems, we’ll support protection technologies that work at the guest level of an IaaS virtual machine. You can’t install agents on underlying infrastructure servers.
+To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. Also, applications that support native replication, like Microsoft SQL Server, can replicate data to another location where the application is running.
 
 ## Learn more
 
