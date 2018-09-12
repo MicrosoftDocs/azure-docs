@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -85,7 +85,7 @@ The following table summarizes these domain naming decisions.
 
 | Name | Description | 
 | -------- | ------------- | 
-|Region name | The name of your first Azure Stack region. This name is used as part of the FQDN for the public virtual IP addresses (VIPs) that Azure Stack manages. Typically, the region name would be a physical location identifier such as a datacenter location. | 
+|Region name | The name of your first Azure Stack region. This name is used as part of the FQDN for the public virtual IP addresses (VIPs) that Azure Stack manages. Typically, the region name would be a physical location identifier such as a datacenter location. The region name must consist of only letters and numbers between 0-9. No special characters like “-“ or “#”, etc. are allowed.| 
 | External domain name | The name of the Domain Name System (DNS) zone for endpoints with external-facing VIPs. Used in the FQDN for these public VIPs. | 
 | Private (internal) domain name | The name of the domain (and internal DNS zone) created on Azure Stack for infrastructure management. 
 | | |
