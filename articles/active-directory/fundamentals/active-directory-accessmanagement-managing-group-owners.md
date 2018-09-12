@@ -29,11 +29,11 @@ Add additional group owners to a group using the Azure AD portal.
 
 3. On the **MDM policy - West Overview** blade, select **Owners**.
 
-    ![MDM policy - West Overview blade with Owners option highlighted](/media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
+    ![MDM policy - West Overview blade with Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
 
 4. On the **MDM policy - West - Owners** blade, select **Add owners**, and then search for and select the user that will be the new group owner, and then choose **Select**.
 
-    ![MDM policy - West - Owners blade with Add owners option highlighted](/media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
+    ![MDM policy - West - Owners blade with Add owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
 
     After you select the new owner, you can refresh the **Owners** blade and see the name added to the list of owners.
 
@@ -47,11 +47,11 @@ Remove an owner from a group using the Azure AD portal.
 
 3. On the **MDM policy - West Overview** blade, select **Owners**.
 
-    ![MDM policy - West Overview blade with Owners option highlighted](/media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+    ![MDM policy - West Overview blade with Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
 
 4. On the **MDM policy - West - Owners** blade, select the user you want to remove as a group owner, choose **Remove** from the user's information blade, and select **Yes** to confirm your decision.
 
-    ![User's information blade with Remove option highlighted](/media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
+    ![User's information blade with Remove option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
 
     After you remove the owner, you can return to the **Owners** blade and see the name has been removed from the list of owners.
 
