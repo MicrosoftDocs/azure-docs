@@ -31,7 +31,7 @@ Azure Import/Export service supports the following [Azure storage accounts](stor
 - Blob Storage accounts
 - General Purpose v2 storage accounts
 
-Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > The Azure Import Export service does not support storage accounts where the [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled. 

@@ -553,7 +553,7 @@ Linked services link data stores or compute services to a data factory. In this 
 
    ![New data store](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [View, copy, and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [View, copy, and regenerate storage access keys](../../storage/common/storage-manage-account.md#storage-account-access-keys).
 
 1. Select **Deploy** on the command bar to deploy the linked service.
 

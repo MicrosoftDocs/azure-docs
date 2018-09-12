@@ -109,7 +109,7 @@ In this step, you link your storage account to your data factory. In this tutori
 
    ![Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-manage-account.md#storage-account-access-keys).
 
 1. Select **Deploy** on the command bar to deploy the linked service.
 

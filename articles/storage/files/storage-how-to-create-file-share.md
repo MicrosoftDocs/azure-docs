@@ -46,7 +46,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
 1. **Create a context for your storage account and key**
-    The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com/), see [View and copy storage access keys](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+    The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com/), see [Storage account access keys](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
