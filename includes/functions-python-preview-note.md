@@ -13,4 +13,4 @@ ms.custom: include file
 
 
 > [!NOTE]
-> Python for Azure Functions is currently in preview. To receive important updates, watch the [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) repository.  
+> Python for Azure Functions is currently in preview. To receive important updates, subscribe to the [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) repository on GitHub.  
