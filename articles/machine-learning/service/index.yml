@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning (Preview) Documentation
+title: Azure Machine Learning Documentation (Preview) – Tutorials, API reference | Microsoft Docs
 metadata:
   title: Azure Machine Learning Documentation (Preview)
-  meta.description: Learn how to use Azure Machine Learning (Preview).
+  meta.description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
   author: j-martens
   manager: jhubbard
@@ -15,7 +15,7 @@ metadata:
   ms.date: 09/24/2018
   ms.author: jmartens
 abstract:
-  description: With Azure Machine Learning (Preview), you can build, train, deploy, and manage machine learning and AI models using any Python tools and libraries or the CLI. You can use a wide variety of data and compute services in Azure to store and process your data. 
+  description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how. 
 sections:
 
 - items:

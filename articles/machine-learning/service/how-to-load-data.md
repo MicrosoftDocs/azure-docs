@@ -10,9 +10,9 @@ author: cforbe
 ms.date: 08/30/2018
 ---
 
-#Load Data with the data prep SDK
+#Load data with the data preparation SDK
 
-DataPrep has the ability to load different types of input data. While it is possible to use our smart reading functionality to detect the type of a file, it is also possible to specify a file type and its parameters.
+Data preparation has the ability to load different types of input data. While it is possible to use our smart reading functionality to detect the type of a file, it is also possible to specify a file type and its parameters.
 
 ## Read Lines
 One of the simplest ways to read a file into a dataframe is to just read it as text lines.
@@ -45,7 +45,7 @@ df
 |4|2015-07-4\|\| 5.5\|\| 9.3|
 
 ## Read CSV
-When reading delimited files, we can let the underlying runtime infer the parsing parameters (e.g. separator, encoding, whether to use headers, etc.) simply by not providing them. In this case, we will attempt to read a file by specifying only its location. 
+When reading delimited files, we can let the underlying runtime infer the parsing parameters (i.e. separator, encoding, whether to use headers) simply by not providing them. In this case, we will attempt to read a file by specifying only its location. 
 
 ```
 # SAS expires June 16th, 2019
@@ -89,7 +89,7 @@ schnam10                  object
 MAM_MTH00numvalid_1011    object
 dtype: object
 ```
-Unfortunately, all of our columns came back as strings. This is because, by default, data prep will not change the type of your data. Since the data source we are reading from is a text file, we keep all values as strings. In this case, however, we do want to parse numeric columns as numbers. To do this, we can set the inference_arguments parameter to current_culture.
+Unfortunately, all of our columns came back as strings. This is because, by default, data preparation will not change the type of your data. Since the data source we are reading from is a text file, we keep all values as strings. In this case, however, we do want to parse numeric columns as numbers. To do this, we can set the `inference_arguments` parameter to `current_culture`.
 
 ```
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
@@ -122,7 +122,7 @@ df
 |4|ALABAMA|Hale County|1.017100e+10|23.0|
 
 ## Read Excel
-DataPrep also can load excel files using read_excel function.
+Data preparation also can load excel files using `read_excel` function.
 ```
 dataflow = dprep.read_excel(path='./data/excel.xlsx')
 dataflow.head(5)
@@ -135,7 +135,7 @@ dataflow.head(5)
 |3|Canyon Diablo|Iron, IAB-MG|30000000.0|Found|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
 |4|Armanty|Iron, IIIE|28000000.0|Found|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
 
-Here we have loaded the first sheet in the Excel document. We could have achieved the same result by specifying the name of the sheet we want to load explicitly. Alternatively, if we wanted to load the second sheet instead, we would provide its name as an argument.
+Here, we have loaded the first sheet in the Excel document. We could have achieved the same result by specifying the name of the sheet we want to load explicitly. Alternatively, if we wanted to load the second sheet instead, we would provide its name as an argument.
 ```
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dataflow.head(5)
@@ -182,7 +182,7 @@ dataflow.head(5)
 
 When there are no headers in the files, we want to treat the first row as data.
 
-By passing in PromoteHeadersMode.NONE to the header keyword argument, we can avoid header detection and get the correct data.
+By passing in `PromoteHeadersMode.NONE` to the header keyword argument, we can avoid header detection and get the correct data.
 
 ```
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
@@ -202,7 +202,7 @@ df
 |5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 ## Read SQL
-DataPrep can also get data from SQL servers. Currently, only Microsoft SQL Server is supported.
+Data preparation can also get data from SQL servers. Currently, only Microsoft SQL Server is supported.
 To read data from a SQL server, we have to create a data source object that contains the connection information.
 
 ```
@@ -213,7 +213,7 @@ ds = dprep.MSSQLDataSource(server_name="dprep-sql-test.database.windows.net",
                            user_name="dprepTestUser",
                            password=secret)
 ```
-As you can see, the password parameter of MSSQLDataSource accepts a Secret object. You can get a Secret object in two ways:
+As you can see, the password parameter of `MSSQLDataSource` accepts a Secret object. You can get a Secret object in two ways:
 -	Register the secret and its value with the execution engine 
 -	Create the secret with just an ID (useful if the secret value was already registered in the execution environment)
 
@@ -257,7 +257,7 @@ dtype: object
 ```
 
 ## Read from ADLS
-There are two ways the DataPrep API can acquire the necessary OAuth token to access Azure DataLake Storage:
+There are two ways the data preparation API can acquire the necessary OAuth token to access Azure DataLake Storage:
 -	Retrieve the access token from a recent login session of the user's Azure CLI login
 -	Using a ServicePrincipal (SP) and a certificate as secret
 
@@ -274,12 +274,12 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 ### Create a ServicePrincipal via Azure CLI
-A ServicePrincipal and the corresponding certificate can be created via Azure CLI. This particular SP is configured as Reader, with its scope reduced to just the ADLS account 'dpreptestfiles'
+A ServicePrincipal and the corresponding certificate can be created via Azure CLI. This particular SP is configured as Reader, with its scope reduced to just the ADLS account 'dpreptestfiles'.
 ```
 az account set --subscription "Data Wrangling development"
 az ad sp create-for-rbac -n "SP-ADLS-dpreptestfiles" --create-cert --role reader --scopes /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/dpreptestfiles/providers/Microsoft.DataLakeStore/accounts/dpreptestfiles
 ```
-This command emits the appId and the path to the certificate file (usually in the home folder). The .crt file contains both the public cert and the private key in PEM format.
+This command emits the `appId` and the path to the certificate file (usually in the home folder). The .crt file contains both the public cert and the private key in PEM format.
 
 Extract the thumbprint with:
 ```
@@ -287,20 +287,16 @@ openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint
 ```
 
 ##### Configure ADLS Account for ServicePrincipal
-To configure the ACL for the ADLS filesystem, use the objectId of the user or, here, ServicePrincipal:
+To configure the ACL for the ADLS filesystem, use the `objectId` of the user or, here, ServicePrincipal:
 ```
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
-Configure Read and Execute access for the ADLS file system. Since the underlying HDFS ACL model doesn't support inheritance, folders and files need to be ACL-ed individually.
+##### Configure Read and Execute access for the ADLS file system
+Since the underlying HDFS ACL model doesn't support inheritance, folders and files need to be ACL-ed individually.
 ```
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r--" --path /farmers-markets.csv
 ```
-References:
--	az ad sp
--	az dls fs access
--	ACL model for ADLS
-
 ```
 certThumbprint = 'C2:08:9D:9E:D1:74:FC:EB:E9:7E:63:96:37:1C:13:88:5E:B9:2C:84'
 certificate = ''
@@ -310,7 +306,7 @@ with open('./data/adls-dpreptestfiles.crt', 'rt', encoding='utf-8') as crtFile:
 servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 ```
 #### Acquire an OAuth Access Token
-Use the adal package (via: pip install adal) to create an authentication context on the MSFT tenant and acquire an OAuth access token. For ADLS, the resource in the token request must be for 'https://datalake.azure.net', which is different from most other Azure resources.
+Use the `adal` package (via: `pip install adal`) to create an authentication context on the MSFT tenant and acquire an OAuth access token. For ADLS, the resource in the token request must be for 'https://datalake.azure.net', which is different from most other Azure resources.
 
 ```
 import adal

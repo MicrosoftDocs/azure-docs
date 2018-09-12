@@ -38,7 +38,7 @@ Here, we specify the following parameters to the PyTorch constructor:
 * `folder`: The local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
 * `script_params`: A dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
 * `compute_target`: The remote compute that your training script will run on, in this case a [Managed Compute]() cluster
-* `entry_script`: The filepath (relative to the `folder` directory) of the training script to be executed on the remote compute. This file, and any additional files it depends on, should be located in this folder
+* `entry_script`: The filepath (relative to the `folder` directory) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 * `conda_packages`: The list of Python packages to be installed via conda needed by your training script.
 The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 * `use_gpu`: Set this flag to `True` to leverage the GPU for training. Defaults to `False`

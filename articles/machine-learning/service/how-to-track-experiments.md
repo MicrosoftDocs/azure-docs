@@ -202,7 +202,7 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
   print('When alpha is {1:0.2f}, we have min MSE {0:0.2f}.'.format(
       min(metrics['mse']), 
       best_alpha
-))
+  ))
   ```
 2. Once you load all of the metrics, you can find the run with the lowest Mean Squared Error value 
   ```python
@@ -213,15 +213,15 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
   ```
 3. You can add tags to your runs to make them easier to catalog. In this case, we add a tag for the best run so that we can 
   ```python
-    best_run.tag("Description","The best one")
-    best_run.get_tags()
+  best_run.tag("Description","The best one")
+  best_run.get_tags()
   ```
+### Register the best model
+In the above example, we registered each individual model within the script. Now that we have the best model, we can register it as well with ```model = run.register_model(model_name='best_ridge_model', model_path<<best-model-path>>)```
 
 ## List file names 
 You can list all of the files that are associated with this run record by called ```run.get_file_names()```.
 
-## Register the best model
-To register the best model ```model = run.register_model(model_name='best_ridge_model', model_path<<best-model-path>>)```
 ## Next steps
 Try these next steps to learn how to use this Azure Machine Learning SDK for Python:
 1. Learn how to register the best model and deploy it.

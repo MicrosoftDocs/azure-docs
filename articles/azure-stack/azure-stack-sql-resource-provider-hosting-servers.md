@@ -34,13 +34,16 @@ Before you add a SQL hosting server, review the following mandatory and general 
 
 * Dedicate the SQL instance for use by the resource provider and user workloads. You can't use a SQL instance that's being used by any other consumer. This restriction also applies to App Services.
 * Configure an account with the appropriate privilege levels for the resource provider (described below).
-* You're are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
+* You are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
 
 ### SQL Server virtual machine images
 
 SQL IaaS virtual machine images are available through the Marketplace Management feature. These images are the same as the SQL VMs that are available in Azure.
 
 Make sure you always download the latest version of the **SQL IaaS Extension** before you deploy a SQL VM using a Marketplace item. The IaaS extension and corresponding portal enhancements provide additional features such as automatic patching and backup. For more information about this extension, see [Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> The SQL IaaS Extension is _required_ for all SQL on Windows images in the marketplace; the VM will fail to deploy if you did not download the extension. It is not used with Linux-based SQL virtual machine images.
 
 There are other options for deploying SQL VMs, including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -121,7 +124,7 @@ To enable automatic seeding on all instances, edit and then run the following SQ
   GO
   ```
 
-Note that the availability group must be enclosed in square brackets.
+The availability group must be enclosed in square brackets.
 
 On the secondary nodes, run the following SQL command:
 

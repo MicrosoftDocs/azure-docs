@@ -26,7 +26,7 @@ The following diagram shows an example pipeline:
 
 With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on what you know best &mdash; machine learning &mdash; rather than infrastructure.
 
-Using distinct steps makes it possible to rerun only the steps you need as you tweak and test your workflow. Once the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the execution jumps to the steps that need to be rerun, such as an updated training script, and skips what hasn't changed. The same paradigm applies to unchanged scripts and metadata. 
+Using distinct steps makes it possible to rerun only the steps you need as you tweak and test your workflow. Once the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script, and skips what hasn't changed. The same paradigm applies to unchanged scripts and metadata. 
 
 With Azure Machine Learning, you can use distinct toolkits and frameworks for each step in your pipeline. Azure coordinates between the various compute targets you use so that your intermediate data can be shared with the downstream compute targets easily. 
 
@@ -52,8 +52,7 @@ Pipelines can be saved as templates so you can schedule batch-scoring or retrain
 Check out the Python reference docs for pipelines:
 + https://docs.microsoft.com/python/api/azureml_pipeline_core/?view=azure-ml-py
 + https://docs.microsoft.com/python/api/azureml_pipeline_steps/?view=azure-ml-py
-+ https://docs.microsoft.com/python/api/azureml_pipeline_viz/?view=azure-ml-py
 
 ## Next steps
 
-Download [this Jupyter notebook](https://aka.ms/aml-notebook-train) to try out a pipeline for yourself. 
+Download [this Jupyter notebook](http://aka.ms/aml-notebook-pipeline) to try out a pipeline for yourself. 

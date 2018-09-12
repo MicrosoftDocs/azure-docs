@@ -11,11 +11,14 @@ author: jpe316
 ms.reviewer: jmartens
 ms.date: 09/24/2018
 ---
+
 # What is the Azure Machine Learning CLI?
 
-The Azure Machine Learning CLI extension enables data scientists and developers working with Azure Machine Learning service to quickly automate machine learning workflows and put them into production, such as:
+The Azure Machine Learning Command Line Interface (CLI) extension is for data scientists and developers working with Azure Machine Learning service. It allows you to quickly automate machine learning workflows and put them into production, such as:
 + Run experiments to create machine learning models
+
 + Register machine learning models for customer usage
+
 + Package, deploy and track the lifecycle of your machine learning models
 
 This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) and was built on top of the [Python-based SDK for Azure Machine Learning service](reference-azure-machine-learning-sdk.md).
@@ -26,35 +29,45 @@ Use the rich set of `az ml` commands to interact the service in any command-line
 
 Here is a sample of common commands:
 
+### Workspace Creation & Compute Provisioning
+
 + Create an Azure Machine Learning Workspace, the top level resource for machine learning.
-
-    ```azurecli
-    ## Create a workspace
-    az ml workspace create -n myworkspace -g myresourcegroup
-    ```
-
-+ Submit an experiment against the Azure Machine Learning service on the compute target of your choice.
-
-    ```azurecli
-    ## Run your experiment
-    az ml experiment submit
-    ```
-
-+ Prepare for deployment by registering a model produced locally or in a training run. Create an image to contain your machine learning model and dependencies. Currently the CLI only supports creating WebApiContainer images. Supported deployment targets include ACI and AKS.
-
-    ```azurecli
-    ## Prepare to deploy your model as a web service
+  ```AzureCLI
+  az ml workspace create -n myworkspace -g myresourcegroup
+  ```
     
-    ## - Register a model 
-    az ml model register
-    
-    ## - Create an image 
-    az ml image create
-    
-    ## - Deploy the model as a web service
-    az ml service create
-    ```
++ Create a DSVM (data science VM) for training models
+  ```AzureCLI
+  az ml computetarget setup dsvm -n mydsvm -w my_workspacepup
+  ```
 
-## Next steps
+### Experiment Submission
++ Attach to a project (run configuration) for submitting an experiment.
+  ```AzureCLI
+  az ml project attach --history myhistory
+  ```
 
-For the full set of CLI commands, look through [the CLI reference documentation]().	
++ Submit an experiment against the Azure Machine Learning service on the compute target of your choice (this example uses a Data Science VM)
+  ```AzureCLI
+  az ml run submit -c mydsvm code/02_modeling/train.py
+  ```
+
+### Model registration, image ceation & deployment
+
++ Register a model with Azure Machine Learning.
+  ```AzureCLI
+  az ml model register -n mymodel -m mymodel.pkl
+  ```
+
++ Create an image to contain your machine learning model and dependencies. 
+  ```AzureCLI
+  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  ```
+
++ Deploy your packaged model to targets including ACI and AKS.
+  ```AzureCLI
+  az ml service create aci -n myaciservice -i myimage:1
+  ```
+    
+## Full command list
+You can find the full list of commands for the CLI extension (and their supported parameters) by running ```az ml COMMANDNAME -h```. 

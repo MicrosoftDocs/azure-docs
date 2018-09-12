@@ -140,7 +140,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - User Provisioning](cisco-spark-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - User Provisioning](cisco-webex-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - User Provisioning](clarizen-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)||
 | ![logo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Clear Review](clearreview-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-clearcompany-tutorial.png)| [ClearCompany](clearcompany-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-clever-tutorial.png)| [Clever](clever-tutorial.md)|
@@ -456,7 +456,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-redbrickhealth-tutorial.png)| [RedBrick Health](redbrickhealth-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-redvector-tutorial.png)| [RedVector](redvector-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-reflektive-tutorial.png)| [Reflektive](reflektive-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-replicon-tutorial.png)| [Replicon](replicon-tutorial.md)|[Replicon - User Provisioning](replicon-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-replicon-tutorial.png)| [Replicon](replicon-tutorial.md)||
 | ![logo](./media/tutorial-list/active-directory-saas-reviewsnap-tutorial.png)| [Reviewsnap](reviewsnap-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-reward-gateway-tutorial.png)| [Reward Gateway](reward-gateway-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-rfpio-tutorial.png)| [RFPIO](rfpio-tutorial.md)|
@@ -614,7 +614,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](workstars-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](xmatters-ondemand-tutorial.md)|[xMatters OnDemand - User Provisioning](xmatters-ondemand-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](xmatters-ondemand-tutorial.md)||
 | ![logo](./media/tutorial-list/active-directory-saas-yardielearning-tutorial.png)| [Yardi eLearning](yardielearning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-yardione-tutorial.png)| [YardiOne](yardione-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|

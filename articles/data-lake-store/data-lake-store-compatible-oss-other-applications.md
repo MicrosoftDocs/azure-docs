@@ -17,7 +17,7 @@ ms.author: nitinme
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-This article lists the open source big data applications that work with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
+This article lists the open source big data applications that work with Azure Data Lake Storage Gen1. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
 
 | Open Source Software | Distribution |
 | --- | --- |

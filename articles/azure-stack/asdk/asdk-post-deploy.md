@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -35,6 +35,8 @@ Set-PSRepository `
 ```
 
 You can use API version profiles  to specify Azure Stack compatible AzureRM modules.  API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. The **AzureRM.Bootstrapper** module that is available through the PowerShell Gallery provides PowerShell cmdlets that are required to work with API version profiles.
+
+ 
 
 You can install the latest Azure Stack PowerShell module with or without Internet connectivity to the ASDK host computer:
 
@@ -156,6 +158,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ![Group policy management console](media/asdk-post-deploy/gpmc.png)
 
+## Enable multi-tenancy
+For deployments using Azure AD, you need to [enable multi-tenancy](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) for your ASDK installation.
+
+> [!NOTE]
+> When administrator or user accounts from domains other than the one used to register Azure Stack are used to log in to an Azure Stack portal, the domain name used to register Azure Stack must be appended to the portal url. For example, if Azure Stack has been registered with fabrikam.onmicrosoft.com and the user account logging in is admin@contoso.com, the url to use to log into the user portal would be: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## Next steps
 [Register the ASDK with Azure](asdk-register.md)
