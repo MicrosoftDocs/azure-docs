@@ -27,7 +27,7 @@ There are three ways to implement UDFs:
 You can write user-defined functions in the **Script.asql** CodeBehind. Visual Studio tools will automatically compile the CodeBehind file into an assembly file. The assemblies are packaged as a zip file and uploaded to your storage account when you submit your job to Azure. You can learn how to write a C# UDF using CodeBehind by following [this tutorial](stream-analytics-edge-csharp-udf.md). 
 
 ## Local C# project
-User-defined functions can be written in a C# assembly and then referenced in an Azure Stream Analytics query. This is the recommended option for complex functions that require the full power of C# beyond its expression language, such as procedural logic or recursion. You might also use a project reference if you need to share the function logic across several Azure Stream Analytics queries.
+User-defined functions can be written in a C# assembly that is later referenced in an Azure Stream Analytics query. This is the recommended option for complex functions that require the full power of C# beyond its expression language, such as procedural logic or recursion. UDFs from a local C# project might also be used when you need to share the function logic across several Azure Stream Analytics queries.
 
 To reference a local C# project:
 
@@ -55,7 +55,7 @@ In this example, **UDFTest** is a C# class library project and **ASAEdgeUDFDemo*
 
     <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png alt="Choose your C# project name from the reference list" width=500px>
 
-4. You will then see the **UDFTest** listed under **References** in **Solution Explorer**.
+4. You should see the **UDFTest** listed under **References** in **Solution Explorer**.
     
    <img src=./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png alt="View the user defined function reference in your Azure Stream Analytics Edge solution explorer" width=300px>
 
@@ -76,11 +76,11 @@ In this example, **UDFTest** is a C# class library project and **ASAEdgeUDFDemo*
    ![Stream Analytics C sharp function configuration](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png)
 
 ## Existing packages
-Once assembly zip packages have been uploaded to your storage account, you can use the functions in Azure Stream Analytics queries. All you need to do is include the storage information in the Edge job configuration. You will not be able to test the function locally with this option because Visual Studio tools will not download your package. The package path is parsed directly to the service. 
+Once assembly zip packages have been uploaded to your storage account, you can use the functions in Azure Stream Analytics queries. All you need to do is include the storage information in the Edge job configuration. You can't test the function locally with this option because Visual Studio tools will not download your package. The package path is parsed directly to the service. 
 
 ### Package format
 
-The format of the package has the path `/UserCustomCode/CLR/*`. User DLLs and resources are copied under the  , which helps isolate user DLLs from system and Azure Stream Analytics DLLs. 
+The format of the package has the path `/UserCustomCode/CLR/*`. User DLLs and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. 
 
 ## Supported types and mapping
 
@@ -107,7 +107,7 @@ The UDF preview currently has the following limitations:
 
 * The Azure portal query editor shows an error when using UDF C# functions in the portal. 
 
-* Because the custom code shares context with Azure Stream Analytics engine, custom code cannot reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you cannot reference *Newtonsoft Json*.
+* Because the custom code shares context with Azure Stream Analytics engine, custom code can't reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you can't reference *Newtonsoft Json*.
 
 ## Next steps
 
