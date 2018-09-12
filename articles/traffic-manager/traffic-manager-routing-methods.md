@@ -27,6 +27,9 @@ There are four traffic routing methods available in Traffic Manager:
 * **[Weighted](#weighted):** Select **Weighted** when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
 * **[Performance](#performance):** Select **Performance** when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
 * **[Geographic](#geographic):** Select **Geographic** so that users are directed to specific endpoints (Azure, External, or Nested) based on which geographic location their DNS query originates from. This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important. Examples include complying with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
+* **[Multivalue](#multivalue): Select **MultiValue** for Traffic Manager profiles that can only have IPv4/IPv6 addresses as endpoints. When a query is received for this profile, all healthy endpoints are returned.
+* **[Subnet](#subnet) Select **Subnet** traffic-routing method to map sets of IP address ranges to a specific endpoint within a Traffic Manager profile. When a request is received from that IP address, the endpoint returned will be the one mapped for that IP address. 
+
 
 All Traffic Manager profiles include monitoring of endpoint health and automatic endpoint failover. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). A single Traffic Manager profile can use only one traffic routing method. You can select a different traffic routing method for your profile at any time. Changes are applied within one minute, and no downtime is incurred. Traffic-routing methods can be combined by using nested Traffic Manager profiles. Nesting enables sophisticated and flexible traffic-routing configurations that meet the needs of larger, complex applications. For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
@@ -120,17 +123,16 @@ Traffic Manager reads the source IP address of the DNS query and decides which g
 
 As explained in [How Traffic Manager Works](traffic-manager-how-it-works.md), Traffic Manager does not receive DNS queries directly from clients. Rather, DNS queries come from the recursive DNS service that the clients are configured to use. Therefore, the IP address used to determine the region is not the client's IP address, but it is the IP address of the recursive DNS service. In practice, this IP address is a good proxy for the client.
 
+## <a name = "multivalue"></a>Multivalue traffic-routing method
+The **Multivalue** traffic-routing method allows you to distribute traffic to A/AAAA endpoint types. Traffic Manager profile that use the **Multivalue** routing method, can only have IPv4/IPv6 addresses (A/AAAA record types) as endpoints. When a query is received for this profile, all healthy endpoints are returned and are subject to a maximum return count. Use the **Multivalue** routing method to increase the reliability of your application because clients have more healthy endpoint options to retry without having to do another DNS lookup.
+
+## <a name = "subnet"></a>Subnet traffic-routing method
+The **Subnet** traffic-routing method allows you to vary the responses Traffic Manager returns based on the subnet from which the query originates. For example, using custom subnet routing a customer can make all requests from their corporate office be routed to a different endpoint where they might be testing an internal only version of their app. Another scenario is if you want be provide a different experience to users connecting from a specific ISP (For example,  block users from a given ISP).
 
 ## Next steps
 
 Learn how to develop high-availability applications using [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
 
-Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
-
-<!--Image references-->
-[1]: ./media/traffic-manager-routing-methods/priority.png
-[2]: ./media/traffic-manager-routing-methods/weighted.png
-[3]: ./media/traffic-manager-routing-methods/performance.png
 
 
 
