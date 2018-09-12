@@ -39,12 +39,12 @@ sections:
             src: ../media/index/i_overview.svg
           title: What is LUIS?
         - href: /azure/cognitive-services/luis/luis-how-plan-your-app
-          html: <p>Prepare an outline of the possible intents and entities that are relevant to your app.</p>
+          html: <p>Prepare an outline of the intents and entities relevant to your app.</p>
           image:
             src: ../media/index/i_guidelines.svg
           title: Plan your LUIS app
         - href: /azure/cognitive-services/luis/luis-concept-best-practices
-          html: <p>Use this best practices when creating a LUIS app</p>
+          html: <p>Use these best practices when creating a LUIS app.</p>
           image:
             src: ../media/index/i_guidelines.svg
           title: Best practices for a LUIS app
