@@ -74,7 +74,9 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 * Token  
 * Aggregate MIN(), MAX(), SUM(), and AVG()  
-* WRITETIME
+* Blob conversion functions - typeAsBlob(value), blobAsType(value)
+* UUID and timeuuid functions - dateOf(), now(), minTimeuuid(), unixTimestampOf(), toDate(timeuuid), toTimestamp(timeuuid), toUnixTimestamp(timeuuid), toDate(timestamp), toUnixTimestamp(timestamp), toTimestamp(date), toUnixTimestamp(date)
+
 
 For other functions, make a feature request or vote on the [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 
@@ -98,7 +100,7 @@ CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of bo
 
 ```bash
 set SSL_VERSION=TLSv1_2 
-set SSL_VALIDATE=false 
+SSL_CERTIFICATE=<path to balitmore root ca cert>
 set CQLSH_PORT=10350 
 cqlsh.py <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
@@ -106,7 +108,7 @@ cqlsh.py <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT
 
 ```bash
 export SSL_VERSION=TLSv1_2 
-export SSL_VALIDATE=false 
+SSL_CERTIFICATE=<path to balitmore root ca cert>
 cqlsh.py <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 
