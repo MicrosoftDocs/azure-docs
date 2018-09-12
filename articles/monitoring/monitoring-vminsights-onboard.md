@@ -200,7 +200,7 @@ After you run the `Add-VMInsightsPolicy.ps1` PowerShell script, the following in
 
 The following initiative parameter is added:
 
-- **Log Analytice Workspace (You have to provide the ResourceID of the workspace if applying an assignment using PowerShell or CLI)
+- **Log Analytice Workspace** (You have to provide the ResourceID of the workspace if applying an assignment using PowerShell or CLI)
 
     For VMs found as not-compliant from the audit policies **VMs not in OS scope...** the criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not.  If it is not, then you will need to duplicate the deployment policy and update/modify it to make the image in scope.
 
