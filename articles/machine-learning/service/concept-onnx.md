@@ -5,8 +5,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: prasantp
-author: prasanthpul
+ms.author: jmartens
+author: j-martens
 ms.date: 09/24/2018
 ---
 
@@ -19,21 +19,14 @@ The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open stan
 
 Microsoft supports ONNX across its products including Azure and Windows to help you achieve these goals.  
 
-## Why choose ONNX
+## Why choose ONNX?
 The interoperability you get with ONNX makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
 
-You can export ONNX models from many frameworks, including:
-+ PyTorch
-+ Chainer
-+ Microsoft Cognitive Toolkit (CNTK)
-+ MXNet
-+ ML.Net
-
-Converters exist for other frameworks such as TensorFlow, Keras, SciKit-Learn, and more.
+You can export ONNX models from many frameworks, including PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet and ML.Net. Converters exist for other frameworks such as TensorFlow, Keras, SciKit-Learn, and more.
 
 There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
-ONNX models can be deployed to the cloud using Azure Machine Learning and the ONNX Runtime. They can also be deployed to Windows 10 devices using Windows ML. They can even be deployed to other platforms using converters that are available from the ONNX community. 
+[ONNX models can be deployed](#deploy) to the cloud using Azure Machine Learning and the ONNX Runtime. They can also be deployed to Windows 10 devices using Windows ML. They can even be deployed to other platforms using converters that are available from the ONNX community. 
 
 [ ![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
 (./media/concept-onnx/onnx.png#lightbox)
@@ -47,38 +40,41 @@ You can create ONNX models in several ways:
 
 + Generate a customized ONNX model from [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
 
-+ Convert a model you got from somewhere else
-
 Once you have an ONNX model, you can deploy it to Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/).
 
-### Export/convert your models to ONNX
+## Export/convert your models to ONNX
 
-For **PyTorch** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
+You can also convert your models to ONNX.
++ For **PyTorch** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
 
-For **Microsoft Cognitive Toolkit (CNTK)** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
++ For **Microsoft Cognitive Toolkit (CNTK)** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
 
-For **Chainer** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)
++ For **Chainer** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)
 
-For **MXNet** models, see this [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)
++ For **MXNet** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)
 
-For **TensorFlow** models, you can convert to the ONNX format with the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
++ For **TensorFlow** models, use the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
 
-For **Keras**, **ScitKit-Learn**, **CoreML**, **XGBoost**, and **libSVM** models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package.
++ For **Keras**, **ScitKit-Learn**, **CoreML**, **XGBoost**, and **libSVM** models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package.
 
 You can find the latest list of supported frameworks and converters at the [ONNX Tutorials site](https://github.com/onnx/tutorials).
+
+<a name="deploy"></a>
 
 ## Deploy ONNX models in Azure
 
 With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud. Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
 
-### ONNX Runtime
+### Install and configure the ONNX Runtime
 
-The ONNX Runtime is a high performance inference engine for ONNX models. It comes with a Python API and provides hardware acceleration on both CPU and GPU. It currently supports ONNX 1.2 models (ONNX opset version 7 and ONNX-ML opset version 1) and runs on Ubuntu 16.04 Linux.
+The ONNX Runtime is a high-performance inference engine for ONNX models. It comes with a Python API and provides hardware acceleration on both CPU and GPU. It currently supports ONNX 1.2 models and runs on Ubuntu 16.04 Linux.
 
 To install the ONNX Runtime, use:
-`pip install onnxruntime`
+```python
+pip install onnxruntime
+```
 
-To instantiate the ONNX Runtime in your Python script, call:
+To call the ONNX Runtime in your Python script, use:
 ```python
 import onnxruntime
 
@@ -100,7 +96,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
 
-### Deployment steps
+### Example deployment steps
 
 Here is an example for deploying an ONNX model:
 
@@ -191,7 +187,6 @@ Here is an example for deploying an ONNX model:
    + Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
 
    + Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
-
 
 
 ## Next steps
