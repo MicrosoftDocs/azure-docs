@@ -1,7 +1,7 @@
 ---
 title: Debugging apps in a local Docker container | Microsoft Docs
 description: Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints
-services: azure-container-service
+services: container-service
 author: ghogen
 manager: douge
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
@@ -85,7 +85,7 @@ with the production realism of developing within a Docker container.
 * [Docker Integration for Azure Pipelines](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
 * [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
 * [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
-* [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/) - [Azure Kubernetes Service Documentation](/azure/aks)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) - [Azure Kubernetes Service Documentation](/azure/aks)
 
 ## Various Docker tools
 [Some great docker tools (Steve Lasker's blog)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)

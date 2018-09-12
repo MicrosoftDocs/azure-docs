@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+author: ghogen
+services: container-service
+ms.service: multiple
+ms.component: computer-vision
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: ghogen
+ms.custom: include file
+manager: douge
+---
 1. In the Visual Studio **Solution Explorer**, right-click the project and select **Add > Docker Support** from the context menu.
    
     ![Add Docker Support context menu](media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
