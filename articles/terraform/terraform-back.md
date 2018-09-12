@@ -14,11 +14,15 @@ ms.author: nepeters
 
 Terraform state is used to reconcile deployed resources with Terraform configurations. Using state, Terraform knows what resources need to be added, updated, or deleted. By default Terraform state is stored locally when running `terraform apply`. This configuration is not ideal for a few reasons:
 
-- Local state does not work well in a team or collaborative environment
-- Terraform state can include sensitive information
-- Storing Terraform state locally increases the chance of inadvertent deletion
+Local state does not work well in a team or collaborative environment
 
-Terraform includes the concept of a state backend with is remote storage for Terraform state. When using a state backend, the state file is stored in a data store such as Azure Storage. This document details how to configure and use Azure Storage as a Terraform state backend.
+Terraform state can include sensitive information
+
+Storing Terraform state locally increases the chance of inadvertent deletion
+
+Terraform includes the concept of a state backend, which is remote storage for Terraform state. When using a state backend, the state file is stored in a data store such as Azure Storage.
+
+This document details how to configure and use Azure Storage as a Terraform state backend.
 
 ## Configure storage account
 
@@ -71,7 +75,7 @@ To further protect the Azure storage account access key, store it in Azure Key V
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
-To configure Terraform to use the backend, include a `backend` configuration with a type of `azurerm` inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuraton block.
+To configure Terraform to use the backend, include a `backend` configuration with a type of `azurerm` inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
 
 ```tf
 terraform {
@@ -87,3 +91,13 @@ resource "azurerm_resource_group" "state-demo-secure" {
   location = "eastus"
 }
 ```
+
+Now when you run `terraform apply`, the Terraform state is stored in the Azure storage account.
+
+## Next Steps
+
+Learn more about Terraform backed configuration at the [Terraform backend documentation][terraform-backend].
+
+<!-- LINKS - external -->
+[terraform-azurerm]: https://www.terraform.io/docs/backends/types/azurerm.html
+[terraform-backend]: https://www.terraform.io/docs/backends/
