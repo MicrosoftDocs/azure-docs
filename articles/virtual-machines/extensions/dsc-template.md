@@ -36,7 +36,7 @@ For more information, see
 {
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2017-12-01",
+    "apiVersion": "2018-04-01",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -47,26 +47,17 @@ For more information, see
         "typeHandlerVersion": "2.76",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "protectedSettings": {
-                "Items": {
-                    "registrationKeyPrivate": "registrationKey"
+            "configurationArguments": {
+                "RegistrationUrl": "registrationUrl",
+                "NodeConfigurationName": "nodeConfigurationName"
+            }
+        },
+        "protectedSettings": {
+            "configurationArguments": {
+                "RegistrationKey": {
+                    "UserName": "PLACEHOLDER_DONOTUSE",
+                    "Password": "registrationKey"
                 }
-            },
-            "publicSettings": {
-                "configurationArguments": [{
-                        "Name": "RegistrationKey",
-                        "Value": {
-                            "UserName": "PLACEHOLDER_DONOTUSE",
-                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                        }
-                    },
-                    {
-                        "RegistrationUrl": "registrationUrl"
-                    },
-                    {
-                        "NodeConfigurationName": "nodeConfigurationName"
-                    }
-                ]
             }
         }
     }
@@ -88,7 +79,7 @@ see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.manageme
     "extensions": [{
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-        "apiVersion": "2017-12-01",
+        "apiVersion": "2018-04-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -99,28 +90,19 @@ see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.manageme
             "typeHandlerVersion": "2.76",
             "autoUpgradeMinorVersion": true,
             "settings": {
-                "protectedSettings": {
-                    "Items": {
-                        "registrationKeyPrivate": "registrationKey"
-                    }
-                },
-                "publicSettings": {
-                    "configurationArguments": [{
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
-                        },
-                        {
-                            "RegistrationUrl": "registrationUrl"
-                        },
-                        {
-                            "NodeConfigurationName": "nodeConfigurationName"
-                        }
-                    ]
+                "configurationArguments": {
+                    "RegistrationUrl": "registrationUrl",
+                    "NodeConfigurationName": "nodeConfigurationName"
                 }
             },
+            "protectedSettings": {
+                "configurationArguments": {
+                    "RegistrationKey": {
+                        "UserName": "PLACEHOLDER_DONOTUSE",
+                        "Password": "registrationKey"
+                    }
+                }
+            }
         }
     }]
 }
@@ -243,21 +225,16 @@ to set LCM metadata.
 
 ```json
 "settings": {
-    "configurationArguments": {
-        {
-            "Name": "RegistrationKey",
-            "Value": {
-                "UserName": "PLACEHOLDER_DONOTUSE",
-                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-            },
-        },
-        "RegistrationUrl": "[parameters('registrationUrl1')]",
-        "NodeConfigurationName": "nodeConfigurationNameValue1"
-    }
+    "RegistrationUrl": "[parameters('registrationUrl1')]",
+    "NodeConfigurationName": "nodeConfigurationNameValue1"
+
 },
 "protectedSettings": {
-    "Items": {
-        "registrationKeyPrivate": "[parameters('registrationKey1')]"
+    "configurationArguments": {
+        "RegistrationKey": {
+            "UserName": "PLACEHOLDER_DONOTUSE",
+            "Password": "[parameters('registrationKey1')]"
+        }
     }
 }
 ```
@@ -407,6 +384,8 @@ or configuration.module is specified"
 "Configuration.script requires that configuration.url is specified"
 
 "Configuration.url requires that configuration.function is specified"
+
+"Configuration.url requires that configurationArguments.RegistrationUrl is specified"
 
 "ConfigurationUrlSasToken requires that configuration.url is specified"
 
