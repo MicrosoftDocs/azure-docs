@@ -17,27 +17,34 @@ ms.reviewer: John.Haskin
 
 ---
 
-# Release notes - 1802
-
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 # Best Practices for Validation as a Service
 
-## Solution Naming Convention Recommendation
-In order to facilitate the sharing of information about validation runs it is recommended that a naming convention be use for all solutions registered in VaaS. For example, 
 
-|Product Name | Solution Size | Switch Abbreviation |
+## Suggested Naming Convention for Solution Names
+In order to facilitate the sharing of information about solutions it is recommended that a consistent naming convention be use for all solutions registered in VaaS. For example, 
+
+|Product Name | Unique Hardware Element 1 | Unique Hardware Element 2
 |---|:---:|---:|
-My Server | 4NODE | My Switch
+My Solution XYZ |  All Flash | My Switch X01
 
-Solution Name = MyServer4NODEMySwitch
+Solution Name = MySolutionXYZ_AllFlash_MySwitchX01
+
+## Suggested Re-use of Registered Solution Names
+In order to ensure that there is consistency in managing solution it is recommended that the same Solution name be used and only changed when there is a change to the hardware SKU.
 
 
-## Solution Validation Test Run Naming Convention Recommendation
-In order to facilitate the sharing of information about validation runs it is recommended that a naming convention be use for all solutions test runs. For example,
+## Suggested Naming Convention for Test / Package / Validation Workflow Names
+In order to facilitate the sharing of information about specific validation runs it is recommended that a consistent naming convention be use for all solutions test runs. For example,
 
-|Build Number (Major) | Build Number (Minor) | Date | 
+|Build Number (Major) | Date | Solution Size | 
 |---|:---:|---:|
-1808 | 76 | 083018
+1808 | 081518 | 4NODE
+
+Workflow Name = 1808_081518_4NODE
+
+## Considerations for Partner Storage Blob Settings Used for Log Collection
+In order to ensure that networking chargers are not incurred for storing logs it is recommended that the Azure storage blob be configured to use only the US West region. Data replication and the hot storage tier feature are not necessary for this data. Enabling either feature will dramatically increase partner costs. 
 
 - To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
