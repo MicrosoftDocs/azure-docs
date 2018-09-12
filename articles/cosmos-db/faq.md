@@ -114,6 +114,11 @@ Container and database level throughput provisioning are separate offerings and 
 
 Currently you can create collection with a partition key throughput by using the [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) method of .Net SDK or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Creating a fixed collection by using Azure portal is not currenlty supported.  
 
+### Does Azure CosmosDB support time series analysis? 
+
+Yes Azure CosmosDB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
+
+
 ## SQL API
 
 ### How do I start developing against the SQL API?
@@ -204,6 +209,10 @@ In addition to the common MongoDB error codes, the MongoDB API has its own speci
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput  assigned to a container or a set of containers from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+
+### Is the Simba driver for MongoDB supported for use with Azure CosmosDB MongoDB API?
+Yes, you can use Simba’s Mongo ODBC driver with Azure CosmosDB MongoDB API
+
 
 ## <a id="table"></a>Table API
 
@@ -454,7 +463,7 @@ Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to aut
 
 ### How can I protect against injection attacks using Gremlin drivers? 
 
-Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net]() and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
 
