@@ -6,13 +6,13 @@ documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
-ms.service: active-directory
+ms.service: active-directo
 ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: jeedes
 
 ---
@@ -52,6 +52,7 @@ The scenario outlined in this tutorial consists of two main building blocks:
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Huddle from the gallery
+
 To configure the integration of Huddle into Azure AD, you need to add Huddle from the gallery to your list of managed SaaS apps.
 
 **To add Huddle from the gallery, perform the following steps:**
@@ -63,7 +64,7 @@ To configure the integration of Huddle into Azure AD, you need to add Huddle fro
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
@@ -76,24 +77,18 @@ To configure the integration of Huddle into Azure AD, you need to add Huddle fro
 
 	![Creating an Azure AD test user](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
-##  Configuring and testing Azure AD single sign-on
+## Configuring and testing Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Huddle based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Huddle is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Huddle needs to be established.
 
-In Huddle, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
 To configure and test Azure AD single sign-on with Huddle, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-
 3. **[Creating a Huddle test user](#creating-a-huddle-test-user)** - to have a counterpart of Britta Simon in Huddle that is linked to the Azure AD representation of user.
-
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
@@ -106,8 +101,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
 
 3. On the **Huddle Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
@@ -118,16 +113,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| | |
 	|--|--|
-	| `https://<customsubdomain>.huddle.com`|
-	| `https://us.huddle.com` |
+	| `https://<customsubdomain>.huddle.net`|
+	| `https://us.huddle.net` |
 	| |
 
 	b. In the **Reply URL** textbox, type any one of the URL using the following pattern:
 
 	| | |
 	|--|--|
-	| `https://<customsubdomain>.huddle.com/saml/idp-initiated-sso`|
-	| `https://us.huddle.com/saml/idp-initiated-sso`|
+	| `https://<customsubdomain>.huddle.net/saml/idp-initiated-sso`|
+	| `https://us.huddle.net/saml/idp-initiated-sso`|
 	| |
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
@@ -135,15 +130,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Huddle Domain and URLs single sign-on information](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
     In the **Sign-on URL** textbox, type any one of the URL using the following pattern:
-	
+
 	| | |
 	|--|--|
-	| `https://<customsubdomain>.huddle.com`|
-	| `https://us.huddle.com`|
+	| `https://<customsubdomain>.huddle.net`|
+	| `https://us.huddle.net`|
 	| |
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Huddle Client support team](https://huddle.zendesk.com) to get these values. 
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. Contact [Huddle Client support team](https://huddle.zendesk.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -153,15 +148,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_400.png)
 
-7. On the **Huddle Configuration** section, click **Configure Huddle** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.** 
+7. On the **Huddle Configuration** section, click **Configure Huddle** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_configure.png) 
-	
+
 8. To configure single sign-on on Huddle side, you need to send the downloaded  **Certificate**, **SAML Single Sign-On Service URL**, and **SAML Entity ID** to [Huddle Client support team](https://huddle.zendesk.com). They set this setting to have the SAML SSO connection set properly on both sides.  
-   
+
 	>[!NOTE]
-	> Single sign-on needs to be enabled by the Huddle support team. You get a notification when the configuration has been completed. 
-	> 
+	> Single sign-on needs to be enabled by the Huddle support team. You get a notification when the configuration has been completed.
+	>
 
 ### Creating an Azure AD test user
 
