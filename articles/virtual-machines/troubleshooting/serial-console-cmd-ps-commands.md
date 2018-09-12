@@ -472,6 +472,6 @@ For more information, see [Azure Instance Metadata service](https://docs.microso
 `$im.network.interface.macAddress`
 
 ## Next steps
-* The main serial console Windows documentation page is located [here](serial-console.md).
-* The serial console is also available for [Linux](../linux/serial-console.md) VMs.
+* The main serial console Windows documentation page is located [here](serial-console-windows.md).
+* The serial console is also available for [Linux](serial-console-linux.md) VMs.
 * Learn more about [boot diagnostics](boot-diagnostics.md).

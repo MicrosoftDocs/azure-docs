@@ -22,7 +22,7 @@ ms.author: harijay
 
 The Virtual Machine Serial Console on Azure provides access to a text-based console for Windows virtual machines. This serial connection is to the COM1 serial port of the virtual machine, providing access to the virtual machine that is independent of a virtual machine's network or operating system state. Access to the serial console for a virtual machine can currently only be done via the Azure portal and is allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
-For serial console documentation for Linux VMs, [click here](../linux/serial-console.md).
+For serial console documentation for Linux VMs, [click here](serial-console-linux.md).
 
 > [!Note] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
@@ -50,7 +50,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   3. Click on the VM in the list. The overview page for the VM will open.
   4. Scroll down to the Support + Troubleshooting section and click on the serial console (Preview) option. A new pane with the serial console will open and start the connection.
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 ## Enable Serial Console in custom or older images
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
@@ -62,7 +62,7 @@ To enable Serial console for Windows virtual machines created before February 20
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Reboot the system for the SAC console to be enabled
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 If needed SAC can be enabled offline as well, 
 
@@ -159,7 +159,7 @@ Scenario          | Actions in serial console
 Incorrect firewall rules | Access serial console and fix Windows firewall rules. 
 Filesystem corruption/check | Access serial console and recover filesystem. 
 RDP configuration issues | Access serial console and change settings. Go to the [RDP documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) to get started.
-Network lock down system| Access serial console via portal to manage system. Some network commands are listed in the [Serial Console CMD and PowerShell documentation](./serial-console-cmd-ps-commands.md). 
+Network lock down system| Access serial console via portal to manage system. Some network commands are listed in the [Serial Console CMD and PowerShell documentation](serial-console-cmd-ps-commands.md). 
 Interacting with bootloader | Access BCD via the serial console. Go to [Enabling boot menu to show in the serial console](#enabling-boot-menu-to-show-in-the-serial-console) to get started. 
 
 ## Accessibility
@@ -207,5 +207,5 @@ A. This preview feature is covered via Azure Preview Terms. Support for this is 
 
 ## Next steps
 * For an in-depth guide to CMD and PowerShell commands you can use in the Windows SAC, click [here](serial-console-cmd-ps-commands.md).
-* The Serial Console is also available for [Linux](../linux/serial-console.md) VMs.
+* The Serial Console is also available for [Linux](serial-console-linux.md) VMs.
 * Learn more about [boot diagnostics](boot-diagnostics.md).
