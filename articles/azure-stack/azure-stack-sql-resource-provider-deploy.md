@@ -89,7 +89,10 @@ You can specify the following parameters from the command line. If you don't, or
 
 ## Deploy the SQL resource provider using a custom script
 
-To eliminate any manual configuration when deploying the resource provider, you can customize the following script. Change the default account information and passwords as needed for your Azure Stack deployment.
+To eliminate any manual configuration when deploying the resource provider, you can customize the following script.  
+-  
+- Change the default account information and passwords as needed for your Azure Stack deployment.
+
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module

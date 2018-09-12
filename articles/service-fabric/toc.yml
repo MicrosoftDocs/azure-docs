@@ -49,7 +49,9 @@
     items:
     - name: 1- Deploy a .NET app using Docker Compose
       href: service-fabric-host-app-in-a-container.md
-    - name: 2- Monitor your container
+    - name: 2- Deploy a container application with CI/CD
+      href: service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md
+    - name: 3- Monitor your container
       href: service-fabric-tutorial-monitoring-wincontainers.md
   - name: Create a Linux container app
     items:
@@ -749,6 +751,8 @@
     href: http://aka.ms/servicefabricsamples
   - name: Support options
     href: service-fabric-support.md
+  - name: Service Fabric versions
+    href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
