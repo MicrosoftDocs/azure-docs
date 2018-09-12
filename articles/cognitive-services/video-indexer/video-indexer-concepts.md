@@ -20,10 +20,6 @@ This topic describes some concepts of the Video Indexer service.
 
 Summarized insights contain an aggregated view of the data: faces, topics, emotions. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
 
-## Topics
-
-Video Indexer makes inference of main topics from transcripts. The 1st-level IPTC taxonomy is included.
-
 ## Emotion 
 
 Video Indexer analyzes emotional moments based on speech and audio cues and divides them to: joy, sadness, anger, fear.
