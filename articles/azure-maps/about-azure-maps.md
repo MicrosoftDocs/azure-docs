@@ -3,7 +3,7 @@ title: Overview of Azure Maps | Microsoft Docs
 description: An introduction to Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 07/12/2018
+ms.date: 09/12/2018
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
@@ -13,7 +13,8 @@ ms.custom: mvc
 ---
 
 # What is Azure Maps?
-Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps, searching points of interest, routes to points of interests, traffic conditions, time zones, and IP to location services. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Along with the REST APIs, it provides a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums.
+
+Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps, searching points of interest, routes to points of interests, traffic conditions, time zones, and finding a location from an IP address. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. In addition to its REST APIs, a full web-based JavaScript SDK is provided to make development easy, flexible, and portable across multiple mediums.
 
 The following video explains Azure Maps in depth:
 
