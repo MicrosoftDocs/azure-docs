@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/12/2018
 ms.author: cynthn
 
 ---
@@ -82,14 +82,14 @@ To generalize your Windows VM, follow these steps:
 
 ## Create an image of a VM using Powershell
 
-Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS Disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
+Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
 
 Before you begin, make sure that you have the latest version of the AzureRM PowerShell module, which must be version 5.7.0 or later. To find the version, run `Get-Module -ListAvailable AzureRM` in PowerShell. If you need to upgrade, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, run `Connect-AzureRmAccount` to create a connection with Azure.
 
 
 > [!NOTE]
-> If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-ZoneResilient` parameter in the image configuration (`New-AzureRmImageConfig` command).
+> If you would like to store your image in zone-redundant storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-ZoneResilient` parameter in the image configuration (`New-AzureRmImageConfig` command).
 
 To create a VM image, follow these steps:
 
@@ -229,7 +229,7 @@ Create a managed image from a generalized OS VHD in a storage account. You need 
     ```azurepowershell-interactive
 	Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized	
 	```
-4.  Create the image using your generalized OS VHD.
+4.  Create the image by using your generalized OS VHD.
 
     ```azurepowershell-interactive
 	$imageConfig = New-AzureRmImageConfig -Location $location
