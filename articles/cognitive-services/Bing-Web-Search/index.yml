@@ -60,7 +60,7 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorial-bing-web-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">Source code</a>
-    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a> &#124; <a href="https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/">Download Visual Studio solution</a>
+    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a>
 - title: Reference
   items:
   - type: list
@@ -70,4 +70,4 @@ sections:
     - title: APIs
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference">Bing Web Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference/">Bing Web Search API v5</a></p>
     - title: SDKs
-      html: <p><a href="sdk.md">Bing Search SDK</a></p>
+      html: <p><a href="sdk-samples.md">Bing Web Search SDK samples</a></p>

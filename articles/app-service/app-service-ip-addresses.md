@@ -63,4 +63,4 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 Learn how to restrict inbound traffic by source IP addresses.
 
 > [!div class="nextstepaction"]
-> [Static IP restrictions](app-service-ip-addresses.md)
+> [Static IP restrictions](app-service-ip-restrictions.md)

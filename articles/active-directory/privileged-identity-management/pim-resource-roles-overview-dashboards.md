@@ -1,6 +1,6 @@
 ---
-title: 'Overview: Perform an access review in Privileged Identity Management for Azure resources | Microsoft Docs'
-description: This document describes how to perform an access review in PIM for Azure resources.
+title: Use a resource dashboard to perform an access review - Azure | Microsoft Docs
+description: Describes how to use a resource dashboard to perform an access review in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.component: protection
+ms.topic: conceptual
+ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
@@ -27,7 +27,7 @@ You can use a resource dashboard to perform an access review in Privileged Ident
 
 ![Screenshot of the Admin View dashboard, showing graphs and charts](media/azure-pim-resource-rbac/rbac-overview-top.png)
 
-![Screenshot of teh Admin View dashboard, showing data lists](media/azure-pim-resource-rbac/role-settings.png)
+![Screenshot of the Admin View dashboard, showing data lists](media/azure-pim-resource-rbac/role-settings.png)
 
 The graphical representation of resource role activations covers the past seven days. This data is scoped to the selected resource, and displays activations for the most common roles (owner, contributor, user access administrator), and for all roles combined.
 
@@ -35,4 +35,6 @@ To the right of the activations graph, two charts display the distribution of ro
 
 Below the charts, you see the number of users and groups with new role assignments over the last 30 days, and a list of roles sorted by total assignments (in descending order).
 
+## Next steps
 
+- [Start an access review for Azure resource roles in PIM](pim-resource-roles-start-access-review.md) 

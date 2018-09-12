@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -41,9 +41,9 @@ By default, runbooks run in the context of the Local System account for Windows 
 
 You can use [Credential](automation-credentials.md) and [Certificate](automation-certificates.md) assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the Restart-Computer cmdlet.
 
-```azurepowershell-interactive
-$Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
-$Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
+```powershell
+$Cred = Get-AutomationPSCredential -Name "MyCredential"
+$Computer = Get-AutomationVariable -Name "ComputerName"
 
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
@@ -71,7 +71,7 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 
 ### Automation Run As account
 
-As part of your automated build process for deploying resources in Azure, you may require access to on-premise systems to support a task or set of steps in your deployment sequence. To support authentication against Azure using the Run As account, you need to install the Run As account certificate.
+As part of your automated build process for deploying resources in Azure, you may require access to on-premises systems to support a task or set of steps in your deployment sequence. To support authentication against Azure using the Run As account, you need to install the Run As account certificate.
 
 The following PowerShell runbook, *Export-RunAsCertificateToHybridWorker*, exports the Run As certificate from your Azure Automation account and downloads and imports it into the local machine certificate store on a Hybrid worker connected to the same account. Once that step is completed, it verifies the worker can successfully authenticate to Azure using the Run As account.
 
@@ -145,19 +145,78 @@ Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbo
 Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 ```
 
+> [!IMPORTANT]
+> **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension. Import it into your Automation account and edit the runbook, changing the value of the variable `$Password` with your own password. Publish and then run the runbook targeting the Hybrid Worker group that run and authenticate runbooks using the Run As account. The job stream reports the attempt to import the certificate into the local machine store, and follows with multiple lines depending on how many Automation accounts are defined in your subscription and if authentication is successful.
 
 ## Job behavior
 
-Jobs are handled slightly different on Hybrid Runbook Workers than they are when they run on Azure sandboxes. One key difference is that there is no limit on job duration on Hybrid Runbook Workers. If you have a long-running runbook you want to ensure that it is resilient to possible restart, for example if the machine that hosts the Hybrid worker reboots. If the Hybrid worker host machine reboots, then any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. If a runbook job is restarted more than 3 times, then it is suspended.
+Jobs are handled slightly different on Hybrid Runbook Workers than they are when they run on Azure sandboxes. One key difference is that there is no limit on job duration on Hybrid Runbook Workers. Runbooks ran in Azure sandboxes are limited to 3 hours due to [fair share](automation-runbook-execution.md#fair-share). If you have a long-running runbook you want to ensure that it is resilient to possible restart, for example if the machine that hosts the Hybrid worker reboots. If the Hybrid worker host machine reboots, then any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. If a runbook job is restarted more than 3 times, then it is suspended.
 
-## Troubleshooting runbooks on Hybrid Runbook Worker
+## Run only signed Runbooks
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Hybrid workers also record errors and events in the Windows event log under **Application and Services Logs\Microsoft-SMA\Operational**. Events related to runbooks executed on the worker are written to **Application and Services Logs\Microsoft-Automation\Operational**. The **Microsoft-SMA** log includes many more events related to the runbook job pushed to the worker and the processing of the runbook. While the **Microsoft-Automation** event log does not have many events with details assisting with the troubleshooting of runbook execution, it contains the results of the runbook job.
+Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to setup your Hybrid Runbook Workers to run signed runbooks and how to sign your runbooks.
 
-[Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
+> [!NOTE]
+> Once you have configured a Hybrid Runbook Worker to run only signed runbooks, runbooks that have **not** been signed will fail to execute on the worker.
 
-If your runbooks are not completing successfully and the job summary shows a status of **Suspended**, review the troubleshooting article [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+### Create Signing Certificate
+
+The following example creates a self-signed certificate that can be used for signing runbooks. The sample creates the certificate and exports it. The certificate is imported into the Hybrid Runbook Workers later. The thumbprint is returned as well, this is used later to reference the certificate.
+
+```powershell
+# Create a self-signed certificate that can be used for code signing
+$SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
+                                        -Subject "CN=contoso.com" `
+                                        -KeyAlgorithm RSA `
+                                        -KeyLength 2048 `
+                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                                        -KeyExportPolicy Exportable `
+                                        -KeyUsage DigitalSignature `
+                                        -Type CodeSigningCert
+
+
+# Export the certificate so that it can be imported to the hybrid workers
+Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
+
+### Configure the Hybrid Runbook Workers
+
+Copy the certificate created to each Hybrid Runbook Worker in a group. Run the following script to import the certificate and configure the Hybrid Worker to use signature validation on runbooks.
+
+```powershell
+# Install the certificate into a location that will be used for validation.
+New-Item -Path Cert:\LocalMachine\AutomationHybridStore
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Configure the hybrid worker to use signature validation on runbooks.
+Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
+```
+
+### Sign your Runbooks using the certificate
+
+With the Hybrid Runbook workers configured to use only signed runbooks, you must sign runbooks that are to be used on the Hybrid Runbook Worker. Use the following sample PowerShell to sign your runbooks.
+
+```powershell
+$SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
+Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
+```
+
+When the runbook has been signed, it must be imported into your Automation Account and published with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+## Troubleshoot
+
+If your runbooks are not completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## Next steps
 

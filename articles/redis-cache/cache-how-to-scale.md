@@ -65,7 +65,7 @@ In addition to scaling your cache instances in the Azure portal, you can scale u
 * [Scale using MAML](#scale-using-maml)
 
 ### Scale using PowerShell
-You can scale your Azure Redis Cache instances with PowerShell by using the [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
+You can scale your Azure Redis Cache instances with PowerShell by using the [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -150,7 +150,7 @@ While Standard and Premium caches have a 99.9% SLA for availability, there is no
 * **Basic** caches are offline during scaling operations to a different size. Basic caches remain available when scaling from **Basic** to **Standard** but, may experience a small connection blip. If a connection blip occurs, redis clients should be able to re-establish their connection instantly.
 
 
-### Scaling limitations with Geo-relication
+### Scaling limitations with Geo-replication
 
 Once you have added a Geo-replication link between two caches, you will no longer be able to initiate a scaling operation or change the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
 

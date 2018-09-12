@@ -6,20 +6,20 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
-ms.author: Xiaochen.Wu
+ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 
-SQL Data Sync lets users synchronize data between Azure SQL Databases and on-premises SQL Server in one direction or in both directions. One of the current limitations of SQL Data Sync is a lack of support for the replication of schema changes. Every time you change the table schema, you need to apply the changes manually on all endpoints, including the hub and all members, and then update the sync schema.
+SQL Data Sync lets users synchronize data between Azure SQL databases and on-premises SQL Server in one direction or in both directions. One of the current limitations of SQL Data Sync is a lack of support for the replication of schema changes. Every time you change the table schema, you need to apply the changes manually on all endpoints, including the hub and all members, and then update the sync schema.
 
 This article introduces a solution to automatically replicate schema changes to all SQL Data Sync endpoints.
 1. This solution uses a DDL trigger to track schema changes.
-2. The trigger inserts the schema change commands in a tracking table.
-3. This tracking table table is synced to all endpoints using the Data Sync service.
-4. DML triggers after insertion are used to apply the schema changes on the other endpoints.
+1. The trigger inserts the schema change commands in a tracking table.
+1. This tracking table is synced to all endpoints using the Data Sync service.
+1. DML triggers after insertion are used to apply the schema changes on the other endpoints.
 
 This article uses ALTER TABLE as an example of a schema change, but this solution also works for other types of schema changes.
 
@@ -130,31 +130,31 @@ After the schema changes are replicated to all endpoints, you also need to take 
 
 1.  Make the schema change.
 
-2.  Avoid any data change where the new columns are involved until you've completed the step that creates the trigger.
+1.  Avoid any data change where the new columns are involved until you've completed the step that creates the trigger.
 
-3.  Wait until the schema changes are applied to all endpoints.
+1.  Wait until the schema changes are applied to all endpoints.
 
-4.  Refresh the database schema and add the new column to the sync schema.
+1.  Refresh the database schema and add the new column to the sync schema.
 
-5.  Data in the new column is synced during next sync operation.
+1.  Data in the new column is synced during next sync operation.
 
 #### Remove columns
 
 1.  Remove the columns from the sync schema. Data Sync stops syncing data in these columns.
 
-2.  Make the schema change.
+1.  Make the schema change.
 
-3.  Refresh the database schema.
+1.  Refresh the database schema.
 
 #### Update data types
 
 1.  Make the schema change.
 
-2.  Wait until the schema changes are applied to all endpoints.
+1.  Wait until the schema changes are applied to all endpoints.
 
-3.  Refresh the database schema.
+1.  Refresh the database schema.
 
-4.  If the new and old data types are not fully compatible - for example, if you change from `int` to `bigint` - sync may fail before the steps that create the triggers are completed. Sync succeeds after a retry.
+1.  If the new and old data types are not fully compatible - for example, if you change from `int` to `bigint` - sync may fail before the steps that create the triggers are completed. Sync succeeds after a retry.
 
 #### Rename columns or tables
 
@@ -170,25 +170,25 @@ The replication logic described in this article stops working in some situations
 
 1.  Disable the DDL trigger and avoid any further schema changes until the issue is fixed.
 
-2.  In the endpoint database where the issue is happening, disable the AFTER INSERT trigger on the endpoint where the schema change can't be made. This action allows the schema change command to be synced.
+1.  In the endpoint database where the issue is happening, disable the AFTER INSERT trigger on the endpoint where the schema change can't be made. This action allows the schema change command to be synced.
 
-3.  Trigger sync to sync the schema change tracking table.
+1.  Trigger sync to sync the schema change tracking table.
 
-4.  In the endpoint database where the issue is happening, query the schema change history table to get the ID of last applied schema change command.
+1.  In the endpoint database where the issue is happening, query the schema change history table to get the ID of last applied schema change command.
 
-5.  Query the schema change tracking table to list all the commands with an ID greater than the ID value you retrieved in the previous step.
+1.  Query the schema change tracking table to list all the commands with an ID greater than the ID value you retrieved in the previous step.
 
     a.  Ignore those commands that can't be executed in the endpoint database. You need to deal with the schema inconsistency. Revert the original schema changes if the inconsistency impacts your application.
 
     b.  Manually apply those commands that should be applied.
 
-6.  Update the schema change history table and set the last applied ID to the correct value.
+1.  Update the schema change history table and set the last applied ID to the correct value.
 
-7.  Double-check whether the schema is up-to-date.
+1.  Double-check whether the schema is up-to-date.
 
-8.  Re-enable the AFTER INSERT trigger disabled in the second step.
+1.  Re-enable the AFTER INSERT trigger disabled in the second step.
 
-9.  Re-enable the DDL trigger disabled in the first step.
+1.  Re-enable the DDL trigger disabled in the first step.
 
 If you want to clean up the records in the schema change tracking table, use DELETE instead of TRUNCATE. Never reseed the identity column in schema change tracking table by using DBCC CHECKIDENT. You can create new schema change tracking tables and update the table name in the DDL trigger if reseeding is required.
 

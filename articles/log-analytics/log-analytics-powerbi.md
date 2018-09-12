@@ -4,18 +4,18 @@ description: Power BI is a cloud based business analytics service from Microsoft
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 83edc411-6886-4de1-aadd-33982147b9c3
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-
+ms.component: na
 ---
 # Import Azure Log Analytics data into Power BI
 

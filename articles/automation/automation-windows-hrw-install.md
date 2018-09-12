@@ -130,23 +130,11 @@ Because the primary purpose of the Hybrid Runbook Worker feature is to manage lo
 
 Modules that are installed must be in a location referenced by the **PSModulePath** environment variable so that the hybrid worker can automatically import them. For more information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
-## Troubleshooting
+## Troubleshoot
 
-The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
+To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Windows Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#windows)
 
-### The Microsoft Monitoring Agent isn't running
-
-If the Microsoft Monitoring Agent Windows service isn't running, the Hybrid Runbook Worker can't communicate with Azure Automation. Verify that the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
-
-### Event 4502 appears in the Operations Manager log
-
-In the **Application and Services Logs\Operations Manager** event log, you see event 4502 and EventMessage containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
-
-This event can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to *.azure-automation.net on port 443.
-
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log. Look for events that would indicate a connectivity or other issue that's affecting onboarding of the role to Azure Automation, or an issue while performing normal operations.
-
-For additional steps on how to troubleshoot issues with Update Management, see [Update Management: troubleshooting](automation-update-management.md#troubleshooting).
+For additional steps on how to troubleshoot issues with Update Management, see [Update Management: troubleshooting](troubleshoot/update-management.md).
 
 ## Next steps
 

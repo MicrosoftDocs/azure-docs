@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API Go quickstart OCR | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Extract printed text (OCR) - REST, Go - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using Computer Vision with Go in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -8,10 +8,10 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Extract printed text (OCR) with Go
+# Quickstart: Extract printed text (OCR) - REST, Go - Computer Vision
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 
@@ -47,13 +47,14 @@ import (
 )
 
 func main() {
+    // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
     const subscriptionKey = "<Subscription Key>"
 
     // You must use the same location in your REST call as you used to get your
     // subscription keys. For example, if you got your subscription keys from
     // westus, replace "westcentralus" in the URL below with "westus".
     const uriBase =
-      "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr"
+        "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
         "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
@@ -61,33 +62,43 @@ func main() {
     const uri = uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
-    r := strings.NewReader(imageUrlEnc)
+    reader := strings.NewReader(imageUrlEnc)
 
+    // Create the Http client
     client := &http.Client{
         Timeout: time.Second * 2,
     }
 
-    req, _ := http.NewRequest("POST", uri, r)
+    // Create the Post request, passing the image URL in the request body
+    req, err := http.NewRequest("POST", uri, reader)
+    if err != nil {
+        panic(err)
+    }
 
+    // Add headers
     req.Header.Add("Content-Type", "application/json")
     req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 
+    // Send the request and retrieve the response
     resp, err := client.Do(req)
     if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
+        panic(err)
     }
+
     defer resp.Body.Close()
 
-    body, err := ioutil.ReadAll(resp.Body)
+    // Read the response body.
+    // Note, data is a byte array
+    data, err := ioutil.ReadAll(resp.Body)
     if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
+        panic(err)
     }
 
+    // Parse the Json data
     var f interface{}
-    json.Unmarshal(body, &f)
+    json.Unmarshal(data, &f)
 
+    // Format and display the Json result
     jsonFormatted, _ := json.MarshalIndent(f, "", "  ")
     fmt.Println(string(jsonFormatted))
 }
@@ -198,7 +209,7 @@ Upon success, the OCR results returned include text, bounding box for regions, l
 
 ## Next steps
 
-Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
+Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Explore Computer Vision APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

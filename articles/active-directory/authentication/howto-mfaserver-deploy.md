@@ -5,13 +5,13 @@ description: Step-by-step get started with Azure MFA Server on-premises
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -100,8 +100,8 @@ Now that you have downloaded the server you can install and configure it. Be sur
 
 1. Double-click the executable.
 2. On the Select Installation Folder screen, make sure that the folder is correct and click **Next**.
-3. Once the installation is complete, click **Finish**.  The configuration wizard launches.
-4. On the configuration wizard welcome screen, check **Skip using the Authentication Configuration Wizard** and click **Next**.  The wizard closes and the server starts.
+3. Once the installation is complete, click **Finish**. The configuration wizard launches.
+4. On the configuration wizard welcome screen, check **Skip using the Authentication Configuration Wizard** and click **Next**. The wizard closes and the server starts.
 
    ![Cloud](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -113,7 +113,7 @@ To ease rollout, allow MFA Server to communicate with your users. MFA Server can
 
 The email you send should be determined by how you configure your users for two-step verification. For example, if you are able to import phone numbers from the company directory, the email should include the default phone numbers so that users know what to expect. If you do not import phone numbers, or your users are going to use the mobile app, send them an email that directs them to complete their account enrollment. Include a hyperlink to the Azure Multi-Factor Authentication User Portal in the email.
 
-The content of the email also varies depending on the method of verification that has been set for the user (phone call, SMS, or mobile app).  For example, if the user is required to use a PIN when they authenticate, the email tells them what their initial PIN has been set to.  Users are required to change their PIN during their first verification.
+The content of the email also varies depending on the method of verification that has been set for the user (phone call, SMS, or mobile app). For example, if the user is required to use a PIN when they authenticate, the email tells them what their initial PIN has been set to. Users are required to change their PIN during their first verification.
 
 ### Configure email and email templates
 
@@ -127,14 +127,14 @@ On the Email Content tab, you can see the email templates that are available to 
 
 ## Import users from Active Directory
 
-Now that the server is installed you will want to add users. You can choose to create them manually, import users from Active Directory, or configure automated synchronization with Active Directory.
+Now that the server is installed you want to add users. You can choose to create them manually, import users from Active Directory, or configure automated synchronization with Active Directory.
 
 ### Manual import from Active Directory
 
 1. In the Azure MFA Server, on the left, select **Users**.
 2. At the bottom, select **Import from Active Directory**.
-3. Now you can either search for individual users or search the AD directory for OUs with users in them.  In this case, we specify the users OU.
-4. Highlight all the users on the right and click **Import**.  You should receive a pop-up telling you that you were successful.  Close the import window.
+3. Now you can either search for individual users or search the AD directory for OUs with users in them. In this case, we specify the users OU.
+4. Highlight all the users on the right and click **Import**. You should receive a pop-up telling you that you were successful. Close the import window.
 
    ![MFA Server user import](./media/howto-mfaserver-deploy/import2.png)
 
@@ -174,10 +174,14 @@ In case a restore is needed complete the following steps:
 1. Reinstall Azure MFA Server on a new server.
 2. Activate the new Azure MFA Server.
 3. Stop the **MultiFactorAuth** service.
-4. Overwrite the **PhoneFactor.pfdata** with the backed up copy.
+4. Overwrite the **PhoneFactor.pfdata** with the backed-up copy.
 5. Start the **MultiFactorAuth** service.
 
 The new server is now up and running with the original backed-up configuration and user data.
+
+## Managing the TLS/SSL Protocols and Cipher Suites
+
+Once you have upgraded to or installed MFA Server version 8.x or higher, it is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## Next steps
 

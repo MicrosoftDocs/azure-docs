@@ -3,7 +3,7 @@ title: Tutorial for authenticating Azure SignalR Service clients | Microsoft Doc
 description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
-ms.author: wesmc
+ms.author: zhshang
 #Customer intent: As an ASP.NET Core developer, I want to provide real authentication for my clients before allowing them to push content updates.
 ---
 # Tutorial: Azure SignalR Service authentication
@@ -84,9 +84,10 @@ To complete this tutorial, you must have the following prerequisites:
 
 ### Update the Startup class to support GitHub authentication
 
-1. Add a reference to the latest *Microsoft.AspNetCore.Authentication.Cookies* package and restore all packages.
+1. Add a reference to the latest *Microsoft.AspNetCore.Authentication.Cookies* and *AspNet.Security.OAuth.GitHub* packages and restore all packages.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
         dotnet restore
 
 1. Open *Startup.cs*, and add `using` statements for the following namespaces:

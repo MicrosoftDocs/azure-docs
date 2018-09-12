@@ -3,7 +3,7 @@ title: Tutorial - Load balance Windows virtual machines in Azure | Microsoft Doc
 description: In this tutorial, you learn how to use Azure PowerShell to create a load balancer for a highly available and secure application across three Windows virtual machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn how to load balance virtual machines in Azure so that I can deploy a redundant application with traffic automatically distributed to available VMs.

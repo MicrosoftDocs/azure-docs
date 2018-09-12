@@ -9,7 +9,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 08/17/2018
 ms.author: sngun
 
 ---
@@ -30,7 +30,7 @@ After completing this Power BI tutorial, you'll be able to answer the following 
 > The Power BI connector for Azure Cosmos DB connects to Power BI Desktop for extraction and transformation of data. Reports created in Power BI Desktop can then be published to PowerBI.com. Direct extraction and transformation of Azure Cosmos DB data cannot be performed in PowerBI.com. 
 
 > [!NOTE]
-> To connect Azure Cosmos DB to Power BI using the MongoDB API, you must use the [Simba MongoDB ODBC Driver](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> Connecting to Azure Cosmos DB with the Power BI connector is currently supported for Azure Cosmos DB SQL and MongoDB API accounts only. To connect Azure Cosmos DB to Power BI using the MongoDB API, you must use the [Simba MongoDB ODBC Driver](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
 ## Prerequisites
 Before following the instructions in this Power BI tutorial, ensure that you have access to the following resources:
@@ -38,8 +38,8 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 * [The latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Access to our demo account or data in your Azure Cosmos DB account.
   * The demo account is populated with the volcano data shown in this tutorial. This demo account is not bound by any SLAs and is meant for demonstration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing, and delete the data, at any time without advance notice or reason.
-    * URL: https://analytics.documents.azure.com
-    * Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
+    * URL: `https://analytics.documents.azure.com`
+    * Read-only key: `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
   * Or, to create your own account, see [Create an Azure Cosmos DB database account using the Azure portal](https://azure.microsoft.com/documentation/articles/create-account/). Then, to get sample volcano data that's similar to what's used in this tutorial (but does not contain the GeoJSON blocks), see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [Azure Cosmos DB data migration tool](import-data.md).
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).

@@ -66,7 +66,7 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
 
 - Testing in Production feature enabled - [Introduction to Testing in Production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
-- Azure Functions Proxies enabled - [Work with Azure Functions Proxies](https://docs.microsoft.com/en-us/azure/azure-functions/functions-proxies)
+- Azure Functions Proxies enabled - [Work with Azure Functions Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
 
 - App Service Admin extension UX support added for:
   - Secret rotation

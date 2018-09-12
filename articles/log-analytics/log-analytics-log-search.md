@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Understanding log searches in Log Analytics
 
 You require a log search to retrieve any data from Log Analytics.  Whether you're analyzing data in the portal, configuring an alert rule to be notified of a particular condition, or retrieving data using the Log Analytics API, you will use a log search to specify the data you want.  This article describes how log searches are used in Log Analytics and provides concepts that should understand before creating one. See the [Next steps](#next-steps) section for details on creating and editing log searches and for references on the query language.

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/11/2018
+ms.date: 7/10/2018
 ms.author: subramar 
 ---
 
@@ -25,7 +25,7 @@ Is your application and cluster ready to take production traffic? Running and te
 ## Pre-requisites for production
 
 1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services. 
-2. Use a D2v2 or higher SKU for the primary node type. 
+2. Use a D2v2 or higher SKU for the primary node type. It is recommended to pick a SKU with at least 50 GB hard disk capacity.
 2. Production clusters must be [secure](service-fabric-cluster-security.md). For an example of setting up a secure cluster, see this [cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use common names for certificates and avoid using self signed certs.
 4. Add [resource constraints on containers and services](service-fabric-resource-governance.md), so that they don't consume more than 75% of node resources. 
 5. Understand and set the [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Silver or higher durability level is recommended for node types running stateful workloads. The primary node type should have a durability level set to Silver or higher.
@@ -41,7 +41,7 @@ Is your application and cluster ready to take production traffic? Running and te
 15. Establish a Recovery Point Objective (RPO) for your service, and set up a [disaster recovery process](service-fabric-disaster-recovery.md) and test it out.
 16. Plan for [scaling](service-fabric-cluster-scaling.md) your cluster manually or programmatically.
 17. Plan for [patching](service-fabric-patch-orchestration-application.md) your cluster nodes. 
-18. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+18. Establish a CI/CD pipeline so that your latest changes are being continually tested. For example, using [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. Test your development & staging clusters under load with the [Fault Analysis Service](service-fabric-testability-overview.md) and induce controlled [chaos](service-fabric-controlled-chaos.md). 
 20. Plan for [scaling](service-fabric-concepts-scalability.md) your applications. 
 

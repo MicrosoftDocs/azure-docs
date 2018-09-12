@@ -1,4 +1,16 @@
-Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
+---
+ title: include file
+ description: include file
+ services: service-bus-messaging
+ author: spelluru
+ ms.service: service-bus-messaging
+ ms.topic: include
+ ms.date: 06/29/2018
+ ms.author: spelluru
+ ms.custom: include file
+---
+
+Make sure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
 1. Sign in to the [Azure portal][azure-portal].
 2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **All services**).

@@ -3,7 +3,7 @@ title: In this tutorial, you create an Azure Stack VM using a template | Microso
 description: Describes how to use the ASDK to create a VM using a predfined template and a GitHub custom template.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,8 +14,8 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/08/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: 
 ---
 
@@ -61,7 +61,7 @@ This template installs the following components:
 > [!IMPORTANT]
 > The Ubuntu VM image (Ubuntu Server 16.04 LTS in this example) must already have been added to the Azure Stack marketplace before beginning these steps.
 
-1.	Click **+New** > **Custom** > **Template deployment**.
+1.	Click **+ Create a resource** > **Custom** > **Template deployment**.
 
     ![](media/azure-stack-create-vm-template/1.PNG) 
 

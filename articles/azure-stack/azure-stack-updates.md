@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
 
 ---
@@ -21,29 +21,29 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems*
 
-Microsoft will release update packages for Azure Stack integrated systems on a regular cadence that will typically fall on the fourth Tuesday of every month, starting at general availability. Ask your OEM about their specific notification process to ensure update notifications reach your organization, or check here under Overview\Release Notes\Integrated Systems release notes for more information about specific releases.
+Microsoft update packages for Azure Stack integrated systems typically release around the fourth Tuesday of each month. Ask your OEM about their specific notification process to ensure update notifications reach your organization. You can also check in this documentation library under **Overview** > **Release notes** for information about releases that are in active support. 
 
-Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
+Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can import, install, and monitor the installation progress of these update packages from the administrator portal. 
 
-Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
+Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. While these updates are delivered as separate packages by your OEM hardware vendor, they are imported, installed, and managed the same way update packages from Microsoft update packages are imported, installed, and managed.
 
 To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems.
+> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems. For information, see [Redeploy the ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
 
 ## The Update resource provider
 
 Azure Stack includes an Update resource provider that orchestrates the application of Microsoft software updates. This resource provider ensures that updates are applied across all physical hosts, Service Fabric applications and runtimes, and all infrastructure virtual machines and their associated services.
 
-As updates install, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
+As updates install, you can view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
 
 ## Plan for updates
 
-We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both tenant workloads and portal operations.
+We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours if possible. Maintenance operations can affect both tenant workloads and portal operations.
 
 ## Using the Update tile to manage updates
-Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile in the dashboard to:
+You manage updates from the administrator portal. As an Azure Stack operator you can use the Update tile in the dashboard to:
 
 - view important information such as the current version.
 - install updates, and monitor progress.

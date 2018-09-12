@@ -1,21 +1,15 @@
 ---
-title: Get started with an HBase example on HDInsight - Azure | Microsoft Docs
+title: Get started with an HBase example on HDInsight - Azure 
 description: Follow this Apache HBase example to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: hbasecommand,hbase example 
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-
+ms.author: jasonh
 ---
 # Get started with an Apache HBase example in HDInsight
 
@@ -31,7 +25,7 @@ Before you begin trying this HBase example, you must have the following items:
 * [curl](http://curl.haxx.se/download.html).
 
 ## Create HBase cluster
-The following procedure uses an Azure Resource Manager template to create a HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure uses an Azure Resource Manager template to create a HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
    
@@ -244,7 +238,7 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 
 **To access the HBase Master UI**
 
-1. Sign into the the Ambari Web UI at https://&lt;Clustername>.azurehdinsight.net.
+1. Sign into the Ambari Web UI at https://&lt;Clustername>.azurehdinsight.net.
 2. Click **HBase** from the left menu.
 3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in another browser tab:
 

@@ -1,16 +1,17 @@
 ---
-title: Understand LUIS best practices - Azure | Microsoft Docs
+title: Best practices for building apps with LUIS - Language Understanding 
+titleSuffix: Azure Cognitive Services
 description: Learn the LUIS best practices to get the best results.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
-# Best practices
+# Best practices for building a language understanding app with Cognitive Services
 Use the app authoring process to build your LUIS app. 
 
 * Build language model
@@ -19,7 +20,7 @@ Use the app authoring process to build your LUIS app.
 * Test from endpoint 
 * Add features
 
-Once your app is [published](publishapp.md), use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
+Once your app is [published](luis-how-to-publish-app.md), use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
 
 In order for LUIS to be efficient at its job of learning, do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using active learning, [patterns](luis-concept-patterns.md), and [phrase lists](luis-concept-feature.md). 
 
@@ -71,7 +72,7 @@ Do not apply these practices before your app has received endpoint requests beca
 This is the fallback intent, indicated everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
 ## Do leverage the suggest feature for active learning
-Use [active learning](label-suggested-utterances.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
+Use [active learning](luis-how-to-review-endoint-utt.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
 
 ## Do monitor the performance of your app
 Monitor the prediction accuracy using a test set. 
@@ -107,6 +108,4 @@ Add 10 or 15 utterances before training and publishing. That allows you to see t
 
 ## Next steps
 
-* Learn how to [plan your app](plan-your-app.md) in your LUIS app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Learn how to [plan your app](luis-how-plan-your-app.md) in your LUIS app.

@@ -4,7 +4,7 @@ description: Answers to frequently asked questions about Azure Active Directory 
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -23,7 +23,7 @@ This article addresses frequently asked questions about Azure Active Directory (
 
 ## Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS), should I choose?
 
-It depends on your on-premises environment and organizational requirements. Review the [Azure AD Connect user sign-in options](active-directory-aadconnect-user-signin.md) article for a comparison of the various Azure AD sign-in methods.
+Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
 
 ## Is Pass-through Authentication a free feature?
 
@@ -43,7 +43,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 
-No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
 
@@ -51,17 +51,17 @@ Yes. The rebranded versions of the Pass-through Authentication Agent, version 1.
 
 ## What versions of Azure AD Connect and Pass-through Authentication Agent do you need?
 
-For this feature to work, you need version 1.1.486.0 or later for Azure AD Connect and 1.5.58.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
+For this feature to work, you need version 1.1.750.0 or later for Azure AD Connect and 1.5.193.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
 
 ## What happens if my user's password has expired and they try to sign in by using Pass-through Authentication?
 
-If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
+If you have configured [password writeback](../authentication/concept-sspr-writeback.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
 
 If you have not configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
 
 ## How does Pass-through Authentication protect you against brute-force password attacks?
 
-Read [Azure Active Directory Pass-through Authentication: Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) for more information.
+[Read information about Smart Lockout](../authentication/howto-password-smart-lockout.md).
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
@@ -77,7 +77,7 @@ Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environme
 
 ## Can I install two or more Pass-through Authentication Agents on the same server?
 
-No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, follow the instructions in [Azure Active Directory Pass-through Authentication: Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, [follow the instructions here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## How do I remove a Pass-through Authentication Agent?
 
@@ -87,12 +87,7 @@ If you check the Pass-through Authentication blade on the [Azure Active Director
 
 ## I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?
 
-If you have configured AD FS as your method to sign in through the Azure AD Connect wizard, change the method that the user uses to sign in to Pass-through Authentication. This change enables Pass-through Authentication on the tenant and converts _all_ your federated domains into managed domains. Pass-through Authentication handles all subsequent requests to sign in to your tenant. Currently, there is no supported way within Azure AD Connect to use a combination of AD FS and Pass-through Authentication across different domains.
-
-If AD FS was configured as the method to sign in _outside_ the Azure AD Connect wizard, change the user sign-in method to Pass-through Authentication. You can make this change from the **Do not configure** option. This change enables Pass-through Authentication on the tenant, but all your federated domains will continue to use AD FS for sign-in. Use PowerShell to manually convert some or all of these federated domains to managed domains. After you make that change, *only* Pass-through Authentication handles all requests to sign in to the managed domains.
-
->[!IMPORTANT]
->Pass-through Authentication doesn't handle sign in for cloud-only Azure AD users.
+If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
 ## Can I use Pass-through Authentication in a multi-forest Active Directory environment?
 
@@ -100,7 +95,7 @@ Yes. Multi-forest environments are supported if there are forest trusts between 
 
 ## How many Pass-through Authentication Agents do I need to install?
 
-Installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
+Installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
 
 Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300 to 400 authentications per second on a standard 4-core CPU, 16-GB RAM server.
 
@@ -117,6 +112,10 @@ For most customers, two or three Authentication Agents in total are sufficient f
 
 No, this scenario is _not_ supported.
 
+## Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
+
+It is recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing it this way ensures that you don't get locked out of your tenant.
+
 ## How can I disable Pass-through Authentication?
 
 Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-through Authentication to another method. This change disables Pass-through Authentication on the tenant and uninstalls the Authentication Agent from the server. You must manually uninstall the Authentication Agents from the other servers.
@@ -128,7 +127,8 @@ If you uninstall a Pass-through Authentication Agent from a server, it causes th
 ## Next steps
 - [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
+- [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Technical deep dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
 - [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.

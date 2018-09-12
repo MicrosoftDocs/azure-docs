@@ -2,12 +2,12 @@
 title: Azure SQL Database DTU-based resource limits elastic pools| Microsoft Docs
 description: This page describes some common DTU-based resource limits for elastic pools in Azure SQL Database.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: carlrab
 
 ---
@@ -16,6 +16,9 @@ ms.author: carlrab
 This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the DTU-based purchasing model. 
 
 For DTU-based purchasing model resource limits for single databases, see [DTU-based resource limits - single databases](sql-database-vcore-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ## Elastic pool: Storage sizes and performance levels
 
@@ -100,7 +103,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 ||||||||
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: West Central US, China East, USDoDCentral, Germany Central, USDoDEast, US Gov SouthWest, Germany NorthEast, USGov Iowa, China North. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
@@ -120,6 +123,7 @@ The following table describes the properties for pooled databases.
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
+- See [Overview Azure SQL Database resource limits](sql-database-resource-limits.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - For information about tempdb size limits, see https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

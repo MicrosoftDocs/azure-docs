@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/20/2018
+ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use PowerShell to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
@@ -358,6 +358,7 @@ for ($i=1; $i -le 3; $i++)
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
     -ImageReferenceVersion latest
+    -OsDiskCreateOption FromImage
 
   Set-AzureRmVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
@@ -382,7 +383,7 @@ for ($i=1; $i -le 3; $i++)
 Each scale set contains two virtual machine instances on which you install IIS, which runs a sample page to test whether the application gateway is working.
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)

@@ -35,9 +35,9 @@ Backup for Azure File shares is in Preview. The following backup scenarios aren'
 - Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
 - Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 
-\*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices
+\*Azure File Shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication function as GRS and billed at GRS prices.
 
-Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS) and East US 2 (EUS2)
+Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA) and West Europe (WE).
 
 ## Configuring backup for an Azure file share
 All backup data is stored in Recovery Services vaults. This tutorial assumes you already have established an Azure file share. To back up your Azure file share:

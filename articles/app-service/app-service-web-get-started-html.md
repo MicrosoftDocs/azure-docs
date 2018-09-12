@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: mvc
 ---
 # Create a static HTML web app in Azure
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
+[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Home page of sample app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -29,12 +29,12 @@ ms.custom: mvc
 
 ## Install web app extension for Cloud Shell
 
-To complete this quickstart, you need to add the [az web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). If the extension is already installed, you should update it to the latest version. To update the web app extension, type `az extension update -n webapp`.
+To complete this quickstart, you need to add the [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). If the extension is already installed, you should update it to the latest version. To update the web app extension, type `az extension update -n webapp`.
 
 To install the webapp extension, run the following command:
 
 ```bash
-az extension add -n webapp
+az extension add --name webapp
 ```
 
 When the extension has been installed, the Cloud Shell shows information to the following example:
@@ -68,7 +68,7 @@ In the following example, replace <app_name> with a unique app name.
 ```bash
 cd html-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up --location westeurope --name <app_name>
 ```
 
 The `az webapp up` command does the following actions:
@@ -79,20 +79,20 @@ The `az webapp up` command does the following actions:
 
 - Create an app with the specified name.
 
-- [Zip deploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
+- [Zip deploy](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 
 ```json
 {
   "app_url": "https://<app_name>.azurewebsites.net",
-  "location": "Central US",
+  "location": "westeurope",
   "name": "<app_name>",
   "os": "Windows",
-  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
-  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "resourcegroup": "appsvc_rg_Windows_westeurope",
+  "serverfarm": "appsvc_asp_Windows_westeurope",
   "sku": "FREE",
-  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
   < JSON data removed for brevity. >
 }
 ```
@@ -111,7 +111,7 @@ The page is running as an Azure App Service web app.
 
 ## Update and redeploy the app
 
-In the Cloud Shell, type `nano index.html` to open the nano text editor. In the H1 heading, change "Azure App Service - Sample Static HTML Site" to  "Azure App Service", as shown below.
+In the Cloud Shell, type `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
 
 ![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
 
@@ -120,7 +120,7 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 You'll now redeploy the app with the same `az webapp up` command.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up --location westeurope --name <app_name>
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
@@ -146,7 +146,7 @@ The left menu provides different pages for configuring your app.
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
 
 ```bash
-az group delete --name appsvc_rg_Windows_CentralUS
+az group delete --name appsvc_rg_Windows_westeurope
 ```
 
 This command may take a minute to run.

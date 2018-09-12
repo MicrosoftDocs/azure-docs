@@ -4,7 +4,7 @@ description: This article describes how the Azure Active Directory Seamless Sing
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -31,8 +31,8 @@ This section has three parts to it:
 ### How does set up work?
 
 Seamless SSO is enabled using Azure AD Connect as shown [here](active-directory-aadconnect-sso-quick-start.md). While enabling the feature, the following steps occur:
-- A computer account named `AZUREADSSOACC` (which represents Azure AD) is created in your on-premises Active Directory (AD).
-- The computer account's Kerberos decryption key is shared securely with Azure AD.
+- A computer account named `AZUREADSSOACC` (which represents Azure AD) is created in your on-premises Active Directory (AD) in each AD forest.
+- The computer account's Kerberos decryption key is shared securely with Azure AD. If there are multiple AD forests, each one will have its own Kerberos decryption key.
 - In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
 >[!NOTE]

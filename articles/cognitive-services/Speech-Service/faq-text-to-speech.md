@@ -1,9 +1,9 @@
 ---
-title: Frequently asked questions for Speech to Text Service on Azure | Microsoft Docs
-description: Here are answers to the most popular questions about the Speech to Text.
+title: Frequently asked questions about the Text to Speech service in Azure
+description: Get answers to the most popular questions about the Text to Speech service.
+titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
@@ -11,144 +11,49 @@ ms.date: 06/11/2018
 ms.author: panosper
 ---
 
-# Custom Speech Service Frequently Asked Questions
+# Text to Speech frequently asked questions
 
-If you can't find answers to your questions in this FAQ, try asking the Custom Speech Service community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) and [UserVoice](https://cognitive.uservoice.com/)
+If you can't find answers to your questions in this FAQ, check out [other support options](support.md).
 
 ## General
 
-**Question**: What is the difference between Baseline and Custom Speech to Text Models?
+**Q: What is the difference between a standard voice model and a custom voice model?**
 
-**Answer**: Baseline models have been trained with Microsoft owned data and are already deployed in the cloud. Custom models allow the user to adapt a model to better fit a particular environment with specific ambient noise or language. Factory floors, cars, noisy streets would require adapted acoustic model whereas specific topics such as biology, physics, radiology, product names, and custom acronyms would require a language model.
+**A**: The standard voice model (also called a *voice font*) has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom voice model either to adapt an average model and transfer the timbre and expression of the speaker’s voice style or train a full, new model based on the training data prepared by the user. Today, more and more customers want a one-of-a-kind, branded voice for their bots. The custom voice-building platform is the right choice for that option.
 
-**Question**: Where do I start if I want to use a baseline model?
+**Q: Where do I start if I want to use a standard voice model?**
 
-**Answer**: First you need to get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models,  consult the [details here](rest-apis.md). If you want to use WebSockets download the [SDK](speech-sdk.md)
+**A**: More than 80 standard voice models in over 45 languages are available through HTTP requests. First, get a [subscription key](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). To make REST calls to the predeployed voice models, see the [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**Question**: Do I always need to build a custom speech model?
+**Q: If I want to use a customized voice model, is the API the same as the one that's used for standard voices?**
 
-**Answer**: No, if your application is using generic day to day language without custom vocabulary or that maybe rare then you do not need to customize a model. In addition if your application is to be used in an environment where there is little or no background noise then you do not need to customize either. The portal allows users to deploy baseline and customized models and run accuracy tests against them. Users can use this feature to measure accuracy of a baseline vs a custom model.
+**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**Question**: How will I know when the processing of my data set or model is complete?
+**Q: Do I need to prepare the training data to create custom voice models on my own?**
 
-**Answer**: Currently, the status of the model or data set in the table is the only want to know.
-When the processing is complete, the status will be "Ready".
+**A**: Yes, you must prepare the training data yourself for a custom voice model.
 
-**Question**: Can I create more than one model at a time?
+A collection of speech data is required to create a customized voice model. This collection consists of a set of audio files of speech recordings and a text file of the transcription of each audio file. The result of your digital voice relies heavily on the quality of your training data. To produce a good text-to-speech voice, it's important that the recordings are made in a quiet room with a high-quality, standing microphone. A consistent volume, speaking rate, and speaking pitch, and even consistency in expressive mannerisms of speech are essential for building a great digital voice. We highly recommend recording the voices in a recording studio.
 
-**Answer**: There is no limit to how many models are in your collection but only one can be created at a time on each page.
-For example, you cannot start a language model creation process if there is currently a language model in the process stage.
-You can, however, have an acoustic model and a language model processing at the same time. 
+Currently, we don't provide online recording support or have any recording studio recommendations. For the format requirement, see [how to prepare recordings and transcripts](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
 
-**Question**: I realized I made a mistake. How do I cancel my data import or model creation that’s in progress? 
+**Q: What scripts should I use to record the speech data for custom voice training?**
 
-**Answer**: Currently you cannot roll back an acoustic or language adaptation process.
-Imported data can be deleted after the import has been completed
+**A**: We don't limit the scripts for voice recording. You can use your own scripts to record the speech. Just ensure that you have sufficient phonetic coverage in your speech data. To train a custom voice, you can start with a small volume of speech data, which might be 50 different sentences (about 3-5 minutes of speech). The more data you provide, the more natural your voice will be. You can start to train a full voice font when you provide recordings of more than 2,000 sentences (about 3-4 hours of speech). To get a high-quality, full voice, you need to prepare recordings of more than 6,000 sentences (about 8-10 hours of speech).
 
-**Question**: What is the difference between the Search & Dictation Models and the Conversational Models?
+We provide additional services to help you prepare scripts for recording. Contact [Custom Voice customer support](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) for inquiries.
 
-**Answer**: There are two Base Acoustic & Language Models to choose from in the Custom Speech Service.
-search queries, or dictation. The Microsoft Conversational AM is appropriate for recognizing speech spoken in a conversational style.
-This type of speech is typically directed at another person, such as in call centers or meetings.
+**Q: What if I need higher concurrency than the default value or what is offered in the portal?**
 
-**Question**: Can I update my existing model (model stacking)?
+**A**: You can scale up your model in increments of 20 concurrent requests. Contact [Custom Voice customer support](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) for inquiries about higher scaling.
 
-**Answer**: Existing models cannot be updated. As a work around combine the old dataset with the new and readapt.
+**Q: Can I download my model and run it locally?**
 
-The old and new data sets must be combined in a single .zip (if it is acoustic data) or a .txt file if it is language data. Once adaptation is done the new updated model needs to be de-deployed to obtain a new endpoint
+**A**: Models can't be downloaded and executed locally.
 
-**Question**: What if I need higher concurrency than the default value or what is offered in the portal. 
+**Q: Are my requests throttled?**
 
-**Answer**: You can scale up your model in increments of 20 concurrent requests. 
-
-Contact us if you require higher scale.
-
-**Question**: Can I download my model and run it locally?
-
-**Answer**: Models cannot be downloaded and executed locally.
-
-**Question**: Are my requests logged?
-
-**Answer**: You have a choice during the creation of a deployment to switch off tracing, at which point no audio or transcriptions will be logged. Otherwise requests are typically logged in Azure in secure storage. If you have further privacy concerns that prohibit you from using the Custom Speech Service, contact one of the support channels.
-
-## Importing Data
-
-**Question**: What is the limit on the size of the data set? Why? 
-
-**Answer**: The current limit for a data set is 2 GB, due to the restriction on the size of a file for HTTP upload. 
-
-**Question**: Can I zip my text files in order to upload a larger text file? 
-
-**Answer**: No, currently only uncompressed text files are allowed.
-
-**Question**: The data report says there were failed utterances. What is the issue?
-
-**Answer**: Failing to upload 100% of the utterences in a file is not a problem.
-If the vast majority of the utterances in an acoustic or language data set (for example, >95%) are successfully imported, the data set can be usable. However, it is recommended that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix. 
-
-## Creating AM
-
-**Question**: How much acoustic data do I need?
-
-**Answer**: We recommend starting with 30 minutes to one hour of acoustic data
-
-**Question**: What data should I collect?
-
-**Answer**: Collect data that's as close to the application scenario and use case as possible.
-The data collection should match the target application and users in terms of device or devices,
-environments, and types of speakers. In general, you should collect data from as broad a range of speakers as possible. 
-
-**Question**: How should I collect it? 
-
-**Answer**: You can create a standalone data collection application or use some off the shelf audio recording software.
-You can also create a version of your application that logs the audio data and uses that. 
-
-**Question**: Do I need to transcribe adaptation data myself? 
-
-**Answer**: The data must be transcribed. You can transcribe it yourself
-or use a professional transcription service. Some of these use professional transcribers and others
-use crowdsourcing.
-
-**Question**: How long does it take to create a custom acoustic model?
-
-**Answer**: The processing time for creating a custom acoustic model is about the same as the length of the acoustic data set.
-So, a customized acoustic model created from a five-hour data set will take about five hours to process. 
-
-## Offline Testing
-
-**Question**: Can I perform offline testing of my custom acoustic model using a custom language model?
-
-**Answer**: Yes, just select the custom language model in the drop-down when you set up the offline test
-
-**Question**: Can I perform offline testing of my custom language model using a custom acoustic model?
-
-**Answer**: Yes, just select the custom acoustic model in the drop-down menu when you set up the offline test.
-
-**Question**: What is Word Error Rate and how is it computed?
-
-**Answer**: Word Error Rate is the evaluation metric for speech recognition. It is counted as the total number of errors,
-which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription.
-
-**Question**: How do I determine if the results of an accuracy test is good?
-
-**Answer**: The results show a comparison between the baseline model and the one you customized.
-You should aim to beat the baseline model to make the customization worthwhile
-
-**Question**: How do I figure out the WER of the base models, so I can see if there was improvement? 
-
-**Answer**: The offline test results show accuracy of baseline accuracy of the custom model and the improvement over baseline
-
-## Creating LM
-
-**Question**: How much text data do I need to upload?
-
-**Answer**: It depends on how different the vocabulary and phrases used in your application are from the starting language models. For all new words, it is useful to provide as many examples as possible of the usage of those words. For common phrases that are used in your application, including phrases in the language data is also useful as it tells the system to listen for these terms as well. It is common to have at least one 100 and typically several hundred utterances in the language data set or more. Also if certain types of queries are expected to be more common than others, you can insert multiple copies of the common queries in the data set.
-
-**Question**: Can I just upload a list of words?
-
-**Answer**: Uploading a list of words will get the words into to vocabulary but not teach the system how the words are typically used.
-By providing full or partial utterances (sentences or phrases of things users are likely to say) the language model can learn the new words and how, they are used. The custom language model is good not just for getting new words in the system
-but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn ebtter. 
+**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Text to Speech](text-to-speech.md). 
 
 ## Next steps
 

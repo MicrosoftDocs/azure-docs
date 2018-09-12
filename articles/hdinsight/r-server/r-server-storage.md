@@ -1,24 +1,18 @@
 ---
-title: Azure Storage solutions for R Server on HDInsight - Azure | Microsoft Docs
-description: Learn about the different storage options available with R Server on HDInsight
+title: Azure Storage solutions for ML Services on HDInsight - Azure 
+description: Learn about the different storage options available with ML Services on HDInsight
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.author: nitinme
-
+ms.date: 06/27/2018
 ---
-# Azure Storage solutions for R Server on Azure HDInsight
+# Azure Storage solutions for ML Services on Azure HDInsight
 
-R Server on HDInsight has a variety of storage solutions to persist data, code, or objects that contain results from analysis. These include the following options:
+ML Services on HDInsight can use a variety of storage solutions to persist data, code, or objects that contain results from analysis. These include the following options:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)
@@ -31,14 +25,14 @@ When you create a Hadoop cluster in HDInsight, you specify either an **Azure sto
 - [Use Azure storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Use Data Lake Store with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md)
 
-## Use Azure Blob storage accounts with R Server cluster
+## Use Azure Blob storage accounts with ML Services cluster
 
-If you specified more than one storage account when creating your R Server cluster, the following instructions explain how to use a secondary account for data access and operations on R Server cluster. Assume the following storage accounts and container: **storage1** and a default container called **container1**, and **storage2** with **container2**.
+If you specified more than one storage account when creating your ML Services cluster, the following instructions explain how to use a secondary account for data access and operations on an ML Services cluster. Assume the following storage accounts and container: **storage1** and a default container called **container1**, and **storage2** with **container2**.
 
 > [!WARNING]
 > For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. Using a storage account in a different location than the HDInsight cluster is not supported.
 
-### Use the default storage with R Server on HDInsight
+### Use the default storage with ML Services on HDInsight
 
 1. Using an SSH client, connect to the edge node of your cluster. For information on using SSH with HDInsight clusters, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
   
@@ -69,7 +63,7 @@ If you specified more than one storage account when creating your R Server clust
 
 All the directory and file references point to the storage account `wasb://container1@storage1.blob.core.windows.net`. This is the **default storage account** that's associated with the HDInsight cluster.
 
-### Use the additional storage with R Server on HDInsight
+### Use the additional storage with ML Services on HDInsight
 
 Now, suppose you want to process a file called mysamplefile1.csv that's located in the  /private directory of **container2** in **storage2**.
 
@@ -102,13 +96,13 @@ You have to configure the /user/RevoShare/<SSH username> directory on **storage2
 	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
 	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## Use an Azure Data Lake Store with R Server cluster 
+## Use an Azure Data Lake Store with ML Services cluster 
 
 To use Data Lake Store with your HDInsight cluster, you need to give your cluster access to each Azure Data Lake Store that you want to use. For instructions on how to use the Azure portal to create a HDInsight cluster with an Azure Data Lake Store account as the default storage or as an additional store, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 You then use the store in your R script much like you did a secondary Azure storage account as described in the previous procedure.
 
-### Add cluster access to your Azure Data Lake stores
+### Add cluster access to your Azure Data Lake Stores
 You access a Data Lake store by using an Azure Active Directory (Azure AD) Service Principal that's associated with your HDInsight cluster.
 
 1. When you create your HDInsight cluster, select **Cluster AAD Identity** from the **Data Source** tab.
@@ -119,9 +113,9 @@ After you give the Service Principal a name and create a password for it, click 
 
 It’s also possible to add cluster access to one or more Data Lake Store accounts following cluster creation. Open the Azure portal entry for a Data Lake Store and go to **Data Explorer > Access > Add**. 
 
-### How to access the Data Lake store from R Server on HDInsight
+### How to access the Data Lake store from ML Services on HDInsight
 
-Once you’ve given access to a Data Lake Store, you can use the store in R Server cluster on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
+Once you’ve given access to a Data Lake Store, you can use the store in ML Services cluster on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
 
 
 	# Point to the ADL store (e.g. ADLtest)
@@ -157,7 +151,7 @@ The following commands are used to configure the Data Lake Store account with th
 	hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 
-## Use Azure File storage with R Server on HDInsight
+## Use Azure File storage with ML Services on HDInsight
 
 There is also a convenient data storage option for use on the edge node called [Azure Files]((https://azure.microsoft.com/services/storage/files/). It enables you to mount an Azure Storage file share to the Linux file system. This option can be handy for storing data files, R scripts, and result objects that might be needed later, especially when it makes sense to use the native file system on the edge node rather than HDFS. 
 
@@ -169,7 +163,7 @@ A major benefit of Azure Files is that the file shares can be mounted and used b
 
 ## Next steps
 
-* [Overview of R Server cluster on HDInsight](r-server-overview.md)
-* [Get started with R Server cluster on Hadoop](r-server-get-started.md)
-* [Compute context options for R Server cluster on HDInsight](r-server-compute-contexts.md)
+* [Overview of ML Services cluster on HDInsight](r-server-overview.md)
+* [Get started with ML Services cluster on Hadoop](r-server-get-started.md)
+* [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
 

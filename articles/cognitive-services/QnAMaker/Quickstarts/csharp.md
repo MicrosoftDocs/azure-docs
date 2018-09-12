@@ -1,9 +1,10 @@
 ---
-title: C# Quickstart for Microsoft QnA Maker API (V4) - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: C# for QnA Maker API (V4)"
+titleSuffix: Azure Cognitive Services 
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker
@@ -776,7 +777,7 @@ The following code gets answers to a question using the specified knowledge base
 1. Add the code provided below.
 1. Replace the `host` value with the Website name for your QnA Maker subscription. For more information see [Create a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md).
 1. Replace the `endpoint_key` value with a valid endpoint key for your subscription. Note this is not the same as your subscription key. You can get your endpoint keys using the [Get endpoint keys](#GetKeys) method.
-1. Replace the `kb` value with the the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
+1. Replace the `kb` value with the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
 1. Run the program.
 
 ```csharp

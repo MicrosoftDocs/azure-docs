@@ -3,24 +3,25 @@ title: Retrieve Azure AD access review results| Microsoft Docs
 description: How to retrieve the results of Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.topic: conceptual
+ms.component: compliance
+ms.date: 06/21/2018
 ms.author: rolyon
+ms.reviewer: mwahl
 ---
 
 # Retrieve access review results
 
-Administrators can use Azure Active Directory (Azure AD) to [create an access review](active-directory-azure-ad-controls-create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](fundamentals/active-directory-users-assign-role-azure-portal.md).
+Administrators can use Azure Active Directory (Azure AD) to [create an access review](active-directory-azure-ad-controls-create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **User Account Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## Locating an access review
 
@@ -49,6 +50,6 @@ By default, a deleted user will remain deleted in Azure AD for 30 days, during w
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md)
 
 

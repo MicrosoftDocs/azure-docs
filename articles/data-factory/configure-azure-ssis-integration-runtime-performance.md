@@ -32,11 +32,11 @@ $DataFactoryLocation = "EastUS"
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS, NorthEurope, and WestEurope are supported.
+# Only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+# Only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_D3_v2"
-# In public preview, only 1-10 nodes are supported.
+# Only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
@@ -54,7 +54,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 **AzureSSISLocation** is the location for the integration runtime worker node. The worker node maintains a constant connection to the SSIS Catalog database (SSISDB) on an Azure SQL database. Set the **AzureSSISLocation** to the same location as the SQL Database server that hosts SSISDB, which lets the integration runtime to work as efficiently as possible.
 
 ## AzureSSISNodeSize
-The public preview of Azure Data Factory v2, including the Azure-SSIS IR, supports the following options:
+Data Factory, including the Azure-SSIS IR, supports the following options:
 -   Standard\_A4\_v2
 -   Standard\_A8\_v2
 -   Standard\_D1\_v2

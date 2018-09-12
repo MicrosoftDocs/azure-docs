@@ -88,7 +88,7 @@ In addition to these system groups, administrators can create custom groups or [
 For more information, see  [How to create and use groups][How to create and use groups].
 
 ## <a name="developers"> </a> Developers
-Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can be subscribe to the products that grant visibility to those groups.
+Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
 
 When developers subscribe to a product, they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
 

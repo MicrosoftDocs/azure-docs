@@ -21,7 +21,7 @@ ms.author: kumud
 
 When you create a Traffic Manager profile, Azure automatically assigns a DNS name for that profile. To use a name from your DNS zone, create a CNAME DNS record that maps to the domain name of your Traffic Manager profile. You can find the Traffic Manager domain name in the **General** section on the Configuration page of the Traffic Manager profile.
 
-For example, to point name www.contoso.com to the Traffic Manager DNS name contoso.trafficmanager.net, you would create the following DNS resource record:
+For example, to point name `www.contoso.com` to the Traffic Manager DNS name `contoso.trafficmanager.net`, you create the following DNS resource record:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 

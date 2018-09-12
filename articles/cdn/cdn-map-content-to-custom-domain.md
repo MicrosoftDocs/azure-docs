@@ -51,11 +51,11 @@ A custom domain and its subdomain can be associated with only a single endpoint 
 
 When you map an existing domain that is in production, there are special considerations. While you are registering your custom domain in the Azure portal, a brief period of downtime for the domain can occur. To avoid interruption of web traffic, first map your custom domain to your CDN endpoint hostname with the Azure cdnverify subdomain to create a temporary CNAME mapping. With this method, users can access your domain without interruption while the DNS mapping occurs. 
 
-Otherwise, if you are using your custom domain for the first time and no production traffic is running on it, you can directly map your custom domain to your CDN endpoint. Proceed to [Map permanent custom domain](#map-permanent-custom-domain).
+Otherwise, if you are using your custom domain for the first time and no production traffic is running on it, you can directly map your custom domain to your CDN endpoint. Proceed to [Map the permanent custom domain](#map-the-permanent-custom-domain).
 
 To create a CNAME record with the cdnverify subdomain:
 
-1. Log in to the web site of the domain provider for your custom domain.
+1. Sign in to the web site of the domain provider for your custom domain.
 
 2. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name server management**. 
 
@@ -75,7 +75,7 @@ To create a CNAME record with the cdnverify subdomain:
 
 For example, the procedure for the GoDaddy domain registrar is as follows:
 
-1. Log in and select the custom domain you want to use.
+1. Sign in and select the custom domain you want to use.
 
 2. In the Domains section, select **Manage All**, then select **DNS** | **Manage Zones**.
 
@@ -106,7 +106,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 After you've registered your custom domain, you can then add it to your CDN endpoint. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) and browse to the CDN profile containing the endpoint that you want to map to a custom domain.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to the CDN profile containing the endpoint that you want to map to a custom domain.
     
 2. On the **CDN profile** page, select the CDN endpoint to associate with the custom domain.
 
@@ -149,7 +149,7 @@ If you have verified that the cdnverify subdomain has been successfully mapped t
 
 To create a CNAME record for your custom domain:
 
-1. Log in to the web site of the domain provider for your custom domain.
+1. Sign in to the web site of the domain provider for your custom domain.
 
 2. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
 
@@ -173,7 +173,7 @@ To create a CNAME record for your custom domain:
 
 For example, the procedure for the GoDaddy domain registrar is as follows:
 
-1. Log in and select the custom domain you want to use.
+1. Sign in and select the custom domain you want to use.
 
 2. In the Domains section, select **Manage All**, then select **DNS** | **Manage Zones**.
 

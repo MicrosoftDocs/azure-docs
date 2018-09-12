@@ -12,20 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 09/11/2018
 ms.author: jingwang
 
 ---
 # Copy data to or from Azure Cosmos DB using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-azure-documentdb-connector.md)
-> * [Version 2 - Preview](connector-azure-cosmos-db.md)
+> * [Version 1](v1/data-factory-azure-documentdb-connector.md)
+> * [Current version](connector-azure-cosmos-db.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB (SQL API). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Cosmos DB connnector in V1](v1/data-factory-azure-documentdb-connector.md).
 
 ## Supported capabilities
 
@@ -33,10 +30,14 @@ You can copy data from Azure Cosmos DB to any supported sink data store, or copy
 
 Specifically, this Azure Cosmos DB connector supports:
 
-- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
-- Importing/exporting JSON documents as-is, or copying data from/to tabular dataset e.g. SQL database, CSV files, etc.
+- Copying data from/to Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Writing into Cosmos DB as INSERT or UPSERT.
+- Importing/exporting JSON documents as-is, or copying data from/to tabular dataset e.g. SQL database, CSV files, etc. To copy documents as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
 
-To copy documents as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
+Data Factory integrates with [Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to provide the best performance writing into Cosmos DB.
+
+>[!TIP]
+>Watch [this video](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) which walks through copying data from Azure Blob storage to Cosmos DB and describes performance tuning considerations for ingesting data into Cosmos DB in general.
 
 ## Getting started
 
@@ -164,6 +165,8 @@ To copy data to Azure Cosmos DB, set the sink type in the copy activity to **Doc
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **DocumentDbCollectionSink** |Yes |
+| writeBehavior |Describe how to write data into Cosmos DB. Allowed values are: `insert` and `upsert`.<br/>The behavior of **upsert** is to replace the document if an document of the same id already exist; otherwise insert it. Note ADF will automatically generate an id for the document if it is not specified either in the original doc or by column mapping), which means you need to make sure your document has an "id" so that upsert work as expected. |No, default is insert |
+| writeBatchSize | Data Factory use [Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data into Cosmos DB. "writeBatchSize" controls the size of documents we provide to the library each time. You can try increase writeBatchSize to improve performance. |No, default is 10,000 |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Cosmos DB document:`"Name": {"First": "[value maps to this column from source]"}` when the nestedSeparator is dot. |No (default is dot `.`) |
 
 **Example:**
@@ -190,7 +193,8 @@ To copy data to Azure Cosmos DB, set the sink type in the copy activity to **Doc
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

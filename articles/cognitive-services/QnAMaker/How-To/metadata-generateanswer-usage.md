@@ -13,7 +13,7 @@ ms.author: pchoudh
 
 # Using metadata and the GenerateAnswer API
 
-QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used in various ways such as filtering results to user queries, boosting certain results, and storing additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
 
 ## QnA Entity
 
@@ -52,7 +52,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
     - **QnAMaker endpoint** (string): The hostname of the endpoint deployed in your Azure subscription.
 - **Request headers**
     - **Content-Type** (string): The media type of the body sent to the API.
-    - **Authorization** (string): Your endpoint key.
+    - **Authorization** (string): Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Request body**
     - **question** (string): A user question to be queried against your knowledge base.
     - **top** (optional, integer): The number of ranked results to include in the output. The default value is 1.
@@ -77,6 +77,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
     - **answers** - A list of answers for the user query, sorted in decreasing order of ranking score.
         - **score**: A ranking score between 0 and 100.
         - **questions**: The questions provided by the user.
+        - **answer**: The answer to the question.
         - **source**: The name of the source from which the answer was extracted or saved in the knowledge base.
         - **metadata**: The metadata associated with the answer.
             - name: Metadata name. (string, max Length: 100, required)

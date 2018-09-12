@@ -1,8 +1,8 @@
 ﻿---
 title: Provision a simulated X.509 device to Azure IoT Hub using Node.js | Microsoft Docs
 description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -19,7 +19,7 @@ These steps show how to create an enrollment entry in the Device Provisioning Se
 
 If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -36,6 +36,14 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     >
 
 ## Create a self-signed X.509 device certificate and individual enrollment entry
+
+In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
+
+* Self-signed certificates are for testing only, and should not to be used in production.
+* The default expiration date for a self-signed certificate is 1 year.
+
+You will use sample code from the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
+
 
 1. Open a command prompt. Clone the GitHub repo for the code samples:
     
@@ -79,7 +87,7 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_GLobal Device Endpoint_** and **_ID Scope_** values.
 
-    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
 2. Copy your _certificate_ and _key_ to the sample folder.
 

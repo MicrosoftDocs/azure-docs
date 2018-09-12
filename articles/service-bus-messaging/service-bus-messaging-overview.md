@@ -3,7 +3,7 @@ title: Azure Service Bus messaging overview | Microsoft Docs
 description: Description of Service Bus messaging
 services: service-bus-messaging
 documentationcenter: ''
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -11,7 +11,7 @@ ms.service: service-bus-messaging
 ms.topic: overview
 ms.date: 05/22/2018
 ms.custom: mvc
-ms.author: sethm
+ms.author: spelluru
 #Customer intent: As a developer, I want to be able to securely and reliably send messages between applications and services, with the ability to use publish/subscribe capabilities.
 ---
 

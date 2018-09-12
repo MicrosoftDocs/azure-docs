@@ -34,7 +34,7 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 ## Update the client app to support offline features
 Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use
 these features in your app, you initialize a [SyncContext] to a local store. Then reference your table through
-the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
+the [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet) interface. SQLite is used as the local store on the device.
 
 1. In Visual Studio, open the NuGet package manager in the project that you completed in the [Create a Xamarin Android app] tutorial.  Search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
 2. Open the ToDoActivity.cs file and uncomment the `#define OFFLINE_SYNC_ENABLED` definition.

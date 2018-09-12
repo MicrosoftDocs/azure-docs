@@ -3,13 +3,11 @@ title: Managing the Azure Storage Lifecycle
 description: Learn how to create lifecycle policy rules to transition againg data from hot to cool and archive tiers.
 services: storage
 author: yzheng-msft
-manager: jwillis
-
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
+ms.component: common
 ---
 
 # Managing the Azure Blob Storage Lifecycle (Preview)
@@ -34,7 +32,7 @@ Lifecycle management policy is available with both General Purpose v2 (GPv2) acc
 Lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. See [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) to learn more about pricing.
 
 ## Register for preview 
-To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2 and West Central US will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
+To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2, West Central US, and West Europe will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
 
 To submit a request, run the following PowerShell or CLI commands.
 
@@ -55,18 +53,18 @@ If the feature is approved and properly registered, you should receive the "Regi
 
 To submit a request: 
 ```cli
-az feature register –-namespace Microsoft.Storage –-name DLM
+az feature register --namespace Microsoft.Storage --name DLM
 ```
 You can check the registration approval status with the following command:
 ```cli
--az feature show –-namespace Microsoft.Storage –-name DLM
+az feature show --namespace Microsoft.Storage --name DLM
 ```
 If the feature is approved and properly registered, you should receive the "Registered" state. 
 
 
 ## Add or remove policies 
 
-You can add, edit, or remove a policy using Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), REST APIs, or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+You can add, edit, or remove a policy using Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST APIs](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies), or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### Azure portal
 
@@ -129,7 +127,7 @@ Parameters required within a rule are:
 
 ## Rules
 
-Each rule definition includes a filter set and an action set. The following sample rule modifies the tier for base block blobs with prefix `foo`. In the policy, these rules are defined as:
+Each rule definition includes a filter set and an action set. The following sample rule modifies the tier for base block blobs with prefix `container1/foo`. In the policy, these rules are defined as:
 
 - Tier blob to cool storage 30 days after last modification
 - Tier blob to Archive storage 90 days after last modification
@@ -146,7 +144,7 @@ Each rule definition includes a filter set and an action set. The following samp
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "foo" ]
+          "prefixMatch": [ "container1/foo" ]
         },
         "actions": {
           "baseBlob": {
@@ -174,7 +172,7 @@ During preview, valid filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | For the preview release, only `blockBlob` is supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be match. | If it isn’t defined, this rule applies to all blobs within the account. | No |
+| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if all blobs under "https://myaccount.blob.core.windows.net/mycontainer/mydir/..." should be matched for a rule, the prefix is "mycontainer/mydir". | If it isn’t defined, this rule applies to all blobs within the account. | No |
 
 ### Rule actions
 
@@ -203,7 +201,7 @@ The following examples demonstrate how to address common scenarios with lifecycl
 
 ### Move aging data to a cooler tier
 
-The following example demonstrates how to transition block blobs prefixed with `foo` or `bar`. The policy transitions blobs that haven't been modified in over 30 days to cool storage, and blobs not modified in 90 days to the archive tier:
+The following example demonstrates how to transition block blobs prefixed with `container1/foo` or `container2/bar`. The policy transitions blobs that haven't been modified in over 30 days to cool storage, and blobs not modified in 90 days to the archive tier:
 
 ```json
 {
@@ -216,7 +214,7 @@ The following example demonstrates how to transition block blobs prefixed with `
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "foo", "bar" ]
+            "prefixMatch": [ "container1/foo", "container2/bar" ]
           },
           "actions": {
             "baseBlob": {
@@ -232,7 +230,7 @@ The following example demonstrates how to transition block blobs prefixed with `
 
 ### Archive data at ingest 
 
-Some data remains idle in the cloud and is rarely, if ever, accessed once stored. This data is best to be archived immediately once it is ingested. The following lifecycle policy is configured to archive data at ingest. This example transitions block blobs in the storage account with prefix of `archive` immediately into an archive tier. The immediate transition is accomplished by acting on blobs 0 days after last modified time:
+Some data remains idle in the cloud and is rarely, if ever, accessed once stored. This data is best to be archived immediately once it is ingested. The following lifecycle policy is configured to archive data at ingest. This example transitions block blobs in the storage account within container `archivecontainer` immediately into an archive tier. The immediate transition is accomplished by acting on blobs 0 days after last modified time:
 
 ```json
 {
@@ -245,7 +243,7 @@ Some data remains idle in the cloud and is rarely, if ever, accessed once stored
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archive" ]
+            "prefixMatch": [ "archivecontainer" ]
           },
           "actions": {
             "baseBlob": { 
@@ -261,7 +259,7 @@ Some data remains idle in the cloud and is rarely, if ever, accessed once stored
 
 ### Expire data based on age
 
-Some data is expected to expire days or months after creation to reduce costs or comply with government regulations. A lifecycle management policy can be set up to expire date by deletion based on data age. The following example shows a policy that deletes all block blobs (with no prefix specified) older than 365 days.
+Some data is expected to expire days or months after creation to reduce costs or comply with government regulations. A lifecycle management policy can be set up to expire data by deletion based on data age. The following example shows a policy that deletes all block blobs (with no prefix specified) older than 365 days.
 
 ```json
 {
@@ -288,7 +286,7 @@ Some data is expected to expire days or months after creation to reduce costs or
 
 ### Delete old snapshots
 
-For data that is modified and accessed regularly throughout its lifetime, snapshots are often used to track older versions of the data. You can create a policy that deletes old snapshots based on snapshot age. The snapshot age is determined by evaluating the snapshot creation time. This policy rule deletes block blob snapshots with prefix `activeData` that are 90 days or older after snapshot creation.
+For data that is modified and accessed regularly throughout its lifetime, snapshots are often used to track older versions of the data. You can create a policy that deletes old snapshots based on snapshot age. The snapshot age is determined by evaluating the snapshot creation time. This policy rule deletes block blob snapshots within container `activedata` that are 90 days or older after snapshot creation.
 
 ```json
 {
@@ -301,7 +299,7 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activeData" ]
+            "prefixMatch": [ "activedata" ]
           },
           "actions": {            
             "snapshot": {

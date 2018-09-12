@@ -4,23 +4,23 @@ description: Overview of the continuous integration and continuous deployment fo
 author: shizn
 manager: 
 ms.author: xshi
-ms.date: 04/30/2018
+ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Continuous integration and continuous deployment to Azure IoT Edge - preview
-This tutorial demonstrates how you can use the continuous integration and continuous deployment features of Visual Studio Team Services (VSTS) and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+# Continuous integration and continuous deployment to Azure IoT Edge
 
-In this tutorial, you will learn how to:
-> [!div class="checklist"]
-> * Create and check in a sample IoT Edge solution containing unit tests.
-> * Install Azure IoT Edge extension for your VSTS.
-> * Configure continuous integration (CI) to build the solution and run the unit tests.
-> * Configure continuous deployment (CD) to deploy the solution and view responses.
+This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps Services and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
-It will take 30 minutes to complete this tutorial.
+In this article, you will learn how to:
+* Create and check in a sample IoT Edge solution containing unit tests.
+* Install Azure IoT Edge extension for your Azure DevOps.
+* Configure continuous integration (CI) to build the solution and run the unit tests.
+* Configure continuous deployment (CD) to deploy the solution and view responses.
+
+It will take 30 minutes to complete the steps in this article.
 
 ![CI and CD](./media/how-to-ci-cd/cd.png)
 
@@ -77,13 +77,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
             static void Main(string[] args)
             {
-                // The Edge runtime gives us the connection string we need -- it is injected as an environment variable
-                string connectionString = Environment.GetEnvironmentVariable("EdgeHubConnectionString");
-
-                // Cert verification is not yet fully functional when using Windows OS for the container
-                bool bypassCertVerification = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
-                if (!bypassCertVerification) InstallCert();
-                Init(connectionString, bypassCertVerification).Wait();
+                Init().Wait();
 
                 // Wait until the app unloads or is cancelled
                 var cts = new CancellationTokenSource();
@@ -103,94 +97,55 @@ In this section, you will create a sample IoT Edge solution containing unit test
             }
 
             /// <summary>
-            /// Add certificate in local cert store for use by client for secure connection to IoT Edge runtime
-            /// </summary>
-            static void InstallCert()
-            {
-                string certPath = Environment.GetEnvironmentVariable("EdgeModuleCACertificateFile");
-                if (string.IsNullOrWhiteSpace(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing path to certificate file.");
-                }
-                else if (!File.Exists(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing certificate file.");
-                }
-                X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
-                store.Open(OpenFlags.ReadWrite);
-                store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
-                Console.WriteLine("Added Cert: " + certPath);
-                store.Close();
-            }
-            /// <summary>
-            /// Initializes the DeviceClient and sets up the callback to receive
+            /// Initializes the ModuleClient and sets up the callback to receive
             /// messages containing temperature information
             /// </summary>
-            static async Task Init(string connectionString, bool bypassCertVerification = false)
+            static async Task Init()
             {
-                Console.WriteLine("Connection String {0}", connectionString);
-
                 MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
-                // During dev you might want to bypass the cert verification. It is highly recommended to verify certs systematically in production
-                if (bypassCertVerification)
-                {
-                    mqttSetting.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-                }
                 ITransportSettings[] settings = { mqttSetting };
 
                 // Open a connection to the Edge runtime
-                DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(connectionString, settings);
+                ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
                 await ioTHubModuleClient.OpenAsync();
                 Console.WriteLine("IoT Hub module client initialized.");
 
                 // Register callback to be called when a message is received by the module
-                // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
-
-                // Read TemperatureThreshold from Module Twin Desired Properties
-                var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-                var moduleTwinCollection = moduleTwin.Properties.Desired;
-                try {
-                    temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
-                } catch(ArgumentOutOfRangeException) {
-                    Console.WriteLine("Proerty TemperatureThreshold not exist");
-                }
-
-                // Attach callback for Twin desired properties updates
-                await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
-
-                // Register callback to be called when a message is received by the module
-                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessage, ioTHubModuleClient);
             }
 
-            static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+            /// <summary>
+            /// This method is called whenever the module is sent a message from the EdgeHub. 
+            /// It just pipe the messages without any change.
+            /// It prints all the incoming messages.
+            /// </summary>
+            static async Task<MessageResponse> FilterMessage(Message message, object userContext)
             {
-                try
+                int counterValue = Interlocked.Increment(ref counter);
+
+                var moduleClient = userContext as ModuleClient;
+                if (moduleClient == null)
                 {
-                    Console.WriteLine("Desired property change:");
-                    Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-
-                    if (desiredProperties["TemperatureThreshold"] != null)
-                        temperatureThreshold = desiredProperties["TemperatureThreshold"];
-
+                    throw new InvalidOperationException("UserContext doesn't contain " + "expected values");
                 }
-                catch (AggregateException ex)
+
+                byte[] messageBytes = message.GetBytes();
+                string messageString = Encoding.UTF8.GetString(messageBytes);
+                Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
+
+                var filteredMessage = filter(message);
+
+                if (filteredMessage != null && !string.IsNullOrEmpty(messageString))
                 {
-                    foreach (Exception exception in ex.InnerExceptions)
+                    var pipeMessage = new Message(messageBytes);
+                    foreach (var prop in message.Properties)
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("Error when receiving desired property: {0}", exception);
+                        pipeMessage.Properties.Add(prop.Key, prop.Value);
                     }
+                    await moduleClient.SendEventAsync("output1", pipeMessage);
+                    Console.WriteLine("Received message sent");
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
-                }
-                return Task.CompletedTask;
+                return MessageResponse.Completed;
             }
 
             public static Message filter(Message message)
@@ -218,42 +173,6 @@ In this section, you will create a sample IoT Edge solution containing unit test
                     return filteredMessage;
                 }
                 return null;
-            }
-
-            static async Task<MessageResponse> FilterMessages(Message message, object userContext)
-            {
-                try
-                {
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-
-                    var filteredMessage = filter(message);
-                    if (filteredMessage != null)
-                    {
-                        await deviceClient.SendEventAsync("output1", filteredMessage);
-                    }
-
-                    // Indicate that the message treatment is completed
-                    return MessageResponse.Completed;
-                }
-                catch (AggregateException ex)
-                {
-                    foreach (Exception exception in ex.InnerExceptions)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Error in sample: {0}", exception);
-                    }
-                    // Indicate that the message treatment is not completed
-                    var deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error in sample: {0}", ex.Message);
-                    // Indicate that the message treatment is not completed
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
             }
         }
     }
@@ -353,31 +272,31 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
     ![Unit Test](./media/how-to-ci-cd/unit-test.png)
 
-7. Save these projects, then check it into your VSTS or TFS repository.
+7. Save these projects, then check it into your Azure DevOps or TFS repository.
     
 
 > [!NOTE]
-> For more information about using VSTS code repositories, see [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## Configure continuous integration
-In this section, you will create a build definition that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
+In this section, you will create a build pipeline that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
 
-1. Sign into your VSTS account (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
+1. Sign into your Azure DevOps organization (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
 
     ![Check-in code](./media/how-to-ci-cd/init-project.png)
 
-1. Visit [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on VSTS Marketplace. Click **Get it free** and follow the wizard to install this extension to your VSTS account or download to your TFS.
+1. Visit [Azure IoT Edge For Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on Azure DevOps Marketplace. Click **Get it free** and follow the wizard to install this extension to your Azure DevOps organization or download to your TFS.
 
     ![Install extension](./media/how-to-ci-cd/install-extension.png)
 
-1. In your VSTS, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build definitions, choose the **+ New** button. 
+1. In your Azure DevOps, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. 
 
     ![New build](./media/how-to-ci-cd/add-new-build.png)
 
-1. If prompted, select the **VSTS Git** source type; then select the project, repository, and branch where your code is located. Choose **Continue**.
+1. If prompted, select the **Azure DevOps Git** source type; then select the project, repository, and branch where your code is located. Choose **Continue**.
 
-    ![Select VSTS git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Select Azure DevOps git](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. In **Select a template** window, choose **start with an Empty process**.
 
@@ -399,7 +318,7 @@ In this section, you will create a build definition that is configured to run au
 
     ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
-1. In the first Azure IoT Edge task, update the **Display name** to **Module Build and Push**, and in the **Action** dropdown list, select **Build and Push**. In the **Module.json File** textbox, add below path to it. Then choose **Container Registry Type**, make sure you configure and select the same registry in your code. This task will build and push all your modules in the solution and publish to the container registry you specified. 
+1. In the first Azure IoT Edge task, update the **Display name** to **Module Build and Push**, and in the **Action** dropdown list, select **Build and Push**. In the **Module.json File** textbox, add below path to it. Then choose **Container Registry Type**, make sure you configure and select the same registry in your code. This task will build and push all your modules in the solution and publish to the container registry you specified. If your modules will be pushed to different registries, you can have multiple **Module Build and Push** tasks.
 
     ```
     **/module.json
@@ -419,9 +338,9 @@ In this section, you will create a build definition that is configured to run au
 
     ![Trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Save the new build definition and queue a new build. Click the **Save & queue** button.
+1. Save the new build pipeline and queue a new build. Click the **Save & queue** button.
 
-1. Choose the link to the build in the message bar that appears. Or go to build definition to see the latest queued build job.
+1. Choose the link to the build in the message bar that appears. Or go to build pipeline to see the latest queued build job.
 
     ![Build](./media/how-to-ci-cd/build-def.png)
 
@@ -444,16 +363,5 @@ So, when deploying to IoT Edge devices, there are three main environments.
 
 ## Next steps
 
-This tutorial demonstrates how you can use the continuous integration and continuous deployment features of VSTS or TFS. 
-
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
 * Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
-
-
-
-
-
-
-
-
-

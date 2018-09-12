@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Onit | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Onit.
 services: active-directory
@@ -51,7 +51,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Onit from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Onit from the gallery
 To configure the integration of Onit into Azure AD, you need to add Onit from the gallery to your list of managed SaaS apps.
@@ -62,15 +62,15 @@ To configure the integration of Onit into Azure AD, you need to add Onit from th
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Onit**, select **Onit** from result panel then click **Add** button to add the application.
+1. In the search box, type **Onit**, select **Onit** from result panel then click **Add** button to add the application.
 
 	![Onit in the results list](./media/onit-tutorial/tutorial_onit_addfromgallery.png)
 
@@ -85,10 +85,10 @@ In Onit, assign the value of the **user name** in Azure AD as the value of the *
 To configure and test Azure AD single sign-on with Onit, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Onit test user](#create-an-onit-test-user)** - to have a counterpart of Britta Simon in Onit that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create an Onit test user](#create-an-onit-test-user)** - to have a counterpart of Britta Simon in Onit that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -100,11 +100,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/onit-tutorial/tutorial_onit_samlbase.png)
 
-3. On the **Onit Domain and URLs** section, perform the following steps:
+1. On the **Onit Domain and URLs** section, perform the following steps:
 
 	![Onit Domain and URLs single sign-on information](./media/onit-tutorial/tutorial_onit_url.png)
 
@@ -115,15 +115,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Onit Client support team](https://www.onit.com/support) to get these values. 
  
-4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
+1. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
 	![The Certificate download link](./media/onit-tutorial/tutorial_onit_certificate.png) 
 
-5. Onit application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+1. Onit application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
 
 	![Configure Single Sign-On](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |
@@ -143,28 +143,28 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	e. Click **Ok**.
 
-7. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/onit-tutorial/tutorial_general_400.png)
 
-8. On the **Onit Configuration** section, click **Configure Onit** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Onit Configuration** section, click **Configure Onit** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Onit Configuration](./media/onit-tutorial/tutorial_onit_configure.png)
 
-9. In a different web browser window, log into your Onit company site as an administrator.
+1. In a different web browser window, log into your Onit company site as an administrator.
 
-10. In the menu on the top, click **Administration**.
+1. In the menu on the top, click **Administration**.
    
    ![Administration](./media/onit-tutorial/IC791174.png "Administration")
-11. Click **Edit Corporation**.
+1. Click **Edit Corporation**.
    
    ![Edit Corporation](./media/onit-tutorial/IC791175.png "Edit Corporation")
    
-12. Click the **Security** tab.
+1. Click the **Security** tab.
     
     ![Edit Company Information](./media/onit-tutorial/IC791176.png "Edit Company Information")
 
-13. On the **Security** tab, perform the following steps:
+1. On the **Security** tab, perform the following steps:
 
 	![Single Sign-On](./media/onit-tutorial/IC791177.png "Single Sign-On")
 
@@ -192,15 +192,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/onit-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/onit-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/onit-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/onit-tutorial/create_aaduser_04.png)
 
@@ -221,15 +221,15 @@ In the case of Onit, provisioning is a manual task.
 **To configure user provisioning, perform the following steps:**
 
 1. Sign on to your **Onit** company site as an administrator.
-2. Click **Add User**.
+1. Click **Add User**.
    
    ![Administration](./media/onit-tutorial/IC791180.png "Administration")
-3. On the **Add User** dialog page, perform the following steps:
+1. On the **Add User** dialog page, perform the following steps:
    
    ![Add User](./media/onit-tutorial/IC791181.png "Add User")
    
   1. Type the **Name** and the **Email Address** of a valid Azure AD account you want to provision into the related textboxes.
-  2. Click **Create**.    
+  1. Click **Create**.    
    
  > [!NOTE]
  > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
@@ -246,30 +246,30 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Onit**.
+1. In the applications list, select **Onit**.
 
 	![The Onit link in the Applications list](./media/onit-tutorial/tutorial_onit_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Onit tile in the Access Panel, you should get automatically signed-on to your Onit application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

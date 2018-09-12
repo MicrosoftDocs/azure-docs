@@ -29,7 +29,7 @@ Azure Active Directory provides organizations with enterprise-grade identity man
 There are several ways for your application to integrate with Azure AD. Take advantage of as many or as few of these scenarios as is appropriate for your application.
 
 ### Support Azure AD as a Way to Sign In to Your Application
-**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember. As a developer, you'll have one less password to store and protect. Not having to handle forgotten password resets may be a significant savings alone. Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure. With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD. Learn more about [adding support for Azure AD sign in](active-directory-authentication-scenarios.md).
+**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember. As a developer, you'll have one less password to store and protect. Not having to handle forgotten password resets may be a significant savings alone. Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure. With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD. Learn more about [adding support for Azure AD sign in](authentication-scenarios.md).
 
 **Simplify sign up for your application.**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely. Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications. Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement. Learn more about [signing-up your application for Azure AD Account login](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
@@ -40,7 +40,7 @@ There are several ways for your application to integrate with Azure AD. Take adv
 
 **Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assign access to applications to specific users and groups. Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.
 
-**Use Azure AD for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD. Role information is sent to your application in sign in tokens and can also be read using the Graph API. Learn more about [using Azure AD for authorization](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Use Azure AD for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD. Role information is sent to your application in sign in tokens and can also be read using the Graph API. Learn more about [using Azure AD for authorization](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### Get Access to User's Profile, Calendar, Email, Contacts, Files, and More
 **Azure AD is the authorization server for Office 365 and other Microsoft business services.**  If you support Azure AD for sign in to your application or support linking your current user accounts to Azure AD user accounts using OAuth 2.0, you can request read and write access to a user's profile, calendar, email, contacts, files, and other information. You can seamlessly write events to user's calendar, and read or write files to their OneDrive. Learn more about [accessing the Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
@@ -48,7 +48,7 @@ There are several ways for your application to integrate with Azure AD. Take adv
 ### Promote Your Application in the Azure and Office 365 Marketplaces
 **Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers. Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement. Learn more about the [Azure AD access panel](../active-directory-saas-access-panel-introduction.md).
+**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement. Learn more about the [Azure AD access panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### Secure Device-to-Service and Service-to-Service Communication
 **Using Azure AD for identity management of services and devices reduces the code you need to write and enables IT to manage access.**  Services and devices can get tokens from Azure AD using OAuth and use those tokens to access web APIs. Using Azure AD you can avoid writing complex authentication code. Since the identities of the services and devices are stored in Azure AD, IT can manage keys and revocation in one place instead of having to do this separately in your application.
@@ -77,7 +77,7 @@ Integration with Azure AD comes with benefits that do not require you to write a
 **Azure AD is deployed in datacenters around the world and is managed and monitored around the clock.**  Azure AD is the identity management system for Microsoft Azure and Office 365 and is deployed in 28 datacenters around the world. Directory data is guaranteed to be replicated to at least three datacenters. Global load balancers ensure users access the closest copy of Azure AD containing their data, and automatically re-route requests to other datacenters if a problem is detected.
 
 ## Next Steps
-[Get started writing code](active-directory-developers-guide.md#get-started).
+[Get started writing code](azure-ad-developers-guide.md#get-started).
 
-[Sign Users In Using Azure AD](active-directory-authentication-scenarios.md)
+[Sign Users In Using Azure AD](authentication-scenarios.md)
 

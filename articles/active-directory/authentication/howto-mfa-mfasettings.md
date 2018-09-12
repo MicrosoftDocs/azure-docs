@@ -5,13 +5,13 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/03/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Configure Azure Multi-Factor Authentication settings
@@ -177,7 +177,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
-4. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
+4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
    
    * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
@@ -197,10 +197,10 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable the Trusted IPs feature by using service settings
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
+5. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
    
    * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
@@ -289,7 +289,7 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## Remember Multi-Factor Authentication for trusted devices
@@ -298,7 +298,7 @@ The _remember Multi-Factor Authentication_ feature for devices and browsers that
 >[!IMPORTANT]
 >If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### How the feature works
@@ -338,7 +338,7 @@ After you enable the remember Multi-Factor Authentication feature, users can mar
 
 You can choose the verification methods that are available for your users by using the _selectable verification methods_ feature. The following table provides a brief overview of the methods.
 
-When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
+When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 | Method | Description |
 |:--- |:--- |

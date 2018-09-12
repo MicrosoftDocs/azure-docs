@@ -20,14 +20,14 @@ ms.author: mlearned
 # Deploy an ASP.NET container to a container registry using Visual Studio
 ## Overview
 Docker is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.
-This tutorial walks you through using Visual Studio to publish your containerized application to an [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry).
+This tutorial walks you through using Visual Studio to publish your containerized application to an [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) before you begin.
 
 ## Prerequisites
 To complete this tutorial:
 
-* Install the latest version of [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) with the "ASP.NET and web development" workload
+* Install the latest version of [Visual Studio 2017](https://azure.microsoft.com/downloads/) with the "ASP.NET and web development" workload
 * Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## 1. Create an ASP.NET Core web app
@@ -46,7 +46,7 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
     | **DNS Prefix** | Globally unique name | Name that uniquely identifies your container registry. |
     | **Subscription** | Choose your subscription | The Azure subscription to use. |
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your container registry. Choose **New** to create a new resource group.|
-    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standard | Service tier of the container registry  |
+    | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | Standard | Service tier of the container registry  |
     | **Registry Location** | A location close to you | Choose a Location in a [region](https://azure.microsoft.com/regions/) near you or near other services that will use your container registry. |
     ![Visual Studio's create Azure Container Registry dialog][0]
 5. Click **Create**

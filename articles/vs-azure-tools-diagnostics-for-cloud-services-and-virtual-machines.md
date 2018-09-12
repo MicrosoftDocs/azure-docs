@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 06/28/2018
 ms.author: mikejo
 
 ---
@@ -83,7 +83,11 @@ In Visual Studio, you can collect diagnostics data for roles that run in Azure w
    * If you select **Your subscription**, you can select the Azure subscription that you want to use, and enter an account name. To manage your Azure subscriptions, select **Manage Accounts**.
    * If you select **Manually entered credentials**, enter the name and key of the Azure account that you want to use.
 5. To view the **Diagnostics configuration** dialog box, select **Configure**. Except for **General** and **Log Directories**, each tab represents a diagnostics data source that you can collect. The default **General** tab offers the following diagnostics data collection options: **Errors only**, **All information**, and **Custom plan**. The default **Errors only** option uses the least amount of storage, because it doesn’t transfer warnings or tracing messages. The **All information** option transfers the most information, uses the most storage, and therefore, is the most expensive option.
-   
+
+   > [!NOTE]
+   > Minimum supported size for “Disk Quota in MB” is 4GB. However, if you are collecting Memory dumps, increase this to a higher value like 10GB.
+   >
+  
     ![Enable Azure diagnostics and configuration](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. For this example, select the **Custom plan** option, so you can customize the collected data.
 7. In the **Disk Quota in MB** box, you can set how much space to allocate in your storage account for diagnostics data. You can change or accept the default value.

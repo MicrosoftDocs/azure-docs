@@ -49,6 +49,8 @@
       href: aad-integration.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
+    - name: Use Cluster Autoscaler
+      href: autoscaler.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
@@ -70,12 +72,21 @@
       href: static-ip.md
     - name: Internal load balancer
       href: internal-lb.md
-    - name: Ingress and TLS
-      href: ingress.md
+    - name: Ingress
+      items:
+        - name: Create a basic controller
+          href: ingress-basic.md
+        - name: Use HTTP application routing
+          href: http-application-routing.md
+        - name: Use internal network
+          href: ingress-internal-ip.md
+        - name: Use TLS with Let's Encrypt
+          href: ingress-tls.md
+          items:
+          - name: Use a static public IP
+            href: ingress-static-ip.md
     - name: Egress traffic
       href: egress.md
-    - name: HTTP application routing
-      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal
@@ -87,6 +98,10 @@
     - name: Azure container health solution
       href: ../monitoring/monitoring-container-health.md
       maintainContext: true
+    - name: View the master component logs
+      href: view-master-logs.md
+    - name: View the kubelet logs
+      href: kubelet-logs.md
   - name: Develop and run applications
     items:
     - name: Run applications with Helm
@@ -98,18 +113,21 @@
       href: kubernetes-draft.md
     - name: Open Service Broker for Azure
       href: integrate-azure.md
-    - name: Using OpenFaaS with AKS
+    - name: Using OpenFaaS
       href: openfaas.md
-    - name: Run Spark jobs on AKS
+    - name: Run Spark jobs
       href: spark-job.md
-    - name: Using GPUs on AKS
+    - name: Using GPUs
       href: gpu-cluster.md
-  - name: DevOps on AKS
+  - name: DevOps
     items:
+    - name: Use Ansible to create AKS clusters
+      href: /azure/ansible/ansible-create-configure-aks
+      maintainContext: true
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
-    - name: Azure DevOps Project for AKS
-      href: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks
+    - name: Azure DevOps Project
+      href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
   - name: Kubernetes basics
     items:
@@ -117,16 +135,18 @@
       href: kubernetes-dashboard.md
   - name: Troubleshoot
     items:
+    - name: Common issues
+      href: troubleshooting.md
     - name: SSH node access
-      href: aks-ssh.md
-    - name: Get kubelet logs
-      href: kubelet-logs.md
+      href: ssh.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/aks
   - name: REST
     href: /rest/api/aks
+  - name: PowerShell
+    href: /powershell/module/azurerm.aks#aks
   - name: .NET
     href: /dotnet/api/overview/azure/containerservice
   - name: Python
@@ -146,7 +166,7 @@
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback
-    href: https://github.com/Azure/AKS/issues
+    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos

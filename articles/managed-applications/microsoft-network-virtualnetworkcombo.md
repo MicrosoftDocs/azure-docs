@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
 
 ---
@@ -20,13 +20,13 @@ ms.author: tomfitz
 A group of controls for selecting a new or existing virtual network.
 
 ## UI sample
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+When the user picks a new virtual network, the user can customize each subnet's name and address prefix. Configuring subnets is optional.
 
-- In the top wireframe, the user has picked a new virtual network, so the user can customize each subnet's name and address prefix. Configuring
-subnets in this case is optional.
-- In the bottom wireframe, the user has picked an existing virtual network, so
-the user must map each subnet the deployment template requires to an
-existing subnet. Configuring subnets in this case is required.
+![Microsoft.Network.VirtualNetworkCombo new](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+When the user picks an existing virtual network, the user must map each subnet the deployment template requires to an existing subnet. Configuring subnets in this case is required.
+
+![Microsoft.Network.VirtualNetworkCombo existing](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## Schema
 ```json
@@ -82,29 +82,17 @@ existing subnet. Configuring subnets in this case is required.
 ```
 
 ## Remarks
-- If specified, the first non-overlapping address prefix of size
-`defaultValue.addressPrefixSize` is determined automatically based on the
-existing virtual networks in the user's subscription.
-- The default value for `defaultValue.name` and `defaultValue.addressPrefixSize`
-is **null**.
-- `constraints.minAddressPrefixSize` must be specified. Any existing virtual
-networks with an address space smaller than the specified value are unavailable for selection.
-- `subnets` must be specified, and `constraints.minAddressPrefixSize` must be
-specified for each subnet.
-- When creating a new virtual network, each subnet's address prefix is
-calculated automatically based on the virtual network's address prefix and the
-respective `addressPrefixSize`.
-- When using an existing virtual network, any subnets smaller than the
-respective `constraints.minAddressPrefixSize` are unavailable for
-selection. Additionally, if specified, subnets that do not contain at least
-`minAddressCount` available addresses are unavailable for selection.
-The default value is **0**. To ensure that the available addresses are contiguous,
-specify **true** for `requireContiguousAddresses`. The default value is **true**.
-- Creating subnets in an existing virtual network is not supported.
-- If `options.hideExisting` is **true**, the user can't choose an
-existing virtual network. The default value is **false**.
+- If specified, the first non-overlapping address prefix of size `defaultValue.addressPrefixSize` is determined automatically based on the existing virtual networks in the user's subscription.
+- The default value for `defaultValue.name` and `defaultValue.addressPrefixSize` is **null**.
+- `constraints.minAddressPrefixSize` must be specified. Any existing virtual networks with an address space smaller than the specified value are unavailable for selection.
+- `subnets` must be specified, and `constraints.minAddressPrefixSize` must be specified for each subnet.
+- When creating a new virtual network, each subnet's address prefix is calculated automatically based on the virtual network's address prefix and the respective `addressPrefixSize`.
+- When using an existing virtual network, any subnets smaller than the respective `constraints.minAddressPrefixSize` are unavailable for selection. Additionally, if specified, subnets that don't have at least `minAddressCount` available addresses are unavailable for selection. The default value is **0**. To ensure that the available addresses are contiguous, specify **true** for `requireContiguousAddresses`. The default value is **true**.
+- Creating subnets in an existing virtual network isn't supported.
+- If `options.hideExisting` is **true**, the user can't choose an existing virtual network. The default value is **false**.
 
 ## Sample output
+
 ```json
 {
   "name": "vnet01",

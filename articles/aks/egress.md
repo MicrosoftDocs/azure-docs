@@ -2,13 +2,13 @@
 title: Whitelist Egress Traffic from Azure Kubernetes Service (AKS) cluster
 description: Whitelist egress traffic from an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2018
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Azure Kubernetes Service (AKS) egress
@@ -116,7 +116,7 @@ Learn more about the software demonstrated in this document.
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [create-aks-cluster]: ./kubernetes-walkthrough.md
 [helm-cli-install]: ./kubernetes-helm.md#install-helm-cli
-[ingress-aks-cluster]: ./ingress.md
+[ingress-aks-cluster]: ./ingress-basic.md
 [outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
 [public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
 

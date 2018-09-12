@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: carlrab
 
 ---
@@ -17,15 +17,18 @@ This article provides an overview of the Azure SQL Database resource limits and 
 
 ## What is the maximum number of servers and databases?
 
-| Maximum | Value |
-| :--- | :--- |
-| Databases per server | 5000 |
-| Default number of servers per subscription in any region | 20 |
-| Max number of servers per subscription in any region | 200 |
-|||
+| Maximum | Logical server | Managed instance |
+| :--- | :--- | :--- |
+| Databases per server/instance | 5000 | 100 |
+| Default number of servers per subscription in any region | 20 | N/A |
+| Max number of servers per subscription in any region | 200 | N/A | 
+| DTU / eDTU quota per server | 54,000 | N/A |  
+| vCore quota per server/instance | 540 | 80 |
+| Max pools per server | Limited by number of DTUs or vCores | N/A |
+||||
 
 > [!NOTE]
-> To obtain more server quota than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”.
+> To obtain more DTU /eDTU quota, vCore quota, or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server. 
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per server, the following can occur:
@@ -50,6 +53,7 @@ When encountering high space utilization, mitigation options include:
 
 - Increasing the max size of the database or elastic pool, or add more storage. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
+- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md)
 
 ### Sessions and workers (requests) 
 
@@ -59,13 +63,9 @@ When encountering high session or worker utilization, mitigation options include
 - Increasing the service tier or performance level of the database or elastic pool. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-When encountering high session or worker utilization, mitigation options include:
-- Increasing the service tier or performance level of the database. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
-- Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
-
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - For information about tempdb size limits, see https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

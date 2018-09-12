@@ -4,9 +4,9 @@ description: This tutorial explains how to create and configure event hub and ru
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual

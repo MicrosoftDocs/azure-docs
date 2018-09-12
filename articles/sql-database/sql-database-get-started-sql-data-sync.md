@@ -2,13 +2,13 @@
 title: Set up Azure SQL Data Sync | Microsoft Docs
 description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
 ---
 # Set up SQL Data Sync
@@ -234,7 +234,7 @@ You have to make and propagate all schema changes manually.
 
 ### How can I export and import a database with Data Sync?
 After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
-1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
+1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). This script deletes all of the required Data Sync objects from the database.
 2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
 
 ## FAQ about the client agent
@@ -270,7 +270,7 @@ If you want to run the local agent from a different computer than it is currentl
 
 3. Use the new agent's UI to submit the new agent key.
 
-4. Wait while the client agent downloads the list of on-premise databases that were registered earlier.
+4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
 
 5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
 

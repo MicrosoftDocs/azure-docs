@@ -6,13 +6,14 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 
+ms.component: protection
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -21,9 +22,9 @@ ms.reviewer: dhanyahk
 
 With named locations, you can label trusted IP address ranges in your organization. Azure Active Directory uses  named locations in the context of:
 
-- The detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of reported false positives.  
+- The detection of [risk events](reports-monitoring/concept-risk-events.md) to reduce the number of reported false positives.  
 
-- [Location-based conditional access](active-directory-conditional-access-locations.md).
+- [Location-based conditional access](conditional-access/location-condition.md).
 
 
 This article explains, how you can configure named locations in your environment.
@@ -92,8 +93,8 @@ For more information, see:
 
 - [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- [Location conditions in Azure Active Directory conditional access](active-directory-conditional-access-locations.md)
+- [Location conditions in Azure Active Directory conditional access](conditional-access/location-condition.md)
 
-- [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
+- [Azure Active Directory risk events](reports-monitoring/concept-risk-events.md).
 
-- [Risky sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md).  
+- [Risky sign-ins report in the Azure Active Directory portal](reports-monitoring/concept-risky-sign-ins.md).  

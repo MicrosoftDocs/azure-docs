@@ -6,6 +6,15 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Devices
+        tocHref: /azure/active-directory/devices/
+        topicHref: /azure/active-directory/devices/
+      - name: Conditional Access
+        tocHref: /azure/active-directory/conditional-access/
+        topicHref: /azure/active-directory/conditional-access/
+      - name: Authentication
+        tocHref: /azure/active-directory/authentication/
+        topicHref: /azure/active-directory/authentication/
       - name: Connect
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
@@ -18,15 +27,24 @@
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
-      - name: Managed Service Identity
-        tocHref: /azure/active-directory/managed-service-identity/
-        topicHref: /azure/active-directory/managed-service-identity/
+      - name: Managed identities for Azure resources
+        tocHref: /azure/active-directory/managed-identities-azure-resources/
+        topicHref: /azure/active-directory/managed-identities-azure-resources/
+      - name: User Help
+        tocHref: /azure/active-directory/user-help/
+        topicHref: /azure/active-directory/user-help/         
       - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/
       - name: Domain Services
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
+      - name: Users, groups, and roles
+        tocHref: /azure/active-directory/users-groups-roles/
+        topicHref: /azure/active-directory/users-groups-roles/
+      - name: Manage applications
+        tocHref: /azure/active-directory/manage-apps/
+        topicHref: /azure/active-directory/manage-apps/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -89,6 +107,9 @@
   - name: Azure China 21Vianet
     tocHref: /azure/china/
     topicHref: /azure/china/
+  - name: Azure NetApp Files
+    tocHref: /azure/azure-netapp-files/
+    topicHref: /azure/azure-netapp-files/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
@@ -240,6 +261,9 @@
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
+    - name: Project Acoustics
+      tocHref: /azure/cognitive-services/acoustics/
+      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -271,7 +295,7 @@
   - name: Data Lake Analytics
     tocHref: /azure/data-lake-analytics/
     topicHref: /azure/data-lake-analytics/
-  - name: Data Lake Store
+  - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
   - name: Devtest Lab
@@ -289,6 +313,9 @@
   - name: ExpressRoute
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/
+  - name: Firewall
+    tocHref: /azure/firewall/
+    topicHref: /azure/firewall/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -311,7 +338,7 @@
       - name: Enterprise Security
         tocHref: /azure/hdinsight/domain-joined
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-      - name: R Server
+      - name: ML Services
         tocHref: /azure/hdinsight/r-server
         topicHref: /azure/hdinsight/r-server-overview
       - name: Spark
@@ -518,6 +545,9 @@
       - name: Blobs
         tocHref: /azure/storage/blobs/
         topicHref: /azure/storage/blobs/storage-blobs-introduction
+      - name: Data Lake Storage Gen2
+        tocHref: /azure/storage/data-lake-storage-gen2/
+        topicHref: /azure/storage/data-lake-storage/introduction
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction 

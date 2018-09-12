@@ -1,6 +1,6 @@
 ---
 title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
-description: Learn how to create a Linux virtual machine with Accelerated Networking.
+description: Learn how to create a Linux virtual machine with Accelerated Networking enabled.
 services: virtual-network
 documentationcenter: na
 author: gsilva5
@@ -234,7 +234,7 @@ Once stopped, enable Accelerated Networking on the NIC of your VM:
 
 ```azurecli
 az network nic update \
-    --name myVM -n myNic \
+    --name myNic \
     --resource-group myResourceGroup \
     --accelerated-networking true
 ```

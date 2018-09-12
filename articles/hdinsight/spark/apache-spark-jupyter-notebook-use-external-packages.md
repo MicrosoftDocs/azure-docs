@@ -1,20 +1,15 @@
 ---
-title: Use custom Maven packages with Jupyter in Spark on Azure HDInsight | Microsoft Docs
+title: Use custom Maven packages with Jupyter in Spark on Azure HDInsight 
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use custom Maven packages.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
@@ -38,7 +33,7 @@ You must have the following:
 ## Use external packages with Jupyter notebooks
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
-2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+1. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
 	> [!NOTE]
 	> You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
@@ -46,15 +41,15 @@ You must have the following:
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 	> 
 
-3. Create a new notebook. Click **New**, and then click **Spark**.
+1. Create a new notebook. Click **New**, and then click **Spark**.
    
     ![Create a new Jupyter notebook](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Create a new Jupyter notebook")
 
-4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
+1. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
    
     ![Provide a name for the notebook](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Provide a name for the notebook")
 
-5. You will use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
+1. You will use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
 
 	>[!IMPORTANT] 
 	>If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
@@ -64,7 +59,7 @@ You must have the following:
 	|For HDInsight 3.3 and HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
 	| For HDInsight 3.5 and HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
 
-6. The snippet above expects the maven coordinates for the external package in Maven Central Repository. In this snippet, `com.databricks:spark-csv_2.10:1.4.0` is the maven coordinate for **spark-csv** package. Here's how you construct the coordinates for a package.
+1. The snippet above expects the maven coordinates for the external package in Maven Central Repository. In this snippet, `com.databricks:spark-csv_2.10:1.4.0` is the maven coordinate for **spark-csv** package. Here's how you construct the coordinates for a package.
    
     a. Locate the package in the Maven Repository. For this tutorial, we use [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
@@ -76,7 +71,7 @@ You must have the following:
    
         com.databricks:spark-csv_2.10:1.4.0
 
-7. Run the code cell with the `%%configure` magic. This will configure the underlying Livy session to use the package you provided. In the subsequent cells in the notebook, you can now use the package, as shown below.
+1. Run the code cell with the `%%configure` magic. This will configure the underlying Livy session to use the package you provided. In the subsequent cells in the notebook, you can now use the package, as shown below.
    
         val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
@@ -90,7 +85,7 @@ You must have the following:
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-8. You can then run the snippets, like shown below, to view the data from the dataframe you created in the previous step.
+1. You can then run the snippets, like shown below, to view the data from the dataframe you created in the previous step.
    
         df.show()
    

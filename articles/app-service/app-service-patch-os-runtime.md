@@ -70,31 +70,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### Deprecated versions
+### Deprecated versions  
 
 When an older version is deprecated, the removal date is announced so that you can plan your runtime version upgrade accordingly. 
 
-## How can I query OS and runtime update status on my instances?
+## How can I query OS and runtime update status on my instances?  
 
 While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
 
 The following table shows how to the versions of Windows and of the language runtime that are running your apps:
 
-| Information | Where to find it |
+| Information | Where to find it | 
 |-|-|
 | Windows version | See `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under System info) |
 | .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | .NET Core version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `dotnet --version` |
 | PHP version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `php --version` |
 | Default Node.js version | In the [Cloud Shell](../cloud-shell/overview.md), run the following command: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `python --version` |
+| Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `python --version` |  
 
-> [!NOTE]
-> Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) is stored, is locked down.
+> [!NOTE]  
+> Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) is stored, is locked down.
 >
 >
 
 ## More resources
 
-[Trust Center: Security](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Trust Center: Security](https://www.microsoft.com/en-us/trustcenter/security)  
 [64 bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

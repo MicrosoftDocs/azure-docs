@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/15/2018
+ms.date: 09/07/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -14,7 +14,8 @@ ms.custom: include file
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Data Lake Storage Gen2 (Preview)](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
@@ -33,11 +34,11 @@ ms.custom: include file
 | &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  |
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |✓ | | |✓  |
-| &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | | |✓  |
+| &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
-| &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | | |✓  |
+| &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Presto (Preview)](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  |
 | &nbsp; |[SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  |
@@ -63,12 +64,14 @@ ms.custom: include file
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
+| &nbsp; |[Google AdWords (Preview)](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
 | &nbsp; |[HubSpot (Preview)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
 | &nbsp; |[Jira (Preview)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (Preview)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (Preview)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (Preview)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Responsys (Preview)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
+| &nbsp; |[Oracle Service Cloud (Preview)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |
 | &nbsp; |[Paypal (Preview)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks (Preview)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |

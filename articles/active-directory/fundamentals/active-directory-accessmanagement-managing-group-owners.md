@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/12/2017
+ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
 ---
@@ -36,7 +36,7 @@ Once a resource owner has assigned access to a resource to an Azure AD group, th
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets for configuring group settings](../active-directory-accessmanagement-groups-settings-cmdlets.md)
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+* [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md)
+* [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)

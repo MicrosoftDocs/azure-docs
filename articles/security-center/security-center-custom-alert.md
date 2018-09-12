@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
 
 ---
@@ -27,7 +27,7 @@ Security Center has a set of predefined [security alerts](https://docs.microsoft
 Custom alert rules in Security Center allow you to define new security alerts based on data that is already collected from your environment. You can create queries, and the result of these queries can be used as criteria for the custom rule, and once this criteria is matched, the rule is executed. You can use computers security events, partner's security solution logs or data ingested using APIs to create your custom queries.
 
 > [!NOTE]
-> You need write permission in the workspace that you select to store your custom alert.
+> Custom alerts are not supported in Security Center's [investigation feature](security-center-investigation.md).
 >
 >
 
@@ -48,7 +48,14 @@ Open **Security Center** dashboard, and follow these steps to create a custom al
 5.	Type a brief description that reflects the intent of this rule in the **Description** field.
 6.	Select the severity level (High, Medium, Low) according to your needs in the **Severity** field.
 7.	Select the subscription in which this rule is applicable in the **Subscription** field.
-8.	Select the workspace that you want to monitor with this rule in the **Workspace** field, and in the **Search Query** field, the query that you want to use to obtain the results. You need write permission in the workspace that you select to store your custom alert. The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
+8.	Select the workspace that you want to monitor with this rule in the **Workspace** field, and in the **Search Query** field, the query that you want to use to obtain the results.
+
+    > [!NOTE]
+    > You need write permission in the workspace that you select to store your custom alert.
+    >
+    >
+
+    The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
 
 	![Query](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

@@ -1,15 +1,14 @@
-﻿---
+---
 title: Azure Quickstart - Create a storage account | Microsoft Docs
 description: Quickly learn to create a new storage account using the Azure portal, Azure PowerShell, or the Azure CLI.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Create a storage account
@@ -161,7 +160,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
 3. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
-4. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. Alternately, you can chooose **Zone-redundant storage (ZRS) (preview)**, **Geo-redundant storage (GRS)**, or **Read-access geo-redundant storage (RA-GRS)**.
+4. Leave the **Replication** field set to **Locally-redundant storage (LRS)**. Alternately, you can chooose **Zone-redundant storage (ZRS)**, **Geo-redundant storage (GRS)**, or **Read-access geo-redundant storage (RA-GRS)**.
 5. Leave these fields set to their defaults: **Deployment model**, **Performance**, **Secure transfer required**.
 6. Choose the subscription in which you want to create the storage account.
 7. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.

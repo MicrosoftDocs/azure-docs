@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -43,7 +43,7 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 | **Required package** | **Description** | **Minimum version**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C Library| 2.5-12 |
-|Openssl| OpenSSL Libraries | 0.9.8e or 1.0|
+|Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported|
 |Curl | cURL web client | 7.15.5|
 |Python-ctypes | |
 |PAM | Pluggable Authentication Modules|
@@ -103,41 +103,9 @@ The following runbook types don't work on a Linux Hybrid Worker:
 * Graphical
 * Graphical PowerShell Workflow
 
-## Troubleshooting
+## Troubleshoot
 
-The Linux Hybrid Runbook Worker depends on the OMS Agent for Linux to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
-
-### The OMS Agent for Linux isn't running
-
-If the OMS Agent for Linux isn't running, the Linux Hybrid Runbook Worker can't communicate with Azure Automation. Verify that the agent is running by entering the command `ps -ef | grep python`. 
-
-You should see output similar to the following (the Python processes with the **nxautomation** user account). If the Update Management or Azure Automation solution is not enabled, none of the following processes will be running.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-The following processes are started for a Linux Hybrid Runbook Worker. They're all located in the `/var/opt/microsoft/omsagent/state/automationworker/` directory.
-
-* **oms.conf**: This is the worker manager process. It's started directly from Desired State Configuration (DSC).
-
-* **worker.conf**: This is the Auto Registered Hybrid Worker process. It's started by the worker manager. This process is used by Update Management and is transparent to the user. This process is present only if the Update Management solution is enabled on the machine.
-
-* **diy/worker.conf**: This is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It differs from the Auto Registered Hybrid Worker process only in that it uses a different configuration. This process is present only if the Azure Automation solution is enabled and the DIY Linux Hybrid Worker is registered.
-
-If the OMS Agent for Linux isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-
-### The specified class doesn't exist
-
-If you see the error "The specified class does not exist" in  `/var/opt/microsoft/omsconfig/omsconfig.log`, the OMS Agent for Linux needs to be updated. Run the following command to reinstall the OMS Agent:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
-```
-
-For additional steps on how to troubleshoot issues with Update Management, see [Update Management: troubleshooting](automation-update-management.md#troubleshooting).
+To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)
 
 ## Next steps
 

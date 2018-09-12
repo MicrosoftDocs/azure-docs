@@ -1,14 +1,15 @@
 ---
-title: Understand data extraction concepts in LUIS - Azure | Microsoft Docs
+title: Data extraction concepts in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Learn what kind of data can be extracted from Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
 
 # Data extraction
@@ -21,9 +22,9 @@ LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint).
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
+The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
-The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
+The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS](luis-reference-regions.md) website **Publish** page. 
 
 ## Data from intents
 The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the endpoint response is:
@@ -196,7 +197,7 @@ The data returned from the endpoint includes the entity name and child name, the
 
 `book 2 tickets to paris`
 
-Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS][LUIS] website, indicates a composite entity.
+Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS](luis-reference-regions.md) website, indicates a composite entity.
 
 ![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -421,13 +422,13 @@ Another example utterance, using a synonym for Paris:
 Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you are extracting, you have several options. These are not rules but more guidelines. 
 
 ### Names of people
-People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
 
 ### Names of places
-Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
 
 ### New and emerging names
-Some apps need to be able to find new and emerging names such as products or companies. This is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+Some apps need to be able to find new and emerging names such as products or companies. This is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
 
 ## Pattern roles data
 Roles are contextual differences of entities. 
@@ -705,5 +706,3 @@ The LUIS endpoint can discover the same data in different entities:
 ## Next steps
 
 See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

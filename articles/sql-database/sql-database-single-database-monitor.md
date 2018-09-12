@@ -3,17 +3,18 @@ title: Monitoring database performance in Azure SQL Database | Microsoft Docs
 description: Learn about the options for monitoring your database with Azure tools and dynamic management views.
 keywords: database monitoring, cloud database performance
 services: sql-database
-author: CarlRabeler
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: carlrab
+ms.date: 07/16/2018
+ms.author: v-daljep
+ms.reviewer: carlrab
 
 ---
 # Monitoring database performance in Azure SQL Database
-Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Monitoring helps you  determine whether your database has excess capacity or is having trouble because resources are maxed out, and then decide whether it's time to adjust the performance level and service tiers of your database in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). You can monitor your database using graphical tools in the [Azure portal](https://portal.azure.com) or using SQL [dynamic management views](https://msdn.microsoft.com/library/ms188754.aspx).
+Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Monitoring helps you  determine whether your database has excess capacity or is having trouble because resources are maxed out, and then decide whether it's time to adjust the performance level and service tiers of your database in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can monitor your database using graphical tools in the [Azure portal](https://portal.azure.com) or using SQL [dynamic management views](https://msdn.microsoft.com/library/ms188754.aspx).
 
 > [!TIP]
 > Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance. Once a performance issue is detected, a diagnostic log is generated with details and Root Cause Analysis (RCA) of the issue. Performance improvement recommendation is provided when possible.
@@ -27,7 +28,7 @@ In the [Azure portal](https://portal.azure.com/), you can monitor a single datab
 * Data IO percentage
 * Database size percentage
 
-Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) articles for more information about service tiers.  
+Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) articles for more information about service tiers.  
 
 ![Service tier monitoring of database performance.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

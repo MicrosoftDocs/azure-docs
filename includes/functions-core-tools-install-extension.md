@@ -17,7 +17,7 @@ After you have updated your *function.json* file to include all the bindings tha
 If you want to install a particular version of a package or you want to install packages before editing the *function.json* file, use the `func extensions install` command with the name of the package, as shown in the following example:
 
 ```
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version <target_version>
+func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 
-Replace `<target_version>` with a specific version of the package. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org).
+Replace `<target_version>` with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org).

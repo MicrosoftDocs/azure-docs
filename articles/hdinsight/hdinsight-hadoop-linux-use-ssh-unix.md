@@ -1,22 +1,15 @@
 ---
-title: Use SSH with Hadoop - Azure HDInsight | Microsoft Docs
+title: Use SSH with Hadoop - Azure HDInsight 
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh and scp commands from Windows, Linux, Unix, or macOS clients."
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: hadoop commands in linux,hadoop linux commands,hadoop macos,ssh hadoop,ssh hadoop cluster
 
-ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -29,7 +22,7 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 
 | Address | Port | Connects to... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (R Server on HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (ML Services on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge node (any other cluster type, if an edge node exists) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secondary headnode |
@@ -134,7 +127,19 @@ For information on changing the SSH user account password, see the __Change pass
 
 ## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
 
-If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+
+You can also enable Kerberos Authentication on each domain joined node (e.g. head node, edge node) in order to ssh using the domain account. To do this edit sshd config file:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncomment and change `KerberosAuthentication` to `yes`
+
+```bash
+sudo service sshd restart
+```
+
+At any time, in order to verify whether the Kerberos authentication was successful or not, use `klist` command.
 
 For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 

@@ -3,20 +3,16 @@ title: Azure Service Bus bindings for Azure Functions
 description: Understand how to use Azure Service Bus triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/01/2017
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Azure Service Bus bindings for Azure Functions
@@ -49,6 +45,7 @@ See the language-specific example:
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### Trigger - C# example
 
@@ -175,6 +172,41 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
+### Trigger - Java example
+
+The following example shows a Service Bus trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function is triggered by a message placed on a Service Bus queue, and the function logs the queue message.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "myqueuename",
+    "connection": "MyServiceBusConnection",
+    "name": "msg",
+    "type": "ServiceBusQueueTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Here's the Java code:
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 ## Trigger - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a Service Bus trigger:
@@ -258,7 +290,7 @@ In C# and C# script, you can use the following parameter types for the queue or 
 * `string` - If the message is text.
 * `byte[]` - Useful for binary data.
 * A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx)
+* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
 
 These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
@@ -314,6 +346,7 @@ See the language-specific example:
 * [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output--java-example)
 
 ### Output - C# example
 
@@ -468,6 +501,25 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+
+
+### Output - Java example
+
+The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by a HTTP request.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on function parameters whose value would be written to a Service Bus queue.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
 
 ## Output - attributes
 

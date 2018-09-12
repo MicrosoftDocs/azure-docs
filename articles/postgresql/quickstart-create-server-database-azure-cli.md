@@ -46,6 +46,12 @@ The following example creates a server in West US named `mydemoserver` in your r
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
+The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
++ `--sku-name B_Gen4_4` maps to Basic, Gen 4, and 4 vCores.
++ `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
++ `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
+
+Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
 
 > [!IMPORTANT]
 > The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.

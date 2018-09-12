@@ -68,7 +68,7 @@ The enrichment pipeline pulls from Azure data sources supported by [Azure Search
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
+1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
 1. Using the Azure Storage Explorer, in the container you created, click **Upload** to upload the sample files.
 
@@ -119,7 +119,7 @@ Because you defined a skillset, the wizard assumes that you want the source data
 
 In **Customize index**, review the attributes on the fields to see how they are used in an index. Searchable indicates a field can be searched. Retrievable means it can be returned in results. 
 
-Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search Explorer**.
+Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search explorer**.
 
 Click **OK** to accept the index definition.
 
@@ -142,11 +142,11 @@ Click **OK** to import, enrich, and index the data.
 
 Indexing and enrichment can take time, which is why smaller data sets are recommended for early exploration. You can monitor indexing in the Notifications page of the Azure portal. 
 
-## Query in Search Explorer
+## Query in Search explorer
 
-After an index is created, you can submit queries to return documents from the index. In the portal, use **Search Explorer** to run queries and view results. 
+After an index is created, you can submit queries to return documents from the index. In the portal, use **Search explorer** to run queries and view results. 
 
-1. On the search service dashboard page, click **Search Explorer** on the command bar.
+1. On the search service dashboard page, click **Search explorer** on the command bar.
 
 1. Select **Change Index** at the top to select the index you created.
 

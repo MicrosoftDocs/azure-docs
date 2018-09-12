@@ -17,7 +17,7 @@ ms.author: luisca
 
 For up to 120 languages, the **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis.
 
-This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Snalysis skill](cognitive-search-skill-sentiment.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
+This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Analysis skill](cognitive-search-skill-sentiment.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
 
 ## @odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill

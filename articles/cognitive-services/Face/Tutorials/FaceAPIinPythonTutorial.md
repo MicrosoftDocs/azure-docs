@@ -90,7 +90,7 @@ img.show()
 
 ## <a name='further'></a> Further Exploration
 
-To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/) then run the commands below.
+To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/pages/downloads/) then run the commands below.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git

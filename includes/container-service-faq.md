@@ -64,7 +64,7 @@ You can find commonly used URLs for your cluster in the Azure portal, the Azure 
 
 ### How do I tell which orchestrator version is running in my cluster?
 
-* DC/OS: See the [Mesosphere documentation](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* DC/OS: See the [Mesosphere documentation](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
 * Docker Swarm: Run `docker version`
 * Kubernetes: Run `kubectl version`
 

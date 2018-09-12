@@ -1,5 +1,5 @@
 ---
-title: Copy data from Magento using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Magento using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Magento to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -16,12 +16,9 @@ ms.date: 06/15/2018
 ms.author: jingwang
 
 ---
-# Copy data from Magento using Azure Data Factory (Preview)
+# Copy data from Magento using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Magento. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).

@@ -13,38 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: shlo
 ---
 # Azure Data Factory FAQ
-This article applies to version 2 of the Azure Data Factory service. It provides answers to frequently asked questions about Data Factory.  
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [frequently asked questions for Data Factory version 1](v1/data-factory-faq.md).
+This article provides answers to frequently asked questions about Azure Data Factory.  
 
 ## What is Azure Data Factory? 
 Data Factory is a fully managed, cloud-based, data-integration service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
 By using Azure Data Factory, you can create data-driven workflows to move data between on-premises and cloud data stores. And you can process and transform data by using compute services such as Azure HDInsight, Azure Data Lake Analytics, and SQL Server Integration Services (SSIS) integration runtime. 
 
-With Data Factory, you can execute your data processing either on an Azure-based cloud service or in your own self-hosted compute environment, such as SSIS, SQL Server, or Oracle. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (for example, hourly, daily, or weekly) or trigger the pipeline from an event occurrence. For more information, see [Introduction to Azure Data Factory](introduction.md).
-
-## What’s different in version 2?
-Azure Data Factory version 2 builds upon the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory version 2 offers the following capabilities:
-
-- Control flows and scale
-- Deploy and run SSIS packages in Azure
-
-Following the version 1 release, we recognized that customers need to design complex, hybrid data-integration scenarios that require both data movement and processing in the cloud, on-premises, and on cloud virtual machines (VMs). These requirements bring a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
-
-As data pipelines are becoming a more critical part of a business analytics strategy, we have observed that these activities require flexible scheduling to support incremental data loads and event-triggered executions. As the complexity increases, so too does the requirement for the service to support common workflow paradigms that include branching, looping, and conditional processing.
-
-With version 2, you can also migrate existing SSIS packages to the cloud. This action lifts and shifts SSIS as an Azure service that's managed within Data Factory, which utilizes a new feature of integration runtime. By spinning up an SSIS integration runtime in version 2, you can execute, manage, monitor, and build SSIS packages in the cloud.
+With Data Factory, you can execute your data processing either on an Azure-based cloud service or in your own self-hosted compute environment, such as SSIS, SQL Server, or Oracle. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (for example, hourly, daily, or weekly), time window scheduling or trigger the pipeline from an event occurrence. For more information, see [Introduction to Azure Data Factory](introduction.md).
 
 ### Control flows and scale 
-To support the diverse integration flows and patterns in the modern data warehouse, Data Factory has enabled a new, flexible, data pipeline model that is no longer tied to time-series data. With this release, you can model conditionals, branch in the control flow of a data pipeline, and explicitly pass parameters within and across these flows.
+To support the diverse integration flows and patterns in the modern data warehouse, Data Factory enables flexible data pipeline modeling that includes full control flow programming paradigms including conditional execution, branching in data pipelines, and explicitly pass parameters within and across these flows. Control Flow also encompasses transforming data through activity dispatch to external execution engines and data flow capabilities, including data movement at scale, via the Copy Activity.
 
-You now have the freedom to model any flow style that's required for data integration and that can be dispatched on demand or repeatedly on a schedule. A few common flows now enabled that were previously not possible are:   
+Data Factory provides freedom to model any flow style that's required for data integration and that can be dispatched on demand or repeatedly on a schedule. A few common flows that this model enables are:   
 
 - Control flows:
 	- Chain activities in a sequence within a pipeline.
@@ -63,29 +48,53 @@ You now have the freedom to model any flow style that's required for data integr
 
 For more information, see [Tutorial: Control flows](tutorial-control-flow.md).
 
+### Transform your data at scale with code free pipelines
+The new browser-based tooling experience provides code-free pipeline authoring and deployment with a modern, interactive web-based experience.
+
+For visual data developers and data engineers, the ADF Web UI is the code-free design environment that you will use to build pipelines. It is fully integrated with Visual Studio Online Git and provides integration for CI/CD and iterative development with debugging options.
+
+### Rich cross platform SDKs for advanced users
+If you are an advanced user and looking for a programmatic interface, ADF V2 provides a rich set of SDKs that can be leveraged to author, manage, monitor pipelines using your favorite IDE
+1.	Python SDK
+2.	Powershell CLI
+3.	C# SDK
+Users can also leverage the documented REST APIs to interface with ADF V2
+
+### Iterative development and debugging using visual tools
+Azure Data Factory (ADF) visual tools allow you to do iterative development and debugging. You can create your pipelines and do test runs using the Debug capability in the pipeline canvas without writing a single line of code. You can view the results of your test runs in the Output window of your pipeline canvas. Once your test run succeeds, you can add more activities to your pipeline and continue debugging in an iterative manner. You can also Cancel your test runs once they are in-progress. You are not required to publish your changes to the data factory service before clicking Debug. This is helpful in scenarios where you want to make sure that the new additions or changes work as expected before you update your data factory workflows in dev, test, or prod environments. 
+
 ### Deploy SSIS packages to Azure 
-If you want to move your SSIS workloads, you can create a Data Factory version 2 and provision an Azure-SSIS integration runtime. The Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
+If you want to move your SSIS workloads, you can create a Data Factory and provision an Azure-SSIS integration runtime. The Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
  
-
 ### SDKs
-If you are an advanced user and looking for a programmatic interface, version 2 provides a rich set of SDKs that you can use to author, manage, or monitor pipelines by using your favorite IDE.
-
-- **.NET SDK**: The .NET SDK is updated for version 2. 
-- **PowerShell**: The PowerShell cmdlets are updated for version 2. The version 2 cmdlets have *DataFactoryV2* in the name. For example, *Get-AzureRmDataFactoryV2*. 
-- **Python SDK**: This SDK is new to version 2.
-- **REST API**: The REST API is updated for version 2.  
-
-The SDKs that are updated for version 2 are not backward compatible with version 1 clients. 
+If you are an advanced user and looking for a programmatic interface, ADF provides a rich set of SDKs that you can use to author, manage, or monitor pipelines by using your favorite IDE. Language support includes .NET, PowerShell, Python, and REST.
 
 ### Monitoring
-Currently, version 2 supports monitoring of data factories by using only SDKs. The portal does not have the support for monitoring version 2 data factories yet. 
+You can monitor your Data Factories via PowerShell, SDK, or the Visual Monitoring Tools in the browser user interface. You can monitor and manage on demand, trigger based and clock driven custom flows in an efficient and effective manner. Cancel existing tasks, see failures at a glance, drill down to get detailed error messages, and debug the issues all from a single pane of glass without context switching or navigating back and forth between screens. 
+
+### New features for SSIS in ADF
+Since the initial Public Preview release in 2017, Data Factory has added the following features for SSIS:
+
+-	Support for three more configurations/variants of Azure SQL Database (DB) to host SSIS catalog of projects/packages (SSISDB):
+-	Azure SQL DB with VNet service endpoints
+-	Managed Instance (MI)
+-	Elastic pool
+-	Support for Azure Resource Manager Virtual Network (VNet) on top of Classic VNet that will be deprecated in the future – This lets you inject/join your Azure-SSIS Integration Runtime (IR) to a VNet that is configured for Azure SQL DB with VNet service endpoints/MI/on-premises data access, see:
+https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-	Support for Azure Active Directory (AAD) authentication on top of SQL authentication to connect to your SSISDB - This lets you use AAD authentication with your ADF Managed Service Identity (MSI)
+-	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from Azure Hybrid Benefit (AHB) option
+-	Support for Enterprise Edition of Azure-SSIS IR that lets you use advanced/premium features, custom setup to install additional components/extensions, and 3rd party ecosystem, see: 
+https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
+-	Deeper integration of SSIS in ADF that lets you invoke/trigger first-class Execute SSIS Package activities in ADF pipelines and schedule them via SSMS, see:
+https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 
+
 
 ## What is integration runtime?
 Integration runtime is the compute infrastructure that's used by Azure Data Factory to provide the following data integration capabilities across various network environments:
 
-- **Data movement**: Move data between data stores on a public network and data stores on a private network (on-premises or virtual private network). It provides support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
-- **Dispatch activities**:  Dispatch and monitor transformation activities that are running on a variety of compute services, such as Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, and more.
-- **Execute SSIS packages**: Natively executes SSIS packages in a managed Azure compute environment.
+- **Data movement**: For data movement, Integration Runtime moves the data between the source and destination data stores, while providing support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
+- **Dispatch activities**: For transformation, Integration Runtime provide capability to natively execute SSIS packages.
+- **Execute SSIS packages**: Natively executes SSIS packages in a managed Azure compute environment. Integration Runtime also supports dispatching and monitoring transformation activities running on a variety of compute services such as Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, and more.
 
 You can deploy one or many instances of integration runtime as required to move and transform data. Integration runtime can run on an Azure public network or on a private network (on-premises, Azure Virtual Network, or Amazon Web Services virtual private cloud [VPC]). 
 
@@ -94,13 +103,7 @@ For more information, see [Integration runtime in Azure Data Factory](concepts-i
 ## What is the limit on the number of integration runtimes?
 There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
 
-## When should I use version 2 rather than version 1? 
-If you are new to Azure Data Factory, start directly with version 2. If you are already using version 1, rebuild your data factories on version 2.
-
-> [!WARNING]
-> Version 2 of Data Factory is in preview, and it is not in general availability (GA). Therefore, it does not fall under the same Azure service level agreement (SLA) commitments as version 1 of Data Factory, which is in GA. 
-
-## What are the top-level concepts of version 2?
+## What are the top-level concepts of Azure Data Factory?
 An Azure subscription can have one or more Azure Data Factory instances (or data factories). Azure Data Factory contains four key components that work together as a platform on which you can compose data-driven workflows with steps to move and transform data.
 
 ### Pipelines
@@ -109,8 +112,8 @@ A data factory can have one or more pipelines. A pipeline is a logical grouping 
 ### Activity
 Activities represent a processing step in a pipeline. For example, you can use a *Copy* activity to copy data from one data store to another data store. Similarly, you can use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports three types of activities: data movement activities, data transformation activities, and control activities.
 
-### Data sets
-Data sets represent data structures within the data stores, which simply point to or reference the data you want to use in your activities as inputs or outputs. 
+### Datasets
+Datasets represent data structures within the data stores, which simply point to or reference the data you want to use in your activities as inputs or outputs. 
 
 ### Linked services
 Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way: a linked service defines the connection to the data source, and a data set represents the structure of the data. For example, an Azure Storage linked service specifies the connection string to connect to the Azure Storage account. And an Azure Blob data set specifies the blob container and the folder that contains the data.
@@ -121,8 +124,7 @@ Linked services have two purposes in Data Factory:
 - To represent a *compute resource* that can host the execution of an activity. For example, the HDInsight Hive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see [Transform data in Azure Data Factory](transform-data.md).
 
 ### Triggers
-Triggers represent units of processing that determine when a pipeline execution is kicked off. There are different types of triggers for different types of events. For preview, we support a wall-clock scheduler trigger. 
-
+Triggers represent units of processing that determine when a pipeline execution is kicked off. There are different types of triggers for different types of events. 
 
 ### Pipeline runs
 A pipeline run is an instance of a pipeline execution. You usually instantiate a pipeline run by passing arguments to the parameters that are defined in the pipeline. You can pass the arguments manually or within the trigger definition.
@@ -147,10 +149,7 @@ For more information about Data Factory concepts, see the following articles:
 ## What is the pricing model for Data Factory?
 For Azure Data Factory pricing details, see [Data Factory pricing details](https://azure.microsoft.com/pricing/details/data-factory/).
 
-## What regions support Azure Data Factory version 2?
-Currently, you can create data factories of version 2 in the East US, East US 2, and West Europe regions. However, a data factory can use integration runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages. For more information, see [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location).
-
-## How can I stay up to date with information about Data Factory?
+## How can I stay up-to-date with information about Data Factory?
 For the most up-to-date information about Azure Data Factory, go to the following sites:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
@@ -159,23 +158,11 @@ For the most up-to-date information about Azure Data Factory, go to the followin
 
 ## Technical deep dive 
 
-### Can version 1 and version 2 pipelines run side by side?
-No. Version 2 and version 1 data factories cannot contain entities (for example, linked services, data sets, or pipelines) of the other version.   
+### How can I schedule a pipeline? 
+You can use the scheduler trigger or time window trigger to schedule a pipeline. The trigger uses a wall-clock calendar schedule, and you can use it to schedule pipelines either periodically or by using calendar-based recurrent patterns (for example, weekly on Mondays at 6 PM and Thursdays at 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
-### Do I still need to define data sets in version 2?
-A data set is no longer a mandatory entity for most activities. It is required for copy, machine learning, lookup, validation, and custom activities that use the schema and other metadata information in the data set for transformation. The rest of the activities no longer require data sets.
-
-### Can I chain two activities without a data set in version 2?
-Yes. You can chain activities in version 2 without requiring data sets. You chain activities by using the **dependsOn** property in the JSON definition of your pipeline. 
-
-### Are all the version 1 activities supported in version 2? 
-Yes, all version 1 activities are supported in version 2.
-
-### How can I schedule a version 2 pipeline? 
-You can use the scheduler trigger to schedule a version 2 pipeline. The trigger uses a wall-clock calendar schedule, and you can use it to schedule pipelines either periodically or by using calendar-based recurrent patterns (for example, weekly on Mondays at 6 PM and Thursdays at 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
-
-### Can I pass parameters to a pipeline run in version 2?
-Yes, parameters are a first-class, top-level concept in version 2. You can define parameters at the pipeline level and pass arguments as you execute the pipeline run on demand or by using a trigger.  
+### Can I pass parameters to a pipeline run?
+Yes, parameters are a first-class, top-level concept in ADF. You can define parameters at the pipeline level and pass arguments as you execute the pipeline run on demand or by using a trigger.  
 
 ### Can I define default values for the pipeline parameters? 
 Yes. You can define default values for the parameters in the pipelines. 
@@ -189,12 +176,8 @@ Yes. An activity output can be consumed in a subsequent activity with the `@acti
 ### How do I gracefully handle null values in an activity output? 
 You can use the `@coalesce` construct in the expressions to handle null values gracefully. 
 
-### Can I use retry and timeout at the activity level in version 2?
-Yes. To govern the execution of activities in version 2 as you do in version 1, you can configure retry and timeout at the activity level. 
-
 ## Next steps
-For step-by-step instructions to create a data factory of version 2, see the following tutorials:
+For step-by-step instructions to create a data factory, see the following tutorials:
 
 - [Quickstart: Create a data factory](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: Copy data in the cloud](tutorial-copy-data-dot-net.md)
-

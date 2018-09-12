@@ -2,18 +2,12 @@
 title: Managing Azure file shares with Azure PowerShell
 description: Learn to manage Azure file shares using Azure PowerShell.
 services: storage
-documentationcenter: ''
-author: wmgries	
-manager: aungoo
-editor: tamram
-
+author: wmgries
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Managing Azure file shares with Azure PowerShell 
@@ -56,7 +50,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## Create an Azure file share
-Now you can create your first Azure file share. You can create a file share using the [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) cmdlet. This example creates a share named `myshare`.
+Now you can create your first Azure file share. You can create a file share using the [New-AzureStorageShare](https://docs.microsoft.com/powershell/module/servicemanagement/azure.storage/new-azurestorageshare) cmdlet. This example creates a share named `myshare`.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -76,7 +70,7 @@ Now that you have created an Azure file share, you can mount the file share with
 
 
 ### Create directory
-To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet.
+To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzureStorageDirectory](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragedirectory) cmdlet.
 
 
 ```azurepowershell-interactive
@@ -166,7 +160,7 @@ While the `Start-AzureStorageFileCopy` cmdlet is convenient for ad-hoc file move
 
 ## Create and modify share snapshots
 One additional useful task you can do with an Azure file share is to create share snapshots. A snapshot preserves a point in time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems such as NTFS and ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
 

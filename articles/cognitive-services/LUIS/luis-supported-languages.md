@@ -1,19 +1,19 @@
 ---
-title: Support localization using LUIS apps in Azure | Microsoft Docs
-description: Learn about the languages that LUIS supports.
+title: Support localization - Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
+description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set. 
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2017
-ms.author: cahann
+ms.date: 08/17/2017
+ms.author: diberry
 ---
 
 # Culture-specific understanding in LUIS apps
 
-A LUIS app is culture-specific and cannot be changed once it is set. 
+LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set. 
 
 ## Multi-language LUIS apps
 If you need a multi-language LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use [Microsoft Translator API](../Translator/translator-info-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
@@ -22,7 +22,7 @@ If you need a multi-language LUIS client application such as a chatbot, you have
 LUIS understands utterances in the following languages:
 
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)| 
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | Canadian French |`fr-CA` |-|   -   |-|✔|
@@ -54,7 +54,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
      - です is not the same as だ. 
 
 ### **Text analytics support notes
-Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). 
+Text analytics includes keyPhrase prebuilt entity and sentiment analysis. Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). 
 
 ### Speech API supported languages
 See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) for Speech dictation mode languages.

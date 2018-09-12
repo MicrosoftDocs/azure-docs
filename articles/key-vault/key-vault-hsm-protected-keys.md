@@ -12,13 +12,13 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/05/2017
+ms.topic: conceptual
+ms.date: 08/27/2018
 ms.author: barclayn
 
 ---
 # How to generate and transfer HSM-protected keys for Azure Key Vault
-## Introduction
+
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
 
 Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
@@ -27,10 +27,7 @@ This functionality is not available for Azure China.
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
->
 > For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [Get started with Azure Key Vault](key-vault-get-started.md).
->
->
 
 More information about generating and transferring an HSM-protected key over the Internet:
 
@@ -42,14 +39,17 @@ More information about generating and transferring an HSM-protected key over the
 * Microsoft uses separate KEKs and separate Security Worlds in each geographical region. This separation ensures that your key can be used only in data centers in the region in which you encrypted it. For example, a key from a European customer cannot be used in data centers in North American or Asia.
 
 ## More information about Thales HSMs and Microsoft services
+
 Thales e-Security is a leading global provider of data encryption and cyber security solutions to the financial services, high technology, manufacturing, government, and technology sectors. With a 40-year track record of protecting corporate and government information, Thales solutions are used by four of the five largest energy and aerospace companies. Their solutions are also used by 22 NATO countries, and secure more than 80 per cent of worldwide payment transactions.
 
 Microsoft has collaborated with Thales to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure Key Vault scales up at short notice to meet your organization’s usage spikes. At the same time, your key is protected inside Microsoft’s HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft’s HSMs.
 
 ## Implementing bring your own key (BYOK) for Azure Key Vault
+
 Use the following information and procedures if you will generate your own HSM-protected key and then transfer it to Azure Key Vault—the bring your own key (BYOK) scenario.
 
 ## Prerequisites for BYOK
+
 See the following table for a list of prerequisites for bring your own key (BYOK) for Azure Key Vault.
 
 | Requirement | More information |
@@ -57,9 +57,10 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium service tier to support HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | Thales HSM, smartcards, and support software |You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one. |
-| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/overview) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>Note that in the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>Note that in the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
+| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>Note that in the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>Note that in the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
 
 ## Generate and transfer your key to Azure Key Vault HSM
+
 You will use the following five steps to generate and transfer your key to an Azure Key Vault HSM:
 
 * [Step 1: Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation)
@@ -69,29 +70,33 @@ You will use the following five steps to generate and transfer your key to an Az
 * [Step 5: Transfer your key to Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
 
 ## Step 1: Prepare your Internet-connected workstation
+
 For this first step, do the following procedures on your workstation that is connected to the Internet.
 
 ### Step 1.1: Install Azure PowerShell
+
 From the Internet-connected workstation, download and install the Azure PowerShell module that includes the cmdlets to manage Azure Key Vault. This requires a minimum version of 0.8.13.
 
 For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ### Step 1.2: Get your Azure subscription ID
+
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
 
 ```Powershell
-   Add-AzureAccount
+   Add-AzureRMAccount
 ```
-In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
+In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
 
 ```powershell
-   Get-AzureSubscription
+   Get-AzureRMSubscription
 ```
 From the output, locate the ID for the subscription you will use for Azure Key Vault. You will need this subscription ID later.
 
 Do not close the Azure PowerShell window.
 
 ### Step 1.3: Download the BYOK toolset for Azure Key Vault
+
 Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](http://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
 
 - - -
@@ -211,9 +216,11 @@ The toolset includes the following:
 Copy the package to a USB drive or other portable storage.
 
 ## Step 2: Prepare your disconnected workstation
+
 For this second step, do the following procedures on the workstation that is not connected to a network (either the Internet or your internal network).
 
 ### Step 2.1: Prepare the disconnected workstation with Thales HSM
+
 Install the nCipher (Thales) support software on a Windows computer, and then attach a Thales HSM to that computer.
 
 Ensure that the Thales tools are in your path (**%nfast_home%\bin**). For example, type the following:
@@ -225,6 +232,7 @@ Ensure that the Thales tools are in your path (**%nfast_home%\bin**). For exampl
 For more information, see the user guide included with the Thales HSM.
 
 ### Step 2.2: Install the BYOK toolset on the disconnected workstation
+
 Copy the BYOK toolset package from the USB drive or other portable storage, and then do the following:
 
 1. Extract the files from the downloaded package into any folder.
@@ -232,13 +240,16 @@ Copy the BYOK toolset package from the USB drive or other portable storage, and 
 3. Follow the instructions to the install the Visual C++ runtime components for Visual Studio 2013.
 
 ## Step 3: Generate your key
+
 For this third step, do the following procedures on the disconnected workstation. To complete this step your HSM must be in initialization mode. 
 
 
 ### Step 3.1: Change the HSM mode to 'I'
+
 If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
 ### Step 3.2: Create a security world
+
 Start a command prompt and run the Thales new-world program.
 
    ```cmd
@@ -252,10 +263,11 @@ Then do the following:
 * Back up the world file. Secure and protect the world file, the Administrator Cards, and their pins, and make sure that no single person has access to more than one card.
 
 ### Step 3.3: Change the HSM mode to 'O'
+
 If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
-
 ### Step 3.4: Validate the downloaded package
+
 This step is optional but recommended so that you can validate the following:
 
 * The Key Exchange Key that is included in the toolset has been generated from a genuine Thales HSM.
@@ -264,8 +276,6 @@ This step is optional but recommended so that you can validate the following:
 
 > [!NOTE]
 > To validate the downloaded package, the HSM must be connected, powered on, and must have a security world on it (such as the one you’ve just created).
->
->
 
 To validate the downloaded package:
 
@@ -325,6 +335,7 @@ This script validates the signer chain up to the Thales root key. The hash of th
 You’re now ready to create a new key.
 
 ### Step 3.5: Create a new key
+
 Generate a key by using the Thales **generatekey** program.
 
 Run the following command to generate the key:
@@ -344,11 +355,12 @@ Back up this Tokenized Key File in a safe location.
 > [!IMPORTANT]
 > When you later transfer your key to Azure Key Vault, Microsoft cannot export this key back to you so it becomes extremely important that you back up your key and security world safely. Contact Thales for guidance and best practices for backing up your key.
 >
->
+
 
 You are now ready to transfer your key to Azure Key Vault.
 
 ## Step 4: Prepare your key for transfer
+
 For this fourth step, do the following procedures on the disconnected workstation.
 
 ### Step 4.1: Create a copy of your key with reduced permissions
@@ -416,6 +428,7 @@ You may inspects the ACLS using following commands using the Thales utilities:
   When you run these commands, replace contosokey with the same value you specified in **Step 3.5: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
 ### Step 4.2: Encrypt your key by using Microsoft’s Key Exchange Key
+
 Run one of the following commands, depending on your geographic region or instance of Azure:
 
 * For North America:
@@ -470,10 +483,12 @@ When you run this command, use these instructions:
 When this completes successfully, it displays **Result: SUCCESS** and there is a new file in the current folder that has the following name: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### Step 4.3: Copy your key transfer package to the Internet-connected workstation
+
 Use a USB drive or other portable storage to copy the output file from the previous step (KeyTransferPackage-ContosoFirstHSMkey.byok) to your Internet-connected workstation.
 
 ## Step 5: Transfer your key to Azure Key Vault
-For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
+
+For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-add-azurekeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
    ```powershell
         Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
@@ -482,4 +497,5 @@ For this final step, on the Internet-connected workstation, use the [Add-AzureKe
 If the upload is successful, you see displayed the properties of the key that you just added.
 
 ## Next steps
+
 You can now use this HSM-protected key in your key vault. For more information, see the **If you want to use a hardware security module (HSM)** section in the [Getting started with Azure Key Vault](key-vault-get-started.md) tutorial.

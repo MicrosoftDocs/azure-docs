@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 # Using ranking to display results  
 
-Each entity search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-entities-v7-reference#rankingresponse) answer, similar to the one in a Bing Web Search response, that specifies how you must display the search results. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
+Each entity search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) answer, similar to the one in a Bing Web Search response, that specifies how you must display the search results. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
   
 Within each group, the [Items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides two ways to identify the result within an answer.  
   

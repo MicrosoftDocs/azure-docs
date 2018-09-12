@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 09/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,11 +18,15 @@ With scale-out, client queries can be distributed among multiple *query replicas
 
 In a typical server deployment, one server serves as both processing server and query server. If the number of client queries against models on your server exceeds the Query Processing Units (QPU) for your server's plan, or model processing occurs at the same time as high query workloads, performance can decrease. 
 
-With scale-out, you can create a query pool with up to seven additional query replicas (eight total, including your server). You can scale the number of query replicas to meet QPU demands at critical times and you can separate a processing server from the query pool at any time. All query replicas are created in the same region as your server.
+With scale-out, you can create a query pool with up to seven additional query replica resources (eight total, including your server). You can scale the number of query replicas to meet QPU demands at critical times and you can separate a processing server from the query pool at any time. All query replicas are created in the same region as your server.
 
-Regardless of the number of query replicas you have in a query pool, processing workloads are not distributed among query replicas. A single server serves as the processing server. Query replicas serve only queries against the models synchronized between each replica in the query pool. 
+Regardless of the number of query replicas you have in a query pool, processing workloads are not distributed among query replicas. A single server serves as the processing server. Query replicas serve only queries against the models synchronized between each query replica in the query pool. 
 
-When processing operations are completed, a synchronization must be performed between the processing server and the query replica servers. When automating processing operations, it's important to configure a synchronization operation upon successful completion of processing operations. Synchronization can be performed manually in the portal, or by using PowerShell or REST API.
+When scaling out, new query replicas are added to the query pool incrementally. It can take up to five minutes for new query replica resources to be included in the query pool; ready to receive client connections and queries. When all new query replicas are up and running, new client connections are load balanced across all query pool resources. Existing client connections are not changed from the resource they are currently connected to.  When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. They are reconnected to a remaining query pool resource when the scale in operation has completed, which can take up to five minutes.
+
+When processing models, after processing operations are completed, a synchronization must be performed between the processing server and the query replicas. When automating processing operations, it's important to configure a synchronization operation upon successful completion of processing operations. Synchronization can be performed manually in the portal, or by using PowerShell or REST API. 
+
+For maximum performance for both processing and query operations, you can choose to separate your processing server from the query pool. When separated, existing and new client connections are assigned to query replicas in the query pool only. If processing operations only take up a short amount of time, you can choose to separate your processing server from the query pool only for the amount of time it takes to perform processing and synchronization operations, and then include it back into the query pool. 
 
 > [!NOTE]
 > Scale-out is available for servers in the Standard pricing tier. Each query replica is billed at the same rate as your server.
@@ -32,19 +36,7 @@ When processing operations are completed, a synchronization must be performed be
 
 ## Region limits
 
-The number of query replicas you can configure are limited by the region your server is in. The following limits apply:
-
-|Region  |Max number of replicas  |
-|---------|---------|
-|East US 2    |    7     |
-|West Central US     |    7     |
-|West Europe     |    7     |
-|West US     |     7    |
-|Central US     |     3    |
-|Southeast Asia    |     3    |
-|All other regions  |   1    |
-
-
+The number of query replicas you can configure are limited by the region your server is in. To learn more, see [Availability by region](analysis-services-overview.md#availability-by-region).
 
 ## Monitor QPU usage
 

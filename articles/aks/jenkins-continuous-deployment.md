@@ -2,13 +2,13 @@
 title: Jenkins continuous deployment with Kubernetes in Azure Kubernetes Service
 description: How to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Kubernetes Service
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -145,6 +145,9 @@ A script has been pre-created to deploy a virtual machine, configure network acc
 
 Run the following commands to download and run the script. The below URL can also be used to review the content of the script.
 
+> [!WARNING]
+> This sample script is for demo purposes to quickly provision a Jenkins environment that runs on an Azure VM. It uses the Azure custom script extension to configure a VM and then display the required credentials. Your *~/.kube/config* is copied to the Jenkins VM.
+
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
 sh azure-jenkins.sh
@@ -259,12 +262,11 @@ Once the process is complete, click on **build #1** under build history and sele
 Next, hook the application repository to the Jenkins build server so that on any commit, a new build is triggered.
 
 1. Browse to the forked GitHub repository.
-2. Select **Settings**, then select **Integrations & services** on the left-hand side.
-3. Choose **Add Service**, enter `Jenkins (GitHub plugin)` in the filter box, and select the plugin.
-4. For the Jenkins hook URL, enter `http://<publicIp:8080>/github-webhook/` where `publicIp` is the IP address of the Jenkins server. Make sure to include the trailing /.
-5. Select Add service.
+2. Select **Settings**, then select **Webhooks** on the left-hand side.
+3. Choose to **Add webhook**. For the *Payload URL*, enter `http://<publicIp:8080>/github-webhook/` where `publicIp` is the IP address of the Jenkins server. Make sure to include the trailing /. Leave the other defaults for content type and to trigger on *push* events.
+4. Select **Add webhook**.
 
-![GitHub webhook](media/aks-jenkins/webhook.png)
+    ![GitHub webhook](media/aks-jenkins/webhook.png)
 
 ## Test CI/CD process end to end
 
@@ -299,9 +301,9 @@ At this point, a simple continuous deployment process has been completed. The st
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
-[az-acr-list]: /cli/azure/acr#az_acr_list
+[az-acr-list]: /cli/azure/acr#az-acr-list
 [acr-authentication]: ../container-registry/container-registry-auth-aks.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
-[aks-credentials]: /cli/azure/aks#az_aks_get_credentials
+[aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md
 [azure-cli-install]: /cli/azure/install-azure-cli

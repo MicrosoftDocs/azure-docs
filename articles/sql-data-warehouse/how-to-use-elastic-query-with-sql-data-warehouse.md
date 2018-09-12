@@ -1,9 +1,9 @@
 ---
 title: Elastic query - access data in Azure SQL Data Warehouse from Azure SQL Database | Microsoft Docs
-description: Learn best practices for using using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database.
+description: Learn best practices for using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
@@ -120,9 +120,9 @@ Use Azure SQL Database when:
 
 ## FAQ
 
-Q: Can I use databases within an Elastic Pool with Elastic Query?
+Q: Can I use databases within an elastic pool with Elastic Query?
 
-A: Yes. SQL Databases within an Elastic Pool can use Elastic Query. 
+A: Yes. SQL Databases within an elastic pool can use Elastic Query. 
 
 Q: Is there a cap for how many databases I can use for Elastic Query?
 

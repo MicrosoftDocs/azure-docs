@@ -50,7 +50,7 @@ The following tasks are shown in this quickstart.
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). Use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
-For details about AMS REST entities used in this article, see [Azure Media Services REST API Reference](/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
+For details about AMS REST entities used in this article, see [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
 
 >[!NOTE]
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
@@ -263,11 +263,9 @@ A SAS URL has the following format:
 
 Some considerations apply:
 
-* You cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Locator.
+* You cannot have more than five unique Locators associated with a given Asset at one time. 
 * If you need to upload your files immediately, you should set your StartTime value to five minutes before the current time. This is because there may be clock skew between your client machine and Media Services. Also, your StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").    
-* There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both SAS URL and Origin Locators.
-
-For more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+* There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) and Origin Locators.
 
 The following example shows how to create a SAS URL Locator, as defined by the Type property in the request body ("1" for a SAS locator and "2" for an On-Demand origin locator). The **Path** property returned contains the URL that you must use to upload your file.
 
@@ -403,7 +401,7 @@ If successful, the following is returned:
 
 ## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
-After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](/rest/api/media/services/job), [Task](/rest/api/media/services/task) descriptions).
+After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](https://docs.microsoft.com/rest/api/media/operations/job), [Task](https://docs.microsoft.com/rest/api/media/operations/task) descriptions).
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
@@ -690,7 +688,7 @@ The following code shows how to request the output asset Id.
 
 ## <a id="publish_get_urls"></a>Publish the asset and get streaming and progressive download URLs with REST API
 
-To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files. For more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files. 
 
 Once you create the locators, you can build the URLs that are used to stream or download your files.
 

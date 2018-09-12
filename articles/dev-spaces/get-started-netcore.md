@@ -4,35 +4,37 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
-ms.date: "05/11/2018"
+author: ghogen
+ms.author: ghogen
+ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Get Started on Azure Dev Spaces with .NET Core
 
-[!INCLUDE[](includes/learning-objectives.md)]
+[!INCLUDE [](includes/learning-objectives.md)]
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+[!INCLUDE [](includes/see-troubleshooting.md)]
 
 You're now ready to create a Kubernetes-based dev space in Azure.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+[!INCLUDE [](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Your local machine can run Windows, Mac, or Linux. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
+
+Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> If you already have the Azure CLI installed, make sure you are using version 2.0.33 or higher.
+> If you already have the Azure CLI installed, make sure you are using version 2.0.43 or higher.
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+[!INCLUDE [](includes/sign-into-azure.md)]
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+[!INCLUDE [](includes/use-dev-spaces.md)]
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+[!INCLUDE [](includes/install-vscode-extension.md)]
 
 While you're waiting for the cluster to be created, you can start developing code.
 
@@ -49,9 +51,9 @@ dotnet new mvc --name webfrontend
 
 Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
 
-[!INCLUDE[](includes/azds-prep.md)]
+[!INCLUDE [](includes/azds-prep.md)]
 
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+[!INCLUDE [](includes/build-run-k8s-cli.md)]
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -77,9 +79,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 ## Debug a container in Kubernetes
 
-[!INCLUDE[](includes/debug-intro.md)]
+[!INCLUDE [](includes/debug-intro.md)]
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+[!INCLUDE [](includes/init-debug-assets-vscode.md)]
 
 
 ### Select the AZDS debug configuration
@@ -97,7 +99,7 @@ Hit **F5** to debug your code in Kubernetes.
 
 As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+[!INCLUDE [](includes/tip-vscode-status-bar-url.md)]
 
 Set a breakpoint in a server-side code file, for example within the `Index()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
 
@@ -124,79 +126,7 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 **Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!** Next, you'll see how you can create and call a second container.
 
-## Call a service running in a separate container
+## Next steps
 
-In this section, you create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. You'll then debug across both containers.
-
-![Multiple containers](media/common/multi-container.png)
-
-### Download sample code for *mywebapi*
-For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository. The code for this section is in `samples/dotnetcore/getting-started/mywebapi`.
-
-### Run *mywebapi*
-1. Open the folder `mywebapi` in a *separate VS Code window*.
-1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the VS Code debug bar appears.
-1. Take note of the endpoint URL, it will look something like http://localhost:\<portnumber\>. **Tip: The VS Code status bar will display a clickable URL.** It might seem like the container is running locally, but actually it is running in our dev space in Azure. The reason for the localhost address is because `mywebapi` has not defined any public endpoints and can only be accessed from within the Kubernetes instance. For your convenience, and to facilitate interacting with the private service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
-1. When `mywebapi` is ready, open your browser to the localhost address. Append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
-1. If all the steps were successful, you should be able to see a response from the `mywebapi` service.
-
-### Make a request from *webfrontend* to *mywebapi*
-Let's now write code in `webfrontend` that makes a request to `mywebapi`.
-1. Switch to the VS Code window for `webfrontend`.
-1. *Replace* the code for the About method:
-
-    ```csharp
-    public async Task<IActionResult> About()
-    {
-        ViewData["Message"] = "Hello from webfrontend";
-        
-        using (var client = new System.Net.Http.HttpClient())
-            {
-                // Call *mywebapi*, and display its response in the page
-                var request = new System.Net.Http.HttpRequestMessage();
-                request.RequestUri = new Uri("http://mywebapi/api/values/1");
-                if (this.Request.Headers.ContainsKey("azds-route-as"))
-                {
-                    // Propagate the dev space routing header
-                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
-                }
-                var response = await client.SendAsync(request);
-                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-            }
-
-        return View();
-    }
-    ```
-
-The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this helps teams with collaborative development.
-
-### Debug across multiple services
-1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
-1. Set a breakpoint in the `Get(int id)` method that handles `api/values/{id}` GET requests.
-1. In the `webfrontend` project, set a breakpoint just before it sends a GET request to `mywebapi/api/values`.
-1. Hit F5 in the `webfrontend` project.
-1. Invoke the web app, and step through code in both services.
-1. In the web app, the About page will display a message concatenated by the two services: "Hello from webfrontend and Hello from mywebapi."
-
-
-Well done! You now have a multi-container application where each container can be developed and deployed separately.
-
-## Learn about team development
-
-[!INCLUDE[](includes/team-development-1.md)]
-
-Let's see it in action. Go to the VS Code window for `mywebapi` and make a code edit to the `string Get(int id)` method, for example:
-
-    ```csharp
-    [HttpGet("{id}")]
-    public string Get(int id)
-    {
-        return "mywebapi now says something new";
-    }
-    ```
-
-[!INCLUDE[](includes/team-development-2.md)]
-
-[!INCLUDE[](includes/well-done.md)]
-
-[!INCLUDE[](includes/clean-up.md)]
+> [!div class="nextstepaction"]
+> [Learn about team development](team-development-netcore.md)

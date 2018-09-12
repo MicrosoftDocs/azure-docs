@@ -3,15 +3,11 @@ title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
@@ -56,32 +52,6 @@ public static async Task Run(
 ```
 
 The difference between this example and a timer-triggered function is that cleanup trigger times here are not based on a schedule. For example, a CRON schedule that executes a function every hour will execute it at 1:00, 2:00, 3:00 etc. and could potentially run into overlap issues. In this example, however, if the cleanup takes 30 minutes, then it will be scheduled at 1:00, 2:30, 4:00, etc. and there is no chance of overlap.
-
-## Counter example
-
-Here is a simplified example of a *counter* function that listens for *increment* and *decrement* events eternally.
-
-```csharp
-[FunctionName("SimpleCounter")]
-public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    int counterState = context.GetInput<int>();
-
-    string operation = await context.WaitForExternalEvent<string>("operation");
-
-    if (operation == "incr")
-    {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
-    }
-    
-    context.ContinueAsNew(counterState);
-}
-```
 
 ## Exit from an eternal orchestration
 

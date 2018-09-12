@@ -1,0 +1,55 @@
+- name: Azure Firewall Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Firewall?
+    href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: 1. Deploy and configure
+    href: tutorial-firewall-deploy-portal.md
+  - name: 2. Monitor diagnostic logs
+    href: tutorial-diagnostics.md
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    href: sample-powershell.md
+- name: How-to guides
+  items:
+    - name: Sign up for public preview
+      href: public-preview.md
+    - name: Deploy using a template
+      href: deploy-template.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/network
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/firewall
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: firewall-faq.md
+  - name: Author templates
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community templates
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/

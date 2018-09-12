@@ -4,7 +4,7 @@ description: By using View Designer in Log Analytics, you can create custom view
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Create custom views by using View Designer in Log Analytics
 By using View Designer in [Azure Log Analytics](log-analytics-overview.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
@@ -50,10 +51,10 @@ The options are described in the following table:
 | Option | Description |
 |:--|:--|
 | Refresh   | Refreshes the view with the latest data. | 
-| Analytics | Opens the [Advanced Analytics portal](log-analytics-log-search-portals.md#advanced-analytics-portal) to analyze data with log searches. |
+| Analytics | Opens the [Advanced Analytics portal](log-analytics-log-search-portals.md) to analyze data with log queries. |
 | Edit       | Opens the view in View Designer to edit its contents and configuration.  |
 | Clone      | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
-| Date range | Set the date and time range filter for the data that's included in the view. |
+| Date range | Set the date and time range filter for the data that's included in the view. This date range is applied before any date ranges set in queries in the view.  |
 | +          | Define a custom filter that's defined for the view. |
 
 

@@ -1,7 +1,7 @@
 ---
-title: How to log dialogs in a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to log dialogs in a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to log dialogs in a Conversation Learner application.
+description: Learn how to log dialogs in a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,9 +12,13 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to log dialogs in a Conversation Learner application
+# How to log dialogs in a Conversation Learner model
 
 This tutorial shows how to do end-user testing within the Conversation Learner interface; how dialogs are logged; and how to make corrections to logged dialogs in order to improve your model.
+
+## Video
+
+[![Tutorial 9 Preview](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -26,9 +30,9 @@ You can use the log dialogs to review and make corrections to dialogs conducted 
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter LogDialogs. Then click Create.
 
 ### Create an entity
@@ -112,7 +116,7 @@ Now let's make corrections to the other dialog:
 
 1. Click on 'hello' under Log Dialogs.
 	- This opens the conversation.
-3. Note the response to 'hello' is 'which city'. But we want to change that to something that makes more sense. A better answer would be something like 'hello, I'm the weather bot'. But there is no action that does that so we have to create one.
+3. The response to 'hello' is 'which city'. But we want to change that to something that makes more sense. A better answer would be something like 'hello, I'm the weather bot'. But there is no action that does that so we have to create one.
 4. Click on Action.
 	- In the Response, type 'I'm the weather bot. I can help with forecasts.'
 6. Un-check the Wait for Response check-box to make it a non-wait action.

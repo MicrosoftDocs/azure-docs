@@ -61,8 +61,6 @@
       maintainContext: true
     - name: Use Kafka with Azure Container Service
       href: apache-kafka-azure-container-services.md
-    - name: Kafka and Azure Functions
-      href: apache-kafka-azure-functions.md
   - name: Develop
     items:
     - name: Use empty edge nodes

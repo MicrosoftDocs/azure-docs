@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure IoT device management with IoT extension for Azure CLI 2.0 | Microsoft Docs
 description: Use the IoT extension for Azure CLI 2.0 tool for Azure IoT Hub device management, featuring the Direct methods and the Twin’s desired properties management options.
 author: chrissie926

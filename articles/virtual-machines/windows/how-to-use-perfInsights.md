@@ -17,7 +17,7 @@ ms.date: 05/11/2018
 ms.author: genli
 
 ---
-# How to use PerfInsights 
+# How to use PerfInsights
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects & analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
@@ -27,7 +27,7 @@ If you are experiencing performance problems with virtual machines, before conta
 
 PerfInsights can collect and analyze several kinds of information. The following sections cover common scenarios.
 
-### Collect basic configuration 
+### Quick performance analysis
 
 This scenario collects the disk configuration and other important information, including:
 
@@ -61,11 +61,11 @@ This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
-### Slow VM analysis 
+### Performance analysis
 
 This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the RuleEngineConfig.json file. If the VM is identified as a server that is running SQL Server, a performance counter trace is run. It does so by using the counters that are found in the RuleEngineConfig.json file. This scenario also includes performance diagnostics data.
 
-### Azure Files analysis 
+### Azure Files analysis
 
 This scenario runs a special performance counter capture together with a network trace. The capture includes all the Server Message Block (SMB) client shares counters. The following are some key SMB client share performance counters that are part of the capture:
 
@@ -87,9 +87,9 @@ This scenario runs a special performance counter capture together with a network
 |              | Avg. Write Queue Length       |
 |              | Avg. Data Queue Length        |
 
-### Custom slow VM analysis 
+### Advanced performance analysis
 
-When you run a custom slow VM analysis, you select traces to run in parallel. If you want, you can run them all (Performance Counter, Xperf, Network, and StorPort).  
+When you run an advanced performance analysis, you select traces to run in parallel. If you want, you can run them all (Performance Counter, Xperf, Network, and StorPort).  
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
@@ -101,7 +101,7 @@ Information about Windows VM, disks or storage pools configuration, performance 
 
 |Data collected                              |  |  | Performance scenarios |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Collect basic configuration | Benchmarking | Slow VM analysis | Azure Files analysis | Custom slow VM analysis |
+|                               | Quick performance analysis | Benchmarking | Performance analysis | Azure Files analysis | Advanced performance analysis |
 | Information from event logs       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | System information                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | Volume map                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
@@ -135,7 +135,7 @@ Runs a rule-based engine in the background to collect data and diagnose ongoing 
 - HighMemoryUsage rule: Detects high memory usage periods, and shows the top memory usage consumers during those periods.
 
 > [!NOTE] 
-> Currently, Windows versions that include the .NET Framework 3.5 or later versions are supported.
+> Currently, Windows versions that include the .NET Framework 4.5 or later versions are supported.
 
 ### Performance counter trace (**)
 
@@ -168,9 +168,9 @@ Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
 #### Possible problems when you run the tool on production VMs
 
--  For the benchmarking scenario or the "Custom slow VM analysis" scenario that is configured to use Xperf or Diskspd, the tool might adversely affect the performance of the VM. These scenarios should not be run in a live production environment.
+-  For the benchmarking scenario or the "Advanced performance analysis" scenario that is configured to use Xperf or Diskspd, the tool might adversely affect the performance of the VM. These scenarios should not be run in a live production environment.
 
--  For the benchmarking scenario or the "Custom slow VM analysis" scenario that is configured to use Diskspd, ensure that no other background activity interferes with the I/O workload.
+-  For the benchmarking scenario or the "Advanced performance analysis" scenario that is configured to use Diskspd, ensure that no other background activity interferes with the I/O workload.
 
 -  By default, the tool uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, and can therefore affect any application that relies on this drive.
 
@@ -209,19 +209,19 @@ To run the PerfInsights tool, follow these steps:
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    You can use the below example to run slow VM scenario for 5 mins:
+    You can use the below example to run performance analysis scenario for 5 mins:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    You can use the following example to run the custom scenario with Xperf and Performance counter traces for 5 mins:
+    You can use the following example to run the advanced scenario with Xperf and Performance counter traces for 5 mins:
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    You can use the below example to run slow VM scenario for 5 mins and upload the result zip file to the storage account:
+    You can use the below example to run performance analysis scenario for 5 mins and upload the result zip file to the storage account:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
@@ -240,13 +240,13 @@ To run the PerfInsights tool, follow these steps:
     >
     >By default, PerfInsights will try updating itself to the latest version if available. Use **/SkipAutoUpdate** or **/sau** parameter to skip auto update.  
     >
-    >If the duration switch **/d** is not specified, PerfInsights will prompt you to repro the issue while running vmslow, azurefiles and custom scenarios. 
+    >If the duration switch **/d** is not specified, PerfInsights will prompt you to repro the issue while running vmslow, azurefiles and advanced scenarios. 
 
-When the traces or operations are completed, a new file appears in the same folder as PerfInsights. The name of the file is **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** You can send this file to the support agent for analysis or open the report inside the zip file to review findings and recommendations.
+When the traces or operations are completed, a new file appears in the same folder as PerfInsights. The name of the file is **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** You can send this file to the support agent for analysis or open the report inside the zip file to review findings and recommendations.
 
 ## Review the diagnostics report
 
-Within the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, and then open the **PerfInsights Report.html** file.
+Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, and then open the **PerfInsights Report.html** file.
 
 Select the **Findings** tab.
 
@@ -254,9 +254,9 @@ Select the **Findings** tab.
 ![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> Findings categorized as critical are known issues that might cause performance issues. Findings categorized as important represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as informational are informative statements only.
+> Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.
 
-Review the recommendations and links for all critical and important findings. Learn about how they can affect performance, and also about best practices for performance-optimized configurations.
+Review the recommendations and links for all high and medium findings. Learn about how they can affect performance, and also about best practices for performance-optimized configurations.
 
 ### Storage tab
 
@@ -311,4 +311,4 @@ The following screenshot shows a message similar to what you might receive:
 
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
-After you sign in, you will find a dialog box to upload the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.
+After you sign in, you will find a dialog box to upload the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.

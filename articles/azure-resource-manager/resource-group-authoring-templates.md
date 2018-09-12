@@ -210,6 +210,7 @@ Within your template, you can create your own functions. These functions are ava
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
+* The function can't access template parameters. That is, the [parameters function](resource-group-template-functions-deployment.md#parameters) is restricted to function parameters.
 * The function can't call other user-defined functions.
 * The function can't use the [reference function](resource-group-template-functions-resource.md#reference).
 * Parameters for the function can't have default values.
@@ -308,4 +309,4 @@ You can exceed some template limits by using a nested template. For more informa
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
+* For recommendations on creating Resource Manager templates that you can use across global Azure, Azure sovereign clouds, and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).

@@ -2,18 +2,14 @@
 title: host.json reference for Azure Functions
 description: Reference documentation for the Azure Functions host.json file.
 services: functions
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/12/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # host.json reference for Azure Functions
@@ -154,8 +150,11 @@ Configuration settings for [Durable Functions](durable-functions-overview.md).
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
     "TraceInputsAndOutputs": false,
+    "LogReplayEvents": false,
     "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey"
+    "EventGridKeySettingName":  "EventGridKey",
+    "EventGridPublishRetryCount": 3,
+    "EventGridPublishRetryInterval": "00:00:30"
   }
 }
 ```
@@ -173,8 +172,11 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |MaxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
 |AzureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
 |TraceInputsAndOutputs |false|A value indicating whether to trace the inputs and outputs of function calls. The default behavior when tracing function execution events is to include the number of bytes in the serialized inputs and outputs for function calls. This provides minimal information about what the inputs and outputs look like without bloating the logs or inadvertently exposing sensitive information to the logs. Setting this property to true causes the default function logging to log the entire contents of function inputs and outputs.|
-|EventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint.|
-|EventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.
+|LogReplayEvents|false|A value indicating whether to write orchestration replay events to Application Insights.|
+|EventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint. This property supports App Settings resolution.|
+|EventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.|
+|EventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid Topic fails.|
+|EventGridPublishRetryInterval|5 minutes|The Event Grid publish retry interval in the *hh:mm:ss* format.|
 
 Many of these are for optimizing performance. For more information, see [Performance and scale](durable-functions-perf-and-scale.md).
 

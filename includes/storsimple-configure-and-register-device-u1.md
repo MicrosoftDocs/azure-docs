@@ -7,7 +7,7 @@
 3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
    
     ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
-4. In the serial console menu that is presented, choose option 1 to log on with full access. 
+4. In the serial console menu that is presented, choose option 1, **Log in with full access**. 
    
     ![StorSimple register device 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
    

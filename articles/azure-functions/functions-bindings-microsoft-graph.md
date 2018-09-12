@@ -3,13 +3,11 @@ title: Microsoft Graph bindings for Azure Functions
 description: Understand how to use Microsoft Graph triggers and bindings in Azure Functions.
 services: functions
 author: mattchenderson
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
 ---
@@ -735,6 +733,7 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
         .Value;
     await myOneDriveFile.WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
+    myOneDriveFile.Close();
     return;
 }
 ```
@@ -972,7 +971,7 @@ Webhooks allow you to react to events in the Microsoft Graph. To support webhook
 - A [Microsoft Graph webhook subscription input binding](#webhook-input) allows you to list existing subscriptions and optionally refresh them.
 - A [Microsoft Graph webhook subscription output binding](#webhook-output) allows you to create or delete webhook subscriptions.
 
-The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
 
 For more information about webhooks, see [Working with webhooks in Microsoft Graph].
 
@@ -1502,8 +1501,8 @@ module.exports = function (context) {
     const existing = context.bindings.existingSubscriptions;
     var toRefresh = [];
     for (var i = 0; i < existing.length; i++) {
-        context.log(`Deleting subscription ${existing[i]}`);
-        todelete.push(existing[i]);
+        context.log(`Refreshing subscription ${existing[i]}`);
+        toRefresh.push(existing[i]);
     }
     context.bindings.subscriptionsToRefresh = toRefresh;
     context.done();

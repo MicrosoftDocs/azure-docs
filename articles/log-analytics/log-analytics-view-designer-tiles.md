@@ -4,7 +4,7 @@ description: By using View Designer in Log Analytics, you can create custom view
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Reference guide to View Designer tiles in Log Analytics
 By using View Designer in Azure Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations in your Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
 

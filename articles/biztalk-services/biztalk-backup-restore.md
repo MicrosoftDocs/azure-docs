@@ -50,7 +50,7 @@ To restore a backup, use the [REST API for Managing BizTalk Services on Azure](h
 ### <a name="postrestore"></a>After restoring a backup
 The BizTalk Service is always restored in a **Suspended** state. In this state, you can make any configuration changes before the new environment is functional, including:
 
-* If you created BizTalk Service applications using the Azure BizTalk Services SDK, you may need to to update the Access Control (ACS) credentials in those applications to work with the restored environment.
+* If you created BizTalk Service applications using the Azure BizTalk Services SDK, you may need to update the Access Control (ACS) credentials in those applications to work with the restored environment.
 * You restore a BizTalk Service to replicate an existing BizTalk Service environment. In this situation, if there are agreements configured in the original BizTalk Services portal that use a source FTP folder, you may need to update the agreements in the newly restored environment to use a different source FTP folder. Otherwise, there may be two different agreements trying to pull the same message.
 * If you restored to have multiple BizTalk Service environments, make sure you target the correct environment in the Visual Studio applications, PowerShell cmdlets, REST APIs, or Trading Partner Management OM APIs.
 * It's a good practice to configure automated backups on the newly restored BizTalk Service environment.

@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.custom: mvc
+ms.component: na
 ---
 
 # Delete an Azure Log Analytics workspace with the Azure portal

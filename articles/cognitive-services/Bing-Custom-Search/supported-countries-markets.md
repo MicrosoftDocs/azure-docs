@@ -1,6 +1,6 @@
 ﻿---
-title: Supported countries and languages for Bing Custom Search API on Azure | Microsoft Docs
-description: Find out which countries and languages are supported by the Bing Custom Search API.
+title: Supported countries/regions and languages for Bing Custom Search API on Azure | Microsoft Docs
+description: Find out which countries/regions and languages are supported by the Bing Custom Search API.
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
@@ -10,19 +10,19 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod
 ---
-# Bing Custom Search countries and languages
+# Bing Custom Search countries/regions and languages
 
-The Bing Custom Search API supports more than three dozen countries, many with more than one language. 
+The Bing Custom Search API supports more than three dozen countries/regions, many with more than one language. 
 
 Although it's optional, the request should specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
 
-You can specify a country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` header. The supported languages vary by country; they are given for each country in the **Markets** table.
+You can specify a country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` header. The supported languages vary by country/region; they are given for each country/region in the **Markets** table.
 
 The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## Countries
 
-|Country|Code|
+|Country/region|Code|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -64,7 +64,7 @@ The `Accept-Language` header and the `setLang` query parameter are mutually excl
 
 ## Markets
 
-|Country|Language|Market Code|
+|Country/region|Language|Market Code|
 |-------|--------|-----------|
 |Argentina|Spanish|es-AR|
 |Australia|English|en-AU|

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - WordPress | Microsoft Docs
 description: Azure PowerShell Script Sample - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 
 # Create a WordPress VM with PowerShell
 
-This script creates a virtual machine and uses the Azure Virtual Machine custom script extension to install WordPress. After running the script, you can access the WordPress configuration site at  `http://<public IP of VM>/wordpress`. 
+This script creates a virtual machine and uses the Azure Virtual Machine custom script extension to install WordPress. After running the script, you can access the WordPress configuration site at  `http://<public IP of VM>/wordpress`.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -31,7 +31,7 @@ This script creates a virtual machine and uses the Azure Virtual Machine custom 
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 

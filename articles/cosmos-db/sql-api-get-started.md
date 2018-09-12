@@ -15,14 +15,14 @@ ms.author: sngun
 
 ---
 # Azure Cosmos DB: SQL API getting started tutorial
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js for MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
@@ -49,7 +49,7 @@ Now let's get started!
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
 ## Step 1: Create an Azure Cosmos DB account
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).

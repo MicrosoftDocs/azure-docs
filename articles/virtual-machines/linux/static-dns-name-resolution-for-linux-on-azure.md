@@ -20,7 +20,7 @@ ms.author: v-livech
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure
-This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
+This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI 2.0. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
 
 The requirements are:
 

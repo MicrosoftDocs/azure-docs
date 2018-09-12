@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/23/2018
 ms.author: carlrab
 
 ---
@@ -16,7 +16,7 @@ ms.author: carlrab
 Azure SQL Database provides [recommendations](sql-database-advisor.md) that you can use to improve performance of your database, or you can let Azure SQL Database [automatically adapt to your application](sql-database-automatic-tuning.md) and apply changes that will improve performance of your workload.
 
 In you don't have any applicable recommendations, and you still have performance issues, you might use the following methods to improve performances:
-- Increase the service tiers in your [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or your [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) to provide more resources to your database.
+- Increase the service tiers in your [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or your [vCore-based purchasing model](sql-database-service-tiers-vcore.md) to provide more resources to your database.
 - Tune your application and apply some best practices that can improve performance. 
 - Tune the database by changing indexes and queries to more efficiently work with data.
 
@@ -24,7 +24,7 @@ These are manual methods because you need to decide the amount of resources meet
 
 ## Increasing performance tier of your database
 
-Azure SQL Database offers two purchasing models, a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and a [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers two purchasing models, a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
@@ -35,7 +35,7 @@ Azure SQL Database offers two purchasing models, a [DTU-based purchasing model](
   * **You have a database with a single user**. Applications that associate a single user with a database typically don’t have high concurrency and performance requirements. These applications are candidates for the Basic service tier.
 * **Standard**: The Standard service tier offers improved performance predictability and provides good performance for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.
   * **Your database has multiple concurrent requests**. Applications that service more than one user at a time usually need higher performance levels. For example, workgroup or web applications that have low to medium IO traffic requirements supporting multiple concurrent queries are good candidates for the Standard service tier.
-* **Premium**: The Premium service tier provides predictable performance, second over second, for each Premium or Business Critical (preview) database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency. Most Premium service tier use cases have one or more of these characteristics:
+* **Premium**: The Premium service tier provides predictable performance, second over second, for each Premium or Business Critical database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency. Most Premium service tier use cases have one or more of these characteristics:
   * **High peak load**. An application that requires substantial CPU, memory, or input/output (IO) to complete its operations requires a dedicated, high-performance level. For example, a database operation known to consume several CPU cores for an extended time is a candidate for the Premium service tier.
   * **Many concurrent requests**. Some database applications service many concurrent requests, for example, when serving a website that has a high traffic volume. Basic and Standard service tiers limit the number of concurrent requests per database. Applications that require more connections would need to choose an appropriate reservation size to handle the maximum number of needed requests.
   * **Low latency**. Some applications need to guarantee a response from the database in minimal time. If a specific stored procedure is called as part of a broader customer operation, you might have a requirement to have a return from that call in no more than 20 milliseconds, 99 percent of the time. This type of application benefits from the Premium service tier, to make sure that the required computing power is available.
@@ -267,7 +267,7 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 * For more information about DTU-based service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
-* For more information about vCore-based service tiers, see [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
+* For more information about vCore-based service tiers, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 * For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
 * For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
 

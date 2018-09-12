@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -99,7 +99,7 @@ Before you can generate the Azure Enterprise Agreement API key to set up Azure C
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
 
-Only an Azure service administrator can enable Cost Management. Co-administrator permissions are insufficient. However, you can work around the administrator requirement. You can request that your Azure Active Directory administrator grant permission to authorize the **CloudynAzureCollector** with a PowerShell script. The following script grants permission to register the Azure Active Directory Service Principal **CloudynAzureCollector**.
+Only an Azure service administrator can enable Cost Management. Co-administrator permissions are insufficient. However, you can work around the administrator requirement. You can request that your Azure Active Directory administrator grant permission to authorize the **CloudynAzureCollector** with a PowerShell script. The following script grants permission to register the Azure Active Directory Service Principal **CloudynAzureCollector**. When successfully run, the operation ends with the browser showing the URL http://localhost:8080/CloudynJava.
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

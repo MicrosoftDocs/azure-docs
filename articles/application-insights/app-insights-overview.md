@@ -13,13 +13,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/14/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
 ---
 # What is Application Insights?
-Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center and HockeyApp.
-
-![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
+Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
 
 [Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
@@ -29,7 +27,6 @@ You install a small instrumentation package in your application, and set up an A
 You can instrument not only the web service application, but also any background components, and the JavaScript in the web pages themselves. 
 
 ![Application Insights instrumentation in your app sends telemetry to your Application Insights resource.](./media/app-insights-overview/01-scheme.png)
-
 
 In addition, you can pull in telemetry from the host environments such as performance counters, Azure diagnostics, or Docker logs. You can also set up web tests that periodically send synthetic requests to your web service.
 
@@ -135,7 +132,7 @@ Get started at development time with:
   * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Your suggestions:
-  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+  * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 

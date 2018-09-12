@@ -19,7 +19,7 @@ robots: noindex
 ---
 # Data Management Gateway - high availability and scalability (Preview)
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in](../create-self-hosted-integration-runtime.md). 
 
 
 This article helps you configure high availability and scalability solution with Data Management Gateway/ Integration.    
@@ -161,11 +161,11 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
 - Each integration runtime node must trust this certificate, as well as the client machine that is running the credential manager application. 
 > [!NOTE]
-> Credential manager application is used while securely setting credential from Copy Wizard/ Azure Portal. And this can be fired from any machine within the same network as the on premise/ private data store.
+> Credential manager application is used while securely setting credential from Copy Wizard/ Azure Portal. And this can be fired from any machine within the same network as the on-premises/ private data store.
 - Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
 - SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
-- Certificate using CNG keys are not supported. Doesrted DoesDoes not support certificates that use CNG keys.
+- Certificate using CNG keys are not supported.
 
 #### FAQ: When would I not enable this encryption?
 Enabling encryption can add certain cost to your infrastructure (owning public certificate) hence you may skip enabling encryption in the below cases:

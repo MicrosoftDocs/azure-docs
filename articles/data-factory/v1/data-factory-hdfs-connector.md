@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data from on-premises HDFS using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-hdfs-connector.md)
-> * [Version 2 - Preview](../connector-hdfs.md)
+> * [Version 1](data-factory-hdfs-connector.md)
+> * [Version 2 (current version)](../connector-hdfs.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [HDFS connector in V2](../connector-hdfs.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [HDFS connector in V2](../connector-hdfs.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises HDFS. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
@@ -69,7 +69,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. |No |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) output of the access credential. |No |
 
 ### Using Anonymous authentication
 

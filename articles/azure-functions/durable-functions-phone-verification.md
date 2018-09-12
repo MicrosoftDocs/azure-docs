@@ -2,17 +2,13 @@
 title: Human interaction and timeouts in Durable Functions - Azure
 description: Learn how to handle human interaction and timeouts in the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+author: kashimiz
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: azfuncdf
 ---
 
@@ -46,7 +42,7 @@ This article walks through the following functions in the sample app:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting and JavaScript. The code for Visual Studio development is shown at the end of the article.
  
 ## The SMS verification orchestration (Visual Studio Code and Azure portal sample code) 
 
@@ -56,7 +52,13 @@ The **E4_SmsPhoneVerification** function uses the standard *function.json* for o
 
 Here is the code that implements the function:
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 Once started, this orchestrator function does the following:
 
@@ -71,7 +73,7 @@ The user receives an SMS message with a four-digit code. They have 90 seconds to
 > It may not be obvious at first, but this orchestrator function is completely deterministic. This is because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and this property returns the same value on every replay at this point in the orchestrator code. This is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
 
 > [!WARNING]
-> It's important to [cancel timers using a CancellationTokenSource](durable-functions-timers.md) if you no longer need them to expire, as in the example above when a challenge response is accepted.
+> It's important to [cancel timers](durable-functions-timers.md) if you no longer need them to expire, as in the example above when a challenge response is accepted.
 
 ## Send the SMS message
 
@@ -81,7 +83,13 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 
 And here is the code that generates the 4-digit challenge code and sends the SMS message:
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+
+### JavaScript (Functions v2 only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
 This **E4_SendSmsChallenge** function only gets called once, even if the process crashes or gets replayed. This is good because you don't want the end user getting multiple SMS messages. The `challengeCode` return value is automatically persisted, so the orchestrator function always knows what the correct code is.
 
@@ -104,6 +112,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > Currently, JavaScript orchestration starter functions cannot return instance management URIs. This capability will be added in a later release.
 
 The orchestrator function receives the supplied phone number and immediately sends it an SMS message with a randomly generated 4-digit verification code &mdash; for example, *2168*. The function then waits 90 seconds for a response.
 

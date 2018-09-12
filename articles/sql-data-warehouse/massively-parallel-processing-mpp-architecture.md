@@ -3,7 +3,7 @@ title: Azure SQL Data Warehouse - MPP architecture | Microsoft Docs
 description: Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
@@ -14,6 +14,8 @@ ms.reviewer: igorstan
 
 # Azure SQL Data Warehouse - Massively parallel processing (MPP) architecture
 Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
+
+> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## MPP architecture components
 SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a data warehouse unit. SQL Data Warehouse separates compute from storage which enables you to scale compute independently of the data in your system.

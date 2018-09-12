@@ -10,13 +10,14 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-
+ms.component: na
 ---
+
 # Collect performance counters for Linux applications in Log Analytics 
 This article provides details for configuring the [OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications.  The applications included in this article are:  
 

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 07/21/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers
@@ -41,7 +41,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US | X |  |
+| Central US | X | X |
 | East US | X | X |
 | East US 2 | X | X |
 | North Central US | X | X |
@@ -53,11 +53,14 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
+| France Central |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
+| Australia Central |  | X |
+| Australia Central 2 |  | X |
 | Australia Southeast |  | X |
 | Central India | X | X |
 | West India | X | X |
@@ -89,6 +92,8 @@ The server is marked read-only when the amount of free storage reaches less than
 When the server is set to read-only, all existing sessions are disconnected and uncommitted transactions are rolled back. Any subsequent write operations and transaction commits fail. All subsequent read queries will work uninterrupted.  
 
 You can either increase the amount of provisioned storage to your server or start a new session in read-write mode and drop data to reclaim free storage. Running `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` sets the current session to read write mode. In order to avoid data corruption, do not perform any write operations when the server is still in read-only status.
+
+We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).
 
 ## Backup
 

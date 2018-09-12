@@ -18,16 +18,13 @@ ms.author: jingwang
 ---
 #  Fault tolerance of copy activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Version 2 - Preview](copy-activity-fault-tolerance.md)
+> * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Current version](copy-activity-fault-tolerance.md)
 
 The copy activity in Azure Data Factory offers you two ways to handle incompatible rows when copying data between source and sink data stores:
 
 - You can abort and fail the copy activity when incompatible data is encountered (default behavior).
 - You can continue to copy all of the data by adding fault tolerance and skipping incompatible data rows. In addition, you can log the incompatible rows in Azure Blob storage or Azure Data Lake Store. You can then examine the log to learn the cause for the failure, fix the data on the data source, and retry the copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [copy activity fault tolerance in V1](v1/data-factory-copy-activity-fault-tolerance.md).
 
 ## Supported scenarios
 Copy Activity supports three scenarios for detecting, skipping, and logging incompatible data:

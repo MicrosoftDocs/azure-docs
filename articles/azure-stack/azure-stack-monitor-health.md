@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 9/10/2018
 ms.author: mabrigg
 
 ---
@@ -28,6 +27,17 @@ Azure Stack includes infrastructure monitoring capabilities that enable you to v
  ## Understand health in Azure Stack
 
  Health and alerts are managed by the Health resource provider. Azure Stack infrastructure components register with the Health resource provider during Azure Stack deployment and configuration. This registration enables the display of health and alerts for each component. Health in Azure Stack is a simple concept. If alerts for a registered instance of a component exist, the health state of that component reflects the worst active alert severity; warning, or critical.
+
+## Alert severity definition
+
+In Azure Stack alerts are raised with only two severities: **warning** and **critical**.
+
+- **Warning**  
+  An operator can address the warning alert in a scheduled manner. The alert typically does not impact user workloads.
+
+- **Critical**  
+  An operator should address the critical alert with urgency. These are issues that currently impact or will soon impact Azure Stack users. 
+
  
  ## View and manage component health state
  
@@ -39,8 +49,8 @@ To view the health state in the portal, click the region that you want to view i
 
 You can click a resource provider or infrastructure role to view more detailed information.
 
-> [!WARNING]
->If you click an infrastructure role, and then click the role instance, there are options to Start, Restart, or Shutdown. Do not use these actions when you apply updates to an integrated system. Also, do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for an integrated systems environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
+> [!WARNING]  
+> If you click an infrastructure role, and then click the role instance, there are options to Start, Restart, or Shutdown. Do not use these actions when you apply updates to an integrated system. Also, do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for an integrated systems environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
 >
  
 ## View alerts

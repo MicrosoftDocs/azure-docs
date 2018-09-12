@@ -18,7 +18,7 @@ Azure is ubiquitous - it has a global footprint across 50+ geographical regions 
 [Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides turnkey global distribution, [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency models](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes all your data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema or index management. It is a multi-model service and supports document, key-value, graph, and column-family data models. As a natively born in the cloud service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
 
-![Azure Cosmos DB collection partitioned and distributed across three regions](./media/distribute-data-globally/global-apps.png)
+![Azure Cosmos DB container partitioned and distributed across three regions](./media/distribute-data-globally/global-apps.png)
 
 **A single Azure Cosmos DB container partitioned and distributed across multiple Azure regions**
 
@@ -30,11 +30,6 @@ In this article, we provide an overview of Azure Cosmos DB's global distribution
 
 ## <a id="EnableGlobalDistribution"></a>Enabling turnkey global distribution
 Azure Cosmos DB provides the following capabilities to enable you to easily write globally distributed applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) as well as the Azure portal.
-
-Watch the following video to see the turnkey global distribution feature in Azure Cosmos DB in action.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Ubiquitous regional presence 
 Azure is constantly growing its geographical presence by bringing [new regions](https://azure.microsoft.com/regions/) online. Azure Cosmos DB is classified as a *foundational service* in Azure and is available in all new Azure regions by default. This allows you to associate a geographical region with your Azure Cosmos DB database account as soon as Azure opens the new region for business.
@@ -88,7 +83,7 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 ### <a id="MultiHomingAPIs"></a>Multi-homing in Azure Cosmos DB
 Azure Cosmos DB allows you to interact with a database using either *logical* (region-agnostic) or *physical* (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of a failover. The latter, a physical endpoint, provides fine-grained control to the application to redirect reads and writes to specific regions.
 
-You can find information on how to configure read preferences for the [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Gremlin API](../cosmos-db/tutorial-global-distribution-graph.md), [Table API](../cosmos-db/tutorial-global-distribution-table.md), and [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in these articles.
+You can find information on how to configure read preferences for the [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md),  [Table API](../cosmos-db/tutorial-global-distribution-table.md), and [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in these articles.
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 Azure Cosmos DB is fully [schema-agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of the database engine allows Azure Cosmos DB to automatically and synchronously index all of the data upon ingestion, without requiring any schema or secondary indices from the user. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. Azure Cosmos DB guarantees that any changes to indexing policies explicitly made by you do not result in either performance or availability degradation.  
@@ -183,7 +178,7 @@ Since the implementation of a specific consistency model depends on the choice o
 ## <a id="ThroughputGuarantees"></a>Throughput guarantees 
 Azure Cosmos DB allows you to scale throughput (as well as, storage), elastically across any number of regions depending on your needs or demand. 
 
-![Azure Cosmos DB distributed and partitioned collections](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
+![Azure Cosmos DB distributed and partitioned containers](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 **A single Azure Cosmos DB container horizontally partitioned (across three resource partitions within a region) and then globally distributed across three Azure regions**
 

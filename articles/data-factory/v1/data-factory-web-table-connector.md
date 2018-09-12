@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data from a Web table source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-web-table-connector.md)
-> * [Version 2 - Preview](../connector-web-table.md)
+> * [Version 1](data-factory-web-table-connector.md)
+> * [Version 2 (current version)](../connector-web-table.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Web table connector in V2](../connector-web-table.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Web table connector in V2](../connector-web-table.md).
 
 This article outlines how to use the Copy Activity in Azure Data Factory to move data from a table in a Web page to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
 

@@ -20,10 +20,12 @@ ms.author: sngun
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js for MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
+> 
+
 
 Welcome to the Node.js tutorial for the Azure Cosmos DB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 

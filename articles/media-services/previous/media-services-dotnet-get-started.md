@@ -151,7 +151,7 @@ In Media Services, you upload (or ingest) your digital files into an asset. The 
 
 The **UploadFile** method defined below calls **CreateFromFile** (defined in .NET SDK Extensions). **CreateFromFile** creates a new asset into which the specified source file is uploaded.
 
-The **CreateFromFile** method takes **AssetCreationOptions, which lets you specify one of the following asset creation options:
+The **CreateFromFile** method takes **AssetCreationOptions**, which lets you specify one of the following asset creation options:
 
 * **None** - No encryption is used. This is the default value. Note that when using this option, your content is not protected in transit or at rest in storage.
   If you plan to deliver an MP4 using progressive download, use this option.

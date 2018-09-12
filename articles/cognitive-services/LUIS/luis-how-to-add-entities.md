@@ -3,13 +3,13 @@ title: Add entities in LUIS apps | Microsoft Docs
 titleSuffix: Azure
 description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Manage entities
@@ -252,8 +252,8 @@ See [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 You can search and filter utterances with the magnifying glass icon on the toolbar. 
 
 ## Train your app after changing model with entities
-After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
-Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](interactive-test.md), and [publish](publishapp.md) your app.
+Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](luis-interactive-test.md), and [publish](luis-how-to-publish-app.md) your app.
  

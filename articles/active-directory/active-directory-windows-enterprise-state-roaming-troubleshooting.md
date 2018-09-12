@@ -8,13 +8,14 @@ author: MarkusVi
 manager: mtillman
 editor: ''
 
+ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
@@ -67,7 +68,7 @@ Enterprise State Roaming requires the device to be registered with Azure AD. Alt
 **Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Azure AD, and the device does not sync. If it is showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Azure AD. The user may have to wait a few hours for the policy to be applied. Other troubleshooting steps may include retrying auto-registration by signing out and back in, or launching the task in Task Scheduler. In some cases, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
 
 
-**Potential issue**: The field for **AzureAdSettingsUrl** is empty and the device does not sync. The user may have last logged in to the device before Enterprise State Roaming was enabled in the Azure Active Directory Portal. Restart the device and have the user login. Optionally, in the portal, try having the IT Admin disable and re-enable Users May Sync Settings and Enterprise App Data. Once re-enabled, restart the device and have the user login. If this does not resolve the issue, **AzureAdSettingsUrl** may be empty in the case of a bad device certificate. In this case, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
+**Potential issue**: The field for **SettingsUrl** is empty and the device does not sync. The user may have last logged in to the device before Enterprise State Roaming was enabled in the Azure Active Directory Portal. Restart the device and have the user login. Optionally, in the portal, try having the IT Admin disable and re-enable Users May Sync Settings and Enterprise App Data. Once re-enabled, restart the device and have the user login. If this does not resolve the issue, **SettingsUrl** may be empty in the case of a bad device certificate. In this case, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
 
 ## Enterprise State Roaming and Multi-Factor Authentication 
 Under certain conditions, Enterprise State Roaming can fail to sync data if Azure Multi-Factor Authentication is configured. For additional details on these symptoms, see the support document [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -77,7 +78,7 @@ Under certain conditions, Enterprise State Roaming can fail to sync data if Azur
 **Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication conditional access policy and the access token on the device expires. Ensure that you sign in and sign out using the Microsoft Passport for Work PIN or complete Multi-Factor Authentication while accessing other Azure services like Office 365.
 
 ### Event Viewer
-For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync** and for identity-related issues with sync **Microsoft** > **Windows** > **AAD**.
+For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync-Azure** and for identity-related issues with sync **Microsoft** > **Windows** > **AAD**.
 
 
 ## Known issues
@@ -170,14 +171,6 @@ In Event Viewer under the AAD/Operational logs, this error may be seen with Even
 
 **Recommended action**  
 Proceed with the steps listed [KB3196528](https://support.microsoft.com/kb/3196528).  
-
-
-
-## Next steps
-
-- Use the [User Voice forum](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) to provide feedback and make suggestions on how to improve Enterprise State Roaming.
-
-- For more information, see the [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md). 
 
 ## Related topics
 * [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)

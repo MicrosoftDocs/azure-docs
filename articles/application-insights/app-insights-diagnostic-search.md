@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2018
+ms.date: 07/18/2018
 ms.author: mbullwin
 
 ---
@@ -129,24 +129,15 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 [Learn about sampling](app-insights-sampling.md).
 
 ## Create work item
-You can create a bug in GitHub or Visual Studio Team Services with the details from any telemetry item. 
+You can create a bug in GitHub or Azure DevOps with the details from any telemetry item. 
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
 
-The first time you do this, you are asked to configure a link to your Team Services account and project.
+The first time you do this, you are asked to configure a link to your Azure DevOps organization and project.
 
-![Fill the URL of your Team Services server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
+![Fill the URL of your Azure DevOps Services and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
 
 (You can also configure the link on the Work Items blade.)
-
-## Save your search
-When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
-
-![Click Favorite, set the name, and click Save](./media/app-insights-diagnostic-search/08-favorite-save.png)
-
-To see the search again, **go to the overview blade** and open Favorites:
-
-If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time. (If 'Relative' isn't available when you want to save a favorite, click Time Range in the header, and set a time range that isn't a custom range.)
 
 ## Send more telemetry to Application Insights
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:

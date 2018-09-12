@@ -1,16 +1,16 @@
 ---
 title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
-author: "ghogen"
+author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: "ghogen"
-ms.date: "06/06/2018"
+ms.author: ghogen
+ms.date: "07/09/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (Node.js)
 
@@ -26,7 +26,7 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with **Http Application Routing** enabled.
+- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
   ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -34,22 +34,31 @@ In this guide, you will learn how to:
 
 ## Set up Azure Dev Spaces
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 or higher).
+The Azure CLI and the Azure Dev Spaces extension can be installed and run on Windows, Mac, or Linux machines. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
+
+Follow these steps to set up Azure Dev Spaces:
+
+1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.43 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code.
-1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 
 ## Build and run code in Kubernetes
 
 1. Download sample code from GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Change directory to the webfrontend folder: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
 1. Generate Docker and Helm chart assets: `azds prep --public`
-1. Build your dev space in AKS. In the terminal window, run this command from the **root code folder**, webfrontend: `azds up`
+1. Build and run your code in AKS. In the terminal window from the **webfrontend folder**, run this command: `azds up`
 1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
 
-   `Service 'webfrontend' port 'http' is available at <url>` 
+   ```output
+   (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+   Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+   ```
 
-   Open this URL in a browser window, and you should see the web app load. 
+   Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
+   
+   > [!Note]
+   > On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative http://localhost:<portnumber> URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -66,7 +75,7 @@ Azure Dev Spaces isn't just about getting code running in Kubernetes - it's abou
 What happened? Edits to content files, like HTML and CSS, don't require the Node.js process to restart, so an active `azds up` command will automatically sync any modified content files directly into the running container in Azure, thereby providing a fast way to see your content edits.
 
 ### Test from a mobile device
-If you open the web app on a mobile device, you will notice that the UI does not display properly on a small device.
+Open the web app on a mobile device using the public URL for webfrontend. You may want to copy and send the URL from your desktop to your device to save you from entering the long address. When the web app loads in your mobile device, you will notice that the UI does not display properly on a small device.
 
 To fix this, you'll add a `viewport` meta tag:
 1. Open the file `./public/index.html`
@@ -110,9 +119,9 @@ In this section, you'll use VS Code to directly debug our container running in A
 ### Initialize debug assets with the VS Code extension
 You first need to configure your code project so VS Code will communicate with our dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
 
-Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Create configuration files for connected development`. 
+Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
+This adds debug configuration for Azure Dev Spaces under the `.vscode` folder. This command is not to be confused with the `azds prep` command, which configures the project for deployment.
 
 ![](./media/common/command-palette.png)
 
@@ -120,7 +129,7 @@ This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **Launch Program (AZDS)** as the active debug configuration.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces.
@@ -173,4 +182,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-nodejs.md#call-a-service-running-in-a-separate-container)
+> [Working with multiple containers and team development](team-development-nodejs.md)

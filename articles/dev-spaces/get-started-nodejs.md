@@ -4,35 +4,37 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
-ms.date: "05/11/2018"
+author: ghogen
+ms.author: ghogen
+ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Get Started on Azure Dev Spaces with Node.js
 
-[!INCLUDE[](includes/learning-objectives.md)]
+[!INCLUDE [](includes/learning-objectives.md)]
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+[!INCLUDE [](includes/see-troubleshooting.md)]
 
 You're now ready to create a Kubernetes-based development environment in Azure.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+[!INCLUDE [](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Your local machine can run Windows, Mac, or Linux. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
+
+Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> If you already have the Azure CLI installed, make sure you are using version 2.0.33 or higher.
+> If you already have the Azure CLI installed, make sure you are using version 2.0.43 or higher.
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+[!INCLUDE [](includes/sign-into-azure.md)]
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+[!INCLUDE [](includes/use-dev-spaces.md)]
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+[!INCLUDE [](includes/install-vscode-extension.md)]
 
 While you're waiting for the cluster to be create, you can start writing code.
 
@@ -43,9 +45,9 @@ In this section, you'll create a Node.js web app and get it running in a contain
 ### Create a Node.js Web App
 Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
-[!INCLUDE[](includes/azds-prep.md)]
+[!INCLUDE [](includes/azds-prep.md)]
 
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+[!INCLUDE [](includes/build-run-k8s-cli.md)]
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -62,7 +64,7 @@ Azure Dev Spaces isn't just about getting code running in Kubernetes - it's abou
 What happened? Edits to content files, like HTML and CSS, don't require the Node.js process to restart, so an active `azds up` command will automatically sync any modified content files directly into the running container in Azure, thereby providing a fast way to see your content edits.
 
 ### Test from a mobile device
-If you open the web app on a mobile device, you will notice that the UI does not display properly on a small device.
+Open the web app on a mobile device using the public URL for webfrontend. You may want to copy and send the URL from your desktop to your device to save you from entering the long address. When the web app loads in your mobile device, you will notice that the UI does not display properly on a small device.
 
 To fix this, you'll add a `viewport` meta tag:
 1. Open the file `./public/index.html`
@@ -99,15 +101,15 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 ## Debug a container in Kubernetes
 
-[!INCLUDE[](includes/debug-intro.md)]
+[!INCLUDE [](includes/debug-intro.md)]
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+[!INCLUDE [](includes/init-debug-assets-vscode.md)]
 
 ### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **Launch Program (AZDS)** as the active debug configuration.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have [installed the VS Code extension for Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
@@ -117,7 +119,7 @@ Hit **F5** to debug your code in Kubernetes!
 
 Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+[!INCLUDE [](includes/tip-vscode-status-bar-url.md)]
 
 Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` in  `server.js`. Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
 
@@ -157,76 +159,8 @@ In this configuration, the container is configured to start *nodemon*. When serv
 
 **Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!** Next, you'll see how you can create and call a second container.
 
-## Call a service running in a separate container
+## Next steps
 
-In this section you're going to create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. You'll then debug across both containers.
-
-![](media/common/multi-container.png)
-
-### Open sample code for *mywebapi*
-You should already have the sample code for `mywebapi` for this guide under a folder named `samples` (if not, go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository.) The code for this section is in `samples/nodejs/getting-started/mywebapi`.
-
-### Run *mywebapi*
-1. Open the folder `mywebapi` in a *separate VS Code window*.
-1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the VS Code debug bar appears.
-1. Take note of the endpoint URL, it will look something like http://localhost:\<portnumber\>. **Tip: The VS Code status bar will display a clickable URL.** It may seem like the container is running locally, but actually it is running in your development environment in Azure. The reason for the localhost address is because `mywebapi` has not defined any public endpoints and can only be accessed from within the Kubernetes instance. For your convenience, and to facilitate interacting with the private service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
-1. When `mywebapi` is ready, open your browser to the localhost address. You should see a response from the `mywebapi` service ("Hello from mywebapi").
-
-
-### Make a request from *webfrontend* to *mywebapi*
-Let's now write code in `webfrontend` that makes a request to `mywebapi`.
-1. Switch to the VS Code window for `webfrontend`.
-1. Add these lines of code at the top of `server.js`:
-    ```javascript
-    var request = require('request');
-    ```
-
-3. *Replace* the code for the `/api` GET handler. When handling a request, it in turn makes a call to `mywebapi`, and then returns the results from both services.
-
-    ```javascript
-    app.get('/api', function (req, res) {
-       request({
-          uri: 'http://mywebapi',
-          headers: {
-             /* propagate the dev space routing header */
-             'azds-route-as': req.headers['azds-route-as']
-          }
-       }, function (error, response, body) {
-           res.send('Hello from webfrontend and ' + body);
-       });
-    });
-    ```
-
-The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this helps teams with collaborative development.
-
-### Debug across multiple services
-1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
-1. Set a breakpoint in the default GET `/` handler.
-1. In the `webfrontend` project, set a breakpoint just before it sends a GET request to `http://mywebapi`.
-1. Hit F5 in the `webfrontend` project.
-1. Open the web app, and step through code in both services. The web app should display a message concatenated by the two services: "Hello from webfrontend and Hello from mywebapi."
-
-Well done! You now have a multi-container application where each container can be developed and deployed separately.
-
-## Learn about team development
-
-[!INCLUDE[](includes/team-development-1.md)]
-
-Now see it in action:
-1. Go to the VS Code window for `mywebapi` and make a code edit to the default GET `/` handler, for example:
-
-    ```javascript
-    app.get('/', function (req, res) {
-        res.send('mywebapi now says something new');
-    });
-    ```
-
-[!INCLUDE[](includes/team-development-2.md)]
-
-[!INCLUDE[](includes/well-done.md)]
-
-[!INCLUDE[](includes/clean-up.md)]
-
-
-
+> [!div class="nextstepaction"]
+> [Learn about team development](team-development-nodejs.md)
 

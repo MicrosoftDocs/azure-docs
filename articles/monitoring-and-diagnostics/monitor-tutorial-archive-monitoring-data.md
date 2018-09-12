@@ -132,6 +132,11 @@ Monitoring data from your virtual machines is now flowing into the storage accou
 
 ## View the monitoring data in the storage account
 
+> [!WARNING]
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
 If you have followed the preceding steps, data has begun flowing to your storage account.
 
 1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./monitor-quick-audit-notify-action-in-subscription.md). You may need to wait up to five minutes before the event appears in the storage account.

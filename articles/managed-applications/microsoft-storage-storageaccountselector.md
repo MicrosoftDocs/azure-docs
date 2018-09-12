@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
 
 ---
@@ -20,9 +20,17 @@ ms.author: tomfitz
 A control for selecting a new or existing storage account.
 
 ## UI sample
+
+The control shows the default value.
+
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
+The control enables the user to create a new storage account or select an existing storage account.
+
+![Microsoft.Storage.StorageAccountSelector new](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+
 ## Schema
+
 ```json
 {
   "name": "element1",
@@ -45,17 +53,13 @@ A control for selecting a new or existing storage account.
 ```
 
 ## Remarks
-- If specified, `defaultValue.name` is automatically validated for uniqueness. If the storage account name is not unique, the user must specify a different name or choose an existing storage account.
+- If specified, `defaultValue.name` is automatically validated for uniqueness. If the storage account name isn't unique, the user must specify a different name or choose an existing storage account.
 - The default value for `defaultValue.type` is **Premium_LRS**.
-- Any type not specified in `constraints.allowedTypes` is hidden, and any
-type not specified in `constraints.excludedTypes` is shown.
-`constraints.allowedTypes` and `constraints.excludedTypes` are both optional,
-but cannot be used simultaneously.
-- If `options.hideExisting` is **true**, the user can't choose an
-existing storage account. The default value is **false**.
-
+- Any type not specified in `constraints.allowedTypes` is hidden, and any type not specified in `constraints.excludedTypes` is shown. `constraints.allowedTypes` and `constraints.excludedTypes` are both optional, but can't be used simultaneously.
+- If `options.hideExisting` is **true**, the user can't choose an existing storage account. The default value is **false**.
 
 ## Sample output
+
 ```json
 {
   "name": "storageaccount01",

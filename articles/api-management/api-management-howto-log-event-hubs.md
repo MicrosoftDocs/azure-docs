@@ -51,7 +51,7 @@ Specify the request body using the following template:
   "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
-    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "name" : "Name of the Event Hub from the portal",
     "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
 }
@@ -61,7 +61,21 @@ Specify the request body using the following template:
 * `description` provides an optional description of the logger and can be a zero length string if desired.
 * `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
 
-When you make the request, if the logger is created a status code of `201 Created` is returned.
+When you make the request, if the logger is created, a status code of `201 Created` is returned. A sample response based on the above sample request is shown below.
+
+```json
+{
+    "id": "/loggers/{new logger name}",
+    "loggerType": "azureEventHub",
+    "description": "Sample logger description",
+    "credentials": {
+        "name": "Name of the Event Hub from the Portal",
+        "connectionString": "{{Logger-Credentials-xxxxxxxxxxxxxxx}}"
+    },
+    "isBuffered": true,
+    "resourceId": null
+}
+```
 
 > [!NOTE]
 > For other possible return codes and their reasons, see [Create a Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). To see how to perform other operations such as list, update, and delete, see the [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entity documentation.
@@ -87,7 +101,7 @@ Once your logger is configured in API Management, you can configure your log-to-
   @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
 </log-to-eventhub>
 ```
-Replace `logger-id` with the name of the API Management logger you configured in the previous step.
+Replace `logger-id` with the value you used for `{new logger name}` in the URL to create the logger in the previous step.
 
 You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string containing the date and time, service name, request id, request ip address, and operation name is logged.
 

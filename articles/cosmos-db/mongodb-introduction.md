@@ -4,14 +4,14 @@ description: Learn how you can use Azure Cosmos DB to store and query massive vo
 keywords: what is MongoDB
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+manager: slyons
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
-ms.author: sngun
+ms.author: sclyon
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---
@@ -23,7 +23,7 @@ experiment_id: "662dc5fd-886f-4a"
 
 Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This functionality means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB globally distributed database applications in the Azure cloud with Azure Cosmos DB and it's [comprehensive industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db), while continuing to use familiar skills and tools for MongoDB.
 
-**MongoDB compatibility**: You can use your existing MongoDB expertise, application code, and tooling as Azure Cosmos DB implements the MongoDB 3.4 (version 5) wire protocol and supports the [MongoDB aggregation pipeline](mongodb-feature-support.md#aggregation-pipeline). You can develop applications using MongoDB and deploy them to production using the fully managed, and globally distributed Azure Cosmos DB service.
+**MongoDB compatibility**: You can use your existing MongoDB expertise, application code, and tooling as Azure Cosmos DB implements the MongoDB wire protocol. You can develop applications using MongoDB and deploy them to production using the fully managed, and globally distributed Azure Cosmos DB service. For more information on supported versions see [MongoDB Protocol Support](mongodb-feature-support.md#mongodb-protocol-support).
 
 ## What is the benefit of using Azure Cosmos DB for MongoDB applications?
 
@@ -33,7 +33,7 @@ Azure Cosmos DB databases can be used as the data store for apps written for [Mo
 
 **No server management**: You don't have to manage and scale your MongoDB databases. Azure Cosmos DB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. Azure Cosmos DB is available in 30+ [Azure Regions](https://azure.microsoft.com/regions/services/).
 
-**Tunable consistency levels:** Azure Cosmos DB currently implements MongoDB version 3.4, which has two consistency settings, strong and eventual. Because Azure Cosmos DB is multi-api, the consistency settings are applicable at the account level and enforcement of the consistency is controlled by each API. Until MongoDB 3.6, there was no concept of a session consistency, so if you set a MongoDB API account to use session consistency, the consistency is downgraded to eventual when using MongoDB APIs. If you need a read-your-own-write guarantee for a MongoDB API account, the default consistency level for the account should be set to strong or bounded staleness. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
+**Tunable consistency levels:** Because Azure Cosmos DB supports multi-model APIs the consistency settings are applicable at the account level and enforcement of the consistency is controlled by each API. Until MongoDB 3.6, there was no concept of a session consistency, so if you set a MongoDB API account to use session consistency, the consistency is downgraded to eventual when using MongoDB APIs. If you need a read-your-own-write guarantee for a MongoDB API account, the default consistency level for the account should be set to strong or bounded staleness. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 | Azure Cosmos DB Default Consistency Level |	Mongo API (3.4) |
 |---|---|
@@ -46,11 +46,6 @@ Azure Cosmos DB databases can be used as the data store for apps written for [Mo
 **Automatic indexing**: By default, Azure Cosmos DB automatically indexes all the properties within documents in your MongoDB database and does not expect or require any schema or creation of secondary indices. In addition, the unique index capability enables a uniqueness constraint on any document fields that are already auto-indexed in Azure Cosmos DB.
 
 **Enterprise grade**: Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
-
-Learn more in this video with Azure Cosmos DB Senior Program Manager, Aleksey Savateyev.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
-> 
 
 ## How to get started
 

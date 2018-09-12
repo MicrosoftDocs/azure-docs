@@ -114,7 +114,7 @@ The following example is an excerpt from a cluster manifest. To define entries i
 The [application health policy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) describes how the evaluation of events and child-states aggregation is done for applications and their children. It can be defined in the application manifest, **ApplicationManifest.xml**, in the application package. If no policies are specified, Service Fabric assumes that the entity is unhealthy if it has a health report or a child at the warning or error health state.
 The configurable policies are:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Specifies the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error. This percentage is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications are currently deployed on in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage: zero.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Specifies the default service type health policy, which replaces the default health policy for all service types in the application.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Provides a map of service health policies per service type. These policies replace the default service type health policies for each specified service type. For example, if an application has a stateless gateway service type and a stateful engine service type, you can configure the health policies for their evaluation differently. When you specify policy per service type, you can gain more granular control of the health of the service.
@@ -183,8 +183,8 @@ After the health store has evaluated all the children, it aggregates their healt
 
 * If all children have OK states, the child aggregated health state is OK.
 * If children have both OK and warning states, the child aggregated health state is warning.
-* If there are children with error states that do not respect the maximum allowed percentage of unhealthy children, the aggregated health state is an error.
-* If the children with error states respect the maximum allowed percentage of unhealthy children, the aggregated health state is warning.
+* If there are children with error states that do not respect the maximum allowed percentage of unhealthy children, the aggregated parent health state is an error.
+* If the children with error states respect the maximum allowed percentage of unhealthy children, the aggregated parent health state is warning.
 
 ## Health reporting
 System components, System Fabric applications, and internal/external watchdogs can report against Service Fabric entities. The reporters make *local* determinations of the health of the monitored entities, based on the conditions they are monitoring. They don't need to look at any global state or aggregate data. The desired behavior is to have simple reporters, and not complex organisms that need to look at many things to infer what information to send.

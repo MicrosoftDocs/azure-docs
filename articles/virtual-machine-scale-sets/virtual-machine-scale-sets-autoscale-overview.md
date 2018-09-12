@@ -3,7 +3,7 @@ title: Overview of autoscale with Azure virtual machine scale sets | Microsoft D
 description: Learn about the different ways that you can automatically scale an Azure virtual machine scale set based on performance or on a fixed schedule
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -102,7 +102,7 @@ When an autoscale rule triggers, your scale set can automatically scale in one o
 | Increase count by   | A fixed number of VM instances to create. Useful in scale sets with a smaller number of VMs.                                           |
 | Increase percent by | A percentage-based increase of VM instances. Good for larger scale sets where a fixed increase may not noticeably improve performance. |
 | Increase count to   | Create as many VM instances are required to reach a desired maximum amount.                                                            |
-| Decrease count to   | A fixed number of VM instances to remove. Useful in scale sets with a smaller number of VMs.                                           |
+| Decrease count by   | A fixed number of VM instances to remove. Useful in scale sets with a smaller number of VMs.                                           |
 | Decrease percent by | A percentage-based decrease of VM instances. Good for larger scale sets where a fixed increase may not noticeably reduce resource consumption and costs. |
 | Decrease count to   | Remove as many VM instances are required to reach a desired minimum amount.                                                            |
 

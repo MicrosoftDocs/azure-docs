@@ -1,17 +1,19 @@
 ---
 title: Review your access | Microsoft Docs
 description: Review your access with Azure Active Directory 
-author: markwahl-msft
+services: active-directory
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.component: compliance-reports
-ms.date: 09/19/2017
+ms.topic: conceptual
+ms.component: compliance
+ms.date: 07/16/2018
 ms.author: rolyon
+ms.reviewer: mwahl
 ---
 
 # Review your access
@@ -20,7 +22,11 @@ Azure Active Directory (Azure AD) simplifies how enterprises manage access to ap
 
 ## Open an access review
 
-To see the pending access reviews, select the link in the email. If you don't have the email, you can locate the access reviews by following these steps:
+To see the pending access reviews, click the review access link in the email. Starting in August 2018, the email notifications for Azure AD roles have an updated design. The following shows an example email that is sent when a user is invited to be a reviewer.
+
+![Review access email](./media/active-directory-azure-ad-controls-how-to-review-your-access/new-ar-email.png)
+
+If you don't have the email, you can locate the access reviews by following these steps:
 
 1. Sign in on the [Azure AD access panel](https://myapps.microsoft.com).
 

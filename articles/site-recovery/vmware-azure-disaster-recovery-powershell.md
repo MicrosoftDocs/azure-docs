@@ -4,8 +4,8 @@ description: Learn how to set up replication and failover to Azure for VMware VM
 services: site-recovery
 author: bsiva
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: bsiva
 
 

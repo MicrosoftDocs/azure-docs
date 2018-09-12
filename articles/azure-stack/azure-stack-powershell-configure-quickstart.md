@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 
 ---
@@ -24,12 +23,14 @@ ms.author: mabrigg
 
 This quickstart helps you to install and configure an Azure Stack environment with PowerShell. The script that we provide in this article is scoped to the **Azure Stack operator** only.
 
-This article is a condensed version of the steps that are described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), and [Configure the Azure Stack operator's PowerShell environment]( azure-stack-powershell-configure-admin.md) articles. By using the scripts in this topic, you can set up PowerShell for Azure Stack environments that are deployed with Azure Active Directory or Active Directory Federation Services (AD FS).  
+This article is a condensed version of the steps that are described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), and [Configure the Azure Stack operator's PowerShell environment]( azure-stack-powershell-configure-admin.md) articles. By using the scripts in this article, you can set up PowerShell for Azure Stack environments that are deployed with Azure Active Directory or Active Directory Federation Services (AD FS).  
 
 
 ## Set up PowerShell for Azure Active Directory-based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as necessary for your environment configuration:
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. 
+-  
+- Make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as necessary for your environment configuration:
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -97,7 +98,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 ## Set up PowerShell for AD FS-based deployments
 
-You can use the following script if you are operating Azure Stack when connected to internet. However if you are operating Azure Stack without internet connectivity, use the [disconnected way of installing PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) and the cmdlets to configure PowerShell will remain same as shown in this script. Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
+You can use the following script if you are operating Azure Stack when connected to internet. However if you are operating Azure Stack without internet connectivity, use the [disconnected way of installing PowerShell](azure-stack-powershell-install.md) and the cmdlets to configure PowerShell will remain same as shown in this script. Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
 
 ```powershell
 

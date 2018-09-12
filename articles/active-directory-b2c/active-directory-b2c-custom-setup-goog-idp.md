@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
@@ -74,7 +74,7 @@ To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C,
 
     ![Google+ - Select application type](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Provide a **Name** for your application, enter `https://login.microsoftonline.com` in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). The **{tenant}** value is case-sensitive. Click **Create**.
+13.  Provide a **Name** for your application, enter `https://{tenant}.b2clogin.com` in the **Authorized JavaScript origins** field, and `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c). The **{tenant}** value is case-sensitive. Click **Create**.
 
     ![Google+ - Provide Authorized JavaScript origins and redirect URIs](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 

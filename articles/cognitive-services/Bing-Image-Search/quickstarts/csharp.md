@@ -1,16 +1,16 @@
 ---
-title: Call and response - C# Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Send search queries using the REST API for the Bing Image Search API using C#"
+description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using C#. 
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.date: 8/9/2018
+ms.author: aahi
 ---
-# Call and response: your first Bing Image Search query in C#
+# Quickstart: Send search queries using the REST API and C#
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
@@ -22,16 +22,16 @@ The example program uses .NET Core classes only and runs on Windows using the .N
 
 You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows. (The free Community Edition will work.)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the application
 
 To run this application, follow these steps.
 
 1. Create a new Console solution in Visual Studio.
-1. Replace `Program.cs` with the provided code.
-2. Replace the `accessKey` value with an access key valid for your subscription.
-3. Run the program.
+2. Replace `Program.cs` with the provided code.
+3. Replace the `accessKey` value with an access key valid for your subscription.
+4. Run the program.
 
 ```csharp
 using System;

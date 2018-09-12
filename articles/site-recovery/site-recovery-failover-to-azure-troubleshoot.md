@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/09/2018
+ms.date: 09/11/2018
 ms.author: ponatara
 
 ---
@@ -41,9 +41,9 @@ Site Recovery was not able to create a failed over Classic virtual machine in Az
 
 * One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
 
-## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
+## Unable to connect/RDP/SSH - VM Connect button grayed out
 
-If Connect button is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
+If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
 1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
@@ -53,25 +53,39 @@ If Connect button is grayed out and you are not connected to Azure via an Expres
 6. Now, to save the changes made, click **Save**.
 7. Close the panels and navigate to **Overview** section of virtual machine to connect/RDP.
 
-## Unable to connect/RDP/SSH to the failed over virtual machine even though Connect button is available (not grayed out) on the virtual machine
+## Unable to connect/RDP/SSH - VM Connect button available
 
-Check **Boot diagnostics** on your Virtual Machine and check for errors as listed in this article.
+If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/windows/boot-diagnostics.md).
 
 1. If the virtual machine has not started, try failing over to an older recovery point.
 2. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
-3. If the virtual machine is domain joined, then ensure that domain controller is functioning accurately. This can be done by following the below given steps.
-    a. create a new virtual machine in the same network
+3. If the virtual machine is domain joined, then ensure that domain controller is functioning accurately. This can be done by following the below given steps:
 
-    b.  ensure that it is able to join to the same domain on which the failed over virtual machine is expected to come up.
+    a. Create a new virtual machine in the same network.
 
-    c. If the domain controller is **not** functioning accurately, then try logging into the failed over virtual machine using a local administrator account
-4. If you are using a custom DNS server, then ensure that it is reachable. This can be done by following the below given steps.
-    a. create a new virtual machine in the same network and 
-    b. check if the virtual machine is able to do name resolution using the custom DNS Server
+    b.  Ensure that it is able to join to the same domain on which the failed over virtual machine is expected to come up.
+
+    c. If the domain controller is **not** functioning accurately, then try logging into the failed over virtual machine using a local administrator account.
+4. If you are using a custom DNS server, then ensure that it is reachable. This can be done by following the below given steps:
+
+    a. Create a new virtual machine in the same network and
+
+    b. Check if the virtual machine is able to do name resolution using the custom DNS Server
 
 >[!Note]
 >Enabling any setting other than Boot Diagnostics would require Azure VM Agent to be installed in the virtual machine before the failover
 
+## Unexpected shutdown message (Event ID 6008)
+
+When booting up a Windows VM post failover, if you receive an unexpected shutdown message on the recovered VM, it indicates that a VM shutdown state was not captured in the recovery point used for failover. This happens when you recover to a point when the VM had not been fully shut down.
+
+This is normally not a cause for concern and can usually be ignored for unplanned failovers. In the case of a planned failover, ensure that the VM is properly shut down prior to failover and provide sufficient time for pending replication data on-premises to be sent to Azure. Then use the **Latest** option on the [Failover screen](site-recovery-failover.md#run-a-failover) so that any pending data on Azure is processed into a recovery point, which is then used for VM failover.
+
+## Retaining drive letter after failover
+To retain the drive letter on virtual machines after failover, you can set the **SAN Policy** for the virtual machine on-premises to **OnlineAll**. [Read more](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+
 ## Next steps
+- Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
 If you need more help, then post your query on [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) or leave a comment at the end of this document. We have an active community that should be able to assist you.

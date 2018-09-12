@@ -79,7 +79,7 @@ Azure SQL Database isn’t just a boon to SpectrumNG customers, who enjoy the fa
 ## More information
 * To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
 * To learn more about database tools and elastic scaling, see [elastic database tools and elastic scaling](sql-database-elastic-scale-get-started.md).
-* To learn more about migrating a SQL Server database, see see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
+* To learn more about migrating a SQL Server database, see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
 * To learn more about active geo-replication, see [active geo-replication](sql-database-geo-replication-overview.md).
 * To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale-portal.md).

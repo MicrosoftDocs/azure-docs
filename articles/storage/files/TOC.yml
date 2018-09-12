@@ -106,6 +106,10 @@
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Shared access signatures (SAS)
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+    - name: Enable secure TLS for Azure Storage client
+      href: ../common/storage-security-tls.md
+    - name: Compliance offerings
+      href: ../common/storage-compliance-offerings.md 
   - name: Monitor and troubleshoot
     items:
     - name: Troubleshoot Azure Files Connections - Windows

@@ -1,6 +1,6 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: R Server on HDInsight
+- name: ML Services on HDInsight
   items:
   - name: Overview
     href: r-server-overview.md
@@ -9,7 +9,7 @@
     maintainContext: true  
 - name: Get started
   items:
-  - name: Start with R Server
+  - name: Start with ML Services
     href: r-server-get-started.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
     maintainContext: true
 - name: How to
   items:
-  - name: Use R Server
+  - name: Use ML Services
     items:
-    - name: Manage R Server cluster
+    - name: Manage ML Services cluster
       href: r-server-hdinsight-manage.md
-    - name: Operationalize R Server cluster
+    - name: Operationalize ML Services cluster
       href: r-server-operationalize.md
     - name: Storage options
       href: r-server-storage.md
@@ -43,7 +43,7 @@
   - name: Use HDInsight tools
     items:
       - name: Tools for Visual Studio
-        href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+        href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
         maintainContext: true
       - name: Tools for VSCode
         href: ../hdinsight-for-vscode.md
@@ -308,6 +308,10 @@
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true
+    items:
+    - name: Archived release notes
+      href: ../hdinsight-release-notes-archive.md
+      maintainContext: true
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum

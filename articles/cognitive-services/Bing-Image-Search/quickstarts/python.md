@@ -1,6 +1,6 @@
 ---
-title: Call and response - Python Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Send search queries using the REST API for the Bing Image Search API in Python"
+description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Python.
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -10,7 +10,7 @@ ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
 
-# Call and response: your first Bing Image Search query in Python
+# Quickstart: Send search queries using the REST API and Python
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
@@ -22,7 +22,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the walkthrough
 To continue with the walkthrough, set `subscription_key` to your API key for the Bing API service.

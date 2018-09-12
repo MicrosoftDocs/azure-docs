@@ -5,8 +5,8 @@ description: Ban weak passwords from your envirionment with Azure AD dynamically
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

@@ -23,7 +23,7 @@ There are currently five effects that are supported in a policy definition:
 - Audit
 - AuditIfNotExists
 - Deny
-- DeployIfNotExists
+- DeployIfNotExists (only available to **built-in** policies)
 
 ## Order of Evaluation
 
@@ -103,7 +103,7 @@ Example 3: Single **field/value** pair using an [alias](policy-definition.md#ali
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -143,7 +143,7 @@ Example: Using the deny effect.
 
 ## Audit
 
-Audit effect is used to create a warning event in audit log when a non-compliant resource is
+Audit effect is used to create a warning event in the activity log when a non-compliant resource is
 evaluated, but it does not stop the request.
 
 ### Audit Evaluation
@@ -151,7 +151,7 @@ evaluated, but it does not stop the request.
 The audit effect is the last to run during the creation or update of a resource prior to the
 resource is sent to the Resource Provider. Audit works the same for a resource request and an
 evaluation cycle, and executes a `Microsoft.Authorization/policies/audit/action` operation to the
-Activity Log. In both cases, the resource is marked as non-compliant.
+activity log. In both cases, the resource is marked as non-compliant.
 
 ### Audit Properties
 
@@ -178,8 +178,8 @@ have the components specified in the **details** of the **then** condition.
 AuditIfNotExists runs after a Resource Provider has handled a create or update request to a
 resource and has returned a success status code. The effect is triggered if there are no related
 resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
-effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the Activity
-Log is executed in the same way as the audit effect. When triggered, the resource that satisfied
+effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the activity
+log is executed in the same way as the audit effect. When triggered, the resource that satisfied
 the **if** condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists Properties
@@ -245,6 +245,9 @@ when missing.
 
 Similar to AuditIfNotExists, DeployIfNotExists executes a template deployment when the condition
 is met.
+
+> [!WARNING]
+> DeployIfNotExists is only available to **built-in** policies.
 
 ### DeployIfNotExists Evaluation
 

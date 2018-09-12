@@ -4,20 +4,16 @@ description: Create and publish an HTTP triggered Azure Function using Visual St
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 05/22/2018
 ms.author: glenga
-ms.custom: mvc, devcenter, 23113853-34f2-4f
+ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
 
 ---
 # Create your first function using Visual Studio
@@ -91,5 +87,4 @@ You must have a function app in your Azure subscription before you can publish y
 You have used Visual Studio to create and publish a C# function app with a simple HTTP triggered function.
 
 * [Learn how to add input and output bindings that integrate with other services.](functions-develop-vs.md#add-bindings)
-* [Learn more about local testing and debugging using the Azure Functions Core Tools.](functions-run-local.md#vs-debug)
 * [Learn more about developing functions as .NET class libraries](functions-dotnet-class-library.md).

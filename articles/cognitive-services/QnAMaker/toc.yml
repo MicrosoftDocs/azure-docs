@@ -1,7 +1,9 @@
-- name: What is QnA Maker?
-  href: Overview/overview.md
+- name: QnA Maker Documentation 
+  href: index.yml
 - name: Overview
   items:
+  - name: What is QnA Maker?
+    href: Overview/overview.md
   - name: Supported languages
     href: Overview/languages-supported.md
 - name: Quickstarts
@@ -116,6 +118,8 @@
     href: glossary.md
 - name: Resources
   items:
+  - name: Regional Availability
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

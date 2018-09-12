@@ -3,7 +3,7 @@ title: Autoscale virtual machine scale sets in the Azure portal | Microsoft Docs
 description: How to create autoscale rules for virtual machine scale sets in the Azure portal
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Automatically scale a virtual machine scale set in the Azure portal

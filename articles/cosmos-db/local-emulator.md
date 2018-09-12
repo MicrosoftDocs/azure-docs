@@ -43,21 +43,16 @@ This article covers the following tasks:
 > * Authenticating requests
 > * Using the Data Explorer in the Emulator
 > * Exporting SSL certificates
-> * Calling the Emulator from the command line
+> * Calling the Emulator from the command-line
 > * Running the Emulator on Docker for Windows
 > * Collecting trace files
 > * Troubleshooting
 
-We recommend getting started by watching the following video, where Kirill Gavrylyuk shows how to get started with the Azure Cosmos DB Emulator. The video refers to the emulator as the DocumentDB Emulator, but the tool itself has been renamed the Azure Cosmos DB Emulator since taping the video. All information in the video is still accurate for the Azure Cosmos DB Emulator. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
-> 
-> 
-
 ## How the Emulator works
+
 The Azure Cosmos DB Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
-While we created a high-fidelity local emulation of the actual Azure Cosmos DB service, the implementation of the Azure Cosmos DB Emulator is different than that of the service. For example, the Azure Cosmos DB Emulator uses standard OS components such as the local file system for persistence, and HTTPS protocol stack for connectivity. This means that some functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not available via the Azure Cosmos DB Emulator.
+While emulation of the Azure Cosmos DB service is faithful, the Emulator's implementation is different than the service. For example, the Emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are unavailable.
 
 ## Differences between the Emulator and the service 
 Because the Azure Cosmos DB Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
@@ -68,7 +63,7 @@ Because the Azure Cosmos DB Emulator provides an emulated environment running on
 * The Azure Cosmos DB Emulator does not simulate different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos DB Emulator does not simulate [multi-region replication](distribute-data-globally.md).
 * The Azure Cosmos DB Emulator does not support the service quota overrides that are available in the Azure Cosmos DB service (for example, document size limits, increased partitioned collection storage).
-* As your copy of the Azure Cosmos DB Emulator might not be up-to-date with the most recent changes with the Azure Cosmos DB service, please [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
+* As your copy of the Azure Cosmos DB Emulator might not be up-to-date with the most recent changes with the Azure Cosmos DB service, you should use the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
 
 ## System requirements
 The Azure Cosmos DB Emulator has the following hardware and software requirements:
@@ -95,7 +90,7 @@ When the emulator is running, you'll see an icon in the Windows taskbar notifica
 
 The Azure Cosmos DB Emulator by default runs on the local machine ("localhost") listening on port 8081.
 
-The Azure Cosmos DB Emulator is installed by default to the `C:\Program Files\Azure Cosmos DB Emulator` directory. You can also start and stop the emulator from the command line. See [command-line tool reference](#command-line) for more information.
+The Azure Cosmos DB Emulator is installed to `C:\Program Files\Azure Cosmos DB Emulator` by default. You can also start and stop the emulator from the command-line. For more information, see the [command-line tool reference](#command-line).
 
 ## Start Data Explorer
 
@@ -121,11 +116,11 @@ As with Azure Cosmos DB in the cloud, every request that you make against the Az
 > [!NOTE] 
 > If you have started the emulator with the /Key option, then use the generated key instead of "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
-Additionally, just as the Azure Cosmos DB service, the Azure Cosmos DB Emulator supports only secure communication via SSL.
+As with the Azure Cosmos DB service, the Azure Cosmos DB Emulator supports only secure communication via SSL.
 
 ## Running on a local network
 
-You can run the emulator on a local network. To enable network access, specify the /AllowNetworkAccess option at the [command line](#command-line-syntax), which also requires that you specify /Key=key_string or /KeyFile=file_name. You can use /GenKeyFile=file_name to generate a file with a random key upfront.  Then you can pass that to /KeyFile=file_name or /Key=contents_of_file.
+You can run the emulator on a local network. To enable network access, specify the /AllowNetworkAccess option at the [command-line](#command-line-syntax), which also requires that you specify /Key=key_string or /KeyFile=file_name. You can use /GenKeyFile=file_name to generate a file with a random key upfront.  Then you can pass that to /KeyFile=file_name or /Key=contents_of_file.
 
 To enable network access for the first time the user should shut down the emulator and delete the emulator’s data directory (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
@@ -388,16 +383,16 @@ docker pull microsoft/azure-cosmosdb-emulator
 ```
 To start the image, run the following commands.
 
-From the command line:
+From the command-line:
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 From PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 The response looks similar to the following:
@@ -416,7 +411,7 @@ Starting interactive shell
 
 Now use the endpoint and master key-in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
 
-From the command line:
+From the command-line:
 ```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
@@ -524,11 +519,11 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Installed the local Emulator
-> * Rand the Emulator on Docker for Windows
+> * Ran the Emulator on Docker for Windows
 > * Authenticated requests
 > * Used the Data Explorer in the Emulator
 > * Exported SSL certificates
-> * Called the Emulator from the command line
+> * Called the Emulator from the command-line
 > * Collected trace files
 
 In this tutorial, you've learned how to use the local Emulator for free local development. You can now proceed to the next tutorial and learn how to export Emulator SSL certificates. 

@@ -1,56 +1,78 @@
 ---
 title: MySQL Hosting Servers on Azure Stack | Microsoft Docs
 description: How to add MySQL instances for provisioning through the MySQL Adapter Resource Provider
-services: azure-stack 
-documentationCenter: '' 
-author: jeffgilb 
-manager: femila 
-editor: '' 
-ms.service: azure-stack 
-ms.workload: na 
-ms.tgt_pltfrm: na 
-ms.devlang: na 
-ms.topic: article 
-ms.date: 06/14/2018 
-ms.author: jeffgilb 
-ms.reviewer: jeffgo 
---- 
+services: azure-stack
+documentationCenter: ''
+author: jeffgilb
+manager: femila
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/05/2018
+ms.author: jeffgilb
+ms.reviewer: jeffgo
+
+---
 
 # Add hosting servers for the MySQL resource provider
-You can use MySQL instances on VMs inside of your [Azure Stack](azure-stack-poc.md), or an instance outside of your Azure Stack environment, provided the resource provider can connect to it. 
 
-## Provide capacity by connecting to a MySQL hosting server 
-1. Sign in to the Azure Stack portal as a service admin. 
-2. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**. 
-On the **MySQL Hosting Servers** blade, you can connect the MySQL Server resource provider to actual instances of MySQL Server that serve as the resource provider’s back end.
+You can host a MySQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the MySQL resource provider can connect to the instance.
 
-  ![Hosting servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
-  
-3. Provide the connection details of your MySQL Server instance. Be sure to provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. This installation no longer provides a default MySQL instance. The size that's provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server. 
+MySQL versions 5.6, 5.7 and 8.0 may be used for your hosting servers. The MySQL RP does not support caching_sha2_password authentication; that will be added in the next release. MySQL 8.0 servers must be configured to use mysql_native_password. MariaDB is also supported.
 
-    > [!NOTE] 
-    > If the MySQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The MySQL instance *must* be allocated exclusively to the resource provider. 
+## Connect to a MySQL hosting server
 
-4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings. For example, you can have an enterprise instance providing: 
-    - Database capacity
-    - Automatic backup
-    - Reserve high-performance servers for individual departments 
+Make sure you have the credentials for an account with system admin privileges. To add a hosting server, follow these steps:
 
-    > [!IMPORTANT] 
-    > You cannot mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error. 
+1. Sign in to the Azure Stack operator portal as a service admin.
+2. Select **All services**.
+3. Under the  **ADMINISTRATIVE RESOURCES** category select **MySQL Hosting Servers** > **+Add**. This opens the **Add a MySQL Hosting Server** dialog, shown in the following screen capture.
 
-    The SKU name should reflect the properties so that tenants can place their databases appropriately. All hosting servers in a SKU should have the same capabilities. 
+   ![Configure a hosting server](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
-    ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png) 
+4. Provide the connection details of your MySQL Server instance.
 
+   * For **MySQL Hosting Server Name**, provide the fully qualified domain name (FQDN) or a valid IPv4 address. Don't use the short VM name.
+   * A default MySQL instance isn't provided, so you have to specify the **Size of Hosting Server in GB**. Enter a size that's close to the capacity of the database server.
+   * Keep the default setting for **Subscription**.
+   * For **Resource group**, create a new one, or use an existing group.
 
-## Add capacity 
-Add capacity by adding additional MySQL servers in the Azure Stack portal. Additional servers can be added to a new or existing SKU. Make sure the server characteristics are the same. 
- 
-## Make MySQL databases available to tenants 
-Create plans and offers to make MySQL databases available for tenants. For example, add the Microsoft.MySqlAdapter service, add a quota, and so on. 
+   > [!NOTE]
+   > If the MySQL instance can be accessed by the tenant and the admin Azure Resource Manager, you can put it under the control of the resource provider. But, the MySQL instance **must** be allocated exclusively to the resource provider.
 
-![Create plans and offers to include databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png) 
+5. Select **SKUs** to open the **Create SKU** dialog.
+
+   ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+
+   The SKU **Name** should reflect the properties of the SKU so users can deploy their databases to the appropriate SKU.
+
+6. Select **OK** to create the SKU.
+> [!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You can't create a database until the SKU is deployed and running.
+
+7. Under **Add a MySQL Hosting Server**, select **Create**.
+
+As you add servers, assign them to a new or existing SKU to differentiate service offerings. For example, you can have a MySQL enterprise instance that provides increased database and automatic backups. You can reserve this high-performance server for different departments in your organization.
+
+## Security considerations for MySQL
+
+The following information applies to the RP and MySQL hosting servers:
+
+* Ensure that all hosting servers are configured for communication using TLS 1.2. See [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Employ [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
+* The MySQL RP does not support caching_sha2_password authentication.
+
+## Increase backend database capacity
+
+You can increase backend database capacity by deploying more MySQL servers in the Azure Stack portal. Add these servers to a new or existing SKU. If you add a server to an existing SKU, make sure that the server characteristics are the same as the other servers in the SKU.
+
+## Make MySQL database servers available to your users
+
+Create plans and offers to make MySQL database servers available to users. Add the Microsoft.MySqlAdapter service to the plan and create a new quota. MySQL does not allow limiting the size of databases.
 
 ## Next steps
+
 [Create a MySQL database](azure-stack-mysql-resource-provider-databases.md)

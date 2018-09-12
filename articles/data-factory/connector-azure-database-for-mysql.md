@@ -20,9 +20,6 @@ ms.author: jingwang
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for MySQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [MySQL connector in V1](v1/data-factory-onprem-mysql-connector.md).
-
 ## Supported capabilities
 
 You can copy data from Azure Database for MySQL to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
@@ -155,13 +152,14 @@ When copying data from Azure Database for MySQL, the following mappings are used
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit` |`Decimal` |
+| `bit` |`Boolean` |
+| `bit(M), M>1`|`Byte[]`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Int16` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
+| `decimal` |`Decimal, String` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |

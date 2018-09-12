@@ -52,16 +52,20 @@
         href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-howto-point-to-site-rm-ps.md
-    - name: Generate self-signed certificates
+    - name: P2S certificates and clients
       items:
-      - name: Azure PowerShell
-        href: vpn-gateway-certificates-point-to-site.md
-      - name: Makecert
-        href: vpn-gateway-certificates-point-to-site-makecert.md
-    - name: Create and install VPN client configuration files
-      href: point-to-site-vpn-client-configuration-azure-cert.md
+      - name: Generate self-signed certificates
+        items:
+        - name: Azure PowerShell
+          href: vpn-gateway-certificates-point-to-site.md
+        - name: Makecert
+          href: vpn-gateway-certificates-point-to-site-makecert.md
+        - name: Linux
+          href: vpn-gateway-certificates-point-to-site-linux.md
     - name: Install client certificates
       href: point-to-site-how-to-vpn-client-install-azure-cert.md
+    - name: Create and install VPN client configuration files
+      href: point-to-site-vpn-client-configuration-azure-cert.md
   - name: Configure Point-to-Site connections - RADIUS authentication
     items:
     - name: Configure a P2S VPN
@@ -106,6 +110,8 @@
     items:
     - name: Azure PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
+  - name: Create a zone-redundant VNet gateway in Azure Availability Zones
+    href: create-zone-redundant-vnet-gateway.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway

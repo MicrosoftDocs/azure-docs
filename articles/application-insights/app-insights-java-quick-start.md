@@ -5,7 +5,8 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 06/13/2018
+ms.reviewer: lagayhar
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -102,7 +103,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

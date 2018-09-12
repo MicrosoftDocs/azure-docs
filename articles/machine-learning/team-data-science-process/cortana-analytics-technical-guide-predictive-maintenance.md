@@ -57,18 +57,18 @@ application that you download and run locally after successful
 deployment.
 
 To find the instructions to download and install this application,   select the first node, Predictive Maintenance Data Generator, on the solution template diagram. The instructions are found in the Properties bar. This application feeds the [Azure Event Hub](#azure-event-hub) service with data points, or events, used in the rest of the solution flow. This data source is derived from publicly available data from the
-[NASA data repository](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)
-using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+[NASA data repository](https://c3.nasa.gov/dashlink/resources/139/)
+using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 The event generation application populates the Azure Event Hub only
-while it's executing on your computer.
+while it's executing on your computer.  
 
-### Azure Event Hub
+### Azure Event Hub  
 The [Azure Event
 Hub](https://azure.microsoft.com/services/event-hubs/) service is
 the recipient of the input provided by the Synthetic Data Source.
 
-## Data preparation and analysis
+## Data preparation and analysis  
 ### Azure Stream Analytics
 Use [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/)
@@ -115,7 +115,7 @@ architecture.
 
 It's unlikely that your dataset matches the dataset used by
 the [Turbofan Engine Degradation Simulation Data
-Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)
+Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)
 used for this solution template. Understanding your data and the
 requirements are crucial in how you modify this template to work
 with your own data. 

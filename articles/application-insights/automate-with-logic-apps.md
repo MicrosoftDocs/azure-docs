@@ -20,7 +20,7 @@ Do you find yourself repeatedly running the same queries on your telemetry data 
 
 With this integration, you can automate numerous processes without writing a single line of code. You can create a logic app with the Application Insights connector to quickly automate any Application Insights process. 
 
-You can add additional actions as well. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Visual Studio Team Services. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
+You can add additional actions as well. The Logic Apps feature of Azure App Service makes hundreds of actions available. For example, by using a logic app, you can automatically send an email notification or create a bug in Azure DevOps. You can also use one of the many available [templates](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) to help speed up the process of creating your logic app. 
 
 ## Create a logic app for Application Insights
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 ### Step 1: Create a logic app
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Create a resource**, select **Web + Mobile**, and then select **Logic App**.
+1. Click **Create a resource**, select **Web + Mobile**, and then select **Logic App**.
 
     ![New logic app window](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -37,16 +37,16 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
     ![Logic App Designer window](./media/automate-with-logic-apps/logicapp2.png)
 
-2. In the **Frequency** box, select **Day** and then, in the **Interval** box, type **1**.
+1. In the **Frequency** box, select **Day** and then, in the **Interval** box, type **1**.
 
     ![Logic App Designer "Recurrence" window](./media/automate-with-logic-apps/step2b.png)
 
 ### Step 3: Add an Application Insights action
 1. Click **New step**, and then click **Add an action**.
 
-2. In the **Choose an action** search box, type **Azure Application Insights**.
+1. In the **Choose an action** search box, type **Azure Application Insights**.
 
-3. Under **Actions**, click **Azure Application Insights – Visualize Analytics query Preview**.
+1. Under **Actions**, click **Azure Application Insights – Visualize Analytics query Preview**.
 
     ![Logic App Designer "Choose an action" window](./media/automate-with-logic-apps/flow2.png)
 
@@ -78,7 +78,7 @@ When you create your own queries, verify that they are working properly in Analy
     | evaluate autocluster()
     ```
 
-2. In the **Chart Type** box, select **Html Table**.
+1. In the **Chart Type** box, select **Html Table**.
 
     ![Analytics query configuration window](./media/automate-with-logic-apps/flow4.png)
 
@@ -86,13 +86,13 @@ When you create your own queries, verify that they are working properly in Analy
 
 1. Click **New step**, and then select **Add an action**.
 
-2. In the search box, type **Office 365 Outlook**.
+1. In the search box, type **Office 365 Outlook**.
 
-3. Click **Office 365 Outlook – Send an email**.
+1. Click **Office 365 Outlook – Send an email**.
 
     ![Office 365 Outlook selection](./media/automate-with-logic-apps/flow2b.png)
 
-4. In the **Send an email** window, do the following:
+1. In the **Send an email** window, do the following:
 
    a. Type the email address of the recipient.
 
@@ -104,7 +104,7 @@ When you create your own queries, verify that they are working properly in Analy
 
       ![Office 365 Outlook configuration](./media/automate-with-logic-apps/flow5.png)
 
-5. On the dynamic content menu, do the following:
+1. On the dynamic content menu, do the following:
 
     a. Select **Attachment Name**.
 
