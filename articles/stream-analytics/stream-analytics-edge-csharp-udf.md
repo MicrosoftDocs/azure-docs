@@ -110,9 +110,7 @@ A CodeBehind file is a C# file associated with a single ASA Edge query script. V
 
 2. In **Solution Explorer**, expand **Inputs**, right-click **Input.json**, and select **Add Local Input**.
 
-
-    <img src=./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png alt="Add local input to Azure Stream Analytics job in Visual Studio" width=350px>
-
+   ![Add local input to Azure Stream Analytics job in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. Specify the local input file path for the sample data you downloaded and **Save**.
 
@@ -140,8 +138,7 @@ You can debug your C# UDF locally the same way you debug standard C# code.
 ## Publish your job to Azure
 Once you've tested your query locally, select **Submit to Azure** in the script editor to publish the job to Azure. Be sure to set the **Location** to **West Centeral US**.
 
-<img src=./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png alt="Submit your Stream Analytics Edge job to Azure from Visual Studio" width="400px">
-
+![Submit your Stream Analytics Edge job to Azure from Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## Deploy to IoT Edge devices
 Your Stream Analytics job is now ready to be deployed as an IoT Edge module. Follow the [IoT Edge quickstart](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) to create an IoT Hub, register an IoT Edge device, and install and start the IoT Edge runtime on your device. Then follow the [deploy the job](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) tutorial to deploy your Stream Analytics job as an IoT Edge module. 
