@@ -124,6 +124,63 @@ All data is encrypted as it moves between data centers.
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
 
+## Does the SDK create temporary local storage?
+
+Yes, certain Telemetry Channels will persist data locally if an endpoint cannot be reached. Please review below to see which frameworks and telemetry channels are affected.
+
+
+Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories which are restricted to the specific account running your application. This may happen when an endpoint was temporary unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
+
+
+This persisted data is **not encrypted** and it is strongly recommended to restructure your data collection policy to disable the collection of private data. (See [How to export and delete private data](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) for more information.)
+
+
+If a customer needs to configure this directory with specific security requirements it can be configured per framework. Please make sure that the process running your application has write access to this directory, but also make sure this directory is protected to avoid telemetry being read by unintended users.
+
+### Java
+
+`C:\Users\username\AppData\Local\Temp` is used for persisting data. This location isn't configurable from the config directory and the permissions to access this folder are restricted to the specific user with required credentials. (See [implementation](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) here.)
+
+###  .Net
+
+By default `ServerTelemetryChannel` uses the current user’s local app data folder `%localAppData%\Microsoft\ApplicationInsights` or temp folder `%TMP%`. (See [implementation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) here.)
+
+
+Via configuration file:
+```
+<TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
+    <StorageFolder>D:\NewTestFolder</StorageFolder>
+</TelemetryChannel>
+```
+
+Via code:
+
+- Remove ServerTelemetryChannel from configuration file
+- Add this snippet to your configuration:
+```
+ServerTelemetryChannel channel = new ServerTelemetryChannel();
+channel.StorageFolder = @"D:\NewTestFolder";
+channel.Initialize(TelemetryConfiguration.Active);
+TelemetryConfiguration.Active.TelemetryChannel = channel;
+```
+
+### NetCore
+
+By default `ServerTelemetryChannel` uses the current user’s local app data folder `%localAppData%\Microsoft\ApplicationInsights` or temp folder `%TMP%`. (See [implementation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) here.) 
+In a Linux environment, local storage will be disabled unless a storage folder is specified.
+
+The following code snippet shows how to set `ServerTelemetryChannel.StorageFolder` in the `ConfigureServices()` method of your `Startup.cs` class:
+
+```
+services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+```
+
+(See [AspNetCore Custom Configuration](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for more information. )
+
+### NodeJS
+
+The local folder can be overridden by changing the runtime value of the static variable `Sender.TEMPDIR_PREFIX` found in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384). This value controls the subfolder within the TEMP directory.
+
 ## How do I send data to Application Insights using TLS 1.2?
 
 To insure the security of data in transit to the Application Insights endpoints, we strongly encourage customers to configure their application to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**, and the industry is quickly moving to abandon support for these older protocols. 
