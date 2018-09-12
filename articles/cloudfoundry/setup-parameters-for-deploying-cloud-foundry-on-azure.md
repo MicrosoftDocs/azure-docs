@@ -24,19 +24,20 @@ ssh-keygen -t rsa -b 2048
 <img src="media/deploy/az-logion-output2.png"> 
  
 Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later
+
 2. Set your default subscription for this configuration
 
-`az account set -s *{id}*`
+`az account set -s {id}`
 
 3. Create an ADD application for your PCF and specify a unique alpha-numeric password.  Store the password is the **clientSecret** to be used later.
 
-`az ad app create --display-name "Svc Prinicipal for OpsManager" --password *{enter-your-password}* --homepage "http://MyOpsMgr" --identifier-uris http://MyOPsMgr`
+`az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "http://MyOpsMgr" --identifier-uris http://MyOPsMgr`
 
 The copy “appId” value in the output as your **ClientID** to be used later.
 
 4. Create a service principle with your new “appId”
 
-`az ad sp create --id *{appId}*`
+`az ad sp create --id {appId}`
 
 5. Set the permission role of your service principle as a **Contributor**.
 
@@ -44,13 +45,13 @@ The copy “appId” value in the output as your **ClientID** to be used later.
 
 Or you can also use…
 
-`az role assignment create --assignee *{service-princ-name}* --role “Contributor” `
+`az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
- <img src="media/deploy/svc-princ3.png"> 
+<img src="media/deploy/svc-princ3.png"> 
 
 6. Verify that you can successful log into your Service Principal using the appId, password & tenantId
 
-`az login --service-principal -u *{appId}* -p *{your-passward}*  --tenant *{tenantId}*`
+`az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
 
 7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values you’ve copied above
 
@@ -62,7 +63,6 @@ Or you can also use…
     "clientSecret": "{enter-your-key-here}"
 }
 ```
-
 ## Get the Pivotal Network Token
 1. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profile”
 2.  Scroll to the bottom of the page and copy the **LEGENCY API TOKEN**.   Copy this value.  This this the **Pivotal Network Token** that will be used later.
