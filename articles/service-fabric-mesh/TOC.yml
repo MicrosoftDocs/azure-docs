@@ -13,14 +13,20 @@
     href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Tutorials
   items:
-  - name: Create, debug and deploy a multi-service Service Fabric Mesh web app
+  - name: Create, debug, and deploy a multi-service Service Fabric Mesh app to the cloud
     items:
-    - name: 1- Build a Service Fabric Mesh web app
+    - name: 1- Create a Service Fabric Mesh project in Visual Studio
       href: service-fabric-mesh-tutorial-create-dotnetcore.md
-    - name: 2- Debug a Service Fabric Mesh web app
+    - name: 2- Debug a Service Fabric Mesh app locally
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-    - name: 3- Deploy a Service Fabric Mesh web app
+    - name: 3- Deploy a Service Fabric Mesh app
       href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+    - name: 4- View Service Fabric Mesh app logs
+      href: service-fabric-mesh-tutorial-view-logs.md
+    - name: 5- Upgrade a Service Fabric Mesh application
+      href: service-fabric-mesh-tutorial-upgrade.md
+    - name: 6- Clean up Service Fabric Mesh resources
+      href: service-fabric-mesh-tutorial-cleanup-resources.md
 - name: Concepts
   items:
   - name: Terminology
@@ -46,6 +52,8 @@
     href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
   - name: Independently scale microservices in an app
     href: service-fabric-mesh-howto-app-scale-out.md
+  - name: Upgrade a Service Fabric Mesh app
+    href: service-fabric-mesh-howto-upgrade.md
 
 - name: Reference
   items:

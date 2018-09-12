@@ -1,5 +1,5 @@
 ---
-title: Tutorial- Debug an Azure Service Fabric Mesh web application | Microsoft Docs
+title: Tutorial- Debug an Azure Service Fabric Mesh web application running in your local development cluster | Microsoft Docs
 description: In this tutorial, debug an Azure Service Fabric Mesh application running on your local cluster.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
-#Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
+#Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app on my local development cluster
 ---
 
-# Tutorial: Debug a Service Fabric Mesh web application
+# Tutorial: Debug a Service Fabric Mesh application running in your local development cluster
 
-This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh web application on your local development cluster.
+This tutorial is part two of a series and shows you how to build and debug an Azure Service Fabric Mesh app on your local development cluster.
 
 In this tutorial you will learn:
 
@@ -30,9 +30,12 @@ In this tutorial you will learn:
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * [Build a Service Fabric Mesh application](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * Debug the app locally
-> * [Publish the app to Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Create a Service Fabric Mesh app in Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> Debug a Service Fabric Mesh app running in your local development cluster
+> * [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Monitor and diagnose a Service Fabric Mesh app using Application Insights](service-fabric-mesh-tutorial-appinsights.md)
+> * [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
+> * [Clean up Service Fabric Mesh resources](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -101,4 +104,4 @@ In this part of the tutorial, you learned:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Publish a Service Fabric Mesh web application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

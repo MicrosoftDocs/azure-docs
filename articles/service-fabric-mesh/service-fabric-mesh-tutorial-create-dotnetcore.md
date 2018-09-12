@@ -1,5 +1,5 @@
 ---
-title: Tutorial-Create, debug, and deploy a multi-service web application to Service Fabric Mesh | Microsoft Docs
+title: Tutorial-Create, debug, deploy, and monitor a multi-service application to Service Fabric Mesh | Microsoft Docs
 description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, debug it locally, and publish it to Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,22 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-#Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
+#Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, debug it on my local development cluster, publish it to Azure, monitor it, upgrade it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
-# Tutorial: Create, debug, and deploy a multi-service web application to Service Fabric Mesh
+# Tutorial: Create, debug, deploy, monitor, and upgrade a multi-service Service Fabric Mesh app
 
-This tutorial is part one of a series. You'll learn how to create an Azure Service Fabric Mesh application that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh application running in Azure Service Fabric Mesh.
+This tutorial is part one of a series. You'll learn how to use Visual Studio to create an Azure Service Fabric Mesh app that has an ASP.NET web front-end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster. You'll publish the app to Azure, check app logs integrate App Insights into your app, and then you'll upgrade the app. Finally, you'll see how to clean up unused Azure resources so tha you are not charged for them. 
+
+When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh app running in Azure Service Fabric Mesh.
 
 If you don't want to manually create the to-do application, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application  and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Service Fabric Mesh application consisting of an ASP.NET web front end.
+> * Use Visual Studio to create a Service Fabric Mesh app consisting of an ASP.NET web front end.
 > * Create a model to represent to-do items.
 > * Create a back-end service & retrieve data from it.
 > * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
@@ -36,9 +38,12 @@ In part one of the series, you learn how to:
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Build a Service Fabric Mesh application
-> * [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Publish the app to Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Create a Service Fabric Mesh app in Visual Studio
+> * [Debug a Service Fabric Mesh app running in your local development cluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Monitor and diagnose a Service Fabric Mesh app using Application Insights](service-fabric-mesh-tutorial-appinsights.md)
+> * [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
+> * [Clean up Service Fabric Mesh resources](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -52,7 +57,7 @@ Before you begin this tutorial:
 
 * The app for this tutorial must, for now, be built using the English locale.
 
-## Create a Service Fabric Mesh project
+## Create a Service Fabric Mesh project in Visual Studio
 
 Run Visual Studio and select **File** > **New** > **Project...**
 
@@ -208,10 +213,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -376,7 +378,7 @@ Now you are ready to build and deploy the image the Service Fabric Mesh applicat
 In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a Service Fabric Mesh application consisting of an ASP.NET web front end.
+> * Create a Service Fabric Mesh app consisting of an ASP.NET web front-end.
 > * Create a model to represent to-do items.
 > * Create a back-end service & retrieve data from it.
 > * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
@@ -385,4 +387,4 @@ In this part of the tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Debug a Service Fabric Mesh application running locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Debug a Service Fabric Mesh application running in your local development cluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
