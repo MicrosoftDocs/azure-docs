@@ -54,11 +54,7 @@ The following steps show you how to create your Managed Instance after your prev
 
    ![Create managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Select your subscription and verify that the preview terms show **Accepted**.
-
-   ![managed instance preview accepted](./media/sql-database-managed-instance-get-started/preview-accepted.png)
-
-5. Fill out the Managed Instance form with the requested information, using the information in the following table:
+4. Fill out the Managed Instance form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -71,8 +67,8 @@ The following steps show you how to create your Managed Instance after your prev
 
    ![managed instance create form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-6. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance gets 32 GB of storage space free of charge, **which may not be sufficient for your applications**.
-7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
+5. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance gets 32 GB of storage space free of charge, **which may not be sufficient for your applications**.
+6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
    ![managed instance pricing tier](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. When complete, click **Apply** to save your selection.  
