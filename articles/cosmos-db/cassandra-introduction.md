@@ -22,7 +22,7 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 ## What is the benefit of using Apache Cassandra API for Azure Cosmos DB?
 
-**No operations management**: As a fully managed cloud service, Azure Cosmos DB Cassandra API removes the overhead of managing and monitoring a myriad of settings across OS, JVM, and yaml files and their interactions. Azure Cosmos DB provides monitoring of throughput, latency, storage, availability and configurable alerts.
+**No operations management**: As a fully managed cloud service, Azure Cosmos DB Cassandra API removes the overhead of managing and monitoring a myriad of settings across OS, JVM, and yaml files and their interactions. Azure Cosmos DB provides monitoring of throughput, latency, storage, availability, and configurable alerts.
 
 **Performance management**: Azure Cosmos DB provides guaranteed low latency reads and writes at the 99th percentile, backed up by the SLAs. Users do not have to worry about operational overhead to ensure high performance and low latency reads and writes. This means that users do not need to deal with scheduling compaction, managing tombstones, setting up bloom filters and replicas manually. Azure Cosmos DB removes the overhead to manage these issues and lets you focus on the application logic.
 
@@ -32,13 +32,13 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 **Global distribution and availability**: Azure Cosmos DB provides the ability to globally distribute data across all Azure regions and serve the data locally while ensuring low latency data access and high availability. Azure Cosmos DB provides 99.99% high availability within a region and 99.999% read and write availability across multiple regions with no operations overhead. Learn more in [Distribute data globally](distribute-data-globally.md) article. 
 
-**Choice of consistency**: Azure Cosmos DB provides the choice of five well-defined consistency levels to achieve optimal tradeoffs between consistency and performance. These consistency levels are strong, bounded-staleness, session, consistent prefix and eventual. These well-defined, practical and intuitive consistency levels allow developers to make precise trade-offs between consistency, availability, and latency. Learn more in [consistency levels](consistency-levels.md) article. 
+**Choice of consistency**: Azure Cosmos DB provides the choice of five well-defined consistency levels to achieve optimal tradeoffs between consistency and performance. These consistency levels are strong, bounded-staleness, session, consistent prefix and eventual. These well-defined, practical, and intuitive consistency levels allow developers to make precise trade-offs between consistency, availability, and latency. Learn more in [consistency levels](consistency-levels.md) article. 
 
 **Enterprise grade**: Azure cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.
 
 ## Next steps
 
-* You can quickly get started with building the following language specific apps to create and manage Cassandra API data:
+* You can quickly get started with building the following language-specific apps to create and manage Cassandra API data:
   - [Node.js app](create-cassandra-nodejs.md)
   - [.NET app](create-cassandra-dotnet.md)
   - [Python app](create-cassandra-python.md)
