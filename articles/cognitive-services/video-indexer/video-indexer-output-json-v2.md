@@ -320,7 +320,6 @@ Example:
     ]
 }
 ] 
-
 ```
 
 #### faces
@@ -768,6 +767,39 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 |referenceId|Breadcrumbs reflecting the topics hierarchy. For example: "Health and wellbeing / Medicine and healthcare / Pharmaceuticals".|
 |confidence|The confidence score in the range [0,1]. Higher is more confident.|
 |language|The language used in the topic.|
+|iptcName|The IPTC media code name, if detected.|
+|instances |Currently, the whole video.|
+
+```json
+"topics": [{
+    "id": 0,
+    "name": "INTERNATIONAL RELATIONS",
+    "referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
+    "referenceType": "VideoIndexer",
+    "confidence": 1,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}, {
+    "id": 1,
+    "name": "Politics and Government",
+    "referenceType": "VideoIndexer",
+    "iptcName": "Politics",
+    "confidence": 0.9041,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}]
+. . .
+```
 
 ## Next steps
 
