@@ -403,12 +403,12 @@ Save and modify the json below as advancedmetricalert.parameters.json for the pu
                     "dimensions": [
                         {
                             "name":"ResponseType",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["Success"]
                         },
                         {
                             "name":"ApiName",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["GetBlob"]
                         }
                     ],
@@ -424,7 +424,7 @@ Save and modify the json below as advancedmetricalert.parameters.json for the pu
                 "dimensions": [
                     {
                         "name":"ApiName",
-                        "operator": "Includes",
+                        "operator": "Include",
                         "values": ["GetBlob"]
                     }
                 ],

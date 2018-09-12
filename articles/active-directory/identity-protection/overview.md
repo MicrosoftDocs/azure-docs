@@ -79,7 +79,7 @@ To load balance the management activities around your Identity Protection implem
 | :--                          | ---                                |  ---   |
 | Global administrator         | Full access to Identity Protection, Onboard Identity Protection| |
 | Security administrator       | Full access to Identity Protection | Onboard Identity Protection,  reset passwords for a user |
-| Security reader              | Read-only access to Identity Protection | Onboard Identity Protection, remidiate users, configure policies,  reset passwords |
+| Security reader              | Read-only access to Identity Protection | Onboard Identity Protection, remediate users, configure policies,  reset passwords |
 
 
 

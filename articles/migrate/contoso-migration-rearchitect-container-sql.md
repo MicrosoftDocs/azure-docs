@@ -27,9 +27,9 @@ This document is one in a series of articles that show how the fictitious compan
 [Article 8: Rehost a Linux app on Azure VMs and Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrates the Linux osTicket app to Azure VMs using Azure Site Recovery, and migrates the app database to an Azure MySQL Server instance using MySQL Workbench. | Available
 [Article 9: Refactor an app on Azure Web Apps and Azure SQL database](contoso-migration-refactor-web-app-sql.md) | Contoso migrates the SmartHotel360 app to an Azure Web App, and migrates the app database to an Azure SQL Server instance with Database Migration Assistant | Available
 [Article 10: Refactor a Linux app on Azure Web Apps and Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrates its Linux osTicket app to an Azure web app on multiple Azure regions using Azure Traffic Manager, integrated with GitHub for continuous delivery. Contoso migrates the app database to an Azure Database for MySQL instance. | Available	
-[Article 11: Refactor TFS on VSTS](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Visual Studio Team Services in Azure. | Available
-Article 12: Rearchitect an app on Azure Containers and Azure SQL Database | Contoso migrates its SmartHotel360 app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the database with Azure SQL Database. | This article
-[Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel360 app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available	
+[Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Azure DevOps Services in Azure. | Available
+Article 12: Rearchitect an app on Azure Containers and Azure SQL Database | Contoso migrates its SmartHotel app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the database with Azure SQL Database. | This article
+[Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB.. | Available	
 
 In this article, Contoso migrates the two-tier Windows. NET SmartHotel360 app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -52,7 +52,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals wer
 **App reqs** | The app in Azure will remain as critical as it is today.<br/><br/> It should have the same performance capabilities as it currently does in VMWare.<br/><br/> Contoso wants to stop supporting Windows Server 2008 R2, on which the app currently runs, and are willing to invest in the app.<br/><br/> Contoso wants to move away from SQL Server 2008 R2 to a modern PaaS Database platform, which will minimize the need for management.<br/><br/> Contoso want to leverage its investment in SQL Server licensing and Software Assurance where possible.<br/><br/> Contoso wants to be able to scale up the app web tier.
 **Limitations** | The app consists of an ASP.NET app and a WCF service running on the same VM. Contoso wants to split this across two web apps using the Azure App Service. 
 **Azure reqs** | Contoso wants to move the app to Azure, and run it in a container to extend app life. It doesn't want to start completely from scratch to implement the app in Azure. 
-**DevOps** | Contoso wants to move to a DevOps model using Visual Studio Team Services (VSTS) for code builds and release pipeline.
+**DevOps** | Contoso wants to move to a DevOps model using Azure DevOps Services for code builds and release pipeline.
 
 ## Solution design
 
@@ -77,7 +77,7 @@ After pinning down goals and requirements, Contoso designs and review a deployme
 - For the app web tier, Contoso has decided convert it to the Windows Container using Visual Studio.
     - Contoso will deploy the app using Azure Service Fabric, and pull the Windows container image from the Azure Container Registry (ACR).
     - A prototype for extending the app to include sentiment analysis will be implemented as another service in Service Fabric, connected to Cosmos DB.  This will read information from Tweets, and display on the app.
-- To implement a DevOps pipeline, Contoso will use VSTS for source code management (SCM), with Git repos.  Automated builds and releases will be used to build code, and deploy it to the Azure Container Registry and Azure Service Fabric.
+- To implement a DevOps pipeline, Contoso will use Azure DevOps Services for source code management (SCM), with Git repos.  Automated builds and releases will be used to build code, and deploy it to the Azure Container Registry and Azure Service Fabric.
 
     ![Scenario architecture](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
 
@@ -130,9 +130,9 @@ Here's how Contoso runs the migration:
 > * **Step 1: Provision a SQL Database instance in Azure**: Contoso provisions a SQL instance in Azure. After the frontend web VM is migrated to an Azure container, the container instance with the app web frontend will point to this database.
 > * **Step 2: Create an Azure Container Registry (ACR)**: Contoso provisions an enterprise container registry for the docker container images.
 > * **Step 3: Provision Azure Service Fabric**: It provisions a Service Fabric Cluster.
-> * **Step 4: Manage service fabric certificates**: Contoso sets up certificates for VSTS access to the cluster.
+> * **Step 4: Manage service fabric certificates**: Contoso sets up certificates for Azure DevOps Services access to the cluster.
 > * **Step 5: Migrate the database with DMA**: It migrates the app database with the Database Migration Assistant.
-> * **Step 6: Set up VSTS**: Contoso sets up a new project in VSTS, and imports the code into the Git Repo.
+> * **Step 6: Set up Azure DevOps Services**: Contoso sets up a new project in Azure DevOps Services, and imports the code into the Git Repo.
 > * **Step 7: Convert the app**: Contoso converts the app to a container using Visual Studio and SDK tools.
 > * **Step 8: Set up build and release**: Contoso sets up the build and release pipelines to create and publish the app to the ACR and Service Fabric Cluster.
 > * **Step 9: Extend the app**: After the app is public, Contoso extends it to take advantage of Azure capabilities, and republishes it to Azure using the pipeline.
@@ -249,7 +249,7 @@ The SmartHotel360 container will run in the Azure Service Fabric Sluster. Contos
 
 ## Step 4: Manage Service Fabric certificates
 
-Contoso needs cluster certificates to allow VSTS access to the cluster. Contoso admins set this up.
+Contoso needs cluster certificates to allow Azure DevOps Services access to the cluster. Contoso admins set this up.
 
 1. They open the Azure portal and browse to the KeyVault.
 2. They open the certificates, and copy the thumbprint of the certificate that was created during the provisioning process.
@@ -257,7 +257,7 @@ Contoso needs cluster certificates to allow VSTS access to the cluster. Contoso 
     ![Copy thumbprint](./media/contoso-migration-rearchitect-container-sql/cert1.png)
  
 3. They copy it to a text file for later reference.
-4. Now, they add a client certificate that will become an Admin client certificate on the cluster. This allows VSTS to connect to the cluster for the app deployment in the release pipeline. To do they, they open KeyVault in the portal, and select **Certificates** > **Generate/Import**.
+4. Now, they add a client certificate that will become an Admin client certificate on the cluster. This allows Azure DevOps Services to connect to the cluster for the app deployment in the release pipeline. To do they, they open KeyVault in the portal, and select **Certificates** > **Generate/Import**.
 
     ![Generate client cert](./media/contoso-migration-rearchitect-container-sql/cert2.png)
 
@@ -273,7 +273,7 @@ Contoso needs cluster certificates to allow VSTS access to the cluster. Contoso 
 
      ![Client cert thumbprint](./media/contoso-migration-rearchitect-container-sql/cert5.png)
 
-8. For VSTS deployment, they need to determine the Base64 value of the certificate. They do this on the local developer workstation using PowerShell. They paste the output into a text file for later use.
+8. For Azure DevOps Services deployment, they need to determine the Base64 value of the certificate. They do this on the local developer workstation using PowerShell. They paste the output into a text file for later use.
 
     ```
     	[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
@@ -354,11 +354,11 @@ Contoso admins now migrate the database.
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
-## Step 6: Set up VSTS
+## Step 6: Set up Azure DevOps Services
 
-Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new VSTS project, import their code, and then build and release pipelines.
+Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new Azure DevOps project, import their code, and then build and release pipelines.
 
-1.	 In the Contoso VSTS account, they create a new project (**ContosoSmartHotelRearchitect**), and select **Git** for version control.
+1.	 In the Contoso Azure DevOps account, they create a new project (**ContosoSmartHotelRearchitect**), and select **Git** for version control.
 
     ![New project](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
 
@@ -419,19 +419,19 @@ Contoso admins will convert the app to a container using isual Studio and the SD
 
     ![Connection string](./media/contoso-migration-rearchitect-container-sql/container8.png)
 
-10. They commit the updated code and push to VSTS.
+10. They commit the updated code and push to Azure DevOps Services.
 
     ![Commit](./media/contoso-migration-rearchitect-container-sql/container9.png)
 
-## Step 8: Build and release pipelines in VSTS
+## Step 8: Build and release pipelines in Azure DevOps Services
 
-Contoso admins now configure VSTS to perform build and release process to action the DevOps practices.
+Contoso admins now configure Azure DevOps Services to perform build and release process to action the DevOps practices.
 
-1. In VSTS, they click **Build and release** > **New pipeline**.
+1. In Azure DevOps Services, they click **Build and release** > **New pipeline**.
 
     ![New pipeline](./media/contoso-migration-rearchitect-container-sql/pipeline1.png)
 
-2. They select **VSTS Git** and the relevant repo.
+2. They select **Azure DevOps Services Git** and the relevant repo.
 
     ![Git and repo](./media/contoso-migration-rearchitect-container-sql/pipeline2.png)
 
@@ -449,7 +449,7 @@ Contoso admins now configure VSTS to perform build and release process to action
     ![Triggers](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
 
 7. They click **Save and Queue** to start a build.
-8. After the build succeeds, they move onto the release pipeline. In VSTS they click **Releases** > **New pipeline**.
+8. After the build succeeds, they move onto the release pipeline. In Azure DevOps Services they click **Releases** > **New pipeline**.
 
     ![Release pipeline](./media/contoso-migration-rearchitect-container-sql/pipeline6.png)    
 
@@ -465,7 +465,7 @@ Contoso admins now configure VSTS to perform build and release process to action
 
     ![New connection](./media/contoso-migration-rearchitect-container-sql/pipeline9.png)
 
-12. In **Add Service Fabric service connection**, they configure the connection, and the authentication settings that will be used by VSTS to deploy the app. The cluster endpoint can be located in the Azure portal, and they add **tcp://** as a prefix.
+12. In **Add Service Fabric service connection**, they configure the connection, and the authentication settings that will be used by Azure DevOps Services to deploy the app. The cluster endpoint can be located in the Azure portal, and they add **tcp://** as a prefix.
 13. The certificate information they collected is input in **Server Certificate Thumbprint** and **Client Certificate**.
 
     ![Certificate](./media/contoso-migration-rearchitect-container-sql/pipeline10.png)
@@ -575,7 +575,7 @@ With the Cosmos DB provisioned, Contoso admins can configure the app to connect 
 
 After extending the app, Contoso admins republish it to Azure using the pipeline.
 
-1. They commit and push their code to VSTS. This kicks off the build and release pipelines.
+1. They commit and push their code to Azure DevOps Services. This kicks off the build and release pipelines.
 
 2. After the build and deployment finishes, SmartHotel360 will now be running Service Fabric. The Servie Fabric Management console now shows three services.
 

@@ -77,6 +77,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 <dt>Runbook</dt>
 <dd>You may have up to 10 Runbook actions in an Action Group</dd>
+<dd>Refer to the [Azure subscription service limits](../azure-subscription-service-limits.md) for limits on Runbook payloads</dd>
 
 <dt>SMS</dt>
 <dd>You may have up to 10 SMS actions in an Action Group</dd>

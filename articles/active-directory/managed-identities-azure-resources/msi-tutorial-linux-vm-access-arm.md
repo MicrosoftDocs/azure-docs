@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Linux VM user-assigned managed identity to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a user-assigned managed identity on a Linux VM to access Azure Resource Manager.
 services: active-directory
@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 # Tutorial: Use a user-assigned managed identity on a Linux VM to access Azure Resource Manager
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 This tutorial explains how to create a user-assigned managed identity, assign it to a Linux Virtual Machine (VM), and then use that identity to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure. They enable authentication to services that support Azure AD authentication, without needing to embed credentials into your code. 
 
@@ -53,7 +53,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 2. Create a user-assigned managed identity using [az identity create](/cli/azure/identity#az-identity-create). The `-g` parameter specifies the resource group where the user-assigned managed identity is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<UAMI NAME>` parameter values with your own values:
     
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+[!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
 ```azurecli-interactive

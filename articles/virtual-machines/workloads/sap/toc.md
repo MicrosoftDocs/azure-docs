@@ -16,14 +16,27 @@
 ### [Network architecture](hana-network-architecture.md)
 ### [Storage architecture](hana-storage-architecture.md)
 ### [HLI supported scenarios](hana-supported-scenario.md)
-## [Infrastructure and connectivity](hana-overview-infrastructure-connectivity.md)
-## [Install SAP HANA](hana-installation.md)
-## [High availability and disaster recovery](hana-overview-high-availability-disaster-recovery.md)
-## [Troubleshoot and monitor](troubleshooting-monitoring.md)
+## Infrastructure and connectivity
+### [HLI deployment](hana-overview-infrastructure-connectivity.md)
+### [Connecting Azure VMs to HANA Large Instances](hana-connect-azure-vm-large-instances.md)
+### [Connecting a VNet to HANA Large Instance ExpressRoute](hana-connect-vnet-express-route.md)
+### [Additional network requirements](hana-additional-network-requirements.md)
+## Install SAP HANA
+### [Validate the configuration](hana-installation.md)
+### [Sample HANA Installation](hana-example-installation.md)
+## High availability and disaster recovery
+### [Options and considerations](hana-overview-high-availability-disaster-recovery.md)
+### [Backup and restore](hana-backup-restore.md)
+### [Principles and preparation](hana-concept-preparation.md)
+### [Disaster recovery failover procedure](hana-failover-procedure.md)
+## Troubleshoot and monitor
+### [Monitoring HLI](troubleshooting-monitoring.md)
+### [Monitoring and troubleshooting from HANA side](hana-monitor-troubleshoot.md)
 ## How to
 ### [HA Setup with STONITH](ha-setup-with-stonith.md)
 ### [OS Backup for Type II SKUs](os-backup-type-ii-skus.md)
 ### [OS Upgrade for HANA Large Instances](os-upgrade-hana-large-instance.md)
+### [Setting up SMT server for SUSE Linux](hana-setup-smt.md)
 # SAP HANA on Azure Virtual Machines
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)

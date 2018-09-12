@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018

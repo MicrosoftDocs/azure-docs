@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -49,6 +49,11 @@ This update includes the following improvements for Azure Stack.
 - <!-- IS, ASDK --> **Virtual Machine Scale Set scaling**.  You can use the portal to [scale a Virtual Machine Scale Set](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
 
 - <!-- 2489570 | IS ASDK--> **Support for custom IPSec/IKE policy configurations** for [VPN gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+- <!-- | IS ASDK--> **Kubernetes marketplace item**. You can now deploy Kubernetes clusters using the [Kubernetes Marketplace item](azure-stack-solution-template-kubernetes-cluster-add.md). Users can select the Kubernetes item and fill out a few parameters to deploy a Kubernetes cluster to Azure Stack. The purpose of the templates is to make it simple to users to setup dev/test Kubernetes deployments in a few steps.
+
+- <!-- | IS ASDK--> **Blockchain templates**. You can now execute [Ethereum consortium deployments](azure-stack-ethereum.md) on Azure Stack. You can find three new templates in the [Azure Stack Quick Start Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to setup dev/test Blockchain deployments in a few steps.
+
 
 
  ### Fixed issues
@@ -102,17 +107,14 @@ This update also contains the mitigation for the speculative execution side chan
 
 - Install the Azure Stack [1807 Update](azure-stack-update-1807.md) before you apply the Azure Stack 1808 update. 
 
+- Install the latest available [update or hotfix for version 1805](azure-stack-update-1805.md#post-update-steps).  
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
 
 
-- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
-
-  ```PowerShell
-  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.
 
 ### Known issues with the update process
 

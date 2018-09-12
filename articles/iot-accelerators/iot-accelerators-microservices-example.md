@@ -1,9 +1,8 @@
 ---
 title: Change and redeploy a microservice | Microsoft Docs
 description: This tutorial shows you how to change and redeploy a microservice in Remote Monitoring
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
