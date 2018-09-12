@@ -78,62 +78,50 @@ In a user-managed environment, you are responsible for ensuring that all the nec
     from azureml.core.runconfig import RunConfiguration
 
     # Editing a run configuration property on-fly.
-    run_config = RunConfiguration.load(project_object = project, run_config_name = "local")
+    run_config_user_managed = RunConfiguration()
 
-    run_config.environment.python.user_managed_dependencies = True
-    run_config.prepare_environment = False
+    run_config_user_managed.environment.python.user_managed_dependencies = True
 
     # You can choose a specific Python environment by pointing to a Python path 
-    #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/pytho
+    #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
+
     ```
 
 2. Submit the script to run in the user-managed environment.
 
     ```python
-    from azureml.core.run import Run
+    from azureml.core import ScriptRunConfig
 
-    run = Run.submit(project_object = project,
-                      run_config = run_config,
-                      script_to_run = 'train.py')
-
-    # Shows output of the run on stdout.
-    run.wait_for_completion(show_output = True)
+    src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
+    run = exp.submit(src)
+    run.wait_for_completion(show_output=True)
     ```
   
 ### System-managed environment
 
-System-managed environments rely on conda to manage the dependencies. Conda creates a file named `conda_dependencies.yml` that contains a list of dependencies. You can then ask the system to build a new conda environment and run your scripts in it. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged. 
+System-managed environments rely on conda to manage the dependencies. Conda creates a file named `conda_dependencies.yml` that contains a list of dependencies. You can then ask the system to build a new conda environment and execute your scripts in it. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged. 
 
 The initial setup up of a new environment can take several minutes to complete, depending on the size of the required dependencies. The following code snippet demonstrates creating a system-managed environment that depends on scikit-learn:
 
 ```python
+from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 
-# Editing a run configuration property on-fly.
-run_config = RunConfiguration.load(project_object = project, run_config_name = "local")
+run_config_system_managed = RunConfiguration()
 
-# Use a new conda environment that is to be created from the conda_dependencies.yml file
-run_config.environment.python.user_managed_dependencies = False
+run_config_system_managed.environment.python.user_managed_dependencies = False
+run_config_system_managed.prepare_environment = True
 
-# Automatically create the conda environment before the run
-run_config.prepare_environment = True
+# Specify conda dependencies with scikit-learn
 
-# add scikit-learn to the conda_dependencies.yml file
-cd = CondaDependencies()
-cd.add_conda_package('scikit-learn')
-cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
+run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
 You can submit the run the same way as in the user-managed example. 
 
 ```python 
-from azureml.core.run import Run
-
-run = Run.submit(project_object = project,
-                  run_config = run_config,
-                  script_to_run = 'train.py')
-
-# Shows output of the run on stdout.
+src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
@@ -148,16 +136,23 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
 1. Create or attach a Virtual Machine
     
-    * To create a new DSVM:
+    * Check to see if you have a DSVM with the same name, if not create a new VM:
     
         ```python
         from azureml.core.compute import DsvmCompute
-        dsvm_config = DsvmCompute.provisioning_configuration(vm_size="Standard_D2_v2")
-        dsvm_compute = DsvmCompute.create(ws, name="mydsvm", provisioning_configuration=dsvm_config)
-        dsvm_compute.wait_for_provisioning(show_output=True)
-        ```
+        from azureml.core.compute_target import ComputeTargetException
 
-    * To attach an existing DSVM:
+        compute_target_name = 'mydsvm'
+
+        try:
+            dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
+            print('found existing:', dsvm_compute.name)
+        except ComputeTargetException:
+            print('creating new.')
+            dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
+            dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
+            dsvm_compute.wait_for_completion(show_output = True)
+        ```
 
 2. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
@@ -166,49 +161,41 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     from azureml.core.conda_dependencies import CondaDependencies
 
     # Load the "cpu-dsvm.runconfig" file (created by the above attach operation) in memory
-    run_config = RunConfiguration(project_object = project, 
-                                  run_config_name = "cpu-dsvm",
-                                  target = dsvm_compute.name, 
-                                  framework = "python")
+    run_config = RunConfiguration(framework = "python")
+
+    # Set compute target to the Linux DSVM
+    run_config.target = compute_target_name
 
     # Use Docker in the remote VM
     run_config.environment.docker.enabled = True
 
-    # Use the MMLSpark CPU based image.
-    # https://hub.docker.com/r/microsoft/mmlspark/
+    # Use CPU base image from DockerHub
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-    #run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
-    print('Base Docker image is:', run_config.environment.docker.base_image )
+    print('Base Docker image is:', run_config.environment.docker.base_image)
 
     # Ask system to provision a new one based on the conda_dependencies.yml file
     run_config.environment.python.user_managed_dependencies = False
 
-    # Prepare the Docker and conda environment automatically when running for the first time.
+    # Prepare the Docker and conda environment automatically when executingfor the first time.
     run_config.prepare_environment = True
 
-    # create a new CondaDependencies obj
-    cd = CondaDependencies()
+    # specify CondaDependencies obj
+    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 
-    # add scikit-learn as a conda dependency
-    cd.add_conda_package('scikit-learn')
-
-    # overwrite the default conda_dependencies.yml file
-    cd.save_to_file(project_dir = project_folder, file_name='conda_dependencies.yml')
     ```
 
-3. Submit the script to run in the Docker environment on the DSVM.
+3. Submit the script to run in the Docker environment on the remote VM. If you run this for the first time, the system will download the base image, layer in packages specified in the conda_dependencies.yml file on top of the base image, create a container and then execute the script in the container.
 
     ```python
-    from azureml.core.run import Run
+    from azureml.core import Run
+    from azureml.core import ScriptRunConfig
 
-    run = Run.submit(project_object = project,
-                     run_config = run_config,
-                     script_to_run = 'train.py')
-
-    # Shows output of the run on stdout.
+    src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config)
+    run = exp.submit(src)
     run.wait_for_completion(show_output = True)
     ```
-
+4. Clean up the compute resources when you are finished. '''dsvm_compute.delete() ```
+    
 ## Azure Batch AI
 
 If it takes a long time to train your model, you can use Azure Batch AI to distribute the training across a cluster of compute resources in the cloud. Batch AI can also be configured to enable a GPU resource.
@@ -216,51 +203,57 @@ If it takes a long time to train your model, you can use Azure Batch AI to distr
 The following example looks for an existing Batch AI cluster by name. If one is not found, it is created:
 
 ```python
-# Create a new compute target to train on Azure Batch AI
-from azureml.core.compute import ComputeTarget, BatchAiCompute
-from azureml.core.compute_target import ComputeTargetException
+from azureml.core.compute import BatchAiCompute
+from azureml.core.compute import ComputeTarget
 
-# Name the Batch AI cluster
-batchai_cluster_name = "gpucluster2"
+# choose a name for your cluster
+batchai_cluster_name = ws.name + "cpu"
 
-# Try to find an existing compute target in the workspace. If none exists,
-#   create a new one.
-try:
-    compute_target = ComputeTarget(workspace = ws, name = batchai_cluster_name)
-    print('found compute target. just use it.')
-except ComputeTargetException:
+found = False
+# see if this compute target already exists in the workspace
+for ct in ws.compute_targets():
+    print(ct.name, ct.type)
+    if (ct.name == batchai_cluster_name and ct.type == 'BatchAI'):
+        found = True
+        print('found compute target. just use it.')
+        compute_target = ct
+        break
+        
+if not found:
     print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
+    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", # for GPU, use "STANDARD_NC6"
                                                                 #vm_priority = 'lowpriority', # optional
                                                                 autoscale_enabled = True,
                                                                 cluster_min_nodes = 1, 
                                                                 cluster_max_nodes = 4)
-    # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
 
+    # create the cluster
+    compute_target = ComputeTarget.create(ws,batchai_cluster_name, provisioning_config)
+    
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
-
-     # For a more detailed view of current Batch AI cluster status, use the 'status' property    
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
-For more information on using the BatchAiCompute object, see the reference documentation. 
+For more information on using the BatchAiCompute object, see the reference documentation. You can also check the Batch AI cluster and job status using az-cli commands:
+    - Check cluster status. You can see how many nodes are running. ```$ az batchai cluster list```
+    - Check job status. You can see how many jobs are running. ```$ az batchai job list```
 
 ## Azure Container Instance (ACI)
 
-Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
+Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. Linux-based ACI is available in westus, eastus, westeurope, northeurope, westus2 and southeastasia regions. See details [here](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quotas#region-availability). The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
 
 ```python
-# Create a new compute target to train on Azure Container Instances (ACI)
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 
 # create a new runconfig object
-run_config = RunConfiguration(project_object = project, run_config_name = 'my-aci-run-config')
+run_config = RunConfiguration()
 
-# signal that you want to use ACI to run script.
+# signal that you want to use ACI to execute script.
 run_config.target = "containerinstance"
 
 # ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
@@ -281,17 +274,21 @@ run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IM
 run_config.environment.python.user_managed_dependencies = False
 
 # auto-prepare the Docker image when used for execution (if it is not already prepared)
-run_config.prepare_environment = True
+run_config.auto_prepare_environment = True
 
-# create a new CondaDependencies obj
-cd = CondaDependencies()
+# specify CondaDependencies obj
+run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+```
 
-# add scikit-learn as a conda dependency
-cd.add_conda_package('psutil')
-cd.add_conda_package('scikit-learn')
+You can then submit the experiment to train on the newly created Azure Container Instance.
+```python
+from azureml.core.script_run_config import ScriptRunConfig
 
-# overwrite the default conda_dependencies.yml file
-cd.save_to_file(project_dir = project_folder, conda_file_path = run_config.environment.python.conda_dependencies_file)
+script_run_config = ScriptRunConfig(source_directory = script_folder,
+                                    script= 'train.py',
+                                    run_config = run_config)
+
+run = experiment.submit(script_run_config)
 ```
 
 ## Attach an HDInsight cluster 
@@ -311,14 +308,14 @@ To configure HDInsight as a compute target, you must provide the fully qualified
 > To find the FQDN for your cluster, visit the Azure portal and select your HDInsight cluster. From the __Overview__ section, the FQDN is part of the __URL__ entry. Just remove the `https://` from the beginning of the value.
 
 ```python
-from azureml.core.compute_target import HDIClusterTarget
+from azureml.core.compute import HDInsightCompute
 
 try:
     # Attaches a HDInsight cluster as a compute target.
-    project.attach_legacy_compute_target(HDIClusterTarget(name = "myhdi",
-                                                            address = "<fqdn>", 
-                                                            username = "<username>", 
-                                                            password = "<password>"))
+    HDInsightCompute.attach(ws,name = "myhdi",
+                            address = "<fqdn>",
+                            username = "<username>",
+                            password = "<password>")
 except UserErrorException as e:
     print("Caught = {}".format(e.message))
     print("Compute config already attached.")
@@ -328,7 +325,7 @@ except UserErrorException as e:
 run_config = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
 
 # ask system to prepare the conda environment automatically when executed for the first time
-run_config.prepare_environment = True
+run_config.auto_prepare_environment = True
 ```
 
 ## Set up compute using the Azure portal
@@ -339,7 +336,7 @@ run_config.prepare_environment = True
 2. Click on the __Compute link__ under the __Applications__ section.
 3. Click the __+__ sign to add a compute target.
 4. Enter a name for the compute target.
-5. Select the type of compute to attach for __Training__. Only Batch AI and DSVM are currently supported in the portal.
+5. Select the type of compute to attach for __Training__. Only Batch AI and Virtual Machines are currently supported in the portal for Training.
 6. Select __Create New__ and fill out the required forms.
 7. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
 8. Now you can submit a run against these targets.
@@ -355,10 +352,10 @@ The Web Portal makes it easy to attach existing compute targets from your subscr
 2. Click on the **Compute** link under the Applications section.
 3. Click the **+** sign to add a compute target.
 4. Enter a name for the compute target.
-5. Select the type of compute to attach for Training. Batch AI and DSVM are currently supported in the portal.
+5. Select the type of compute to attach for Training. Batch AI and Virtual Machines are currently supported in the portal.
 6. Select 'Use Existing'.
     - When attaching Batch AI clusters, select the compute target from the dropdown and click Create.
-    - When attaching a DSVM, enter the IP Address, Username/Password Combination, Private/Public Keys, and the Port and click Create.
+    - When attaching a Virtual Machine, enter the IP Address, Username/Password Combination, Private/Public Keys, and the Port and click Create.
 7. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
 8. Now you can submit a run against these targets.
 

@@ -68,6 +68,8 @@
       items:
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
+    - name: Access data
+      href: how-to-access-data.md
     - name: Train ML models
       href: how-to-train-ml-models.md
       items:
@@ -92,6 +94,8 @@
          href: how-to-deploy-to-aks.md
        - name: Deploy to FPGAs
          href: how-to-deploy-fpga-web-service.md  
+  - name: Export and delete data
+    href: how-to-export-delete-data.md
 - name: Reference
   items:    
   - name: Machine learning SDK
