@@ -46,7 +46,7 @@ After the *UpdateSQLProvider.ps1* script creates a new VM, the script migrates t
 ### Update script PowerShell example
 
 You can edit and run the following script from an elevated PowerShell ISE. 
-- If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+-  
 - Remember to change the account information and passwords as needed for your environment.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ You can edit and run the following script from an elevated PowerShell ISE.
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2018-03-01-hybrid
+Use-AzureRmProfile -Profile 2017-03-09-profile
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
