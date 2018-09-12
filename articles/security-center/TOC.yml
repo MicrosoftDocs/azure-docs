@@ -37,7 +37,7 @@
   items:
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with WATP (Preview)
+  - name: Server protection with WDATP (Preview)
     href: security-center-wdatp.md
   - name: Set Security policy
   - name: Set security policies
