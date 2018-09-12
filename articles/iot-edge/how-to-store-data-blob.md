@@ -1,5 +1,5 @@
 ---
-title: Blob storage on Azure IoT Edge devices | Microsoft Docs 
+title: Azure Blob Storage on Azure IoT Edge devices | Microsoft Docs 
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.  
 author: kgremban
 manager: timlt
@@ -10,21 +10,21 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Store data at the edge with Azure Blob Storage (preview)
+# Store data at the edge with Azure Blob Storage on IoT Edge (preview)
 
-Azure Blog Storage works with Azure IoT Edge to provide an unstructured data storage solution at the edge. A blob storage module on your IoT Edge device behaves like storage in the cloud, but the data is stored locally on your device. Your data is stored in local folders on your device, so that it is preserved even if the module stops. You can access your data through the blob module with the same Azure storage SDK methods and API calls that you're already used to. 
+Azure Blog Storage on IoT Edge provides a block blob storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, but the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. 
 
-This article provides instructions for deploying an Azure Blob Storage container that runs a blob service on your IoT Edge device. 
+This article provides instructions for deploying an Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device. 
 
 >[!NOTE]
->Azure Blob Storage modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). While in public preview, not all SDK methods or API calls are supported by the blob storage modules. For more details, see [supported storage operations](#supported-storage-operations).
+>Azure Blob Storage on IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Prerequisites
 
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
-* The Azure Blob Storage module supports the following device configurations:
+* The Azure Blob Storage on IoT Edge module supports the following device configurations:
 
    | Operating system | Architecture |
    | ---------------- | ------------ |
@@ -42,60 +42,51 @@ Cloud resources:
 
 ## Deploy blob storage to your device
 
-Azure Blob Storage provides two standard container images, one for Linux containers and one for Windows containers. When you use one of these module images to deploy blob storage to your IoT Edge device, you provide three pieces of information to configure the module instance for your device:
+Azure Blob Storage on IoT Edge provides three standard container images, two for Linux containers (AMD64 and ARM32 architectures) and one for Windows containers (AMD64). When you use one of these module images to deploy blob storage to your IoT Edge device, you provide three pieces of information to configure the module instance for your device:
 
 * An **account name** and **account key**. To stay consistent with Azure Storage, blob storage modules use account names and account keys to manage access. Account names should be three to twenty-four characters long, with lowecase letters and numbers. Account keys should be base64 encoded and 64 bytes in length. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64).
-* A **local folder path**. The blob storage module stores your data locally on the IoT Edge device, so that your data persists if the module stops or restarts. You need to declare an existing file path where that data should be stored on your device. 
+* A **local folder path**. The blob storage module stores blobs locally on the IoT Edge device, so that the blobs persist if the module stops or restarts. You need to declare an existing folder path where the blobs should be stored on your device. 
 
-There are several ways to deploy modules to an IoT Edge device, and all of them work with blob storage modules. The two simplest methods are to use the Azure portal or Visual Studio Code templates. 
+There are several ways to deploy modules to an IoT Edge device, and all of them work for Azure Blob Storage on IoT Edge modules. The two simplest methods are to use the Azure portal or Visual Studio Code templates. 
 
 ### Azure portal
 
-To deploy blob storage through the Azure portal, follow the steps in [Deploy Azure IoT Edge modules from the Azure portal](how-to-deploy-modules-portal.md). 
+To deploy blob storage through the Azure portal, follow the steps in [Deploy Azure IoT Edge modules from the Azure portal](how-to-deploy-modules-portal.md). Before you go to deploy your module, copy the image URI and prepare the container create options based on your container operating system. Use these values in the **Configure a deployment manifest** section of the deployment article. 
 
-Use the following steps to configure the deployment manifest:
-
-1. In the **Registry settings** section of the page, you don't need to provide any credentials to access the blob storage images. 
-
-2. In the **Deployment modules** section of the page, select **Add** then choose **IoT Edge Module**. 
-
-3. Specify the settings for your blob storage module. 
-
-   1. Enter a recognizable name for your module, like **azureBlobStorage**.
+Provide the image URI for the blob storage module, depending on your IoT Edge device operating system and architecture. 
    
-   2. Provide the image URI for the blob storage module, depending on your container operating system. 
+   * Linux containers on Ubuntu (AMD64): **mcr.microsoft.com/azure-blob-storage:linux**
+   * Linux containers on Raspbian Stretch (ARM32): **mcr.microsoft.com/azure-blob-storage:arm32v7**
+   * Windows containers (AMD64): **mcr.microsoft.com/azure-blob-storage:nanoserver-1809**
    
-      * Linux containers: **mcr.microsoft.com/azure-blob-storage:linux**
-      * Windows containers: **mcr.microsoft.com/azure-blob-storage:nanoserver-1809**
+Use the following JSON template for the **Container Create Options** field. Configure the JSON with your storage account name, storage account key, and storage directory bind.  
    
-   3. Copy and paste the following JSON into the **Container Create Options** field. 
+   ```json
+   {
+       "Env":[
+           "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
+           "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+       ],
+       "HostConfig":[
+           "Binds":[
+               "<storage directory bind>"
+           ],
+           "PortBindings":{
+               "11002/tcp":[{"HostPort":"11002"}]
+           }
+       ]
+   }
+   ```   
    
-      ```json
-      {
-          "Env":[
-              "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-              "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
-          ],
-          "HostConfig":[
-              "Binds":[
-                  "<storage directory bind>"
-              ],
-              "PortBindings":{
-                  "11002/tcp":[{"HostPort":"11002"}]
-              }
-          ]
-      }
-      ```   
-   
-   4. In the create options JSON, update `\<your storage account name\>` with any name. Update `\<your storage account key\>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules.
+In the create options JSON, update `\<your storage account name\>` with any name. Update `\<your storage account key\>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules.
 
-   5. In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
+In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 
-      * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. 
-      * Windows containers: **\<storage path>:C:\BlobRoot**. For example, C:\\ContainerData:C:\\BlobRoot.
+   * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. 
+   * Windows containers: **\<storage path>:C:\\BlobRoot**. For example, C:\\ContainerData:C:\\BlobRoot.
 
 
-Continue following the steps in the deployment guide to deploy your blob storage module. You don't need to set up any routes for the blob storage module, since it can receive requests directly through the exposed port 11002. 
+You don't need to provide registry credentials to access Azure Blob Storage on IoT Edge, and you don't need to declare any routes for your deployment. 
 
 ### Visual Studio Code templates
 
@@ -103,19 +94,26 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 Use the following steps to create a new IoT Edge solution with a blob storage module, and configure the deployment manifest. 
 
-1. In Visual Studio Code, select **View** > **Integrated Terminal**.
+1. Select **View** > **Command Palette**. 
 
-2. Select **View** > **Command Palette**. 
+2. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**. 
 
-3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**. 
-
-4. Follow the prompts to create a new solution: 
+3. Follow the prompts to create a new solution: 
 
    1. **Select Folder** - Browse to the folder where you want to create the new solution.  
+   
    2. **Provide a solution name** - Enter a name for your solution, or accept the default.
+   
    3. **Select module template** - Choose **Existing Module (Enter full image URL)**.
+   
    4. **Provide a module name** - Enter a recognizable name for your module, like **azureBlobStorage**.
-   5. **Provide Docker image for the module** - If your IoT Edge device uses Linux containers, enter **mcr.microsoft.com/azure-blob-storage:linux**. If your IoT Edge device uses Windows containers, enter **mcr.microsoft.com/azure-blob-storage:nanoserver-1809**. 
+   
+   5. **Provide Docker image for the module** - Choose the image URI based on your IoT Edge device operating system and architecture.
+   
+      * Linux containers on Ubuntu (AMD64): **mcr.microsoft.com/azure-blob-storage:linux**
+      * Linux containers on Raspbian Stretch (ARM32): **mcr.microsoft.com/azure-blob-storage:arm32v7**
+      * Windows containers (AMD64): **mcr.microsoft.com/azure-blob-storage:nanoserver-1809**
+
 
 VS Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window. 
 
@@ -133,24 +131,23 @@ The solution template creates a deployment manifest template that includes your 
 
    ![Update module create options](./media/how-to-store-data-blob/create-options.png)
 
-5. In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
+4. In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 
    * Linux containers: **\<storage path>:/blobroot**. For example, /srv/containerdata:/blobroot. 
    * Windows containers: **\<storage path>:C:\\BlobRoot**. For example, C:\\ContainerData:C:\\BlobRoot.
 
+5. Save **deployment.template.json**.
 
-4. Save **deployment.template.json**.
+6. Open **.env** in your solution workspace. 
 
-5. Open **.env** in your solution workspace. 
-
-6. You don't have to enter any container registry values for the blob storage image since it's publicly available. Instead, add two new environment variables: 
+7. You don't have to enter any container registry values for the blob storage image since it's publicly available. Instead, add two new environment variables: 
 
    ```env
    STORAGE_ACCOUNT_NAME=
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Provide any name for the storage account name, and provide a 64-byte base64 key for the storage account key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64) which allows you to select your byte length. You'll use these credentials to access the blob storage from other modules. 
+8. Provide any name for the storage account name, and provide a 64-byte base64 key for the storage account key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You'll use these credentials to access the blob storage from other modules. 
 
 9. Save **.env**. 
 
@@ -160,17 +157,28 @@ Visual Studio Code takes the information that you provided in deployment.templat
 
 ## Connect to your blob storage module
 
-You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device. The interaction with your local blob storage is the same as with your blob storage in the cloud. The only difference is the endpoint that you send requests to. 
+You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device. 
 
-When you send requests to Azure Storage, the blob endpoint is `http://<accountName>.blob.core.windows.net`. For a blob storage module running on an IoT Edge device, the blob endpoint is `https://<IoT Edge device IP address>:11002/<accountName>`. Use this information to [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint). 
+You need to specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
+
+If you're accessing the blob service remotely, or from an application running on your IoT Edge device, the blob endpoint is `https://<IoT Edge device IP address>:11002/<account name>`. If you're accessing the blob service from another IoT Edge module deployed on the same device, the blob endpoint is `https://<module name>/<account name>`. The module name is case-sensitive. 
+
+### Try it out
+
+The Azure Blob Storage documentation includes quickstarts that provide sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to point to your blob storage module.
+
+The following quickstarts use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
+
+* [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+* [Python](../storage/blobs/storage-quickstart-blobs-python.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
 
 ## Supported storage operations
 
-Blob storage modules on IoT Edge use the same language SDKs as their cloud counterparts in Azure. 
+Blob storage modules on IoT Edge use the same Azure Storage SDKs, and are consistent with the 2018-03-28 version of the Azure Storage API for block blob endpoints. Later releases are dependent on customer needs. 
 
-Blob storage modules on IoT Edge are consistent with the 2018-03-28 version of the Azure Storage API for block blob endpoints. Later releases are dependent on customer needs. 
-
-However, not all SDK methods or API calls are available during public preview. The following sections list supported and unsupported operations
+Not all Azure Blob Storage operations are supported by Azure Blob Storage on IoT Edge. The following sections detail which operations are an are not supported. 
 
 ### Account
 
@@ -186,14 +194,13 @@ Unsupported:
 ### Containers
 
 Supported: 
-* Create container
+* Create and delete container
 * Get container properties and metadata
 * List blobs
 
 Unsupported: 
 * Get and set container ACL
 * Lease container
-* Delete container
 * Set container metadata
 
 ### Blobs
