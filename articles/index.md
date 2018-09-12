@@ -2564,25 +2564,6 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/azure/azure-signalr">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-api.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>SignalR Service</h3>
-                                                    <p>Easily add real-time web functionalities</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
