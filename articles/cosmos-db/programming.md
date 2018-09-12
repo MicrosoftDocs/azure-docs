@@ -17,13 +17,7 @@ ms.author: andrl
 
 Learn how Azure Cosmos DB's language-integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** natively in an [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Javascript integration enables you to write program logic that can be shipped and executed directly within the database storage partitions. 
 
-We recommend getting started by watching the following video, where Andrew Liu provides an introduction to Azure Cosmos DB's server-side database programming model. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-Then, return to this article, where you'll learn the answers to the following questions:  
+In this article you'll learn the answers to the following questions:  
 
 * How do I write a stored procedure, trigger, or UDF using JavaScript?
 * How does Cosmos DB guarantee ACID?
@@ -33,7 +27,7 @@ Then, return to this article, where you'll learn the answers to the following qu
 * What Cosmos DB SDKs are available to create and execute stored procedures, triggers, and UDFs?
 
 ## Introduction to Stored Procedure and UDF Programming
-This approach of *“JavaScript as a modern day T-SQL”* frees application developers from the complexities of type system mismatches and object-relational mapping technologies. It also has a number of intrinsic advantages that can be utilized to build rich applications:  
+This approach of *"JavaScript as a modern day T-SQL"* frees application developers from the complexities of type system mismatches and object-relational mapping technologies. It also has a number of intrinsic advantages that can be utilized to build rich applications:  
 
 * **Procedural Logic:** JavaScript as a high-level programming language, provides a rich and familiar interface to express business logic. You can perform complex sequences of operations closer to the data.
 * **Atomic Transactions:** Cosmos DB guarantees that database operations performed inside a single stored procedure or trigger are atomic. This atomic functionality lets an application combine related operations in a single batch so that either all of them succeed or none of them succeed. 
@@ -41,7 +35,7 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
   
   * Batching – Developers can group operations like inserts and submit them in bulk. The network traffic latency cost and the store overhead to create separate transactions are reduced significantly. 
   * Pre-compilation – Cosmos DB precompiles stored procedures, triggers, and user-defined functions (UDFs) to avoid JavaScript compilation cost for each invocation. The overhead of building the byte code for the procedural logic is amortized to a minimal value.
-  * Sequencing – Many operations need a side-effect (“trigger”) that potentially involves doing one or many secondary store operations. Aside from atomicity, this is more performant when moved to the server. 
+  * Sequencing – Many operations need a side-effect ("trigger") that potentially involves doing one or many secondary store operations. Aside from atomicity, this is more performant when moved to the server. 
 * **Encapsulation:** Stored procedures can be used to group business logic in one place, which has two advantages:
   * It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This layer of abstraction is advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
   * This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
@@ -52,7 +46,7 @@ This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azur
 
 ## Stored procedures
 ### Example: Write a stored procedure
-Let’s start with a simple stored procedure that returns a “Hello World” response.
+Let’s start with a simple stored procedure that returns a "Hello World" response.
 
 ```javascript
 var helloWorldStoredProc = {
@@ -245,9 +239,9 @@ This stored procedure uses transactions within a gaming app to trade items betwe
 If the collection the stored procedure is registered against is a single-partition collection, then the transaction is scoped to all the documents within the collection. If the collection is partitioned, then stored procedures are executed in the transaction scope of a single partition key. Each stored procedure execution must then include a partition key value corresponding to the scope the transaction must run under. For more information, see [Azure Cosmos DB Partitioning](partition-data.md).
 
 ### Commit and rollback
-Transactions are deeply and natively integrated into Cosmos DB’s JavaScript programming model. Inside a JavaScript function, all operations are automatically wrapped under a single transaction. If the JavaScript completes without any exception, the operations to the database are committed. In effect, the “BEGIN TRANSACTION” and “COMMIT TRANSACTION” statements in relational databases are implicit in Cosmos DB.  
+Transactions are deeply and natively integrated into Cosmos DB’s JavaScript programming model. Inside a JavaScript function, all operations are automatically wrapped under a single transaction. If the JavaScript completes without any exception, the operations to the database are committed. In effect, the "BEGIN TRANSACTION" and "COMMIT TRANSACTION" statements in relational databases are implicit in Cosmos DB.  
 
-If there is any exception that’s propagated from the script, Cosmos DB’s JavaScript runtime will roll back the whole transaction. As shown in the earlier example, throwing an exception is effectively equivalent to a “ROLLBACK TRANSACTION” in Cosmos DB.
+If there is any exception that’s propagated from the script, Cosmos DB’s JavaScript runtime will roll back the whole transaction. As shown in the earlier example, throwing an exception is effectively equivalent to a "ROLLBACK TRANSACTION" in Cosmos DB.
 
 ### Data consistency
 Stored procedures and triggers are always executed on the primary replica of the Azure Cosmos DB container. This ensures that reads from inside stored procedures offer strong consistency. Queries using user-defined functions can be executed on the primary or any secondary replica, but you ensure to meet the requested consistency level by choosing the appropriate replica.

@@ -326,7 +326,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## Save results to CSV for exchange with ScaleR
 
-That completes the joins we need to do with SparkR. We save the data from the final Spark DataFrame “joinedDF5” to a CSV for input to ScaleR and then close out the SparkR session. We explicitly tell SparkR to save the resultant CSV in 80 separate partitions to enable sufficient parallelism in ScaleR processing:
+That completes the joins we need to do with SparkR. We save the data from the final Spark DataFrame "joinedDF5" to a CSV for input to ScaleR and then close out the SparkR session. We explicitly tell SparkR to save the resultant CSV in 80 separate partitions to enable sufficient parallelism in ScaleR processing:
 
 ```
 logmsg('output the joined data from Spark to CSV') 

@@ -24,7 +24,7 @@ To use an Amazon account as an identity provider in Azure Active Directory (Azur
 3. Select **Register new application**.
 4. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**.
 5. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
-6. In the **Web Settings** section, select **Edit**, and then enter `https://login.microsoftonline.com` in **Allowed JavaScript Origins** and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Allowed Return URLs**. Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). 
+6. In the **Web Settings** section, select **Edit**, and then enter `https://{tenant}.b2clogin.com` in **Allowed JavaScript Origins** and `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace **{tenant}** with your tenant's name (for example, contosob2c). 
 7. Click **Save**.
 
 ## Configure an Amazon account as an identity provider

@@ -145,7 +145,7 @@ One of the beneﬁts of using Azure is that you can deploy your applications int
 
 ### Azure portal
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [Shell.Azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### Resources
 
@@ -169,7 +169,7 @@ Azure PowerShell is a set of modules that provide cmdlets for managing Azure. Yo
 
 #### Azure command-line interface
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli.md).
+The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### REST APIs
 
@@ -177,37 +177,33 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 
 ### Azure Cloud Shell
 
-Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Administrators can access Azure PowerShell and Azure CLI through a browser-accessible experience called Azure Cloud Shell. This interactive interface provides a flexible tool for Linux and Windows administrators to use their command-line interface of choice, either Bash or PowerShell. Azure Cloud Shell can be access through the portal ,as a stand-alone web interface at [shell.azure.com](https://shell.azure.com), or from a number of other access points. For more information, see [Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## Azure subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through role-based access control (RBAC).
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
 ### Select and enable an Azure subscription
 
 Before you can work with Azure services, you need a subscription. Several subscription types are available.
 
-#### Free accounts: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
+**Free accounts**: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
 
-#### MSDN subscriptions: If you have an MSDN subscription, you get a specific amount in Azure credit each month. For example, if you have a Microsoft Visual Studio Enterprise with MSDN subscription, you get \$150 per month in Azure credit.
+**MSDN subscriptions**: If you have an MSDN subscription, you get a specific amount in Azure credit each month. For example, if you have a Microsoft Visual Studio Enterprise with MSDN subscription, you get \$150 per month in Azure credit.
 
 If you exceed the credit amount, your service are disabled until the next month starts. You can turn off the spending limit and add a credit card to be used for the additional costs. Some of these costs are discounted for MSDN accounts. For example, you pay the Linux price for VMs running Windows Server, and there is no additional charge for Microsoft servers such as Microsoft SQL Server. This makes MSDN accounts ideal for development and test scenarios.
 
-#### BizSpark accounts: The Microsoft BizSpark program provides many benefits to startups. One of those benefits is access to all the Microsoft software for development and test environments for up to five MSDN accounts. You get $150 in Azure credit for each of those five MSDN accounts, and you pay reduced rates for several of the Azure services, such as Virtual Machines.
+**BizSpark accounts**: The Microsoft BizSpark program provides many benefits to startups. One of those benefits is access to all the Microsoft software for development and test environments for up to five MSDN accounts. You get $150 in Azure credit for each of those five MSDN accounts, and you pay reduced rates for several of the Azure services, such as Virtual Machines.
 
-#### Pay-as-you-go: With this subscription, you pay for what you use by attaching a credit card or debit card to the account. If you are an organization, you can also be approved for invoicing.
+**Pay-as-you-go**: With this subscription, you pay for what you use by attaching a credit card or debit card to the account. If you are an organization, you can also be approved for invoicing.
 
-#### Enterprise agreements: With an enterprise agreement, you commit to using a certain number of services in Azure over the next year, and you pay that amount ahead of time. The commitment that you make is consumed throughout the year. If you exceed the commitment amount, you can pay the overage in arrears. Depending on the amount of the commitment, you get a discount on the services in Azure.
+**Enterprise agreements**: With an enterprise agreement, you commit to using a certain number of services in Azure over the next year, and you pay that amount ahead of time. The commitment that you make is consumed throughout the year. If you exceed the commitment amount, you can pay the overage in arrears. Depending on the amount of the commitment, you get a discount on the services in Azure.
 
 ### Grant administrative access to an Azure subscription
 
-Multiple account administrator roles are available and can be changed at any time. Two key roles are:
+RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
 
-- **Service administrator**: This role is authorized to manage Azure services. By default, it's granted access to the same account as the account administrator.
-
-- **Co-administrator**: This role has the same access as the service administrator. However, this role cannot change the association of a subscription to Azure directories.
-
-For more information, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md).
+For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### View billing information in the Azure portal
 
@@ -303,21 +299,21 @@ You can grant operational access to user accounts at a specified scope: subscrip
 
 To grant access, you assign a role to the user or user group. There are many predefined roles. You can also define your own custom roles.
 
-Here are a few example roles built into Azure:
+Here are a few example [built-in roles in Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Owner**: A user with this role can manage everything, including access.
 
 - **Reader**: A user with this role can read resources of all types (except secrets) but can’t make changes.
 
-- **Virtual machine contributor**: A user with this role can manage virtual machines but can’t manage the virtual network to which they are connected or the storage account where the VHD file resides.
+- **Virtual Machine Contributor**: A user with this role can manage virtual machines but can’t manage the virtual network to which they are connected or the storage account where the VHD file resides.
 
-- **SQL DB contributor**: A user with this role can manage SQL databases but not their security-related policies.
+- **SQL DB Contributor**: A user with this role can manage SQL databases but not their security-related policies.
 
-- **SQL security manager**: A user with this role can manage the security-related policies of SQL servers and databases.
+- **SQL Security Manager**: A user with this role can manage the security-related policies of SQL servers and databases.
 
-- **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
+- **Storage Account Contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -461,7 +457,7 @@ If you need to allow users to have controlled access to your storage resources, 
 
 ## Azure Virtual Network
 
-Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. Azure supports different uses cases: cloud-only networks or hybrid virtual networks. 
+Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. Azure supports different uses cases: cloud-only networks or hybrid virtual networks.
 
 ### Cloud-only virtual networks
 
@@ -485,7 +481,7 @@ There are several options for deploying a virtual network.
 
 - Azure Resource Manager Templates
 
->**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters. 
+>**When to use**: Anytime you are working with VMs in Azure, you will work with virtual networks. This allows for segmenting your VMs into public-facing and private subnets similar on-premises datacenters.
 
 >**Get started**: Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or create a new one. Get started and [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
@@ -495,5 +491,5 @@ You can help secure Azure virtual networks by using a network security group. NS
 
 ## Next steps
 
-- [Create a Windows VM](/virtual-machines/windows/quick-create-portal.md)
+- [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md)
 - [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md)

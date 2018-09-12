@@ -3,7 +3,7 @@ title: Elastic query - access data in Azure SQL Data Warehouse from Azure SQL Da
 description: Learn best practices for using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement

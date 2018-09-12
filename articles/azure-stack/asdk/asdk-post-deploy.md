@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -36,6 +36,8 @@ Set-PSRepository `
 
 You can use API version profiles  to specify Azure Stack compatible AzureRM modules.  API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. The **AzureRM.Bootstrapper** module that is available through the PowerShell Gallery provides PowerShell cmdlets that are required to work with API version profiles.
 
+If you are running a version of the Azure Stack before the 1808 build, you will to have to use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+
 You can install the latest Azure Stack PowerShell module with or without Internet connectivity to the ASDK host computer:
 
 > [!IMPORTANT]
@@ -50,7 +52,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile `
-    -Profile 2017-03-09-profile -Force
+    -Profile 2018-03-01-hybrid -Force
 
   # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
   Install-Module -Name AzureStack -RequiredVersion 1.4.0 
@@ -136,16 +138,6 @@ The tests take a few minutes to complete. If the installation was successful, th
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 If there was a failure, follow the troubleshooting steps to get help.
-
-## Activate the administrator and tenant portals
-After deployments that use Azure AD, you must activate both the Azure Stack administrator and tenant portals. This activation consents to giving the Azure Stack portal and Azure Resource Manager the correct permissions (listed on the consent page) for all users of the directory.
-
-- For the administrator portal, navigate to https://adminportal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, you can add service administrators who are not also directory tenant administrators.
-
-- For the tenant portal, navigate to https://portal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, users in the directory can sign in to the tenant portal. 
-
-> [!NOTE] 
-> If the portals are not activated, only the directory administrator can sign in and use the portals. If another user signs in, they will see an error that tells them that the administrator has not granted permissions to other users. When the administrator does not natively belong to the directory Azure Stack is registered to, the Azure Stack directory must be appended to the activation URL. For example, if Azure Stack is registered to fabrikam.onmicrosoft.com and the admin user is admin@contoso.com, navigate to https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com to activate the portal. 
 
 ## Reset the password expiration policy 
 To make sure that the password for the development kit host doesn't expire before your evaluation period ends, follow these steps after you deploy the ASDK.

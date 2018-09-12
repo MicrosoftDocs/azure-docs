@@ -6,6 +6,6 @@ ms.date: 07/27/2018
 ms.author: wolfma
 ---
 
-## Intent recognition using microphone
+## Intent recognition from a microphone
 
-The code snippet below shows how to recognize intent from microphone input in the default language (`en-US`).
+The following code shows how to recognize intent from microphone input in the default language (en-US).

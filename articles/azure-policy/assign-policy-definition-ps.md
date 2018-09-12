@@ -102,7 +102,7 @@ The results are comparable to what you'd typically see listed under **Non-compli
 Subsequent guides in this collection build on this quickstart. If you plan to continue to work with other tutorials, do not clean up the resources created in this quickstart. If you don't plan to continue, you can delete the assignment you created by running this command:
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 
 ## Next steps

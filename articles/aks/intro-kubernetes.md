@@ -50,7 +50,7 @@ For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster][ak
 
 ## HTTP application routing
 
-The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster. As applications are deployed, publically accessible DNS names are auto configured.
+The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the HTTP application routing solution configures an ingress controller in your AKS cluster. As applications are deployed, publicly accessible DNS names are auto configured.
 
 For more information, see [HTTP application routing][aks-http-routing].
 
@@ -68,7 +68,7 @@ Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes developmen
 
 For more information, see [Azure Dev Spaces][azure-dev-spaces].
 
-Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in VSTS that includes a build definition for CI, sets up a release definition for CD, and then creates an Azure Application Insights resource for monitoring.
+Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in Azure DevOps Services that includes a build pipeline for CI, sets up a release pipeline for CD, and then creates an Azure Application Insights resource for monitoring.
 
 For more information, see [Azure DevOps project][azure-devops].
 
@@ -100,7 +100,7 @@ Azure Kubernetes Service (AKS) has been CNCF certified as Kubernetes conformant.
 
 ## Regulatory compliance
 
-Azure Kubernetes Service (AKS) is compliant with SOC and ISO.
+Azure Kubernetes Service (AKS) is compliant with SOC, ISO, and PCI DSS.
 
 ## Next steps
 
@@ -122,7 +122,7 @@ Learn more about deploying and managing AKS with the AKS quickstart.
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
-[aks-networking]: ./networking-overview.md
+[aks-networking]: ./concepts-network.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./scale-cluster.md
 [aks-upgrade]: ./upgrade-cluster.md
