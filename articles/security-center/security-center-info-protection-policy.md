@@ -26,7 +26,7 @@ Information protection is an advanced security capability for discovering, class
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data
 - Controlling access to and hardening the security of data stores containing highly sensitive data
  
-[SQL Information Protection](./sql-database/sql-database-data-discovery-and-classification.md) implements this paradigm for your SQL data stores, currently supported for Azure SQL Database. SQL Information Protection automatically discovers and classifies potentially sensitive data, provides a labeling mechanism for persistently tagging the sensitive data with classification attributes, and provides a detailed dashboard showing the classification state of the database. In addition, it calculates the result set sensitivity of SQL queries, so that queries that extract sensitive data can be explicitly audited, and the data can be protected. For more details on SQL Information Protection, see [Azure SQL Database Data Discovery and Classification](./sql-database/sql-database-data-discovery-and-classification.md).
+[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) implements this paradigm for your SQL data stores, currently supported for Azure SQL Database. SQL Information Protection automatically discovers and classifies potentially sensitive data, provides a labeling mechanism for persistently tagging the sensitive data with classification attributes, and provides a detailed dashboard showing the classification state of the database. In addition, it calculates the result set sensitivity of SQL queries, so that queries that extract sensitive data can be explicitly audited, and the data can be protected. For more details on SQL Information Protection, see [Azure SQL Database Data Discovery and Classification](../sql-database/sql-database-data-discovery-and-classification.md).
  
 The classification mechanism is based on two primary constructs that make up the classification taxonomy - **Labels** and **Information Types**.
 - **Labels** – The main classification attributes, used to define the sensitivity level of the data stored in the column. 
@@ -76,7 +76,7 @@ After your Information protection policy is fully defined and saved, it will app
  
 ## Next steps
  
-In this article, you learned about defining a SQL Information Protection policy in Azure Security Center. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](./sql-database/sql-database-data-discovery-and-classification.md). 
+In this article, you learned about defining a SQL Information Protection policy in Azure Security Center. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](../sql-database/sql-database-data-discovery-and-classification.md). 
 
 For more information on security policies and data security in Azure Security Center, see the following articles:
  
