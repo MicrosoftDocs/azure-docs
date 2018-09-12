@@ -22,30 +22,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Prerequisite - whitelist your subscription
-
-This quickstart requires preview approval and whitelisting. Managed Instance is being released initially as a gated public preview that requires your subscription to be whitelisted. If your subscription is not already whitelisted, use the following steps to be offered and accept preview terms and send a request for whitelisting.
-
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
-3. Click **Create**.
-
-   ![managed instance create](./media/sql-database-managed-instance-get-started/managed-instance-create-preview.png)
-
-4. Select your subscription, click **Preview terms**, and then provide the requested information.
-
-   ![managed instance preview terms](./media/sql-database-managed-instance-get-started/preview-terms.png)
-
-5. Click **OK** when completed.
-
-   ![managed instance preview terms](./media/sql-database-managed-instance-get-started/preview-approval-pending.png)
-
-   > [!NOTE]
-   > Complete this quickstart after your preview has been approved. Approval generally takes up to 24 hours.
-
 ## Prepare network environment
 
-SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create the Managed Instance, this quickstart creates the following network resources:
+SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create the Managed Instance, this quickstart creates the following network resources:  
     - A Managed Instance subnet for the Managed Instance itself.
     - A user-defined route in the Managed Instance subnet that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
     - A default subnet for client connectivity to the Managed Instance
