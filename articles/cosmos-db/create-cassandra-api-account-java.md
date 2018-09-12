@@ -3,7 +3,6 @@ title: Create a Cassandra API account, database and a table by using a Java appl
 description: This article shows how to create a Cassandra API account, add a database (also referred as a keyspace) and a table to that account by using a java application.
 services: cosmos-db
 author: kanshiG
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra

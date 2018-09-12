@@ -3,7 +3,6 @@ title: Apache Cassandra features & commands supported by Azure Cosmos DB Cassand
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
 services: cosmos-db
 author: kanshiG
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra

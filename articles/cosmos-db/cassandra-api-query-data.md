@@ -3,7 +3,6 @@ title: Query data from the Cassandra API account | Microsoft Docs
 description: This article shows how to query user data from Azure Cosmos DB Cassandra API account by using a java application.
 services: cosmos-db
 author: kanshiG
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
