@@ -57,8 +57,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-
-## <a name="hub"></a>5. Find and associate a circuit to the hub
+## <a name="hub"></a>4. Find and associate a circuit to the hub
 
 1. Select your vWAN and under **Virtual WAN Architecture**, select **ExpressRoute Circuits**
 2. If the ExpressRoute circuit is in the same subscription as your vWAN,click **Select ExpressRoute circuit** from your subscription(s) 
@@ -71,8 +70,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 6. Click **Find circuit** and select the circuit, if found
 7. Select 1 or more hubs from the drop down and click **Save**
 
-
-## <a name="vnet"></a>6. Connect your VNet to a hub
+## <a name="vnet"></a>5. Connect your VNet to a hub
 
 In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
@@ -86,32 +84,28 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
 
 
-## <a name="viewwan"></a>7. View your virtual WAN
+## <a name="viewwan"></a>6. View your virtual WAN
 
 1. Navigate to the virtual WAN.
 2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
 
-## <a name="viewhealth"></a>8. View your resource health
+## <a name="viewhealth"></a>7. View your resource health
 
 1. Navigate to your WAN.
 2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
 
-## <a name="connectmon"></a>9. Monitor a connection
+## <a name="connectmon"></a>8. Monitor a connection
 
 Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](~/articles/network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
 
-## <a name="cleanup"></a>10. Clean up resources
+## <a name="cleanup"></a>9. Clean up resources
 
 When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
-
-## <a name="feedback"></a>Preview feedback
-
-We would appreciate your feedback. Please send an email to <azurevirtualwan@microsoft.com> to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
 
 ## Next steps
 
