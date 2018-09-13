@@ -171,9 +171,9 @@ Select a **WindowsServices** change, this opens the **Change Details** window. T
 
 Viewing changes in the Azure portal can be helpful, but being able to be alerted when a change occurs, such as a stopped service is more beneficial.
 
-To add an alert for a stopped service, in the Azure portal, go to **Monitor**. Under **Shared Services**, select **Alerts** and click **+ New alert rule**
+To add an alert for a stopped service, in the Azure portal, go to **Monitor**. And then under **Shared Services**, select **Alerts** and click **+ New alert rule**
 
-Under **1. Define alert condition**, click **+ Select target**. Under **Filter by resource type**, select Log **Analytics**. Select your Log Analytics workspace, and then select **Done**.
+Under **1. Define alert condition**, click **+ Select target**. Under **Filter by resource type**, select **Log Analytics**. Select your Log Analytics workspace, and then select **Done**.
 
 ![Select a resource](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
@@ -202,7 +202,7 @@ Under **Actions**, enter a name for the action, like **Email Administrators**. U
 
 ![Add action group](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
 
-In the **Email/SMS/Push/Voice** pane, enter a name. Select the **Email** check box, and then enter a valid email address.
+In the **Email/SMS/Push/Voice** pane, enter a name. Select the **Email** check box, and then enter a valid email address. Click **OK** on the **Email/SMS/Push/Voice** page, and then click **OK** on the **Add action group** page.
 
 To customize the subject of the alert email, under **Create rule**, under **Customize Actions**, select **Email subject**. When you're finished, select **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of that update deployment run.
 
