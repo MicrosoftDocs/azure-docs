@@ -1,5 +1,5 @@
 ---
-title: How to configure the multi-factor authentication registration policy | Microsoft Docs
+title: How to configure the multi-factor authentication registration policy in Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how to configure the Azure AD Identity Protection multi-factor authentication registration policy.
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy

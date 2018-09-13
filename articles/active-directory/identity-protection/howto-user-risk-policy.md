@@ -1,5 +1,5 @@
 ---
-title: How to configure the user risk policy | Microsoft Docs
+title: How to configure the user risk policy in Azure Active Directory Identity Protection| Microsoft Docs
 description: Learn how to configure the Azure AD Identity Protection user risk policy.
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy

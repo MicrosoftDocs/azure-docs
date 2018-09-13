@@ -1,5 +1,5 @@
 ---
-title: How to configure the sign-in risk policy | Microsoft Docs
+title: How to configure the sign-in risk policy in Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how to configure the Azure AD Identity Protection sign-in risk policy.
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
@@ -25,17 +25,17 @@ ms.reviewer: raluthra
 Azure Active Directory detects [risk event types](../reports-monitoring/concept-risk-events.md#risk-event-types) in real-time and offline. Each risk event that has been detected for a sign-in of a user contributes to a logical concept called risky sign-in. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account.
 
 
-### Sign-in risk level
+## Sign-in risk level
 
 A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account.
 
-### Mitigating sign-in risk events
+## Mitigating sign-in risk events
 
 A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
 
 To mitigate risky sign-ins automatically, you can configure sign-in risk security policies. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity.
 
-### Sign-in risk security policy
+## Sign-in risk security policy
 A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
 ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1014.png "Sign-in risk policy")
@@ -58,7 +58,7 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 
     ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1018.png "Sign-in risk policy")
 
-#### What you need to know
+## What you need to know
 You can configure a sign-in risk security policy to require multi-factor authentication:
 
 ![Sign-in risk policy](./media/howto-sign-in-risk-policy/1017.png "Sign-in risk policy")
@@ -72,7 +72,7 @@ As a best practice, if you want to require multi-factor authentication for risky
 
 Completing these steps ensures that multi-factor authentication is required for a risky sign-in.
 
-#### Best practices
+## Best practices
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  
 
 However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity.
