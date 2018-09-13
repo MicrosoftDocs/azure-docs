@@ -1,6 +1,6 @@
 ---
-title: Get started with the Log Analytics page in the Azure portal | Microsoft Docs
-description: This article provides a tutorial for using the Log Analytics page to write queries.
+title: Get started with Log Analytics in the Azure portal | Microsoft Docs
+description: This article provides a tutorial for using Log Analytics in the Azure portal to write queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -17,7 +17,7 @@ ms.author: bwren
 ms.component: na
 ---
 
-# Get started with the Log Analytics page in the Azure portal
+# Get started with Log Analytics in the Azure portal
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
