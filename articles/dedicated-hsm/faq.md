@@ -201,8 +201,8 @@ Microsoft does not have the ability to connect to HSMs allocated to customers. C
 
 ## Q: What operating systems are supported by Dedicated HSM client software?
 
->> Windows, Linux, Solaris*, AIX*, HP-UX*, FreeBSD *
->> Virtual: VMware, Hyper-V, Xen, KVM
+* Windows, Linux, Solaris*, AIX*, HP-UX*, FreeBSD
+* Virtual: VMware, Hyper-V, Xen, KVM
 
 ## Q: Can I import keys from an existing On-prem HSM to Dedicated HSM?
 
