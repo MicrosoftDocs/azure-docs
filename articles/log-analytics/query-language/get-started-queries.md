@@ -23,7 +23,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) before completing this tutorial.
 
-[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
 
 In this tutorial you will learn to write Azure Log Analytics queries. It will teach you how to:
 

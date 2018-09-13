@@ -22,7 +22,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Aggregations in Log Analytics queries](./aggregations.md) before completing this lesson.
 
-[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
 
 This article describes some of the more advanced aggregation options available to Log Analytics queries.
 

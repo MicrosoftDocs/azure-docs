@@ -19,7 +19,7 @@ ms.component: na
 
 # Get started with the Log Analytics page in the Azure portal
 
-[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
 
 In this tutorial you will learn how to use the Log Analytics page in the Azure portal (currently in preview) to write Log Analytics queries. It will teach you how to:
 

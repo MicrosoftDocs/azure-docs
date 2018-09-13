@@ -22,7 +22,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
-[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
 
 This article describes how to work with date and time data in Log Analytics queries.
 
