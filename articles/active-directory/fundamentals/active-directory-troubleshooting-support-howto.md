@@ -1,5 +1,5 @@
 ---
-title: Get support for Azure AD | Microsoft Docs
+title: Get support for Azure Active Directory | Microsoft Docs
 description: How to get support for Azure Active Directory
 services: active-directory
 documentationcenter: na

@@ -2,18 +2,16 @@
 title: Learn about the Azure AD architecture | Microsoft Docs
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure AD
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-ms.assetid: 
+
 ms.service: active-directory
 ms.component: fundamentals
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
+ms.reviewer: jeffsta
+custom: it-pro
 ---
 
 # Understand Azure Active Directory architecture

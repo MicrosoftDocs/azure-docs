@@ -1,10 +1,10 @@
 ---
-title: Sign up for Azure AD Premium | Microsoft Docs
-description: Explains how to sign up for Azure Active Directory Premium edition
+title: How to sign up for Azure Active Directory Premium editions | Microsoft Docs
+description: Step-by-step instructions about how to sign up for Azure Active Directory Premium editions.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
+
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -12,17 +12,27 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro;
+ms.custom: it-pro
 ---
 
-# Quickstart: Sign up for Azure Active Directory Premium
-To get started with Azure Active Directory (Azure AD) Premium, you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you also need to activate your licensing plan and Azure AD service access as described in the following sections. 
+# How to: Sign up for Azure Active Directory Premium
+You can purchase and associate Azure Active Directory (Azure AD) Premium with your Azure subscription. If you create a new Azure subscription, you'll also need to activate your licensing plan and Azure AD service access.
 
-## Sign up for Active Directory Premium
-To sign up for Active Directory Premium, you have several options: 
-* Use your Azure or Office 365 subscription
-* Use an Enterprise Mobility + Security licensing plan
-* Use a Microsoft Volume Licensing plan
+In this quickstart, you'll create a new Azure subscription, and then activate your licensing plan and Azure AD service access.
+
+## Prerequisites
+Before you can sign up for Active Directory Premium 1 or Premium 2, you must first determine which subscription or plan to use:
+
+    - Through your existing Azure or Office 365 subscription
+
+    - Through your Enterprise Mobility + Security licensing plan
+
+    - Through a Microsoft Volume Licensing plan
+
+## Sign in to the Azure portal
+You must sign in to the Azure portal using a Global administrator account for the directory.
+
+
 
 ### Azure or Office 365 
 As an Azure or Office 365 subscriber, you can buy Azure Active Directory Premium online. 
