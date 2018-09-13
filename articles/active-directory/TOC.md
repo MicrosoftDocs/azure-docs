@@ -83,6 +83,7 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Delete a group and its members](fundamentals/active-directory-groups-delete-group.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
@@ -303,7 +304,7 @@
 ##### [Problem with on-premises app - Application Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Document library](active-directory-apps-index.md)
+
 
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
@@ -346,6 +347,7 @@
 #### [Sign-in experience](identity-protection/flows.md)
 #### [Simulate risk events](identity-protection/playbook.md)
 #### [Unblock users](identity-protection/howto-unblock-user.md)
+#### [Block access when a session risk is detected](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [FAQs](identity-protection/faqs.md)
 #### [Glossary](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
