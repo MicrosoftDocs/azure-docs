@@ -123,7 +123,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app. The connections string enables your app to communicate with your hosted database.
+Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
 
 1. In the [Azure portal](http://portal.azure.com/), select **Connection String**. 
 
