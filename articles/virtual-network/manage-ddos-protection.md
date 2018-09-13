@@ -140,8 +140,8 @@ DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, 
 
 Policy thresholds are auto-configured via Azure machine learning-based network traffic profiling. Only when the policy threshold is breached does DDoS mitigation occur for the IP address under attack.
 
-#Configure DDoS Attack Analytics
-Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Analytics. Customers protecting their virtual networks against DDoS attacks will now have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. 
+##Configure DDoS Attack Analytics
+Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks will now have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. 
 
 ##Configure Attack Mitigation Reports
 Attack mitigation reports uses the Netflow protocol data which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you will be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over. 
@@ -178,7 +178,7 @@ Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded t
     - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Send to Log Analytics**: Writes logs to the Azure OMS Log Analytics service. To learn more about this option, see [Collect logs for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-7. To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from here. (./media/manage-ddos-protection/flowlogsbyip.omsview)
+7. To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Flow logs will have the following fields: 
 1. Source IP 
