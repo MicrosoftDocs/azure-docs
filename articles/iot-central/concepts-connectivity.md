@@ -31,7 +31,7 @@ Based on your use case follow the instructions to connect devices to IoT Central
 
 ## Connect a single device
 Connecting a single device to IoT Central using SAS is easy and takes only a few steps 
-1. Add a **real device** from Device Explorer
+1. Add a **real device** from Device Explorer, click on **+New > Real** to add a real device.
     * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
     * Enter the Device Name or use the suggested name
     
@@ -81,9 +81,12 @@ The CSV file should have the following columns (and headers)
 1.  Choose **Explorer** on the left navigation menu.
 1.  On the left panel, choose the device template for which you want to bulk create the devices. 
 1.  Click **Import**, select the CSV file that has the list of Device IDs to be imported.
+The CSV file should have the following columns (and headers)
+    *   IOTC_DeviceID **<span style="color:Red">(should be lower case)</span>**
+    *   IOTC_DeviceName (Optional)
 1.  Once the import completes, a success message is shown on the device grid.
 
-**Export devices** to get the connection details, Export creates a CSV file with the Device Identity, Device Name, and the Device Key. Use these details to get connected to IoT Central.
+**Export devices** to get the connection details, Export creates a CSV file with  Device Id, Device Name, and the Device Key. Use these details to connect the device to IoT Central.
 
  To bulk export devices from your application:
 1.  Choose **Explorer** on the left navigation menu.
@@ -122,15 +125,16 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 
 To connect devices to IoT Central using X509 certificates, there are three key steps involved 
 1. **Configure the connection settings** in IoT Central app by adding/verifying the X509 root/intermediate certificate used to generate the device certificates.  There are two steps to configure connection settings for X509 Certificates
-    *   **Add X509 root or intermediate certificate** used to generate the leaf device certificates.    
+    *   **Add X509 root or intermediate certificate** used to generate the leaf device certificates. Go to Administration > Device Connection > Certificates   
   
     ![Connection settings](media\concepts-connectivity\connection-settings.PNG)
 
     *   **Certificate verification:** Verifying certificate ownership ensures that the uploader of the certificate is in possession of the certificate's private key. To verify the certificate
-        *  Generate Verification code
+        *  Generate Verification code, click the button next to the verification code field to generate the verification code. 
         *  Create an X.509 verification certificate with the verification code 
-        *  Upload the signed verification certificate to verify this 
-    certificate
+        *  Upload the signed verification certificate and click verify.
+
+        Once the certicate is verfied it is ready to be used for this application. 
 
         To learn more, see [certificate verification](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-verify-certificates).
         
