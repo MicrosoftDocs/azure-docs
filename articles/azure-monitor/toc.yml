@@ -59,18 +59,16 @@
   items:
   - name: Azure management
     href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
-  - name: Data sources
-    items:
-    - name: Overview
+  - name: Monitoring data
+    items: 
+    - name: Metrics and logs
+      href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
+    - name: Data sources
       href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log
       href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
     - name: Diagnostic logs
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json 
-  - name: Monitoring data
-    items: 
-    - name: Metrics and logs
-      href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
     - name: Log data ingestion time
       href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json      
     - name: Data security
@@ -93,8 +91,6 @@
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analyze data
     items: 
-    - name: Metrics explorer
-      href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Log Analytics
       href: ../log-analytics/log-analytics-queries.md?toc=/azure/azure-monitor/toc.json
     - name: Log query portals
@@ -491,6 +487,8 @@
         href: ../operations-management-suite/oms-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: VMWare Analytics
         href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
+      - name: Wire Data
+        href: ../log-analytics/log-analytics-wire-data.md?toc=/azure/azure-monitor/toc.json
       - name: Service Map
         items:
         - name: Use
@@ -668,6 +666,8 @@
           href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: Implement a Logic App action
           href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
+      - name: Alerts from Operations Manager
+        href: ../log-analytics/log-analytics-solution-alert-management.md?toc=/azure/azure-monitor/toc.json
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale

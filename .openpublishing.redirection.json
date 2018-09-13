@@ -28090,6 +28090,31 @@
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
             "redirect_url": "/azure/dev-spaces/index",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-overview.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-overview-azure-monitor.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-analytics-diagnostics.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/monitoring/app-insights-analytics-diagnostics.md",
+            "redirect_url": "/azure/application-insights/app-insights-analytics",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/monitoring/app-insights-java-eclipse.md",
+            "redirect_url": "/azure/application-insights/app-insights-java-quick-start",
+            "redirect_document_id" : true
         }
     ]
 }
