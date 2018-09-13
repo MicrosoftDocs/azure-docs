@@ -29,7 +29,7 @@ The service then automatically schedules and runs those actions.
 For example, you can call services inside and outside Azure, 
 such as calling HTTP or HTTPS endpoints, and also post messages 
 to Azure Storage queues and Azure Service Bus queues or topics. 
-Your can run jobs immediately or at a later time. Scheduler easily 
+You can run jobs immediately or at a later time. Scheduler easily 
 supports [complex schedules and advanced recurrence](../scheduler/scheduler-advanced-complexity.md). 
 Scheduler specifies when to run jobs, keeps a history of job 
 results that you can review, and then predictably and 
