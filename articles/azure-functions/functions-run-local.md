@@ -463,7 +463,7 @@ The following publish options are only supported in version 2.x:
 | **`--no-build`** | Skip building dotnet functions. |
 | **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls 'dotnet build --output bin/publish'. Any parameters passed to this will be appended to the command line. |
 
-## Custom container deployment
+### Custom container deployment
 
 Functions lets you deploy your function project in a custom Linux container. For more information, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). Version 2.x of Core Tools supports deploying a custom container. Custom containers must have a Dockerfile. Use the --dockerfile option on `func init`.
 
