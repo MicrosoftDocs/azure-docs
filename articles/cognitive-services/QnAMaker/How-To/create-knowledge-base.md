@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: QnA Maker makes it very simple to onboard your existing data sources to create a knowledge base. You can create a new QnA Maker knowledge base from FAQ pages, products manuals, structured documents or add them editorially. 
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
