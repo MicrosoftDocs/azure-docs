@@ -22,7 +22,7 @@
   items:
   - name: Enable Identity Protection
     href: enable.md
-  - name: Configure the multi-factor authentication registration policy
+  - name: Configure the MFA registration policy
     href: howto-mfa-policy.md
   - name: Configure the sign-in risk policy
     href: howto-sign-in-risk-policy.md
