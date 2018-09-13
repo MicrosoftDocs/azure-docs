@@ -10,11 +10,9 @@ ms.date: 09/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
-# Tutorial: Create a Point-to-Site connection using Azure Virtual WAN 
+# Tutorial: Create a Point-to-Site connection using Azure Virtual WAN (Preview)
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN VPN connection. This type of connection requires a client to be configured on the client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
-
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
 In this tutorial, you learn how to:
 
@@ -28,6 +26,10 @@ In this tutorial, you learn how to:
 > * View your virtual WAN
 > * View resource health
 > * Monitor a connection
+
+> [!IMPORTANT]
+> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+>
 
 ## Before you begin
 
