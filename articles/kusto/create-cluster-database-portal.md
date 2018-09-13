@@ -132,4 +132,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 
 ## Next steps
 
-[Ingest streaming data](ingest-data-event-hub)
+[Ingest streaming data](ingest-data-event-hub.md)

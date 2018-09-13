@@ -9,7 +9,7 @@ ms.service: kusto
 ms.topic: quickstart
 ms.date: 09/24/2018
 
-#Customer intent: As a database administrator, I want to ingest data into Data Explorer for Event Hub so I can analyze patterns in streaming data.
+#Customer intent: As a database administrator, I want to ingest data into Data Explorer from an event hub, so I can analyze patterns in streaming data.
 ---
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
@@ -22,7 +22,9 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 * To complete this quickstart, you must first [provision a cluster and database](create-cluster-database-portal.md).
 
-* To run sample code requires [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/).
+* Download the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data.
+
+* To run the sample app requires [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/).
 
 ## Sign in to the Azure portal
 
@@ -126,30 +128,64 @@ Now you connect to the event hub from Data Explorer, so that data flowing into t
     | File format | *JSON* | JSON and CSV formats are supported. |
     | Table | *TestMapping* | The mapping you created in **TestDatabase**. |
 
-### Event Hub ingestion can be set up for either static or dynamic events routing:
-
-* Dynamic routing means that events read from a single Event Hub can land in different tables in your Kusto cluster. This requires the following properties to be added to the [EventData.Properties](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties) bag:
-
-  * Table - name (case sensitive) of the target Kusto table
-
-  * Format - payload format ("csv" or "json")
-
-  * IngestionMappingReference - name of the ingestion mapping object (pre-created on the table) to be used
-    Kusto provides a control command to [create / edit / delete an ingestion mapping](../controlCommands/tables.md#create-ingestion-mapping).
-
-* Static routing means that there is a 1:1 mapping from an Event Hub to the ingestion properties {Table, Format, IngestionMappingReference}, that need to be specified during onboarding.
+    For this quickstart, you use *static routing* from the event hub, where you specify the table name, file format, and mapping. You can also use dynamic routing, where your application sets these properties.
 
 ## Generate sample data
 
-## Review sample data flow
+Now that Data Explorer and the event hub are connected, you use the sample app you downloaded to generate data.
+
+1. Open the sample app solution in Visual Studio.
+
+1. In the *program.cs* file, update the `connectionString` constant to the connection string you copied from the event hub namespace.
+
+    ```csharp
+    const string eventHubName = "test-hub";
+    // Copy the connection string ("Connection string-primary key") from your Event Hub namespace.
+    const string connectionString = @"<YourConnectionString>";
+    ```
+
+1. Build and run the app. The app sends a message to the event hub every ten seconds, labeled *message 3*, *message 6*, *message 9*, and so on.
+
+1. After the app has sent a few messages, move on to the next step: reviewing the flow of data into your event hub and test table.
+
+## Review the data flow
+
+1. In the Azure portal, under your event hub, you see the spike in activity while the app is running.
+
+    ![Event hub graph](media/ingest-data-event-hub/event-hub-graph.png)
+
+1. Go back to the app and stop it after it reaches message 99.
+
+1. Run the following query in your test database to check whether all the messages have made it to the database yet.
+
+    ```Kusto
+    TestTable
+    | count
+    ```
+
+1. Run the following query to see the content of the messages.
+
+    ```Kusto
+    TestTable
+    ```
 
 ## Clean up resources
 
-Drop table and EH resource group.
+If you don't plan to use your event hub again, delete the resource group *test-hub-rg*.
 
-## Next steps
+1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
+
+    If the left menu is collapsed, select ![Expand button](../../includes/media/cosmos-db-delete-resource-group/expand.png) to expand it.
+
+   ![Select resource group to delete](../../includes/media/cosmos-db-delete-resource-group/delete-resources-select.png)
+
+1. In the new window, select the resource group, and then select **Delete resource group**.
+
+   ![Delete resource group](../../includes/media/cosmos-db-delete-resource-group/delete-resources.png)
+
+1. In the new window, type the name of the resource group to delete (*test-resource-group*), and then select **Delete**.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore data](explore-data)
+> [Explore data](explore-data.md)
