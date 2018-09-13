@@ -27,16 +27,13 @@ To configure a hosted UI for your web app, follow these steps:
   
 4. Select a layout.
   
-  - Search bar and results (default) &mdash; Displays a search box and search results
-  - Results only &mdash; Displays search results only; doesn't display a search box
-  - Pop-over &mdash; Displays search results only in a sliding overlay; doesn't display a search box
-    
-    > [!IMPORTANT]
-    > Be sure to include the `customConfig` query parameter when selecting the **Results only** layout, see [Query parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).  
-  
+  - Search bar and results (default) &mdash; This layout is your traditional search page with search box and search results.
+  - Results only &mdash; This layout displays search results only. This layout doesn't display a search box. You must provide the search query by adding the query parameter (&q=\<query string>) to the request URL in the JavaScript snippet or HTML endpoint link.
+  - Pop-over &mdash; This layout provides a search box and displays the search results in a sliding overlay.
+      
 5. Select a color theme. The possible themes are: 
   
-  - Classic &mdash;
+  - Classic
   - Dark
   - Skyline Blue
 
@@ -86,13 +83,18 @@ To configure a hosted UI for your web app, follow these steps:
     - Title link url &mdash;  Target for the title link.
     - Logo url &mdash; Image displayed next to the title. 
     - Favicon url &mdash; Icon displayed in the browser's title bar.  
-  
-  > [!IMPORTANT]
-  > You must enable Image search, Web search, Video search, or a combination of them.
+
+    The following configurations apply only if you consume the Hosted UI through the HTML endpoint (they don't apply if you use the JavaScript snippet).
+    
+    - Page title
+    - Toolbar theme
+    - Title link URL
+    - Logo URL
+    - Faviicon URL  
   
 6. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-7. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
+7. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance.
@@ -108,18 +110,26 @@ To consume the hosted UI, either:
   ```html
   <html>
       <body>
-          <script type="text/javascript"
-              id="bcs_js_snippet"            
-              src="https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate">            
+          <script type="text/javascript" 
+              id="bcs_js_snippet"
+              src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
           </script>
       </body>    
   </html>
   ```
 
-- Or, use the following URL in a Web browser.  
+- Or, use the following URL in a Web browser.   
   
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
+  > [!NOTE]
+  > Add the following query parameters to the URL as needed. For information about these parameters, see [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) reference.
+  >
+  > - q
+  > - mkt
+  > - safesearch
+  > - setlang
+
   > [!IMPORTANT]
   > The page cannot display your privacy statement or other notices and terms. Suitability for your use may vary.  
 
