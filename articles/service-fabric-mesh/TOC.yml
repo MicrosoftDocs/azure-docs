@@ -52,8 +52,6 @@
     href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
   - name: Independently scale microservices in an app
     href: service-fabric-mesh-howto-app-scale-out.md
-  - name: Upgrade a Service Fabric Mesh app
-    href: service-fabric-mesh-howto-upgrade.md
 
 - name: Reference
   items:
