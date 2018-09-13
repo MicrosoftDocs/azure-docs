@@ -32,7 +32,7 @@ Multi-Factor Authentication comes as part of the following offerings:
 
 * **Azure Active Directory Premium licenses** - Full featured use of Azure Multi-Factor Authentication Service (Cloud) or Azure Multi-Factor Authentication Server (On-premises).
    * **Azure MFA Service (Cloud)** - **This option is the recommended path for new deployments**. Azure MFA in the cloud requires no on-premises infrastructure and can be used with your federated or cloud-only users.
-   * **Azure MFA Server** - If your organization wants to manage the associated infrastructure elements and has deployed AD FS in your on-premsies environment this way may be an option.
+   * **Azure MFA Server** - If your organization wants to manage the associated infrastructure elements and has deployed AD FS in your on-premises environment this way may be an option.
 * **Multi-Factor Authentication for Office 365** - A subset of Azure Multi-Factor Authentication capabilities are available as a part of your subscription. For more information about MFA for Office 365, see the article [Plan for multi-factor authentication for Office 365 Deployments](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Azure Active Directory Global Administrators** - A subset of Azure Multi-Factor Authentication capabilities are available as a means to protect global administrator accounts.
 

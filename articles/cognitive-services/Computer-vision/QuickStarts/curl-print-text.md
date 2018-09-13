@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API cURL quickstart OCR | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Extract printed text (OCR) - REST, cURL - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using Computer Vision with cURL in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Extract printed text (OCR) - REST, cURL
+# Quickstart: Extract printed text (OCR) - REST, cURL - Computer Vision
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 

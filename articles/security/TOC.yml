@@ -12,8 +12,10 @@
     href: abstract-azure-network-security.md
   - name: Azure serverless platform security
     href: abstract-serverless-platform-security.md
+  - name: Container security in Azure
+    href: abstract-container-security-microsoft-azure.md
   - name: Enabling operational security
-    href: azure-operational-security.md
+    href: abstract-azure-operational-security.md
   - name: Governance in Azure
     href: governance-in-azure.md
   - name: Isolation in the Azure cloud

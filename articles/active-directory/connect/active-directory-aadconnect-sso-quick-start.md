@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -37,6 +37,9 @@ Ensure that the following prerequisites are in place:
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) to learn more.
 
 * **Use a supported Azure AD Connect topology**: Ensure that you are using one of Azure AD Connect's supported topologies described [here](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >Seamless SSO supports multiple AD forests, whether there are AD trusts between them or not.
 
 * **Set up domain administrator credentials**: You need to have domain administrator credentials for each Active Directory forest that:
     * You synchronize to Azure AD through Azure AD Connect.
@@ -175,7 +178,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 
 #### Safari (macOS)
 
-Ensure that the machine running the macOS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Ensure that the machine running the macOS is joined to AD. Instructions for AD-joining your macOS device is outside the scope of this article.
 
 #### Google Chrome (all platforms)
 

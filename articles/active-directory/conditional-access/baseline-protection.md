@@ -82,7 +82,7 @@ While managing custom conditional access policies requires an Azure AD Premium l
 
 The directory roles that are included in the baseline policy are the most privileged Azure AD roles. 
 
-If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](../managed-service-identity/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
+If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](../managed-identities-azure-resources/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
 
 Baseline policies apply to legacy authentication flows like POP, IMAP, older Office desktop client. 
 

@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API Ruby quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Generate a thumbnail - REST, Ruby - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using Computer Vision with Ruby in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Generate a thumbnail - REST, Ruby
+# Quickstart: Generate a thumbnail - REST, Ruby - Computer Vision
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

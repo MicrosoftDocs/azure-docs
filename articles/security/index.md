@@ -15,7 +15,7 @@ ms.author: angrobe
 ---
 # Azure Security Documentation
 
-Security is integrated into every aspect of the Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
+Security is integrated into every aspect of Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
 
 <ul class="cardsFTitle panelContent">
     <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
@@ -173,6 +173,9 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                             </li>
 			                <li style="list-style: none;">
                             	<a class="barLink" href="/azure/security/abstract-azure-network-security">Azure network security</a>
+                            </li>
+                            <li style="list-style: none;">
+                            	<a class="barLink" href="/azure/security/abstract-container-security-microsoft-azure">Container security in Microsoft Azure</a>
                             </li>
                         </ul>
                     </div>
