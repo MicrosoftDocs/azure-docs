@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service API Documentation
+title: Speech Service SDK Documentation
 metadata:
-  title: Speech Service API Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  title: Speech Service SDK Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: |
     The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
     Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
@@ -19,7 +19,7 @@ metadata:
   ms.author: nitinme
 
 abstract:
-  description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps.
+  description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
   aside:
     image:
       alt: 
@@ -143,20 +143,18 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="how-to-recognize-intents-from-speech-csharp.md">Recognize intents from Speech</a>
-    - html: <a href="how-to-customize-acoustic-models.md">Create custom acoustic models</a>
-#    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript Tutorial</a>
-#    - html: <a href="Tutorials/PythonTutorial-source.md">Python Tutorial</a>
-- title: Samples
-  items:
-  - type: paragraph
-    text: 'Find samples for Speech Service:'
-  - type: list
-    style: unordered
-    items: 
     - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
     - html: <a href="intent.md">Intent Recognition</a><br/>
     - html: <a href="translation.md">Translation</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples on Github for Speech Service:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Speech Service SDK Samples</a><br/>
+    - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Speech Device SDK Samples</a><br/>
 - title: Reference
   items:
   - type: list
