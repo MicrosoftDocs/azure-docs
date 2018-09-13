@@ -49,6 +49,7 @@ To do this, follow these steps:
 3. Run PowerShell as administrator.
 
 4. Run the following cmdlet to get the secret name.
+
     ```Powershell
     Login-AzureRmAccount
  
@@ -92,7 +93,7 @@ To do this, follow these steps:
     ```Powershell
     manage-bde -off F:
     ```
-8. You can gather the logs by navigating to the following path: DRIVE LETTER:\Windows\System32\winevt\Logs
+8. You can gather the logs by navigating to the following path: **DRIVE LETTER:\Windows\System32\winevt\Logs**.
 
 9. Detach the drive from the recovery machine
 
