@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Azure SignalR Service with Azure Functions in C# | Microsoft Docs
-description: A quickstart for using Azure SignalR Service to create a chat room with Azure Functions in C#.
+title: Azure SignalR Service Serverless Quickstart - C# | Microsoft Docs
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
 services: signalr
 documentationcenter: ''
 author: sffamily
@@ -13,10 +13,59 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
-ms.date: 06/13/2018
+ms.date: 09/23/2018
 ms.author: zhshang
-#Customer intent: As an ASP.NET Core developer, I want to push real-time data in my ASP.NET Core apps. So that my clients are updated without the need to poll, or request updates.
 ---
-# Quickstart: Create a chat room with Azure Functions and Azure SignalR using C#
 
-A quickstart on how to use Azure Functions bindings and C# to build a chat room with Azure SignalR Service. 
+# Quickstart: Create a chat room with Azure Functions and SignalR Service using C#
+
+Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Functions to build a serverless, real-time chat application.
+
+
+## Prerequisites
+
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
+## Log in to Azure
+
+Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
+
+
+[!INCLUDE [](includes/signalr-quickstart-create-instance.md)]
+
+[!INCLUDE [](includes/signalr-quickstart-clone-application.md)]
+
+
+## Configure and run the Azure Function app
+
+1. Start Visual Studio and open the solution in the *src\csharp* folder of the cloned repository.
+
+1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
+
+    ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
+
+1. Select **Keys** to view the connection strings for the SignalR Service instance.
+
+1. Select and copy the primary connection string.
+
+1. Back in Visual Studio, in Solution Explorer, rename *local.settings.sample.json* to *local.settings.json*.
+
+1. In **local.settings.json**, paste the connection string into the value of the **AzureSignalRConnectionString** setting. Save the file.
+
+1. Open **Functions.cs**. There are two HTTP triggered functions in this function app:
+
+    - **GetSignalRInfo** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
+    - **SendMessage** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
+
+1. In the **Debug** menu, select **Start debugging** to run the application.
+
+    ![Debug the application](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+
+
+[!INCLUDE [](includes/signalr-quickstart-run-web-application.md)]
+
+
+[!INCLUDE [](includes/signalr-quickstart-cleanup.md)]
