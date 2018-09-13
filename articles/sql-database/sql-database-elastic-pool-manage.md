@@ -94,13 +94,13 @@ To create and manage SQL Database elastic pools and pooled databases, use these 
 
 | Command | Description |
 | --- | --- |
-|[Elastic Pools - Create Or Update](/rest/api/sql/elasticpools/createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
-|[Elastic Pools - Delete](/rest/api/sql/elasticpools/delete)|Deletes the elastic pool.|
-|[Elastic Pools - Get](/rest/api/sql/elasticpools/get)|Gets an elastic pool.|
-|[Elastic Pools - List By Server](/rest/api/sql/elasticpools/listbyserver)|Returns a list of elastic pools in a server.|
-|[Elastic Pools - Update](/rest/api/sql/elasticpools/update)|Updates an existing elastic pool.|
-|[Elastic Pool Activities](/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
-|[Elastic Pool Database Activities](/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|
+|[Elastic pools - Create Or Update](/rest/api/sql/elasticpools/createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
+|[Elastic pools - Delete](/rest/api/sql/elasticpools/delete)|Deletes the elastic pool.|
+|[Elastic pools - Get](/rest/api/sql/elasticpools/get)|Gets an elastic pool.|
+|[Elastic pools - List By Server](/rest/api/sql/elasticpools/listbyserver)|Returns a list of elastic pools in a server.|
+|[Elastic pools - Update](/rest/api/sql/elasticpools/update)|Updates an existing elastic pool.|
+|[Elastic pool Activities](/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
+|[Elastic pool Database Activities](/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|
 |[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|

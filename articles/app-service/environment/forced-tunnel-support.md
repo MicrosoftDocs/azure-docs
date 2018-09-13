@@ -101,7 +101,7 @@ To tunnel all outbound traffic from your ASE, except that which goes to Azure St
 
 3. Get the addresses that will be used for all outbound traffic from your App Service Environment to the internet. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA.
 
-4. _To set the egress addresses in an existing App Service Environment:_ Go to resource.azure.com, and go to Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says **read/write** at the top. Select **Edit**. Scroll down to the bottom. Change the **userWhitelistedIpRanges** value from **null** to something like the following. Use the addresses you want to set as the egress address range. 
+4. _To set the egress addresses in an existing App Service Environment:_ Go to resources.azure.com, and go to Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says **read/write** at the top. Select **Edit**. Scroll down to the bottom. Change the **userWhitelistedIpRanges** value from **null** to something like the following. Use the addresses you want to set as the egress address range. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 

@@ -6,15 +6,14 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
+    - name: 1808 update 
+      href: azure-stack-update-1808.md 
     - name: 1807 update 
       href: azure-stack-update-1807.md 
     - name: 1805 update
       href: azure-stack-update-1805.md
     - name: 1804 update
       href: azure-stack-update-1804.md
-    - name: 1803 update
-      href: azure-stack-update-1803.md
-
 - name: Quickstarts
   expanded: true
   items:
@@ -53,6 +52,8 @@
         items:
         - name: Publish endpoints
           href: azure-stack-integrate-endpoints.md
+        - name: Extension host
+          href: azure-stack-extension-host-prepare.md
     - name: Identity integration
       items:    
       - name: Choose an identity provider

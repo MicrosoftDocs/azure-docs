@@ -20,7 +20,7 @@
     href: stream-analytics-with-azure-functions.md
   - name: 3 - Run a Javascript UDF
     href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Deploy with CI/CD in VSTS
+  - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Samples
   items:

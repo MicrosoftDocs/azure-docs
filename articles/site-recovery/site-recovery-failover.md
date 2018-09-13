@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
 
 ---
@@ -26,14 +26,14 @@ Use the following table to know about the failover options provided by Azure Sit
 
 
 ## Run a failover
-This procedure describes how to run a failover for a [recovery plan](site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
+This procedure describes how to run a failover for a [recovery plan](site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page as described [here](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
 ![Failover](./media/site-recovery-failover/Failover.png)
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover**
 2. On the **Failover** screen, select a **Recovery Point** to failover to. You can use one of the following options:
-	1.  **Latest** (default): This option starts the job by first processing all the data that has been sent to Site Recovery service. Processing the data creates a recovery point for each virtual machine. This recovery point is used by the virtual machine during failover. This option provides the lowest RPO (Recovery Point Objective) as the virtual machine created after failover has all the data that has been replicated to Site Recovery service when the failover was triggered.
+	1.  **Latest**: This option starts the job by first processing all the data that has been sent to Site Recovery service. Processing the data creates a recovery point for each virtual machine. This recovery point is used by the virtual machine during failover. This option provides the lowest RPO (Recovery Point Objective) as the virtual machine created after failover has all the data that has been replicated to Site Recovery service when the failover was triggered.
 	1.  **Latest processed**: This option fails over all virtual machines of the recovery plan to the latest recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest processed recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information. As no time is spent to process the unprocessed data, this option provides a low RTO (Recovery Time Objective) failover option.
 	1.  **Latest app-consistent**: This option fails over all virtual machines of the recovery plan to the latest application consistent recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest app-consistent recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information.
 	1.  **Latest multi-VM processed**: This option is only available for recovery plans that have at least one virtual machine with multi-VM consistency ON. Virtual machines that are part of a replication group failover to the latest common multi-VM consistent recovery point. Other virtual machines failover to their latest processed recovery point.  
@@ -99,18 +99,19 @@ In certain cases, failover of virtual machines requires an extra intermediate st
 
 In all the other cases, this intermediate step is not required and the time taken for the failover is lower.
 
-
-
-
-
 ## Using scripts in Failover
 You might want to automate certain actions while doing a failover. You can use scripts or [Azure automation runbooks](site-recovery-runbook-automation.md) in [recovery plans](site-recovery-create-recovery-plans.md) to do that.
 
 ## Post failover considerations
 Post failover you might want to consider the following recommendations:
 ### Retaining drive letter after failover
-To retain the drive letter on virtual machines after failover, you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+To retain the drive letter on virtual machines after failover, you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## Prepare to connect to Azure VMs after failover
+
+If you want to connect to Azure VMs using RDP/SSH after failover, follow the requirements summarized in the table [here](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.md) to troubleshoot any connectivity issues post failover.
 
 
 ## Next steps
