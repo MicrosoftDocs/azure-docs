@@ -15,17 +15,17 @@ ms.author: luisca
 
 Microsoft Power BI Desktop is a free application that lets you connect to, transform, and visualize your data. The Text Analytics service, part of Microsoft Azure Cognitive Services, provides natural language processing. Given raw unstructured text, it can extract the most important phrases, analyze sentiment, and identify well-known entities such as brands. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 
-In this tutorial, you will learn how to integrate Power BI Desktop and the Text Analytics Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also show how to create a word cloud from these phrases.
+In this tutorial, you'll learn how to integrate Power BI Desktop and the Text Analytics Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also show how to create a word cloud from these phrases.
 
 ## Prerequisites
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
 - A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
-- A Cognitive Services API account with the Text Analytics API. If you do not have one, you can [sign up](../../cognitive-services-apis-create-account.md)
+- A Cognitive Services API account with the Text Analytics API. If you don't have one, you can [sign up](../../cognitive-services-apis-create-account.md)
  and use the free tier for 5,000 transactions/month (see [pricing details](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
 - The [Text Analytics access key](../how-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
-- Customer comments. You can use [our example data](https://aka.ms/cogsvc/ta) or your own data. This tutorial assumes you are using our example data.
+- Customer comments. You can use [our example data](https://aka.ms/cogsvc/ta) or your own data. This tutorial assumes you're using our example data.
 
 ## Loading customer data
 <a name="LoadingData"></a>
@@ -52,7 +52,7 @@ To see the loaded data, click the **Data View** button on the left edge of the P
 ## Preparing the data
 <a name="PreparingData"></a>
 
-You may need to transform your data in Power BI Desktop before it is ready to be processed by the Key Phrases API of the Text Analytics service.
+You may need to transform your data in Power BI Desktop before it's ready to be processed by the Key Phrases API of the Text Analytics service.
 
 The sample data contains a `subject` column and a `comment` column. With the Merge Columns function in Power BI Desktop, you can extract key phrases from the data in both these columns, rather than just the `comment` column.
 
@@ -60,7 +60,7 @@ In Power BI Desktop, select the **Home** ribbon. In the **External data** group,
 
 ![[The External Data group in Home ribbon]](../media/tutorials/power-bi/edit-queries.png)
 
-Select `FabrikamComments` in the **Queries** list at the left side of the window if it is not already selected.
+Select `FabrikamComments` in the **Queries** list at the left side of the window if it isn't already selected.
 
 Now select both the `subject` and `comment` columns in the table. You may need to scroll horizontally to see these columns. First click the `subject` column header, then hold down the Control key and click the `comment` column header.
 
@@ -77,15 +77,13 @@ You might also consider filtering out blank messages using the Remove Empty filt
 ## Understanding the API
 <a name="UnderstandingAPI"></a>
 
-The [Key Phrases API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will contain only a single document each. The Key Phrases API requires the following fields for each document being processed.
+The [Key Phrases API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will include only a single document each. The Key Phrases API requires the following fields for each document being processed.
 
 | | |
 | - | - |
-| `id`  | A unique identifier for this document within the request. The response also contains this field. That way, if you process multiple documents, you can easily associate the extracted key phrases with the document they came from. Because you are processing only one document per request, you can hard-code the value of `id` to be the same for each request.|
+| `id`  | A unique identifier for this document within the request. The response also contains this field. That way, if you process more than one document, you can easily associate the extracted key phrases with the document they came from. In this tutorial, because you're processing only one document per request, you can hard-code the value of `id` to be the same for each request.|
 | `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#PreparingData), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,000 characters.|
 | `language` | The code for the natural language the document is written in. All the messages in the sample data are in English, so you can hard-code the value `en` for this field.|
-
-You will combine these fields into a JSON (JavaScript Object Notation) document to submit to the Key Phrases API. The response from this request is also a JSON document, which you will parse.
 
 ## Creating a custom function
 <a name="CreateCustomFunction"></a>
@@ -95,7 +93,7 @@ Now you're ready to create the custom function that will integrate Power BI and 
 > [!NOTE]
 > Power BI Desktop custom functions are written in the [Power Query M formula language](https://msdn.microsoft.com/library/mt211003.aspx), or just "M" for short. M is a functional programming language based on [F#](https://docs.microsoft.com/dotnet/fsharp/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
 
-In Power BI Desktop, make sure you are still in the Query Editor window. If you are not, select the **Home** ribbon, and in the **External data** group, click **Edit Queries**.
+In Power BI Desktop, make sure you are still in the Query Editor window. If you're not, select the **Home** ribbon, and in the **External data** group, click **Edit Queries**.
 
 Now, in the **Home** ribbon, in the **New Query** group, open the **New Source** drop-down menu and select **Blank Query**. 
 
@@ -126,7 +124,7 @@ Replace `YOUR_API_KEY_HERE` with your Text Analytics access key. You can also fi
 ## Using the custom function
 <a name="UseCustomFunction"></a>
 
-Now you can use the custom function to obtain the key phrases contained in each of the customer comments and store them in a new column in the table. 
+Now you can use the custom function to extract the key phrases from each of the customer comments and store them in a new column in the table. 
 
 In Power BI Desktop, in the Query Editor window, switch back to the `FabrikamComments` query. Select the **Add Column** ribbon. In the **General** group, click **Invoke Custom Function**.
 
@@ -140,7 +138,7 @@ A new field appears in the dialog, **text (optional)**. This field is asking whi
 
 Finally, click **OK.**
 
-If everything is ready, Power BI calls your custom function once for each row in the table. It sends the queries to the Key Phrases API and adds a new column to the table to contain the results. But before that happens, you may need to specify authentication and privacy settings.
+If everything is ready, Power BI calls your custom function once for each row in the table. It sends the queries to the Key Phrases API and adds a new column to the table to store the results. But before that happens, you may need to specify authentication and privacy settings.
 
 ## Authentication and privacy
 <a name="Authentication"></a>
@@ -173,7 +171,7 @@ Once you have dealt with any banners that appear, click **Close & Apply** in the
 
 Power BI Desktop takes a moment to make the necessary HTTP requests. For each row in the table, the new `keyphrases` column contains the key phrases detected in the text by the Key Phrases API. 
 
-Now you will use this column to generate a word cloud. To get started, click the **Report** button in the main Power BI Desktop window, to the left of the workspace.
+Now you'll use this column to generate a word cloud. To get started, click the **Report** button in the main Power BI Desktop window, to the left of the workspace.
 
 > [!NOTE]
 > Why use extracted key phrases to generate a word cloud, rather than the full text of every comment? The key phrases provide us with the *important* words from our customer comments, not just the *most common* words. Also, word sizing in the resulting cloud isn't skewed by the frequent use of a word in a relatively small number of comments.
