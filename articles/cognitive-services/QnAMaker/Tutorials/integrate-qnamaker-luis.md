@@ -24,14 +24,14 @@ While it is straightforward to create multiple knowledge bases in QnA Maker, you
 In the above scenario, QnA Maker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnA Maker knowledge base.
 
 ## Prerequisites
-- Log in to the [LUIS](https://www.luis.ai/) portal and [create an app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Add intents](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) as per your scenario.
-- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) and [publish](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) your LUIS App.
+- Log in to the [LUIS](https://www.luis.ai/) portal and [create an app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+- [Add intents](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) as per your scenario.
+- [Train](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) and [publish](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) your LUIS App.
 - Log in to [QnA Maker](https://qnamaker.ai) and [create](https://www.qnamaker.ai/Create) knowledge bases as per your scenario.
 - Test and publish the knowledge bases.
 
 ## QnA Maker + LUIS Bot
-1. First create a Web App bot with the LUIS template, link it with the LUIS app you created above, and modify the intents. See detailed steps [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+1. First create a Web App bot with the LUIS template, link it with the LUIS app you created above, and modify the intents. See detailed steps [here](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
 2. Add dependencies to the top of the file, with the other dependencies:
 
