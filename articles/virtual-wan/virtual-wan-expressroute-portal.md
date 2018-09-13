@@ -36,74 +36,26 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
-Verify that you have met the following criteria before beginning your configuration:
-
-* If you already have a virtual network that you want to connect to, verify that none of the subnets of your on-premises network overlap with the virtual networks that you want to connect to. Your virtual network does not require a gateway subnet and cannot have any virtual network gateways. If you do not have a virtual network, you can create one using the steps in this article.
-* Obtain an IP address range for your hub region. The hub is a virtual network and the address range that you specify for the hub region cannot overlap with any of your existing virtual networks that you connect to. It also cannot overlap with your address ranges that you connect to on premises. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## <a name="enroll"></a>1. Enroll in the Preview
-
-Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
-
-## <a name="vnet"></a>2. Create a virtual network
-
-If you do not already have a VNet, you can quickly create one using PowerShell. You can also create a virtual network using the Azure portal.
-
-* Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces. 
-* If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
-
-You can easily create your VNet by clicking "Try It" in this article to open a PowerShell console. Adjust the values, then copy and paste the commands into the console window.
-
-### Create a resource group
-
-Adjust the PowerShell commands, then create a resource group.
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName WANTestRG -Location WestUS
-```
-
-### Create a VNet
-
-Adjust the PowerShell commands to create the VNet that is compatible for your environment.
-
-```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"
-$vnet   = New-AzureRmVirtualNetwork `
-            -Name WANVNet1 `
-            -ResourceGroupName WANTestRG `
-            -Location WestUS `
-            -AddressPrefix "10.1.0.0/16" `
-            -Subnet $fesub1
-```
-
-## <a name="wan"></a>3. Create a virtual WAN
-
-1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-2. At this time, you can find Virtual WAN by navigating to **All services** and searching for Virtual WAN. Or, you can search for Virtual WAN in the search box at the top of the Azure portal. Click **Virtual WAN** to open the page.
-3. Click **Create** to open the **Create WAN** page. If the page is not available, you have not yet been approved for this Preview.
-
-  ![Create WAN](./media/virtual-wan-site-to-site-portal/createwan.png)
-4. On the Create WAN page, fill in the following fields.
-
-  * **Name** - Select the Name that you want to call your WAN.
-  * **Subscription** - Select the subscription that you want to use.
-  * **Resource Group** - Create new or use existing.
-  * **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
+[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 
-5. Click **Create** to create the configuration.
+## <a name="vnet"></a>1. Create a virtual network
 
-## <a name="hub"></a>4. Create a hub
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
-1. On the page for your virtual WAN, click **Hubs**
-2. On the blade opened, click **New Hub** and fill in the following files:
+## <a name="openvwan"></a>2. Create a virtual WAN
 
-* **Region** - Select the region where you want your hub deployed
-* **Name** - Provide a name of the hub
-* **Address Space** - Provide an address space that is larger than /27
-3. Select **Include ExpressRoute Gateway** and select number of scale units you want deplooyed. 
-**Note: During managed preview, this cannot be scale in or out.**
+From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+
+### Getting started page
+
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-gettingstarted-include.md)]
+
+## <a name="hub"></a>3. Create a hub
+
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
 
 
 ## <a name="hub"></a>5. Find and associate a circuit to the hub
