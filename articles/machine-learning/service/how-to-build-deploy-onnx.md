@@ -34,7 +34,7 @@ There is also an ecosystem of tools for visualizing and accelerating ONNX models
 ## Create ONNX models in Azure
 
 You can create ONNX models in several ways:
-+ Train a model in Azure Machine Learning service and convert or export it to ONNX - learn more with this [sample notebook](http://aka.ms/aml-onnx-training-notebook)
++ Train a model in Azure Machine Learning service and convert or export it to ONNX (see example in this article)
 
 + Get a pre-trained ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models)
 
@@ -63,7 +63,7 @@ You can find the latest list of supported frameworks and converters at the [ONNX
 
 ## Deploy ONNX models in Azure
 
-With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud. Download [this Jupyter notebook](https://aka.ms/aml-onnx-notebook) to try it out for yourself. 
+With Azure Machine Learning service, you can deploy, manage, and monitor your ONNX models. Using the standard [deployment workflow](concept-model-management-and-deployment.md) and the ONNX Runtime, you can create a REST endpoint hosted in the cloud. See a full example Jupyter notebook at the end of this article to try it out for yourself. 
 
 ### Install and configure the ONNX Runtime
 
@@ -100,7 +100,7 @@ For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
 
 Here is an example for deploying an ONNX model:
 
-1. Initialize your Azure Machine Learning Workspace.
+1. Initialize your Azure Machine Learning Workspace. (Learn how to create a workspace in [this quickstart](quickstart-get-started.md).)
 
    ```python
    from azureml.core import Workspace
@@ -186,6 +186,15 @@ Here is an example for deploying an ONNX model:
 
    + Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
 
+
+## Examples
+ 
+learn more with this [sample notebook]()
+The following notebook demonstrate pipelines with Azure Machine Learning: http://aka.ms/aml-onnx-training-notebook
+ 
+Get this notebook:
+ 
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 

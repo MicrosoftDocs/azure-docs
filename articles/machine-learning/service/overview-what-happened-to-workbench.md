@@ -26,7 +26,7 @@ The latest release of Azure Machine Learning includes:
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can create workspaces quickly in the [Azure portal](quickstart-get-started.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
-While there are new improved CLI and SDK clients in the current release, the desktop Workbench application itself was deprecated. You can still monitor your experiments, but now you'll do so in workspace dashboard in the Azure web portal. Use the dashboard to run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
+While there are new improved CLI and SDK clients in the current release, the desktop Workbench application itself was deprecated. You can still monitor your experiments, but now you'll do so in [workspace dashboard in the Azure web portal](how-to-track-experiments#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
 ## How do I migrate?
 
@@ -36,7 +36,7 @@ Most of the artifacts created in the earlier version of the Azure Machine Learni
 
 ## What's the support timeline?
 
-You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release.
+You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release. You can still find the documentation for the old features in the Resources section at the bottom of the [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
 |Phase|Support details for earlier features|
 |:---:|----------------|
@@ -45,8 +45,6 @@ You can continue to use your experimentation and model management accounts as we
 |3|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
 
 [Start migrating](how-to-migrate.md) today. All of the latest capabilities are available using the new <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
-
-You can still find the documentation for the old features in the Resources section at the bottom of the [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
 ## What about run histories?
 
