@@ -1,13 +1,14 @@
 ---
-title: Azure Video Indexer concepts | Microsoft Docs
+title: Video Indexer concepts
+titlesuffix: Azure Cognitive Services
 description: This topic describes some concepts of the Video Indexer service.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: juliako
 

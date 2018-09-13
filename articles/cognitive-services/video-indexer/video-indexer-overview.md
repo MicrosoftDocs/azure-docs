@@ -1,10 +1,10 @@
 ---
-title: Azure Video Indexer overview | Microsoft Docs
+title: What is Video Indexer?
+titlesuffix: Azure Cognitive Services
 description: This topic gives an overview of the Video Indexer service.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: video-indexer

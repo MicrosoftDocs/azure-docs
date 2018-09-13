@@ -1,13 +1,14 @@
 ---
-title: Manage a Video Indexer account connected to Azure | Microsoft Docs
+title: Manage a Video Indexer account
+titlesuffix: Azure Cognitive Services
 description: This article shows how to manage a Video Indexer account connected to Azure.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: juliako
 

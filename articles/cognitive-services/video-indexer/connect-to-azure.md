@@ -1,13 +1,14 @@
 ---
-title: Create a Video Indexer account connected to Azure | Microsoft Docs
-description: This article shows how to create a Video Indexer account connected to Azure.
+title: Create a Video Indexer account in the Azure portal
+titlesuffix: Azure Cognitive Services
+description: This article shows how to create a Video Indexer account in the Azure portal.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: juliako
 

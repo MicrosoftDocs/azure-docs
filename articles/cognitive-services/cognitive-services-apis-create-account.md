@@ -1,21 +1,15 @@
 ---
-title: Create a Cognitive Services APIs account in the Azure portal | Microsoft Docs
+title: Create a Cognitive Services APIs account in the Azure portal
+titlesuffix: Azure Cognitive Services
 description: How to create a Microsoft Cognitive Services APIs account in the Azure portal.
 services: cognitive-services
-documentationcenter: ''
 author: garyericson
 manager: cgronlun
-editor: 
 
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: cognitive-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.reviewer: gibattag
-
 ---
 
 # Create a Cognitive Services APIs account in the Azure portal

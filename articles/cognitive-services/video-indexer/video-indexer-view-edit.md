@@ -1,12 +1,14 @@
 ---
-title: View and edit Azure Video Indexer insights | Microsoft Docs
+title: View and edit Video Indexer insights
+titlesuffix: Azure Cognitive Services
 description: This topic demonstrates how to view and edit Video Indexer insights.
 services: cognitive services
-documentationcenter: ''
 author: juliako
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: juliako
 
