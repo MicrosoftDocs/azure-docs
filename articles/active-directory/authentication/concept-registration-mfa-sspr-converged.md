@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: sahenry, michmcla
 
 ---
-# Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)
+# Converged registration for self-service password reset and Azure Multi-Factor Authentication (public preview)
 
 Until now, users were required to register authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) in two different portals. Many users were confused that similar methods were used for both Azure Multi-Factor Authentication and SSPR and would not register in both portals. Some users were then unable to use either Azure Multi-Factor Authentication or SSPR when needed, leading to helpdesk calls. 
 
@@ -82,7 +82,7 @@ Audit logs for this new experience exist under the Authentication Methods catego
       1. User previously registered their phone number and set their default method to phone call.
       2. Admin disables phone call as a Multi-Factor Authentication method for the tenant.
       3. User is prompted to register during sign-in because they need to register an additional method to meet the tenant SSPR policy.
-      4. User tries to register but cannot access the page due to not having a default method set and is stuck in a loop.
+      4. User tries to register but cannot access the page and is stuck in a loop because a default method isn't set.
 
 ## Next steps
 
