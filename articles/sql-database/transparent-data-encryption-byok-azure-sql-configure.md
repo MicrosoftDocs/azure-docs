@@ -8,7 +8,7 @@ author: "aliceku"
 manager: craigg
 editor:
 ms.prod: 
-ms.reviewer: "carlrab"
+ms.reviewer: vanto
 ms.suite: sql
 ms.prod_service: sql-database, sql-data-warehouse
 ms.service: "sql-database"
