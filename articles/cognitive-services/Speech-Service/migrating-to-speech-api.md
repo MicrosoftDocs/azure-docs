@@ -46,11 +46,11 @@ Note that your Translator Speech API subscription key won't be accepted by the S
 If you or your organization have applications in development or production that use the Translator Speech API, you should update them to use the Speech Service as soon as possible. See the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) documentation for available SDKs, code samples, and tutorials.
 Applications already in production must be migrated to use the Speech Service. Below are some things to consider when migrating:
 
-* The new Speech API does not currently offer a global endpoint. You will need to determine if your application will function efficiently using a single regional endpoint for all of it's traffic. If it won't, you will need to use geolocation to determine the most efficient endpoint.
+* The Speech Service does not currently offer a global endpoint. You will need to determine if your application will function efficiently using a single regional endpoint for all of it's traffic. If it won't, you will need to use geolocation to determine the most efficient endpoint.
 
 * If your application uses long-lived connections and can't use the available SDKs, you can use a websocket connection and manage the 10-minute timeout limit by reconnecting at the appropriate times.
 
-* As a Language API, global endpoint, and additional SDKs are considered for future releases, you should check the [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) often for updates.
+* Note that a Language API, global endpoint, and additional SDKs are being considered for future Speech Service releases. Check the [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) often for updates.
 
 * If your application uses the Translator Text API and Translator Speech API to enable custom translation models, you will be able to add ‘Category’ IDs directly using the Speech Service.
 
