@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 Before you begin, you’ll need to:
 
-1.	Create an Azure Active Directory tenant. For more information, see Create your new Azure Active Directory tenant active-directory-create-new-tenant.md. - article in other branch, will update at merge.
+1.	Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-azure-ad.md).
 
 2.	Create the _MDM policy - West_ group and add member, _Alain Charon_. For more information, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
