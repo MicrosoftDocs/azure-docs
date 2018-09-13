@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Create, debug, deploy, monitor, and upgrade a multi-service Service Fabric Mesh app
 
-This tutorial is part one of a series. You'll learn how to use Visual Studio to create an Azure Service Fabric Mesh app that has an ASP.NET web front-end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster. You'll publish the app to Azure, check app logs integrate App Insights into your app, and then you'll upgrade the app. Finally, you'll see how to clean up unused Azure resources so tha you are not charged for them. 
+This tutorial is part one of a series. You'll learn how to use Visual Studio to create an Azure Service Fabric Mesh app that has an ASP.NET web front-end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster. You'll publish the app to Azure, check app logs and integrate App Insights into your app, and then you'll upgrade the app. Finally, you'll clean up unused Azure resources so that you are not charged for what you aren't using.
 
 When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh app running in Azure Service Fabric Mesh.
 

@@ -20,12 +20,13 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Monitor and diagnose an Azure Service Fabric Mesh app
 
-This tutorial is part four of a series and shows you how to view the app logs for a deployed Azure Service Fabric Mesh web app.
+This tutorial is part four of a series and shows you how to view the app logs for a deployed Azure Service Fabric Mesh web app. You will also integrate App Insights to generate app level telemetry.
 
 In this tutorial you will learn:
 
 > [!div class="checklist"]
 > * How to view the logs for a deployed Service Fabric Mesh app
+> * How to integrate App Insights and generate a diagnostic message when a task is added to the to-do app.
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
@@ -46,16 +47,26 @@ Before you begin this tutorial:
 
 ## See the application logs
 
-JTW: We should be clear on what scenarios we recommend this for. App Insights can be used for Application level telemetry and container logs I believe? But customers won’t be able to get container lifecycle events nor performance counters with this solution. So basically they can only get diagnostics from within their application and app insights is an option they can use. 
-
-
 Examine the logs for the deployed to-do app:
 
+Sign in to Azure and set your subscription.
+
 ```azurecli-interactive
-az mesh code-package-log get --resource-group $rg --application-name ServiceMeshApp --service-name todoservice --replica-name 0 --code-package-name ServiceMeshApp
+az login
+az account set --subscription "<subscriptionID>"
 ```
 
-JTW: To view the logs of your own app, supply the value for the  your resource group in place of `$rg` ...
+Then get the logs:
+
+```azurecli-interactive
+az mesh code-package-log get --resource-group sfmeshTutorial1RG --application-name todolistapp  --service-name todoservice --replica-name 0 --code-package-name todolistapp
+```
+
+## Integrate App-Insights
+
+App Insights is a good solution for writing and monitoring Application level telemetry. It does not reflect container lifecycle events, nor performance counters.
+
+JTW: TBD
 
 ## Next steps
 

@@ -78,7 +78,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## Modify the service
 
-The `WebFrontEnd` project is an ASP.NET Core application with a web page that shows to-do list items. In the `WebFrontEnd` project, open `Index.cshtml` and add the following two lines to display a task's category:
+The `WebFrontEnd` project is an ASP.NET Core application with a web page that shows to-do list items. In the `WebFrontEnd` project, open `Index.cshtml` and add the following two lines, indicated below, to display the task's category:
 
 ```HTML
 <div>
@@ -106,22 +106,40 @@ The `WebFrontEnd` project is an ASP.NET Core application with a web page that sh
 
 Build and run the app to verify that you see a new category column in the web page that lists the tasks.
 
-## Upgrade the app
+## Upgrade the app from Visual Studio
 
-Upgrade the  `WebFrontEnd` service using the following command. The following example upgrades the application using the [mesh_rp.scaleout.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json). 
+To upgrade your Service Fabric Mesh app on Azure to this new version, right-click on **todolistapp** in Visual Studio and select **Publish...**
 
-```azurecli-interactive
-az mesh deployment create --resource-group sfmeshTutorial1RG --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
+Next, you'll see a **Publish Service Fabric Application** dialog.
+
+![Visual studio Service Fabric Mesh publish dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
+
+Select your Azure account and subscription. Ensure that **Location** is set to the location that you used when you originally published the to-do app to Azure. This article used **East US**.
+
+Ensure that **Resource group** is set to the resource group that you used when you originally published the to-do app to Azure.
+
+Ensure that **Azure Container Registry** is set to the azure container registry name that you created when you originally published the to-do app to Azure.
+
+In the publish dialog, press the **Publish** button to upgrade the to-do app on Azure.
+
+You can monitor the progress of the upgrade by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the upgrade has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
+
+```json
+Packaging Application...
+Building Images...
+Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
+Uploading the images to Azure Container Registy...
+Deploying application to remote endpoint...
+The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
-Once the application successfully upgrades, the browser should display a web page that now contains a category column.
+Open a web browser and navigate to the URL to see the website running in Azure. You should now see a web page that contains a category column.
 
 ## Next steps
 
 In this part of the tutorial, you learned:
 > [!div class="checklist"]
 > * How to upgrade a Service Fabric Mess app by using Visual Studio
-
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

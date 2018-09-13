@@ -59,7 +59,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Alternatively, you can delete the sfmeshTutorial1RG resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources). 
+Alternatively, you can delete the **sfmeshTutorial1RG** resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources). 
 
 ## Next steps
 
