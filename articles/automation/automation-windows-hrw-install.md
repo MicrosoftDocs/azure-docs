@@ -49,7 +49,7 @@ Perform the following steps to automate the installation and configuration of th
 
    * *AutomationAccountName* (mandatory): The name of your Automation account.
    * *AAResourceGroupName* (mandatory): The name of the resource group that's associated with your Automation account.
-   * *OMSResourceGroupName* (optional): The name of the resource group for the Operations Management Suite workspace. If this resource group is not specified, *AAResourceGroupName* is used.
+   * *OMSResourceGroupName* (optional): The name of the resource group for the Log Analytics workspace. If this resource group is not specified, *AAResourceGroupName* is used.
    * *HybridGroupName* (mandatory): The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario.
    * *SubscriptionID* (mandatory): The Azure subscription ID that your Automation account is in.
    * *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
