@@ -52,6 +52,7 @@ The following steps describe how to download and configure the sample Python app
 
 To configure the device [follow the step-by-step instructions on GitHub.](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi)
 
+
 > [!NOTE]
 > For more information about the Raspberry Pi Python sample, see the [Readme](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi) file on GitHub.
 

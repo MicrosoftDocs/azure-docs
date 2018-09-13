@@ -54,7 +54,8 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 #### To prepare the DevKit device:
 
 
-1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://github.com/Azure/iot-central-firmware/releases) page on GitHub. The download filename on the releases page looks like `AZ3166-IoT-Central-X.X.X.bin`.
+1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://github.com/obastemur/iot-central-firmware/raw/expsdk/AZ3166/latest_build/iotCentral.ino.bin) page on GitHub. The download filename on the releases page looks like `AZ3166-IoT-Central-X.X.X.bin`.
+
 
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
 
@@ -84,7 +85,7 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
     - add the name of your WiFi network 
     - your WiFi network password
     - PIN CODE shown on the device LCD 
-    - the connection details of your device (you should have already saved this following the steps)
+    - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)
       You can find the connection string at `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect` (on the top right)
     - Select all the available telemetry measurements! 
 

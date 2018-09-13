@@ -161,20 +161,18 @@ Follow the steps based on your choice of device authentication scheme (X509/SAS)
 
 1. **Generate device credentials** 
     *   **Certificates X509:** Generate the leaf-certificates for your devices using the root/intermediate certificate you have added to this app. Make sure you use the **Device ID** as a cname in the leaf certificates and is in **lower case**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for testing.
-    *   **SAS** Device SAS keys can be generated using this [command line tool](https://github.com/Azure/dps-keygen). Use the Primary SAS key (group SAS key) from the previous step. Make sure the Device ID you use is all in **lower case**.
+    *   **SAS** Device SAS keys can be generated using this [command line tool](https://www.npmjs.com/package/dps-keygen). Use the Primary SAS key (group SAS key) from the previous step. Make sure the Device ID you use is all in **lower case**.
 
         Use the below instructions to generate device SAS key           
 
         ```
-        git clone https://github.com/Azure/dps-keygen
-        cd dps-keygen
-        npm i -g
+        npm i -g dps-keygen
         ```
     
         **Usage**
                         
         ```
-        dps-keygen <Group_SAS_key> <Device_id>
+        dps-keygen <Primary_Key(GroupSAS)> <device_id>
         ```
 
 1. **Device setup** 
@@ -200,24 +198,23 @@ This happens when
 1.  **Blocked** : The operator can block a device, once a device is blocked it cannot send data to IoT Central and will have to be reset. Devices that are blocked have the provisioning status of **Blocked**. The operator can also unblock the device. Once unblocked the device provisioning status return to its previous provisioning status (Registered or Provisioned). 
 
 ## Getting device connection string
-If you already have an IoT Central app and have devices connected, you can get still get device connection strings to Azure IoT Hub for temporary use, while you migrate your device code to use DPS SDK. 
+If you already have an IoT Central app and have devices connected, you can get device connection string to Azure IoT Hub using this [commandline tool](https://www.npmjs.com/package/dps-keygen), while you migrate your device code to use DPS SDK. 
+You can get connection the details such as **Scope ID, Device ID, Device Primary key** from the device page and get the connection string.
 
-You can get connection the details such as **Scope ID, Device ID, Device Primary key** from the device page.
   ![Connection details](media\concepts-connectivity\device-connect.PNG)
 
-Use the below instructions to get the device connection string
+Use the below instructions to get the device connection string  
+
 
  ```cmd/sh
-git clone https://github.com/Azure/dps-keygen
-cd dps-keygen
-npm i -g
+npm i -g dps-keygen
  ```
  **Usage**
 In order to create a connection string, find your binary under bin/ folder
  ```cmd/sh
-dps_cstr <scope_id> <device_id> <device_key>
+dps_cstr <scope_id> <device_id> <Primary Key(for device)>
  ```
-
+ Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
 
 
 ## SDK support
