@@ -43,8 +43,6 @@
       href: how-to-recognize-intents-from-speech-csharp.md
 - name: How-to guides
   items:
-  - name: Migrate from Bing Speech
-    href: migration.md
   - name: Recognize speech
     displayName: recognize speech, speech recognition, speech to text, stt
     items:
@@ -98,6 +96,10 @@
   - name: Customize device wake word (Devices SDK)
     href: speech-devices-sdk-create-kws.md
     displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+  - name: Migrate to the Speech Service
+    items:
+      name: Migrate from Bing Speech
+      href: howto-migrate-from-bing-speech.md
 - name: Concepts
   items:
   - name: Speech-to-Text
