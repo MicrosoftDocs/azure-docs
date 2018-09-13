@@ -48,13 +48,13 @@ Connecting a single device to IoT Central using SAS is easy and takes only a few
     *   **C language:** If you are using C please follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-
          static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
          static const char* const REGISTRATION_NAME = "Enter Device Id here";
         ```
-    * **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
+    *   **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
 
 ## Connect devices at scale using Shared Access Signatures
+
 To connect devices at scale with IoT Central using SAS, there are two steps involved 
 1. **Register devices** by importing them into IoT Central via a CSV file and export devices with device connection details to use to connect your devices
 1. **Device setup** The device is programmed with the provisioning service information, enabling it to call the provisioning service to get its connection info/IoT solution assignment when it is switched on.
@@ -122,20 +122,20 @@ To connect devices to IoT Central using X509 certificates, there are three key s
     *   **Add X509 root or intermediate certificate** used to generate the leaf device certificates. Go to Administration > Device Connection > Certificates. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate CA certs for **TESTING PURPOSES ONLY**.
           ![Connection settings](media\concepts-connectivity\connection-settings.PNG)
     *   **Certificate verification:** Verifying certificate ownership ensures that the uploader of the certificate is in possession of the certificate's private key. To verify the certificate
-
-        ![Connection settings](media\concepts-connectivity\verify-cert.png)
         *  Generate Verification code, click the button next to the Verification code field to generate the verification code. 
         *  Create an X.509 verification certificate with the verification code 
         *  Upload the signed verification certificate and click verify.
 
+        ![Connection settings](media\concepts-connectivity\verify-cert.png)
+    *   **Secondary Certificate:** During the lifecycle of your IoT solution, you'll need to roll certificates. Two of the main reasons for rolling certificates would be a security breach, and certificate expirations. Secondary certificates are used to reduce downtime for devices attempting to provision while you are updating the Primary certificate.
       
 1. **Register devices** by importing them into IoT Central via a CSV file, follow the steps from the previous section to register devices.
 
-1. **Device setup** : Generate the leaf certificates using the uploaded root certificate. Make sure you use the **Device ID** as a cname in the leaf certificates and is in **lower case**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for **TESTING PURPOSES ONLY**.
-Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on.    For further details look at the sample implementation for [RaspberryPi.](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi)  
+1. **Device setup** : Generate the leaf certificates using the uploaded root certificate. Make sure you use the **Device ID** as the CNAME in the leaf certificates and is in **lower case**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for **TESTING PURPOSES ONLY**.
 
+    Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on.    For further details look at the sample implementation for [RaspberryPi.](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi)  
 
-    **Further referenes** 
+    **Further referene** 
     *   **C language:** If you are using C please follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device.   
 
 >[!NOTE]

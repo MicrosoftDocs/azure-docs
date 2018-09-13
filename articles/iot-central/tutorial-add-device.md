@@ -69,17 +69,33 @@ The real device is created from the **Connected Air Conditioner** device templat
 
 3. As a builder, you can view the **Measurements**, **Rules**, and **Dashboard** pages for your real device.
 
-## Get connection string for real device from application
+## Get connection details for real device from application
 
-A device developer needs to embed the *connection string* for your real device in the code that runs on the device. The connection string enables the device to connect securely to your Azure IoT Central application. Every device instance has a unique connection string. The following steps show you how to find the connection string for a device instance in your application:
+A device developer needs to embed the *device connection details* for your real device in the code that runs on the device. The connection string enables the device to connect securely to your Azure IoT Central application. The following steps show you how to find the connection string for a device instance in your application:
 
 1. On the **Device** screen for your real connected air conditioner device, choose **Connect this device**:
 
     ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
-2. On the **Connect** page, **Scope ID, Device ID, and Primary key**, and save it. You use this value in the second half of this tutorial. A device developer uses this value in the client application that runs on the device:
+2. On the **Connect** page, copy **Scope ID, Device ID, and Primary key**, and save it.
 
-    ![Connection details](media/tutorial-add-device/device-connect.PNG)
+   ![Connection details](media/tutorial-add-device/device-connect.PNG)
+
+   Use the below commandline tool to get the device connection string  
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+    **Usage**
+    
+    In order to create a connection string, find your binary under bin/ folder
+    ```cmd/sh
+    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
+    ```
+    Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
+
+> [!NOTE]
+> Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
 
 ## Prepare the client code
 
@@ -132,9 +148,6 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
-
-  > [!NOTE]
-   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
    
 
    > [!NOTE]
