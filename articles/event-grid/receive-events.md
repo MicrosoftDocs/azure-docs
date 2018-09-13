@@ -7,7 +7,7 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 09/13/2018
 ms.author: babanisa
 ---
 
@@ -57,13 +57,11 @@ To programmatically echo the validation code, use the following code. You can fi
 ```csharp
 using System.Net;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.EventGrid;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-
     log.Info($"C# HTTP trigger function begun");
     string response = string.Empty;
 
@@ -96,8 +94,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-var http = require('http');
-
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function begun');
     var validationEventType = "Microsoft.EventGrid.SubscriptionValidationEvent";
@@ -147,13 +143,11 @@ Now, let's extend the function to handle `Microsoft.Storage.BlobCreated`:
 ```cs
 using System.Net;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.EventGrid;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-
     log.Info($"C# HTTP trigger function begun");
     string response = string.Empty;
 
@@ -191,8 +185,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-var http = require('http');
-
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function begun');
     var validationEventType = "Microsoft.EventGrid.SubscriptionValidationEvent";
@@ -268,7 +260,6 @@ Add a check for your event `Contoso.Items.ItemReceived`. Your final code should 
 ```cs
 using System.Net;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.EventGrid;
 
@@ -280,7 +271,6 @@ class ContosoItemReceivedEventData
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-
     log.Info($"C# HTTP trigger function begun");
     string response = string.Empty;
 
@@ -323,7 +313,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-var http = require('http');
 var t = require('tcomb');
 
 module.exports = function (context, req) {
@@ -332,9 +321,7 @@ module.exports = function (context, req) {
     var storageBlobCreatedEvent = "Microsoft.Storage.BlobCreated";
     var customEventType = "Contoso.Items.ItemReceived";
     var ContosoItemReceivedEventData = t.struct({
-        id: t.Str,
-        message: t.Str,
-        time: t.Str,
+        itemSku: t.Str
     })
 
     for (var events in req.body) {
@@ -366,18 +353,16 @@ module.exports = function (context, req) {
 
 ### Test custom event handling
 
-Finally, test that your extented function can now handle your custom event type:
+Finally, test that your function can now handle your custom event type:
 
 ```json
 [{
     "subject": "Contoso/foo/bar/items",
-    "eventType": "Microsoft.EventGrid.CustomEventType",
+    "eventType": "Contoso.Items.ItemReceived",
     "eventTime": "2017-08-16T01:57:26.005121Z",
     "id": "602a88ef-0001-00e6-1233-1646070610ea",
     "data": { 
-            "id": "831e1650-001e-001b-66ab-eeb76e069631",
-            "message": "Contoso item Foo",
-            "time": "2017-06-26T18:41:00.9584103Z"
+            "itemSku": "Standard"
             },
     "dataVersion": "",
     "metadataVersion": "1"
