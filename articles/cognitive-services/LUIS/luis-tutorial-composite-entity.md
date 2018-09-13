@@ -93,7 +93,7 @@ The extracted data from the endpoint should contain this information and return 
 ]
 ```
 
-[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. On the **Intents** page, select **MoveEmployee** intent. 
 

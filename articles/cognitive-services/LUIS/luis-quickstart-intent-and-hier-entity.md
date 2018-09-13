@@ -53,7 +53,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 ## Remove prebuilt number entity from app
 In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
 
-[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 

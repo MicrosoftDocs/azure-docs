@@ -44,7 +44,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 ## Add prebuilt intents
 LUIS provides several prebuilt intents to help with common user intentions.  
 
-[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Add prebuilt intent**. 
 

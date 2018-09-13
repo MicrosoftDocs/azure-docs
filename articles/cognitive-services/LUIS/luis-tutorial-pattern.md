@@ -46,7 +46,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## Create new intents and their utterances
 
-[!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. On the **Intents** page, select **Create new intent**. 
 
