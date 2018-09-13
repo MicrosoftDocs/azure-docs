@@ -75,7 +75,7 @@ total_returned_images = parsed_json["totalEstimatedMatches"]
 first_result = parsed_json["value"][0]["thumbnailUrl"]
 
 puts "total number of returned matches: #{total_returned_images}"
-puts "Url to the thumnail of the first returned search result: #{first_result}"
+puts "Url to the thumbnail of the first returned search result: #{first_result}"
 ```
 
 ## Sample JSON response
