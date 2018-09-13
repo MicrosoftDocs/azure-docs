@@ -214,6 +214,7 @@
         href: virtual-machine-scale-sets-manage-powershell.md
     - name: Shared images (preview)
       href: shared-image-galleries.md
+      items:
       - name: Create shared images using PowerShell
         href: shared-images-ps.md
       - name: Create shared images using CLI
