@@ -32,11 +32,10 @@ If you don't have an Azure subscription,
 1. Sign in to the [Azure portal](https://portal.azure.com/).  
 
 1. On the main Azure menu, select **Create a resource**. 
-
-1. In the search box, enter "scheduler". From the results list, 
+In the search box, enter "scheduler". From the results list, 
 select **Scheduler**, and then choose **Create**.
    
-   ![Create Scheduler resource][marketplace-create]
+   ![Create Scheduler resource](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
    Now create a job that sends a GET request to this URL: 
    `http://www.microsoft.com/` 
@@ -45,7 +44,7 @@ select **Scheduler**, and then choose **Create**.
 
    | Property | Example value | Description |
    |----------|---------------|-------------| 
-   | **Name** | `getMicrosoft` | The name for your job | 
+   | **Name** | getMicrosoft | The name for your job | 
    | **Job collection** | <*job-collection-name*> | Create a job collection, or select an existing collection. | 
    | **Subscription** | <*Azure-subscription-name*> | The name for your Azure subscription | 
    |||| 
@@ -60,7 +59,7 @@ and then choose **OK** when you're done:
    | **URL** | **http://www.microsoft.com** | The destination URL | 
    |||| 
    
-   ![Define job][action-settings]
+   ![Define job](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
 
 1. Select **Schedule - Configure**, define the schedule, 
 and then select **OK** when you're done:
@@ -77,7 +76,7 @@ and then select **OK** when you're done:
    | **UTC offset** | **UTC +08:00** | The difference in time between Coordinated Universal Time (UTC) and your location's observed time | 
    |||| 
 
-   ![Define schedule][recurrence-schedule]
+   ![Define schedule](./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png)
 
 1. When you're ready, choose **Create**.
 
@@ -95,7 +94,7 @@ on the Azure dashboard, choose your job.
 Under **Settings**, here are the areas 
 you can review and manage for your job:
 
-![Job settings][job-overview]
+![Job settings](./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png)
 
 For more information about these areas, select an area:
 
@@ -109,19 +108,20 @@ For more information about these areas, select an area:
 
 ### Properties
 
-To review the read-only properties that describe 
-the management metadata for your Scheduler job, 
+To view read-only properties that describe 
+the management metadata for your job, 
 select **Properties**.
 
-![Review job read-only properties][job-properties]
+![View job properties](./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png)
 
 <a name="action-settings"></a>
 
 ### Action settings
 
-To change your job's advanced settings, select **Action settings**. 
+To change your job's advanced settings, 
+select **Action settings**. 
 
-![Review action settings][job-action-settings]
+![Review action settings](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
 | Action type | Description | 
 |-------------|-------------| 
@@ -135,83 +135,45 @@ To change your job's advanced settings, select **Action settings**.
 
 ### Schedule
 
-You can change your job's schedule, if you 
-set up a schedule through the job wizard. 
-For example, you can change the start date and time, 
+If you set up a schedule through the job wizard, 
+you can change that schedule, such as the start date and time, 
 recurrence schedule, and the end date and time for recurring jobs.
-You can also build more 
-[complex schedules and advanced recurrences](scheduler-advanced-complexity.md) 
-for your job.
+You can also build more [complex schedules and advanced recurrences](scheduler-advanced-complexity.md).
 
-![Review job schedule][job-schedule]
+To change view or change your job's schedule, 
+select **Schedul**:
+
+![View job schedule](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
 
 <a name="history"></a>
 
 ### History
 
-The **History** tab displays selected metrics for every job execution in the system for the selected job. These metrics provide real-time values regarding the health of your Scheduler:
+To view metrics about every run for a selected job, 
+select **History**. These metrics provide real-time 
+values about your job's health, such as status, 
+number of retries, number of occurrences, start time, 
+and end time.
 
-1. Status  
-2. Details  
-3. Retry attempts
-4. Occurrence: 1st, 2nd, 3rd, etc.
-5. Start time of execution  
-6. End time of execution
-   
-   ![][job-history]
+![View job history and metrics](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png)
 
-You can click on a run to view its **History Details**, including the whole response for every execution. This dialog box also allows you to copy the response to the clipboard.
+To view the history details for each run, 
+such as the complete response for each run, 
+under **History**, select each run. 
 
-   ![][job-history-details]
+![View job history details](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png)
 
 <a name="users"></a>
 
 ### Users
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
+You can manage access to Azure Scheduler for each user at a 
+granular level by using Azure Role-Based Access Control (RBAC). 
+To learn how to set up access based on roles, see 
+[Manage access using RBAC](../role-based-access-control/role-assignments-portal.md)
 
-## See also
- [What is Scheduler?](scheduler-intro.md)
+## Next steps
 
- [Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
-
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
-
- [Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
-
- [Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
-
- [Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
-
- [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-
- [Scheduler outbound authentication](scheduler-outbound-authentication.md)
-
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
-[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
-[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
-[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
-[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
-[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
-[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
-
-[1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
-[2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
-[3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
-[4]: ./media/scheduler-get-started-portal/scheduler-get-started-portal004.png
-[5]: ./media/scheduler-get-started-portal/scheduler-get-started-portal005.png
-[6]: ./media/scheduler-get-started-portal/scheduler-get-started-portal006.png
-[7]: ./media/scheduler-get-started-portal/scheduler-get-started-portal007.png
-[8]: ./media/scheduler-get-started-portal/scheduler-get-started-portal008.png
-[9]: ./media/scheduler-get-started-portal/scheduler-get-started-portal009.png
-[10]: ./media/scheduler-get-started-portal/scheduler-get-started-portal010.png
-[11]: ./media/scheduler-get-started-portal/scheduler-get-started-portal011.png
-[12]: ./media/scheduler-get-started-portal/scheduler-get-started-portal012.png
-[13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
-[14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
-[15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+* Learn [how to build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
+* Learn about [high-availability and reliability for Scheduler](scheduler-high-availability-reliability.md)
+* Learn about [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
