@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/09/2018
 ms.author: juliako
 
 ---
@@ -48,16 +48,18 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 ## Connect to Azure
 
-1. Sign in to [https://www.videoindexer.ai/](https://www.videoindexer.ai/) and click on the **Connect to Azure** button:
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+
+2. Click on the **Connect to Azure** button:
 
     ![connect to Azure](./media/create-account/connect-to-azure.png)
 
-2. When the subscriptions list appears, select the subscription you want to use. 
+3. When the subscriptions list appears, select the subscription you want to use. 
 
     ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
-4. Under **Azure Media Services account**, choose one of these options:
+4. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
+5. Under **Azure Media Services account**, choose one of these options:
 
     * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
 
@@ -81,13 +83,13 @@ This article shows how to create a Video Indexer account that's linked to an Azu
         |Application ID|The Azure AD application ID with permissions for the specified Media Services account. For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Application Key|For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
-5. When you're done, choose **Connect**. This operation might take up to a few minutes. 
+6. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
     After you're connected to Azure, your new Video Indexer account appears in the account list:
 
     ![new account](./media/create-account/new-account.png)
 
-6. Browse to your new account: 
+7. Browse to your new account: 
 
     ![Video Indexer account](./media/create-account/vi-account.png)
 
