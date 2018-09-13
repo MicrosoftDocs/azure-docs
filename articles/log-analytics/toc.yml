@@ -9,9 +9,9 @@
   items:
   - name: Collect - Azure VMs
     href: log-analytics-quick-collect-azurevm.md
-  - name: Collect - Linux computer
+  - name: Collect - Hybrid Linux computer
     href: log-analytics-quick-collect-linux-computer.md
-  - name: Collect - Windows computer
+  - name: Collect - Hybrid Windows computer
     href: log-analytics-quick-collect-windows-computer.md
 - name: Tutorials
   items:
@@ -59,6 +59,10 @@
     items:
      - name: Use Azure portal
        href: log-analytics-quick-create-workspace.md  
+     - name: Use Azure CLI
+       href: log-analytics-quick-create-workspace-cli.md
+     - name: Use Azure PowerShell
+       href: log-analytics-quick-create-workspace-posh.md
   - name: Collect data
     items:
     - name: Connected sources
@@ -107,12 +111,50 @@
         href: log-analytics-custom-fields.md
       - name: Data collector API
         href: log-analytics-data-collector-api.md
+      - name: Data Collector API Pipeline example
+        href: log-analytics-create-pipeline-datacollector-api.md
   - name: Query data
     items:
     - name: Language documentation
-      href: https://docs.loganalytics.io
-    - name: Transition from legacy language
-      href: log-analytics-log-search-transition.md
+      items:
+      - name: Language reference
+        href: https://docs.loganalytics.io
+      - name: Get started
+        items:
+        - name: Get started with Log Search portal
+          href: log-analytics-log-search-log-search-portal.md
+        - name: Get started with Log Analytics page
+          href: query-language/get-started-analytics-portal.md
+        - name: Get started with queries
+          href: query-language/get-started-queries.md
+        - name: Search queries
+          href: query-language/search-queries.md
+        - name: Useful operators
+          href: query-language/useful-operators.md
+      - name: Lessons
+        items:
+        - name: String operations
+          href: query-language/string-operations.md
+        - name: Date and time operations
+          href: query-language/datetime-operations.md
+        - name: Aggregation functions
+          href: query-language/aggregations.md
+        - name: Advanced aggregations
+          href: query-language/advanced-aggregations.md
+        - name: Joins
+          href: query-language/joins.md
+        - name: JSON and data structures
+          href: query-language/json-data-structures.md
+        - name: Advanced query writing
+          href: query-language/advanced-query-writing.md
+        - name: Charts and diagrams
+          href: query-language/charts.md
+      - name: Cheatsheets
+        items:
+        - name: SQL
+          href: query-language/sql-cheatsheet.md
+        - name: Splunk
+          href: query-language/splunk-cheatsheet.md
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
@@ -243,10 +285,10 @@
       - name: Security Audit
         href: ../security-center/security-center-intro.md
       - name: Service Fabric with Azure PowerShell
-        href: log-analytics-service-fabric.md
+        href: ../service-fabric/service-fabric-diagnostics-oms-setup.md?toc=%2fazure%2flog-analytics%2ftoc.json
         items:
         - name: Service Fabric with Azure Resource Manager
-          href: log-analytics-service-fabric-azure-resource-manager.md
+          href: ../service-fabric/service-fabric-diagnostics-event-analysis-oms.md?toc=%2fazure%2flog-analytics%2ftoc.json
       - name: Service Map
         items:
         - name: Use

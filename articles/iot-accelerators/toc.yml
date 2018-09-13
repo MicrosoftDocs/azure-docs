@@ -73,12 +73,14 @@
         href: iot-accelerators-connecting-pi-node.md
       - name: C on Raspberry Pi
         href: iot-accelerators-connecting-pi-c.md
-      - name: MX Chip AZ3166 DevKit
+      - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: Create a simulated device
-      href: iot-accelerators-remote-monitoring-test.md
+      href: iot-accelerators-remote-monitoring-create-simulated-device.md
+    - name: Deploy a simulated device
+      href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
     - name: Customize the UI
       href: iot-accelerators-remote-monitoring-customize.md
     - name: Customize and redeploy a microservice
@@ -89,10 +91,12 @@
       href: iot-accelerators-remote-monitoring-deploy-local.md
     - name: Visualize telemetry with PowerBI
       href: iot-accelerators-integrate-data-powerbi.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-time-series-insights.md
+    - name: Integrate Azure Time Series Insights with Remote Monitoring
+      href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
     - name: Analyze telemetry with Data Lake
       href: iot-accelerators-integrate-data-lake.md
+    - name: Configure role-based access controls
+      href: iot-accelerators-remote-monitoring-rbac.md
 
   - name: Remote Monitoring (previous version)
     items:
@@ -171,6 +175,12 @@
       href: iot-accelerators-device-simulation-choose-hub.md
     - name: Use a custom device model
       href: iot-accelerators-device-simulation-custom-model.md
+    - name: Visualize telemetry with Time Series Insights
+      href: iot-accelerators-device-simulation-time-series-insights.md
+    - name: Create a simulated device
+      href: iot-accelerators-device-simulation-create-simulated-device.md
+    - name: Deploy a simulated device
+      href: iot-accelerators-device-simulation-deploy-simulated-device.md
 
 - name: Reference
   items:

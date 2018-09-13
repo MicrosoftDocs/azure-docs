@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
 ---
 
@@ -34,7 +34,7 @@ Another scenario where you would use management groups is to provide user access
 
 ### Important facts about management groups
 
-- 10,000 management groups can be supported in a single directory.
+- 10,000 management groups can be supported in a single directory (Azure Active Directory tenant).
 - A management group tree can support up to six levels of depth.
   - This limit doesn't include the Root level or the subscription level.
 - Each management group and subscription can only support one parent.
@@ -78,7 +78,7 @@ The following chart shows the list of roles and the supported actions on managem
 
 | RBAC Role Name             | Create | Rename | Move | Delete | Assign Access | Assign Policy | Read  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Owner                       | X      | X      | X    | X      | X             |               | X     |
+|Owner                       | X      | X      | X    | X      | X             | X             | X     |
 |Contributor                 | X      | X      | X    | X      |               |               | X     |
 |MG Contributor*             | X      | X      | X    | X      |               |               | X     |
 |Reader                      |        |        |      |        |               |               | X     |
@@ -100,4 +100,4 @@ To learn more about management groups, see:
 - [How to change, delete, or manage your management groups](management-groups-manage.md)
 - [Install the Azure PowerShell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Install the Azure CLI extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Install the Azure CLI extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

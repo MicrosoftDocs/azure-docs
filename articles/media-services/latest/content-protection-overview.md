@@ -188,6 +188,6 @@ Check out the following articles:
   * [Protect with AES encryption](protect-with-aes128.md)
   * [Protect with DRM](protect-with-drm.md)
 
-Additional information can be found in [DRM reference design and implementation](../previous/media-services-cenc-with-multidrm-access-control.md)
+Additional information can be found in [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
 
 

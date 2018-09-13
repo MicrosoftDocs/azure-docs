@@ -1,20 +1,15 @@
 ---
-title: Monitor and manage Azure HDInsight using Ambari Web UI | Microsoft Docs
+title: Monitor and manage Azure HDInsight using Ambari Web UI 
 description: Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you learn how to use the Ambari Web UI included with HDInsight clusters.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Manage HDInsight clusters by using the Ambari Web UI
@@ -229,7 +224,6 @@ To configure a service, use the following steps:
 
 Ambari Views allow developers to plug UI elements into the Ambari Web UI using the [Ambari Views Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight provides the following views with Hadoop cluster types:
 
-* Yarn Queue Manager: The queue manager provides a simple UI for viewing and modifying YARN queues.
 
 * Hive View: The Hive View allows you to run Hive queries directly from your web browser. You can save queries, view results, save results to the cluster storage, or download results to your local system. For more information on using Hive Views, see [Use Hive Views with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

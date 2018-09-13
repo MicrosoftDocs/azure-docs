@@ -13,6 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
+  - name: Create function - Visual Studio Code
+    href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
   - name: Create function - Azure CLI
@@ -64,6 +66,8 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
   - name: Azure CLI
     href: functions-cli-samples.md
+  - name: Azure Functions Recipes
+    href: https://docs.microsoft.com/sandbox/functions-recipes/    
 - name: Concepts
   items:
   - name: Compare 1.x and 2.x
@@ -160,8 +164,10 @@
     items:
     - name: Continuous deployment
       href: functions-continuous-deployment.md
-    - name: Zip push deployment
+    - name: Zip deployment
       href: deployment-zip-push.md
+    - name: Run from package
+      href: run-functions-from-deployment-package.md
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
@@ -172,6 +178,8 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
+    - name: Disable a function 
+      href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
@@ -186,7 +194,7 @@
       href: functions-powerapps-scenario.md
     - name: Call a function from Microsoft Flow 
       href: functions-flow-scenario.md
-    - name: Use Managed Service Identity
+    - name: Use a managed identity
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Durable Functions
     items:

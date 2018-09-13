@@ -1,6 +1,6 @@
 ---
-title: Converged registration for Azure AD SSPR and MFA
-description: Azure AD Multi-Factor Authenticaiton and self-service password reset registration
+title: Converged registration for Azure AD SSPR and MFA (Public preview)
+description: Azure AD Multi-Factor Authenticaiton and self-service password reset registration (Public preview)
 
 services: active-directory
 ms.service: active-directory
@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: sahenry, michmcla
 
 ---
-# Converged registration for self-service password reset and Azure Multi-Factor Authentication
+# Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)
 
 Until now, users were required to register authentication methods for Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in two different portals. Many users were confused by the fact that similar methods were used for both Azure MFA and SSPR and would not register in both portals. This disparity led to some users being unable to use either Azure MFA or SSPR when needed, leading to a helpdesk call, and potentially an upset user. Now, users can register once and get the benefits of both Azure MFA and SSPR, eliminating the need to register their authentication methods for these features twice.  
 
@@ -53,6 +53,9 @@ Users who are prompted to register while signing in will see the following exper
 
 The authentication methods shown will change based on the methods enabled in your MFA or SSPR policies. The user will be asked to register the minimum number of authentication methods needed to be compliant with the MFA policy, SSPR policy, or both. If there is flexibility in which authentication methods the user can register, they can select **Choose security info** to choose other authentication methods.  
 
+> [!NOTE]
+> If you enable the use of both mobile app notification and mobile app code, users who register the Microsoft Authenticator app using a notification are able to use both notification and code to verify their identity.
+
 Unlike the previous MFA registration experience, users will not be prompted to register an app password when going through the new registration experience. Instead they should follow the steps listed in our apps passwords tutorial to register app passwords in the new experience.  
 
 Once a user completes registration, their default MFA method will automatically be set. If the user registered an authenticator app, the default method will be set to app. If the user did not register an authenticator app and only registered their phone number, the default method will be set to phone call. Users can change their default by going to [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) and selecting **Change default**.  
@@ -68,10 +71,12 @@ Audit logs for this new experience exist under the Authentication Methods catego
 ## Known issues
 
 **Default MFA method is set to phone call when user registers phone using text message**
-   * Some users may notice that their default MFA method is set to phone call after they register their phone number using text message. Users can resolve this issue by changing their default method by following these instructions. 
+
+   * Some users may notice that their default MFA method is set to phone call after they register their phone number using text message. Users can resolve this issue by changing their default method by following the instructions found in the article [Manage your security info (preview)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **User unable to access the new registration experience after admin disables their default method**
-   * Some users may not be able to access the new registration experience if their previously registered default MFA method has been disabled by their administrator. Here is an example scenario: 
+
+   * Some users may not be able to access the new registration experience if their previously registered default MFA method has been disabled by their administrator. Here is an example scenario:
       1. User previously registered their phone number and set their default method to phone call.
       2. Admin disables phone call as an MFA method for the tenant.
       3. User is prompted to register during sign-in because they need to register an additional method to meet the tenant SSPR policy.

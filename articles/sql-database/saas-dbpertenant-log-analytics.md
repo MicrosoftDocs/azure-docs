@@ -41,13 +41,13 @@ Log Analytics workspaces and analytics solutions open in the Azure portal and in
 ### Create performance diagnostic data by simulating a workload on your tenants 
 
 1. In the PowerShell ISE, open *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*. Keep this script open because you might want to run several of the load generation scenarios during this tutorial.
-2. If you haven't done so already, provision a batch of tenants to make the monitoring context more interesting. This process takes a few minutes.
+1. If you haven't done so already, provision a batch of tenants to make the monitoring context more interesting. This process takes a few minutes.
 
    a. Set **$DemoScenario = 1**, _Provision a batch of tenants_.
 
    b. To run the script and deploy an additional 17 tenants, press F5.
 
-3. Now start the load generator to run a simulated load on all the tenants.
+1. Now start the load generator to run a simulated load on all the tenants.
 
     a. Set **$DemoScenario = 2**, _Generate normal intensity load (approx. 30 DTU)_.
 
@@ -62,7 +62,7 @@ The Wingtip Tickets SaaS multitenant database scripts and application source cod
 Log Analytics is a separate service that must be configured. Log Analytics collects log data, telemetry, and metrics in a Log Analytics workspace. Just like other resources in Azure, a Log Analytics workspace must be created. The workspace doesn't need to be created in the same resource group as the applications it monitors. Doing so often makes the most sense though. For the Wingtip Tickets app, use a single resource group to make sure the workspace is deleted with the application.
 
 1. In the PowerShell ISE, open *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
-2. To run the script, press F5.
+1. To run the script, press F5.
 
 Now you can open Log Analytics in the Azure portal or the Operations Management Suite portal. It takes a few minutes to collect telemetry in the Log Analytics workspace and to make it visible. The longer you leave the system gathering diagnostic data, the more interesting the experience is. 
 
@@ -75,38 +75,38 @@ In this exercise, open Log Analytics and the Operations Management Suite portal 
 
    ![Open Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-2. Select the workspace named _wtploganalytics-&lt;user&gt;_.
+1. Select the workspace named _wtploganalytics-&lt;user&gt;_.
 
-3. Select **Overview** to open the Log Analytics solution in the Azure portal.
+1. Select **Overview** to open the Log Analytics solution in the Azure portal.
 
    ![Overview](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > It might take a couple of minutes before the solution is active. 
 
-4. Select the **Azure SQL Analytics** tile to open it.
+1. Select the **Azure SQL Analytics** tile to open it.
 
     ![Overview tile](media/saas-dbpertenant-log-analytics/overview.png)
 
-5. The views in the solution scroll sideways, with their own inner scroll bar at the bottom. Refresh the page if necessary.
+1. The views in the solution scroll sideways, with their own inner scroll bar at the bottom. Refresh the page if necessary.
 
-6. To explore the summary page, select the tiles or individual databases to open a drill-down explorer.
+1. To explore the summary page, select the tiles or individual databases to open a drill-down explorer.
 
     ![Log Analytics dashboard](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-7. Change the filter setting to modify the time range. For this tutorial, select **Last 1 hour**.
+1. Change the filter setting to modify the time range. For this tutorial, select **Last 1 hour**.
 
     ![Time filter](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-8. Select a single database to explore the query usage and metrics for that database.
+1. Select a single database to explore the query usage and metrics for that database.
 
     ![Database analytics](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-9. To see usage metrics, scroll the analytics page to the right.
+1. To see usage metrics, scroll the analytics page to the right.
  
      ![Database metrics](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-10. Scroll the analytics page to the left, and select the server tile in the **Resource Info** list.  
+1. Scroll the analytics page to the left, and select the server tile in the **Resource Info** list.  
 
     ![Resource Info list](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
@@ -114,12 +114,12 @@ In this exercise, open Log Analytics and the Operations Management Suite portal 
 
     ![Server with pools and databases](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-11. Select a pool. On the pool page that opens, scroll to the right to see the pool metrics. 
+1. Select a pool. On the pool page that opens, scroll to the right to see the pool metrics. 
 
     ![Pool metrics](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-12. Back in the Log Analytics workspace, select **OMS Portal** to open the workspace there.
+1. Back in the Log Analytics workspace, select **OMS Portal** to open the workspace there.
 
     ![Operations Management Suite Portal tile](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 

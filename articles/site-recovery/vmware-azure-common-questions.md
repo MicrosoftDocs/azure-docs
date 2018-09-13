@@ -40,7 +40,7 @@ If you're a subscription administrator, you have the replication permissions you
 
 
 
-## On-premises 
+## On-premises
 
 ### What do I need on-premises?
 On on-premises you need Site Recovery components, installed on a single VMware VM. You also need a VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server. In addition, you need one or more VMware VMs to replicate. [Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
@@ -67,7 +67,7 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
 
 
 
@@ -85,7 +85,7 @@ Extended or chained replication isn't supported. Request this feature in [feedba
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
-Yes, you can exclude disks from replication. 
+Yes, you can exclude disks from replication.
 
 ### Can I replicate VMs with dynamic disks?
 Dynamic disks can be replicated. The operating system disk must be a basic disk.
@@ -100,7 +100,7 @@ For VMware replication to Azure you can modify disk size. If you want to add new
 ## Configuration server
 
 ### What does the configuration server do?
-The configuration server runs the on-premises Site Recovery components, including: 
+The configuration server runs the on-premises Site Recovery components, including:
 - The configuration server that coordinates communications between on-premises and Azure and manages data replication.
 - The process server that acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure storage.,The process server also installs Mobility Service on VMs you want to replicate and performs automatic discovery of on-premises VMware VMs.
 - The master target server that handles replication data during failback from Azure.
@@ -113,13 +113,13 @@ You need a single highly available on-premises VMware VM for the configuration s
 Review the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ### Can I manually set up the configuration server instead of using a template?
-We recommend that you use the latest version of the OVF template to [create the configuration server VM](vmware-azure-deploy-configuration-server.md). If for some reason you can't, for example you don't have access to the VMware server, you can [download the Unified Setup file](physical-azure-set-up-source.md) from the portal, and run it on a VM. 
+We recommend that you use the latest version of the OVF template to [create the configuration server VM](vmware-azure-deploy-configuration-server.md). If for some reason you can't, for example you don't have access to the VMware server, you can [download the Unified Setup file](physical-azure-set-up-source.md) from the portal, and run it on a VM.
 
 ### Can a configuration server replicate to more than one region?
 No. To do this, you need to set up a configuration server in each region.
 
 ### Can I host a configuration server in Azure?
-While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. The overhead probably isn't viable.
+While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. This can add latencies and impact ongoing replication.
 
 
 ### Where can I get the latest version of the configuration server template?
@@ -127,6 +127,9 @@ Download the latest version from the [Microsoft Download Center](https://aka.ms/
 
 ### How do I update the configuration server?
 You install update rollups. You can find the latest update information in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+### Should I backup the deployed configuration server?
+We recommend taking regular scheduled backups of the configuration server. For successful failback, the virtual machine being failed back must exist in the configuration server database, and the configuration server must be running and in a connected state. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ## Mobility service
 
@@ -186,7 +189,7 @@ Yes, if you failed over to Azure, you can fail back to a different location if t
 
 ### Why do I need a VPN or ExpressRoute to fail back?
 
-When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required. 
+When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
 
 
 

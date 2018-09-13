@@ -26,20 +26,6 @@ This article has answers to frequently asked questions (FAQs) about issues with 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## My ClearDB database is down. How do I resolve this?
-
-For database-related issues, contact [ClearDB support](https://www.cleardb.com/developers/help/support). 
-
-For answers to common questions about ClearDB, see [ClearDB FAQs](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## Why wasn't my ClearDB database migrated during my subscription migration?
-
-When you perform resource migration across subscriptions, some limitations apply. A ClearDB MySQL database is a third-party service and is not migrated during an Azure subscription migration.
-
-If you don't manage the migration of your MySQL database before you migrate your Azure resources, your ClearDB MySQL database might be unavailable. To avoid this, first, manually migrate your ClearDB database, and then migrate the Azure subscription for your web app.
-
-For more information, see [FAQs for ClearDB MySQL databases with Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
 ## How do I turn on PHP logging to troubleshoot PHP issues?
 
 To turn on PHP logging:

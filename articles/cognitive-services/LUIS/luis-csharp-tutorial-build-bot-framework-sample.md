@@ -1,19 +1,19 @@
 ---
-title: Integrate LUIS with a bot using the Bot Builder SDK for C# in Azure | Microsoft Docs
-description: Build a bot integrated with a LUIS application using the Bot Framework.
+title: Using C#, integrate LUIS with a bot using the Bot Builder SDK- Azure Cognitive Services| Microsoft Docs
+description: Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
 ---
 
 # Web App Bot using the LUIS template for C#
 
-Build a chatbot with integrated language understanding.
+Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. 
 
 ## Prerequisite
 
@@ -145,7 +145,7 @@ In the Azure portal, click on **Test in Web Chat** to test the bot. Type message
 > You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## Download the bot to debug
-If your bot isn't working, download the project to your local machine and continue [debugging](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
+If your bot isn't working, download the project to your local machine and continue [debugging](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
 
 ## Learn more about Bot Framework
 Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](https://github.com/Microsoft/BotBuilder) and [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDKs.

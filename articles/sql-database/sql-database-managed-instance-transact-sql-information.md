@@ -7,7 +7,7 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: conceptual 
-ms.date: 06/22/2018 
+ms.date: 0813/2018 
 ms.author: jovanpop 
 manager: craigg 
 --- 
@@ -261,7 +261,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication 
  
-Replication is supported on Managed Instance. For information about Replication, see [SQL Server Replication](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replication is supported on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### RESTORE statement 
  
@@ -419,4 +419,4 @@ There can be only one database mail profile and it must be called `AzureManagedI
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).

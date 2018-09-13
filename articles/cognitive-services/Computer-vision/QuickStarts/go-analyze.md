@@ -1,17 +1,18 @@
 ---
-title: Computer Vision API Go quickstart analyze image | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with Go in Cognitive Services.
+title: "Quickstart: Analyze a remote image - REST, Go - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you analyze an image using the Computer Vision API with Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Analyze an image with Go
+# Quickstart: Analyze a remote image using the REST API and Go in Computer Vision
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 
@@ -174,7 +175,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
+Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Explore Computer Vision APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

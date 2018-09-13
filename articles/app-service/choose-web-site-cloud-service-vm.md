@@ -3,9 +3,8 @@ title: Azure App Service, Virtual Machines, Service Fabric, and Cloud Services c
 description: Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
@@ -14,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
 ---
+
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
-## Overview
+
 Azure offers several ways to host web sites: [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric], and [Cloud Services][Cloud Services]. This article helps you understand the options and make the right choice for your web application.
 
 Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool][migrate-tool], use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][WebJobs] feature makes it easy to add background job processing to your App Service web app.

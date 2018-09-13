@@ -2,19 +2,12 @@
 title: Use Azure Files with Linux | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB on Linux.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-
-ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
+ms.component: files
 ---
 
 # Use Azure Files with Linux
@@ -109,7 +102,7 @@ ms.author: renash
 3. **Create a credential file to store the username (the storage account name) and password (the storage account key) for the file share.** Remember to replace `<storage-account-name>` and `<storage-account-key>` with the appropriate information for your environment. 
 
     ```bash
-    if [ -d "/etc/smbcredentials" ]; then
+    if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir /etc/smbcredentials
     fi
 

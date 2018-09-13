@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
-ms.date: 07/31/2018
+ms.component: compliance
+ms.date: 09/04/2018
 ms.author: rolyon
 
 ---
@@ -69,7 +69,7 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 5. For **Require users to expand the Terms of use**, select On or Off.  If this setting is set to On, end users will be required to view the Terms of use prior to accepting them.
 
-6. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](active-directory-conditional-access-best-practices.md).
+6. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Conditional access policy controls (including Terms of use) do not support enforcement on service accounts.  We recommend excluding all service accounts from the conditional access policy.
@@ -119,6 +119,8 @@ The following screen shows how Terms of use looks on mobile devices.
 
 ![Audit Event](media/active-directory-tou/mobile-tou.png)
 
+Users are only required to accept the Terms of use once and they will not see the Terms of use again on subsequent sign ins.
+
 ### How users can review their Terms of use
 Users can review and see the Terms of use that they have accepted by using the following procedure.
 
@@ -158,7 +160,7 @@ The following procedure describes how to add a Terms of use language.
 
 1. Select the Terms of use you want to edit.
 
-1. In the the details pane, click the **Languages** tab.
+1. In the details pane, click the **Languages** tab.
 
     ![Add TOU](media/active-directory-tou/languages-tou.png)
 
@@ -217,7 +219,7 @@ A: Currently, you can't update an existing Terms of use document. To change a Te
 A: The PDF is rendered by default as a JPEG, so hyperlinks are not clickable. Users have the option to select **Having trouble viewing? Click here**, which renders the PDF natively where hyperlinks are supported.
 
 **Q: Can a Terms of use support multiple languages?**</br>
-A: Yes.  Currently there are 18 different languages an administrator can configure for a single Terms of use. 
+A: Yes. Currently there are 108 different languages an administrator can configure for a single Terms of use.
 
 **Q: When is the Terms of use triggered?**</br>
 A: The Terms of use is triggered during the sign-in experience.
@@ -236,4 +238,4 @@ A: You can [review previously accepted Terms of use](#how-users-can-review-their
 
 ## Next steps
 
-- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md)
+- [Best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md)

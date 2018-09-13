@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/18
+ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -26,24 +26,29 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
 ## Create a public load balancer
 
 In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
-2. In the **Create a load balancer** page enter these values for the load balancer:
-    - *myLoadBalancer* - for the name of the load balancer.
-    - **Public** - for the type of the load balancer.
-     - *myPublicIP* - for the **New** Public IP that you create.
-    - *myResourceGroupSLB* -  for the name of the **New** resource group that you select to create.
-    - **westeurope** - for the location.
-3. Click **Create** to create the load balancer.
-   
-    ![Create a load balancer](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
+2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Name                   | *myLoadBalancer*                                   |
+    | Type          | Public                                        |
+    | SKU           | Standard                          |
+    | Public IP address | Select **Create new** and type *myPublicIP* in the text box. The Standard SKU for the Public IP address is selected by default. For **Availability zone**, select **Zone-redundant**. |
+    | Subscription               | Select your subscription.    |
+    |Resource group | Select **Create new**, and then type *myResourceGroupSLB*.    |
+    | Location           | Select **West Europe**.                          |
+    
+
+![Create a load balancer](./media/load-balancer-standard-public-portal/create-load-balancer.png)
 
 
 ## Create backend servers
@@ -63,22 +68,22 @@ In this section, you create a virtual network, create two virtual machines for t
 
 1. On the top left-hand side of the screen, click **New** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
     - *myVM1* - for the name of the virtual machine.        
-    - *azureuser* - for the administrator user name.    
     - *myResourceGroupSLB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupSLB*.
 2. Click **OK**.
 3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
 4. Enter these values for the VM settings:
-    - *myAvailabilitySet* - for the name of the new Availability set that you create.
-    -  *myVNet* - ensure it is selected as the virtual network.
-    - *myBackendSubnet* - ensure it is selected as the subnet.
-    - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
+    1. Ensure that  *myVNet* is selected as the virtual network, and *myBackendSubnet* is selected as the subnet.
+    2. For **Public IP address**, in the **Create Public IP address** pane, select **Standard**, and then select **OK**.
+    3. For **Network Security Group**, select **Advanced**, and then do the following:
+        1. Select *Network security group (firewall), and the **Choose network security group** page, select **Create new**. 
+        2. In the **Create network security group** page, for **Name**, enter *myNetworkSecurityGroup*, and then select **OK**.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Create a second VM, named, *VM2* with *myAvailibilityset* as the Availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group using steps 1-6. 
+7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailibilityset* as the Availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group. 
 
-### Create NSG rules
+### Create NSG rule
 
-In this section, you create NSG rules to allow inbound connections using HTTP and RDP.
+In this section, you create a NSG rule to allow inbound connections using HTTP.
 
 1. Click **All resources** in the left-hand menu, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupSLB** resource group.
 2. Under **Settings**, click **Inbound security rules**, and then click **Add**.
@@ -93,17 +98,6 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *Allow HTTP* - for description
 4. Click **OK**.
  
- ![Create a virtual network](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
-5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *3389* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *200* for **Priority**
-    - *myRDPRule* for name
-    - *Allow RDP* - for description
-
 ### Install IIS
 
 1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupLB* resource group.
@@ -120,7 +114,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
+In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify a load balancer rule.
 
 
 ### Create a backend address pool
@@ -130,13 +124,10 @@ To distribute traffic to the VMs, a backend address pool contains the IP address
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
 3. On the **Add a backend pool** page, do the following:
-    - For name, type *myBackEndPool, as the name for your backend pool.
-    - For **Associated to**, from the drop-down menu, click **Availability set**
-    - For **Availability set**, click, **myAvailabilitySet**.
-    - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* & *myVM2*) that you created to the backend pool.
+   - For name, type *myBackendPool*, as the name for your backend pool.
+   - For **Virtual network**, select *myVNet*.
+   - Add *myVM1* and *my VM2* under **Virtual Machine** along with their corresponding IP addresses, and then select **Add**.
     - Click **OK**.
-
-    ![Adding to the backend address pool - ](./media/load-balancer-standard-public-portal/3-load-balancer-backend-02.png)
 
 3. Check to make sure your load balancer backend pool setting displays both the VMs **VM1** and **VM2**.
 

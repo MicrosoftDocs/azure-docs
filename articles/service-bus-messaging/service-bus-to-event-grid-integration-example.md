@@ -3,7 +3,7 @@ title: Azure Service Bus to Event Grid integration examples | Microsoft Docs
 description: This article provides examples of Service Bus messaging and Event Grid integration.
 services: service-bus-messaging
 documentationcenter: .net
-author: ChristianWolf42
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
-ms.author: chwolf
+ms.author: spelluru
 
 ---
 # Azure Service Bus to Azure Event Grid integration examples
@@ -42,13 +42,13 @@ You can use any method to send a message to your Service Bus topic. The sample c
 
 1. Clone [the GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/).
 
-2. In Visual Studio, go to the *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* folder, and then open the *SBEventGridIntegration.sln* file.
+1. In Visual Studio, go to the *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* folder, and then open the *SBEventGridIntegration.sln* file.
 
-3. Go to the **MessageSender** project, and then select **Program.cs**.
+1. Go to the **MessageSender** project, and then select **Program.cs**.
 
    ![8][]
 
-4. Fill in your topic name and connection string, and then execute the following console application code:
+1. Fill in your topic name and connection string, and then execute the following console application code:
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
@@ -61,7 +61,7 @@ Before you work through the entire scenario, set up at least a small test functi
 
 1. In the Azure portal, create a new Azure Functions application. To learn the basics of Azure Functions, see [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/).
 
-2. In your newly created function, select the plus sign (+) to add an HTTP trigger function:
+1. In your newly created function, select the plus sign (+) to add an HTTP trigger function:
 
     ![2][]
     
@@ -69,9 +69,9 @@ Before you work through the entire scenario, set up at least a small test functi
 
     ![3][]
 
-3. Select the **Webhook + API** button, select **CSharp**, and then select **Create this function**.
+1. Select the **Webhook + API** button, select **CSharp**, and then select **Create this function**.
  
-4. Into the function, paste the following code:
+1. Into the function, paste the following code:
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -117,7 +117,7 @@ Before you work through the entire scenario, set up at least a small test functi
     }
     ```
 
-5. Select **Save and run**.
+1. Select **Save and run**.
 
 ## Connect the function and namespace via Event Grid
 
@@ -129,16 +129,16 @@ To create an Azure Event Grid subscription, do the following:
 
     ![20][]
 
-2. Select **Event Subscription**.  
+1. Select **Event Subscription**.  
     The **Event Subscription** window opens. The following image displays a form for subscribing to an Azure function or a webhook without applying filters.
 
     ![21][]
 
-3. Complete the form as shown and, in the **Suffix Filter** box, remember to enter the relevant filter.
+1. Complete the form as shown and, in the **Suffix Filter** box, remember to enter the relevant filter.
 
-4. Select **Create**.
+1. Select **Create**.
 
-5. Send a message to your Service Bus topic, as mentioned in the "Prerequisites" section, and then verify that events are flowing via the Azure Functions Monitoring feature.
+1. Send a message to your Service Bus topic, as mentioned in the "Prerequisites" section, and then verify that events are flowing via the Azure Functions Monitoring feature.
 
 The next step is to tie together the function and the Service Bus namespace. For this example, use the Azure portal. To understand how to use PowerShell or Azure CLI to perform this step, see [Azure Service Bus to Azure Event Grid integration overview](service-bus-to-event-grid-integration-concept.md).
 
@@ -156,26 +156,26 @@ You'll add an Azure function, as shown in the following example, because the Ser
 
     ![10][]
 
-2. Enter your connection string in the following code:
+1. Enter your connection string in the following code:
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 
-3. In the Azure portal, download the publishing profile for the Azure function that you created in the "Set up a test function" section.
+1. In the Azure portal, download the publishing profile for the Azure function that you created in the "Set up a test function" section.
 
     ![11][]
 
-4. In Visual Studio, right-click **SBEventGridIntegration**, and then select **Publish**. 
+1. In Visual Studio, right-click **SBEventGridIntegration**, and then select **Publish**. 
 
-5. In the **Publish** pane for the publishing profile that you downloaded previously, select **Import profile**, and then select **Publish**.
+1. In the **Publish** pane for the publishing profile that you downloaded previously, select **Import profile**, and then select **Publish**.
 
     ![12][]
 
-6. After you've published the new Azure function, create a new Azure Event Grid subscription that points to the new Azure function.  
+1. After you've published the new Azure function, create a new Azure Event Grid subscription that points to the new Azure function.  
     In the **Ends with** box, be sure to apply the correct filter, which should be your Service Bus subscription name.
 
-7. Send a message to the Azure Service Bus topic that you created previously, and then monitor the Azure Functions log in the Azure portal to ensure that events are flowing and that messages are being received.
+1. Send a message to the Azure Service Bus topic that you created previously, and then monitor the Azure Functions log in the Azure portal to ensure that events are flowing and that messages are being received.
 
     ![12-1][]
 
@@ -191,22 +191,22 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by doing the fol
 
     ![14][]
 
-2. Add your information by doing the following:
+1. Add your information by doing the following:
 
     a. In the **Resource Name** box, enter your own namespace name. 
 
     b. Under **Advanced options**, in the **Suffix Filter** box, enter filter for your subscription.
 
-3. Add a Service Bus receive action to receive messages from a topic subscription.  
+1. Add a Service Bus receive action to receive messages from a topic subscription.  
     The final action is shown in the following image:
 
     ![15][]
 
-4. Add a complete event, as shown in the following image:
+1. Add a complete event, as shown in the following image:
 
     ![16][]
 
-5. Save the logic app, and send a message to your Service Bus topic, as mentioned in the "Prerequisites" section.  
+1. Save the logic app, and send a message to your Service Bus topic, as mentioned in the "Prerequisites" section.  
     Observe the logic app execution. To view more data for the execution, select **Overview**, and then view the data under **Runs history**.
 
     ![17][]

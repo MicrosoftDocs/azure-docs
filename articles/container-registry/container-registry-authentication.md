@@ -22,7 +22,7 @@ Azure Container Registry does not support unauthenticated Docker operations or a
 
 ## Individual login with Azure AD
 
-When working with your registry directly, such as pulling images to and pushing images from your development workstation, authenticate by using the [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) command in the [Azure CLI](/cli/azure/install-azure-cli):
+When working with your registry directly, such as pulling images to and pushing images from your development workstation, authenticate by using the [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) command in the [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
@@ -32,7 +32,7 @@ When you log in with `az acr login`, the CLI uses the token created when you exe
 
 ## Service principal
 
-You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
+You can assign a [service principal](../active-directory/develop/app-objects-and-service-principals.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
 
 The available roles are:
 
@@ -44,10 +44,10 @@ Service principals enable headless connectivity to a registry in both push and p
 
   * *Reader*: Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
-  * *Contributor*: Continuous integration and deployment solutions like Visual Studio Team Services (VSTS) or Jenkins that build container images and push them to a registry.
+  * *Contributor*: Continuous integration and deployment solutions like Azure DevOps or Jenkins that build container images and push them to a registry.
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) command.
+> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) command.
 >
 
 You can also log in directly with a service principal. Provide the app ID and password of the service principal to the `docker login` command:
@@ -78,7 +78,7 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 
 Again, Docker recommends that you use the `--password-stdin` parameter instead of supplying it on the command line for increased security. You can also specify only your username, without `-p`, and enter your password when prompted.
 
-To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) command in the Azure CLI:
+To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) command in the Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

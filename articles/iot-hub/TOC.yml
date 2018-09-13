@@ -54,6 +54,8 @@
     href: iot-hub-event-grid-routing-comparison.md
   - name: Device configuration best practices
     href: iot-hub-configuration-best-practices.md
+  - name: Azure IoT SDKs platform support
+    href: iot-hub-device-sdk-platform-support.md
   - name: Developer guide
     href: iot-hub-devguide.md
     items:
@@ -129,6 +131,8 @@
     - name: Use device and service SDKs
       href: iot-hub-devguide-sdks.md
       items:
+      - name: Azure IoT SDKs platform support
+        href: iot-hub-device-sdk-platform-support.md
       - name: Use the IoT device SDK for C
         href: iot-hub-device-sdk-c-intro.md
         items:
@@ -144,6 +148,8 @@
         href: iot-hub-reliability-features-in-sdks.md
     - name: Query Avro data from a hub route
       href: iot-hub-query-avro-data.md
+    - name: Order device connection state events from Event Grid
+      href: iot-hub-how-to-order-connection-state-events.md
     - name: Send cloud-to-device messages
       items:
       - name: .NET
@@ -220,8 +226,6 @@
         href: iot-hub-create-using-powershell.md
       - name: Use Azure CLI
         href: iot-hub-create-using-cli.md
-      - name: Use CLI
-        href: iot-hub-create-using-cli-nodejs.md
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
@@ -296,8 +300,6 @@
         href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Extended IoT scenarios
       items:
-      - name: Manage cloud device messaging with iothub-explorer
-        href: iot-hub-explorer-cloud-device-messaging.md
       - name: Manage cloud device messaging with Azure IoT Toolkit for VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
       - name: Save IoT Hub messages to Azure Blob storage
@@ -308,8 +310,8 @@
         href: iot-hub-live-data-visualization-in-web-apps.md
       - name: Weather forecast using Azure Machine Learning
         href: iot-hub-weather-forecast-machine-learning.md
-      - name: Device management with iothub-explorer
-        href: iot-hub-device-management-iothub-explorer.md
+      - name: Device management with Azure IoT Toolkit for VS Code
+        href: iot-hub-device-management-iot-toolkit.md
       - name: Device management with IoT extension for Azure CLI 2.0
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Remote monitoring and notifications with ​Logic ​Apps
@@ -398,8 +400,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: iothub-explorer tool
-    href: https://github.com/Azure/iothub-explorer
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum

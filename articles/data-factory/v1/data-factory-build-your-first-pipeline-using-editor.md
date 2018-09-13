@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 
@@ -53,11 +53,11 @@ To create a data factory, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Select **New** > **Data + Analytics** > **Data Factory**.
+1. Select **New** > **Data + Analytics** > **Data Factory**.
 
    ![Create blade](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-3. On the **New data factory** blade, under **Name**, enter **GetStartedDF**.
+1. On the **New data factory** blade, under **Name**, enter **GetStartedDF**.
 
    ![New data factory blade](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -67,25 +67,25 @@ To create a data factory, follow these steps:
    > The name of the data factory might be registered as a DNS name in the future, and it might become publicly visible.
    >
    >
-4. Under **Subscription**, select the Azure subscription where you want the data factory to be created.
+1. Under **Subscription**, select the Azure subscription where you want the data factory to be created.
 
-5. Select an existing resource group, or create a resource group. For the tutorial, create a resource group named **ADFGetStartedRG**.
+1. Select an existing resource group, or create a resource group. For the tutorial, create a resource group named **ADFGetStartedRG**.
 
-6. Under **Location**, select a location for the data factory. Only regions supported by the Data Factory service are shown in the drop-down list.
+1. Under **Location**, select a location for the data factory. Only regions supported by the Data Factory service are shown in the drop-down list.
 
-7. Select the **Pin to dashboard** check box.
+1. Select the **Pin to dashboard** check box.
 
-8. Select **Create**.
+1. Select **Create**.
 
    > [!IMPORTANT]
    > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
    >
    >
-9. On the dashboard, you see the following tile with the status **Deploying Data Factory**:    
+1. On the dashboard, you see the following tile with the status **Deploying Data Factory**:    
 
    ![Deploying Data Factory status](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. After the data factory is created, you see the **Data factory** page, which shows you the contents of the data factory.     
+1. After the data factory is created, you see the **Data factory** page, which shows you the contents of the data factory.     
 
     ![Data factory blade](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -101,17 +101,17 @@ In this step, you link your storage account to your data factory. In this tutori
 
    ![Author and deploy tile](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-2. Select **New data store**, and choose **Azure Storage**.
+1. Select **New data store**, and choose **Azure Storage**.
 
    ![New data store blade](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
-3. You see the JSON script for creating a Storage linked service in the editor.
+1. You see the JSON script for creating a Storage linked service in the editor.
 
    ![Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Select **Deploy** on the command bar to deploy the linked service.
+1. Select **Deploy** on the command bar to deploy the linked service.
 
     ![Deploy button](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
@@ -126,7 +126,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
     ![New compute](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet describes the properties that are used to create the HDInsight cluster on demand.
+1. Copy and paste the following snippet to the Draft-1 window. The JSON snippet describes the properties that are used to create the HDInsight cluster on demand.
 
 	```JSON
     {
@@ -164,11 +164,11 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
      For more information, see [On-demand HDInsight linked service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-3. Select **Deploy** on the command bar to deploy the linked service.
+1. Select **Deploy** on the command bar to deploy the linked service.
 
     ![Deploy option](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
-4. Confirm that you see both **AzureStorageLinkedService** and **HDInsightOnDemandLinkedService** in the tree view on the left.
+1. Confirm that you see both **AzureStorageLinkedService** and **HDInsightOnDemandLinkedService** in the tree view on the left.
 
     ![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
@@ -180,7 +180,7 @@ In this step, you create datasets to represent the input and output data for Hiv
 
     ![New dataset](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is in the blob container called **adfgetstarted** and the folder called **inputdata**.
+1. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is in the blob container called **adfgetstarted** and the folder called **inputdata**.
 
 	```JSON
     {
@@ -220,14 +220,14 @@ In this step, you create datasets to represent the input and output data for Hiv
 
     For more information about these JSON properties, see [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties).
 
-3. Select **Deploy** on the command bar to deploy the newly created dataset. You see the dataset in the tree view on the left.
+1. Select **Deploy** on the command bar to deploy the newly created dataset. You see the dataset in the tree view on the left.
 
 ### Create the output dataset
 Now, you create the output dataset to represent the output data stored in the blob storage.
 
 1. In the Data Factory Editor, select **More** > **New dataset** > **Azure Blob storage**.
 
-2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobOutput** to specify the structure of the data that is produced by the Hive script. You also specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced monthly.
+1. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobOutput** to specify the structure of the data that is produced by the Hive script. You also specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced monthly.
 
 	```JSON
     {
@@ -251,9 +251,9 @@ Now, you create the output dataset to represent the output data stored in the bl
 	```
     For descriptions of these properties, see the section "Create the input dataset." You do not set the external property on an output dataset because the dataset is produced by the Data Factory service.
 
-3. Select **Deploy** on the command bar to deploy the newly created dataset.
+1. Select **Deploy** on the command bar to deploy the newly created dataset.
 
-4. Verify that the dataset is created successfully.
+1. Verify that the dataset is created successfully.
 
     ![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
@@ -264,7 +264,7 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
 
     ![New pipeline option](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-2. Copy and paste the following snippet to the Draft-1 window.
+1. Copy and paste the following snippet to the Draft-1 window.
 
    > [!IMPORTANT]
    > Replace **storageaccountname** with the name of your storage account in the JSON snippet.
@@ -330,7 +330,7 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
    > For more information about the JSON properties used in the example, see the "Pipeline JSON" section in [Pipelines and activities in Data Factory](data-factory-create-pipelines.md).
    >
    >
-3. Confirm the following:
+1. Confirm the following:
 
    a. The **input.log** file exists in the **inputdata** folder of the **adfgetstarted** container in the blob storage.
 
@@ -338,9 +338,9 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
 
    c. You replaced **storageaccountname** with the name of your storage account in the pipeline JSON.
 
-4. Select **Deploy** on the command bar to deploy the pipeline. Because the **start** and **end** times are set in the past and **isPaused** is set to **false**, the pipeline (activity in the pipeline) runs immediately after you deploy it.
+1. Select **Deploy** on the command bar to deploy the pipeline. Because the **start** and **end** times are set in the past and **isPaused** is set to **false**, the pipeline (activity in the pipeline) runs immediately after you deploy it.
 
-5. Confirm that you see the pipeline in the tree view.
+1. Confirm that you see the pipeline in the tree view.
 
     ![Tree view with pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 
@@ -352,31 +352,31 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
 
     ![Diagram tile](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
-2. In the **Diagram** view, you see an overview of the pipelines and datasets used in this tutorial.
+1. In the **Diagram** view, you see an overview of the pipelines and datasets used in this tutorial.
 
     ![Diagram view](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-3. To view all activities in the pipeline, right-click the pipeline in the diagram, and select **Open pipeline**.
+1. To view all activities in the pipeline, right-click the pipeline in the diagram, and select **Open pipeline**.
 
     ![Open pipeline menu](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
-4. Confirm that you see **Hive Activity** in the pipeline.
+1. Confirm that you see **Hive Activity** in the pipeline.
 
     ![Open pipeline view](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
     To go back to the previous view, select **Data factory** in the menu at the top.
 
-5. In the **Diagram** view, double-click the dataset **AzureBlobInput**. Confirm that the slice is in the **Ready** state. It might take a couple of minutes for the slice to show up as **Ready**. If it doesn't appear after you wait for some time, see if you have the input file (**input.log**) placed in the right container (**adfgetstarted**) and folder (**inputdata**).
+1. In the **Diagram** view, double-click the dataset **AzureBlobInput**. Confirm that the slice is in the **Ready** state. It might take a couple of minutes for the slice to show up as **Ready**. If it doesn't appear after you wait for some time, see if you have the input file (**input.log**) placed in the right container (**adfgetstarted**) and folder (**inputdata**).
 
    ![Input slice in Ready state](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-6. Close the **AzureBlobInput** blade.
+1. Close the **AzureBlobInput** blade.
 
-7. In the **Diagram** view, double-click the dataset **AzureBlobOutput**. You see the slice that is currently being processed.
+1. In the **Diagram** view, double-click the dataset **AzureBlobOutput**. You see the slice that is currently being processed.
 
    ![Dataset processing in progress](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-8. After the processing is finished, you see the slice in the **Ready** state.
+1. After the processing is finished, you see the slice in the **Ready** state.
 
    ![Dataset in Ready state](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -385,15 +385,15 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
    >
    >
 
-9. When the slice is in the **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
+1. When the slice is in the **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
 
    ![Output data](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-10. Select the slice to see more information about it in a **Data slice** blade.
+1. Select the slice to see more information about it in a **Data slice** blade.
 
     ![Data slice information](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-11. In the **Activity runs** list, select an activity run to see more information about it. (In this scenario, it's a Hive activity.) The information appears in an **Activity run details** blade.   
+1. In the **Activity runs** list, select an activity run to see more information about it. (In this scenario, it's a Hive activity.) The information appears in an **Activity run details** blade.   
 
     ![Activity run details window](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -412,11 +412,11 @@ You also can use the Monitor & Manage application to monitor your pipelines. For
 
     ![Monitor & Manage tile](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-2. In the Monitor & Manage application, change the **Start time** and **End time** to match the start and end times of your pipeline. Select **Apply**.
+1. In the Monitor & Manage application, change the **Start time** and **End time** to match the start and end times of your pipeline. Select **Apply**.
 
     ![Monitor & Manage app](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 
-3. Select an activity window in the **Activity Windows** list to see information about it.
+1. Select an activity window in the **Activity Windows** list to see information about it.
 
     ![Activity Windows list](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 

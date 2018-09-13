@@ -1,20 +1,12 @@
 ---
-title: Protect web apps with Azure Application Gateway - PowerShell | Microsoft Docs
+title: Protect web apps with Azure Application Gateway - PowerShell
 description: This article provides guidance on how to configure web apps as back end hosts on an existing or new application gateway.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: 
-
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.topic: article
+ms.date: 8/1/2018
 ms.author: victorh
-
 ---
 
 # Configure App Service Web Apps with Application Gateway 
@@ -29,8 +21,11 @@ The following example adds a web app as a back-end pool member to an existing ap
 # FQDN of the web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
 
+# Retrieve the resource group
+$rg = Get-AzureRmResourceGroup -Name 'your resource group name'
+
 # Retrieve an existing application gateway
-$gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
+$gw = Get-AzureRmApplicationGateway -Name 'your application gateway name' -ResourceGroupName $rg.ResourceGroupName
 
 # Define the status codes to match for the probe
 $match=New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399

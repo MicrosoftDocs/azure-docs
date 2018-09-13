@@ -7,11 +7,11 @@ metadata:
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: CarlRabeler
-  manager: carigg
+  manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang:
-  ms.topic: landing-page
+  ms.topic: overview
   ms.date: 07/07/2018
   ms.author: carlrab
 abstract:
@@ -102,16 +102,16 @@ sections:
       - title: Create Single SQL Database
         values:
           - href: /azure/sql-database/sql-database-get-started-portal
-          - href: /azure/sql-database/sql-database-get-started-cli
-          - href: /azure/sql-database/sql-database-get-started-powershell
+          - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
+          - href: /azure/sql-database//scripts/sql-database-create-and-configure-database-powershell
           - href:
       - title: Create SQL Managed Instance
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
-          - href: 
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
+          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-          - href:
-      - title: Create SQL Elastic Pool
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+      - title: Create SQL elastic pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
@@ -123,7 +123,7 @@ sections:
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
           - href:
-      - title: Scale SQL Elastic Pool
+      - title: Scale SQL elastic pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-scale-pool-cli

@@ -1,18 +1,18 @@
 ---
-title: Computer Vision Python quickstart handwritten text | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using Computer Vision with Python in Cognitive Services.
+title: "Quickstart: Extract handwritten text - REST, Python - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/17/2018
-ms.author: nolachar
+ms.date: 08/28/2018
+ms.author: v-deken
 ---
-# Quickstart: Extract handwritten text with Python
+# Quickstart: Extract handwritten text using the REST API and Python in Computer Vision
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
 
@@ -86,15 +86,22 @@ operation_url = response.headers["Operation-Location"]
 
 # The recognized text isn't immediately available, so poll to wait for completion.
 analysis = {}
-while "recognitionResult" not in analysis:
+poll = True
+while (poll):
     response_final = requests.get(
         response.headers["Operation-Location"], headers=headers)
     analysis = response_final.json()
     time.sleep(1)
+    if ("recognitionResult" in analysis):
+        poll= False 
+    if ("status" in analysis and analysis['status'] == 'Failed'):
+        poll= False
 
-# Extract the recognized text, with bounding boxes.
-polygons = [(line["boundingBox"], line["text"])
-    for line in analysis["recognitionResult"]["lines"]]
+polygons=[]
+if ("recognitionResult" in analysis):
+    # Extract the recognized text, with bounding boxes.
+    polygons = [(line["boundingBox"], line["text"])
+        for line in analysis["recognitionResult"]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
@@ -392,7 +399,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)

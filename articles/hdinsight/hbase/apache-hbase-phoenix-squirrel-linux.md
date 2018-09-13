@@ -1,19 +1,15 @@
 ---
-title: Use Apache Phoenix and SQLLine with HBase in Azure HDInsight | Microsoft Docs
+title: Use Apache Phoenix and SQLLine with HBase in Azure HDInsight 
 description: Learn how to use Apache Phoenix in HDInsight. Also, learn how to install and set up SQLLine on your computer to connect to an HBase cluster in HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Use Apache Phoenix with Linux-based HBase clusters in HDInsight

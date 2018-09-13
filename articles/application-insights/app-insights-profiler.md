@@ -1,4 +1,4 @@
----
+﻿---
 title: Profile live web apps on Azure with Application Insights Profiler | Microsoft Docs
 description: Identify the hot path in your web server code with a low-footprint profiler.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
 
 ---
@@ -29,15 +29,15 @@ Profiler currently works for ASP.NET and ASP.NET Core web apps that are running 
 Once you have deployed a Web App, regardless of if you included the App Insights SDK in the source code, do the following:
 
 1. Go to the **App Services** pane in the Azure portal.
-2. Navigate to **Settings > Monitoring** pane.
+1. Navigate to **Settings > Monitoring** pane.
 
    ![Enable App Insights on App Services portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web app. Accept all default options. **Code level diagnostics** is on by default and enables Profiler.
+1. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web app. Accept all default options. **Code level diagnostics** is on by default and enables Profiler.
 
    ![Add App Insights site extension][Enablement UI]
 
-4. Profiler is now installed with the App Insights site extension, and is enabled using an App Services App Setting.
+1. Profiler is now installed with the App Insights site extension, and is enabled using an App Services App Setting.
 
     ![App Setting for Profiler][profiler-app-setting]
 
@@ -163,9 +163,12 @@ Here are a few things that you can check:
 * Make sure that your web app has Application Insights SDK 2.2 Beta or later enabled.
 * Make sure that your web app has the **APPINSIGHTS_INSTRUMENTATIONKEY** setting configured with the same instrumentation key that's used by the Application Insights SDK.
 * Make sure that your web app is running on .NET Framework 4.6.
-* If your web app is an ASP.NET Core application, check [the required dependencies](#aspnetcore).
+* If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
 
 After Profiler is started, there is a short warmup period during which Profiler actively collects several performance traces. After that, Profiler collects performance traces for two minutes every hour.
+
+> [!NOTE]
+> There is a bug in the profiler agent that prevents it from uploading traces taken from applications running on ASP.NET Core 2.1. We are working on a fix and will have it ready soon.
 
 ### I was using Azure Service profiler. What happened to it?
 
@@ -197,7 +200,7 @@ If you are redeploying your web app to a Web Apps resource with Profiler enabled
 
 *Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
-This error occurs if you run Web Deploy from scripts or from the Visual Studio Team Services Deployment Pipeline. The solution is to add the following additional deployment parameters to the Web Deploy task:
+This error occurs if you run Web Deploy from scripts or from the Azure DevOps Deployment Pipeline. The solution is to add the following additional deployment parameters to the Web Deploy task:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
@@ -210,14 +213,14 @@ These parameters delete the folder that's used by Application Insights Profiler 
 When you configure Profiler, updates are made to the web app's settings. You can apply the updates manually if your environment requires it. An example might be that your application is running in a Web Apps environment for PowerApps.
 
 1. In the **Web App Control** pane, open **Settings**.
-2. Set **.Net Framework version** to **v4.6**.
-3. Set **Always On** to **On**.
-4. Add the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting, and set the value to the same instrumentation key that's used by the SDK.
-5. Open **Advanced Tools**.
-6. Select **Go** to open the Kudu website.
-7. On the Kudu website, select **Site extensions**.
-8. Install **Application Insights** from the Azure Web Apps Gallery.
-9. Restart the web app.
+1. Set **.Net Framework version** to **v4.6**.
+1. Set **Always On** to **On**.
+1. Add the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting, and set the value to the same instrumentation key that's used by the SDK.
+1. Open **Advanced Tools**.
+1. Select **Go** to open the Kudu website.
+1. On the Kudu website, select **Site extensions**.
+1. Install **Application Insights** from the Azure Web Apps Gallery.
+1. Restart the web app.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
 
@@ -268,7 +271,7 @@ There could be two reasons why you see this error:
 
 1. The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data did not finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
 
-2. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability.
+1. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability.
   
 Follow these steps to check and install the latest Profiler:
 
@@ -278,25 +281,25 @@ Follow these steps to check and install the latest Profiler:
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 If any of these settings are not set, go to the Application Insights enablement pane to install the latest site extension.
 
-2. Go to Application Insights pane in App Services portal.
+1. Go to Application Insights pane in App Services portal.
 
     ![Enable Application Insights from App Services portal][enable-app-insights]
 
-3. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension which will install the latest Profiler agent.
+1. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension which will install the latest Profiler agent.
 ![Update site extension][update-site-extension]
 
-4. Then click **change** to making sure the Profiler is turned on and select **OK** to save the changes.
+1. Then click **change** to making sure the Profiler is turned on and select **OK** to save the changes.
 
     ![Change and save app insights][change-and-save-appinsights]
 
-5. Go back to **App Settings** tab for the App Service to double-check the following app settings items are set:
+1. Go back to **App Settings** tab for the App Service to double-check the following app settings items are set:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
     ![app settings for profiler][app-settings-for-profiler]
 
-6. Optionally, check the extension version and making sure there’s no update available.
+1. Optionally, check the extension version and making sure there’s no update available.
 
     ![check for extension update][check-for-extension-update]
 

@@ -1,14 +1,13 @@
 ---
 title: Azure Storage Service Encryption using customer-managed keys in Azure Key Vault | Microsoft Docs
-description: Use the Azure Storage Service Encryption feature to encrypt Azure Blob storage, Azure Files, Azure Queue storage, and Azure Table storage on the service side when storing the data, and decrypt it when retrieving the data using customer-managed keys.
+description: Use the Azure Storage Service Encryption feature to encrypt Azure Blob storage and Azure Files on the service side when storing the data, and decrypt it when retrieving the data using customer-managed keys.
 services: storage
 author: lakasa
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
+ms.component: common
 ---
 
 # Storage Service Encryption using customer-managed keys in Azure Key Vault
@@ -19,7 +18,7 @@ You can use Microsoft-managed encryption keys with SSE or you can use your own e
 SSE for Azure Blob storage and Azure Files is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage.
 
 > [!Note]  
-> Storage Service Encryption is not available for [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). We recommend you use encryption on the OS level, such as [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), which uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide encryption integrated with KeyVault.
+> Storage Service Encryption using customer-managed keys is not available for [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md) uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide an encryption solution integrated with KeyVault.
 
 Why create your own keys? Custom keys give you more flexibility, so that you can create, rotate, disable, and define access controls. Custom keys also enable you to audit the encryption keys used to protect your data.
 
@@ -30,7 +29,7 @@ To use customer-managed keys with SSE, you can either create a new key vault and
 First, create a storage account if you don't have one already. For more information, see [Create a new storage account](storage-quickstart-create-account.md).
 
 ### Step 2: Enable SSE for Blob and File storage
-To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
+To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled in Azure Key Vault. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
 
 If you want to programmatically enable customer-managed keys for SSE, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or the [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
@@ -117,7 +116,7 @@ Yes.
 There is a cost associated for using Azure Key Vault. For more details, visit [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). There is no additional cost for SSE, which is enabled for all storage accounts.
 
 **Is Storage Service Encryption available on Azure Managed Disks?**  
-No, Storage Service Encryption is not available for [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). We recommend you use encryption on the OS level, such as [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), which uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide encryption integrated with KeyVault.
+Storage Service Encryption is available for Azure Managed Disks with Microsoft-managed keys, but not with customer managed keys. In lieu of Managed Disks supporting SSE with customer-managed keys, we recommend [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), which uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide encryption integrated with KeyVault.
 
 **How is Storage Service Encryption different from Azure Disk Encryption?**  
 Azure Disk Encryption provides integration between OS-based solutions like BitLocker and DM-Crypt and Azure KeyVault. Storage Service Encryption provides encryption natively at the Azure storage platform layer, below the virtual machine.

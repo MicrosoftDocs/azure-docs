@@ -4,9 +4,7 @@ description: Use the Spark HBase Connector to read and write data from a Spark c
 services: hdinsight
 author: maxluk
 ms.author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

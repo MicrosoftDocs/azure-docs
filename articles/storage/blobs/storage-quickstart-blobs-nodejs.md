@@ -97,11 +97,11 @@ The variables are set to the following values:
 - *sourceFilePath* is set to the absolute path of the file to upload
 - *blobName* is created by taking the file name and removing the file extension
 
-In the following implementation, each of the *blobService* functions is wrapped in a *Promise*, which allows access to JavaScript's *async* function and *await* operator to streamline the callback nature of the [Azure Storage API](/nodejs/api/azure-storage/blobservice). When a successful response returns for each function, the promise resolves with relevant data along with a message specific to the action.
+In the following implementation, each of the *blobService* functions is wrapped in a *Promise*, which allows access to JavaScript's *async* function and *await* operator to streamline the callback nature of the [Azure Storage API](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). When a successful response returns for each function, the promise resolves with relevant data along with a message specific to the action.
 
 ### Create a blob container
 
-The *createContainer* function calls [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) and sets the appropriate access level for the blob.
+The *createContainer* function calls [createContainerIfNotExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) and sets the appropriate access level for the blob.
 
 ```javascript
 const createContainer = () => {
@@ -117,13 +117,13 @@ const createContainer = () => {
 };
 ```
 
-The second parameter (*options*) for **createContainerIfNotExists** accepts a value for [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists). The value *blob* for *publicAccessLevel* specifies that specific blob data is exposed to the public. This setting is in contrast to *container* level access, which grants the ability to list the contents of the container.
+The second parameter (*options*) for **createContainerIfNotExists** accepts a value for [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists). The value *blob* for *publicAccessLevel* specifies that specific blob data is exposed to the public. This setting is in contrast to *container* level access, which grants the ability to list the contents of the container.
 
 The use of **createContainerIfNotExists** allows the application to run the *createContainer* command multiple times without returning errors when the container already exists. In a production environment, you often only call **createContainerIfNotExists** once as the same container is used throughout the application. In these cases, you can create the container ahead of time through the portal or via the Azure CLI.
 
 ### Upload a blob to the container
 
-The *upload* function uses the [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) function to upload and write or overwrite a file from the file system into blob storage. 
+The *upload* function uses the [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile) function to upload and write or overwrite a file from the file system into blob storage. 
 
 ```javascript
 const upload = () => {
@@ -138,13 +138,13 @@ const upload = () => {
     });
 };
 ```
-In context of the sample application, the file named *example.txt* is uploaded to a blob named *example* inside a container named *test-container*. Other approaches available to upload content into blobs include working with [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) and [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
+In context of the sample application, the file named *example.txt* is uploaded to a blob named *example* inside a container named *test-container*. Other approaches available to upload content into blobs include working with [text](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) and [streams](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream).
 
 To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view the data in your account.
 
 ### List the blobs in a container
 
-The *list* function calls the [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) method to return a list of blob metadata in a container. 
+The *list* function calls the [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented) method to return a list of blob metadata in a container. 
 
 ```javascript
 const list = () => {
@@ -160,11 +160,11 @@ const list = () => {
 };
 ```
 
-Calling *listBlobsSegmented* returns blob metadata as an array of [BlobResult](/nodejs/api/azure-storage/blobresult) instances. Results are returned in 5,000 increment batches (segments). If there are more than 5,000 blobs in a container, then the results include a value for **continuationToken**. To list subsequent segments from the blob container, you can pass the continuation token back into **listBlobSegmented** as the second argument.
+Calling *listBlobsSegmented* returns blob metadata as an array of [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest) instances. Results are returned in 5,000 increment batches (segments). If there are more than 5,000 blobs in a container, then the results include a value for **continuationToken**. To list subsequent segments from the blob container, you can pass the continuation token back into **listBlobSegmented** as the second argument.
 
 ### Download a blob from the container
 
-The *download* function uses [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile) to download the contents of the blob to the given absolute file path.
+The *download* function uses [getBlobToLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile) to download the contents of the blob to the given absolute file path.
 
 ```javascript
 const download = () => {
@@ -184,7 +184,7 @@ The implementation shown here changes the source file path to append *.downloade
 
 ### Delete blobs in the container
 
-The *deleteBlock* function (aliased as the *delete* console command) calls the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) function. As the name implies, this function does not return an error the blob is already deleted.
+The *deleteBlock* function (aliased as the *delete* console command) calls the [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) function. As the name implies, this function does not return an error the blob is already deleted.
 
 ```javascript
 const deleteBlock = () => {
@@ -269,7 +269,7 @@ try {
 ```
 
 ## Clean up resources
-If you do not plan on using the data or accounts created in this article, you may want to delete them in order to avoid any undesired billing. To delete the blob and containers, you can use the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) and [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) methods. You can also delete the storage account [through the portal](../common/storage-create-storage-account.md).
+If you do not plan on using the data or accounts created in this article, you may want to delete them in order to avoid any undesired billing. To delete the blob and containers, you can use the [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) and [deleteContainerIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deletecontainerifexists) methods. You can also delete the storage account [through the portal](../common/storage-create-storage-account.md).
 
 ## Resources for developing Node.js applications with blobs
 

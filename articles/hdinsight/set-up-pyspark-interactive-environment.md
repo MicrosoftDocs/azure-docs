@@ -1,20 +1,14 @@
 ---
-title: Azure HDInsight Tools - Set Up PySpark Interactive Environment for Visual Studio Code | Microsoft Docs
+title: Azure HDInsight Tools - Set Up PySpark Interactive Environment for Visual Studio Code 
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
-Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
-documentationcenter: ''
+keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+services: hdinsight
+ms.service: hdinsight
 author: jejiang
-manager: 
-editor: 
-tags: azure-portal
-
-ms.assetid: 
-ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
 ms.author: jejiang
+ms.reviewer: jasonh
+ms.topic: conceptual
+ms.date: 10/27/2017
 ---
 
 # Set up the PySpark interactive environment for Visual Studio Code

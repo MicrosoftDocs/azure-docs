@@ -93,6 +93,13 @@ If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, 
 
 The registration of Windows down-level devices is not supported for devices configured for user profile roaming or credential roaming. If you are relying on roaming of profiles or settings, use Windows 10.
 
+- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+ 
+- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
+
+- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+
+
 The registration of Windows Server running the Domain Controller (DC) role is not supported.
 
 If your organization requires access to the Internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration using machine context, it is necessary to configure outbound proxy authentication using machine context.
@@ -115,11 +122,12 @@ If your environment has managed domains, hybrid Azure AD join supports:
 
 - Pass Through Authentication (PTA) with Seamless Single Sign On (SSO) 
 
-- Password Has Sync (PHS) with Seamless Single Sign On (SSO) 
+- Password Hash Sync (PHS) with Seamless Single Sign On (SSO) 
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 
 - [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
+
 
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 

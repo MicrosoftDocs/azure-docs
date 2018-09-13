@@ -3,17 +3,13 @@ title: Azure CLI Script Sample - Create a Function App for serverless execution 
 description: Azure CLI Script Sample - Create a Function App for serverless execution
 services: functions
 documentationcenter: functions
-author: syntaxc4
-manager: cfowler
-editor: 
-tags: azure-service-management
+author: ggailey777
+manager: jeconnoc
 
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
@@ -45,9 +41,9 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account. |
-| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Creates a function app. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates an Azure Storage account. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app. |
 
 ## Next steps
 
