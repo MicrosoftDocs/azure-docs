@@ -13,7 +13,7 @@ ms.component: common
 
 # Azure Storage account overview
 
-An Azure storage account provides a unique namespace to store and access your Azure Storage data objects. A storage account contains any blobs, files, queues, tables, and disks that you create under that account. All objects in a storage account are billed together as a group. 
+An Azure storage account provides a unique namespace in Azure to store and access your Azure Storage data objects. A storage account contains any blobs, files, queues, tables, and disks that you create under that account. Data in your Azure Storage accounts is durable and highly available, secure, massively scalable, and accessible from anywhere in the world over HTTP or HTTPS. 
 
 To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
 
@@ -43,15 +43,15 @@ The following table describes the three types of storage accounts and their capa
 
 ### General-purpose v2
 
-General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
+General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
 
 General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
 
 ### General-purpose v1
 
-General-purpose v1 accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. While general-purpose v2 accounts are recommended, general-purpose v1 accounts are best suited to these scenarios: 
+General-purpose v1 accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. While general-purpose v2 accounts are recommended in most cases, general-purpose v1 accounts are best suited to these scenarios: 
 
-* Your applications require the classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
+* Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
 
 * Your applications are transaction-intensive or use significant geo-replication bandwidth, but do not require large capacity. In this case, general-purpose v1 may be the most economical choice.
 
@@ -67,7 +67,7 @@ General-purpose v2 storage accounts offer multiple access tiers for storing data
 
 General-purpose storage accounts have two performance tiers:
 
-* A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks. For more information about standard storage, see [Cost-effective Standard Storage and unmanaged and managed Azure VM disks](../../virtual-machines/windows/standard-storage).
+* A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks. For more information about standard storage, see [Cost-effective Standard Storage and unmanaged and managed Azure VM disks](../../virtual-machines/windows/standard-storage.md).
 * A premium storage performance tier for storing Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
 
 ## Access tiers for blob data
@@ -130,4 +130,4 @@ You can access data in an Azure Storage account using any of the following appro
 ## Next steps
 
 * To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
-* To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-manage-account.md).
+* To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-account-manage.md).

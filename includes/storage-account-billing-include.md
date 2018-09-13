@@ -10,7 +10,9 @@ ms.author: tamram
 ms.custom: "include file"
 ---
 
-You are billed for Azure Storage based on your storage account usage. Storage costs are calculated according to the following factors: region/location, account type, access tier, storage capacity, replication scheme, storage transactions, and data egress.
+You are billed for Azure Storage based on your storage account usage. All objects in a storage account are billed together as a group. 
+
+Storage costs are calculated according to the following factors: region/location, account type, access tier, storage capacity, replication scheme, storage transactions, and data egress.
 
 * **Region** refers to the geographical region in which your account is based.
 * **Account type** refers to the type of storage account you are using. 
