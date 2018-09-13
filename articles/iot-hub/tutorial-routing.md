@@ -264,7 +264,7 @@ You are going to route messages to different resources based on properties attac
 
 ### Routing to a storage account 
 
-Now set up the routing for the storage account. You go to the Message Routing pane, then add a route. When adding the route, you define the endpoint for the route. After this is set up, messages where the **level** property is set to **storage** are written to a storage account automatically.
+Now set up the routing for the storage account. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this is set up, messages where the **level** property is set to **storage** are written to a storage account automatically.
 
 1. In the [Azure portal](https://portal.azure.com), click **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**. 
 
@@ -302,7 +302,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 ### Routing to a Service Bus queue 
 
-Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, you define the endpoint for the route. After this is set up, message where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information. 
+Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this is set up, message where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information. 
 
 1. On the Resource group page, click your IoT hub, then click **Message Routing**. 
 
