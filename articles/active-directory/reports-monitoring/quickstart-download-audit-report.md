@@ -1,5 +1,5 @@
 ---
-title: Quickstart Download an audit report | Microsoft Docs
+title: Quickstart Download an audit report using the Azure portal | Microsoft Docs
 description: Learn how to download an audit report using the Azure portal 
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 09/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
-# Quickstart: Download a sign-in report
+# Quickstart: Download an audit report using the Azure portal
 
 In this quickstart, you learn how to download the audit logs for your tenant for the past 24 hours.
 
