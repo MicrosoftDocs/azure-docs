@@ -80,24 +80,26 @@ $ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGro
 
 Run the following command against circuit 1 and pass in circuit 2's private peering's ID.
 
-> [!NOTE]
-> The private peering's Id looks like */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering*
-> 
->
+Note that the private peering's Id looks like:
+
+```
+/subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+```
 
 ```powershell
 Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
 ```
 
-*-AddressPrefix* must be a /29 IPv4 subnet, for example "10.0.0.0/29". We will use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You should not use addresses in this subnet in your Azure VNets or in your on-premises networks. 
+The *-AddressPrefix* must be a /29 IPv4 subnet, for example "10.0.0.0/29". We will use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You should not use addresses in this subnet in your Azure VNets or in your on-premises networks. 
 
 
-Save the configuration on circuit 1
+Save the configuration on circuit 1.
+
 ```powershell
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
-When the above operation is complete, you should have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
+When the previous operation is complete, you should have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
 ### ExpressRoute circuits in different Azure subscriptions
 
@@ -109,19 +111,21 @@ $ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGro
 Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_2
 ```
-You need to note down circuit 2's private peering's ID as well as the authorization key.
+Make a note of circuit 2's private peering's ID, as well as the authorization key.
 
-Run the following command against circuit 1. Pass in circuit 2's private peering's ID and the authorization key 
+Run the following command against circuit 1. Pass in circuit 2's private peering's ID and the authorization key
+
 ```powershell
 Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
 ```
 
-Save the configuration on circuit 1
+Save the configuration on circuit 1.
+
 ```powershell
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
-When the above operation is complete, you should have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
+When the previous operations is complete, you should have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
 ## To get and verify the configuration
 
