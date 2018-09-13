@@ -192,6 +192,8 @@
       href: storage-https-custom-domain-cdn.md
     - name: Immutable storage feature of Azure Blob storage (Preview)
       href: storage-blob-immutable-storage.md
+    - name: Advanced Threat Protection (preview)
+      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Enable secure TLS for Azure Storage client
       href: ../common/storage-security-tls.md
     - name: Compliance offerings
