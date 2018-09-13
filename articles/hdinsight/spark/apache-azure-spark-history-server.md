@@ -125,6 +125,12 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![graph tooltip](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
++ In job graph tab, stages will have tooltip and small icon displayed if they have tasks meet the below conditions:
+    + Data skew: data read size > average data read size of all tasks inside this stage * 2 and data read size > 10 MB
+    + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 mins
+
+    ![graph skew icon](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
+
 + The job graph node will display the following information of each stage:
     + ID.
     + Name or description.
@@ -144,6 +150,37 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 + Send feedback with issues by clicking **Provide us feedback**.
 
     ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## Open the Diagnosis tab from Spark History Server
+Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis view. **Data Skew**, **Time Skew** and **Executor Usage Analysis** are included in Diagnosis view.
+
++ The job diagnosis node will display the following information of each stage:
+    + One task with the largest data read size.
+    + One task with the longest execution time.
+    + 100 tasks which are randomly sampled from all tasks, all tasks if the stage has less than 100 tasks (Note: 100 might be different if we decided it is too small). Set parameters and filter all the stages which meet the condition, then you can view the time/data skew task metrics with the distribution of all sampled tasks.
+       
++ Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
+
+    ![Diagnosis tabs](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
++ Click **Data Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. The conditions can be changed by clicking two dropdownlists of Task data read. Click one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task information is displayed in right bottom panel.
+
+    ![Dataskew section2](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
+    ![Dataskew section3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
++ Click **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. The conditions can be changed by clicking two dropdownlists of Task execution time. Click one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task information is displayed in right bottom panel.
+
+    ![Timeskew section2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
++ Click **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**,**idle Executors** and **Max Executor Instances**. About allocated Executors, each "Executor added" or "Executor removed" events will trigger increment or decrement, you can compare this with the "event timeline" in “Jobs” tab.
+
+    ![Executors tab](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ Click the color icon to select or unselct the corresponding content in all drafts.
+
+    ![Select chart](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## FAQ
