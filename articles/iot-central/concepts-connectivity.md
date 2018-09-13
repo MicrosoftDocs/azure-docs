@@ -87,7 +87,14 @@ The CSV file should have the following columns (and headers)
 1.  Select the devices that you want to export and then click the **Export** action.
 1.  Once the export completes, a success message is shown along with a link to download the generated file.
 1.  Click on the success message to download the file to a local folder on the disk.
-1.  The exported CSV file will have the following information: **Device Id, Device Name, and the Device Priamry Key**
+1.  The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamry/Secondar Keys and Primary/Secondary certificate thumbrpints**
+    *   IOTC_DEVICEID
+    *   IOTC_DEVICENAME
+    *   IOTC_SASKEY_PRIMARY
+    *   IOTC_SASKEY_SECONDARY
+    *   IOTC_X509THUMBPRINT_PRIMARY	
+    *   IOTC_X509THUMBPRINT_SECONDARY
+
 
 **Device set up**
 
