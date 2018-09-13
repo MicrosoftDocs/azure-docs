@@ -54,7 +54,7 @@ Applications already in production must be migrated to use the Speech Service. B
 
 * If your application uses the Translator Text API and Translator Speech API to enable custom translation models, you will be able to add ‘Category’ IDs directly using the Speech Service.
 
-* The Speech Service can complete translations into multiple languages in a single request, unlike the Translator Speech API..
+* The Speech Service can complete translations into multiple languages in a single request, unlike the Translator Speech API.
 
 ## Next steps
 
