@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -90,7 +90,7 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
     ```
 
 4. Check the output and all certificates pass all tests. For example:
