@@ -26149,7 +26149,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-integrate-monitoring-time-series-insights",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
             "redirect_document_id": false
         },
         {

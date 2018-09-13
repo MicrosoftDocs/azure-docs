@@ -209,21 +209,21 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 1. Pull the [latest docker compose yaml file](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) from Github repo using the latest tag. 
 
-1. SSH into the VM by following the steps outlined on [how to create and use SSH Keys](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows).
+1. SSH into the VM by following the steps outlined on [how to create and use SSH Keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
 1. Once connected, type `cd /app`.
 
 1. Add the following environment variables to each microservice in the docker compose yaml file and the `env-setup` script in the VM:
 
-```
-PCS_TELEMETRY_STORAGE_TYPE=tsi
-PCS_TSI_FQDN={TSI Data Access FQDN}
-PCS_AAD_TENANT={AAD Tenant Id}
-PCS_AAD_APPID={AAD application Id}
-PCS_AAD_APPSECRET={AAD application key}
-```
+    ```
+    PCS_TELEMETRY_STORAGE_TYPE=tsi
+    PCS_TSI_FQDN={TSI Data Access FQDN}
+    PCS_AAD_TENANT={AAD Tenant Id}
+    PCS_AAD_APPID={AAD application Id}
+    PCS_AAD_APPSECRET={AAD application key}
+    ```
 
-9. Navigate to the **telemetry service** and also edit the docker compose file by adding the same environment variables above.
+1. Navigate to the **telemetry service** and also edit the docker compose file by adding the same environment variables above.
 
 1. Navigate to the **ASA manager service** and edit the docker compose file by adding `PCS_TELEMETRY_STORAGE_TYPE`.
 
