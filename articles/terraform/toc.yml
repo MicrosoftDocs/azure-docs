@@ -39,15 +39,19 @@
       items:
         - name: Install the Terraform Visual Studio Code extension
           href: terraform-vscode-extension.md
+    - name: Terraform state
+      items:
+        - name: Store state in Azure Storage
+          href: terraform-backend.md
 - name: Concepts
   items:
     - name: Azure Cloud Shell integration
-      href: terraform-cloud-shell.md 
+      href: terraform-cloud-shell.md
 - name: Samples
   items:
     - name: Configuration templates
       href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
-- name: Reference 
+- name: Reference
   items:
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
