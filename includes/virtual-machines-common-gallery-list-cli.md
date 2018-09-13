@@ -10,7 +10,15 @@
  ms.custom: include file
 ---
 
+
+
 ## List information
+
+List galleries across subscriptions.
+
+```azurecli-interactive
+az account list -otsv --query "[].id" | xargs -n 1 az sig list  --subscription
+```
 
 Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/)
 
@@ -29,6 +37,3 @@ List the shared image versions in a gallery, using [az sig image-version list](/
 ```azurecli-interactive
 az sig image-version list -g myGalleryRG -r myGallery -i myGalleryImage -o table
 ```
-
-
-
