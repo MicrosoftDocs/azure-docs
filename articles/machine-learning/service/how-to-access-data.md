@@ -109,7 +109,7 @@ There are two supported ways to make your datastore available on the remote comp
 `ds.as_mount()`: by specifying this mount mode, the datastore will get mounted for you on the remote compute. 
 * **Download/upload**  
     * `ds.as_download(path_on_compute='your path on compute')`: with this download mode, the data will get downloaded from your datastore to the remote compute to the location specified by `path_on_compute`.
-    * Conversely, you can also upload data that was produced from your training run up to a datastore. For example, if your training script creates a `foo.pkl` file in the current execution directory on the remote compute, you can specify for it to get uploaded to your datastore after the script has been run: `ds.as_upload(path_on_compute='./foo.pkl')`. This will upload the file to the root of your datastore.
+    * Conversely, you can also upload data that was produced from your training run up to a datastore. For example, if your training script creates a `foo.pkl` file in the current working directory on the remote compute, you can specify for it to get uploaded to your datastore after the script has been run: `ds.as_upload(path_on_compute='./foo.pkl')`. This will upload the file to the root of your datastore.
     
 If you want to reference a specific folder or file in your datastore, you can use the datastore's **`path`** function. For example, if your datastore has a directory with relative path `./bar`, and you only want to download the contents of this folder to the compute target, you can do so as follows: `ds.path(path='./bar').as_download()`
 
@@ -138,8 +138,8 @@ est = Estimator(source_directory='your code directory',
                 inputs=[ds1.as_download(), ds2.path(path='./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
 The above code will:
-* download all the contents in datastore `ds1` to the remote compute before your training script `train.py` is executed
-* download the folder `'./foo'` in datastore `ds2` to the remote compute before `train.py` is executed
+* download all the contents in datastore `ds1` to the remote compute before your training script `train.py` is run
+* download the folder `'./foo'` in datastore `ds2` to the remote compute before `train.py` is run
 * upload the file `'./bar.pkl'` from the remote compute up to the datastore `d3` after your script has run
 
 ## Next steps

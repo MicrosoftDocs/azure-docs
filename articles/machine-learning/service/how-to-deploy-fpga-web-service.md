@@ -80,9 +80,9 @@ classifier_input, classifier_output = Resnet50.get_default_classifier(feature_te
 ```
 
 ### Create service definition
-Now that you have definied the image preprocessing, featurizer, and classifier that executes on the service, you can create a service definition. The service definition is a set of files generated from the model that is deployed to the FPGA service. The service definition consists of a pipeline. The pipeline is a series of stages that are executed in order.  TensorFlow stages, Keras stages, and BrainWave stages are supported.  The stages are executed in order on the service, with the output of each stage input into the subsequent stage.
+Now that you have definied the image preprocessing, featurizer, and classifier that runs on the service, you can create a service definition. The service definition is a set of files generated from the model that is deployed to the FPGA service. The service definition consists of a pipeline. The pipeline is a series of stages that are run in order.  TensorFlow stages, Keras stages, and BrainWave stages are supported.  The stages are run in order on the service, with the output of each stage input into the subsequent stage.
 
-To create a TensorFlow stage, specify a session containing the graph (in this case default graph is used) and the input and output tensors to this stage.  This information is used to save the graph so that it can be executed on the service.
+To create a TensorFlow stage, specify a session containing the graph (in this case default graph is used) and the input and output tensors to this stage.  This information is used to save the graph so that it can be run on the service.
 
 ```python
 from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage

@@ -74,7 +74,7 @@ Following are examples.
 
 ## Fetch data for running experiment on remote compute
 
-If you are using a remote compute to run AutoML experiment, the data fetch must be wrapped in a separate python script `GetData()`. This script gets executed on the remote compute where AutoML experiment is run. `GetData` eliminates the need to fetch the data over the wire for each iteration. Without `GetData`, your experiment will fail when you run on remote compute.
+If you are using a remote compute to run AutoML experiment, the data fetch must be wrapped in a separate python script `GetData()`. This script is run on the remote compute where AutoML experiment is run. `GetData` eliminates the need to fetch the data over the wire for each iteration. Without `GetData`, your experiment will fail when you run on remote compute.
 Here is an example of `GetData`
 
 ```python
@@ -180,7 +180,7 @@ Property |	Description	| Default Value
 `primary_metric` (Required) |Metric that you want to optimize in building your model. For example, if you specify accuracy as the primary_metric, AutoML looks to find a model with maximum accuracy. You can only specify one primary_metric per experiment. Allowed values are <br/>**Classification**:<br/><li> accuracy </li><li>AUC_macro</li><li> AUC_weighted </li><li> weighted_accuracy </li><li> norm_macro_recall </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> root_mean_squared_error </li><li> Spearman_correlation </li><li> Normalized_root_mean_squared_error </li><li> R2_score	 </li><li> For Classification: accuracy  </li><li> For Regression: root_mean_squared_error </li> |
 `exit_score` |	You can set a target value for your primary_metric. Once a model is found that meets the primary_metric target, AutoML will stop iterating and the experiment terminates. If this value is not set (default), AutoML experiment will continue to run the number of iterations specified in iterations. Takes a double value. If the target never reaches, then AutoML will continue until it reaches the number of iterations specified in iterations.|	None
 `iterations` |Maximum number of iterations. Each iteration is equal to a training job that results in a pipeline. Pipeline is data preprocessing and model. Recommended value to get a high-quality model is 500 or above.	| 25
-`Concurrent_iterations`|	Max number of iterations to be executed in parallel. This setting works only for remote compute.|	1
+`Concurrent_iterations`|	Max number of iterations to be run in parallel. This setting works only for remote compute.|	1
 `max_cores_per_iteration`	| Indicates how many cores on the compute target would be used to train a single pipeline. If the algorithm can leverage multiple cores, then this increases the performance on a multi-core machine. You can set it to -1 to use all the cores available on the machine.|	1
 `max_time_sec` |	Limits the amount of time (seconds) a particular iteration takes. If an iteration exceeds the specified amount, that iteration gets canceled. If not set, then the iteration continues to run until it is finished. |	None
 `n_cross_validations`	|Number of cross validation splits|	None
