@@ -10,9 +10,9 @@
  ms.custom: include file
 ---
 
-# Ultra SSD Managed Disks for Azure Virtual Machine workloads 
-  
-Ultra SSD delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.  
+# Ultra SSD (preview) Managed Disks for Azure Virtual Machine workloads
+
+Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
 ## Ultra SSD Features
 
@@ -95,7 +95,3 @@ At preview, Ultra SSD Disks:
 - Will not support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption. Support for these service management operations is under development
 - Will not support integration with Azure Backup or Azure Site Recovery. Support for these service management operations is under development
 - As with [most previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until General Availability (GA).
-
-## Next Steps
-
-Interested in trying Ultra SSD Disks as part of our preview?

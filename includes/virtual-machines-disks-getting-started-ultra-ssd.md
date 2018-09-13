@@ -10,24 +10,26 @@
  ms.custom: include file
 ---
 
-# Accessing the preview
+# Enabling Azure Ultra SSDs (preview)
 
-To try out the new disk type [fill out this survey to request access](https://aka.ms/UltraSSDPreviewSignUp).
+Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
-Once approved, you may run one of the following commands to determine which Zone to deploy Ultra SSD to in East US 2:
+To enable access to the new disk type [fill out this survey to request access](https://aka.ms/UltraSSDPreviewSignUp).
+
+Once approved, run one of the following commands to determine which zone to deploy Ultra SSD to in East US 2:
 
 PowerShell: `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
 
-The response will be of the form below, where X is the Zone to use for deploying in East US 2. Z can be either 1, 2, or 3.
+The response will will be similar to the form below, where X is the Zone to use for deploying in East US 2. Z can be either 1, 2, or 3.
 
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-Follow the deployment steps in this article to get your first VMs deployed with Ultra SSD disks
+Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with Ultra SSD disks.
 
 ## How to get started with Ultra SSD?
 

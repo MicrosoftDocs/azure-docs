@@ -20,4 +20,4 @@ ms.author: rogarana
 If you're interested in trying ultra SSDs, see the how to guide on the subject.
 
 > [!div class="nextstepaction"]
-> [Convert Azure managed disks storage from standard to premium, and vice versa](disks-enable-ultra-ssd.md)
+> [Enabling and using Ultra SSDs](disks-enable-ultra-ssd.md)
