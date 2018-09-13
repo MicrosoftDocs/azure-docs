@@ -328,36 +328,44 @@ run_config = RunConfiguration.load(project_object = project, run_config_name = '
 run_config.auto_prepare_environment = True
 ```
 
-## Set up compute using the Azure portal
+## View and set up compute using the Azure portal
+
+You can view what compute is associated with your workspace from the web portal. To get to the list of compute:
+1. Visit the web portal and navigate to your workspace.
+2. Click on the __Compute__ link under the __Applications__ section.
+![View compute tab][.../media/how-to-set-up-training-targets/compute_tag.png]
 
 ### Create a compute target
 
-1. Visit the web portal and navigate to your workspace.
-2. Click on the __Compute link__ under the __Applications__ section.
-3. Click the __+__ sign to add a compute target.
-4. Enter a name for the compute target.
-5. Select the type of compute to attach for __Training__. Only Batch AI and Virtual Machines are currently supported in the portal for Training.
-6. Select __Create New__ and fill out the required forms.
-7. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
-8. Now you can submit a run against these targets.
+The web portal makes it easy to create Batch AI and Virtual Machines. To create compute from the portal, follow the above steps to view the list of compute and then do the following.
+
+1. Click the __+__ sign to add a compute target.
+![Add compute ][.../media/how-to-set-up-training-targets/add_compute.png]
+2. Enter a name for the compute target.
+3. Select the![View Compute list][.../media/how-to-set-up-training-targets/View_list.png] type of compute to attach for __Training__. 
+![Choose Compute type][.../media/how-to-set-up-training-targets/choose_compute.png]
+4. Select __Create New__ and fill out the required form. 
+5. Select __Create__
+6. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
+![View Compute list][.../media/how-to-set-up-training-targets/View_list.png]
+7. Now you can submit a run against these targets as detailed above.
 
 ### Reuse existing compute in your workspace
 
-The Web Portal makes it easy to attach existing compute targets from your subscription.
+The web portal makes it easy to attach existing compute to your workspace.
 
-> [!NOTE]
-> The SDK and CLI are limited to only showing compute targets that are associated with the workspace.
-
-1. Visit the web portal and navigate to your workspace.
-2. Click on the **Compute** link under the Applications section.
-3. Click the **+** sign to add a compute target.
-4. Enter a name for the compute target.
-5. Select the type of compute to attach for Training. Batch AI and Virtual Machines are currently supported in the portal.
-6. Select 'Use Existing'.
-    - When attaching Batch AI clusters, select the compute target from the dropdown and click Create.
+1. Click the **+** sign to add a compute target.
+![Add compute ][.../media/how-to-set-up-training-targets/add_compute.png]
+2. Enter a name for the compute target.
+3. Select the type of compute to attach for Training. Batch AI and Virtual Machines are currently supported in the portal for training.
+4. Select 'Use Existing'.
+    - When attaching Batch AI clusters, select the compute target from the dropdown, select the Batch AI workspace and the Batch AI Cluster, and then click **Create**.
+    ![Attach Batch AI][.../media/how-to-set-up-training-targets/attach_batch_ai.png]
     - When attaching a Virtual Machine, enter the IP Address, Username/Password Combination, Private/Public Keys, and the Port and click Create.
-7. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
-8. Now you can submit a run against these targets.
+    ![Attach VM][.../media/how-to-set-up-training-targets/attach_vm.png]
+5. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
+![View Compute list][.../media/how-to-set-up-training-targets/View_list.png]
+6. Now you can submit a run against these targets.
 
 ## Next steps
 
