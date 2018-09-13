@@ -21,6 +21,9 @@ ms.author: spelluru
 
 This article describes how to use Service Bus queues. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**.
 
+[!NOTE]
+> You can find Java samples on GitHub in the [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Create a Service Bus namespace
@@ -124,9 +127,9 @@ mode) is the simplest model and works best for scenarios in which an
 application can tolerate not processing a message in the event of a
 failure. To understand this, consider a scenario in which the consumer
 issues the receive request and then crashes before processing it.
-Because Service Bus will have marked the message as being consumed, then
+Because Service Bus has marked the message as being consumed, then
 when the application restarts and begins consuming messages again, it
-will have missed the message that was consumed prior to the crash.
+has missed the message that was consumed prior to the crash.
 
 In **PeekLock** mode, receive becomes a two stage operation, which makes
 it possible to support applications that cannot tolerate missing
@@ -136,7 +139,7 @@ then returns it to the application. After the application finishes
 processing the message (or stores it reliably for future processing), it
 completes the second stage of the receive process by calling **Delete**
 on the received message. When Service Bus sees the **Delete** call, it
-will mark the message as being consumed and remove it from the queue.
+marks the message as being consumed and remove it from the queue.
 
 The following example demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
