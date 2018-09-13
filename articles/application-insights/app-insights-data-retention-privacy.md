@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
 services: application-insights
@@ -199,14 +199,14 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 | --- | --- | --- |
 | Azure App Services  | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Azure Function Apps | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
-|.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions refer to [these instructions](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
+|.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions refer to [these instructions](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration may be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application specific configuration. |
 |Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
-| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
+| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
 | Windows Server 2008 SP2 | Support for TLS 1.2 requires an update. | See [Update to add support for TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
 |Windows Vista | Not Supported. | N/A
 
