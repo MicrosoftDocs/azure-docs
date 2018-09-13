@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2018
+ms.date: 09/11/2018
 ms.author: bwren
 
 ---
@@ -38,7 +38,38 @@ Each metric value has the following properties:
 * The type of measurement that the value represents.
 * The resource that the value is associated with.
 * The value itself.
-* Some metrics may have multiple dimensions which are name-value pairs that carry additional data to describe the metric value. Custom metrics can have up to 10 dimensions.
+* Some metrics may have multiple dimensions as described in the next section. Custom metrics can have up to 10 dimensions.
+
+## Multi-dimensional metrics
+Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric "Available disk space" can have a dimension called "Drive" with values "C:", "D:", which would allow viewing either available disk space across all drives or for each drive individually. 
+
+The example below illustrates two datasets for a hypothetical metric called "Network Throughput". The first dataset has no dimensions. The second dataset shows the values with two dimensions, "IP Address" and "Direction":
+
+### Network Throughput
+(This metric has no dimensions)
+
+ |Timestamp        | Metric Value | 
+   | ------------- |:-------------| 
+   | 8/9/2017 8:14 | 1,331.8 Kbps | 
+   | 8/9/2017 8:15 | 1,141.4 Kbps |
+   | 8/9/2017 8:16 | 1,110.2 Kbps |
+
+This non-dimensional metric can only answer a basic question like "what was my network throughput at a given time?”
+
+### Network Throughput + two dimensions ("IP" and "Direction")
+
+| Timestamp          | Dimension "IP" | Dimension "Direction" | Metric Value| 
+   | ------------- |:-----------------|:------------------- |:-----------|  
+   | 8/9/2017 8:14 | IP="192.168.5.2" | Direction="Send"    | 646.5 Kbps |
+   | 8/9/2017 8:14 | IP="192.168.5.2" | Direction="Receive" | 420.1 Kbps |
+   | 8/9/2017 8:14 | IP="10.24.2.15"  | Direction="Send"    | 150.0 Kbps | 
+   | 8/9/2017 8:14 | IP="10.24.2.15"  | Direction="Receive" | 115.2 Kbps |
+   | 8/9/2017 8:15 | IP="192.168.5.2" | Direction="Send"    | 515.2 Kbps |
+   | 8/9/2017 8:15 | IP="192.168.5.2" | Direction="Receive" | 371.1 Kbps |
+   | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Send"    | 155.0 Kbps |
+   | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100.1 Kbps |
+
+This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics. 
 
 ## Value of metrics
 Individual metrics typically provide little insight on their own. They provide a single value without any context other than comparison to a simple threshold. They're valuable when combined with other metrics to identify patterns and trends, or when combined with logs that provide context around particular values. 
