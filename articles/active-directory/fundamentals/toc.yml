@@ -29,16 +29,18 @@
   - name: Portal versus the admin center
     href: active-directory-portal-vs-admin-center.md
 - name: 'How-to guides'
+  expanded: true
   items:
   - name: 'Organization'
-  - name: Sign up for Azure AD as an organization
-    href: sign-up-organization.md
-  - name: Add a custom domain name
-    href: add-custom-domain.md
-  - name: Add company branding
-    href: customize-branding.md
-  - name: Associate an Azure subscription
-    href: active-directory-how-subscriptions-associated-directory.md
+  items:
+    - name: Sign up for Azure AD as an organization
+      href: sign-up-organization.md
+    - name: Add a custom domain name
+      href: add-custom-domain.md
+    - name: Add company branding
+      href: customize-branding.md
+    - name: Associate an Azure subscription
+      href: active-directory-how-subscriptions-associated-directory.md
   - name: 'Groups'
     items:
     - name: Create a basic group and add members
