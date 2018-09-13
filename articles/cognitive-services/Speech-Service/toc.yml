@@ -39,6 +39,8 @@
     displayName: roobo, speech devices sdk
 - name: How-to guides
   items:
+  - name: Migrate from Bing Speech
+    href: migration.md
   - name: Recognize speech
     displayName: recognize speech, speech recognition, speech to text, stt
     items:
