@@ -257,6 +257,8 @@ If you're using a package that requires a compiler but does not support the inst
 func azure functionapp <app name> --build-native-deps
 ```
 
+Replace `<app name>` with the name of your function app in Azure. This command builds the required binaries locally before publishing to Azure.
+
 ## Known issues and FAQ
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
