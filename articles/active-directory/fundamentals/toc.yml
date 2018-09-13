@@ -13,8 +13,6 @@
     href: active-directory-access-create-new-tenant.md
   - name: View your groups with assigned members
     href: active-directory-groups-view-azure-portal.md
-  - name: Sign up for Azure AD Premium
-    href: active-directory-get-started-premium.md
 - name: 'Concepts'
   items:
   - name: Azure identity management
@@ -34,6 +32,8 @@
   items:
   - name: 'Organization'
     items:
+    - name: Sign up for Azure AD Premium
+      href: active-directory-get-started-premium.md    
     - name: Sign up for Azure AD as an organization
       href: sign-up-organization.md
     - name: Add a custom domain name

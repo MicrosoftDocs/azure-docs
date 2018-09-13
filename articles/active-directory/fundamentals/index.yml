@@ -25,10 +25,6 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: ./media/index/i_subscription.png
-      text: Sign up for Azure AD Premium
-      href: active-directory-get-started-premium.md
-    - image: 
         src: ./media/index/i_portal.png
       text: Access Azure AD to create a tenant
       href: active-directory-access-create-new-tenant.md
@@ -43,10 +39,10 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Sign up for Azure AD premium</a>
     - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">How to add a custom domain name</a>
     - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">How to create a basic group and add members</a>
     - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">How to add group owners</a>
     - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">How to add a new user</a>
     - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">How to assign roles to users</a>
     - html: <a href="/azure/active-directory/fundamentals/license-users-groups">How to assign licenses to users</a>
-  
