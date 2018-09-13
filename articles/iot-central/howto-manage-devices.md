@@ -47,7 +47,7 @@ To add a device to your Azure IoT Central application:
 ## Import devices
 
 To connect large number of devices to your application, Azure IoT Central offers bulk importing devices via a CSV file. The CSV file should have the following columns (and headers)
-1.  IOTC_DeviceID **(should be lowercase)**
+1.  IOTC_DeviceID **<span style="color:Red">(should be lower case)</span>**
 1.  IOTC_DeviceName (Optional)
 
 
