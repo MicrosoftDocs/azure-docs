@@ -1,6 +1,6 @@
 ---
 title: How to add or delete users in Azure Active Directory | Microsoft Docs
-description: Learn how to add new users or delete existing users using the Azure Active Directory portal.
+description: Learn how to add new users or delete existing users using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -15,22 +15,22 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 ---
 
-# How to: Add or delete users using the Azure Active Directory portal
-Add new users or delete existing users from your Azure Active Directory (Azure AD) tenant, using the Azure AD portal.
+# How to: Add or delete users using Azure Active Directory
+Add new users or delete existing users from your Azure Active Directory (Azure AD) tenant, using Azure AD.
 
 ## Add a new user
-You can create a new user using the Azure AD portal.
+You can create a new user using the Azure Active Directory.
 
 ### To add a new user
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **New user**.
 
-    ![Users - All users blade with New user highlighted](media/add-users-azure-active-directory/new-user-all-users-blade.png)
+    ![Users - All users page with New user highlighted](media/add-users-azure-active-directory/new-user-all-users-blade.png)
 
-3. On the **User** blade, fill out the required information.
+3. On the **User** page, fill out the required information.
 
-    ![Add new user, User blade with user info](media/add-users-azure-active-directory/new-user-user-blade.png)
+    ![Add new user, User page with user info](media/add-users-azure-active-directory/new-user-user-blade.png)
 
     - **Name (required).** The first and last name of the new user. For example, Mary Parker.
 
@@ -65,9 +65,9 @@ You can delete an existing user using the Azure AD portal.
 
 3. Select **Delete user**.
 
-    ![Users - All users blade with Delete user highlighted](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+    ![Users - All users page with Delete user highlighted](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    The user is deleted and no longer appears on the **Users - All users** blade.
+    The user is deleted and no longer appears on the **Users - All users** page.
 
 ## Next steps
 After you've added your users, you can perform the following basic processes:

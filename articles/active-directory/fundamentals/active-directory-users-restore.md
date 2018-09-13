@@ -1,6 +1,6 @@
 ---
 title: How to restore or permanently remove a recently deleted user in Azure Active Directory | Microsoft Docs
-description: How to view restorable users, restore a deleted user, or permanently delete a user with the Azure Active Directory portal.
+description: How to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -15,8 +15,8 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 ---
 
-# How to: Restore or permanently remove a recently deleted user with the Azure Active Directory portal
-After you delete a user, the account remains in a suspended state for 30 days. During that 30 days the user account can be restored, along with all of its properties. You can view your restorable users, restore a deleted user, or permanently delete a user using the Azure Active Directory (Azure AD) portal.
+# How to: Restore or permanently remove a recently deleted user with Azure Active Directory
+After you delete a user, the account remains in a suspended state for 30 days. During that 30 days the user account can be restored, along with all of its properties. You can view your restorable users, restore a deleted user, or permanently delete a user using Azure Active Directory (Azure AD).
 
 >[!Important]
 >Permanently deleted users can't be restored.
@@ -36,23 +36,23 @@ You must have one of the following roles to restore and permanently delete users
 You can see all of the users that you've recently deleted and that are still within the 30-day account suspension. These users are able to be restored.
 
 ### To view your restorable users
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
 
     Review the list of users that are still available to restore.
 
-    ![Users - Deleted users blade, with users that can still be restored](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
+    ![Users - Deleted users page, with users that can still be restored](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
 
 ## Restore a recently deleted user
 While a user's account is suspended, all of the related directory information is preserved. When you restore a user, this directory information is also restored.
 
 ### To restore a user
-1. On the **Users - Deleted users** blade, search for and select one of the available users. For example, _Mary Parker_.
+1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Mary Parker_.
 
 2. Select **Restore user**.
 
-    ![Users - Deleted users blade, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+    ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
 ## Permanently delete a user
 You can permanently delete a user from your tenant without waiting the 30 days. However, this action is permanent and you can't restore a permanently deleted user.
@@ -62,11 +62,11 @@ You can permanently delete a user from your tenant without waiting the 30 days. 
 
 ### To permanently delete a user
 
-1. On the **Users - Deleted users** blade, search for and select one of the available users. For example, _Rae Huff_.
+1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Rae Huff_.
 
 2. Select **Delete permanently**.
 
-    ![Users - Deleted users blade, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## Next steps
 These articles provide additional information on Azure Active Directory user management.

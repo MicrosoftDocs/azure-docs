@@ -1,6 +1,6 @@
 ---
 title: How to assign or remove Azure Active Directory licenses | Microsoft Docs
-description: Assign or remove Azure Active Directory licenses from your users or groups using the Azure Active Directory portal.
+description: Assign or remove Azure Active Directory licenses from your users or groups using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -36,17 +36,17 @@ For specific information about each product edition and the associated licensing
 You can view your available products, including the individual licenses, checking for any pending expiration dates and the number of assignments available.
 
 ### To find your product and license details
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, and then select **Licenses**.
 
-    The **Licenses** blade appears.
+    The **Licenses** page appears.
 
-    ![Licenses blade, showing the number of purchased products and assigned licenses](media/license-users-groups/license-details-blade.png)
+    ![Licenses page, showing the number of purchased products and assigned licenses](media/license-users-groups/license-details-blade.png)
     
-3. Select the **Purchased products** link to view the **Products** blade and to see the **Assigned**, **Available**, and **Expiring soon** details for each specific product edition.
+3. Select the **Purchased products** link to view the **Products** page and to see the **Assigned**, **Available**, and **Expiring soon** details for each specific product edition.
 
-    ![Products blade, with product editions and associated license info](media/license-users-groups/license-products-blade-with-products.png)
+    ![Products page, with product editions and associated license info](media/license-users-groups/license-products-blade-with-products.png)
 
 4. Select a product edition name to see its licensed users and groups.
 
@@ -57,52 +57,52 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 For detailed information about how to add users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). For detailed information about how to create groups and add members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
 ### To assign a license to a specific user
-1. On the **Products** blade, select the name of the edition you want to assign to the user. For example, _Azure Active Directory Premium Plan 2_.
+1. On the **Products** page, select the name of the edition you want to assign to the user. For example, _Azure Active Directory Premium Plan 2_.
 
-    ![Products blade, with highlighted product edition](media/license-users-groups/license-products-blade-with-product-highlight.png)
+    ![Products page, with highlighted product edition](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-2. On the **Azure Active Directory Premium Plan 2** blade, select **Assign**.
+2. On the **Azure Active Directory Premium Plan 2** page, select **Assign**.
 
-    ![Products blade, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![Products page, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-3. On the **Assign** blade, select **Users and groups**, and then search for and select the user you're assigning the license. For example, _Mary Parker_.
+3. On the **Assign** page, select **Users and groups**, and then search for and select the user you're assigning the license. For example, _Mary Parker_.
 
-    ![Assign license blade, with highlighted search and Select options](media/license-users-groups/assign-license-blade-with-highlight.png)
+    ![Assign license page, with highlighted search and Select options](media/license-users-groups/assign-license-blade-with-highlight.png)
 
 4. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
-    ![License option blade showing all of the options available in the edition](media/license-users-groups/license-option-blade-assignments.png)
+    ![License option page showing all of the options available in the edition](media/license-users-groups/license-option-blade-assignments.png)
 
-    The **Assign license** blade updates to show that a user is selected and that the assignments are configured.
+    The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
     >[!NOTE]
-    >Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in the Azure AD portal.
+    >Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD.
 
 5. Select **Assign**.
 
     The user is added to the list of licensed users and has access to the included Azure AD services.
 
 ### To assign a license to an entire group
-1. On the **Products** blade, select the name of the edition you want to assign to the user. For example, _Azure Active Directory Premium Plan 2_.
+1. On the **Products** page, select the name of the edition you want to assign to the user. For example, _Azure Active Directory Premium Plan 2_.
 
     ![Products blade, with highlighted product edition](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-2. On the **Azure Active Directory Premium Plan 2** blade, select **Assign**.
+2. On the **Azure Active Directory Premium Plan 2** page, select **Assign**.
 
-    ![Products blade, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![Products page, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-3. On the **Assign** blade, select **Users and groups**, and then search for and select the group you're assigning the license. For example, _MDM policy - West_.
+3. On the **Assign** page, select **Users and groups**, and then search for and select the group you're assigning the license. For example, _MDM policy - West_.
 
-    ![Assign license blade, with highlighted search and Select options](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Assign license page, with highlighted search and Select options](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 4. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
-    ![License option blade showing all of the options available in the edition](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![License option page showing all of the options available in the edition](media/license-users-groups/license-option-blade-group-assignments.png)
 
-    The **Assign license** blade updates to show that a user is selected and that the assignments are configured.
+    The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
     >[!NOTE]
-    >Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in the Azure AD portal. Any user whose usage location is not specified inherits the location of the tenant.
+    >Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the tenant.
 
 5. Select **Assign**.
 
@@ -110,21 +110,21 @@ For detailed information about how to add users, see [How to add or delete users
 
 
 ## Remove a license
-You can remove a license from either a user or a group from the **Licenses** blade.
+You can remove a license from either a user or a group from the **Licenses** page.
 
 ### To remove a license from a specific user
-1. On the **Licensed users** blade for the product edition, select the user that should no longer have the license. For example, _Alain Charon_.
+1. On the **Licensed users** page for the product edition, select the user that should no longer have the license. For example, _Alain Charon_.
 
 2. Select **Remove license**.
 
-    ![Licensed users blade with Remove license option highlighted](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
+    ![Licensed users page with Remove license option highlighted](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
 ### To remove a license from a group
-1. On the **Licensed groups** blade for the product edition, select the group that should no longer have the license. For example, _MDM policy - West_.
+1. On the **Licensed groups** page for the product edition, select the group that should no longer have the license. For example, _MDM policy - West_.
 
 2. Select **Remove license**.
 
-    ![Licensed groups blade with Remove license option highlighted](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Licensed groups page with Remove license option highlighted](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
 
 >[!Important]
 >Licenses inherited by a user from a group can't be removed directly. Instead, you have to remove the user from the group from which they're inheriting the license.
