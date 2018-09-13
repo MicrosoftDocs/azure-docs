@@ -71,8 +71,8 @@
     - name: Assign roles to users
       href: active-directory-users-assign-role-azure-portal.md
     - name: Assign or remove licenses from users
-      href: license-users-groups
-    - name: Restore a deleted user.md
+      href: license-users-groups.md
+    - name: Restore a deleted user
       href: active-directory-users-restore.md
 - name: 'Resources'
   items:
