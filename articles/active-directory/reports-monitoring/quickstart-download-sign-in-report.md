@@ -1,5 +1,5 @@
 ---
-title: Quickstart Download a sign-in report | Microsoft Docs
+title: Quickstart Download a sign-in report using the Azure portal | Microsoft Docs
 description: Learn how to download a sign-in report using the Azure portal 
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
-# Quickstart: Download a sign-in report
+# Quickstart: Download a sign-in report using the Azure portal
 
 In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours.
 
