@@ -13,7 +13,7 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ---
 # Enable backup for Azure Stack from the administration portal
@@ -31,7 +31,7 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 ## Enable or reconfigure backup
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
-2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
+2. Select **All services**, and then under the **ADMINISTRATION** category select **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Type the path to the **Backup storage location**. Use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. For the service, you can use an IP address. To ensure availability of the backup data after a disaster, the  device should be in a separate location.
 
     > [!Note]  

@@ -3,7 +3,7 @@ title: Multiple routes with Azure Maps | Microsoft Docs
 description: Find routes for different modes of travel using Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/05/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -23,13 +23,13 @@ This tutorial shows how to use your Azure Maps account and the route service to 
 
 ## Prerequisites
 
-Before you proceed, follow the steps in the first tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey). 
+Before you proceed, follow the steps in the first tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey).
 
 
 ## Create a new map 
-The following steps show you how to create a static HTML page embedded with the Map Control API. 
+The following steps show you how to create a static HTML page embedded with the Map Control API.
 
-1. On your local machine, create a new file and name it **MapTruckRoute.html**. 
+1. On your local machine, create a new file and name it **MapTruckRoute.html**.
 2. Add the following HTML components to the file:
 
     ```HTML
@@ -40,8 +40,9 @@ The following steps show you how to create a static HTML page embedded with the 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Truck Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
         <style>
             html,
             body {
@@ -75,6 +76,8 @@ The following steps show you how to create a static HTML page embedded with the 
     var MapsAccountKey = "<your account key>";
     var map = new atlas.Map("map", {
         "subscription-key": MapsAccountKey
+         center: [-118.2437, 34.0522], 
+         zoom: 12 
     });
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
@@ -115,7 +118,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
 ## Set start and end points
 
-For this tutorial, set the start point as a fictitious company in Seattle called Fabrikam, and the destination point as a Microsoft office. 
+For this tutorial, set the start point as a fictitious company in Seattle called Fabrikam, and the destination point as a Microsoft office.
 
 1. Add the following JavaScript code to create the pins for the start and end points of the route:
 
@@ -133,7 +136,7 @@ For this tutorial, set the start point as a fictitious company in Seattle called
         icon: "pin-blue"
     });
     ```
-    This code creates two [GeoJSON objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. 
+    This code creates two [GeoJSON objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route.
 
 2. Add the following JavaScript code to add the start and end points to the map:
 
@@ -197,85 +200,58 @@ This section shows how to use the Maps route service API to find multiple routes
 2. Add the following JavaScript code to the *script* block, to request the route for a truck and display the results on the map:
 
     ```JavaScript
-    // Perform a request to the route service and draw the resulting truck route on the map
-    var xhttpTruck = new XMLHttpRequest();
-    xhttpTruck.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
-
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
-
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                name: truckRouteLayerName
-            });
-        }
-    };
-
-    var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-    truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + MapsAccountKey;
-    truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-    truckRouteUrl += "&travelMode=truck";
-    truckRouteUrl += "&vehicleWidth=2";
-    truckRouteUrl += "&vehicleHeight=2";
-    truckRouteUrl += "&vehicleLength=5";
-    truckRouteUrl += "&vehicleLoadType=USHazmatClass2";
-
-    xhttpTruck.open("GET", truckRouteUrl, true);
-    xhttpTruck.send();
+    // Instantiate the service client  
+        var client = new atlas.service.Client(MapsAccountKey); 
+ 
+        // Construct the route query string 
+        var routeQuery = startPoint.coordinates[1] + 
+            "," + 
+            startPoint.coordinates[0] + 
+            ":" + 
+            destinationPoint.coordinates[1] + 
+            "," + 
+            destinationPoint.coordinates[0]; 
+ 
+        // Execute the truck route query then add the route to the map once a response is received  
+        client.route.getRouteDirections(routeQuery, { 
+            travelMode: "truck", 
+            vehicleWidth: 2, 
+            vehicleHeight: 2, 
+            vehicleLength: 5, 
+            vehicleLoadType: "USHazmatClass2" 
+        }).then(response => { 
+            // Parse the response into GeoJSON 
+            var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
+ 
+            // Get the first in the array of routes and add it to the map 
+            map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
+                name: truckRouteLayerName 
+            }); 
+        }); 
     ```
-    This code snippet creates an [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned, and adds it the map's `truckRouteLayerName` layer. 
-    
-    This code snippet also creates the query for the Maps route service using your account key. The query includes the start point coordinates, end point coordinates, and optional parameters to indicate that the route is for a heavy truck.
+    This code snippet above instantiates a service client, and constructs a route query string. It then queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). And then creates an array of coordinates for the route returned, and adds it to the map's `truckRouteLayerName` layer.
 
-2. Add the following JavaScript code to request the route for a car and display the results:
+3. Add the following JavaScript code to request the route for a car and display the results:
 
     ```JavaScript
-    // Perform a request to the route service and draw the resulting car route on the map
-    var xhttpCar = new XMLHttpRequest();
-    xhttpCar.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
-
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
-
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                name: carRouteLayerName
-            });
-        }
-    };
-
-    var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-    carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + MapsAccountKey;
-    carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-
-    xhttpCar.open("GET", carRouteUrl, true);
-    xhttpCar.send();
+    // Execute the car route query then add the route to the map once a response is received  
+        client.route.getRouteDirections(routeQuery).then(response => { 
+            // Parse the response into GeoJSON 
+            var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
+ 
+            // Get the first in the array of routes and add it to the map 
+            map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
+                name: carRouteLayerName 
+            }); 
+    }); 
     ```
-    This code snippet creates another [XMLHttpRequest](https://xhr.spec.whatwg.org/) and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned and adds it to the map's `carRouteLayerName` layer. 
-    
-    This code snippet also creates the query for the Maps route service using your account key. The query includes the start point coordinates and end point coordinates. Since no additional parameters are provided, the route service defaults to *car* as the travel mode. 
+    This code snippet uses the same truck route query for a car. It queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). And then creates an array of coordinates for the route returned, and adds it to the map's `carRouteLayerName` layer.
 
-3. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following. 
+3. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following.
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    The truck route is blue and thicker, while the car route is purple and thinner. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas and so restricts hazardous waste cargo. The truck route, which specifies a USHazmatClass2 cargo type, is correctly directed to use a different highway. 
+    The truck route is blue and thicker, while the car route is purple and thinner. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas and so restricts hazardous waste cargo. The truck route, which specifies a USHazmatClass2 cargo type, is correctly directed to use a different highway.
 
 ## Next steps
 In this tutorial, you learned how to:
@@ -286,6 +262,6 @@ In this tutorial, you learned how to:
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
 
-To learn more about the coverage and capabilities of Azure Maps, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) and the other Concepts articles. 
+To learn more about the coverage and capabilities of Azure Maps, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) and the other Concepts articles.
 
-For more code examples and an interactive coding experience, see [How to use the map control](how-to-use-map-control.md) and the other How-to guides. 
+For more code examples and an interactive coding experience, see [How to use the map control](how-to-use-map-control.md) and the other How-to guides.
