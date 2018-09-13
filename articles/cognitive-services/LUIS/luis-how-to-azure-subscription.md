@@ -22,7 +22,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
 <a name="create-luis-service"></a>
 ## Create LUIS endpoint key
 
-1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 

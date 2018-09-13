@@ -12,7 +12,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Add Azure LUIS resource to app
+# Add an Azure LUIS resource to app
 
 After you create a LUIS resource in the Azure portal, assign the resource to the LUIS app and get the correct endpoint URL. Use this endpoint URL to get LUIS predictions.
 
