@@ -16,16 +16,15 @@ ms.date: 09/24/2018
 
 Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can process millions of events per second in near real-time. In this quickstart, create an event hub, connect to it from Data Explorer and see data flow through the system.
 
-
 ## Prerequisites
 
-* Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
- 
+* An Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
 * To complete this quickstart, you must first [provision a cluster and database](create-cluster-database-portal.md).
 
 * Download the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data.
 
-* To run the sample app requires [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/).
+* Running the sample app requires [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/).
 
 ## Sign in to the Azure portal
 
