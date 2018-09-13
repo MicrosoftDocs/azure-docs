@@ -150,5 +150,6 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 
 ## Next steps
 
-In this article, you learned about Conflict Categories and Resolution Modes for Azure Cosmos DB. Next, take a look at the following resources:
-•	Multi-master conflict resolution sample for .NET
+In this article, you learned about conflict categories and conflict resolution modes for Azure Cosmos DB. Next, take a look at the following resources:
+
+* [Multi-master conflict resolution sample for .NET]()
