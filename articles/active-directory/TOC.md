@@ -83,6 +83,7 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Delete a group and its members](fundamentals/active-directory-groups-delete-group.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
@@ -232,11 +233,11 @@
 
 
 #### Application registration
-##### [Enter fields for the application object](application-dev-registration-config-specific-application-property-how-to.md)
-##### [Change token lifetime defaults](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [Enter fields for the application object](develop/registration-config-specific-application-property-how-to.md)
+##### [Change token lifetime defaults](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### Authentication
-##### [Configure endpoints](application-dev-registration-config-how-to.md)
+##### [Configure endpoints](develop/registration-config-how-to.md)
 
 #### Conditional Access
 ##### [Customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
@@ -248,7 +249,7 @@
 ##### [Which applications are supported with conditional access?](active-directory-conditional-access-supported-apps.md)
 
 #### Find an API
-##### [Find an API](application-dev-api-find-an-api-how-to.md)
+##### [Find an API](develop/api-find-an-api-how-to.md)
 
 #### Managing access
 ##### [Assign users and groups to an app](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -258,14 +259,14 @@
 ##### [Unexpected app in the applications list](manage-apps/application-types.md)
 
 #### Multi-tenant apps
-##### [Configure a new app](application-dev-setup-multi-tenant-app.md)
-##### [Add to the app gallery](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Configure a new app](develop/setup-multi-tenant-app.md)
+##### [Add to the app gallery](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### Permissions
-##### [Choose permissions for an API](application-dev-perms-for-given-api.md)
-##### [Grant permissions to my app](application-dev-registration-config-grant-permissions-how-to.md)
-##### [Delegated vs application permissions](application-dev-delegated-and-app-perms.md)
-##### [Application consent](application-dev-consent-framework.md)
+##### [Choose permissions for an API](develop/perms-for-given-api.md)
+##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
+##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
+##### [Application consent](develop/consent-framework.md)
 
 #### Provisioning
 ##### [How long it takes](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -278,7 +279,7 @@
 
 #### Single sign-on
 ##### [Choose a method](manage-apps/single-sign-on-modes.md)
-##### [Configure](application-dev-registration-config-sso-how-to.md)
+##### [Configure](develop/registration-config-sso-how-to.md)
 ##### [Configure federated - gallery apps](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [Configuring federated common problems - gallery apps](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [Configure federated - non-gallery apps](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -303,7 +304,7 @@
 ##### [Problem with on-premises app - Application Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Document library](active-directory-apps-index.md)
+
 
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
@@ -346,6 +347,7 @@
 #### [Sign-in experience](identity-protection/flows.md)
 #### [Simulate risk events](identity-protection/playbook.md)
 #### [Unblock users](identity-protection/howto-unblock-user.md)
+#### [Block access when a session risk is detected](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [FAQs](identity-protection/faqs.md)
 #### [Glossary](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)

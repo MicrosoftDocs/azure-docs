@@ -1,14 +1,14 @@
 ---
-title: Create a business continuty plan for your QnA Maker service - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: How to create a business continuity plan for your QnA Maker service
+title: Business continuity plan - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
 ---
 
