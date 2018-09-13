@@ -7224,7 +7224,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
+            "source_path": "articles/cosmos-db/multi-master-workaround.md",
             "redirect_url": "/azure/cosmos-db/enable-multi-master",
             "redirect_document_id": false
         },
