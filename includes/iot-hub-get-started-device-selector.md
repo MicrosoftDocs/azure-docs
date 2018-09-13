@@ -13,3 +13,4 @@
 > * [Adafruit Feather HUZZAH ESP8266 with Arduino IDE](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Sparkfun ESP8266 Thing Dev with Arduino IDE](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Adafruit Feather M0 with Arduino IDE](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+> * [iOS with Swift](../articles/iot-hub/quickstart-send-telemetry-ios.md)
