@@ -22,7 +22,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Advanced aggregations in Log Analytics queries](advanced-aggregations.md) before completing this lesson.
 
-[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 This article describes various visualizations in Azure Log Analytics to display your data in different ways.
 

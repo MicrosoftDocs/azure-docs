@@ -23,7 +23,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
-[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Joins allow you to analyze data from multiple tables, in the same query. They merge the rows of two data sets by matching values of specified columns.
 

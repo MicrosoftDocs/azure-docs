@@ -22,7 +22,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with queries in Log Analytics](get-started-queries.md) before completing this lesson.
 
-[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Azure Log Analytics queries can start with either a table name or a search command. This tutorial covers search-based queries. There are advantages to each method.
 

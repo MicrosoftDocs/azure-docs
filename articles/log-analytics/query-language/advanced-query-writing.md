@@ -23,7 +23,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
-[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 ## Reusing code with let
 Use `let` to assign results to a variable, and refer to it later in the query:

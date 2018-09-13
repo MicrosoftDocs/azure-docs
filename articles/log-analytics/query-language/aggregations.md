@@ -23,7 +23,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
-[!INCLUDE [log-analytics-demo-environment](../../includes/log-analytics-demo-environment.md)]
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 This article describes aggregation functions in Log Analytics queries that offer useful ways to analyze your data. These functions all work with the `summarize` operator that produces a  table with aggregated results of the input table.
 
