@@ -40,10 +40,10 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
     * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
     * [Speech translation](speech-translation.md)
 
-    A [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) endpoint key also unlocks access to all Speech functionality. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
-
     > [!NOTE]
     > [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview) is not part of the Speech Service and requires its own subscription.
+
+* A [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
 
 * The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): Jessa24kRUS and Guy24kRUS.
 
