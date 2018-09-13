@@ -91,7 +91,7 @@ Alternatively, you can also build the sample from scratch.
 
 5. The Java sample creates a database with user information such as user name, user ID, user city. You need to define get and set methods to access user details in the main function.
  
-   Create a [User.java](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/User.java) class under "src/main/java/com/azure/cosmosdb/cassandra/" folder with get and set methods. 
+   Create a [User.java](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/User.java) class under `src/main/java/com/azure/cosmosdb/cassandra/` folder with get and set methods. 
 
 ## Add a database and a table  
 
