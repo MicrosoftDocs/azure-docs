@@ -53,7 +53,7 @@ Now that the dependencies are installed, you can run the sample by issuing the f
 npm start
 ```
 
-The output from the app will be similar to the following:
+The output from the app will be similar to the following example:
 
 ```bash
 Containers:
@@ -149,7 +149,7 @@ const content = "hello!";
 const localFilePath = "./readme.md";
 ```
 
-Account credentials are used to create a pipeline, which are responsible for managing how requests are sent to the REST API. Pipelines are thread-safe and specify logic for retry policies, logging, HTTP response deserialization rules, and more.
+Account credentials are used to create a pipeline, which is responsible for managing how requests are sent to the REST API. Pipelines are thread-safe and specify logic for retry policies, logging, HTTP response deserialization rules, and more.
 
 ```javascript
 const credentials = new SharedKeyCredential(STORAGE_ACCOUNT_NAME, ACCOUNT_ACCESS_KEY);
@@ -170,9 +170,9 @@ The instance of *ServiceURL* is used with the *ContainerURL* and *BlockBlobURL* 
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
-The *containerURL* and *blockBlobURL* variables are re-used throughout the sample to act on the storage account. 
+The *containerURL* and *blockBlobURL* variables are reused throughout the sample to act on the storage account. 
 
-At this point the container does not exist in the storage account. The instance of *ContainerURL* represents a URL that you can act upon. By using this instance, you can create and delete the container. The location of this container equates to a location such as this:
+At this point, the container doesn't exist in the storage account. The instance of *ContainerURL* represents a URL that you can act upon. By using this instance, you can create and delete the container. The location of this container equates to a location such as this:
 
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo
@@ -183,11 +183,11 @@ The *blockBlobURL* is used to manage individual blobs, allowing you to upload, d
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
 ```
-Just as with the container, the block blob does not exist yet, but the *blockBlobURL* variable is used later on to upload, download, and delete blob content.
+As with the container, the block blob doesn't exist yet. The *blockBlobURL* variable is used later to create the blob by uploading content.
 
 #### Using the Aborter class
 
-Requests made by the API can be set to time out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests are given 30 minutes to execute.
+Requests made by the API can be set to time-out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests is given 30 minutes to execute.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
@@ -198,7 +198,7 @@ As each request is sent to the server, the method *aborter.withTimeout(ONE_MINUT
 > A one minute timeout may be too short when uploading large files. Make sure to set the timeout value to an appropriate value to support your needs in production. To avoid your requests from timing out all together, use the *Aborter.None* static member.
 
 #### Show container names
-Accounts can store a vast amount of containers. The following code demonstrates how to list containers in a segmented fashion, which allows you to cycle through a large amount of containers. The *showContainerNames* function is passed instances of *ServiceURL* and *Aborter*.
+Accounts can store a vast number of containers. The following code demonstrates how to list containers in a segmented fashion, which allows you to cycle through a large number of containers. The *showContainerNames* function is passed instances of *ServiceURL* and *Aborter*.
 
 ```javascript
 console.log("Containers:");
@@ -217,7 +217,7 @@ async function showContainerNames(serviceURL, aborter) {
     } while (marker);
 }
 ```
-Each individual request for a segment is given one minute to respond (by using *aborter.withTimeout(ONE_MINUTE)*). When the response is returned then the *containerItems* are iterated to log the name to the console. 
+Each individual request for a segment is given one minute to respond (by using *aborter.withTimeout(ONE_MINUTE)*). When the response is returned, then the *containerItems* are iterated to log the name to the console. 
 
 #### Create a container
 
@@ -227,22 +227,22 @@ To create a container, the *ContainerURL*'s *create* method is used.
 await containerURL.create(aborter.withTimeout(ONE_MINUTE));
 console.log(`Container: "${containerName}" is created`);
 ```
-As the name of the container is defined when calling *ContainerURL.fromServiceURL(serviceURL, containerName)*, calling the *create* method is all that is required to create the container. Just as with the request to list containers, here the request is given one minute to complete.
+As the name of the container is defined when calling *ContainerURL.fromServiceURL(serviceURL, containerName)*, calling the *create* method is all that's required to create the container. As with the request to list containers, here the request is given one minute to complete.
 
 #### Upload text
-To upload text to the a blob, use the *upload* method.
+To upload text to the blob, use the *upload* method.
 ```javascript
 await blockBlobURL.upload(aborter.withTimeout(ONE_MINUTE), content, content.length);
 console.log(`Blob "${blobName}" is uploaded`);
 ```
-Here the text and it's length are passed into the method.
+Here the text and its length are passed into the method.
 #### Upload a local file
 To upload a local file to the container, you need a container URL and the path to the file.
 ```javascript
 await uploadLocalFile(containerURL, localFilePath, aborter);
 console.log(`Local file "${localFilePath}" is uploaded`);
 ```
-The *uploadLocalFile* function calls the *uploadFileToBlockBlob* function which takes the file path and an instance of the destination of the block blob as arguments.
+The *uploadLocalFile* function calls the *uploadFileToBlockBlob* function, which takes the file path and an instance of the destination of the block blob as arguments.
 ```javascript
 async function uploadLocalFile(containerURL, filePath, aborter) {
 
@@ -315,7 +315,7 @@ const downloadResponse = await blockBlobURL.download(aborter.withTimeout(ONE_MIN
 const downloadedContent = downloadResponse.readableStreamBody.read(content.length).toString();
 console.log(`Downloaded blob content: "${downloadedContent}"`);
 ```
-The response is returned as a stream. In this example the stream is converted to a string in order to log to the console.
+The response is returned as a stream. In this example, the stream is converted to a string to log to the console.
 #### Delete a blob
 The *delete* method from a *BlockBlobURL* instance deletes a blob from the container.
 ```javascript
