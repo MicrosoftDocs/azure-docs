@@ -113,21 +113,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL: `https://portal.convene.me.uk/login`
 	 
 	> [!NOTE] 
-	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Convene Client support team](mailto:support@convene.me.uk) to get the value. 
+	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Convene Client support team](mailto:support@convene.me.uk) to get the value.
 
-5. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
+5. Convene application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+	
+	![Configure Single Sign-On attb](./media/convene-tutorial/tutorial_convene_attribute.png)
+
+6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/convene-tutorial/tutorial_convene_certificate.png) 
 
-6. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/convene-tutorial/tutorial_general_400.png)
 	
-7. On the **Convene Configuration** section, click **Configure Convene** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Convene Configuration** section, click **Configure Convene** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Convene Configuration](./media/convene-tutorial/tutorial_convene_configure.png) 
 
-8. To configure single sign-on on **Convene** side, you need to send the downloaded **Certificate (Raw)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Convene support team](mailto:support@convene.me.uk). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **Convene** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Convene support team](mailto:support@convene.me.uk). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
