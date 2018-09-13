@@ -1,6 +1,6 @@
 ---
-title: Quickstart to search for and view your groups and assigned members using the Azure AD portal | Microsoft Docs
-description: Quickstart with steps for how to search for and view all of your groups and their assigned members using the Azure Active Directory portal.
+title: Quickstart to search for and view your groups and assigned members using Azure Active Directory | Microsoft Docs
+description: Quickstart with steps for how to search for and view all of your groups and their assigned members using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,9 +14,8 @@ ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
 ---
-
-# Quickstart: Search for a specific group and view its members using the Azure AD portal
-You can search for a specific group and review the assigned members using the Azure Active Directory portal.
+# Quickstart: Search for a specific group and view its members using Azure Active Directory
+You can search for a specific group and review the assigned members using Azure Active Directory.
 
 In this quickstart, you’ll view all your existing groups, select the **MDM policy – West** group, and then view the assigned members.
 
@@ -29,11 +28,11 @@ Before you begin, you’ll need to:
 
 2.	Create the _MDM policy - West_ group and add member, _Alain Charon_. For more information, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
-## Sign in to the Azure AD portal
-You must sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+## Sign in to the Azure portal
+You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 ## View your existing groups
-You can see all the groups for your organization in the **Groups - All groups** blade of the Azure AD portal.
+You can see all the groups for your organization in the **Groups - All groups** blade of the Azure portal.
 
 - Select Azure **Active Directory**, and then select **Groups**.
 
