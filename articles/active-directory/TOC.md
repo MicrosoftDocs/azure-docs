@@ -90,7 +90,7 @@
 ### [Users at risk](reports-monitoring/concept-user-at-risk.md)
 ### [Risky sign-ins](reports-monitoring/concept-risky-sign-ins.md)
 ### [Risk events](reports-monitoring/concept-risk-events.md)
-### [Monitoring logs using Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Monitoring logs using Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tasks
@@ -304,7 +304,7 @@
 ##### [Problem with on-premises app - Application Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Document library](active-directory-apps-index.md)
+
 
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
