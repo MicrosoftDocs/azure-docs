@@ -56,9 +56,11 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 After you've tested that your application integration works with Azure AD, submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
 
-After you sign in,  if you get the following error, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and pvovide the email which you want to use for submitting the request. Then Azure AD team will add the email account in the SharePoint portal. Once the account is added in the SharePoint portal, you can sign in to portal.  
+If the following page appears after sign in, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and provide the email account which you want to use for submitting the request. Then Azure AD team will add the account in the SharePoint portal. 
 
 ![Access Request on SharePoint portal](./media/howto-app-gallery-listing/errorimage.png)
+
+Once the account is added, you can sign in to the SharePoint portal.
 
 And if the following page appears after sign in, provide a business justification for needing access in the text box, and then select **Request Access**.
 
@@ -68,7 +70,8 @@ Our team reviews the details and gives you access accordingly. Once your request
 
 ![SharePoint portal Home page](./media/howto-app-gallery-listing/homepage.png)
 
-If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> [!NOTE]
+> If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Implementing SSO using federation protocol
 
