@@ -47,10 +47,10 @@ sections:
             src: ../media/index/i_get-started.svg
           title: Sign up for Speech Service
         - href: /azure/cognitive-services/speech-service/speech-devices-sdk
-          html: <p>Learn about the speech-enabled hardware reference</p>
+          html: <p>Learn about the speech-enabled hardware reference.</p>
           image:
             src: ../media/index/i_guidelines.svg
-          title: Speech-enabled hardware reference
+          title: Speech Devices SDK
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
