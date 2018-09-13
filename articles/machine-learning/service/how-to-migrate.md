@@ -25,9 +25,9 @@ The following table and article explain what you can do with your existing asset
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
 |Compute targets|No|Register them in new workspace.|
-|Registered models|No|You must re-register the model under a the new workspace.|
+|Registered models|No|Re-register the model under a new workspace.|
 |Registered manifests|No|None. Manifests no longer exists as a concept in the new workspace.|
-|Registered images|No|You must re-create the deployment Docker image under a new workspace.|
+|Registered images|No|Re-create the deployment Docker image under a new workspace.|
 |Deployed web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
 |Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](http://aka.ms/aml-sdk) for new work.|
@@ -36,7 +36,7 @@ The following table and article explain what you can do with your existing asset
 Learn more about [what changed in this release](overview-what-happened-to-workbench.md)?
 
 >[!Warning]
->This article is not for Azure Machine Learning Studio users.
+>This article is not for Azure Machine Learning Studio users. It is for customers who have installed the Workbench (preview) application and/or have experimentation and model management preview accounts.
 
 <a name="resources"></a>
 
@@ -44,7 +44,7 @@ Learn more about [what changed in this release](overview-what-happened-to-workbe
 
 Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning service. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
-Get started with the latest version by creating an Azure Machine Learning Workspace in the [Azure portal](quickstart-get-started.md)
+Get started with the latest version by creating an Azure Machine Learning Workspace in the [Azure portal](quickstart-get-started.md).
 
 This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning service. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
 
@@ -108,7 +108,7 @@ az ml history download
 ```
 
 ## Data preparation files
-Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Data Bricks for big data sets.  [Learn how to get the data prep SDK](concept-data-preparation.md). 
+Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](concept-data-preparation.md). 
 
 ## Next steps
 
