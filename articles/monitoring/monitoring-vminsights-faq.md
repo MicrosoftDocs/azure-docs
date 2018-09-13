@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/12/2018
 ms.author: magoedte
 
 ---
@@ -90,6 +90,9 @@ Map feature currently only supports IPv4 and we are investigating support for IP
 ## When I load a map for a Resource Group or other large group the map is difficult to view
 While we have made improvements to Map to handle large and complex configurations, we realize a map can have a lot of nodes, connections, and node working as a cluster.  We are committed to continuing to enhance support to increase scalability.   
 
+## Why does the network chart on the insights performance tab look different than the network chart on the Azure VM Overview page?
+
+The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM.  For the network chart on the Azure VM Overview, it only displays network traffic that will be billed.  This does not include inter-vnet traffic.  The data and charts shown for insights is based on data from the guest VM and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including inter-vnet.
 
 
 
