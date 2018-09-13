@@ -28104,7 +28104,7 @@
         {
             "source_path": "articles/application-insights/app-insights-analytics-diagnostics.md",
             "redirect_url": "/azure/azure-monitor/overview",
-            "redirect_document_id" : true
+            "redirect_document_id" : false
         },
         {
             "source_path": "articles/monitoring/app-insights-analytics-diagnostics.md",
