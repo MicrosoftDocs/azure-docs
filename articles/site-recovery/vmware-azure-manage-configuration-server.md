@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site RecoveryS.
 author: rayne-wiselman
@@ -84,6 +84,22 @@ You can reregister the configuration server in the same vault if you need to. If
           net stop obengine
           net start obengine
   ```
+
+## Register a configuration server with a different vault
+
+> [!WARNING]
+> The following step disassociates the configuration server from the current vault, and the replication of all protected virtual machines under the configuration server is stopped.
+
+1. Log in to the configuration server.
+2. Open an admin PowerShell command window, and run the following command:
+
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
+3. Launch the configuration server appliance browser portal using the shortcut on your desktop.
+4. Perform the registration steps similar to a new configuration server [registration](vmware-azure-tutorial.md#register-the-configuration-server).
+
 ## Upgrade the configuration server
 
 You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:

@@ -4,15 +4,11 @@ description: Learn how to configure Azure function app settings.
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
@@ -111,7 +107,7 @@ For more information about how to work with App Service settings, see [Configure
 
 | | |
 |-|-|
-| ![Function app deployment options in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions lets you develop your function code on your local machine. You can then upload your local function app project to Azure. In addition to traditional FTP upload, Functions lets you deploy your function app using popular continuous integration solutions, like GitHub, VSTS, Dropbox, Bitbucket, and others. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). To upload manually using FTP or local Git, you also must [configure your deployment credentials](functions-continuous-deployment.md#credentials). |
+| ![Function app deployment options in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions lets you develop your function code on your local machine. You can then upload your local function app project to Azure. In addition to traditional FTP upload, Functions lets you deploy your function app using popular continuous integration solutions, like GitHub, Azure DevOps, Dropbox, Bitbucket, and others. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). To upload manually using FTP or local Git, you also must [configure your deployment credentials](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS

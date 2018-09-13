@@ -71,9 +71,9 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
   - name: Bing Image Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
-  - name: Azure Cognitive Services PowerShell reference
+  - name: Azure PowerShell reference
     href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Azure Cognitive Services Command Line Interface reference
+  - name: Azure CLI reference
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
 - name: Resources
   items:

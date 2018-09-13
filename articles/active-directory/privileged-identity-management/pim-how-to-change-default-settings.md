@@ -77,7 +77,7 @@ Use the **Multi-Factor Authentication** switch to specify whether to require use
   * Skype for Business administrator  
   * User account administrator  
 
-For more information about using MFA with PIM, see [Require multi-factor authentication for Azure AD directory roles in PIM](pim-how-to-require-mfa.md).
+For more information, see [Multi-factor authentication (MFA) and PIM](pim-how-to-require-mfa.md).
 
 ## Require approval
 
@@ -105,5 +105,4 @@ If you want to require approval to activate a role, follow these steps.
 ## Next steps
 
 - [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
-- [Require multi-factor authentication for Azure AD directory roles in PIM](pim-how-to-require-mfa.md)
 - [Configure security alerts for Azure AD directory roles in PIM](pim-how-to-configure-security-alerts.md)

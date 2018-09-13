@@ -6,7 +6,7 @@ services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/21/2017
 ms.author: bryanla
