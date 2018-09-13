@@ -93,7 +93,7 @@
     displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
   - name: Migrate
     items:
-    - name: Migrating to the Speech Service
+    - name: Migrate to the Speech Service
       href: migrating-to-speech-api.md
 - name: Concepts
   items:
