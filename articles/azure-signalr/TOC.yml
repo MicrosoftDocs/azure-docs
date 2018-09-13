@@ -4,14 +4,26 @@
   items:
   - name: About Azure SignalR Service
     href: signalr-overview.md
+  - name: Easily Scale ASP.NET Core SignalR
+    href: signalr-overview-scale-aspnet-core.md
+  - name: Build Real-time Apps with Azure Functions
+    href: signalr-overview-azure-functions.md
 - name: Quickstarts
   items:
-  - name: Create a chat room
+  - name: ASP.NET Core
     href: signalr-quickstart-dotnet-core.md
+  - name: Azure Functions - JavaScript
+    href: signalr-quickstart-azure-functions-javascript.md
+  - name: Azure Functions - C#
+    href: signalr-quickstart-azure-functions-csharp.md
+  - name: REST API - Python
+    href: signalr-quickstart-rest-api-python.md
 - name: Tutorials
   items:
-  - name: Authenticate with OAuth
-    href: signalr-authenticate-oauth.md  
+  - name: Integrate with ASP.NET Core Identity
+    href: signalr-authenticate-oauth.md
+  - name: Build a Serverless Real-time App with Authentication
+    href: signalr-authenticate-azure-functions.md
 - name: Samples
   items:
   - name: Code samples
