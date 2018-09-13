@@ -151,6 +151,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-image-post-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-image-search/tutorial-image-post",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
             "redirect_document_id": true

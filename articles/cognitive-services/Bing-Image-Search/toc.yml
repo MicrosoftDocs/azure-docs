@@ -37,8 +37,6 @@
     href: tutorial-bing-image-search-single-page-app.md
   - name: Bing image upload for insights
     href: tutorial-image-post.md
-  - name: Bing image upload for insights (source code)
-    href: tutorial-image-post-source.md
 - name: Samples
   items:
     - name: Code samples
