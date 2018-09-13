@@ -6,26 +6,26 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/18/2018
+ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
 ---
 
-# Azure Storage account overview
+# Azure storage account overview
 
-An Azure storage account provides a unique namespace in Azure to store and access your Azure Storage data objects. A storage account contains any blobs, files, queues, tables, and disks that you create under that account. Data in your Azure Storage accounts is durable and highly available, secure, massively scalable, and accessible from anywhere in the world over HTTP or HTTPS. 
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. Data in your Azure storage account is durable and highly available, secure, massively scalable, and accessible from anywhere in the world over HTTP or HTTPS. 
 
 To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
 
 ## Types of storage accounts
 
-Azure Storage provides three types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications. The three types of storage accounts are:
+Azure Storage provides three types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications. The types of storage accounts are:
 
-* **General-purpose v2** accounts
+* **General-purpose v2** accounts (recommended)
 * **General-purpose v1** accounts
 * **Blob storage** accounts
 
-The following table describes the three types of storage accounts and their capabilities:
+The following table describes the types of storage accounts and their capabilities:
 
 | Storage account type | Supported services                       | Supported performance tiers | Supported access tiers               | Replication options                                                | Deployment model<sup>1</sup>  | Encryption<sup>2</sup> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
@@ -61,7 +61,7 @@ General-purpose v1 accounts provide access to all Azure Storage services, but ma
 
 A Blob storage account is a specialized storage account for storing unstructured data as blobs (objects). Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support block blobs and append blobs, but not page blobs.
 
-General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
+Blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
 
 ## Performance tiers
 
@@ -76,9 +76,9 @@ Azure Storage provides different options for accessing data based on usage patte
 
 The available access tiers are:
 
-* The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the hot tier by default.
-* The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the hot tier.
-* The **Archive** tier, which is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the hot or cool tiers. 
+* The **hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the hot tier by default.
+* The **cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the hot tier.
+* The **archive** tier, which is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the hot or cool tiers. 
 
 If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. 
 
@@ -93,9 +93,13 @@ For more information about access tiers, see [Azure Blob storage: Hot, cool, and
 
 For more information about storage replication, see [Azure Storage replication](storage-redundancy.md).
 
+## Encryption
+
+All data in your storage account is encrypted on the service side. For more information about encryption, see [Azure Storage Service Encryption for data at rest](storage-service-encryption.md).
+
 ## Storage account endpoints
 
-Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
 
 For example, if your general-purpose storage account is named *mystorageaccount*, then the default endpoints for that account are:
 
@@ -109,19 +113,19 @@ For example, if your general-purpose storage account is named *mystorageaccount*
 
 The URL for accessing an object in a storage account is constructed by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain Name for your Blob Storage Endpoint](../blobs/storage-custom-domain-name.md).  
+You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).  
 
-## Control access to storage account data
+## Control access to account data
 
 By default, the data in your account is available only to you, the account owner. You have control over who may access your data and what permissions they have.
 
 Every request made against your storage account must be authorized. At the level of the service, the request must include a valid *Authorization* header, which includes all of the information necessary for the service to validate the request before executing it.
 
-You can access data in an Azure Storage account using any of the following approaches:
+You can grant access to the data in your storage account using any of the following approaches:
 
-- Use Azure AD credentials to authenticate a user, group, or other identity. If authentication of an identity is successful, then Azure AD returns a token, which is used to authorize the request to Azure Blob storage or Queue storage. 
-- Use a shared access signature 
-- shared key
+- Use Azure AD credentials to authenticate a user, group, or other identity (preview). If authentication of an identity is successful, then Azure AD returns a token, which is used to authorize the request to Azure Blob storage or Queue storage. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md). 
+- Use a shared access signature to delegate access to resources in your storage account. A shared access signature is a token that encapsulates all of the information needed to authorize a request to Azure Storage on the URL. You can specify the storage resource, the permissions granted, and the interval over which the permissions are valid as part of the shared access signature. For more information, see [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- Your storage account 
 
 ## Storage account billing
 
