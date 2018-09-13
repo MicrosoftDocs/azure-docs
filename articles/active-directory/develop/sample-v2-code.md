@@ -81,7 +81,7 @@ This sample shows how to write a single page application secured with Azure AD. 
 
 ## Web APIs
 
-The following sample shows how to protect a web API with the Azure AD V2 endpoint. This API is exerciced by a WPF application (but could really be called by any application)
+The following sample shows how to protect a web API with the Azure AD V2 endpoint. This API is exercised by a WPF application (but could really be called by any application)
 
 Platform | Sample | Description
  -------- | ------------------- | ---------------------
