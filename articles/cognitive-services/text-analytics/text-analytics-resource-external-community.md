@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: heidist
 ---
-# External & community content for the Text Analytics API
+# External & community content for the Text Analytics Cognitive Service
 
  Links in this article lead you to helpful web content developed and produced by partners and professionals with experience in using the Text Analytics API.
 

@@ -13,7 +13,7 @@ ms.date: 09/12/2018
 ms.author: heidist
 ---
 
-# How to sign up for Text Analytics API
+# How to sign up for the Text Analytics API
 
 Text Analytics resources are available 24-7 in the cloud. Before you can upload your content for analysis, you must sign up to get an access key. Each call to the API requires an access key on the request.
 

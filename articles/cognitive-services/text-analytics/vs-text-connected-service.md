@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: ghogen
 ---
-# Connect to the Text Analytics Service by using Connected Services in Visual Studio
+# Tutorial: Connect to the Text Analytics Cognitive Service by using Connected Services in Visual Studio
 
 By using the Text Analytics Service, you can extract rich information to categorize and process visual data, and perform machine-assisted moderation of images to help curate your services.
 

@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: heidist
 ---
-# Frequently Asked Questions (FAQ) about the Text Analytics API
+# Frequently Asked Questions (FAQ) about the Text Analytics Cognitive Service
 
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Microsoft Cognitive Services on Azure.
 

@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: ashmaka
 ---
-# Supported languages in the Text Analytics API
+# Supported languages in the Text Analytics Cognitive Service
 
 This article explains which languages are supported for each operation: sentiment analysis, key phrase extraction, and language detection.
 

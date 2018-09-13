@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to identify and resolve entities using the Text Analytics REST API.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
 
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
