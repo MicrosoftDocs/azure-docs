@@ -27,7 +27,7 @@ As you'll see, there's more information available in a user's profile than what 
 
     The **Alain Charon - Profile** page appears.
 
-    ![User's profile page, including editable information](media/active-directory-users-profile-azure-portal/user-profile-all-page.png)
+    ![User's profile page, including editable information](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
 3. Select **Edit** to optionally add or update the information included in each of the available sections.
 
