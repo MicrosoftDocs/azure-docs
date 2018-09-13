@@ -34,7 +34,7 @@ If you don't have an Azure subscription,
 1. On the main Azure menu, select **Create a resource**. 
 In the search box, enter "scheduler". From the results list, 
 select **Scheduler**, and then choose **Create**.
-   
+
    ![Create Scheduler resource](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
    Now create a job that sends a GET request to this URL: 
@@ -141,7 +141,7 @@ recurrence schedule, and the end date and time for recurring jobs.
 You can also build more [complex schedules and advanced recurrences](scheduler-advanced-complexity.md).
 
 To change view or change your job's schedule, 
-select **Schedul**:
+select **Schedule**:
 
 ![View job schedule](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
 
