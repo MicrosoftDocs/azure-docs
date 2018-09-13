@@ -48,21 +48,27 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## <a name="linux"></a>Linux clients
 
-1. Open a new Terminal session, you can open a new session by pressing Ctrl + Alt + t at the same time
+1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time
 2. Enter the following command to install needed components:
-sudo apt-get install openvpn
-sudo apt-get -y install network-manager-openvpn
-sudo service network-manager restart
-3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure Portal, or by New-AzureRmVpnClientConfiguration in PowerShell.
+
+  ```
+  sudo apt-get install openvpn
+  sudo apt-get -y install network-manager-openvpn
+  sudo service network-manager restart
+  ```
+3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure Portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
 4. To connect using the command line type the following:
-5. Sudo openvpn –config <name and path of your VPN profile file>
-6. To connect using the GUI, go to system settings
-7. Click on “+” to add a new VPN connection
-8. Under “Add VPN” pick “Import from file…”
-9. Browse to the profile file and double-click or pick “Open”
-10. Click “Add” on the “Add VPN” window.
   
-  ![Network version](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
-11. You can connect by turning the VPN “ON” on the “Network Settings” page or under the network icon in the system tray.
+  ```
+  Sudo openvpn –config <name and path of your VPN profile file>
+  ```
+5. To connect using the GUI, go to system settings.
+6. Click **+** to add a new VPN connection.
+7. Under **Add VPN**, pick **Import from file…**
+8. Browse to the profile file and double-click or pick **Open**
+9. Click **Add** on the **Add VPN** window.
+  
+  ![Import from file](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
+10. You can connect by turning the VPN **ON** on the **Network Settings** page, or under the network icon in the system tray.
 
 ## Next steps
