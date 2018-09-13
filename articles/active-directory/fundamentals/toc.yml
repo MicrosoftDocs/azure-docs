@@ -17,10 +17,6 @@
     href: active-directory-get-started-premium.md
 - name: 'Concepts'
   items:
-  - name: Manage your Azure AD directory
-    href: active-directory-administer.md
-  - name: Azure identity solutions
-    href: understand-azure-identity-solutions.md
   - name: Azure identity management
     href: identity-fundamentals.md
   - name: Groups and access management
@@ -82,3 +78,7 @@
     href: active-directory-faq.md
   - name: Azure Active Directory deployment plans
     href: active-directory-deployment-plans.md
+  - name: Manage your Azure AD directory
+    href: active-directory-administer.md
+  - name: Azure identity solutions
+    href: understand-azure-identity-solutions.md    
