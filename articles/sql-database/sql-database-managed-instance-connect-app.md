@@ -85,7 +85,7 @@ The following minimal versions of the tools and drivers are recommended if you w
 |JDBC driver	| 6.4.0 |
 |Node.js driver	| 2.1.1 |
 |OLEDB driver	| 18.0.2.0 |
-|SSMS	| 17.8.1 or [higher](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS	| 17.8.1 or [higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## Next steps
 
