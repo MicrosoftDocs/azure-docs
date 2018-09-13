@@ -22,7 +22,7 @@ You can start with local runs on your machine, and then scaling up and out to ot
 ## Supported compute targets
 
 Azure Machine Learning supports the following compute targets:
-Us
+
 |Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
 |----|:----:|:----:|:----:|:----:|
 |Local computer| Maybe | &nbsp; | ✓ | &nbsp; |
@@ -99,7 +99,7 @@ In a user-managed environment, you are responsible for ensuring that all the nec
   
 ### System-managed environment
 
-System-managed environments rely on conda to manage the dependencies. Conda creates a file named `conda_dependencies.yml` that contains a list of dependencies. You can then ask the system to build a new conda environment and execute your scripts in it. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged. 
+System-managed environments rely on conda to manage the dependencies. Conda creates a file named `conda_dependencies.yml` that contains a list of dependencies. You can then ask the system to build a new conda environment and run your scripts in it. System-managed environments can be reused later, as long as the `conda_dependencies.yml` files remains unchanged. 
 
 The initial setup up of a new environment can take several minutes to complete, depending on the size of the required dependencies. The following code snippet demonstrates creating a system-managed environment that depends on scikit-learn:
 
@@ -176,7 +176,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     # Ask system to provision a new one based on the conda_dependencies.yml file
     run_config.environment.python.user_managed_dependencies = False
 
-    # Prepare the Docker and conda environment automatically when executingfor the first time.
+    # Prepare the Docker and conda environment automatically when used the first time.
     run_config.prepare_environment = True
 
     # specify CondaDependencies obj
@@ -184,7 +184,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
     ```
 
-3. Submit the script to run in the Docker environment on the remote VM. If you run this for the first time, the system will download the base image, layer in packages specified in the conda_dependencies.yml file on top of the base image, create a container and then execute the script in the container.
+3. Submit the script to run in the Docker environment on the remote VM. The first time you submit the script the system downloads the base image, layers in packages specified in the `conda_dependencies.yml` file, creates a container, and then runs the script in the container.
 
     ```python
     from azureml.core import Run
@@ -244,7 +244,7 @@ For more information on using the BatchAiCompute object, see the reference docum
 
 ## Azure Container Instance (ACI)
 
-Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. Linux-based ACI is available in westus, eastus, westeurope, northeurope, westus2 and southeastasia regions. See details [here](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quotas#region-availability). The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
+Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. Linux-based ACI is available in westus, eastus, westeurope, northeurope, westus2, and southeastasia regions. See details [here](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -253,7 +253,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 # create a new runconfig object
 run_config = RunConfiguration()
 
-# signal that you want to use ACI to execute script.
+# signal that you want to use ACI to run script.
 run_config.target = "containerinstance"
 
 # ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
@@ -270,10 +270,10 @@ run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 #run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
-# use conda_dependencies.yml to create a conda environment in the Docker image for execution
+# use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False
 
-# auto-prepare the Docker image when used for execution (if it is not already prepared)
+# auto-prepare the Docker image when used for the first time (if it is not already prepared)
 run_config.auto_prepare_environment = True
 
 # specify CondaDependencies obj
@@ -324,7 +324,7 @@ except UserErrorException as e:
 # load the runconfig object from the "myhdi.runconfig" file generated by the attach operaton above.
 run_config = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
 
-# ask system to prepare the conda environment automatically when executed for the first time
+# ask system to prepare the conda environment automatically when used for the first time
 run_config.auto_prepare_environment = True
 ```
 
