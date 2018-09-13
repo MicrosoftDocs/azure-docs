@@ -16,13 +16,13 @@ Terraform state is used to reconcile deployed resources with Terraform configura
 
 - Local state does not work well in a team or collaborative environment
 - Terraform state can include sensitive information
-- Storing Terraform state locally increases the chance of inadvertent deletion
+- Storing state locally increases the chance of inadvertent deletion
 
 Terraform includes the concept of a state backend, which is remote storage for Terraform state. When using a state backend, the state file is stored in a data store such as Azure Storage. This document details how to configure and use Azure Storage as a Terraform state backend.
 
 ## Configure storage account
 
-Before using Azure Storage to store Terraform state, a storage account must be created. The storage account can be created with the Azure portal, PowerShell, the Azure CLI, or Terraform itself. Use the following sample to configure the store account with the Azure CLI.
+Before using Azure Storage as a backend, a storage account must be created. The storage account can be created with the Azure portal, PowerShell, the Azure CLI, or Terraform itself. Use the following sample to configure the store account with the Azure CLI.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -52,7 +52,7 @@ Take note of the storage account name, container name, and storage access key. T
 
 ## Configure state backend
 
-The Terraform state backend is configured when running *Terraform init*. In order to configure the state backend, the following data is required. Additional configuration options are details in the [Terraform documentation for azurerm backends][terraform-azurerm].
+The Terraform state backend is configured when running *Terraform init*. In order to configure the state backend, the following data is required.
 
 - storage_account_name - The name of the Azure Storage account.
 - container_name - The name of the blob container.
@@ -73,7 +73,7 @@ To further protect the Azure Storage account access key, store it in Azure Key V
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
-To configure Terraform to use the backend, include a `backend` configuration with a type of `azurerm` inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
+To configure Terraform to use the backend, include a *backend* configuration with a type of *azurerm* inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
 
 The following example configures a Terraform back end and creates and Azure Resource Group.
 
@@ -92,9 +92,11 @@ resource "azurerm_resource_group" "state-demo-secure" {
 }
 ```
 
+Now, initialize the configuration with *Terraform init* and then run the configuration with *Terraform apply*. When completed, you can find the state file in the Azure Storage Blob.
+
 ## State locking
 
-When using an Azure Storage Blob for state storage, the blob is automatically locked before any Terraform operation that writes state. This operation prevents multiple concurrent state operations, which can cause corruption. For more information, see [State Locking][terraform-state-lock] on the Terraform documentation.
+When using an Azure Storage Blob for state storage, the blob is automatically locked before any operation that writes state. This configuration prevents multiple concurrent state operations, which can cause corruption. For more information, see [State Locking][terraform-state-lock] on the Terraform documentation.
 
 The lock can be see when examining the blob though the Azure portal or other Azure management tooling.
 
