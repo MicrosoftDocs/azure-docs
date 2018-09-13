@@ -114,8 +114,6 @@
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
   - name: FAQ
     href: faqs.md
-  - name: Best Practices
-    href: Concepts/best-practices.md
   - name: Limits
     href: limits.md
   - name: Glossary
