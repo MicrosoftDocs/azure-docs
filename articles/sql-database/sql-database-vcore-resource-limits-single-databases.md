@@ -130,7 +130,7 @@ For single databases, the following tables show the resources available for a si
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
-|TempDB size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
+|TempDB size (GB)|32|64|128|256|384|384|
 |Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|
 |IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|
 |Max concurrent workers (requests)|200|400|800|1600|3200|4800|
@@ -151,7 +151,7 @@ For single databases, the following tables show the resources available for a si
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
-|TempDB size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
+|TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
 |IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|

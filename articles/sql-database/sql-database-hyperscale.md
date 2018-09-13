@@ -26,7 +26,7 @@ The Hyperscale service tier in Azure SQL Database provides the following additio
 - Faster database restores (based on file snapshots) 
 - Higher overall performance due to higher log throughput and faster transaction commit times regardless of data volumes 
 - Rapid scale out - you can provision one or more read-only nodes for offloading your read workload and for use as hot-standbys
-- Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads as and when needed, and then scale the compute rresouces back down when not needed. 
+- Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads as and when needed, and then scale the compute resources back down when not needed. 
 
 The Hyperscale service tier removes many of the practical limits traditionally seen in cloud databases. Where most other databases are limited by the resources available in a single node, databases in the Hyperscale service tier have no such limits. With its flexible storage architecture, you can scale out the storage capacity as needed. In fact, Hyperscale databases aren’t created with a defined max size. A Hyperscale database grows as needed - and you are billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional read replicas as needed for offloading read workloads. 
 
