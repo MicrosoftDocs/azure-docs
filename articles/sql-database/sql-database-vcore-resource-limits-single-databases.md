@@ -131,8 +131,8 @@ For single databases, the following tables show the resources available for a si
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|
 |TempDB size (GB)|32|64|128|256|384|384|
-|Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|
-|IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|
+|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |Max concurrent workers (requests)|200|400|800|1600|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|2|2|2|2|2|2|
@@ -152,8 +152,8 @@ For single databases, the following tables show the resources available for a si
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|
 |TempDB size (GB)|64|128|256|384|384|384|384|384|
-|Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
-|IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
+|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|2|2|2|2|2|2|2|2|
