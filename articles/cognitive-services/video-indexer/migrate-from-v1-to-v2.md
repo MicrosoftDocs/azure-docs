@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
 ---
 
@@ -62,7 +62,7 @@ Video Indexer now has a simplified data model to deliver much clearer insights. 
 
 ### Swagger
 
-The Video Indexer API definitions were updated accordingly and are available to download through the [API portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+The Video Indexer API definitions were updated accordingly and are available to download through [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
 
 
 ### V1 vs V2 examples
