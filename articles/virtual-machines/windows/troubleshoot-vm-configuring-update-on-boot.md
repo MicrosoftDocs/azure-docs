@@ -21,26 +21,26 @@ ms.author: delhan
 
 ## Symptoms
 
-When you use **Boot diagnostics** to check the screenshot of a Virtual Machine (VM), you found the operating system is not fully startup yet. Additionally, the VM is displaying **Getting Windows Ready. Don't turn off your computer** message.
+When you use **Boot diagnostics** to get the screenshot of a Virtual Machine (VM), you find the operating system does not fully start up. Additionally, the VM is displaying **Getting Windows Ready. Don't turn off your computer** message.
 
 ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message1.png)
 ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\Message2.png)
 
 ## Cause
 
-Usually this issue occurs when the server is doing the final reboot after the configuration was changed. That configuration change could be initialized by Windows updates, changes on the roles/feature of the server. In the case of the windows update, if the amount of the updates were big, the OS will need more time till it finishes to reconfigure those changes.
+Usually this issue occurs when the server is doing the final reboot after the configuration was changed. The configuration change could be initialized by Windows updates, or by the changes on the roles/feature of the server. In the case of the Windows Update, if the amount of the updates was big, the OS will need more time till it finishes to reconfigure the changes.
 
 ## Back up the OS disk
 
-Before you try to fix the issue, back up the OS disk first. This will help in case of a rollback for recovery or RCA in a later stage:
+Before you try to fix the issue, back up the OS disk first:
 
 ### Unlock encrypted disk
 
-First, validate if this VM is an encrypted VM. To do this, on ASC check on the Resource Explorer on the VMCard for the value OS Disk Encrypted
-If the OS Disk is encrypted, first unlock the encrypted disk.
+First, validate if this VM is an encrypted VM. To do this, in Azure Security Center (ASC), check the Resource Explorer on the VMCard for the **OS Disk Encrypted** value.
+
 ![Check whether the disk is encrypted](..\media\troubleshoot-vm-configuring-update-on-boot\encrypted-disk.png)
 
-To do this, follow these steps:
+If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these steps:
 
 1. Create a Recovery VM located in the same Resource Group, Storage Account and Location of the impacted VM.
 
@@ -184,24 +184,24 @@ To do this, follow these steps:
 
 ### Create a snapshot
 
-Power the VM down, and then wait till it is stopped de-allocated.
+Shut down the VM, and then wait till it is stopped and de-allocated.
 
 For unmanaged disks, you can use either [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343) or [Azure Powershell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids).
 
-#### Method 1: Using Microsoft Azure Storage Explorer
+#### Use Microsoft Azure Storage Explorer
 
-1. Once the customer download the tool, proceed to add the Azure account details so you can access the storage accounts
+1. After you download the tool, add the Azure account details so you can access the storage accounts
 
 2. Click on **Add Account Settings**, and then **Add an account...**.
-![Add account settings](..\media\troubleshoot-vm-configuring-update-on-boot\account-settings.png)
+    ![Add account settings](..\media\troubleshoot-vm-configuring-update-on-boot\account-settings.png)
 
-3. Go to the storage account where the OS disk is, you can see this on ASC under Resource Explorer on Properties in the VM Properties card
-![Portal setting](..\media\troubleshoot-vm-configuring-update-on-boot\VM-Properties.png)
+3. Go to the storage account where the OS disk locates, you can see this on ASC under Resource Explorer on Properties in the VM Properties card.    
+    ![Portal setting](..\media\troubleshoot-vm-configuring-update-on-boot\VM-Properties.png)
  
-4. Create a snapshot of this disk by a right click over the disk and select **Make Snapshot**.
-![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\make-snapshot.png)
+4. Create a snapshot of this disk. To do this, right click the disk, and then select **Make Snapshot**.
+    ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\make-snapshot.png)
 
-#### Method 2: Using Azure Powershell
+#### Use Azure Powershell
 
 You can run the following commands in PowerShell to clone a disk:
 
@@ -237,23 +237,21 @@ $blob1 = Start-AzureStorageBlobCopy -srcUri $srcUri -SrcContext $srcContext -Des
 
 For managed disks, use Azure portal to take a snapshot:
 
-1. Sign in to the Azure portal.
+1. Sign in to the Azure portal, and then search for snapshots.
 
-2. Starting in the upper-left, click New and search for snapshot.
+3. In the Snapshots blade, click **Create snapshot**.
 
-3. In the Snapshot blade, click Create.
+4. Enter a name for the snapshot.
 
-4. Enter a Name for the snapshot.
-
-5. Select an existing Resource group or type the name for a new one.
+5. Select an existing Resource group or type the name to create a new one.
 
 6. Select an Azure datacenter Location.
 
 7. For Source disk, select the Managed Disk to snapshot.
 
-8. Select the Account type to use to store the snapshot. We recommend Standard_LRS unless you need it stored on a high performing disk.
+8. Select the Account type to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
 
-9. Click Create.
+9. Click **Create**.
 
 ## Collect the OS dump
 
