@@ -54,6 +54,10 @@ Run histories will remain accessible for a while. When you are ready to move to 
 
 Run histories are now called _experiments_ in the current release. You can collect your model's experiments and explore them using the SDK, CLI, or web portal.
 
+[ ![Online portal](./media/overview-what-happened-to-workbench/image001.jpg) ]
+(./media/overview-what-happened-to-workbench/image001.jpg#lightbox)
+
+
 ## Can I still prepare data?
 
 Your pre-existing data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  

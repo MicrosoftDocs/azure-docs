@@ -32,15 +32,29 @@ ACI is not ideal for production deployments, but it is great for testing and und
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook.
+For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `notebooks/tutorials/02.deploy-models.ipynb` notebook:
 
-[**Launch samples in Azure Notebooks**](https://aka.ms/aml-notebooks) and navigate to `tutorials/train-models.ipynb`.  From Azure Notebooks, you can also download the notebook to use on your own Jupyter server.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+* **Your own Jupyter notebook server**
+
+    1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
+        * Create a workspace and its configuration file (**config.json**) 
+        * Configure your notebook server
+        * In step 4 the new packages you need are matplotlib and scikit-learn:
+            ```shell
+            conda install -y matplotlib scikit-learn
+            ```
+    1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) or start a new notebook and copy code from this article.
+    1. Add your **config.json** file to the same folder as the notebook.
+    1. Start your notebook server.
+    1. Open the notebook.
+
 
 ## Prerequisites
 
 Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) notebook.  
 
-* Start a new notebook or place the downloaded notebook into the same directory as the Tutorial #1 notebook.
 
 ## Set up the environment
 
@@ -48,7 +62,7 @@ Start by setting up a testing environment.
 
 ### Import packages
 
-Import the Python packages needed for this tutorial. 
+Import the Python packages needed for this tutorial.
 
 ```python
 %matplotlib inline
