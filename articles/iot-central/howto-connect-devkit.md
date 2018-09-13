@@ -54,11 +54,8 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 #### To prepare the DevKit device:
 
 
-1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://github.com/obastemur/iot-central-firmware/raw/expsdk/AZ3166/latest_build/iotCentral.ino.bin) page on GitHub. The download filename on the releases page looks like `AZ3166-IoT-Central-X.X.X.bin`.
-
-
+1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://github.com/obastemur/iot-central-firmware/raw/expsdk/AZ3166/latest_build/iotCentral.ino.bin) page on GitHub.
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
-
 1. Drag the **iotCentral.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
 
 1. When the DevKit device restarts, the following screen displays:
