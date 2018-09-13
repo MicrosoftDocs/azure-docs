@@ -25,8 +25,6 @@ You'll also learn about configuring the following develop environments:
 
 The recommended approach is to use Continuum Anaconda [conda virtual environments](https://conda.io/docs/user-guide/tasks/manage-environments.html) to isolate your working environment so as to avoid dependency conflicts between packages. This article shows the steps of setting up a conda environment and using it for Azure Machine Learning.
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
-
 ## Prerequisites
 
  * [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html) package manager installed
@@ -162,7 +160,9 @@ To use a custom code editor with Azure Machine Learning SDK, first create conda 
 
 ## Configure Azure Notebooks and Data Science Virtual Machine
 
-[!INCLUDE [aml-pre-installed](~/includes/aml-pre-installed.md)]
+Azure Notebooks and the Data Science Virtual Machine (DSVM) do not require any configuration to work with Azure Machine Learning service. The required components, such as the Azure Machine Learning SDK, are pre-installed on these environments. 
+
+The DSVM also comes with Jupyter Notebooks and popular Python IDEs pre-installed. For more information, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
  
 ## Next steps
 

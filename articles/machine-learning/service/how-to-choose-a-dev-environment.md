@@ -20,6 +20,8 @@ Learn about the development environments that you can use with the Azure Machine
 
     The downside of notebooks is that they don't provide tools for code improvement or integrating with things like version control systems.
 
+    Notebook environments discussed in this document are __Jupyter Notebooks__, and __Azure Notebooks__.
+
 * __Integrated Development Environments (IDE)__ and __code editors__ are more suited for creating production code. They provide tools that help make your code better or make the process of coding easier. For example, syntax highlighting, linting, debugging, and profiling. They may also provide integration with version control systems and build systems.
 
 You can extract the code from a notebook and use it with your IDE or code editor, so you can combine both as part of your development process.

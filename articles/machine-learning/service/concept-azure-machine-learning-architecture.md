@@ -13,23 +13,20 @@ ms.date: 09/24/2018
 
 # Azure Machine Learning service architecture and concepts
 
-In this document, learn about the architecture and concepts for the Azure Machine Learning service.
-
-
-The following diagram shows the major components of Azure Machine Learning, and illustrates the general workflow when using Azure Machine Learning: 
+This document describes the architecture and concepts for the Azure Machine Learning service. The following diagram shows the major components of the service, and illustrates the general workflow when using the service: 
 
 [![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-The workflow for developing and deploying a model with Azure Machine Learning generally follows these steps:
+The workflow generally follows these steps:
 
-1. Develop machine learning training scripts in __Python__ using __Jupyter Notebooks__, __Visual Studio Code__, or any other Python development environment of your choice.
-2. Create and configure a __compute target__, which can be either local or cloud compute resources, to use when training the model.
-3. __Submit the scripts__ to the configured compute target to run in that environment. During training, the compute target stores run records to a __datastore__. There the records are saved to an __experiment__.
-4. __Query the experiment__ for logged metric from the current, and past runs, of your training job. If the metric does not indicate a desired outcome, loop back to step 1 and iterate on your scripts.
-5. Once a satisfactory run is found, register the persisted model in the __model registry__.
-6. Develop a scoring script.
-7. __Create an Image__ and register it in the __image registry__. 
-8. __Deploy the image__ as a __web service__ in Azure.
+1. Develop machine learning training scripts in __Python__.
+1. Create and configure a __compute target__.
+1. __Submit the scripts__ to the configured compute target to run in that environment. During training, the compute target stores run records to a __datastore__. There the records are saved to an __experiment__.
+1. __Query the experiment__ for logged metrics from the current and past runs. If the metrics do not indicate a desired outcome, loop back to step 1 and iterate on your scripts.
+1. Once a satisfactory run is found, register the persisted model in the __model registry__.
+1. Develop a scoring script.
+1. __Create an Image__ and register it in the __image registry__. 
+1. __Deploy the image__ as a __web service__ in Azure.
 
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
@@ -39,11 +36,11 @@ The workflow for developing and deploying a model with Azure Machine Learning ge
 
 ## Workspace
 
-The workspace is the top-level resource for Azure Machine Learning. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning.
+The workspace is the top-level resource for the Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning.
 
-The workspace provides a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. This information is used to determine which training run produces the best model.
+The workspace keeps a list of compute targets that can be used to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. This information is used to determine which training run produces the best model.
 
-Once you've determined the best model, register it with the workspace. A registered model and scoring scripts are used to create an image. The image can then be deployed into Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. It can also be deployed to an Azure IoT Edge device as a module.
+Models are registered with the workspace. A registered model and scoring scripts are used to create an image. The image can then be deployed into Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. It can also be deployed to an Azure IoT Edge device as a module.
 
 You can create multiple workspaces, and each workspace can be shared by multiple people. When sharing a workspace, control access to the workspace by assigning the following roles to users:
 
@@ -69,9 +66,9 @@ The following diagram is a taxonomy of the workspace:
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-A model is produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under an Azure Machine Learning workspace and version-managed. 
+A model is produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under an Azure Machine Learning workspace.
 
-Azure Machine Learning is framework agnostic. You can use any popular machine learning framework when creating a model. For example, scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
+Azure Machine Learning is framework agnostic. You can use any popular machine learning framework when creating a model, such as scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
 For an example of training a model, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
@@ -103,16 +100,16 @@ For an example of creating an image, see the [Deploy an image classification mod
 
 ### Image registry
 
-The image registry keeps track of images created from your models. You can provide additional metadata tags when creating the image, which are stored by the image registry and can be queried to find your image.
+The image registry keeps track of images created from your models. You can provide additional metadata tags when creating the image. Metadata tags are stored by the image registry and can be queried to find your image.
 
 ## Deployment
 
-A deployment is an instantiation of your image into either a Web Service that may be hosted in the cloud or and IoT Module for integrated device deployments. 
+A deployment is an instantiation of your image into either a Web Service that may be hosted in the cloud or an IoT Module for integrated device deployments. 
 
 ### Web Service
 
 A deployed web service can use Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA).
-The service is created from an image that encapsulates your model, script, and associated files. The image has an HTTP Load balanced endpoint to send scoring request to.
+The service is created from an image that encapsulates your model, script, and associated files. The image has a load-balanced, HTTP endpoint that receives scoring requests sent to the web service.
 
 Azure helps you monitor your Web service deployment by collecting Application Insight telemetry and/or model telemetry if you have chosen to enable this feature. The telemetry data is only accessible to you, and stored in your Application Insights and storage account instances.
 
@@ -143,13 +140,13 @@ A run is a record that contains the following information:
 * Output files auto-collected by the experiment, or explicitly uploaded by you.
 * A snapshot of the directory that contains your scripts, prior to the run
 
-A run is produced when you submit a script to train a model. A run can have zero or more child runs.
+A run is produced when you submit a script to train a model. A run can have zero or more child runs. So the top-level run might have two child runs, each of which may have their own child runs.
 
 For an example of viewing runs produced by training a model, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
 ## Experiment
 
-An experiment is a grouping of many runs from a given script. It always belongs to a workspace. Submit a run using an arbitrary experiment name, and the submitted run is then listed under that experiment.
+An experiment is a grouping of many runs from a given script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that name is automatically created.
 
 For an example of using an experiment, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
@@ -186,7 +183,7 @@ For an example of using scripts to train a model, see [Create a workspace with P
 
 ## Logging
 
-When developing your solution, use the Azure Machine Learning Python SDK in your Python script to log any arbitrary metrics information. After the run, query the metrics to determine if the run produces the model you want to deploy. 
+When developing your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine if the run produced the model you want to deploy. 
 
 ## Snapshot
 
