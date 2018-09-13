@@ -59,7 +59,9 @@ Testing range
 [!code-json[](code/metrics-custom-guestos-resource-manager-VM.json?range=13-18&highlight=2,5)]
 
 Testing range and highlighting
-[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]`
+
+[!code-json[](code/metrics-custom-guestos-resource-manager-VM.json?range=13-18&?ame=snippet_Create&highlight=4,6-7,14-21)]
+
 
 
 
