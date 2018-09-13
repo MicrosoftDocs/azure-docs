@@ -87,8 +87,9 @@
     - name: Consistency models
       href: consistency-levels.md
     - name: Multi-master
-      href: multi-region-writers.md
       items:
+      - name: About multi-master
+        href: multi-region-writers.md
       - name: Enable multi-master
         href: enable-multi-master.md
       - name: Multi-master conflict resolution
