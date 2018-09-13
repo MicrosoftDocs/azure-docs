@@ -13,7 +13,7 @@ ms.author: luisca
 
 # Tutorial: Text Analytics with Power BI
 
-Microsoft Power BI Desktop is a free application you can install on your local computer that lets you connect to, transform, and visualize your data. The Text Analytics service, part of Microsft Azure Cognitive Services, provides natural language processing. Given raw unstructured text, it can extract the most important phrases, analyze sentiment, and identify well-known entities such as brands. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
+Microsoft Power BI Desktop is a free application that lets you connect to, transform, and visualize your data. The Text Analytics service, part of Microsoft Azure Cognitive Services, provides natural language processing. Given raw unstructured text, it can extract the most important phrases, analyze sentiment, and identify well-known entities such as brands. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 
 In this tutorial, you will learn how to integrate Power BI Desktop and the Text Analytics Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also show how to create a word cloud from these phrases.
 
@@ -24,7 +24,7 @@ In this tutorial, you will learn how to integrate Power BI Desktop and the Text 
 - A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
 - A Cognitive Services API account with the Text Analytics API. If you do not have one, you can [sign up](../../cognitive-services-apis-create-account.md)
  and use the free tier for 5,000 transactions/month (see [pricing details](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
-- The [Text Analytics access key](../how-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up.
+- The [Text Analytics access key](../how-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 - Customer comments. You can use [our example data](https://aka.ms/cogsvc/ta) or your own data. This tutorial assumes you are using our example data.
 
 ## Loading customer data
@@ -54,7 +54,7 @@ To see the loaded data, click the **Data View** button on the left edge of the P
 
 You may need to transform your data in Power BI Desktop before it is ready to be processed by the Key Phrases API of the Text Analytics service.
 
-The sample data contains a `subject` column and a `comment` column. With the Merge Columns function in Power BI Desktop, you can extract key phrases from the data in both these column, rather than just the `comment` column.
+The sample data contains a `subject` column and a `comment` column. With the Merge Columns function in Power BI Desktop, you can extract key phrases from the data in both these columns, rather than just the `comment` column.
 
 In Power BI Desktop, select the **Home** ribbon. In the **External data** group, click **Edit Queries**.
 
@@ -95,7 +95,7 @@ Now you're ready to create the custom function that will integrate Power BI and 
 > [!NOTE]
 > Power BI Desktop custom functions are written in the [Power Query M formula language](https://msdn.microsoft.com/library/mt211003.aspx), or just "M" for short. M is a functional programming language based on [F#](https://docs.microsoft.com/dotnet/fsharp/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
 
-In Power BI Desktop, make sure you are still in the Query Editor window. If not, select the **Home** ribbon, and in the **External data** group, click **Edit Queries**.
+In Power BI Desktop, make sure you are still in the Query Editor window. If you are not, select the **Home** ribbon, and in the **External data** group, click **Edit Queries**.
 
 Now, in the **Home** ribbon, in the **New Query** group, open the **New Source** drop-down menu and select **Blank Query**. 
 
@@ -205,7 +205,7 @@ Click the Focus Mode tool in the report to get a better look at our word cloud. 
 
 The Text Analytics service, one of the Cognitive Services offered by Microsoft Azure, also provides sentiment analysis and language detection. The language detection in particular is useful if your customer feedback is not all in English.
 
-Both of these other APIs are very similar to the Key Phrases API. Near-identical custom functions can thus be used to integrate them with Power BI Desktop. Just create a blank query and paste the appropriate code below into the Advanced Editor, as you did earlier. (Don't forget your access key!) Then, as before, use the function to add a new column to the table.
+Both of these other APIs are similar to the Key Phrases API. Near-identical custom functions can thus be used to integrate them with Power BI Desktop. Just create a blank query and paste the appropriate code below into the Advanced Editor, as you did earlier. (Don't forget your access key!) Then, as before, use the function to add a new column to the table.
 
 The Sentiment Analysis function below returns a score indicating how positive the sentiment expressed in the text is.
 
@@ -224,10 +224,10 @@ The Sentiment Analysis function below returns a score indicating how positive th
 in  sentiment
 ```
 
-Here are two versions of a Language Detection function. The first returns the ISO language code (e.g. `en` for English), while the second returns the "friendly" name (e.g. `English`). You may notice that only the last line of the body differs between the two versions.
+Here are two versions of a Language Detection function. The first returns the ISO language code (for example, `en` for English), while the second returns the "friendly" name (for example, `English`). You may notice that only the last line of the body differs between the two versions.
 
 ```fsharp
-// Returns the two-letter language code (e.g. en for English) of the text
+// Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
     endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
@@ -241,7 +241,7 @@ Here are two versions of a Language Detection function. The first returns the IS
 in  language
 ```
 ```fsharp
-// Returns the name (e.g. English) of the language in which the text is written
+// Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
     endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
