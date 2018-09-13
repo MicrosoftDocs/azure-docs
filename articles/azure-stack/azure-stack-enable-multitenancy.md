@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/11/2018
 ms.author: patricka
 
 ---
@@ -98,6 +98,18 @@ Register-AzSWithMyDirectoryTenant `
 > If your Azure Stack administrator installs new services or updates in the future, you may need to run this script again.
 >
 > Run this script again at any time to check the status of the Azure Stack applications in your directory.
+
+
+### Activate the administrator and tenant portals
+After deployments that use Azure AD, you must activate both the Azure Stack administrator and tenant portals. This activation consents to giving the Azure Stack portal and Azure Resource Manager the correct permissions (listed on the consent page) for all users of the directory.
+
+- For the administrator portal, navigate to https://adminportal.local.azurestack.external/guest/signup, read the information, and then click Accept. After accepting, you can add service administrators who are not also directory tenant administrators.
+- For the tenant portal, navigate to https://portal.local.azurestack.external/guest/signup, read the information, and then click Accept. After accepting, users in the directory can sign in to the tenant portal. 
+ 
+> [!NOTE] 
+> If the portals are not activated, only the directory administrator can sign in and use the portals. If another user signs in, they will see an error that tells them that the administrator has not granted permissions to other users. When the administrator does not natively belong to the directory Azure Stack is registered to, the Azure Stack directory must be appended to the activation URL. For example, if Azure Stack is registered to fabrikam.onmicrosoft.com and the admin user is admin@contoso.com, navigate to https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com to activate the portal.
+
+
 
 ### Direct users to sign in
 

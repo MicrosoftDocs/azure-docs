@@ -97,6 +97,8 @@
       href: how-to-develop-csharp-function.md
     - name: C#
       href: how-to-develop-csharp-module.md
+    - name: Python
+      href: how-to-develop-python-module.md
     - name: Node.js
       href: how-to-develop-node-module.md
     - name: Java
@@ -129,7 +131,7 @@
       href: how-to-create-transparent-gateway-windows.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
-  - name: CI/CD in VSTS
+  - name: CI/CD in Azure DevOps
     href: how-to-ci-cd.md
   - name: Troubleshoot
     href: troubleshoot.md

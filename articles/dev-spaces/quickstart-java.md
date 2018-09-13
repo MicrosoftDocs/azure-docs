@@ -34,7 +34,7 @@ In this guide, you will learn how to:
 
 ## Set up Azure Dev Spaces
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 or higher).
+1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.43 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 1. Download the [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extension for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
@@ -47,7 +47,10 @@ In this guide, you will learn how to:
 1. Build and run your code in AKS. In the terminal window from the **webfrontend folder**, run this command: `azds up`
 1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form:
 
-   `Service 'webfrontend' port 'http' is available at <url>`
+   ```output
+    (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+    Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+   ```
 
    Open this URL in a browser window, and you should see the web app load.
 

@@ -1,5 +1,6 @@
 ---
-title: C# quickstart for Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using C# to call the Text Analytics API | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started with using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -11,7 +12,7 @@ ms.date: 08/30/2018
 ms.author: ashmaka
 ---
 
-# Quickstart for the Text Analytics API with C# 
+# Quickstart: Using C# to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This article shows you how to detect language, analyze sentiment, and extract key phrases by using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with C#. The code was written to work on a .NET Core application, with minimal references to external libraries, so you can also run it on Linux or MacOS.

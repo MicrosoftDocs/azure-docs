@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 09/13/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -41,7 +41,6 @@ In a terminal window, run the following commands to clone the sample application
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
-git pull origin built-in
 ```
 
 ## Run the app locally
@@ -59,7 +58,7 @@ FLASK_APP=application.py flask run
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
-$env:FLASK_APP=application.py
+Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/07/2018
+ms.date: 09/10/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -165,11 +165,9 @@ To verify the data integrity, perform the following steps.
     
     ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. A summary of the data integrity check process along with time to complete the process is displayed when the script has completed. You can press **Enter** to exit out of the command window.
+2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. Once the script has completed, exit out of the command window. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
-
-    If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
     > [!TIP]
     > - Reset the tool beween two runs.
