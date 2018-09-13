@@ -65,3 +65,4 @@ $imageVersion = New-AzureRmGalleryImageVersion `
    -GalleryImageVersion $versionConfig
 ```
 
+

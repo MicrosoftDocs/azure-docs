@@ -212,6 +212,12 @@
         href: virtual-machine-scale-sets-manage-cli.md
       - name: Use Azure PowerShell
         href: virtual-machine-scale-sets-manage-powershell.md
+    - name: Shared images (preview)
+      href: shared-image-galleries.md
+      - name: Create shared images using PowerShell
+        href: shared-images-ps.md
+      - name: Create shared images using CLI
+        href: shared-images-cli.md
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
     - name: Automatic OS upgrades

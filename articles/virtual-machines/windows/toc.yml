@@ -233,7 +233,7 @@
       - name: Overview of Shared Images 
         href: shared-image-galleries.md
       - name: Create shared images using PowerShell
-        href: tutorial-shared-images.md
+        href: shared-images.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload
