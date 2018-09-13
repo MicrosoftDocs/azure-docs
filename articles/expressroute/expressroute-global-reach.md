@@ -30,7 +30,14 @@ ExpressRoute Global Reach currently is supported in the following countries:
 
 Your ExpressRoute circuits must be created at the [ExpressRoute peering locations](expressroute-locations.md) in the above countries. To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md), your circuits must be Premium SKU.
 
+
+
 ## Before you begin
+
+> [!IMPORTANT]
+> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+>
+
 Before you start configuration, you need to check the following requirements.
 
 * Install the latest version of Azure PowerShell. See [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
