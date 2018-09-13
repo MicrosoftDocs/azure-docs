@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
 #Customer intent: As an IT admin, I want to configure a sign-in risk conditional access policy to handle suspicious sign-ins, so that they can be automatically handled.
@@ -26,7 +26,7 @@ To keep your environment protected, you might want to block suspicious users fro
 
 This quickstart shows how to configure a sign-in risk conditional access policy that blocks a sign-in when a medium and above sign-in risk level has been detected. 
 
-![Create policy](./media/quickstart-sign-in-risk-policy-v1/1003.png)
+![Create policy](./media/quickstart-sign-in-risk-policy/1003.png)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -70,7 +70,7 @@ This section shows how to create the required sign-in risk conditional access po
 | Controls | Block access |
  
 
-![Create policy](./media/quickstart-sign-in-risk-policy-v1/201.png)
+![Create policy](./media/quickstart-sign-in-risk-policy/201.png)
 
  
 
@@ -114,7 +114,7 @@ This section shows how to create the required sign-in risk conditional access po
 
 To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) as **Alan Charon** using the Tor Browser. Your sign-in attempt should be blocked by your conditional access policy.
 
-![Multi-factor authentication](./media/quickstart-sign-in-risk-policy-v1/203.png)
+![Multi-factor authentication](./media/quickstart-sign-in-risk-policy/203.png)
 
 
 ## Clean up resources

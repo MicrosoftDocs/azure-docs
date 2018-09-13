@@ -346,6 +346,7 @@
 #### [Sign-in experience](identity-protection/flows.md)
 #### [Simulate risk events](identity-protection/playbook.md)
 #### [Unblock users](identity-protection/howto-unblock-user.md)
+#### [Block access when a session risk is detected](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [FAQs](identity-protection/faqs.md)
 #### [Glossary](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
