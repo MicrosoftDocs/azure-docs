@@ -32,18 +32,18 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
 
     For development purposes, you may use the service for free for a limited time, or in limited volume. See [Try the Speech service for free](get-started.md).
 
-* A single Speech Service subscription key grants access to the following features. Each is metered separately, so you're charged only for the amount of service you use.
+* A single Speech Service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
 
     * [Speech-to-text](speech-to-text.md)
     * [Custom speech-to-text](https://cris.ai/CustomSpeech)
     * [Text-to-speech](text-to-speech.md)
-    * [Custom text-to-speech voices]((https://cris.ai/CustomVoice))
+    * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
     * [Speech translation](speech-translation.md)
 
-    A [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) endpoint key also grants access to all the Speech services. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
+    A [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) endpoint key also unlocks access to all Speech functionality. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
 
-> [!NOTE]
-> [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview) is not part of the Speech Service and requires its own subscription.
+    > [!NOTE]
+    > [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview) is not part of the Speech Service and requires its own subscription.
 
 * The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): Jessa24kRUS and Guy24kRUS.
 
