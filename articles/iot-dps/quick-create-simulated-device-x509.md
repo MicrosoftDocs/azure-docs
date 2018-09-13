@@ -101,7 +101,7 @@ In this section, you will prepare a development environment used to build the [A
 
 In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
+* Self-signed certificates are for testing only, and should not be used in production.
 * The default expiration date for a self-signed certificate is 1 year.
 
 You will use sample code from the Azure IoT C SDK to create the certificate to be used with the individual enrollment entry for the simulated device.
@@ -116,7 +116,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
     The output window displays a locally generated self-signed X.509 certificate for your simulated device. Copy the output to clipboard, starting from **-----BEGIN CERTIFICATE-----** and ending with the first **-----END CERTIFICATE-----**, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
  
-5. Using a text editor, save the certifiate to a new file named **_X509testcert.pem_**. 
+5. Using a text editor, save the certificate to a new file named **_X509testcert.pem_**. 
 
 
 ## Create a device enrollment entry in the portal
