@@ -1,3 +1,22 @@
+---
+title: Provisioning Pivotal Cloud Foundry on Azure
+description: Learn how to setup parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure
+services: Cloud Foundry
+documentationcenter: CloudFoundry
+author: ruyakubu
+manager: brunoborges
+editor: ruyakubu
+
+ms.assetid:
+ms.author: ruyakubu
+ms.date: 09/13/2018
+ms.devlang: 
+ms.service: Cloud Foundry
+ms.tgt_pltfrm: multiple
+ms.topic: article
+ms.workload: web
+---
+
 # Provisioning Pivotal Cloud Foundry on Azure
 
 This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  To Pivotal Cloud Foundry can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry)
@@ -25,7 +44,7 @@ ssh-keygen -t rsa -b 2048
 
 <img src="media/deploy/az-logion-output2.png"> 
  
-Copy the ìidî value as your **subscription ID** and the **tenantId** value to be used later
+Copy the ‚Äúid‚Äù value as your **subscription ID** and the **tenantId** value to be used later
 
 2. Set your default subscription for this configuration
 
@@ -35,19 +54,19 @@ Copy the ìidî value as your **subscription ID** and the **tenantId** value to be
 
 `az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "http://MyOpsMgr" --identifier-uris http://MyOPsMgr`
 
-The copy ìappIdî value in the output as your **ClientID** to be used later.
+The copy ‚ÄúappId‚Äù value in the output as your **ClientID** to be used later.
 
-4. Create a service principle with your new ìappIdî
+4. Create a service principle with your new ‚ÄúappId‚Äù
 
 `az ad sp create --id {appId}`
 
 5. Set the permission role of your service principle as a **Contributor**.
 
-`az role assignment create --assignee ìhttp://MyOPsMgrî --role ìContributorî `
+`az role assignment create --assignee ‚Äúhttp://MyOPsMgr‚Äù --role ‚ÄúContributor‚Äù `
 
-Or you can also useÖ
+Or you can also use‚Ä¶
 
-`az role assignment create --assignee {service-princ-name} --role ìContributorî `
+`az role assignment create --assignee {service-princ-name} --role ‚ÄúContributor‚Äù `
 
 <img src="media/deploy/svc-princ3.png"> 
 
@@ -55,7 +74,7 @@ Or you can also useÖ
 
 `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
 
-7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values youíve copied above.  Save the file.
+7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values you‚Äôve copied above.  Save the file.
 
 ```json
 {
@@ -69,7 +88,7 @@ Or you can also useÖ
 ## Get the Pivotal Network Token
 
 1. Register or log into your [Pivotal Network](https://network.pivotal.io) account
-2. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profileî
+2. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profile‚Äù
 3. Scroll to the bottom of the page and copy the **LEGENCY API TOKEN** value.  This is your **Pivotal Network Token** value that will be used later.
 
 ## Provision your PCF cluster
@@ -83,7 +102,7 @@ Or you can also useÖ
 <img src="media/deploy/deployment4.png">  
 
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page
-3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The ìOPSMAN-FQDNî value is the URL.
+3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The ‚ÄúOPSMAN-FQDN‚Äù value is the URL.
  
 <img src="media/deploy/deploy-outputs5.png">  
  
@@ -93,7 +112,7 @@ Or you can also useÖ
          
 > [!NOTE]
 >
-> If Internet Explorer browser fails due to site not secure warning message, click on ìMore informationî and ìGo on to the webpage.  For Firefox, click on Advance and add the certification to proceed
+> If Internet Explorer browser fails due to site not secure warning message, click on ‚ÄúMore information‚Äù and ‚ÄúGo on to the webpage.  For Firefox, click on Advance and add the certification to proceed
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
