@@ -8,10 +8,10 @@ author: DhruvMsft
 manager: craigg
 ms.custom: "VNet Service endpoints"
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/28/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
@@ -177,11 +177,10 @@ Azure Storage has implemented the same feature that allows you to limit connecti
 If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQLDB features that are impacted by this.
 
 #### Azure SQLDW PolyBase
-PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact *dmalik@microsoft.com* for more information.
+PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact Microsoft support for more information.
 
 #### Azure SQLDB Blob Auditing
-Blob auditing pushes audit logs to your own storage account. If this storage account uses the VENT Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
-
+Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
 ## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
 
@@ -251,7 +250,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 ### Azure portal steps
 
-1. Log in to the [Azure portal][http-azure-portal-link-ref-477t].
+1. Sign in to the [Azure portal][http-azure-portal-link-ref-477t].
 
 2. Then navigate the portal to **SQL servers** &gt; **Firewall / Virtual Networks**.
 

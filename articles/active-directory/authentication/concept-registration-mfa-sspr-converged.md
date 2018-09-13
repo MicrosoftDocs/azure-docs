@@ -53,6 +53,9 @@ Users who are prompted to register while signing in will see the following exper
 
 The authentication methods shown will change based on the methods enabled in your MFA or SSPR policies. The user will be asked to register the minimum number of authentication methods needed to be compliant with the MFA policy, SSPR policy, or both. If there is flexibility in which authentication methods the user can register, they can select **Choose security info** to choose other authentication methods.  
 
+> [!NOTE]
+> If you enable the use of both mobile app notification and mobile app code, users who register the Microsoft Authenticator app using a notification are able to use both notification and code to verify their identity.
+
 Unlike the previous MFA registration experience, users will not be prompted to register an app password when going through the new registration experience. Instead they should follow the steps listed in our apps passwords tutorial to register app passwords in the new experience.  
 
 Once a user completes registration, their default MFA method will automatically be set. If the user registered an authenticator app, the default method will be set to app. If the user did not register an authenticator app and only registered their phone number, the default method will be set to phone call. Users can change their default by going to [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) and selecting **Change default**.  

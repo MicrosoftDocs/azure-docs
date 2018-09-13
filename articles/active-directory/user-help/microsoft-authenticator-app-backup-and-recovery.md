@@ -99,8 +99,6 @@ Now that you've backed up and recovered your account credentials to your new dev
 ## Related topics
 - [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)  
 
-- [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
-
 - [Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

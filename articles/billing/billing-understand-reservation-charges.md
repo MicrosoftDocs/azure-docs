@@ -1,5 +1,5 @@
 ---
-title: Understand Azure reservation discount | Microsoft Docs
+title: Understand Azure Reservations discount | Microsoft Docs
 description: Learn how a reservation discount is applied to running SQL Databases. 
 services: 'billing'
 documentationcenter: ''
@@ -35,16 +35,16 @@ For the rest of these examples, assume that the SQL Database reserved capacity y
 - Scenario 3: You run one 16 core SQL Database from 1 pm to 1:30 pm. You run another 16 core SQL Database from 1:30 to 2 pm. Both are covered by the reservation discount.
 - Scenario 4: You run one 16 core SQL Database from 1 pm to 1:45 pm. You run another 16 core SQL Database from 1:30 to 2 pm. You're charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the compute usage for the rest of the time.
 
-To understand and view the application of your Azure reservations in billing usage reports, see [Understand Azure reservation usage](https://go.microsoft.com/fwlink/?linkid=862757).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## Next steps
 
-To learn more about Azure reservations, see the following articles:
+To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
+- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory v2.0 authentication libraries | Microsoft Docs
 description: Compatible client libraries and server middleware libraries, and related library, source, and samples links, for the Azure Active Directory v2.0 endpoint.
 services: active-directory
@@ -40,7 +40,7 @@ Azure AD v2.0 endpoint works with two types of libraries:
 
 ## Library support
 
-Because you can choose any standards-compliant library when you use the v2.0 endpoint, it’s important to know where to go for support. For issues and feature requests in library code, contact the library owner. For issues and feature requests in the service-side protocol implementation, contact Microsoft. [File a feature request](https://feedback.azure.com/forums/169401-azure-active-directory) for additional features you would like to see in the protocol. [Create a support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) if you find an issue where the Azure AD v2.0 endpoint is not compliant with OAuth 2.0 or OpenID Connect 1.0.
+Because you can choose any standards-compliant library when you use the v2.0 endpoint, it’s important to know where to go for support. For issues and feature requests in library code, contact the library owner. For issues and feature requests in the service-side protocol implementation, contact Microsoft. [File a feature request](https://feedback.azure.com/forums/169401-azure-active-directory) for additional features you would like to see in the protocol. [Create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) if you find an issue where the Azure AD v2.0 endpoint is not compliant with OAuth 2.0 or OpenID Connect 1.0.
 
 Libraries come in two support categories:
 

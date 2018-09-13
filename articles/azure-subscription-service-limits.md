@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/11/2018
 ms.author: byvinyal
 
 ---
@@ -47,9 +47,11 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
+* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -195,7 +197,7 @@ See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtu
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### App Service limits
-The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.
+The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -204,6 +206,9 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 
 ### Batch limits
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+### Batch AI limits
+[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
 
 ### BizTalk Services limits
 The following table shows the limits for Azure Biztalk Services.
@@ -289,6 +294,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Azure Maps limits
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### Azure Policy limits
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

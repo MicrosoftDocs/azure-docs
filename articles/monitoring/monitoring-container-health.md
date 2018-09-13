@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 08/15/2018
 ms.author: magoedte
 ---
 
@@ -21,7 +21,7 @@ ms.author: magoedte
 
 This article describes how to set up and use Azure Monitor container health to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on Azure Kubernetes Service (AKS). Monitoring your Kubernetes cluster and containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
-Container health gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable container health, these metrics are automatically collected for you through a containerized version of the Operations Management Suite (OMS) Agent for Linux and stored in your [Log Analytics](../log-analytics/log-analytics-overview.md) workspace. The included pre-defined views display the residing container workloads and what affects the performance health of the Kubernetes cluster so that you can:  
+Container health gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable container health, these metrics are automatically collected for you through a containerized version of the Log Analytics agent for Linux and stored in your [Log Analytics](../log-analytics/log-analytics-overview.md) workspace. The included pre-defined views display the residing container workloads and what affects the performance health of the Kubernetes cluster so that you can:  
 
 * Identify containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
 * Identify where the container resides in a controller or a pod. This knowledge can help you view the controller's or pod's overall performance. 
@@ -57,7 +57,7 @@ During deployment, you can enable monitoring of a new AKS cluster in the Azure p
 To enable monitoring of a new AKS cluster created with Azure CLI, follow the step in the quickstart article under the section [Create AKS cluster](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.43 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 After you've enabled monitoring and all configuration tasks are completed successfully, you can monitor the performance of your cluster in either of two ways:
@@ -222,7 +222,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscroptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
        },
        "aksResourceLocation": {
          "value": "East US"

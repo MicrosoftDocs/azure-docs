@@ -203,5 +203,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * Learn about [cluster security](service-fabric-cluster-security.md).
 * Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
+* Simplify Certificate Management by [Changing cluster from certificate thumbprint to common name](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

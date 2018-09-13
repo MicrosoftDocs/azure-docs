@@ -4,7 +4,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About IoT Device Provisioning
+  - name: About IoT Device Provisioning Service
     href: about-iot-dps.md
 - name: Quickstarts
   expanded: true
@@ -95,7 +95,7 @@
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
     href: how-to-connect-mxchip-iot-devkit.md
-  - name: Manage device provisioning configuration
+  - name: Manage Device Provisioning Service configuration
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
@@ -109,9 +109,9 @@
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
       href: how-to-unprovision-devices.md    
-  - name: Manage device provisioning service
+  - name: Manage Device Provisioning Service
     items:
-    - name: Configure device provisioning service using Azure CLI
+    - name: Configure Device Provisioning Service using Azure CLI
       href: how-to-manage-dps-with-cli.md
     - name: Control access to Provisioning Service APIs
       href: how-to-control-access.md
@@ -129,8 +129,18 @@
     href: how-to-use-sdk-tools.md
 - name: Reference
   items:
-  - name: REST
+  - name: REST API
     href: /rest/api/iot-dps
+  - name: Azure IoT SDK for C
+    href: https://github.com/Azure/azure-iot-sdk-c
+  - name: Azure IoT SDK for Python
+    href: https://github.com/Azure/azure-iot-sdk-python
+  - name: Azure IoT SDK for Node.js
+    href: https://github.com/Azure/azure-iot-sdk-node
+  - name: Azure IoT SDK for Java
+    href: https://github.com/Azure/azure-iot-sdk-java
+  - name: Azure IoT SDK for .NET
+    href: https://github.com/Azure/azure-iot-sdk-csharp
 - name: Related
   items:
   - name: Solutions

@@ -100,7 +100,7 @@ Sync error reports within Azure AD Connect Health for sync are updated every 30 
 >
 
 #### Related Articles
-* [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098)
+* [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
 
 ### ObjectTypeMismatch
 #### Description
@@ -161,7 +161,7 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
 
 #### Related Articles
--[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098)
+-[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
 
 ## Data Validation Failures
 ### IdentityDataValidationFailed
@@ -199,7 +199,7 @@ If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob
 2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of Bob to bob@fabrikam.com as expected.
 
 #### Related Articles
-* [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## LargeObject
 ### Description

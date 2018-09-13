@@ -42,9 +42,9 @@ A Sync Group has the following properties:
 
 ## When to use Data Sync
 
-Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL Databases or SQL Server databases. Here are the main use cases for Data Sync:
+Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL databases or SQL Server databases. Here are the main use cases for Data Sync:
 
--   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
+-   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
 
 -   **Distributed Applications:** In many cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but you also need to run a reporting or analytics workload on this data, it's helpful to have a second database for this additional workload. This approach minimizes the performance impact on your production workload. You can use Data Sync to keep these two databases synchronized.
 
@@ -173,7 +173,10 @@ Not directly. You can sync between SQL Server on-premises databases indirectly, 
 Yes. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
 -   If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 -   Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
-   
+
+### Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China)?
+Yes. You can sync between SQL Databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
+
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them?
 
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.

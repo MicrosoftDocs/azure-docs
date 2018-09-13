@@ -74,7 +74,7 @@ Each JavaScript UDA is defined by a Function object declaration. Following are t
 
 ### Function alias
 
-Function alias is the UDA identifier. When called in Stream Analytics query, always use UDA alias together with a “uda.” prefix.
+Function alias is the UDA identifier. When called in Stream Analytics query, always use UDA alias together with a "uda." prefix.
 
 ### Function type
 
@@ -163,13 +163,13 @@ Now let’s create a JavaScript UDA under an existing ASA job by following steps
     }
     ````
 
-1. Once you click the “Save” button, your UDA shows up on the function list.
+1. Once you click the "Save" button, your UDA shows up on the function list.
 
-1. Click on the new function “TWA”, you can check the function definition.
+1. Click on the new function "TWA", you can check the function definition.
 
 ## Calling JavaScript UDA in ASA query
 
-In Azure portal and open your job, edit the query and call TWA() function with a mandate prefix “uda.”. For example:
+In Azure portal and open your job, edit the query and call TWA() function with a mandate prefix "uda.". For example:
 
 ````SQL
 WITH value AS

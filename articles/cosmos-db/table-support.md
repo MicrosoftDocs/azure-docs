@@ -23,12 +23,12 @@ Azure Cosmos DB Table API and Azure Table storage share the same table data mode
 ## Developing with the Azure Cosmos DB Table API
 
 At this time, the [Azure Cosmos DB Table API](table-introduction.md) has four SDKs available for development: 
-- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK. This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API. 
+- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK. This library has the same classes and method signatures as the public [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API. Note that the `Microsoft.Azure.CosmosDB.Table` library is currently available for .NET Standard only, it's not yet available for .NET Core.
 - [Python SDK](table-sdk-python.md). The new Azure Cosmos DB Python SDK is the only SDK that supports Azure Table storage in Python. This SDK connects with both Azure Table storage and Azure Cosmos DB Table API.
 - [Java SDK](table-sdk-java.md). This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 - [Node.js SDK](table-sdk-nodejs.md). This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
-Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api) article.
+Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](faq.md#table) article.
 
 ## Developing with Azure Table storage
 

@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 08/20/2018
 ms.author: danlep
 
 ---
@@ -29,9 +29,9 @@ This article introduces ways to generate and use secure shell (SSH) keys on a Wi
 ## Windows packages and SSH clients
 You connect to and manage Linux VMs in Azure using an *SSH client*. Computers running Linux or macOS usually have a suite of SSH commands to generate and manage SSH keys and to make SSH connections. 
 
-Windows computers do not always have comparable SSH commands installed. Windows 10 versions that include the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) allow you to run and access utilities such as an SSH client natively within a Bash shell. 
+Windows computers do not always have comparable SSH commands installed. Recent versions of Windows 10 provide [OpenSSH client commands](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) to create and manage SSH keys and make SSH connections from a Command Prompt. Recent Windows 10 versions also include the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) to run and access utilities such as an SSH client natively within a Bash shell. 
 
-If you wish to use something other than Bash for Windows, common Windows SSH clients you can install locally are included in the following packages:
+If you wish to use another SSH tool for Windows, common Windows SSH clients you can install locally are included in the following packages:
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git For Windows](https://git-for-windows.github.io/)
@@ -48,7 +48,7 @@ This section shows you two options to create an SSH key pair on Windows.
 
 ### Create SSH keys with ssh-keygen
 
-If you can run a command shell such as Bash for Windows or GitBash (or Bash in Azure Cloud Shell), create an SSH key pair using the `ssh-keygen` command. Type the following command, and answer the prompts. If an SSH key pair exists in the current location, those files are overwritten. 
+If you run a command shell on Windows that supports SSH client tools (or you use Azure Cloud Shell), create an SSH key pair using the `ssh-keygen` command. Type the following command, and answer the prompts. If an SSH key pair exists in the current location, those files are overwritten. 
 
 ```bash
 ssh-keygen -t rsa -b 2048

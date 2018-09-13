@@ -1,6 +1,6 @@
 ---
-title: How to page through the available webpages | Microsoft Docs
-description: Shows how to page through all of the webpages that Bing can return.
+title: How to page through Bing Web Search API results | Microsoft Docs
+description: Learn how to page through Bing Web Search API results. 
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,17 +8,17 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
+ms.date: 08/20/2018
+ms.author: erhopf
 ---
 
-# Paging webpages 
+# How to page through Bing Web Search API results
 
 When you call the Web Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) field.  
   
 The following example shows the `totalEstimatedMatches` field that a Web answer includes.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -27,7 +27,7 @@ The following example shows the `totalEstimatedMatches` field that a Web answer 
         "value" : [...]
     }
 }  
-```  
+```
   
 To page through the available webpages, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) query parameters.  
   
