@@ -24,6 +24,10 @@ For the Visual Studio extension, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENA
 
 In the CLI, you can output more information during command execution by using the `--verbose` switch.
 
+## Debugging services with multiple instances
+
+At this time, Azure Dev Spaces supports debugging only on a single instance (pod). The azds.yaml file contains a setting, replicaCount, that indicates the number of instances that will be run for your service. If you change the replicaCount to configure your app to run multiple instances for a given service, the behavior of the debugger might not be as expected.
+
 ## Error 'Failed to create Azure Dev Spaces controller'
 
 You might see this error when something goes wrong with the creation of the controller. If it's a transient error, deleting and recreating the controller will fix it.
