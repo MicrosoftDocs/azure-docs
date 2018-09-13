@@ -134,7 +134,7 @@ Perform the following steps to provision a device in your hypervisor.
     <!--![](./media/data-box-gateway-deploy-provision-hyperv/image11.png)-->
 14. On the **Hard drive** page, select the **Virtual hard disk** option and click **New**. The **New Virtual Hard Disk Wizard** starts.
 
-    <!--![](./media/data-box-gateway-deploy-provision-hyperv/image12.png)->
+    <!--![](./media/data-box-gateway-deploy-provision-hyperv/image12.png)-->
 15. On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
 16. On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**.
    
