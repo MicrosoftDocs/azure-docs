@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service and SDK
+title: Speech Service API Documentation
 metadata:
-  title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  title: Speech Service API Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: |
     The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
     Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
@@ -19,7 +19,7 @@ metadata:
   ms.author: nitinme
 
 abstract:
-  description: Learn how to use the Speech Serviec and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps.
+  description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps.
   aside:
     image:
       alt: 
@@ -45,7 +45,7 @@ sections:
           html: <p>Learn how to sign up for the Speech service for free.</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Sign up for the Speech Service
+          title: Sign up for Speech Service
         - href: /azure/cognitive-services/speech-service/speech-devices-sdk
           html: <p>Learn about the speech-enabled hardware reference</p>
           image:
@@ -150,7 +150,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: 'Find samples for Speech Service'
+    text: 'Find samples for Speech Service:'
   - type: list
     style: unordered
     items: 
