@@ -38,7 +38,7 @@ You need:
 4. Choose **last 24 hours** in the **Date range** filter drop-down and select **Apply** to view the audit logs for the past 24 hours. 
 5. Select the **Download** button to download a CSV file containing the filtered records. 
 
-![Reporting](./media/quickstart-download-sign-in-report/download-audit-logs.png)
+![Reporting](./media/quickstart-download-audit-report/download-audit-logs.png)
 
 ## Next steps
 
