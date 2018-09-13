@@ -77,7 +77,7 @@ The CSV file should have the following columns (and headers)
 
 
 
-**Import devices** to register them in your application
+Import devices to register them in your application
 1.  Choose **Explorer** on the left navigation menu.
 1.  On the left panel, choose the device template for which you want to bulk create the devices. 
 1.  Click **Import**, select the CSV file that has the list of Device IDs to be imported.
@@ -86,8 +86,7 @@ The CSV file should have the following columns (and headers)
     *   IOTC_DeviceName (Optional)
 1.  Once the import completes, a success message is shown on the device grid.
 
-**Export devices** to get the connection details, Export creates a CSV file with  Device Id, Device Name, and the Device Key. Use these details to connect the device to IoT Central.
-
+Export devices to get the connection details, Export creates a CSV file with  Device Id, Device Name, and the Device Key. Use these details to connect the device to IoT Central.
  To bulk export devices from your application:
 1.  Choose **Explorer** on the left navigation menu.
 1.  Select the devices that you want to export and then click the **Export** action.
@@ -104,19 +103,22 @@ The CSV file should have the following columns (and headers)
 
 **Device set up**
 
-1. Use these connection details **Device Identity (IOTC_DEVICEID), Device Primary Key( IOTC_SASKEY_PRIMARY) and Scope ID** in your device code to provision and connect your device.
+Use these connection details **Device Identity (IOTC_DEVICEID), Device Primary Key( IOTC_SASKEY_PRIMARY) and Scope ID** in your device code to provision and connect your device.
 If you have not already, get the **Scope Id** from your IoT Central App **Administration >   Device Connection > Scope ID**.
 
-    * **MxChip:** If you are using an MxChip to connect follow [the step-by-step instructions here](howto-connect-devkit.md#add-a-real-device), start from the section **Prepare the DevKit device**.   
-    *   **C language:** If you are using C please follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
+If you are using an **MxChip** to connect follow [the step-by-step instructions here](howto-connect-devkit.md#add-a-real-device), start from the section **Prepare the DevKit device**.   
+    
+**References** 
 
-         ```
-         hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
+ **C language:** If you are using C  follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
+
+```
+hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
      
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
-        ```
-    * **Node.js:**  If you want to use Node.js [use this step-by-step guide to add a device](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
+static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
+static const char* const REGISTRATION_NAME = "Enter Device Id here";
+ ```
+**Node.js:**  If you want to use Node.js [use this step-by-step guide to add a device](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
 
 
 ## Connect devices using X509 certificates
