@@ -10,12 +10,12 @@
  ms.custom: include file
 ---
 
-1. On the **Wide area networks (WANs)** page, select the WAN that you created. From the left menu, select the **Getting started** page. This page shows you the order in which you should create your virtual WAN resources. You need to complete steps 1-4 in order to create a functional WAN. You can create sites and hubs in either order, as they do not depend on each other. However, you must have both sites and hubs created prior to associating them.
+On the **Wide area networks (WANs)** page, select the WAN that you created. From the left menu, select the **Getting started** page. This page shows you the order in which you should create your virtual WAN resources. You need to complete steps 1-4 in order to create a functional WAN. You can create sites and hubs in either order, as they do not depend on each other. However, you must have both sites and hubs created prior to associating them.
 
-  The steps are: 
+The steps are: 
 
-  1. Create sites
-  2. Create hubs
-  3. Associate sites with hubs
-  4. Download file
-  5. Connect hubs with virtual network (optional)
+1. Create sites
+2. Create hubs
+3. Associate sites with hubs
+4. Download file
+5. Connect hubs with virtual network (optional for some configurations)
