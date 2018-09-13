@@ -21,7 +21,7 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 ## Prerequisites
 
 * A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
-* A Mac with XCode 9.4.1 installed as iOS development environment. This tutorial targets iOS versions 11.4. If you don't have XCode yet, you can install it from the [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+* A Mac with Xcode 9.4.1 installed as iOS development environment. This tutorial targets iOS versions 11.4. If you don't have Xcode yet, you can install it from the [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## Get the Speech SDK for iOS
 
@@ -32,9 +32,9 @@ The current version of the Cognitive Services Speech SDK is `1.0.0`.
 The Cognitive Services Speech SDK for Mac and iOS can be downloaded as a zip-file from https://aka.ms/csspeech/iosbinary. Download and copy the files to the `speechsdk` subdirectory in your home directory.
 
 
-## Create an XCode Project 
+## Create an Xcode Project 
 
-Start XCode, and start a new project by clicking **File** > **New** > **Project**.
+Start Xcode, and start a new project by clicking **File** > **New** > **Project**.
 In the template selection dialog, choose the "iOS Single View App" template.
 
 In the dialogs that follow, make the following selections:
@@ -46,7 +46,7 @@ In the dialogs that follow, make the following selections:
     1. Disable all checkboxes for tests and core data.
     ![Project Settings](media/sdk/qs-objectivec-project-settings.png)
 1. Select project directory
-    1. Choose your home directory to put the project in. This will create a `helloworld` directory in your home directory that contains all the files for the XCode project.
+    1. Choose your home directory to put the project in. This will create a `helloworld` directory in your home directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.
     1. Adjust the paths to the SDK in the *Project Settings*.
         1. In the **General** tab under the **Linked Frameworks and Libraries** header, add the SDK library as a framework: **Add framework** > **Add other...** > Navigate to `speechsdk/lib/` in your home directory and choose the file `libMicrosoft.CognitiveServices.Speech.core.dylib`.
