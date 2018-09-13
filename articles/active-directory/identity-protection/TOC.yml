@@ -20,7 +20,7 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Enable Identity Protection
+  - name: Enable Azure AD Identity Protection
     href: enable.md
   - name: Configure the MFA registration policy
     href: howto-mfa-policy.md
