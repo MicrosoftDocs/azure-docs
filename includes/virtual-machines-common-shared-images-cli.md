@@ -10,6 +10,16 @@
  ms.custom: include file
 ---
 
+## Preview: Register the feature
+
+Shared Image Galleries is in preview, but you need to register the feature before you can use it. To register the Shared Image Galleries feature:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name GalleryPreview
+az provider register -n Microsoft.Compute
+```
+
+
 ## Create an image gallery 
 
 An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. Create an image gallery using [az sig create](/cli/azure). The following example creates a gallery named *myGallery* in *myGalleryRG*.

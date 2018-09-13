@@ -16,6 +16,15 @@
 $managedImage = xxxx -Image $managedImageConfig -ImageName myManagedImage -ResourceGroupName myResourceGroup
 
 
+## Preview: Register the feature
+
+Shared Image Galleries is in preview, but you need to register the feature before you can use it. To register the Shared Image Galleries feature:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
 ## Create a gallery image 
 
 Create a configuration file for the gallery image and then create the image. In this example, the gallery image is named *myGalleryImage*.
