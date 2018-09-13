@@ -58,7 +58,7 @@
 ##### [Add a guest user with PowerShell](b2b/b2b-quickstart-invite-powershell.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Tutorials](b2b/tutorial-bulk-invite.md)
-##### [Bulk invite B2B guest users](b2b/tutorial-bulk-invite.md)
+##### [Bulk invite B2B guest users](b2b/b2b-tutorial-bulk-invite.md)
 ##### [Enforce multi-factor authentication](b2b/b2b-tutorial-require-mfa.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
 #### [Enforce multi-factor authentication](b2b/b2b-tutorial-require-mfa.md)
