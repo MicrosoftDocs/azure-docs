@@ -10,7 +10,7 @@
 - name: 'Quickstarts'
   items:
   - name: Access the portal and create a tenant
-    href: active-directory-access-azure-ad.md
+    href: active-directory-access-create-new-tenant.md
   - name: View your groups with assigned members
     href: active-directory-groups-view-azure-portal.md
   - name: Sign up for Azure AD Premium
