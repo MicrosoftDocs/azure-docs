@@ -12,15 +12,13 @@ ms.author: nepeters
 
 # Storing Terraform state in Azure Storage
 
-Terraform state is used to reconcile deployed resources with Terraform configurations. Using state, Terraform knows what resources need to be added, updated, or deleted. By default Terraform state is stored locally when running `terraform apply`. This configuration is not ideal for a few reasons:
+Terraform state is used to reconcile deployed resources with Terraform configurations. Using state, Terraform knows what resources need to be added, updated, or deleted. By default Terraform state is stored locally when running *terraform apply*. This configuration is not ideal for a few reasons:
 
 Local state does not work well in a team or collaborative environment
 
-Terraform state can include sensitive information
-
-Storing Terraform state locally increases the chance of inadvertent deletion
-
-Terraform includes the concept of a state backend, which is remote storage for Terraform state. When using a state backend, the state file is stored in a data store such as Azure Storage.
+- Terraform state can include sensitive information
+- Storing Terraform state locally increases the chance of inadvertent deletion
+- Terraform includes the concept of a state backend, which is remote storage for Terraform state. When using a state backend, the state file is stored in a data store such as Azure Storage.
 
 This document details how to configure and use Azure Storage as a Terraform state backend.
 
@@ -52,14 +50,12 @@ Take note of the Storage account name, container name, and storage access key. T
 
 ## Configure state backend
 
-The Terraform state backend is configured when running `terraform init`. In order to configure the state backend, the following data is required. Additional configuration options are details in the [Terraform documentation for azurerm backends][terraform-azurerm].
+The Terraform state backend is configured when running *terraform init*. In order to configure the state backend, the following data is required. Additional configuration options are details in the [Terraform documentation for azurerm backends][terraform-azurerm].
 
-| item | description |
-|---|---|
-| storage_account_name | The name of the Azure storage account. |
-| container_name | The name of the blob container. |
-| key | The name of the state store file to be created. |
-| access_key | The storage access key. |
+- storage_account_name - The name of the Azure storage account.
+- container_name - The name of the blob container.
+- key - The name of the state store file to be created.
+- access_key - The storage access key.
 
 Each of these values can be specified in the Terraform configurations, however it is recommended to use an Environment variable for the `access_key`. Using an environment variable prevents the key from being written to disk.
 
