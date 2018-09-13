@@ -100,7 +100,7 @@ For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
 
 Here is an example for deploying an ONNX model:
 
-1. Initialize your Azure Machine Learning Workspace. (Learn how to create a workspace in [this quickstart](quickstart-get-started.md).)
+1. Initialize your Azure Machine Learning Workspace. If you don't have one yet, learn how to create a workspace in [this quickstart](quickstart-get-started.md).
 
    ```python
    from azureml.core import Workspace
@@ -189,8 +189,7 @@ Here is an example for deploying an ONNX model:
 
 ## Examples
  
-learn more with this [sample notebook]()
-The following notebook demonstrate pipelines with Azure Machine Learning: http://aka.ms/aml-onnx-training-notebook
+The following notebook demonstrate how pipelines work with Azure Machine Learning: http://aka.ms/aml-onnx-training-notebook.
  
 Get this notebook:
  
