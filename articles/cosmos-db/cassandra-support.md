@@ -1,20 +1,18 @@
 ---
-title: Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API | Microsoft Docs
+title: Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
 services: cosmos-db
 author: kanshiG
-
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/18/2018
-ms.author: govindk
-ms.reviewer: sngun
- 
----
+ ---
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through Cassandra Query Language(CQL) v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through Cassandra Query Language (CQL) v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
 
 By using the Azure Cosmos DB Cassandra API, you can enjoy the benefits of the Apache Cassandra APIs as well as the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](distribute-data-globally.md), [automatic scale out partitioning](partition-data.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
@@ -144,7 +142,7 @@ Azure Cosmos DB supports the following database commands on all Cassandra API ac
 
 * DELETE
 
-All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed, activity ID. Delete/update needs to be handled in resource governance safe way to avoid over use of provisioned resources. 
+All crud operations when executed through CQLV4 compatible SDK will return extra information about error, request units consumed, activity ID. Delete and update commands need to be handled with resource governance in consideration, to avoid over use of provisioned resources. 
 
 ```csharp
 var tableInsertStatement = table.Insert(sampleEntity); 
