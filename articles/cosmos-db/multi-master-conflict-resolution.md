@@ -153,4 +153,4 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 
 In this article, you learned about conflict categories and conflict resolution modes for Azure Cosmos DB. Next, take a look at the following resources:
 
-* [Multi-master conflict resolution sample for .NET]()
+* [Multi-master support in MongoDB API](mongodb-multi-master-support.md)
