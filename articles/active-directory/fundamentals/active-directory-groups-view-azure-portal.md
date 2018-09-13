@@ -82,6 +82,11 @@ If you’re not going to continue to use this application, you can delete the gr
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.
 
 ## Next steps
-For more ways to interact with your groups and members, you can see the Groups How-to guides active-directory-groups-how-to-overview.md. - article in other branch, will update at merge.
+After you find your group and see the members, you can continue to:
+- [Add or remove members](active-directory-groups-members-azure-portal.md)
 
-For more complex concepts and processes about groups, see the [Azure Active Directory users, groups, roles, and licenses documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/).
+- [Use the group to manage access to resources](active-directory-manage-groups.md)
+
+- [Add group owners](active-directory-accessmanagement-managing-group-owners.md)
+
+For more complex concepts and processes about groups, such as creating and using dynamic groups, delegating, and working with SaaS apps, see the [Azure Active Directory users, groups, roles, and licenses documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/).
