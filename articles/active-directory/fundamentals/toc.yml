@@ -1,6 +1,7 @@
 - name: Fundamentals Documentation
   href: index.yml
 - name: 'Overview'
+  expanded: true
   items:
   - name: What's new in Azure Active Directory
     href: whats-new.md
@@ -65,7 +66,7 @@
       href: active-directory-users-assign-role-azure-portal.md
     - name: Assign or remove licenses from users
       href: license-users-groups
-    - name: Restore a deleted user
+    - name: Restore a deleted user.md
       href: active-directory-users-restore.md
 - name: 'Resources'
   items:
