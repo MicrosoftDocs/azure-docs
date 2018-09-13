@@ -1,6 +1,6 @@
 ---
 title: Train Machine Learning Models with Azure Machine Learning
-description: Learn how to execute single-node and distributed training of traditional ML and deep learning models with Azure Machine Learning services
+description: Learn how to perform single-node and distributed training of traditional ML and deep learning models with Azure Machine Learning services
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -50,11 +50,11 @@ The above code snippet specifies the following parameters to the Estimator const
 * `folder`: The local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute 
 * `script_params`: A dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
 * `compute_target`: The remote compute that your training script will run on, in this case a [Managed Compute]() cluster
-* `entry_script`: The filepath (relative to the `folder` directory) of the training script to be executed on the remote compute. This file, and any additional files it depends on, should be located in this folder
+* `entry_script`: The filepath (relative to the `folder` directory) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 * `conda_packages`: The list of Python packages to be installed via conda needed by your training script.  
 The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 
-Now that you've created your Estimator object, you can submit the training job to be executed on the remote compute via a call to the `submit` function on your [Experiment]() object `experiment`. 
+Now that you've created your Estimator object, you can submit the training job to be run on the remote compute via a call to the `submit` function on your [Experiment]() object `experiment`. 
 
 The `submit` method can optionally take `inputs` and `script_params` params. The dictionary specified to `script_params` will get merged with the value of `script_params` in the Estimator constructor. This allows you to change values to your script's arguments during the `submit` call even after your Estimator object has already been created.
 
@@ -67,7 +67,7 @@ print(run.get_details().status)
 > **Special Folders**
 > Two folders, *outputs* and *logs*, receive special treatment by Azure ML. During training, if you write files to folders named *outputs* and *logs* that are relative to the root directory (`./outputs` and `./logs`, respectively), these files will get automatically uploaded to your run history so that you will have access to them once your run is finished. 
 >
-> For any artifacts such as model files, checkpoints, data files, or plotted images that your script produces during execution that you would like access to once your run is over, write these to the `./outputs` folder.
+> To access artifacts created during training (such as model files, checkpoints, data files, or plotted images) write these to the `./outputs` folder.
 >
 > Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure ML's [TensorBoard integration]() make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of you previous AML runs.
 >
