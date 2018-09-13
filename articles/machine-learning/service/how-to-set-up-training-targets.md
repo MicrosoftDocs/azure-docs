@@ -244,7 +244,7 @@ For more information on using the BatchAiCompute object, see the reference docum
 
 ## Azure Container Instance (ACI)
 
-Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. Linux-based ACI is available in westus, eastus, westeurope, northeurope, westus2, and southeastasia regions. See details [here](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quotas#region-availability). The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
+Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. Linux-based ACI is available in westus, eastus, westeurope, northeurope, westus2, and southeastasia regions. See details [here](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
 
 ```python
 from azureml.core.runconfig import RunConfiguration
