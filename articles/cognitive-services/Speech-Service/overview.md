@@ -51,7 +51,7 @@ Once created, your custom models can be used anywhere you'd use the standard mod
 
 To simplify the development of speech-enabled applications, Microsoft provides the [Speech SDK](speech-sdk.md) for use with the new Speech service. The Speech SDK provides consistent native Speech to Text and Speech Translation APIs for C#, C++, and Java. If you're developing with one of these languages, the Speech SDK makes development easier by handling the network details for you.
 
-The Speech service also has a [REST API](rest-apis.md) that works with any programming language that can make HTTP requests. The REST interface, however, does not offer the streaming, real-time functionality ofthe SDK.
+The Speech service also has a [REST API](rest-apis.md) that works with any programming language that can make HTTP requests. The REST interface, however, does not offer the streaming, real-time functionality of the SDK.
 
 |<br>Method|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|<br>Description|
 |-|-|-|-|-|
