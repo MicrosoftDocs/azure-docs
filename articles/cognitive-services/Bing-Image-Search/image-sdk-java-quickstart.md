@@ -20,7 +20,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites 
 
-* The latest version of the [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK)
+The latest version of the [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK)
 
 Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 
