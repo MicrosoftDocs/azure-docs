@@ -23568,6 +23568,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/governance/index.md",
+            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
             "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
             "redirect_document_id": true
