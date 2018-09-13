@@ -31,44 +31,46 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 1. To add a new telemetry-based rule to your application, in the left navigation menu, choose **Device Explorer**:
 
-    ![Device Explorer page](media/tutorial-configure-rules/explorerpage.png)
+    ![Device Explorer page](media/tutorial-configure-rules/explorerpage1.png)
 
     You see the **Connected Air Conditioner (1.0.0)** device template and the **Connected Air Conditioner-1** device you created in the previous tutorial.
 
 2. To start customizing your connected air conditioner device, choose the device you created in the previous tutorial:
 
-    ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist.png)
+    ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist1.png)
 
 3. To start adding a rule in the **Rules** view, choose **Rules**:
 
-    ![Rules view](media/tutorial-configure-rules/builderrulesview.png)
+    ![Rules view](media/tutorial-configure-rules/builderrulesview1.png)
 
 4. To start creating the threshold-based telemetry rule, select **Edit Template**, click **New Rule**, and then **Telemetry**.
 
 5. To define your rule, use the information in the following table:
 
-    | Setting     | Value                          |
-    | ----------- | ------------------------------ |
-    | Name        | Air conditioner temperature    |
-    | Enable rule | On                             |
-    | Condition   | Temperature is greater than 90 |
+    | Setting                                      | Value                             |
+    | -------------------------------------------- | ------------------------------    |
+    | Name                                         | Air conditioner temperature alert |
+    | Enable rule for all devices of this template | On                                |
+    | Enable rule on this device                   | On                                |
+    | Condition                                    | Temperature is greater than 90    |
+    | Aggregation                                  | None                              |
 
-    ![Temperature rule condition](media/tutorial-configure-rules/buildertemperaturerule.png)
+    ![Temperature rule condition](media/tutorial-configure-rules/buildertemperaturerule1.png)
 
 ## Add an action
 
 When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you add an action to send an email as a notification that the rule triggered.
 
-1. To add an **Action**, scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**:
+1. To add an **Action**, first **Save** the rule and then scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**:
 
-    ![Temperature rule action](media/tutorial-configure-rules/builderaddaction.png)
+    ![Temperature rule action](media/tutorial-configure-rules/builderaddaction1.png)
 
 2. To define your action, use the information in the following table:
 
     | Setting   | Value                          |
     | --------- | ------------------------------ |
     | To        | Your email address             |
-    | Notes     | Temperature in air conditioner exceeded threshold. |
+    | Notes     | Air conditioner temperature exceeded the threshold. |
 
     > [!NOTE]
     > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
@@ -77,7 +79,7 @@ When you define a rule, you also define an action to run when the rule condition
 
 3. Choose **Save**. Your rule is listed on the **Rules** page:
 
-    ![Application Builder rules](media/tutorial-configure-rules/builderrules.png)
+    ![Application Builder rules](media/tutorial-configure-rules/builderrules1.png)
 
 ## Test the rule
 
