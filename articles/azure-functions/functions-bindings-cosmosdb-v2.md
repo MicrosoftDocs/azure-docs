@@ -200,7 +200,11 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 The following example shows a Cosmos DB trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
 
 Here's the binding data in the *function.json* file:
+
+```json
+{
     "name": "documents",
+    "type": "cosmosDBTrigger",
     "direction": "in",
     "leaseCollectionName": "leases",
     "connectionStringSetting": "<connection-app-setting>",
@@ -1209,6 +1213,7 @@ Here's the binding data in the *function.json* file:
     "direction": "out"
 }
 ```
+
 The [configuration](#input---configuration) section explains these properties.
 
 Here's the Python code:
