@@ -25,7 +25,7 @@ Azure Dedicated HSM provides a cryptographic key storage in Azure that meets the
 
 ### FIPS 140-2 Level 3 Compliance
 
-Many environments must follow industry regulations that dictate cryptographic key storage meets [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) requirements. Microsoft’s multi-tenant Azure Key Vault service currently only provides FIPS 140-2 Level 2 certification. Azure Dedicated HSM fulfills a real need for financial services industry, government agencies, and others who must meet FIPS 140-2 Level 3 requirements.
+Some environments must follow industry regulations that dictate cryptographic key storage meets [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) requirements. Microsoft’s multi-tenant Azure Key Vault service currently only provides FIPS 140-2 Level 2 certification. Azure Dedicated HSM fulfills a real need for financial services industry, government agencies, and others who must meet FIPS 140-2 Level 3 requirements.
 
 ### Single Tenant Devices
 
