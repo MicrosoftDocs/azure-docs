@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Ingest data from Event Hub into Azure Kusto'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Kusto from Event Hub.'
+title: 'Quickstart: Ingest data from Event Hub into Azure Data Explorer'
+description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
 services: kusto
 author: mgblythe
 ms.author: mblythe
@@ -8,21 +8,125 @@ ms.reviewer: mblythe
 ms.service: kusto
 ms.topic: quickstart
 ms.date: 09/24/2018
+
+#Customer intent: As a database administrator, I want to ingest data into Data Explorer for Event Hub so I can analyze patterns in streaming data.
 ---
 
-# Quickstart: Ingest data from Event Hub into Azure Kusto
+# Quickstart: Ingest data from Event Hub into Azure Data Explorer
 
-Azure Kusto offers ingestion from [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about), a big data streaming platform and event ingestion service that can handle the processing of millions of events per second in near real-time.
+Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can handle the processing of millions of events per second in near real-time. In this quickstart, you create an event hub, connect to it from Data Explorer, then see data flow through the system.
 
-## Data format
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* Kusto will read data from the Event Hub in form of [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) objects.
-* Event payload must contain one or more records to be ingested, uncompressed.
-* Supported formats are CSV and JSON.
+## Prerequisites
 
-## Events routing
+* To complete this quickstart, you must first [provision a cluster and database](create-cluster-database-portal.md).
 
-Event Hub ingestion can be set up for either static or dynamic events routing:
+* To run sample code requires [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/).
+
+## Sign in to the Azure portal
+
+Sign in to the [Azure portal](https://portal.azure.com/).
+
+## Create an event hub
+
+In this quickstart, you generate sample data and send it to an event hub. The first step is to create an event hub. You do this by using an Azure Resource Manager (ARM) template in the Azure portal.
+
+1. Select the following button to start the deployment.
+
+    [![Deploy to Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+
+    The **Deploy to Azure** button takes you to the Azure portal to fill out a deployment form.
+
+    ![Deploy to Azure](media/ingest-data-event-hub/deploy-to-azure.png)
+
+1. Select the subscription where you want to create the event hub, and create a resource group named *test-hub-rg*.
+
+    ![Create a resource group](media/ingest-data-event-hub/create-resource-group.png)
+
+1. Fill out the form with the following information.
+
+    ![Deployment form](media/ingest-data-event-hub/deployment-form.png)
+
+    Use defaults for any settings not listed in the following table.
+
+    **Setting** | **Suggested value** | **Field description**
+    |---|---|---|
+    | Subscription | Your subscription | Select the Azure subscription that you want to use for your event hub.|
+    | Resource group | *test-hub-rg* | Create a new resource group. |
+    | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs.
+    | Namespace name | A unique namespace name | Choose a unique name that identifies your namespace. For example, *mytestnamespace*. The domain name *servicebus.windows.net* is appended to the name you provide. The name can contain only letters, numbers, and hyphens. The name must start with a letter, and it must end with a letter or number. The value must be between 6 and 50 characters long.
+    | Event hub name | *test-hub* | The event hub sits under the namespace, which provides a unique scoping container. The event hub name must be unique within the namespace. |
+    | Consumer group name | *test-group* | Consumer groups enable multiple consuming applications to each have a separate view of the event stream. |
+    | | |
+
+1. Select **Purchase**, which acknowledges that you're creating resources in your subscription.
+
+1. Select **Notifications** on the toolbar (the bell icon) to monitor the provisioning process.
+
+    It might take several minutes for the deployment to succeed, but you can move on to the next step.
+
+## Add a target table to Data Explorer
+
+You now add a table in Data Explorer, which Event Hubs will send data to. You create the table in the cluster and database you created in the prerequisites.
+
+1. In the Azure portal, under the cluster you created, select **Query Explorer**.
+
+    ![Query Explorer link](media/ingest-data-event-hub/query-explorer-link.png)
+
+1. Copy the following command into the window and select **Run**.
+
+    ```Kusto
+    .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
+    ```
+
+    ![Run create query](media/ingest-data-event-hub/run-create-query.png)
+
+1. Copy the following command into the window and select **Run**.
+
+    ```Kusto
+    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
+    ```
+    This command maps incoming JSON to the column names and data types you used when creating the table.
+
+## Connect to the event hub
+
+Now you connect to the event hub from Data Explorer, so that data flowing into the event hub is streamed to the test table.
+
+1. Select **Notifications** on the toolbar to verify that the event hub deployment succeeded.
+
+1. Under the event hub namespace you created, select **Shared access policies**, then **RootManageSharedAccessKey**.
+
+    ![Shared access policies](media/ingest-data-event-hub/shared-access-policies.png)
+
+1. Copy **Connection string - primary key**. You need this shortly.
+
+    ![Connection string](media/ingest-data-event-hub/connection-string.png)
+
+1. Under the cluster you created, select **Databases** then **TestDatabase**.
+
+    ![Select test database](media/ingest-data-event-hub/select-test-database.png)
+
+1. Select **Data ingestion** then **Create**.
+
+    ![Data ingestion](media/ingest-data-event-hub/data-ingestion-create.png)
+
+1. Fill out the form with the following information.
+
+    ![Event hub connection](media/ingest-data-event-hub/event-hub-connection.png)
+
+    **Setting** | **Suggested value** | **Field description**
+    |---|---|---|
+    | Data connection name | *test-hub-connection* | The name of the connection you want to create in Data Explorer.|
+    | Event hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
+    | Event hub | *test-hub* | The event hub you created. |
+    | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
+    | Event hub namespace connection string | A unique string from your namespace | The string you copied earlier from **Connection string - primary key**. |
+    | Table | *TestTable* | The table you created in **TestDatabase**. |
+    | File format | *JSON* | JSON and CSV formats are supported. |
+    | Table | *TestMapping* | The mapping you created in **TestDatabase**. |
+
+### Event Hub ingestion can be set up for either static or dynamic events routing:
 
 * Dynamic routing means that events read from a single Event Hub can land in different tables in your Kusto cluster. This requires the following properties to be added to the [EventData.Properties](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties) bag:
 
@@ -35,86 +139,17 @@ Event Hub ingestion can be set up for either static or dynamic events routing:
 
 * Static routing means that there is a 1:1 mapping from an Event Hub to the ingestion properties {Table, Format, IngestionMappingReference}, that need to be specified during onboarding.
 
-## Prerequisites
+## Generate sample data
 
-* An Event Hub: Kusto will read data directly from your Event Hub.
+## Review sample data flow
 
-* A Kusto cluster and a database.
+## Clean up resources
 
-* One or more tables. Using 'json' format requires ingestion mapping to be created on table(s).
+Drop table and EH resource group.
 
-## Provision an Event Hub
+## Next steps
 
-If you already own an Event Hub, skip this part.
+## Next steps
 
-* Go to [Event Hubs management](https://ms.portal.azure.com/#create/Microsoft.EventHub).
-
-* Review service overview and pricing details if needed.
-
-* Click 'Create'.
-
-    ![alt text](media/ingest-data-event-hub/eventhub-01.png)
-
-* Define your Event Hub Namespace:
-
-  * Provide a name and select pricing tier, according to the expected data volume and rate. Consult [Event Hub pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/).
-
-  * Select a subscription, a resource group, and location.
-
-  * Configure throughput. Consult [Event Hub pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/).
-
-  * Click 'Create'.
-
-    ![alt text](media/ingest-data-event-hub/eventhub-02.png)
-
-  * Event Hub Namespace Connection String: Once the namespace was created, go to 'Shared access policies'. Copy the connection string of 'RootManageSharedAccessKey', you will need it later.
-
-    ![alt text](media/ingest-data-event-hub/eventhub-03.png)
-
-* Create an Event Hub:
-
-  * Go to 'Event Hubs' settings and click on add Event Hub.
-
-  * Provide a name. Keep the Event Hub name for later.
-
-  * Select partition count.
-
-  * Select message retention.
-
-  * Click 'Create'.
-
-    ![alt text](media/ingest-data-event-hub/eventhub-04.png)
-
-  * Go to the created Event Hub and optionally create a consumer group. A default one is created for you. Copy the consumer group name you wish to be used by Kusto for data ingestion.
-
-## Connect your Event Hub to Kusto as an ingestion source
-
-* Go your database on Azure portal and select 'Data Ingestion' settings.
-
-    ![alt text](media/ingest-data-event-hub/eventhub-05.png)
-
-* Provide the following details:
-  
-  * Data connection name
-  
-  * Event Hub namespace connection string
-  
-  * Event Hub name
-  
-  * Event Hub resource id
-  
-  * Consumer group name
-
-* Optionally provide static ingestion properties:
-  
-  * Table name
-  
-  * Data format
-  
-  * Column mapping
-
-* Click 'Create'.
-
-    ![alt text](media/ingest-data-event-hub/eventhub-06.png)
-
-Your Event Hub is now connected to your Kusto database. Start sending events to the Event Hub and watch the data flowing.
+> [!div class="nextstepaction"]
+> [Explore data](explore-data)
