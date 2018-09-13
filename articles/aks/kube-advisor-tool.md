@@ -40,7 +40,7 @@ kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --r
 
 Within a few seconds, you should see a table describing potential improvements to your deployments.
 
-![Kube-advisor output](./media/kube-advisor-tool/kube-advisor-output.png)
+![Kube-advisor output](media/kube-advisor-tool/kube-advisor-output.png)
 
 ## Checks performed
 
