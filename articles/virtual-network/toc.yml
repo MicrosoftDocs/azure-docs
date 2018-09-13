@@ -51,6 +51,8 @@
     href: virtual-network-disaster-recovery-guidance.md
   - name: IP addressing
     href: virtual-network-ip-addresses-overview-arm.md
+  - name: Public IP prefix
+    href: public-ip-address-prefix.md
   - name: DDoS protection
     href: ddos-protection-overview.md
   - name: Classic
@@ -200,6 +202,8 @@
         href: virtual-network-network-interface-addresses.md
     - name: Public IP addresses
       href: virtual-network-public-ip-address.md
+    - name: Public IP prefix
+      href: manage-public-ip-address-prefix.md  
   - name: Troubleshoot
     items:
     - name: Network security groups
