@@ -32,7 +32,7 @@
   expanded: true
   items:
   - name: 'Organization'
-  items:
+    items:
     - name: Sign up for Azure AD as an organization
       href: sign-up-organization.md
     - name: Add a custom domain name
