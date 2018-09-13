@@ -43,7 +43,7 @@ To complete the scenario in this tutorial, you need:
 
 - **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](../reports-monitoring/concept-risk-events.md).  
 
-- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add a new user](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## Test your sign-in 
@@ -121,7 +121,7 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user, the Tor Browser and disable the sign-in risk conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [How to add or delete users](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
 
