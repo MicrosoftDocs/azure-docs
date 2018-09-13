@@ -1,12 +1,12 @@
 ---
 title: 'Azure SQL Database purchasing models | Microsoft Docs'
-description: Learn about purchasing model for Azure SQL Database.  
+description: Learn about the purchasing models model that are available databases in the Azure SQL Database service.  
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 09/23/2018
 manager: craigg
 ms.author: carlrab
 
@@ -14,32 +14,30 @@ ms.author: carlrab
 # Azure SQL Database purchasing models and resources 
 
 Azure SQL Database enables you to easily purchase fully managed PaaS database engine that fits your performance and cost needs. Depending on the deployment model of Azure SQL Database, you can select the purchasing model that fits your needs: 
- - [Logical servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
+ - [Logical servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and a [vCore-based purchasing model](sql-database-service-tiers-vcore.md). Within this purchasing model, you can choose [single databases](sql-database-single-databases-manage.md) or [elastic pools](sql-database-elastic-pool.md).
  - [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+
+> [!IMPORTANT]
+> [Hyperscale databases (preview)](sql-database-hyperscale.md) are only available with the vCore-based purchasing model for single databases with a logical server or within a Managed Instance. 
 
 The following table and chart compare and contrast these two purchasing models.
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
-|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Best for customers who want simple, pre-configured resource options.| 
-|vCore-based model|This model allows you to independently choose compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
+|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Best for customers who want simple, pre-configured resource options.| 
+|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|This model allows you to independently choose compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
 ||||  
 
 ![pricing model](./media/sql-database-service-tiers/pricing-model.png)
 
 ## vCore-based purchasing model 
 
-A virtual core represents the logical CPU offered with an option to choose between generations of hardware and physical characteristics of hardware (for example, number of cores, memory, storage size). The vCore-based purchasing model gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model, customers can choose between [General Purpose](sql-database-high-availability.md#standardgeneral-purpose-availability) and [Business critical](sql-database-high-availability.md#premiumbusiness-critical-availability) service tiers for both [single databases](sql-database-single-database-scale.md), [managed instances](sql-database-managed-instance.md), and [elastic pools](sql-database-elastic-pool.md). 
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware and physical characteristics of hardware (for example, number of cores, memory, storage size). The vCore-based purchasing model gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model, you can choose between [General Purpose](sql-database-high-availability.md#standardgeneral-purpose-availability) and [Business critical](sql-database-high-availability.md#premiumbusiness-critical-availability) service tiers for both [single databases](sql-database-single-database-scale.md), [managed instances](sql-database-managed-instance.md), and [elastic pools](sql-database-elastic-pool.md). For single databases, you can also choose the [Hyperscale (preview)](sql-database-hyperscale.md) service tier.
 
 The vCore-based purchasing model enables you to independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, customers pay for:
-- Compute (service tier + number of vCores and amount of memory + generation of hardware)*
+- Compute (service tier + number of vCores and amount of memory + generation of hardware)
 - Type and amount of data and log storage 
-- Number of IOs** - applicable to [Logical servers](sql-database-logical-servers.md) only
-- Backup storage (RA-GRS)** 
-
-\* In the initial public preview, the Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors.
-
-\*\* During preview, seven days of backups and IOs are free.
+- Backup storage (RA-GRS) 
 
 > [!IMPORTANT]
 > Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges, refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).

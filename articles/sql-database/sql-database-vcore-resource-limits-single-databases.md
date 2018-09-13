@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/23/2018
 ms.author: carlrab
 
 ---
@@ -79,7 +79,7 @@ For single databases, the following tables show the resources available for a si
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memory (GB)|7|14|28|56|112|168|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|1|2|4|8|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
@@ -117,8 +117,52 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
+### Hyperscale service tier (preview)
+
+#### Generation 4 compute platform
+|Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |--: |
+|H/W generation|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Memory (GB)|7|14|28|56|112|168|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
+|Max log size (GB)|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|
+|TempDB size (GB)|32|64|128|256|384|384|
+|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|Max concurrent workers (requests)|200|400|800|1600|3200|4800|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|
+|Number of replicas|2|2|2|2|2|2|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|7|7|7|7|7|7|
+|||
+### Generation 5 compute platform
+|Performance level|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|40|80|
+|Memory (GB)|11|22|44|88|132|176|220|440|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
+|Max log size (GB)|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|
+|TempDB size (GB)|64|128|256|384|384|384|384|384|
+|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
+|Number of replicas|2|2|2|2|2|2|2|2|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage (preview limit)|7|7|7|7|7|7|7|7|
+|||
+
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
-- See [Overview Azure SQL Database resource limits](sql-database-resource-limits.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

@@ -18,7 +18,7 @@ Azure SQL Database can emit metrics and diagnostics logs for easier monitoring. 
 
 * **Azure Storage**: Used for archiving vast amounts of telemetry for a small price.
 * **Azure Event Hubs**: Used for integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.
-* **Azure Log Analytics**: Used for an out-of-the-box monitoring solution with reporting, alerting, and mitigating capabilities. This is a feature of the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+* **Azure Log Analytics**: Used for an out-of-the-box monitoring solution with reporting, alerting, and mitigating capabilities. Azure Log Analytics is a feature of the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

@@ -34,8 +34,8 @@
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
-    - name: Azure Data Studio
-      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+    - name: SQL Operations Studio
+      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure portal
       href: sql-database-connect-query-portal.md
     - name: VS Code
@@ -92,6 +92,8 @@
       href: sql-database-service-tiers-vcore.md
     - name: DTU model
       href: sql-database-service-tiers-dtu.md
+    - name: Hyperscale service tier
+      href: sql-database-hyperscale.md
     - name: Resource limits
       href: sql-database-resource-limits.md
     - name: Prepay for reserved capacity

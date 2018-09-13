@@ -75,8 +75,8 @@ The following table lists the major features of SQL Server and provides informat
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | No |
 | [Full-text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Third-party word breakers are not supported |Third-party word breakers are not supported |
 | [Functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Yes | No – you can restore COPY_ONLY full backups that you take periodically - see [Backup differences](sql-database-managed-instance-transact-sql-information.md#backup) and [Restore differences](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
-| [Geo-replication](sql-database-geo-replication-overview.md) | Yes | No |
+| [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Yes - General Purpose and Business Critical service tiers only | No – you can restore COPY_ONLY full backups that you take periodically - see [Backup differences](sql-database-managed-instance-transact-sql-information.md#backup) and [Restore differences](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
+| [Geo-replication](sql-database-geo-replication-overview.md) | Yes - General Purpose and Business Critical service tiers only| No |
 | [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Yes | Yes |
 | [In-memory optimization](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Yes - [Premium and Business Critical tiers only](sql-database-in-memory.md) | Yes - [Business Critical tier only - currently in preview](sql-database-managed-instance.md) |
 | [JSON data support](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Yes](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Yes](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
@@ -94,7 +94,7 @@ The following table lists the major features of SQL Server and provides informat
 | [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Yes|Yes|
 | [Operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Yes - see [T-SQL differences](sql-database-managed-instance-transact-sql-information.md) |
 | [Partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Yes | Yes |
-| [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - General Purpose and Business Critical service tiers only - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No | No |
 | [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
 | [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Yes | Yes |
@@ -111,7 +111,7 @@ The following table lists the major features of SQL Server and provides informat
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Yes | Yes |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Yes | Yes |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Yes | No |
-| [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Yes | Yes |
+| [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Yes | Yes |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs](sql-database-elastic-jobs-getting-started.md) | Yes - see [SQL Server Agent differences](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No -see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | No - see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) | Yes - see [Auditing differences](sql-database-managed-instance-transact-sql-information.md#auditing) |
@@ -132,7 +132,7 @@ The following table lists the major features of SQL Server and provides informat
 |Threat detection|  [Yes](sql-database-threat-detection.md)|[Yes](sql-database-managed-instance-threat-detection.md)|
 | [Trace flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | No | No |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Yes | Yes |
-| [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes | Partial, only with service-managed encryption |
+| [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes - General Purpose and Business Critical service tiers only| Partial, only with service-managed encryption |
 [VNet](../virtual-network/virtual-networks-overview.md) | Partial - see [VNET Endpoints](sql-database-vnet-service-endpoint-rule-overview.md) | Yes, Resource Manager model only |
 | [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
 | [XML indexes](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Yes | Yes |
