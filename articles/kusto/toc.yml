@@ -7,7 +7,9 @@
   items:
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
-  - name: Explore data - Query Explorer
+  - name: Ingest streaming data
+    href: ingest-data-event-hub.md
+  - name: Query data
     href: explore-data.md
 - name: Tutorials
 - name: Concepts
@@ -17,7 +19,6 @@
 - name: How-to guides
   items:
   - name: Write Kusto queries
-    href: write-queries.md  
-- name: Samples
+    href: write-queries.md
 - name: Reference
 - name: Resources
