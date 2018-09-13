@@ -34,23 +34,23 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook.
+For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `notebooks/tutorials/01.train-models.ipynb` notebook:
 
-[**Launch samples in Azure Notebooks**](https://aka.ms/aml-notebooks) and navigate to `tutorials/deploy-models.ipynb`.  From Azure Notebooks, you can also download the notebook to use on your own Jupyter server.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
-## Prerequisites
+* **Your own Jupyter notebook server**
 
-*  Use [these instructions](how-to-configure-environment.md) to:  
-    * Create a workspace and its configuration file (**config.json**)  
-    * Configure a development environment for Jupyter notebooks. In step 4 the new packages you need are matplotlib and scikit-learn:
-
-       ```shell
-       conda install -y matplotlib scikit-learn
-       ``` 
-
-* Copy the file [utils.py](https://aka.ms/aml-file-utils-py) into the same directory as **config.json**.
-
-* Start a new notebook or place the downloaded notebook into the same directory as **utils.py** and **config.json**.
+    1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
+        * Create a workspace and its configuration file (**config.json**) 
+        * Configure your notebook server
+        * In step 4 the new packages you need are matplotlib and scikit-learn:
+            ```shell
+            conda install -y matplotlib scikit-learn
+            ```
+    1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) or start a new notebook and copy code from this article.
+    1. Add your **config.json** file to the same folder as the notebook.
+    1. Start your notebook server.
+    1. Open the notebook.
 
 
 ## Set up your development environment

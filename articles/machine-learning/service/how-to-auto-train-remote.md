@@ -253,8 +253,11 @@ display(projname_html)
 display(summary_df.T)
 ```
 
-## Get the notebook
-You can [download the full notebook]() that shows remote automatic model training.
+## Example
+
+The `automl/03.auto-ml-remote-execution.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
