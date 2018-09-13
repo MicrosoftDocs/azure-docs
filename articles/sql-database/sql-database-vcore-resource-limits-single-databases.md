@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 09/23/2018
 ms.author: carlrab
 
 ---
@@ -131,10 +131,10 @@ For single databases, the following tables show the resources available for a si
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
 |TempDB size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
-|Target IOPS (64 KB)|?|?|?|?|?|?|
-|IO latency (approximate)|?|?|?|?|?|?|
-|Max concurrent workers (requests)|?|?|?|?|?|?|
-|Max allowed sessions|?|?|?|?|?|?|
+|Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|
+|IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|
+|Max concurrent workers (requests)|200|400|800|1600|3200|4800|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
@@ -152,10 +152,10 @@ For single databases, the following tables show the resources available for a si
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
 |Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
 |TempDB size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
-|Target IOPS (64 KB)|?|?|?|?|?|?|?|?|
-|IO latency (approximate)|?|?|?|?|?|?|?|?|
-|Max concurrent workers (requests)|?|?|?|?|?|?|?|?|
-|Max allowed sessions|?|?|?|?|?|?|?|?|
+|Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
+|IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
+|Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
+|Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
