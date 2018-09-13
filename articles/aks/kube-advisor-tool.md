@@ -6,7 +6,7 @@ author: seanmck
 
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/28/2018
+ms.date: 09/13/2018
 ms.author: seanmck
 ---
 
@@ -39,6 +39,8 @@ kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --res
 ```
 
 Within a few seconds, you should see a table describing potential improvements to your deployments.
+
+![Kube-advisor output](./media/kube-advisor-tool/kube-advisor-output.png)
 
 ## Checks performed
 
