@@ -15,7 +15,14 @@ ms.author: luisca
 
 Microsoft Power BI Desktop is a free application that lets you connect to, transform, and visualize your data. The Text Analytics service, part of Microsoft Azure Cognitive Services, provides natural language processing. Given raw unstructured text, it can extract the most important phrases, analyze sentiment, and identify well-known entities such as brands. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 
-In this tutorial, you'll learn how to integrate Power BI Desktop and the Text Analytics Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also show how to create a word cloud from these phrases.
+In this tutorial, you'll learn how to:
+
+> [!div class="checklist"]
+> * Use Power BI Desktop to import and transform data
+> * Create a custom function in Power BI Desktop
+> * Integrate Power BI Desktop with the Text Analytics Key Phrases API
+> * Use the Text Analytics Key Phrases API to extract the most important phrases from customer feedback
+> * Create a word cloud from customer feedback
 
 ## Prerequisites
 <a name="Prerequisites"></a>
