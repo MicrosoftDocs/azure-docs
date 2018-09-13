@@ -1,6 +1,6 @@
 ---
-title: Quickstart to access the Azure Active Directory portal and create a new tenant | Microsoft Docs
-description: Quickstart with steps about how to find the Azure Active Directory portal and to create a new tenant for your organization. 
+title: Quickstart to access Azure Active Directory and to create a new tenant | Microsoft Docs
+description: Quickstart with steps about how to find Azure Active Directory and how to create a new tenant for your organization. 
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,7 +14,7 @@ ms.author: lizross
 custom: it-pro
 ---
 
-# Quickstart: Access the Azure Active Directory portal and create a new tenant
+# Quickstart: Access Azure Active Directory to create a new tenant
 You can do all of your administrative tasks using the Azure Active Directory (Azure AD) portal, including creating a new tenant for your organization. 
 
 In this quickstart, you'll learn how to get to both the Azure AD portal and the Azure AD admin center, you'll learn about the differences between the portals, and you'll learn how to create a basic tenant for your organization.
@@ -28,8 +28,8 @@ Before you begin, you'll need to:
 
 - Make sure you're a Global administrator.
 
-## Sign in to the Azure AD portal
-Sign in to your organization's [Azure AD portal](https://portal.azure.com/) using a Global administrator account.
+## Sign in to the Azure portal
+Sign in to your organization's [Azure portal](https://portal.azure.com/) using a Global administrator account.
 
 ![Azure Active Directory portal screen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
