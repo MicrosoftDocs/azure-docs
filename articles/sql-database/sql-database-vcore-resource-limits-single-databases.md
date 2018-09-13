@@ -117,7 +117,7 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-### Hyperscale service tier
+### Hyperscale service tier (preview)
 
 #### Generation 4 compute platform
 |Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
