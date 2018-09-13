@@ -1,18 +1,12 @@
 ---
 title: Enable Azure Disk Encryption for Windows IaaS VMs | Microsoft Docs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 8b3905c8-844f-4ec7-ad95-b386e9843053
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
+ms.date: 09/10/2018
 
 ---
 

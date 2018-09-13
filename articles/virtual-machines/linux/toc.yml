@@ -440,12 +440,12 @@
       items:
       - name: Use internal DNS
         href: static-dns-name-resolution-for-linux-on-azure.md
-  - name: Configure managed identities on VMs
+  - name: Configure managed identities
     items:
     - name: Portal
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: CLI
-      href: /active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: PowerShell
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: Azure Resource Manager Template
@@ -531,6 +531,8 @@
         href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
+    - name: Throttling errors
+      href: troubleshooting-throttling-errors.md
 - name: Reference
   items:
   - name: Azure CLI

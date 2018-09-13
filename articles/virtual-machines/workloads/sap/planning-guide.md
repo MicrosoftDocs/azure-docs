@@ -507,7 +507,7 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 More information about using Resource Manager templates can be found here:
 
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../linux/create-ssh-secured-vm-from-template.md)
 * [Manage virtual machines using Azure Resource Manager and PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://azure.microsoft.com/documentation/templates/>
 
@@ -1944,6 +1944,7 @@ The following Azure constructs are used for the SAP NetWeaver system, to minimiz
 * The complete system runs within one Azure subscription (required).
 * The complete system runs within one Azure Virtual Network (required).
 * The separation of the VMs of one SAP system into three Availability Sets is possible even with all the VMs belonging to the same Virtual Network.
+* Each layer (for example DBMS, ASCS, Application Servers) must use a dedicated Availability Set.
 * All VMs running DBMS instances of one SAP system are in one Availability Set. We assume that there is more than one VM running DBMS instances per system since native DBMS high availability features are used, like SQL Server AlwaysOn or Oracle Data Guard.
 * All VMs running DBMS instances use their own storage account. DBMS data and log files are replicated from one storage account to another storage account using DBMS high availability functions that synchronize the data. Unavailability of one storage account will cause unavailability of one SQL Windows cluster node, but not the whole SQL Server service.
 * All VMs running (A)SCS instance of one SAP system are in one Availability Set. A Windows Server Failover Cluster (WSFC) is configured inside of those VMs to protect the (A)SCS instance.
