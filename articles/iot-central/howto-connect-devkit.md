@@ -38,17 +38,27 @@ For full details on the configuration refer to [MXChip Device template details](
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details (**Scope ID, Device ID, and Primary key**).
+
+1. Add a **real device** from Device Explorer, click on **+New > Real** to add a real device.
+    * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
+    * Enter the Device Name or use the suggested name
+    
+    ![Add Device](media\concepts-connectivity\add-device.png)
+
+
+1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by clicking **Connect** on the device page.
+ 
+
+    ![Connection details](media\concepts-connectivity\device-connect.PNG)
+3. Make sure to save these details, as you will temporaritly get disconnected from the internet as you prepare the DevKit device. 
+
 
 ### Prepare the DevKit device
 
 > [!NOTE]
 > If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
 
-#### Before you start configuring the device:
-1. In your IoT Central **Sample Devkits** go to `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect` (on the top right) 
-2. Copy the **Scope ID, Device ID, and Primary key**
-3. Make sure to save these details, as you will temporaritly get disconnected from the internet as you prepare the DevKit device. 
 
 
 #### To prepare the DevKit device:
