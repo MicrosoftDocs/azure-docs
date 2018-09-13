@@ -29,8 +29,3 @@ The following table describes default limits for Azure Storage. The *ingress* li
 * **ZRS**: Zone-redundant storage.
 * **LRS**: Locally redundant storage. 
 
-**Increasing storage account limits**
-
-If you require expanded limits for your storage account, or a greater number of storage accounts in a specific region, please contact [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your request and may approve higher limits on a case by case basis. Both general-purpose and Blob storage accounts support increased capacity, ingress/egress, and request rate upon request. 
-
-
