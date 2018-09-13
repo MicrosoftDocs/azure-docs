@@ -620,7 +620,7 @@ The [configuration](#input---configuration) section explains these properties.
 
 Here's the Python code:
 
-```javascript
+```python
 import logging
 import azure.functions as func
 
