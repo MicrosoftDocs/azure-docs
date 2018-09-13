@@ -28,23 +28,23 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 1. import the following packages into your code file.
 
-```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-```
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
 
 2. Create variables for the API endpoint, image API search path, your subscription key, and search term.
 
-```ruby
-uri  = "https://api.cognitive.microsoft.com"
-path = "/bing/v7.0/images/search"
-term = "puppies"
-```
+    ```ruby
+    uri  = "https://api.cognitive.microsoft.com"
+    path = "/bing/v7.0/images/search"
+    term = "puppies"
+    ```
 
 ## Format and make an API request
 
-3. Use the variables from the last step to format a search URL for the API request. Then send the request.
+Use the variables from the last step to format a search URL for the API request. Then send the request.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -60,7 +60,7 @@ end
 
 ## Process and print the JSON 
 
-1. After the response is received, you can parse the JSON, and get values from it. For example, the thumbnail URL to the first result, and the total number of returned images.
+After the response is received, you can parse the JSON, and get values from it. For example, the thumbnail URL to the first result, and the total number of returned images.
 
 ```ruby
 response.each_header do |key, value|
