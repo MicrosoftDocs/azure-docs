@@ -55,7 +55,7 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
 
 ## Speech SDK
 
-If you're using a Bing Speech client API, migrating to the Speech SDK will require changes to your application because the API is different. In many cases, migrating to the Speech SDK can make your code simpler, as well as giving you access to new features now and in the future, making it a good investment of your time.
+If you're using a Bing Speech client library for a specific programming language, migrating to the Speech SDK will require changes to your application because the API is different. In many cases, migrating to the Speech SDK can make your code simpler, as well as giving you access to new features now and in the future, making it a good investment of your time.
 
 To get started with the new Speech SDK:
 
