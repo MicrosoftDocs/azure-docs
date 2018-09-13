@@ -7,7 +7,7 @@ documentationcenter:
 author: "becczhang"
 manager: craigg
 ms.prod: 
-ms.reviewer: ""
+ms.reviewer: vanto
 ms.suite: sql
 ms.prod_service: sql-database, sql-data-warehouse
 ms.service: "sql-database"
@@ -34,8 +34,8 @@ If a key is ever suspected to be compromised, such that a service or user had un
 Keep in mind that once the TDE protector is deleted in Key Vault, **all connections to the encrypted databases under the server are blocked, and these databases go offline and get dropped within 24 hours**. Old backups encrypted with the compromised key are no longer accessible.
 
 This how-to guide goes over two approaches depending on the desired result after the incident response:
-- To keep the Azure SQL Databases / Data Warehouses **accessible**
-- To make the Azure SQL Databases / Data Warehouses **inaccessible**
+- To keep the Azure SQL databases / Data Warehouses **accessible**
+- To make the Azure SQL databases / Data Warehouses **inaccessible**
 
 ## To keep the encrypted resources accessible
 1. Create a [new key in Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level. 
