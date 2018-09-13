@@ -157,18 +157,18 @@ This section shows how to use the Maps route service API to find the route from 
 
 2. Instantiate the client service, by adding the following Javascript code to the script block.
     ```JavaScript
-    var client = new atlas.service.Client(subscriptionKey);
+    var client = new atlas.service.Client(MapsAccountKey);
     ```
 
 3. Add the following block of code to construct a route query string.
     ```JavaScript
     // Construct the route query string
         var routeQuery = startPoint.coordinates[1] +
-            "," + 
+            "," +
             startPoint.coordinates[0] +
-            ":" + 
+            ":" +
             destinationPoint.coordinates[1] +
-            "," + 
+            "," +
             destinationPoint.coordinates[0];
     ```
 
