@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "articles/actve-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
+            "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true
         },
@@ -27092,6 +27092,11 @@
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/active-directory/fundamentals/get-started-azure-ad.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-whatis",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/active-directory/active-directory-troubleshooting-support-howto.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
