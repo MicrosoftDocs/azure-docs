@@ -71,11 +71,11 @@ You are now at the **Dashboard** of your device.
  
 1. From the dashboard, you can go to various settings required to configure and register the virtual device with the Data Box Gateway service. The **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device name** and **Cloud settings**.
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. In the **Device name** page, configure a friendly name for your device. The friendly name can be 1 to 15 characters long and can contain letter, numbers and hyphens.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. (Optionally) configure your **Network settings**. You see at least 1 network interface and more depending on how many you configured in the underlying virtual machine. The **Network settings** page for a virtual device with one network interface enabled is as shown below.
     
