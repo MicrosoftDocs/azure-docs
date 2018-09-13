@@ -14,12 +14,13 @@ ms.date: 09/24/2018
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
 
-Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can handle the processing of millions of events per second in near real-time. In this quickstart, you create an event hub, connect to it from Data Explorer, then see data flow through the system.
+Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can process millions of events per second in near real-time. In this quickstart, create an event hub, connect to it from Data Explorer and see data flow through the system.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
+* Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+ 
 * To complete this quickstart, you must first [provision a cluster and database](create-cluster-database-portal.md).
 
 * Download the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data.
@@ -68,9 +69,9 @@ In this quickstart, you generate sample data and send it to an event hub. The fi
 
     It might take several minutes for the deployment to succeed, but you can move on to the next step.
 
-## Add a target table to Data Explorer
+## Create a target table in Data Explorer
 
-You now add a table in Data Explorer, which Event Hubs will send data to. You create the table in the cluster and database you created in the prerequisites.
+Create a table in Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database provisioned in Prerequisites.
 
 1. In the Azure portal, under the cluster you created, select **Query Explorer**.
 
@@ -93,9 +94,9 @@ You now add a table in Data Explorer, which Event Hubs will send data to. You cr
 
 ## Connect to the event hub
 
-Now you connect to the event hub from Data Explorer, so that data flowing into the event hub is streamed to the test table.
+Connect to the event hub from Data Explorer, so that data flowing into the event hub is streamed to the test table.
 
-1. Select **Notifications** on the toolbar to verify that the event hub deployment succeeded.
+1. Select **Notifications** on the toolbar to verify that the event hub deployment was successful.
 
 1. Under the event hub namespace you created, select **Shared access policies**, then **RootManageSharedAccessKey**.
 
@@ -132,7 +133,7 @@ Now you connect to the event hub from Data Explorer, so that data flowing into t
 
 ## Generate sample data
 
-Now that Data Explorer and the event hub are connected, you use the sample app you downloaded to generate data.
+Now that Data Explorer and the event hub are connected, use the sample app you downloaded to generate data.
 
 1. Open the sample app solution in Visual Studio.
 
@@ -156,7 +157,7 @@ Now that Data Explorer and the event hub are connected, you use the sample app y
 
 1. Go back to the app and stop it after it reaches message 99.
 
-1. Run the following query in your test database to check whether all the messages have made it to the database yet.
+1. Run the following query in your test database to check whether all the messages have made it to the database.
 
     ```Kusto
     TestTable
@@ -173,9 +174,9 @@ Now that Data Explorer and the event hub are connected, you use the sample app y
 
 If you don't plan to use your event hub again, delete the resource group *test-hub-rg*.
 
-1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
+1. In the Azure portal, select **Resource groups** on the far left, then select the resource group you created.  
 
-    If the left menu is collapsed, select ![Expand button](../../includes/media/cosmos-db-delete-resource-group/expand.png) to expand it.
+    If the left menu is collapsed, select ![Expand button](../../includes/media/cosmos-db-delete-resource-group/expand.png) to expand.
 
    ![Select resource group to delete](../../includes/media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
