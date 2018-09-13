@@ -47,7 +47,7 @@ Azure App Service does not support all native modules, and might fail when compi
 
   * Before compiling, check that your local Node.js installation has matching architecture and the version is as close as possible to the one used in Azure (the current values can be checked on runtime from properties **process.arch** and **process.version**).
 
-* Azure App Service can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For a video showing how to configure that environment, see [Custom Website Deployment Scripts with Kudu](https://azure.microsoft.com/en-us/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
+* Azure App Service can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For a video showing how to configure that environment, see [Custom Website Deployment Scripts with Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
 
 ### Using a package.json file
 
@@ -81,7 +81,7 @@ When your application is ready for production, you can lock down version require
 > 
 
 ## Next steps
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [build and deploy a Node.js web app](app-service/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux](https://azure.microsoft.com/en-us/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [build and deploy a Node.js web app](app-service/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 For more information, see the [Node.js Developer Center](/nodejs/azure/).
 
