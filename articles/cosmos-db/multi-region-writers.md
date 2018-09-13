@@ -1,6 +1,6 @@
 ---
 title: Multi-master at global scale with Azure Cosmos DB | Microsoft Docs
-description: 
+description: Learn about Azure Cosmos DB multi-master, key benifits offered by multi-master and use cases where it is helpful.
 services: cosmos-db
 author: rimman
 manager: kfile
@@ -16,7 +16,7 @@ ms.author: rimman
 # Azure Cosmos DB multi-master
 
 
-With Azure Cosmos DB multi-master support, you can perform writes on any container (i.e., collections, graphs, tables) in a write-enabled region. Data written to one region is propagated to all other regions. Multi-master is available for all API’s, including SQL, MongoDB, Cassandra, Graph and Table.
+With Azure Cosmos DB multi-master support, you can perform writes on any container (that is, collections, graphs, tables) in a write-enabled region. Data written to one region is propagated to all other regions. Multi-master is available for all API’s, including SQL, MongoDB, Cassandra, Graph, and Table.
 
 Azure Cosmos DB multi-master is composed of multiple master regions that equally participate in a write-anywhere model. Azure Cosmos DB regions operating as master regions in a multi-master configuration automatically work to converge the data of all replicas and ensure global consistency and data integrity.
 
@@ -24,13 +24,13 @@ Azure Cosmos DB multi-master is composed of multiple master regions that equally
 
 Following are the key benefits available for accounts that have multi-master enabled:
 
-* **Single-digit write latency** – Azure Cosmos DB now delivers <10 ms write latency at the 99th percentile (In addition to <10 ms read latencies), guaranteed by the financially-backed SLAs.
+* **Single-digit write latency** – Azure Cosmos DB now delivers <10 ms write latency at the 99th percentile (In addition to <10 ms read latencies), guaranteed by the financially backed SLAs.
 
-* **5-9’s write availability** – Azure Cosmos DB now offers 99.999% write availability (in addition to 99.999% read availability, guaranteed by the financially-backed SLAs.
+* **5-9’s write availability** – Azure Cosmos DB now offers 99.999% write availability (in addition to 99.999% read availability, guaranteed by the financially backed SLAs.
 
 * **Unlimited write scalability and throughput** –  With multi-master in Azure Cosmos DB, you can write to every region. Multi-master provides unlimited write scalability and throughput to support billions of devices.
 
-* **Built-in conflict resolution** – Multi-master in Azure Cosmos DB provides 3 modes for handling conflicts to ensure global data integrity and consistency.
+* **Built-in conflict resolution** – Multi-master in Azure Cosmos DB provides three modes for handling conflicts to ensure global data integrity and consistency.
 
 
 * **Load balancing** - With multi-master, workloads can be balanced and write capacity can be easily extended by adding a new region and switching some writes to the new region. 
@@ -41,9 +41,9 @@ Following are the key benefits available for accounts that have multi-master ena
 
 ## Use-cases where multi-master support is needed 
 
-* **Social media apps** – Social media applications require low-latency, high-availability and scalability to provide a great experience for users located around the globe. Azure Cosmos DB multi-master puts data closer to users for lower latency. Multiple write locations provide high-availability with the ability to seamlessly write to another region and the ability for regions to scale independently depending on usage. 
+* **Social media apps** – Social media applications require low-latency, high-availability, and scalability to provide a great experience for users located around the globe. Azure Cosmos DB multi-master puts data closer to users for lower latency. Multiple write locations provide high-availability with the ability to seamlessly write to another region and the ability for regions to scale independently depending on usage. 
 
-* **IoT** - Azure Cosmos DB multi-master simplifies data processing for IoT applications. Geo-distributed edge deployments often need to track time series data from multiple locations. Each device can be homed to its closest region. As devices travel, (i.e., a car, aircraft, train) devices can dynamically be rehomed to write to another region. 
+* **IoT** - Azure Cosmos DB multi-master simplifies data processing for IoT applications. Geo-distributed edge deployments often need to track time series data from multiple locations. Each device can be homed to its closest region. As devices travel, (that is, a car, aircraft, train) devices can dynamically be rehomed to write to another region. 
 
 * **E-Commerce** - Ecommerce requires very low-latency as well as high-availability. Multi-master allows users to write to data in a region closest to them increasing the responsiveness of applications. 
 
@@ -55,7 +55,7 @@ Following are the key benefits available for accounts that have multi-master ena
 
 ## Next steps  
 
-In this article you learned about multi-master support for Azure Cosmos DB. Next, look at the following resources:
+In this article, you learned about multi-master support for Azure Cosmos DB. Next, look at the following resources:
 
 * [Enable Azure Cosmos DB multi-master](enable-multi-master.md) 
 
