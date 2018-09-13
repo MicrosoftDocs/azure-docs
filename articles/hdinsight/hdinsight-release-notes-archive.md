@@ -2,7 +2,7 @@
 title: Archived release notes for Azure HDInsight 
 description: Archived release notes and versions of Azure HDInsight. 
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 
 ms.service: hdinsight

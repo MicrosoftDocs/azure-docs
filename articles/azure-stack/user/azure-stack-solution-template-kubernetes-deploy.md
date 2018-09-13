@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -23,9 +23,9 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> The Azure Kubernetes Services (AKS) Kubernetes on Azure Stack is in private preview. Your Azure Stack operator will need to request access to the Kubernetes Marketplace item needed to perform the instructions in this article.
+> The AKS (Azure Kubernetes Service) Engine on Azure Stack is in private preview. Your Azure Stack operator will need to request access to the Kubernetes Marketplace item needed to perform the instructions in this article.
 
-The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud.
+The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud. Note the template is not the same managed AKS service offered in global Azure, but closer to the ACS service.
 
 ## Kubernetes and containers
 
@@ -85,9 +85,9 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 Give the service principal access to your subscription so that the principal can create resources.
 
-1.  Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
+1.  Sign in to the [Azure Stack portal](https://portal.local.azurestack.external/).
 
-1. Select **More services** > **User subscriptions** > **+ Add**.
+1. Select **More services** > **Subscriptions**.
 
 1. Select the subscription that you created.
 
@@ -103,7 +103,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
 
-1. Select **+New** > **Compute** > **Kubernetes Cluster**. Click **Create**.
+1. Select **+ Create a resource** > **Compute** > **Kubernetes Cluster**. Click **Create**.
 
     ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

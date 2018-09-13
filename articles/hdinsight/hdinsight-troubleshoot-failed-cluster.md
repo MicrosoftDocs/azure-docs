@@ -4,7 +4,7 @@ description: Diagnose and troubleshoot a slow or failing HDInsight cluster.
 services: hdinsight
 author: ashishthaps
 ms.author: ashishth
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

@@ -24,17 +24,20 @@ A self-hosted integration runtime is capable of running copy activities between 
 This document introduces how you can create and configure Self-hosted IR.
 
 ## High-level steps to install self-hosted IR
-1. Create a Self-hosted integration runtime. Here is a PowerShell example:
+1. Create a Self-hosted integration runtime. You can use ADF UI for creating the self-hosted IR. Here is a PowerShell example:
 
 	```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
-   - Download and install self-hosted integration runtime (on local machine).
-   - Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
+2. Download and install self-hosted integration runtime (on local machine).
+3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
+
+## Setting up self-hosted IR on Azure VM using Azure Resource Manager Template (automation)
+You can automate self-hosted IR setup on an Azure VM using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This provides an easy way to have a fully functioning Self-hosted IR inside Azure VNet with High Avalaibility and Scalability feature (as long as you set node count to be 2 or higher).
 
 ## Command flow and data flow
 When you move the data between on-premises and cloud, the activity uses a self-hosted integration runtime to transfer the data from on-premises data source to cloud and vice versa.
@@ -51,7 +54,7 @@ Here is a high-level data flow for the summary of steps for copy with self-hoste
 
 ## Considerations for using self-hosted IR
 
-- A single self-hosted integration runtime can be used for multiple on-premises data sources. However, a **single self-hosted integration runtime is tied to only one Azure data factory** and cannot be shared with another data factory.
+- A single self-hosted integration runtime can be used for multiple on-premises data sources. A **single self-hosted integration runtime  can** be shared with another data factory within the same Azure Active Directory tenant. For more details, see [sharing a self-hosted integration runtime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
 - You can have **only one instance of self-hosted integration runtime** installed on a single machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install self-hosted integration runtime on two on-premises computers. In other words, a self-hosted integration runtime is tied to a specific data factory
 - The **self-hosted integration runtime does not need to be on the same machine as the data source**. However, having self-hosted integration runtime closer to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that is different from the one that hosts on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime does not compete for resources with data source.
 - You can have **multiple self-hosted integration runtimes on different machines connecting to the same on-premises data source**. For example, you may have two self-hosted integration runtime serving two data factories but the same on-premises data source is registered with both the data factories.
@@ -128,7 +131,6 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
 - Each integration runtime node must trust this certificate.
-- Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
 - SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificate using CNG keys are not supported.  
@@ -150,6 +152,8 @@ In the self-hosted IR to be shared,
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. Note the **Resource ID** of the self-hosted IR to be shared.
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -162,14 +166,39 @@ In the Data Factory to which the permissions were granted,
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
 
+#### Monitoring 
+
+- **Shared IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **Linked IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+
 #### Known limitations of self-hosted IR sharing
 
 1. Default number of linked IR that can be created under single self-hosted IR is **20**. If you require more then contact Support. 
 
-2. The data factory in which linked IR is to be created must have an MSI (managed service identity). By default, the data factories created in Ibiza portal or PowerShell cmdlets will have MSI 
+2. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default, the data factories created in Ibiza portal or PowerShell cmdlets will have MSI 
   created implicitly. However, in some cases when data factory is created using an Azure Resorce Manager template or SDK, the “**Identity**” **property must be set** explicitly to ensure Azure Resorce Manager creates a data factory containing an MSI. 
 
-3. The self-hosted IR version must be equal or greater than 3.8.  
+3. The self-hosted IR version must be equal or greater than 3.8.xxxx.xx. Please [download the latest version](https://www.microsoft.com/download/details.aspx?id=39717) of self-hosted IR
+
+4. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default,
+the data factories created in Ibiza portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+created implicitly, however, data factories created with Azure Resource Manager (ARM) template or SDK requires “Identity” property to be set to ensure an MSI is created.
+
+5. The ADF .Net SDK which support this feature is version >= 1.1.0
+
+6. The Azure PowerShell which support this feature is version >= 6.6.0
+(AzureRM.DataFactoryV2 >= 0.5.7)
+
+7. To Grant permission, the user will require "Owner" role or inherited "Owner" role in the Data Factory where the Shared IR exists. 
 
   > [!NOTE]
   > This feature is only available in Azure Data Factory version 2 
@@ -189,7 +218,7 @@ At **corporate firewall** level, you need configure the following domains and ou
 
 Domain names | Ports | Description
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Used for communication with Data Movement Service backend
+*.servicebus.windows.net | 443 | Used for communication with Data Movement Service backend
 *.core.windows.net | 443 | Used for Staged copy using Azure Blob (if configured)
 *.frontend.clouddatahub.net | 443 | Used for communication with Data Movement Service backend
 download.microsoft.com | 443 | Used for downloading the updates

@@ -6,7 +6,7 @@ author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/14/2016
+ms.date: 08/26/2018
 ms.author: jjed
 
 ---
@@ -23,9 +23,9 @@ To run this sample, you must have an Azure Search service, which you can sign up
 
 We used the following software to build and test this sample:
 
-* [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Be sure to download the EE version. One of the verification steps requires a feature that is found only in this edition.
-* [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
+* [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Be sure to download the EE version. One of the verification steps requires a feature that is found only in this edition.
+* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## About the data
 This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
@@ -46,7 +46,7 @@ The following list describes the files that are relevant to this sample.
 * SearchServiceHelper.java: A helper class that provides static methods
 * Document.java: Provides the data model
 * config.properties: Sets the Search service URL and api-key
-* Pom.xml: A Maven dependency
+* pom.xml: A Maven dependency
 
 <a id="sub-2"></a>
 

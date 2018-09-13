@@ -3,7 +3,7 @@ title: Customize HDInsight Clusters using bootstrap - Azure
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

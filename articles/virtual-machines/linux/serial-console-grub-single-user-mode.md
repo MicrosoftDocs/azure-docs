@@ -3,7 +3,7 @@ title: Azure Serial Console for GRUB and Single User Mode | Microsoft Docs
 description: Using Serial Console for grub in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -19,6 +19,8 @@ ms.author: alsin
 
 # Use Serial Console to access GRUB and Single User Mode
 Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues as fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted. This is useful to investigate situations such as a corrupt filesystem, a broken fstab, or network connectivity (incorrect iptables configuration).
+
+To access GRUB, you will need to reboot your VM while keeping the serial console blade open. This can be done with a SysRq `'b'` command, or by clicking the Restart button in the Overview blade. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds on boot and allow user input to cancel the timeout with keyboard input. 
 
 Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
 
@@ -60,7 +62,7 @@ If you have set up GRUB and root access with the instructions above, then you ca
 1. Press Ctrl + X to exit and reboot with the applied settings
 1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-systemd-unit-rescue-target.png)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### Enter single user mode without root account enabled in RHEL
 If you did not go through the steps above to enable the root user, you can still reset your  root password. Use the following instructions:
@@ -77,7 +79,7 @@ If you did not go through the steps above to enable the root user, you can still
 1. Once you boot into single user mode, type in `chroot /sysroot` to switch into the `sysroot` jail
 1. You are now root. You can reset your root password with `passwd` and then use the instructions above to enter single user mode. Type `reboot -f` to reboot once you are done.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-rd-break.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Note: Running through the instructions above will drop you into emergency shell, so you can also perform tasks such as editing `fstab`. However, the generally accepted suggestion is to reset your root password and use that to enter single user mode. 
 
@@ -132,7 +134,7 @@ GRUB access in SLES requires bootloader configuration via YaST. To do this, foll
 1. To enter GRUB, reboot your VM and press any key during boot sequence to make GRUB stay on screen
     - The default timeout for GRUB is 1s. You can modify this by changing the `GRUB_TIMEOUT` variable in `/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-bootloader.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### Single user mode in SUSE SLES
 You will be automatically dropped into emergency shell if SLES cannot boot normally. To manually enter the emergency shell, use the following instructions:

@@ -27,7 +27,7 @@ Enterprises that want to manage roaming for personal (unmanaged) devices can use
 The following tables describe the policy settings available.
 
 ## MDM settings
-The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account.  Please refer to “Devices and endpoints” section for details on what devices are supported for Azure AD based syncing.
+The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account.  Please refer to [Devices and endpoints](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD based syncing.
 
 | Name | Description |
 | --- | --- |

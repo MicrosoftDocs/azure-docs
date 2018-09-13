@@ -49,11 +49,11 @@
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
-### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
 #### [API and customization](b2b/customize-invitation-api.md)
+#### [Google federation](b2b/google-federation.md)
 #### [Code and Azure PowerShell samples](b2b/code-samples.md)
 #### [Self-service sign-up portal sample](b2b/self-service-portal.md)
 #### [Invitation email](b2b/invitation-email-elements.md)
@@ -83,7 +83,7 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
+### [Delete a group and its members](fundamentals/active-directory-groups-delete-group.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
@@ -102,6 +102,7 @@
 #### [Route activity logs to an Azure event hub](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archive activity logs to an Azure storage account](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrate activity logs with Splunk using Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Integrate activity logs with SumoLogic using Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Reference
 #### [Retention](reports-monitoring/reference-reports-data-retention.md)
@@ -112,58 +113,29 @@
 #### [Interpret the sign-in log schema in Azure Monitor](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### Troubleshoot
-#### [Missing audit data](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [Missing data in Azure AD activity logs](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](reports-monitoring/troubleshoot-missing-data-download.md)
-#### [Azure AD Activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
+#### [Azure AD activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
 
-###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
+### [Programmatic Access](reports-monitoring/concept-reporting-api.md)
 #### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 #### [Using certificates](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Manage passwords](authentication/concept-sspr-howitworks.md)
-### User documents
-#### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
-
-
-## Manage devices
-### [Overview](devices/overview.md)
-
-### Quickstarts
-#### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Tutorials
-#### [Configure hybrid Azure AD join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configure hybrid Azure AD join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
-#### [Configure hybrid Azure AD join manually](devices/hybrid-azuread-join-manual-steps.md)
-#### [Configure Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
-
-### How-to-guides
-#### [Plan Azure AD join](devices/azureadjoin-plan.md)
-#### [Plan your hybrid Azure AD join implementation](devices/hybrid-azuread-join-plan.md)
-#### [Control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
-#### [Assign local admins to Azure AD joined devices](devices/assign-local-admin.md)
-#### [Troubleshoot hybrid Azure AD joined Windows current devices](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Concepts
-#### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
-#### [FAQs](devices/faq.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
 ### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](saas-apps/tutorial-list.md)
 
-### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
+### [User provisioning and deprovisioning to SaaS apps](manage-apps/user-provisioning.md) 
 #### [App integration tutorials](saas-apps/tutorial-list.md) 
 #### [Automate provisioning to SCIM-enabled apps](manage-apps/use-scim-to-provision-users-and-groups.md) 
-#### [Customize attribute mappings](active-directory-saas-customizing-attribute-mappings.md) 
-#### [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
-#### [Use scoping filters](active-directory-saas-scoping-filters.md) 
-#### [Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md) 
+#### [Customize attribute mappings](manage-apps/customize-application-attributes.md) 
+#### [Write expressions for attribute mappings](manage-apps/functions-for-customizing-application-data.md) 
+#### [Use scoping filters](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) 
+#### [Report on automatic user provisioning](manage-apps/check-status-user-account-provisioning.md) 
 #### [Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md) 
 
 ### [Access apps remotely with App Proxy](manage-apps/application-proxy.md)
@@ -191,7 +163,7 @@
 ##### [Silent install](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Custom home page](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Translate inline links](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
-##### [Wildcards](active-directory-application-proxy-wildcard.md)
+##### [Wildcards](manage-apps/application-proxy-wildcard.md)
 ##### [Remove personal data](manage-apps/application-proxy-remove-personal-data.md)
 
 
@@ -200,7 +172,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](manage-apps/application-proxy-integrate-with-teams.md)
 ##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
-##### [Qlik](active-directory-application-proxy-qlik.md)
+##### [Qlik](manage-apps/application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)
@@ -226,45 +198,46 @@
 #### [Tenant restrictions](manage-apps/tenant-restrictions.md)
 #### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Understanding Azure AD application consent experiences](application-consent-experience.md)
 
 ### Troubleshoot
 
 
 
 #### Access Panel
-##### [App not appearing](application-access-panel-unexpected-application-not-appearing.md)
-##### [Unexpected app appearing](application-access-panel-unexpected-application-appears.md)
-##### [Can't sign in](application-access-panel-web-sign-in-problem.md)
-##### [Error installing browser extension](application-access-panel-extension-problem-installing.md)
-##### [How to use self-service app access](application-access-panel-self-service-applications-how-to.md)
-##### [Error using self-service app access](application-access-panel-self-service-applications-problem.md)
+##### [App not appearing](manage-apps/access-panel-troubleshoot-application-not-appearing.md)
+##### [Unexpected app appearing](manage-apps/access-panel-troubleshoot-unexpected-application.md)
+##### [Can't sign in](manage-apps/access-panel-troubleshoot-web-sign-in-problem.md)
+##### [Error installing browser extension](manage-apps/access-panel-extension-problem-installing.md)
+##### [How to use self-service app access](manage-apps/access-panel-manage-self-service-access.md)
+##### [Error using self-service app access](manage-apps/access-panel-troubleshoot-self-service-access.md)
 
 #### Adding an app
-##### [Choose app type](application-config-add-app-problem-how-to-choose-application-type.md)
-##### [Common problems - gallery apps](application-config-add-app-problem-problem-adding-gallery-app.md)
-##### [Common problems - non-gallery apps](application-config-add-app-problem-problem-adding-non-gallery-app.md)
+##### [Choose app type](manage-apps/choose-application-type.md)
+##### [Common problems - gallery apps](manage-apps/adding-gallery-app-common-problems.md)
+##### [Common problems - non-gallery apps](manage-apps/adding-non-gallery-app-common-problems.md)
 
 #### Application Proxy
-##### [Problem displaying app page](application-proxy-page-appearance-broken-problem.md)
-##### [Application load is too long](application-proxy-page-load-speed-problem.md)
-##### [Links on application page not working](application-proxy-page-links-broken-problem.md)
-##### [What ports to open for my app](application-proxy-connectivity-ports-how-to.md)
-##### [No working connector in a connector group for my app](application-proxy-connectivity-no-working-connector.md)
-##### [Configure in admin portal](application-proxy-config-how-to.md)
-##### [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)
-##### [Problem creating an app in admin portal](application-proxy-config-problem.md)
-##### [Configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-##### [Configure with PingAccess](application-proxy-back-end-ping-access-how-to.md)
-##### ["Can't Access this Corporate Application" error](application-proxy-sign-in-bad-gateway-timeout-error.md)
-##### [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
+##### [Problem displaying app page](manage-apps/application-proxy-page-appearance-broken-problem.md)
+##### [Application load is too long](manage-apps/application-proxy-page-load-speed-problem.md)
+##### [Links on application page not working](manage-apps/application-proxy-page-links-broken-problem.md)
+##### [What ports to open for my app](manage-apps/application-proxy-connectivity-ports-how-to.md)
+##### [No working connector in a connector group for my app](manage-apps/application-proxy-connectivity-no-working-connector.md)
+##### [Configure in admin portal](manage-apps/application-proxy-config-how-to.md)
+##### [Configure single sign-on to my app](manage-apps/application-proxy-config-sso-how-to.md)
+##### [Problem creating an app in admin portal](manage-apps/application-proxy-config-problem.md)
+##### [Configure Kerberos Constrained Delegation](manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [Configure with PingAccess](manage-apps/application-proxy-back-end-ping-access-how-to.md)
+##### ["Can't Access this Corporate Application" error](manage-apps/application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [Problem installing the Application Proxy Agent Connector](manage-apps/application-proxy-connector-installation-problem.md)
 
 
 #### Application registration
-##### [Enter fields for the application object](application-dev-registration-config-specific-application-property-how-to.md)
-##### [Change token lifetime defaults](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [Enter fields for the application object](develop/registration-config-specific-application-property-how-to.md)
+##### [Change token lifetime defaults](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### Authentication
-##### [Configure endpoints](application-dev-registration-config-how-to.md)
+##### [Configure endpoints](develop/registration-config-how-to.md)
 
 #### Conditional Access
 ##### [Customer did not meet Device Registration pre-reqs](active-directory-conditional-access.md)
@@ -276,62 +249,62 @@
 ##### [Which applications are supported with conditional access?](active-directory-conditional-access-supported-apps.md)
 
 #### Find an API
-##### [Find an API](application-dev-api-find-an-api-how-to.md)
+##### [Find an API](develop/api-find-an-api-how-to.md)
 
 #### Managing access
-##### [Assign users and groups to an app](application-access-assignment-how-to-add-assignment.md)
-##### [Remove a users access to an app](application-access-assignment-how-to-remove-assignment.md)
-##### [Configure self-service app assignment](application-access-self-service-how-to.md)
-##### [Unexpected user assigned](application-access-unexpected-user-assignment.md)
-##### [Unexpected app in the applications list](application-access-unexpected-application.md)
+##### [Assign users and groups to an app](manage-apps/methods-for-assigning-users-and-groups.md)
+##### [Remove a users access to an app](manage-apps/methods-for-removing-user-access.md)
+##### [Configure self-service app assignment](manage-apps/manage-self-service-access.md)
+##### [Unexpected user assigned](manage-apps/ways-users-get-assigned-to-applications.md)
+##### [Unexpected app in the applications list](manage-apps/application-types.md)
 
 #### Multi-tenant apps
-##### [Configure a new app](application-dev-setup-multi-tenant-app.md)
-##### [Add to the app gallery](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Configure a new app](develop/setup-multi-tenant-app.md)
+##### [Add to the app gallery](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### Permissions
-##### [Choose permissions for an API](application-dev-perms-for-given-api.md)
-##### [Grant permissions to my app](application-dev-registration-config-grant-permissions-how-to.md)
-##### [Delegated vs application permissions](application-dev-delegated-and-app-perms.md)
-##### [Application consent](application-dev-consent-framework.md)
+##### [Choose permissions for an API](develop/perms-for-given-api.md)
+##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
+##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
+##### [Application consent](develop/consent-framework.md)
 
 #### Provisioning
-##### [How long it takes](application-provisioning-when-will-provisioning-finish-specific-user.md)
-##### [Taking hours - gallery app](application-provisioning-when-will-provisioning-finish.md)
-##### [Configure user provisioning - gallery app](application-provisioning-config-how-to.md)
-##### [Problem configuring user provisioning - gallery app](application-provisioning-config-problem.md)
-##### [Problem saving administrator credentials while configuring user provisioning gallery app](application-provisioning-config-problem-storage-limit.md)
-##### [Users are not provisioned - gallery app](application-provisioning-config-problem-no-users-provisioned.md)
-##### [Wrong users provisioned - galler app](application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [How long it takes](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [Taking hours - gallery app](manage-apps/application-provisioning-when-will-provisioning-finish.md)
+##### [Configure user provisioning - gallery app](manage-apps/application-provisioning-config-how-to.md)
+##### [Problem configuring user provisioning - gallery app](manage-apps/application-provisioning-config-problem.md)
+##### [Problem saving administrator credentials while configuring user provisioning gallery app](manage-apps/application-provisioning-config-problem-storage-limit.md)
+##### [Users are not provisioned - gallery app](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
+##### [Wrong users provisioned - galler app](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
 
 #### Single sign-on
-##### [Choose a method](application-config-sso-how-to-choose-sign-on-method.md)
-##### [Configure](application-dev-registration-config-sso-how-to.md)
-##### [Configure federated - gallery apps](application-config-sso-how-to-configure-federated-sso-gallery.md)
-##### [Configuring federated common problems - gallery apps](application-config-sso-problem-configure-federated-sso-gallery.md)
-##### [Configure federated - non-gallery apps](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-##### [Configure federated common problems - non-gallery apps](application-config-sso-problem-configure-federated-sso-non-gallery.md)
-##### [Configure password - gallery apps](application-config-sso-how-to-configure-password-sso-gallery.md)
-##### [Configure password common problems - gallery apps](application-config-sso-problem-configure-password-sso-gallery.md)
-##### [Configure password - non-gallery apps](application-config-sso-how-to-configure-password-sso-non-gallery.md)
-##### [Configure password common problems - non-gallery apps](application-config-sso-problem-configure-password-sso-non-gallery.md)
+##### [Choose a method](manage-apps/single-sign-on-modes.md)
+##### [Configure](develop/registration-config-sso-how-to.md)
+##### [Configure federated - gallery apps](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
+##### [Configuring federated common problems - gallery apps](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
+##### [Configure federated - non-gallery apps](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+##### [Configure federated common problems - non-gallery apps](manage-apps/configure-federated-single-sign-on-non-gallery-applications-problems.md)
+##### [Configure password - gallery apps](manage-apps/configure-password-single-sign-on-gallery-applications.md)
+##### [Configure password common problems - gallery apps](manage-apps/configure-password-single-sign-on-gallery-applications-problems.md)
+##### [Configure password - non-gallery apps](manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
+##### [Configure password common problems - non-gallery apps](manage-apps/configure-password-single-sign-on-non-gallery-applications-problems.md)
 
 #### User sign-in problems
-##### [Unexpected consent prompt](application-sign-in-unexpected-user-consent-prompt.md)
-##### [User consent error](application-sign-in-unexpected-user-consent-error.md)
-##### [Problems signing in from custom portal](application-sign-in-other-problem-deeplink.md)
-##### [Problems signing in from access panel](application-sign-in-other-problem-access-panel.md)
-##### [Error on application sign-in page](application-sign-in-problem-application-error.md)
-##### [Problem with password single sign-on - non-gallery app](application-sign-in-problem-password-sso-non-gallery.md)
-##### [Problem with password single sign-on - gallery app](application-sign-in-problem-password-sso-gallery.md)
-##### [Problem signing into a Microsoft app](application-sign-in-problem-first-party-microsoft.md)
-##### [Problem with federated single sign-on - non-gallery app](application-sign-in-problem-federated-sso-non-gallery.md)
-##### [Problem with federated single sign-on - gallery app](application-sign-in-problem-federated-sso-gallery.md)
-##### [Problem with custom-developed app](application-sign-in-problem-custom-dev.md)
-##### [Problem with on-premises app - Application Proxy](application-sign-in-problem-on-premises-application-proxy.md)
+##### [Unexpected consent prompt](manage-apps/application-sign-in-unexpected-user-consent-prompt.md)
+##### [User consent error](manage-apps/application-sign-in-unexpected-user-consent-error.md)
+##### [Problems signing in from custom portal](manage-apps/application-sign-in-other-problem-deeplink.md)
+##### [Problems signing in from access panel](manage-apps/application-sign-in-other-problem-access-panel.md)
+##### [Error on application sign-in page](manage-apps/application-sign-in-problem-application-error.md)
+##### [Problem with password single sign-on - non-gallery app](manage-apps/application-sign-in-problem-password-sso-non-gallery.md)
+##### [Problem with password single sign-on - gallery app](manage-apps/application-sign-in-problem-password-sso-gallery.md)
+##### [Problem signing into a Microsoft app](manage-apps/application-sign-in-problem-first-party-microsoft.md)
+##### [Problem with federated single sign-on - non-gallery app](manage-apps/application-sign-in-problem-federated-sso-non-gallery.md)
+##### [Problem with federated single sign-on - gallery app](manage-apps/application-sign-in-problem-federated-sso-gallery.md)
+##### [Problem with custom-developed app](manage-apps/application-sign-in-problem-custom-dev.md)
+##### [Problem with on-premises app - Application Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Document library](active-directory-apps-index.md)
+
 
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
@@ -361,11 +334,9 @@
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
+## [Terms of use](active-directory-tou.md)
+
 ## Secure your identities
-### Certificate-based Authentication
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Get started](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD Identity Protection
 #### [Overview](identity-protection/overview.md)
@@ -376,6 +347,10 @@
 #### [Sign-in experience](identity-protection/flows.md)
 #### [Simulate risk events](identity-protection/playbook.md)
 #### [Unblock users](identity-protection/howto-unblock-user.md)
+#### [Configure the multi-factor authentication registration policy](identity-protection/howto-mfa-policy.md)
+#### [Configure the sign-in risk policy](identity-protection/howto-sign-in-risk-policy.md)
+#### [Configure the user risk policy](identity-protection/howto-user-risk-policy.md)
+#### [Block access when a session risk is detected](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [FAQs](identity-protection/faqs.md)
 #### [Glossary](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)

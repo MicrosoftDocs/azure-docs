@@ -180,7 +180,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ### PowerShell instructions
 
-The easiest way to use this script is to open [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), copy the script to the clipboard, and then paste the whole script into the script window. Then you can change the values for the resource names (if you wish), and run the entire script. 
+The easiest way to use this script is to open [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), copy the script to the clipboard, and then paste the whole script into the script window. Then you can change the values for the resource names (if you wish), and run the entire script. 
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -583,14 +583,14 @@ Log into your [Power BI](https://powerbi.microsoft.com/) account. Go to your wor
 
 ### Clean up resources using Azure CLI
 
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
 ```
 ### Clean up resources using PowerShell
 
-To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. $resourceGroup was set to **ContosoIoTRG1** back at the beginning of this tutorial.
+To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. $resourceGroup was set to **ContosoIoTRG1** back at the beginning of this tutorial.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $resourceGroup

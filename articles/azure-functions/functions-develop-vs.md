@@ -4,17 +4,12 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777  
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.technology: vs-azure
+ms.service: azure-functions
 ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
-ms.date: 05/23/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: glenga
 ---
 # Develop Azure Functions using Visual Studio  
@@ -96,7 +91,7 @@ To set the storage account connection string:
 
 3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
 
-## Create a function
+## Add a function to your project
 
 In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
 

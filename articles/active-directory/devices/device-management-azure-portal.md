@@ -1,5 +1,5 @@
 ---
-title: Managing devices using the Azure portal | Microsoft Docs
+title: How to manage devices using the Azure portal | Microsoft Docs
 description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
+#Customer intent: As a IT admin, I want to manage all devices related tasks from a central location
+
 ---
-# Managing devices using the Azure portal
+# How to manage devices using the Azure portal
 
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
@@ -120,7 +122,7 @@ As an administrator, you can manage the registered or joined devices. This secti
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. An administrator can see additional device 
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. 
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 
@@ -188,7 +190,7 @@ You can view and copy the BitLocker keys to help users to recover their encrypte
  
 ![View BitLocker keys](./media/device-management-azure-portal/36.png)
 
-to view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
+To view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
 
 - Global admins
 - Helpdesk Admins

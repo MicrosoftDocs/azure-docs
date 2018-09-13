@@ -33,7 +33,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > **For all of the following scenarios, you need to:**
 > <br/>
 > 
-> * [Create a storage account](../../storage/common/storage-create-storage-account.md)
+> * [Create a storage account](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
 > * [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
 > 
