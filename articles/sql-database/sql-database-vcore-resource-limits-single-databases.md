@@ -129,7 +129,7 @@ For single databases, the following tables show the resources available for a si
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
-|Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
+|Max log size (GB)|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|
 |TempDB size (GB)|32|64|128|256|384|384|
 |Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|
 |IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|
@@ -150,7 +150,7 @@ For single databases, the following tables show the resources available for a si
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (TB)|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|100 TB|
-|Max log size (GB)|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|Infinite|
+|Max log size (GB)|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|1 TB|
 |TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
 |IO latency (approximate)|TBD|TBD|TBD|TBD|TBD|TBD|TBD|TBD|
