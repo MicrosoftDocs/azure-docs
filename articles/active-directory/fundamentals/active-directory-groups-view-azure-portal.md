@@ -32,28 +32,28 @@ Before you begin, you’ll need to:
 You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 ## View your existing groups
-You can see all the groups for your organization in the **Groups - All groups** blade of the Azure portal.
+You can see all the groups for your organization in the **Groups - All groups** page of the Azure portal.
 
 - Select Azure **Active Directory**, and then select **Groups**.
 
-    The **Groups - All groups** blade appears, showing all your active groups.
+    The **Groups - All groups** page appears, showing all your active groups.
 
-    ![Groups-All groups blade, showing all existing groups](media/active-directory-groups-view-azure-portal/groups-all-groups-blade-with-all-groups.png)
+    ![Groups-All groups page, showing all existing groups](media/active-directory-groups-view-azure-portal/groups-all-groups-blade-with-all-groups.png)
 
 ## Search for a specific group
-Search the **Groups – All groups** blade to find the **MDM policy – West** group.
+Search the **Groups – All groups** page to find the **MDM policy – West** group.
 
-1. From the **Groups - All groups** blade, type _MDM_ into the **Search** box.
+1. From the **Groups - All groups** page, type _MDM_ into the **Search** box.
 
     The search results appear under the **Search** box, including the _MDM policy - West_ group.
 
-    ![Groups – All groups blade with search box filled out](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
+    ![Groups – All groups page with search box filled out](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
 3. Select the group **MDM policy – West**.
 
-4. View the group info on the **MDM policy - West Overview** blade, including the number of members of that group.
+4. View the group info on the **MDM policy - West Overview** page, including the number of members of that group.
 
-    ![MDM policy – West Overview blade with member info](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
+    ![MDM policy – West Overview page with member info](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
 
 ## View members of the MDM policy – West group
 Now that you’ve found the group, you can view all the assigned members.
@@ -65,17 +65,17 @@ Now that you’ve found the group, you can view all the assigned members.
 ## Clean up resources
 If you’re not going to continue to use this application, you can delete the group and its assigned members with the following steps:
 
-1. On the **Groups - All groups** blade, search for the **MDM policy - West** group.
+1. On the **Groups - All groups** page, search for the **MDM policy - West** group.
 
 2.	Select the **MDM policy - West** group.
 
-    The **MDM policy - West Overview** blade appears.
+    The **MDM policy - West Overview** page appears.
 
 3. Select **Delete**.
 
     The group and its associated members are deleted.
 
-    ![MDM policy – West Overview blade with Delete link highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade-delete.png)
+    ![MDM policy – West Overview page with Delete link highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade-delete.png)
 
     >[!Important]
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.
