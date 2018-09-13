@@ -28,7 +28,7 @@ A set of infrastructure VIPs is required for publishing Azure Stack endpoints to
 
 Internal infrastructure VIPs aren't listed because they’re not required for publishing Azure Stack.
 
-> [!NOTE]  
+> [!Note]  
 > User VIPs are dynamic, defined by the users themselves with no control by the Azure Stack operator.
 
 |Endpoint (VIP)|DNS host A record|Protocol|Ports|
