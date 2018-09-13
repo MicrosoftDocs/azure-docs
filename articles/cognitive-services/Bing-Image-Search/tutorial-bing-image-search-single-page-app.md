@@ -35,20 +35,9 @@ The full source code for this tutorial is available on Github.
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
-* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available on Github. 
+* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the sample. 
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
-## App components
-
-Like any single-page web app, the tutorial application includes three parts:
-
-> [!div class="checklist"]
-> * HTML - Defines the page structure and content.
-> * CSS - Defines the page's appearance.
-> * JavaScript - Defines the page's behavior, and the express app that contains it.  
-
-This tutorial focuses primarily on the JavaScript part of this app. 
 
 ## Manage and store user subscription keys
 
@@ -130,18 +119,18 @@ By default, the `onsubmit` handler returns `false`, keeping the form from being 
 
 The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
 
-| | |
-|-|-|
-|`where`|A drop-down menu for selecting the market (location and language) used for the search.|
-|`query`|The text field in which to enter the search terms.|
-|`aspect`|Radio buttons for choosing the proportions of the found images: roughly square, wide, or tall.|
-|`color`|Selects color or black-and-white, or a predominant color.
-|`when`|Drop-down menu for optionally limiting the search to the most recent day, week, or month.|
-|`safe`|A checkbox indicating whether to use Bing's SafeSearch feature to filter out "adult" results.|
-|`count`|Hidden field. The number of search results to return on each request. Change to display fewer or more results per page.|
-|`offset`|Hidden field. The offset of the first search result in the request; used for paging. It's reset to `0` on a new request.|
-|`nextoffset`|Hidden field. Upon receiving a search result, this field is set to the value of the `nextOffset` in the response. Using this field avoids overlapping results on successive pages.|
-|`stack`|Hidden field. A JSON-encoded list of the offsets of preceding pages of search results, for navigating back to previous pages.|
+|              |                                                                                                                                                                                    |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `where`      | A drop-down menu for selecting the market (location and language) used for the search.                                                                                             |
+| `query`      | The text field in which to enter the search terms.                                                                                                                                 |
+| `aspect`     | Radio buttons for choosing the proportions of the found images: roughly square, wide, or tall.                                                                                     |
+| `color`      |                                                                                                                                                                                    |
+| `when`       | Drop-down menu for optionally limiting the search to the most recent day, week, or month.                                                                                          |
+| `safe`       | A checkbox indicating whether to use Bing's SafeSearch feature to filter out "adult" results.                                                                                      |
+| `count`      | Hidden field. The number of search results to return on each request. Change to display fewer or more results per page.                                                            |
+| `offset`     | Hidden field. The offset of the first search result in the request; used for paging. It's reset to `0` on a new request.                                                           |
+| `nextoffset` | Hidden field. Upon receiving a search result, this field is set to the value of the `nextOffset` in the response. Using this field avoids overlapping results on successive pages. |
+| `stack`      | Hidden field. A JSON-encoded list of the offsets of preceding pages of search results, for navigating back to previous pages.                                                      |
 
 The `bingSearchOptions()` function formats these options into a partial query string, which can be used in the app's API requests.  
 
@@ -328,13 +317,14 @@ function renderImageResults(items) {
 ```
 
 The Bing Image Search API can return four types of related search results, each in its own top-level object. They are:
+The Bing Image Search API can provide four types of suggestions to help guide users' search experiences:
 
-|||
-|-|-|
-|`pivotSuggestions`|Queries that replace a pivot word in original search with a different one. For example, if you search for "red flowers," a pivot word might be "red," and a pivot suggestion might be "yellow flowers."|
-|`queryExpansions`|Queries that narrow the original search by adding more terms. For example, if you search for "Microsoft Surface," a query expansion might be "Microsoft Surface Pro."|
-|`relatedSearches`|Queries that have also been entered by other users who entered the original search. For example, if you search for "Mount Rainier," a related search might be "Mt. Saint Helens."|
-|`similarTerms`|Queries that are similar in meaning to the original search. For example, if you search for "kittens," a similar term might be "cute."|
+| Suggestion         | Description                                                                                                                                                                                                         |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pivotSuggestions` | Queries that replace a pivot word in original search with a different one. For example, if you search for "red flowers," a pivot word might be "red," and a pivot suggestion might be "yellow flowers." |
+| `queryExpansions`  | Queries that narrow the original search by adding more terms. For example, if you search for "Microsoft Surface," a query expansion might be "Microsoft Surface Pro."                                   |
+| `relatedSearches`  | Queries that have also been entered by other users who entered the original search. For example, if you search for "Mount Rainier," a related search might be "Mt. Saint Helens."                       |
+| `similarTerms`     | Queries that are similar in meaning to the original search. For example, if you search for "kittens," a similar term might be "cute."                                                                   |
 
 This application only renders the `relatedItems` suggestions, and places the resulting links in the page's sidebar. 
 
@@ -349,15 +339,15 @@ searchItemRenderers = {
 }
 ```
 
-A renderer function may accept the following parameters:
+These renderer functions accept the following parameters:
 
-| | |
-|-|-|
-|`item`|The JavaScript object containing the item's properties, such as its URL and its description.|
-|`index`|The index of the result item within its collection.|
-|`count`|The number of items in the search result item's collection.|
+| Parameter         | Description                                                                                              |
+|---------|----------------------------------------------------------------------------------------------|
+| `item`  | The JavaScript object containing the item's properties, such as its URL and its description. |
+| `index` | The index of the result item within its collection.                                          |
+| `count` | The number of items in the search result item's collection.                                  |
 
-The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
+The `index` and `count` parameters are used to attach numbers to results, generate HTML for the beginning/end of collections, and organizes the content. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
 Below is the source code for the images renderer, which performs the following functions:
 
