@@ -206,6 +206,8 @@ In the **Email/SMS/Push/Voice** pane, enter a name. Select the **Email** check b
 
 To customize the subject of the alert email, under **Create rule**, under **Customize Actions**, select **Email subject**. When you're finished, select **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of that update deployment run.
 
+The following image is an example email received wen the W3SVC service stops.
+
 ![email](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## Next Steps
