@@ -4,14 +4,10 @@ description: Reference documentation for the Azure Functions app settings or env
 services: functions
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: glenga
 ---

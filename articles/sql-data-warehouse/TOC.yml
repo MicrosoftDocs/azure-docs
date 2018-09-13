@@ -87,6 +87,8 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
+    - name: Best practices
+      href: sql-data-warehouse-best-practices-development.md
     - name: Tables
       items:
       - name: Overview
@@ -141,6 +143,8 @@
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
     items:
+    - name: Overview
+      href: sql-data-warehouse-overview-manageability-monitoring.md
     - name: Scale, pause, resume
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Resource utilization & query activity 
@@ -213,14 +217,12 @@
     items:
     - name: Monitor your workload
       href: sql-data-warehouse-manage-monitor.md
-    - name: Restore - Portal
-      href: sql-data-warehouse-restore-database-portal.md
-    - name: Restore - PowerShell
-      href: sql-data-warehouse-restore-database-powershell.md
-    - name: Restore - REST API
-      href: sql-data-warehouse-restore-database-rest-api.md
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
+    - name: Monitor Gen2 cache
+      href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Restore your data warehouse
+      href: sql-data-warehouse-restore.md
     - name: Automate performance levels
       href: manage-compute-with-azure-functions.md
   - name: Integrate

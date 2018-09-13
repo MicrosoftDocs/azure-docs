@@ -1,14 +1,14 @@
 ---
-title: Data sources supported - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Data sources supported
+title: Data sources supported - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker can automatically extract question-answer pairs from common semi-structured content formats such as FAQs and product manuals. Content can also be added to the knowledge base from structured files.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
 ---
 
@@ -48,7 +48,7 @@ Structured files such as .tsv, .xlsx with formatted columns can also be uploaded
 
 | Question  | Answer  | Metadata                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | `Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | `Key1:Value1|Key2:Value2` |
 | Question2 | Answer2 |      `Key:Value`           |
 Any additional columns in the source file are ignored.
 
@@ -57,7 +57,7 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 | Question  | Answer  | Source| Metadata                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1|`Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | Url1|`Key1:Value1|Key2:Value2` |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
 
 ## Editorial

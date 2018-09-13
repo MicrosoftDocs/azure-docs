@@ -12,13 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
 
 ---
 # Azure AD Connect sync: Make a change to the default configuration
 The purpose of this article is to walk you through how to make changes to the default configuration in Azure Active Directory (Azure AD) Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
+
+> [!WARNING]
+> If you make changes to the default sync rules then these changes will be overwritten the next time Azure AD Connect is updated, resulting in unexpected and likely unwanted synchronization results.
+>
+> The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
 
 ## Synchronization Rules Editor
 The Synchronization Rules Editor is used to see and change the default configuration. You can find it on the **Start** menu under the **Azure AD Connect** group.  

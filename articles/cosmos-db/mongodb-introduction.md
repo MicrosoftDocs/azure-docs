@@ -47,11 +47,6 @@ Azure Cosmos DB databases can be used as the data store for apps written for [Mo
 
 **Enterprise grade**: Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
 
-Learn more in this video with Azure Cosmos DB Senior Program Manager, Aleksey Savateyev.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
-> 
-
 ## How to get started
 
 Follow the MongoDB quickstarts to create an Azure Cosmos DB account and migrate your existing MongoDB application to use Azure Cosmos DB, or build a new one:

@@ -145,7 +145,7 @@ One of the beneﬁts of using Azure is that you can deploy your applications int
 
 ### Azure portal
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [Shell.Azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### Resources
 
@@ -169,7 +169,7 @@ Azure PowerShell is a set of modules that provide cmdlets for managing Azure. Yo
 
 #### Azure command-line interface
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli.md).
+The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### REST APIs
 
@@ -181,7 +181,7 @@ Administrators can access Azure PowerShell and Azure CLI through a browser-acces
 
 ## Azure subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through role-based access control (RBAC).
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
 ### Select and enable an Azure subscription
 
@@ -201,13 +201,9 @@ If you exceed the credit amount, your service are disabled until the next month 
 
 ### Grant administrative access to an Azure subscription
 
-Multiple account administrator roles are available and can be changed at any time. Two key roles are:
+RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
 
-- **Service administrator**: This role is authorized to manage Azure services. By default, it's granted access to the same account as the account administrator.
-
-- **Co-administrator**: This role has the same access as the service administrator. However, this role cannot change the association of a subscription to Azure directories.
-
-For more information, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md).
+For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### View billing information in the Azure portal
 
@@ -303,21 +299,21 @@ You can grant operational access to user accounts at a specified scope: subscrip
 
 To grant access, you assign a role to the user or user group. There are many predefined roles. You can also define your own custom roles.
 
-Here are a few example roles built into Azure:
+Here are a few example [built-in roles in Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Owner**: A user with this role can manage everything, including access.
 
 - **Reader**: A user with this role can read resources of all types (except secrets) but can’t make changes.
 
-- **Virtual machine contributor**: A user with this role can manage virtual machines but can’t manage the virtual network to which they are connected or the storage account where the VHD file resides.
+- **Virtual Machine Contributor**: A user with this role can manage virtual machines but can’t manage the virtual network to which they are connected or the storage account where the VHD file resides.
 
-- **SQL DB contributor**: A user with this role can manage SQL databases but not their security-related policies.
+- **SQL DB Contributor**: A user with this role can manage SQL databases but not their security-related policies.
 
-- **SQL security manager**: A user with this role can manage the security-related policies of SQL servers and databases.
+- **SQL Security Manager**: A user with this role can manage the security-related policies of SQL servers and databases.
 
-- **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
+- **Storage Account Contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -495,5 +491,5 @@ You can help secure Azure virtual networks by using a network security group. NS
 
 ## Next steps
 
-- [Create a Windows VM](/virtual-machines/windows/quick-create-portal.md)
+- [Create a Windows VM](../../virtual-machines/windows/quick-create-portal.md)
 - [Create a Linux VM](../../virtual-machines/linux/quick-create-portal.md)

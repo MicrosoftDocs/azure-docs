@@ -62,4 +62,3 @@ This alert triggers if a user goes a certain amount of time without activating a
 ## Next steps
 
 - [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
-- [Require multi-factor authentication for Azure AD directory roles in PIM](pim-how-to-require-mfa.md)

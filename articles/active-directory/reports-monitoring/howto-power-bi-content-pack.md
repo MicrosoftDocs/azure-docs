@@ -20,6 +20,11 @@ ms.reviewer: dhanyahk
 ---
 # How to use the Azure Active Directory Power BI Content Pack
 
+|  |
+|--|
+|Currently, the Azure AD Power BI content pack uses the Azure AD Graph APIs to retrieve data from your Azure AD tenant. As a result, you may see some disparity between the data available in the content pack and the data retrieved using the [Microsoft Graph APIs for reporting](concept-reporting-api.md). |
+|  |
+
 Understanding how your users adopt and use Azure Active Directory features is critical for you as an IT admin. It allows you to plan your IT infrastructure and communication to increase usage and to get the most out of AAD features. Power BI Content Pack for Azure Active Directory gives you the ability to further analyze your data to understand how you can use this data to gather richer insights into what’s going on with their Azure Active Directory for the various capabilities you heavily rely on.  With the integration of Azure Active Directory APIs into Power BI, you can easily download the pre-built content packs and gain insights to all the activities within your Azure Active Directory using rich visualization experience Power BI offers. You can create your own dashboard and share it easily with anyone in your organization. 
 
 This topic provides you with step-by-step instructions on how to install and use the content pack in your environment.

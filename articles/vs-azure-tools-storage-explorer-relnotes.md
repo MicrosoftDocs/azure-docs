@@ -18,17 +18,17 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer release notes
 
-This article contains the release notes for Azure Storage Explorer 1.2.0 release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 1.4.1 release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
 ## Version 1.4.1
 08/28/2018
 
-### Download Azure Storage Explorer 1.3.0
-- [Azure Storage Explorer 1.3.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.3.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.3.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 1.4.1
+- [Azure Storage Explorer 1.4.1 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.4.1 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.4.1 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### Hotfixes
 * On first launch, Storage Explorer was unable to generate the key used to encrypt sensitive data. This would cause issues when using Quick Access and attaching resources. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)

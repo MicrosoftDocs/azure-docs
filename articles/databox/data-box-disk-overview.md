@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -102,14 +102,14 @@ During the preview, Data Box Disk can transfer data to the following Azure regio
 
 |Azure region  |Azure region  |
 |---------|---------|
-|West Central US     |East US        |        
-|West US2     |East US2          |     
+|West Central US     |Canada Central       |        
+|West US2     |Canada East         |     
 |West US     | West Europe        |      
 |South Central US   |North Europe     |         
-|Central US     |Canada East|
-|North Central US  |Canada Central    |
-
-
+|Central US     |Australia East|
+|North Central US  |Australia Southeast   |
+|East US      |Australia Central |
+|East US2     |Australia Central 2|
 
 
 ## Pricing
