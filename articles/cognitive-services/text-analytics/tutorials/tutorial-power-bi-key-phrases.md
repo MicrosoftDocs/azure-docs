@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Text Analytics with Power BI (Azure Cognitive Services)'
+title: 'Tutorial: Text Analytics with Power BI'
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services

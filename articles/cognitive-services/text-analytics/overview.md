@@ -1,5 +1,5 @@
 ---
-title: What is Text Analytics? (Azure Cognitive Services)
+title: What is Text Analytics?
 titleSuffix: Azure Cognitive Services
 description: Text Analytics in Azure Cognitive Services for sentiment analysis, key phrase extraction, language detection, and entity linking.
 services: cognitive-services

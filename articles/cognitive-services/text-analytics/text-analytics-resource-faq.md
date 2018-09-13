@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions about the Text Analytics API (Azure Cognitive Services)
+title: Frequently Asked Questions about the Text Analytics API
 titleSuffix: Azure Cognitive Services
 description: Get answers to common questions about Microsoft Cognitive Services Text Analytics API on Azure.
 services: cognitive-services

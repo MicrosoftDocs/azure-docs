@@ -1,5 +1,5 @@
 ---
-title: Analyze sentiment in the Text Analytics REST API (Microsoft Cognitive Services on Azure)
+title: Analyze sentiment in the Text Analytics REST API 
 titleSuffix: Azure Cognitive Services
 description: Learn how to detect sentiment using the Text Analytics REST API.
 services: cognitive-services

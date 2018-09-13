@@ -1,5 +1,5 @@
 ---
-title: Sign up for the Text Analytics API (Microsoft Cognitive Services on Azure)
+title: Sign up for the Text Analytics API 
 titleSuffix: Azure Cognitive Services
 description: Instructions for signing up to use text analysis and operating within limits.
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Text Analytics with C# (Azure Cognitive Services)'
+title: 'Tutorial: Text Analytics with C#'
 titleSuffix: Azure Cognitive Services
 description: Connect to Text Analytics from an ASP.NET Core web application.
 services: cognitive-services

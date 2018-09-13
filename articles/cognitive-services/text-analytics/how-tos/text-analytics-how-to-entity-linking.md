@@ -1,5 +1,5 @@
 ---
-title: Use entity linking with the Text Analytics API (Microsoft Cognitive Services on Azure)
+title: Use entity linking with the Text Analytics API 
 titleSuffix: Azure Cognitive Services
 description: Learn how to identify and resolve entities using the Text Analytics REST API.
 services: cognitive-services

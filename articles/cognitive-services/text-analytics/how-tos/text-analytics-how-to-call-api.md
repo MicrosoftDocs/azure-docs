@@ -1,5 +1,5 @@
 ---
-title: Call the Text Analytics REST API (Microsoft Cognitive Services on Azure)
+title: Call the Text Analytics REST API 
 titleSuffix: Azure Cognitive Services
 description: Learn how to call the Text Analytics REST API.
 services: cognitive-services

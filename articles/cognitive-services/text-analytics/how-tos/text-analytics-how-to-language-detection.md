@@ -1,5 +1,5 @@
 ---
-title: Language detection with the Text Analytics REST API (Microsoft Cognitive Services on Azure)
+title: Language detection with the Text Analytics REST API 
 titleSuffix: Azure Cognitive Services
 description: Learn how to detect language using the Text Analytics REST API.
 services: cognitive-services
