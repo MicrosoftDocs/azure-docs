@@ -52,7 +52,7 @@ Depending on how you answered the questions in [Determine data protection requir
 >
 
 ## Define content management options
-<<<<<<< HEAD:articles/active-directory/hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md
+
 One advantage of using Azure AD to manage a hybrid identity infrastructure is that the process is fully transparent from the end user’s perspective. The user tries to access a shared resource, the resource requires authentication, the user has to send an authentication request to Azure AD in order to obtain the token and access the resource. This entire process happens in the background, without user interaction. 
 =======
 One advantage of using Azure AD to manage a hybrid identity infrastructure is that the process is fully transparent from the end user’s perspective. The user tries to access a shared resource, the resource requires authentication, the user has to send an authentication request to Azure AD in order to obtain the token and access the resource. This entire process happens in the background, without user interaction. 
