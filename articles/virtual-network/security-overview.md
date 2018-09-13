@@ -76,7 +76,7 @@ Augmented security rules simplify security definition for virtual networks, allo
 * **GatewayManager** (Resource Manager only): This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify *GatewayManager* for the value, traffic is allowed or denied to GatewayManager. If you only want to allow access to GatewayManager in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format GatewayManager.[region name]. 
 * **AzureDataLake** (Resource Manager only): This tag denotes the address prefixes of the Azure Data Lake service. If you specify *AzureDataLake* for the value, traffic is allowed or denied to AzureDataLake. 
 * **AzureActiveDirectory** (Resource Manager only): This tag denotes the address prefixes of the AzureActiveDirectory service. If you specify *AzureActiveDirectory* for the value, traffic is allowed or denied to AzureActiveDirectory.  
-* **CorpNetSAW** (Resource Manager only): This tag denotes the address prefixes of the CorpNetSAW service. If you specify *CorpNetSAW* for the value, traffic is allowed or denied to CorpNetSAW. 
+* **CorpNetSAW** (Resource Manager only): This tag denotes the address prefixes of the [CorpNetSAW devices](../security/azure-security-iaas.md#use-privileged-access-workstations), . If you specify *CorpNetSAW* for the value, traffic is allowed or denied to CorpNetSAW. 
 
 > [!NOTE]
 > Service tags of azure services denotes the address prefixes from the specific cloud being used. Regional service tags are not supported on national clouds, only in global format. For example, *Storage* and *Sql*.
