@@ -3,11 +3,10 @@ title: Server concepts in Azure Database for MariaDB
 description: This topic provides considerations and guidelines for working with Azure Database for MariaDB servers.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 # Server concepts in Azure Database for MariaDB
@@ -26,7 +25,7 @@ An Azure Database for MariaDB server:
 - Collocates resources in a region.
 - Provides a connection endpoint for server and database access.
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
-- Is available in multiple versions. For more information, see [Supported Azure Database for MariaDB database versions](./concepts-supported-versions.md).
+- Is available in MariaDB engine version 10.2. For more information, see [Supported Azure Database for MariaDB database versions](./concepts-supported-versions.md).
 
 Within an Azure Database for MariaDB server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Pricing tiers](./concepts-pricing-tiers.md).
 

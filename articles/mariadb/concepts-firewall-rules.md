@@ -3,11 +3,10 @@ title: Azure Database for MariaDB server firewall rules
 description: Describes firewall rules for your Azure Database for MariaDB server.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
@@ -57,7 +56,8 @@ Consider the following points when access to the Microsoft Azure Database for Ma
 
 * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
-<!--## Next steps
+## Next steps
+- [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md)
 
-- [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
- - [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->
+<!--
+- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->

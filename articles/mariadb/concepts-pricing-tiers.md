@@ -3,11 +3,10 @@ title: Pricing tiers for Azure Database for MariaDB
 description: This article describes the pricing tiers for Azure Database for MariaDB.
 author: jan-eng
 ms.author: janeng
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
@@ -113,8 +112,7 @@ For the most up-to-date pricing information, see the service [pricing page](http
 
 ## Next steps
 - Learn about the [service limitations](concepts-limits.md).
+- Learn how to [create a MariaDB server in the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 <!--
-- Learn how to [create a MariaDB server in the portal](howto-create-manage-server-portal.md).
-- Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).
-- -->
+- Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->

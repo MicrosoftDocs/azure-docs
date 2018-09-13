@@ -3,11 +3,10 @@ title: Overview of Azure Database for MariaDB relational database service
 description: Overview of the Azure Database for MariaDB relational database service.
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: overview
 ms.date: 09/24/2018
 ms.custom: mvc
 ---
@@ -24,11 +23,13 @@ Azure Database for MariaDB is a relational database service in the Microsoft clo
 
 These capabilities require almost no administration and all are provided at no additional cost. They allow you to focus on rapid app development and accelerating your time to market rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver with the speed and efficiency your business demands, all without having to learn new skills.
 
-This article is an introduction to Azure Database for MariaDB core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quickstarts to get you started:
+This article is an introduction to Azure Database for MariaDB core concepts and features related to performance, scalability, and manageability, with links to explore details. See the quickstart to get you started:
 - [Create an Azure Database for MariaDB server using Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
+
+<!--
 - [Create an Azure Database for MariaDB server using Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
-<!-- For a set of Azure CLI samples, see:
+For a set of Azure CLI samples, see:
 - [Azure CLI samples for Azure Database for MariaDB](sample-scripts-azure-cli.md) -->
 
 ## Adjust performance and scale within seconds
@@ -53,7 +54,7 @@ For any questions or suggestions you might have about working with Azure Databas
 In addition, consider the following points of contact as appropriate:
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/915439-azure-database-for-mariadb).
 
 ## Next steps
 Now that you've read an introduction to Azure Database for MariaDB and answered the question "What is Azure Database for MariaDB?," you're ready to:

@@ -3,11 +3,10 @@ title: Server logs for Azure Database for MariaDB
 description: Describes the logs available in Azure Database for MariaDB, and the available parameters for enabling different logging levels.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 # Server Logs in Azure Database for MariaDB
@@ -39,6 +38,5 @@ Other parameters you can adjust include:
 
 See the MariaDB [slow query log documentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) for full descriptions of the slow query log parameters.
 
-<!-- ## Next Steps
-- [How to configure and access server logs from the Azure portal](howto-configure-server-logs-in-portal.md).
--->
+## Next Steps
+- [How to configure and access server logs from the Azure portal](howto-configure-server-logs-portal.md).

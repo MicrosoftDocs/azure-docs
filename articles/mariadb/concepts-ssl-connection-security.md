@@ -4,10 +4,9 @@ description: Information for configuring Azure Database for MariaDB and associat
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
-manager: kfile
 services: mariadb
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
@@ -24,4 +23,5 @@ Connection strings for various programming languages are shown in the Azure port
 <!-- To learn how to enable or disable SSL connection when developing application, refer to [How to configure SSL](howto-configure-ssl.md).-->
 
 ## Next steps
-Learn more about [server firewall rules](concepts-firewall-rules.md)
+- Learn more about [server firewall rules](concepts-firewall-rules.md)
+- Learn how to [configure SSL](howto-configure-ssl.md).
