@@ -85,7 +85,7 @@ Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/tra
 
 ### IP to Location
 
-The IP to Location is a preview service that allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location.
+The IP to Location service allows you to preview the retrieved two letter country code for a given IP address. This service can help you to tailor and enhance the user experience by powering customized application content based on geographic location.
 
 For information on the REST APIs for IP to Location service, visit the [Azure Maps Geolocation APIs](https://docs.microsoft.com/rest/api/maps/geolocation) page.
 
@@ -99,7 +99,7 @@ Additionally, Azure Maps offers a convenient [JavaScript map control](https://do
 
 Accessing the Maps services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Maps account.
 
-Azure Maps uses a key-based authentication scheme. Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Maps service.
+Azure Maps uses a key-based authentication scheme. Your account comes with two keys pre-generated for you. Start integrating these location capabilities into your application by using either key and making a request to the Azure Maps service.
 
 ## Supported regions
 
@@ -112,7 +112,7 @@ The Azure Maps API is currently available in all countries except for the follow
 * Pakistan
 * South Korea
 
-Check your current IP address and verify that the location of your IP address is not in one of the unsupported countries above.
+Verify that the location of your current IP address is not in one of the unsupported countries above.
 
 ## Next steps
 
