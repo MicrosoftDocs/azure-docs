@@ -15,17 +15,17 @@ ms.reviewer: jeffsta
 ---
 
 # How to: Assign roles and administrators to users with Azure Active Directory
-New users aren't automatically assigned roles during creation. Instead, you have to specifically assign your users to an appropriate role, based on your organization's requirements.
+If a user in your organization needs permission to manage Azure Active Directory (Azure AD) resources, you must assign the user an appropriate role in Azure AD, based on the actions the user needs permission to perform.
 
 For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For more information about adding users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
 
 ## Assign roles
-For the purposes of this exercise, we're going to assign roles to users from the Directory role option on the user's profile page.
+A common way to assign Azure AD roles to a user is on the **Directory role** page for a user.
 
 You can also assign roles using Privileged Identity Management (PIM). For more detailed information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### To assign a role to a user
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, select **Users**, and then search for and select the user getting the role assignment. For example, _Alain Charon_.
 
@@ -59,6 +59,6 @@ If you need to remove the role assignment from a user, you can also do that from
 
 - [Add guest users from another directory](../b2b/what-is-b2b.md)
 
-Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
 
 
