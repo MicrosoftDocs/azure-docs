@@ -10,7 +10,7 @@ services: azure-maps
 manager: timlt
 ---
 
-# View the Azure Maps API usage
+# View Azure Maps API usage
 
 This article shows you how to view the API usage metrics for your Azure Maps account in the [portal](https://portal.azure.com). The metrics are shown in a convenient graph format along a customizable time duration.
 
@@ -32,8 +32,8 @@ Continue to the next section if you need to customize these graphs for your part
 
 4. On the **Metrics** pane, choose between one of the following:
 
-    1. **Availability**, which shows the *Average* of API availability over a period of time, or
-    2. **Usage**, which shows how the usage *Count* for your account.
+    1. **Availability** - which shows the *Average* of API availability over a period of time.
+    2. **Usage** - which shows how the usage *Count* for your account.
 
     ![Azure Maps Metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
@@ -53,7 +53,7 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## Next steps
 
-Learn more about the Azure Maps APIs you wish to track usage for:
+Learn more about the Azure Maps APIs you want to track usage for:
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST API documentation](https://docs.microsoft.com/rest/api/maps)
