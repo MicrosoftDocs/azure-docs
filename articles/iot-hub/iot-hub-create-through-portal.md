@@ -93,7 +93,7 @@ Click **Create** to add this newly created policy to the existing list.
 
 ## Message Routing for an IoT hub
 
-Click **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and custom endpoints for the hub. Message routing enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage. 
+Click **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and custom endpoints for the hub. [Message routing](iot-hub-devguide-messages-d2c.md) enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage. 
 
 ![Message routing pane](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
