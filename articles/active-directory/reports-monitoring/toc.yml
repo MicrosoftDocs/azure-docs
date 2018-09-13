@@ -1,4 +1,5 @@
 - name: Reports and Monitoring documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What are Azure AD reports?
