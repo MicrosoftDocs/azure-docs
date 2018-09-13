@@ -94,7 +94,7 @@
       - name: Change name or logo
         href: change-name-or-logo-portal.md
       - name: SaaS apps tutorials
-        href: ../saas-apps/tutorial-list.md
+        href: ../saas-apps/tutorial-list.md?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: On-premises app integration
       items:
       - name: Enable Application Proxy
@@ -264,7 +264,7 @@
   - name: Resources
     items:
     - name: Azure AD deployment plans
-      href: ../fundamentals/active-directory-deployment-plans.md
+      href: ../fundamentals/active-directory-deployment-plans.md?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Azure feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
     - name: Azure Roadmap
