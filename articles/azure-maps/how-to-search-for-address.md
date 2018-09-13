@@ -22,7 +22,7 @@ This article uses the [Postman app](https://www.getpostman.com/apps) to build RE
 
 ## Using fuzzy search
 
-The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) and is particularly useful when you do not know what your user inputs are for a search query. The API combines POI search and geocoding into a canonical 'single-line search'. For example, the API can handle inputs of any address or POI token combination. It can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or it can be executed more generally without any geo biasing anchor point.
+The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) and is useful when you do not know what your user inputs are for a search query. The API combines POI search and geocoding into a canonical 'single-line search'. For example, the API can handle inputs of any address or POI token combination. It can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or executed more generally without any geo biasing anchor point.
 
 Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce unusual results. This default can be overridden as needed per request by passing in the query parameter `maxFuzzyLevel=2` or `3`.
 
@@ -66,7 +66,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
   
     The results are now bounded by the country code and the query returns pizza restaurants in the United States.
   
-    To provide results oriented on a particular location, you can query a point of interest and use the returned latitude and longitude values in your call to the Fuzzy Search service. In this case, you used the Search service to return the location of the Seattle Space Needle and used the lat. / lon. values to orient the search.
+    To provide results for a location, you can query a point of interest and use the returned latitude and longitude values in your call to the Fuzzy Search service. In this case, you used the Search service to return the location of the Seattle Space Needle and used the lat. / lon. values to orient the search.
   
 6. In Params, enter the following Key / Value pairs and click **Send**:
 
