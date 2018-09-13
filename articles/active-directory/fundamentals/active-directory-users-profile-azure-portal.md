@@ -18,10 +18,10 @@ ms.reviewer: jeffsta
 Add user profile information, including a profile picture, job-specific information, and some settings using Azure Active Directory (Azure AD). For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md).
 
 ## Add or change profile information
-As you'll see, there's more information available in a user's profile than what you're able to add during the user's creation. All of this additional information is optional and can be added as needed by your organization.
+As you'll see, there's more information available in a user's profile than what you're able to add during the user's creation. All this additional information is optional and can be added as needed by your organization.
 
 ## To add or change profile information
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a Global administrator or user administrator for the directory.
 
 2. Select **Azure Active Directory**, select **Users**, and then select a user. For example, _Alain Charon_.
 
@@ -36,8 +36,6 @@ As you'll see, there's more information available in a user's profile than what 
     - **Profile picture.** Select a thumbnail image for the user's account. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page.
 
     - **Identity.** Add any account-related information, such as a married last name or a changed user name. 
-    
-        You might have previously added this information while creating the user. The identity-related information is the only profile information that was available at that time.
 
     - **Job info.** Add any job-related information, such as the user's job title, department, or manager.
 
@@ -45,11 +43,14 @@ As you'll see, there's more information available in a user's profile than what 
 
     - **Contact info.** Add any relevant contact information for the user. For example, a street address or a mobile phone number.
 
-    - **Authentication contact info.** Verify this information to make sure there's an active phone number and email address for the user. This information is used by Azure Active Directory to make sure the user is really the user during sign-in.
+    - **Authentication contact info.** Verify this information to make sure there's an active phone number and email address for the user. This information is used by Azure Active Directory to make sure the user is really the user during sign-in. Authentication contact info can be updated only by a global administrator.
 
 4. Select **Save**.
 
-    All of your changes are saved for the user.
+    All your changes are saved for the user.
+
+    >[!Note]
+    >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 
 ## Next steps
 After you've updated your users' profiles, you can perform the following basic processes:
@@ -60,4 +61,4 @@ After you've updated your users' profiles, you can perform the following basic p
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
