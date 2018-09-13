@@ -14,8 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Configure message routing with IoT Hub
 
-[Message routing](iot-hub-devguide-messages-d2c.md) enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring message routing, you can create routing queries to customize the route that matches a certain condition. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
-<!--"routing queries" should be hyperlinked to (iot-hub-devguide-routing-query-syntax.md) [robin]-->
+[Message routing](iot-hub-devguide-messages-d2c.md) enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring message routing, you can create [routing queries](iot-hub-devguide-routing-query-syntax.md) to customize the route that matches a certain condition. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
 
 In this tutorial, you learn how to set up and use routing queries with IoT Hub. You will route messages from an IoT device to one of multiple services, including blob storage and a Service Bus queue. Messages to the Service Bus queue will be picked up by a Logic App and sent via e-mail. Messages that do not have routing specifically set up are sent to the default endpoint, and viewed in a Power BI visualization.
 
@@ -275,19 +274,19 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
    ![Screenshot showing how to start adding an endpoint to a route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
-4. Select **Azure Blob Storage**. You see the **Add Storage Endpoint** pane. 
+4. Select **Blob storage**. You see the **Add Storage Endpoint** pane. 
 
    ![Screenshot showing adding an endpoint.](./media/tutorial-routing/message-routing-add-storage-ep.png)
 
 5. Enter a name for the endpoint. This tutorial uses **StorageContainer**.
 
-6. Click **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps, then select the container. This tutorial uses **contosoresults**. Click **Select**. You return to the **Add endpoint** pane. 
+6. Click **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. Select the container you set up in the preparation steps. This tutorial uses **contosoresults**. Click **Select**. You return to the **Add endpoint** pane. 
 
-7. Use the defaults for the rest of the fields. Click **Create** to add the storage endpoint. You return to the **Add a route** pane.
+7. Use the defaults for the rest of the fields. Click **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
 
 8.  Now complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen. 
 
-   **Name**: Enter a name for your routing query. This tutorial uses **StorageRule**.
+   **Name**: Enter a name for your routing query. This tutorial uses **StorageRoute**.
 
    **Endpoint**: This shows the endpoint you just set up. 
    
@@ -325,7 +324,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 6.  Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
 
-   **Name**: Enter a name for your routing query. This tutorial uses **SBQueueRule**. 
+   **Name**: Enter a name for your routing query. This tutorial uses **SBQueueRoute**. 
 
    **Endpoint**: This shows the endpoint you just set up.
 
@@ -337,7 +336,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 7. Click **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
 
-   ![Screenshot showing the routes you just set up.](./media/tutorial-routing/message-routing-show-both-rules.png)
+   ![Screenshot showing the routes you just set up.](./media/tutorial-routing/message-routing-show-both-routes.png)
 
 8. You can see the custom endpoints you set up by clicking on the **Custom Endpoints** tab.
 
