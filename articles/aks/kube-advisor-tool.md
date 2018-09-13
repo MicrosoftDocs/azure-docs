@@ -13,7 +13,7 @@ ms.author: seanmck
 
 # Checking for Kubernetes best practices in your cluster
 
-There are several best practice that you should follow on your Kubernetes deployments to ensure the best performance and resilience for your applications. You can use the kube-advisor tool to look for deployments that are not following those suggestions.
+There are several best practices that you should follow on your Kubernetes deployments to ensure the best performance and resilience for your applications. You can use the kube-advisor tool to look for deployments that aren't following those suggestions.
 
 ## About kube-advisor
 
@@ -24,7 +24,7 @@ The [kube-advisor tool][kube-advisor-github] is a single container designed to b
 
 ## Running kube-advisor
 
-To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration.md), using the following commands. The first command creates a Kubernetes service account.The second command runs the tool in a pod using that service account and configures the pod to be deleted after it exits. 
+To run the tool on a cluster that is configured for [role-based access control (RBAC)](aad-integration.md), using the following commands. The first command creates a Kubernetes service account. The second command runs the tool in a pod using that service account and configures the pod for deletion after it exits. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
@@ -32,7 +32,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
 ```
 
-If you are not using RBAC, you can run the command as follows:
+If you aren't using RBAC, you can run the command as follows:
 
 ```bash
 kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --restart=Never
@@ -48,9 +48,9 @@ The tool validates several Kubernetes best practices, each with their own sugges
 
 ### Resource requests and limits
 
-Kubernetes supports defining [resource requests and limits on pod specifications][kube-cpumem]. The request defines the minimum CPU and memory required to run the container, while the limit defines the maximum CPU and memory that should be allowed.
+Kubernetes supports defining [resource requests and limits on pod specifications][kube-cpumem]. The request defines the minimum CPU and memory required to run the container. The limit defines the maximum CPU and memory that should be allowed.
 
-By default, no requests or limits are set on pod specifications, which can lead to nodes being overscheduled and containers being starved. The kube-advisor tool highlights pods without requests and limits set.
+By default, no requests or limits are set on pod specifications. This can lead to nodes being overscheduled and containers being starved. The kube-advisor tool highlights pods without requests and limits set.
 
 ## Cleaning up
 
