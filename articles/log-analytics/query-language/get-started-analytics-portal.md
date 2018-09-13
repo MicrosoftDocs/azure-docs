@@ -19,6 +19,8 @@ ms.component: na
 
 # Get started with the Log Analytics page in the Azure portal
 
+[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
+
 In this tutorial you will learn how to use the Log Analytics page in the Azure portal (currently in preview) to write Log Analytics queries. It will teach you how to:
 
 - Write simple queries
@@ -40,7 +42,7 @@ The Log Analytics page is a web tool used to write and execute Azure Log Analyti
 ## Basic queries
 Queries can be used to search terms, identify trends, analyze patterns, and provide many other insights based on your data. Start with a basic query:
 
-```OQL
+```KQL
 Event | search "error"
 ```
 
@@ -50,7 +52,7 @@ Queries can start with either a table name or a **search** command. The above ex
 
 Another way to write that same query would be:
 
-```OQL
+```KQL
 search in (Event) "error"
 ```
 
@@ -74,7 +76,7 @@ In each table, data is organized in columns with different data types as indicat
 ## Filter the results
 Start by getting everything in the _Event_ table.
 
-```OQL
+```KQL
 Event
 ```
 
@@ -128,7 +130,7 @@ If the query explicitly contains a filter for _TimeGenerated_, the time picker t
 ## Charts
 In addition to returning results in a table, query results can be presented in visual formats. Use the following query as an example:
 
-```OQL
+```KQL
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

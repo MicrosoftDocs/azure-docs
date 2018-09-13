@@ -23,10 +23,12 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
+[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
+
 Joins allow you to analyze data from multiple tables, in the same query. They merge the rows of two data sets by matching values of specified columns.
 
 
-```OQL
+```KQL
 SecurityEvent 
 | where EventID == 4624		// sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -59,7 +61,7 @@ on $left.key1 == $right.key2
 ## Lookup Tables
 A common use of joins is using static mapping of values using `datatable` that can help in transforming the results into more presentable way. For example, to enrich the security event data with the event name for each event ID.
 
-```OQL
+```KQL
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

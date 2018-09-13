@@ -23,6 +23,8 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
 
+[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
+
 This article describes how to edit, compare, search in and perform a variety of other operations on strings. 
 
 Each character in a string has an index number, according to its location. The first character is at index 0, the next character is 1, and so one. Different string functions use index numbers as shown in the following sections. Many of the following examples use the **print** command for to demonstrate string manipulation without using a specific data source.
@@ -31,13 +33,13 @@ Each character in a string has an index number, according to its location. The f
 ## Strings and escaping them
 String values are wrapped with either with single or double quote characters. Backslash (\) is used to escape characters to the character following it, such as \t for tab, \n for newline, and \" the quote character itself.
 
-```OQL
+```KQL
 print "this is a 'string' literal in double \" quotes"
 ```
 
 To prevent "\\" from acting as an escape character, add "@" as a prefix to the string:
 
-```OQL
+```KQL
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -101,7 +103,7 @@ The number of times that the search string can be matched in the container. Plai
 
 #### Plain string matches
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -111,7 +113,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### Regex matches
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -124,7 +126,7 @@ Gets a match for a regular expression from a given string. Optionally also conve
 
 ### Syntax
 
-```OQL
+```KQL
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -142,7 +144,7 @@ If there's no match, or the type conversion fails, return null.
 ### Examples
 
 The following example extracts the last octet of *ComputerIP* from a heartbeat record:
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -150,7 +152,7 @@ Heartbeat
 ```
 
 The following example extracts the last octet, casts it to a *real* type (number) and calculates the next IP value
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -160,7 +162,7 @@ Heartbeat
 ```
 
 In the example below, the string *Trace* is searched for a definition of "Duration". The match is cast to *real* and multiplied by a time constant (1 s) *which casts Duration to type timespan*.
-```OQL
+```KQL
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -181,7 +183,7 @@ isnotempty(value)
 
 ### Examples
 
-```OQL
+```KQL
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -206,7 +208,7 @@ parseurl(urlstring)
 
 ### Examples
 
-```OQL
+```KQL
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -246,7 +248,7 @@ The text after replacing all matches of regex with evaluations of rewrite. Match
 
 ### Examples
 
-```OQL
+```KQL
 SecurityEvent
 | take 1
 | project Activity 
@@ -277,7 +279,7 @@ split(source, delimiter [, requestedIndex])
 
 ### Examples
 
-```OQL
+```KQL
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1);	// result: ["bbb"]
@@ -296,7 +298,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### Examples
-```OQL
+```KQL
 print strcat("hello", " ", "world")	// result: "hello world"
 ```
 
@@ -311,7 +313,7 @@ strlen("text_to_evaluate")
 ```
 
 ### Examples
-```OQL
+```KQL
 print strlen("hello")	// result: 5
 ```
 
@@ -332,7 +334,7 @@ substring(source, startingIndex [, length])
 - `length` - An optional parameter that can be used to specify the requested length of the returned substring.
 
 ### Examples
-```OQL
+```KQL
 print substring("abcdefg", 1, 2);	// result: "bc"
 print substring("123456", 1);		// result: "23456"
 print substring("123456", 2, 2);	// result: "34"
@@ -351,7 +353,7 @@ toupper("value")
 ```
 
 ### Examples
-```OQL
+```KQL
 print tolower("HELLO");	// result: "hello"
 print toupper("hello");	// result: "HELLO"
 ```

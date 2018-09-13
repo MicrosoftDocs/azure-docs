@@ -23,6 +23,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) before completing this tutorial.
 
+[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
 
 In this tutorial you will learn to write Azure Log Analytics queries. It will teach you how to:
 
@@ -44,7 +45,7 @@ Queries can start with either a table name or the *search* command. You should s
 ### Table-based queries
 Azure Log Analytics organizes data in tables, each composed of multiple columns. All tables and columns are shown on the schema pane, in the Analytics portal. Identify a table that you're interested in and then take a look at a bit of data:
 
-```OQL
+```KQL
 SecurityEvent
 | take 10
 ```
@@ -60,7 +61,7 @@ We could actually run the query even without adding `| take 10` - that would sti
 ### Search queries
 Search queries are less structured, and generally more suited for finding records that include a specific value in any of their columns:
 
-```OQL
+```KQL
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -82,7 +83,7 @@ That could return too many results though and might also take some time. The abo
 
 The best way to get only the latest 10 records is to use **top**, which sorts the entire table on the server side and then returns the top records:
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -97,7 +98,7 @@ Filters, as indicated by their name, filter the data by a specific condition. Th
 
 To add a filter to a query, use the **where** operator followed by one or more conditions. For example, the following query returns only *SecurityEvent* records where _Level_ equals _8_:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8
 ```
@@ -113,14 +114,14 @@ When writing filter conditions, you can use the following expressions:
 
 To filter by multiple conditions, you can either use **and**:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 or pipe multiple **where** elements one after the other:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -141,7 +142,7 @@ The time picker is in the top left corner , which indicates we’re querying onl
 ### Time filter in query
 You can also define your own time range by adding a time filter to the query. It’s best to place the time filter immediately after the table name: 
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -153,7 +154,7 @@ In the above time filter  `ago(30m)` means "30 minutes ago" so this query only r
 ## Project and Extend: select and compute columns
 Use **project** to select specific columns to include in the results:
 
-```OQL
+```KQL
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -170,7 +171,7 @@ You can also use **project** to rename columns and define new ones. The followin
 * Create a new column named *EventCode*. The **substring()** function is used to get only the first four characters from the Activity field.
 
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -178,7 +179,7 @@ SecurityEvent
 
 **extend** keeps all original columns in the result set and defines additional ones. The following query uses **extend** to add a *localtime* column, which contains a localized TimeGenerated value.
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -188,7 +189,7 @@ SecurityEvent
 Use **summarize** to identify groups of records, according to one or more columns, and apply aggregations to them. The most common use os **summarize** is *count*, which returns the number of results in each group.
 
 The following query reviews all *Perf* records from the last hour, groups them by *ObjectName*, and counts the records in each group: 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -196,7 +197,7 @@ Perf
 
 Sometimes it makes sense to define groups by multiple dimensions. Each unique combination of these values defines a separate group:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -204,7 +205,7 @@ Perf
 
 Another common use is to perform mathematical or statistical calculations on each group. For example, the following calculates the average *CounterValue* for each computer:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -212,7 +213,7 @@ Perf
 
 Unfortunately, the results of this query are meaningless since we mixed together different performance counters. To make this more meaningful, we should calculate the average separately for each combination of *CounterName* and *Computer*:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -223,7 +224,7 @@ Grouping results can also be based on a time column, or another continuous value
 
 To create groups based on continuous values, it is best to break the range into manageable units using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value for each period if 1 hour, over the last 2 days:
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

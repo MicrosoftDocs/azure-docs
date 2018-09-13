@@ -23,6 +23,7 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
+[!INCLUDE [Log Analytics Demo environment](../../includes/log-analytics-demo-environment.md)]
 
 Nested objects are objects that contain other objects in an array or a map of key-value pairs. These objects are represented as JSON strings. This article describes how JSON is used to retrieve data and analyze nested objects.
 
@@ -35,7 +36,7 @@ Use `extractjson` to access a specific JSON element in a known path. This functi
 
 Use brackets for indexes and dots to separate elements:
 
-```OQL
+```KQL
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report
 | extend status = extractjson("$.hosts[0].status", hosts_report)
@@ -43,7 +44,7 @@ print hosts_report
 
 This is the same result using only the brackets notation:
 
-```OQL
+```KQL
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report 
 | extend status = extractjson("$['hosts'][0]['status']", hosts_report)
@@ -51,7 +52,7 @@ print hosts_report
 
 If there is only one element, you can use only the dot notation:
 
-```OQL
+```KQL
 let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
 print hosts_report 
 | extend status = hosts_report.status
@@ -63,7 +64,7 @@ print hosts_report
 ### parsejson
 To access mulitple elements in your json structure, it's easier to access it as a dynamic object. Use `parsejson` to cast text data to a dynamic object. Once converted to a dynamic type, additional functions can be used to analyze the data.
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend status0=hosts_object.hosts[0].status, rate1=hosts_object.hosts[1].rate
@@ -74,7 +75,7 @@ print hosts_object
 ### arraylength
 Use `arraylength` to count the number of elements in an array:
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend hosts_num=arraylength(hosts_object.hosts)
@@ -83,7 +84,7 @@ print hosts_object
 ### mvexpand
 Use `mvexpand` to break the properties of an object into separate rows.
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | mvexpand hosts_object.hosts[0]
@@ -94,7 +95,7 @@ print hosts_object
 ### buildschema
 Use `buildschema` to get the schema that admits all values of an object:
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)
@@ -118,7 +119,7 @@ This output describes the names of the object fields and their matching data typ
 
 Nested objects may have different schemas such as in the following example:
 
-```OQL
+```KQL
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"status":"stopped", "rate":"3", "range":100}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)
