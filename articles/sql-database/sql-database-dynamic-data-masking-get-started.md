@@ -9,6 +9,7 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
+ms.reviewer: vanto
 
 ---
 # SQL Database dynamic data masking
