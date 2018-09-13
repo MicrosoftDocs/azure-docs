@@ -102,7 +102,7 @@
       - name: Route traffic through NGFW only
         href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
   
-    - name: Storage & data security
+    - name: Data & storage security
       href: security-center-sql-service-recommendations.md
       items:
       - name: Enable auditing and threat detection on SQL databases
@@ -112,13 +112,12 @@
       - name: Enable Transparent Data Encryption
         href: security-center-enable-transparent-data-encryption.md     
  
-    - name: Identity and Access
+    - name: Monitor identity and access
       href: security-center-identity-access.md  
-
+    - name: Manage just in time access
+      href: security-center-just-in-time.md
   - name: Apply cloud defenses
     items:
-    - name: Just in time access
-      href: security-center-just-in-time.md
     - name: Adaptive application controls
       href: security-center-adaptive-application.md
     - name: File integrity monitoring

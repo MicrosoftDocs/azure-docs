@@ -3,7 +3,7 @@ title: Protecting your network in Azure Security Center  | Microsoft Docs
 description: This document addresses recommendations in Azure Security Center that help you protect your Azure network and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,22 +13,93 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: terrylan
+ms.date: 9/12/2018
+ms.author: rkarlin
 
 ---
 # Protecting your network in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL, and applications.
+Azure Security Center analyzes the security state of your network resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
-This article addresses recommendations that apply to your network.  Network recommendations center around next generation firewalls, Network Security Groups, configuring inbound traffic rules, and more.  Use the table below as a reference to help you understand the available network recommendations and what each one does if you apply it.
+This article addresses recommendations that apply to your network resources. Network recommendations center around next generation firewalls, Network Security Groups, virtual machines, endpoints, configuring inbound traffic rules, and more. For a list of network recommendations and remediation actions, see [Managing security recommendations in Azure Security Center](security-center-recommendations).
 
-## Available network recommendations
-| Recommendation | Description |
-| --- | --- |
-| [Add a Next Generation Firewall](security-center-add-next-generation-firewall.md) |Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner to increase your security protections. |
-| [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW. |
-| [Enable Network Security Groups on subnets or virtual machines](security-center-enable-network-security-groups.md) |Recommends that you enable NSGs on subnets or VMs. |
-| [Restrict access through Internet facing endpoint](security-center-restrict-access-through-internet-facing-endpoints.md) |Recommends that you configure inbound traffic rules for NSGs. |
+> [!NOTE]
+> The **Networking** page lets you deep dive into your network resource health. This enhanced feature is available for the Azure Security Center stadard tier only. If you use the free tier, you can click the button to **View legacy networking** and recieve networking resource recommendations.
+>
+
+The **Networking** page tiles provide an overview of the sections you can deep dive into, to get more information about the health of your network resources:
+
+- Network map (Azure Security Center Standard tier only)
+- NSG hardening (Coming soon. Register for the preview)
+- JIT virtual machine access
+- Networking security recommendations and link to that page. 
+ 
+![Networking pane](./media/security-center-network-recommendations/networking-pane.png)
+
+## Network map
+The interactive network map provides a topology view with security overlays giving you recommendations and insights for hardening your network resources. Using the map you can see the connections between your virtual machines, subnets, and vnets, and enables you to drill down from the map into specific resources and the recommendations for those resources.
+
+To open the Network map:
+
+1. In Security Center, under Resource Security Hygiene, select **Networking**.
+2. Under **Network map** click **See topology**.
+ 
+By default the topology view displays:
+- Subscriptions you selected in Azure. The map supports multiple subscriptions.
+- VMs, subnets, and Vnets of the Resource Manager resource type (Classic Azure resources in which the NIC and IP address are bundled into a single resource are not supported)
+- Only resources that have [nework recommendations](security-center-recommendations.md) with a high or medium severity  
+- Internet facing resources
+- The map is optimized for the subscriptions you selected in Azure. If you modify your selection, the map is recalculated and reoptimized based on your new settings.  
+
+![Networking topology map](./media/security-center-network-recommendations/network-map-info.png)
+
+## Understanding the Network map
+
+The Network map can show you your networking resources in a **Topology** view and based on **Traffic**.
+
+### The topology map
+
+In the **Topology** view of the networking map, you can view the following insights about your neworking resources:
+- In the inner circle, you can see all the vnets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virutal machines.
+- The lines connecting the resources in the map let you know which resources are associated with each other. 
+- Use the red and yellow dots to quickly get an overview of which resources have open High and Medium severity recommendations from Security Center.
+- You can click any of the resources to drill down into them and view the details of that resource and its recommendations directly in the Network Map blade.  
+- If there are too many resources being displayed on the map, it smart clusters them, highlighting the resources that are in the most critical state, and have the most high severity recommendations. 
+
+To refocus the Network map:
+
+1. You can modify what you see on the network map by using the filters at the top. You can focus the map based on:
+   -  **Security health**: You can filter the map based on Severity (High, Medium, Low) of the recommendations that exist for the resources.
+   - **Recommendations**: You can select which resources are displayed based on which recommendations are active on those resources. For example, you can view only resources for which Security Center recommends you enable Network Security Groups.
+   - **Network zones**: By default, the map displays only Internet facing resources, you can select internal VMs as well.
+ 
+2. You can click **Reset** in top left corner at any time to return the map to its default state.
+
+To drill down into a resource:
+1. When you select a specific resource on the map, the right pane opens and gves you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
+2. When you hover over a node in the map, you can view general information about the resource, incluidng subscription, resource type, and resource group.
+3. Use the link to zoom into the tool tip and refocus the map on that specific node. 
+4. To refocus the map away from a specific node, zoom out, or use the breadcrumbs at the top left to view the broader map.
+
+### The Traffic map
+
+The **Traffic** map provides you with a map of all the possible traffic within the resources. This provides you with a visual map of all the rules you configured that define which resources can communicate with whom. This enables you to see the existing configuration of the network security groups as well as possible risky configurations within the groups.
+
+The stregth of this map is in its ability to show you these allowed connections together with the vulnerabilities that exist, so you can use this cross-section of data to perform the necessary hardening on your resources. 
+
+For example, you might detect two machines that you weren’t aware could communicate, enabling you to better isolate the workloads and subnets.
+
+To drill down into a resource:
+1. When you select a specific resource on the map, the right pane opens and gves you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
+2. Click **Traffic** to see the list of outbound and inbound traffic on the resource - this is a comprehenive list of who can communicate with the resource and who it can communicate with.
+3. In the map, select a specific node to see who the resource can communcate with and whether it's TCP or UDP traffic across port ranges. This data is based on analysis of the Network Security Groups as well as advanced machine learning algorthims that analyze multiple rules to understand their crossovers and interactions.  
+
+![Networking traffic map](./media/security-center-network-recommendations/network-map-traffic.png)
+
+## JIT virtual machine access
+
+Just in time virtual machine (VM) access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+
+For more information, see [Manage virtual machine access using just in time](security-center-just-in-time.md)
 
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following:
