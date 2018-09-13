@@ -23,9 +23,9 @@ This tutorial shows how to set up an account with Azure Maps, then use the Maps 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -116,9 +116,9 @@ The Map Control API is a convenient client library that allows you to easily int
         "subscription-key": MapsAccountKey
     });
     ```
-    This segment initiates the Map Control API for your Azure Maps account key. **Atlas** is the namespace that contains the API and related visual components. **Atlas.Map** provides the control for a visual and interactive web map.
+    This segment initializes the Map Control API for your Azure Maps account key. **Atlas** is the namespace that contains the API and related visual components. **Atlas.Map** provides the control for a visual and interactive web map.
 
-4. Save your changes to the file and open the HTML page in a browser. This is the most basic map that you can make by calling **atlas.map** and providing your account key.
+4. Save your changes to the file and open the HTML page in a browser. This is the most basic map that you can make by calling **atlas.map** using your account key.
 
    ![View the map](./media/tutorial-search-location/basic-map.png)
 
@@ -126,7 +126,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
 ## Add search capabilities
 
-This section shows how to use the Maps Search API to find a point of interest on your map. It is a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. The **Service Module** explained below can be used to search for a location using the Maps Search API.
+This section shows how to use the Maps Search API to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. The **Service Module** explained below can be used to search for a location using the Maps Search API.
 
 ### Service Module
 
@@ -181,7 +181,7 @@ This section shows how to use the Maps Search API to find a point of interest on
        );
     });
     ```
-4. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle and blue pins mark the locations of gasoline stations in the area.
+4. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle with blue pins marking the locations of gasoline stations in the area.
 
    ![View the map with search results](./media/tutorial-search-location/pins-map.png)
 
@@ -226,7 +226,7 @@ The map that we've made so far only looks at the latitude/longitude data for the
         popup.open(map);
     });
     ```
-    The API **atlas.Popup** provides an information window anchored at the required position on the map. This code snippet sets the content and position for the popup, as well as adds an event listener to the `map` control, waiting for the _mouse_ to roll over the popup.
+    The API **atlas.Popup** provides an information window anchored at the required position on the map. This code snippet sets the content and position for the popup. It also adds an event listener to the `map` control that will wait for the _mouse_ to roll over the popup.
 
 2. Save the file and refresh your browser. Now the map in the browser shows information pop-ups when you hover over any of the search pins.
 
