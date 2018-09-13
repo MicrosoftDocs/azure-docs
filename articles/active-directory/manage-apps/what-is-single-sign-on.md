@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
@@ -188,7 +188,6 @@ When an authorized user clicks on one of these application-specific links, they 
 These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.
 
 ## Related articles
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduction to Managing Access to Apps](what-is-access-management.md)

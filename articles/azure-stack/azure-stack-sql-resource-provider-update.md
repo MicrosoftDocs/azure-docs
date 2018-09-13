@@ -45,7 +45,9 @@ After the *UpdateSQLProvider.ps1* script creates a new VM, the script migrates t
 
 ### Update script PowerShell example
 
-You can edit and run the following script from an elevated PowerShell ISE. Remember to change the account information and passwords as needed for your environment.
+You can edit and run the following script from an elevated PowerShell ISE. 
+-  
+- Remember to change the account information and passwords as needed for your environment.
 
 > [!NOTE]
 > This update process only applies to Azure Stack integrated systems.

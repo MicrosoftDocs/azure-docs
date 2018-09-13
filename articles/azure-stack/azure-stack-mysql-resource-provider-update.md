@@ -36,6 +36,9 @@ The **UpdateMySQLProvider.ps1** script creates a new VM with the latest resource
 >[!NOTE]
 >We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
 
+>[!NOTE]  
+> 
+
 The script requires use of the same arguments that are described for the DeployMySqlProvider.ps1 script. Provide the certificate here as well.  
 
 Following is an example of the *UpdateMySQLProvider.ps1* script that you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed:  

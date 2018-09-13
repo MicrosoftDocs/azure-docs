@@ -138,7 +138,7 @@ If your worker role fails to come online, but your web role succeeds, it is most
 
 ## Test the service deployment
 ### Connect with a web browser
-Determine the web endpoint of your Split-Merge service. You can find this in the Azure classic portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
+Determine the web endpoint of your Split-Merge service. You can find this in the portal by going to the **Overview** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
 
 ### Test with PowerShell scripts
 The deployment and your environment can be tested by running the included sample PowerShell scripts.
