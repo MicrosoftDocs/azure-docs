@@ -14,7 +14,7 @@ ms.date: 9/24/2018
 
 # What is FPGA and Project Brainwave?
 
-This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning provides real-time AI with FPGA.
+This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning provides real-time artificial intelligence (AI) with FPGA.
 
 FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways post-manufacturing. FPGAs provide a combination of programmability and performance compared to other chips.
 
@@ -41,7 +41,7 @@ New machine learning techniques are being developed on a regular basis, and Proj
 
 Microsoft Azure is the world's largest cloud investment in FPGAs. You can run Project Brainwave on Azure's scale infrastructure.
 
-Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Project Brainwave can parallelize pre-trained DNNs across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
+Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Project Brainwave can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
 
 Today, Project Brainwave supports:
 + Image classification and recognition scenarios
@@ -51,7 +51,7 @@ Today, Project Brainwave supports:
 
 ## Scenarios and applications
 
-Project Brainwave is integrated with Azure Machine Learning. Microsoft uses FPGAs for deep neural network (DNN) evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency while freeing CPUs for other tasks.
+Project Brainwave is integrated with Azure Machine Learning. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency while freeing CPUs for other tasks.
 
 The following scenarios use FPGA on Project Brainwave architecture:
 + [Automated optical inspection system](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
