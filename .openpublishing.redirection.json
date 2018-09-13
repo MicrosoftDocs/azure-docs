@@ -23443,8 +23443,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/Bing-Web-Search/computer-vision-web-search-tutorial.md",
-            "redirect_url": "/azure/cognitive-services/bing-web-search/overview",
+            "source_path": "articles/cognitive-services/Bing-Web-Search/tutorial-bing-web-search-single-page-app-source.md",
+            "redirect_url": "https://github.com/erhopf/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search",
             "redirect_document_id": true
         },
         {
@@ -26164,13 +26164,18 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-time-series-insights",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-accelerators-time-series-insights.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-time-series-insights",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-accelerators-remote-monitoring-time-series-insights.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
