@@ -28094,7 +28094,7 @@
         {
             "source_path": "articles/monitoring/monitoring-overview.md",
             "redirect_url": "/azure/azure-monitor/overview",
-            "redirect_document_id" : true
+            "redirect_document_id" : false
         },
         {
             "source_path": "articles/monitoring/monitoring-overview-azure-monitor.md",
