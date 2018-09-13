@@ -1,12 +1,12 @@
-- name: Azure Data Box Documentation
-  href: /azure/databox/
+- name: Documentation - Azure Data Box for offline transfer
+  href: /azure/databox-offline/
   items:
   - name: Data Box
     items:
     - name: Overview
       items:
-    - name: What is Data Box?
-      href: data-box-overview.md
+      - name: What is Data Box?
+        href: data-box-overview.md
     - name: Quickstarts
       items:
       - name: Set up - Azure portal
@@ -23,6 +23,8 @@
         href: data-box-deploy-picked-up.md  
     - name: Concepts
       items:
+      - name: Read safety guidelines
+        href: data-box-safety.md
       - name: Review requirements
         href: data-box-system-requirements.md
       - name: Understand limits
@@ -37,7 +39,9 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
-        
+      - name: Contact Support
+        href: data-box-disk-contact-microsoft-support.md  
+    
   - name: Data Box Disk 
     items:
     - name: Overview
@@ -74,6 +78,15 @@
         href: data-box-portal-ui-admin.md
       - name: Troubleshoot disk issues
         href: data-box-disk-troubleshoot.md 
+      - name: Contact Support
+        href: data-box-disk-contact-microsoft-support.md  
+
+  - name: Data Box Heavy
+    items:
+    - name: Overview
+      items:
+      - name: What is Data Box Heavy?
+        href: data-box-heavy-overview.md
   - name: Resources
     items:
     - name: Azure roadmap

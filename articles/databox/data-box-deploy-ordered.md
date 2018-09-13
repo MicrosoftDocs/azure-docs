@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/11/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
 
@@ -69,7 +70,7 @@ Perform the following steps in the Azure portal to order a device.
     |Source country     |	Select the country where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
 
-5. Select Data Box. The maximum solution capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
+5. Select Data **Box**. The maximum solution capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
       [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -79,7 +80,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
     |Resource group     |	Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
-    |Destination Azure region     | Select a region for your storage account. <br> Currently, storage accounts in all of US, West Europe, and North Europe regions are supported.        |
+    |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
     |Storage account(s)     | Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**.        |
     
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Click **Next**.
@@ -106,16 +107,18 @@ If the device is not available, you receive a notification. If the device is ava
 
 When the device preparation is complete, the portal shows the order in **Processed** state.
 
+![Data Box order processed](media/data-box-overview/data-box-order-status-processed.png)
+
 Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
+
+![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
 
 ## Cancel the order
 
 To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
 
 After placing an order, you can cancel it at any point before the order status is marked processed.
-
-   [![Data Box status ordered](media/data-box-deploy-ordered/data-box-ordered.png)](media/data-box-deploy-ordered/data-box-ordered.png#lightbox)   
-
+ 
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
 ## Next steps

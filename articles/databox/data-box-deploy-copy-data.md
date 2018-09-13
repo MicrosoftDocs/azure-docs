@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/06/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data to Azure Data Box 
 
@@ -89,15 +90,21 @@ If you are using a Windows Server host computer, perform the following steps to 
 
 5. You should now be able to see the shares as folders. Create a folder for the files that you intend to copy (in this case templates). Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
 ### Connect via NFS 
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
 
-1. Supply the IP addresses of the allowed clients that can access the share.
+1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
-2. Ensure that the Linux host has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
+    ![Configure NFS client access 1](media/data-box-deploy-copy-data/nfs-client-access.png)
+
+2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
+
+    ![Configure NFS client access 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
+
+2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
 
 3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
 
@@ -139,8 +146,8 @@ You can use any SMB compatible file copy tool such as Robocopy to copy your data
 |/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
 |/fft     | Use to reduce the time stamp granularity for any file system.        |
 |/b     | Copies files in Backup mode.        |
-|/z    | Copies files in Restart mode, use this if the environment is unstable.       |
-| /zb     | Uses Restart mode. If access is denied, this option uses Backup mode.         |
+|/z    | Copies files in Restart mode, use this if the environment is unstable. This option reduces throughput due to additional logging.      |
+| /zb     | Uses Restart mode. If access is denied, this option uses Backup mode. This option reduces throughput due to checkpointing.         |
 |/efsraw     | Copies all encrypted files in EFS raw mode. Use only with encrypted files.         |
 |log+:<LogFile>| Appends the output to the existing log file.|    
  
@@ -220,10 +227,41 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
 
 ### Copy data via NFS
 
-If you're using a Linux host computer, follow these guidelines:
+If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
-- Use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
-- Ensure that you have a multithreaded option with atleast 32 or 64 threads. 
+The cp command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
+
+If using rsync option for a multi-threaded copy, follow these guidelines:
+
+ - Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
+
+    `sudo apt-get install cifs-utils`
+    `sudo apt-get install nfs-utils`
+
+ -  Install **Rsync**, and **Parallel** (varies depending on the Linux distributed version).
+
+    `sudo apt-get install rsync`
+    `sudo apt-get install parallel` 
+
+ - Create a mount point.
+
+    `sudo mkdir /mnt/databox`
+
+ - Mount the volume.
+
+    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
+
+ - Mirror folder directory structure.  
+
+    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
+
+ - Copy files. 
+
+    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
+
+     where j specifies the number of parallelization,  X = number of parallel copies
+
+     We recommend that you start with 16 parallel copies and increase the number of threads depending on the resources available.
 
 ## Prepare to ship
 
@@ -241,7 +279,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
         
         ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
 
-    3. Download the list of files that were copied in this process. You can later use this list to verify the files uploaded to Azure.
+    3. Download the list of files (manifest) that were copied in this process. You can later use this list to verify the files uploaded to Azure.
         
         ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
 

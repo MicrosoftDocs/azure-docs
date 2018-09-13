@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/11/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 # Quickstart: Deploy Azure Data Box using the Azure portal
 
@@ -32,6 +33,14 @@ Before you begin:
     - Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+- You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+    - Run a [Supported operating system](data-box-system-requirements.md).
+    - Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 
+- You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+- You have procured the following cables to connect your Data Box to the host computer.
+    - Two 10 GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
+    - One RJ-45 CAT 6 network cable (use with MGMT network interface)
+    - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
 ## Sign in to Azure
 
@@ -43,7 +52,7 @@ This step takes roughly 5 minutes.
 
 1. Create a new Azure Data Box resource in Azure portal.
 2. Select an existing subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
-3. Select **Data Box**. The maximum solution capacity is 80 TB and you can create multiple orders for larger data sizes.
+3. Select **Data Box**. The maximum usable capacity is 80 TB and you can create multiple orders for larger data sizes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
@@ -58,9 +67,9 @@ When you receive the Data Box, do the following steps to cable, connect to and t
 2. Before you cable your device, ensure that you have the following cables:
     
     - (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
-    - One 1 GbE RJ-45 network cables to connect to the 1 Gbps management network interface.
-    - One 1 GbE RJ-45 network cable to connect to the 1 Gbps data network interface.
-    - Two 10 GbE SFP+ copper cables to connect to the 10 Gbps network interfaces.
+    - One RJ-45 CAT 6 network cable (use with MGMT network interface)
+    - Two 10 GbE SFP+ Twinax copper cables (use with 10 Gbps DATA 1, DATA 2 network interfaces)
+    - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
 3. Remove and place the device on a flat surface. 
 	
@@ -69,8 +78,8 @@ When you receive the Data Box, do the following steps to cable, connect to and t
     ![Data Box cabled](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
-    2. Use the RJ-45 network cable to connect your host computer to the management port (MGMT) on the device. 
-    3. Use the Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
+    2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
+    3. Use the SFP+ Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
     4. Turn on the device. The power button is on the front panel of the device.
 
 
@@ -87,7 +96,7 @@ This step takes about 5-7 minutes to complete.
 
 The time to complete this operation depends upon your data size and network speed.
  
-1. Use any SMB compatible file copy tool such as Robocopy to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
 2. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
 3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box service limits](data-box-limits.md).
 
@@ -97,7 +106,7 @@ This operation takes about 10-15 minutes to complete.
 
 1. Go to **Prepare to ship** page in the local web UI and start the ship preparation. 
 2. Turn off the device from the local web UI. Remove the cables from the device. 
-3. Ensure that the return shipping label is visible. If the label is damaged or lost, download shipping label from the portal and affix on the case.
+3. The return shipping label should be visible on the E-ink display. If the E-ink display is not displaying the label, download shipping label from the Azure portal and insert in the clear sleeve attached to the device.
 4. Lock the case and ship to Microsoft. 
 
 ## Verify data
@@ -123,6 +132,6 @@ This step takes 2-3 minutes to complete.
 In this quickstart, you’ve deployed an Azure Data Box to help import your data into Azure. To learn more about Azure Data Box management, advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
-> [Use the Azure portal to administer Data Box](data-box-deploy-ordered.md)
+> [Use the Azure portal to administer Data Box](data-box-portal-admin.md)
 
 

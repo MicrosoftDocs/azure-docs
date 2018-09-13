@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
@@ -34,11 +34,18 @@ The software requirements include the information on the supported operating sys
 
 Here is a list of the supported operating systems for the data copy operation via the clients connected to the Data Box device.
 
-| **Operating system** | **Versions** |
-| --- | --- |
-| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+| **Operating system** | **Versions** | 
+| --- | --- | 
+| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
+| Windows |7, 8, 10 | 
 |Linux    |         |
+
+### Supported file systems for Linux clients
+
+| **Protocols** | **Versions** | 
+| --- | --- | 
+| SMB |2.X and later |
+| NFS | All versions up to and including 4.1|
 
 ### Supported storage accounts
 

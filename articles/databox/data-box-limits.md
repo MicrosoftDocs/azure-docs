@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/09/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 ms.custom: 
 
@@ -28,6 +28,10 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
  - Data Box service is available only within US at all the [Azure regions for Azure public cloud](https://azure.microsoft.com/regions/).
  - If using multiple storage accounts with Data Box service, all the storage accounts need to belong to the same Azure region only.
  - We recommend that you use no more than three storage accounts. Using more storage accounts could potentially impact the performance.
+
+## Data Box limits
+
+- Data Box can store a maximum of 5 million files.
 
 ## Azure storage limits
 

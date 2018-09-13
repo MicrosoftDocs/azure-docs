@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
 # Tutorial: Return Azure Data Box and verify data upload to Azure
@@ -50,11 +51,11 @@ After the verification is complete, the Data Box is connected to the network in 
 
 Once the copy is complete, order status updates to **Completed**.
 
-Verify that your data is in the storage account(s) before you delete it from the source. To verify that the data has uploaded into Azure, perform the following steps:
+Verify that your data is in the storage account(s) before you delete it from the source. 
 
 ## Erasure of data from Data Box
  
- Once the upload to Azure is complete, the Data Box erases the data on its disks as per the NIST standard. 
+ Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
 
 ## Next steps
 

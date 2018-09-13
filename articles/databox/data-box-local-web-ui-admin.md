@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box local web UI administration | Microsoft Docs in data 
-description: Describes how to use the local web UI to administer your Data Box
+description: Describes how to use the local web UI to administer your Data Box device
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box
@@ -25,14 +25,11 @@ Local web UI for the Data Box is used for the initial configuration of the devic
 
 This article includes the following tutorials:
 
-- Use error logs to troubleshoot setup errors
 - Generate a Support package
 - Shut down or restart your device
 - Securely erase data from your device
 - Monitor available capacity of the device
 - Skip checksum validation 
-
-<!--## Use error logs to troubleshoot setup-->
 
 ## Generate Support package
 
@@ -77,15 +74,11 @@ To restart your Data Box, perform the following steps.
 1. In the local web UI, go to **Shut down or restart**.
 2. Click **Restart**.
 
-    <!--![Restart Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)-->
+    ![Restart Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
 3. When prompted for confirmation, click **OK** to proceed.
 
-   <!--![Restart Data Box 2](media/data-box-local-web-ui-admin/restart-local-web-ui-2.png)-->
-
-The device shuts down and then restarts.
-
-<!--## Securely erase data from your device-->
+   The device shuts down and then restarts.
 
 ## View available capacity of the device
 
@@ -97,7 +90,18 @@ You can use the device dashboard to view the available and used capacity of the 
     ![View available capacity](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
 
-<!--## Skip checksum validation-->
+## Skip checksum validation
+
+Checksum are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be really slow. In such instances, you can skip checksum. 
+
+We strongly recommend that you do not disable checksum unless the performance is severely impacted.
+
+1. In the top right corner of the local web UI of your device, go to Settings.
+
+    ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
+
+2. **Disable** checksum validation
+3. Click **Apply**.
 
 ## Next steps
 
