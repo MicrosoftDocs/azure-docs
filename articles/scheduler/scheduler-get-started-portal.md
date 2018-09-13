@@ -1,6 +1,6 @@
 ---
 title: Create scheduled jobs with Azure Scheduler - Azure portal | Microsoft Docs
-description: Learn how to create your first scheduled job with Azure Scheduler in the Azure portal
+description: Learn how to create, schedule, and run your first automated job with Azure Scheduler in the Azure portal
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
@@ -9,7 +9,7 @@ ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: hero-article
-ms.date: 08/10/2016
+ms.date: 09/17/2018
 ---
 
 # Create and schedule your first job with Azure Scheduler - Azure portal
