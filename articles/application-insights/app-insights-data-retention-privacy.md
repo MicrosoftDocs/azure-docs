@@ -129,7 +129,7 @@ Yes, we use https to send data to the portal from nearly all SDKs, including web
 Yes, certain Telemetry Channels will persist data locally if an endpoint cannot be reached. Please review below to see which frameworks and telemetry channels are affected.
 
 
-Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories which are restricted to the specific account running your application. This may happen when an endpoint was temporary unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
+Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories which are restricted to the specific account running your application. This may happen when an endpoint was temporarily unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
 
 
 This persisted data is **not encrypted** and it is strongly recommended to restructure your data collection policy to disable the collection of private data. (See [How to export and delete private data](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) for more information.)
