@@ -192,8 +192,8 @@ Now go back to the Azure portal to get your connection string information and co
     ![View and verify the output](./media/create-cassandra-nodejs/output.png)
 
     Press CTRL + C to stop execution of the program and close the console window. 
-
-    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
+    
+4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
     ![View the data in Data Explorer](./media/create-cassandra-nodejs/data-explorer.png) 
 
