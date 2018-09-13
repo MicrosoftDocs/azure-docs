@@ -17,7 +17,7 @@ SQL Database is a general-purpose relational database managed service in Microso
 Azure SQL Database provides the following deployment options for an Azure SQL database:
 - As a single database with its own set of resources managed via a logical server 
 - As a pooled database in an [elastic pool](sql-database-elastic-pool.md) with a shared set of resources managed via a logical server
-- As a part of a collection of databases known as a [managed instance](sql-database-managed-instance.md) (in public preview) that contains system and user databases and sharing a set of resources
+- As a part of a collection of databases known as a [managed instance](sql-database-managed-instance.md) that contains system and user databases and sharing a set of resources
 
 The following illustration shows these deployment options:
 
@@ -34,8 +34,7 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
 > [!NOTE]
-> SQL Database Managed Instance is currently in preview and is only available at a single service level. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
->
+> The Business Critical tier in Managed Instance is currently in public preview. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 
 ## Scalable performance and pools
 

@@ -6,7 +6,7 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/23/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 ---

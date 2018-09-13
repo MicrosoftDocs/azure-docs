@@ -42,9 +42,9 @@ You can change [DTU service tiers](sql-database-service-tiers-dtu.md) or [vCore 
 ![Intro to SQL Database: Single database DTUs by tier and level](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 All three flavors of Azure SQL Database offer some ability to dynamically scale your databases:
-- In [Azure SQL Single Database](sql-database-single-database-scale.md), you can use either [DTU](sql-database-dtu-resource-limits-single-databases.md) or [vCore](sql-database-vcore-resource-limits-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
-- [Azure SQL Managed Instance](sql-database-managed-instance.md) uses [vCores](/azure/sql-database/sql-database-managed-instance#vcore-based-purchasing-model-preview) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the instance will share the resources allocated to the instance.
-- [Azure SQL Elastic Pools](sql-database-elastic-pool-scale.md) enable you to define maximum resource limit per group of databases in the pool.
+- In [Azure SQL single database](sql-database-single-database-scale.md), you can use either [DTU](sql-database-dtu-resource-limits-single-databases.md) or [vCore](sql-database-vcore-resource-limits-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
+- [Azure SQL Managed Instance](sql-database-managed-instance.md) uses [vCores](/azure/sql-database/sql-database-managed-instance#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the instance will share the resources allocated to the instance.
+- [Azure SQL elastic pools](sql-database-elastic-pool-scale.md) enable you to define maximum resource limit per group of databases in the pool.
 
 ## Alternative scale methods
 Scaling resources is the easiest and the most effective way to improve performance of your database without changing either database or application code.

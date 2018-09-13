@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 09/23/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -18,7 +18,7 @@ Today you have multiple choices when deciding how and where you host your applic
  
 You may choose to host application in the cloud either by using Azure App Service or some of Azure's virtual network (VNet) integrated options like Azure App Service Environment, Virtual Machine, Virtual Machine Scale Set. You could also take hybrid cloud approach and keep your applications on-premises. 
  
-Whatever choice you made, you can connect it to a Managed Instance (preview).  
+Whatever choice you made, you can connect it to a Managed Instance.  
 
 ![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
