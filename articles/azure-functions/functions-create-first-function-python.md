@@ -13,13 +13,13 @@ ms.devlang: python
 manager: jeconnoc
 ---
 
-# Create your first Python function in Azure
+# Create your first Python function in Azure (preview)
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 This quickstart article walks you through how to use the Azure CLI to create your first [serverless](https://azure.microsoft.com/overview/serverless-computing/) Python function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
-The following steps are supported on a Mac, Windows, or Linux machine.
+The following steps are supported on a Mac, Windows, or Linux computer.
 
 ## Prerequisites
 
@@ -33,12 +33,12 @@ To publish and run in Azure:
 
 + Install the [Azure CLI]( /cli/azure/install-azure-cli) version 2.x or later.
 
-+ You'll need an active Azure subscription.
++ You need an active Azure subscription.
   [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create and activate a virtual environment
 
-To create a Functions project, it is required that you work in a Python 3.6 virtual environment. You can either use an existing environment or create and activate a new one. For example, the following commands initiate a virtual environment named `env`.
+To create a Functions project, it is required that you work in a Python 3.6 virtual environment. Run the following commands to create and activate a virtual environment named `env`.
 
 ```bash
 # In Bash
