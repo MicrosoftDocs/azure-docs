@@ -128,8 +128,6 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 To connect devices to IoT Central using X509 certificates, there are three key steps involved 
 1. **Configure the connection settings** in IoT Central app by adding/verifying the X509 root/intermediate certificate used to generate the device certificates.  There are two steps to configure connection settings for X509 Certificates
 
-  
-
     *   **Add X509 root or intermediate certificate** used to generate the leaf device certificates. Go to Administration > Device Connection > Certificates   
   
         ![Connection settings](media\concepts-connectivity\connection-settings.PNG)
@@ -144,30 +142,7 @@ To connect devices to IoT Central using X509 certificates, there are three key s
         Once the certicate is verfied it is ready to be used for this application. 
 
      Here is a [commandline **dice_device_enrollment**](https://github.com/obastemur/iot-central-firmware/tree/expsdk/tools/dice) tool to generate test root certificates(**NOT TO BE USED FOR PRODUCTION DEVICES**). Download this tool to generate root certs.
-
-   **Usage**
-    ```cmd/sh
-    C:\Azure\Connect>dice_device_enrollment.exe -g
-    Would you like to do Individual (i) or Group (g) enrollments: g
-
-    root cert:
-    -----BEGIN CERTIFICATE-----
-    <GENERATED ROOT CERT, COPY TO A FILE AND UPLOAD TO IOT CENTRAL>
-    -----END CERTIFICATE-----
-
-    Enter the Validation Code (Press enter when finished): <PASTE THE VERIFICATION CODE FROM IOT CENTRAL APP>
-
-    Leaf Certificate:
-    -----BEGIN CERTIFICATE-----
-    <GENERATED VERIFICATION CERT, COPY TO A FILE AND UPLOAD TO VERIFY THE ROOT CERT>
-    -----END CERTIFICATE-----
-
-    Press any key to continue:
-
-    ```        
-
-    To learn more, see [certificate verification](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-verify-certificates).
-        
+      
 1. **Register devices** by importing them into IoT Central via a CSV file, follow the steps from the previous section to register devices.
 
 1. **Device setup** : Generate the leaf certificates using the uploaded root certificate. Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on. 
