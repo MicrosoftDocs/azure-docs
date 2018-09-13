@@ -54,7 +54,7 @@ The following table provides a summary of known issues for the Data Box Gateway 
 | **6.** |Logs| Due to a bug in this release, you may see instances of error code 110 in *error.xml* with unrecognizable item names. |This behavior will likely change in a future release. |
 | **7.** |Upload | Due to a bug in this release, you may instances of error code 2003 during the upload of specific files. |This behavior will likely change in a future release. |
 | **8.** |Deletion | Due to a bug in this release, if an NFS share is deleted, then the share may not be deleted. The share status will display *Deleting*.  |This occurs only when the share is using an unsupported file name. |
-| **8.** |Online help |The Help links in the Azure preview portal may not link to  documentation.|The Help links will work in the General Availability release. |
+| **8.** |Online help |The Help links in the Azure portal may not link to  documentation.|The Help links will work in the General Availability release. |
 
 
 
