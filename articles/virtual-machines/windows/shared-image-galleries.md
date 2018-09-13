@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/10/2018
@@ -29,4 +29,4 @@ ms.custom:
 
 ## Next Steps
 
-Learn how to [deploy shared images](tutorial-shared-images.md).
+Learn how to [deploy shared images](shared-images.md).

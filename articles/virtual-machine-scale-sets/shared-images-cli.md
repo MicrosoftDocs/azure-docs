@@ -21,7 +21,7 @@ ms.custom:
 ---
 # Create and use shared images for virtual machine scale sets with the Azure CLI 2.0
 
-When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
+When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this article you learn how to:
 
 > [!div class="checklist"]
 > * Create and customize a VM
@@ -33,12 +33,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 
 >[!NOTE]
-> This tutorial walks through the process of using a generalized managed image. It is not supported to create a scale set from a specialized VM image.
+> This article walks through the process of using a generalized managed image. It is not supported to create a scale set from a specialized VM image.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../../includes/virtual-machines-common-shared-images-cli.md)]

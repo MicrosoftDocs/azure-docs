@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machine-scale-sets
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 09/13/2018
@@ -31,4 +31,4 @@ ms.custom:
 
 ## Next Steps
 
-Learn how to deploy shared images using [Azure PowerShell](tutorial-shared-images-ps.md) or [Azure CLI] (tutorial-shared-images-cli.md)
+Learn how to deploy shared images using [Azure PowerShell](shared-images-ps.md) or [Azure CLI] (shared-images-cli.md)
