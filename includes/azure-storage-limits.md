@@ -17,9 +17,9 @@
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate per storage account | 20,000 requests per second<sup>2</sup> |
 | Max ingress<sup>3</sup> per storage account (US Regions) | 10 Gbps if RA-GRS/GRS enabled, 20 Gbps for LRS/ZRS<sup>4</sup> |
-| Max egress<sup>3</sup> per storage account (US Regions) | 20 Gbps if RA-GRS/GRS enabled, 30 Gbps for LRS/ZRS<sup>4</sup> |
+| Max egress<sup>3</sup> per storage account (US Regions) | 50 Gbps<sup>4</sup> |
 | Max ingress<sup>3</sup> per storage account (Non-US regions) | 5 Gbps if RA-GRS/GRS enabled, 10 Gbps for LRS/ZRS<sup>4</sup> |
-| Max egress<sup>3</sup> per storage account (Non-US regions) | 10 Gbps if RA-GRS/GRS enabled, 15 Gbps for LRS/ZRS<sup>4</sup> |
+| Max egress<sup>3</sup> per storage account (Non-US regions) | 50 Gbps<sup>4</sup> |
 
 <sup>1</sup>Includes both Standard and Premium storage accounts. If you require more than 200 storage accounts in a given region, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts for a given region. 
 
