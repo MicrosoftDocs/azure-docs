@@ -12,25 +12,23 @@ manager: peterpr
 
 # Monitor device connectivity using the IoT Central Explorer CLI
 
-Use the IoT Central Explorer CLI to see messages your devices are sending to IoT Central and observe changes in the IoT Hub twin. You can use this open source tool to gain deeper insight into the state of device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
+Use the IoT Central Explorer CLI to see messages your devices are sending to IoT Central and observe changes in the IoT Hub twin. You can use this open-source tool to gain deeper insight into the state of device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
 ## [Go to Github to get `iotc-explorer`](https://aka.ms/iotciotcexplorercligithub)
 
 ## Prerequisites
 + Node.js version 8.x or higher - https://nodejs.org
-+ You will need Administrator access to generate an access token
++ You will need Administrator access in IoT Central to generate an access token
 
 ## Installing `iotc-explorer`
 
-Run the following from your command
-line to install:
+Run the following command from your command line to install:
 
 ```
 npm install -g iotc-explorer
 ```
 
-> NOTE: You will typically need to run the install command with `sudo` in
-Unix-like environments.
+> NOTE: You will typically need to run the install command with `sudo` in Unix-like environments.
 
 ## Running `iotc-explorer`
 
@@ -47,11 +45,10 @@ Before you get going, you need to have an administrator of your IoT Central appl
 
 > NOTE: The token value will only be shown once, so it must be copied before closing the dialog. After closing the dialog, it will never be shown again.
 
-You can then use that token to
-log in to the CLI by running:
+You can then use that token to log in to the CLI by running:
 
 ```sh
-iotc-explorer login "SharedAccessSignature sr=<your-resource>&sig=<your-signature>&skn=<your-key-name>&se=<your-expiry>"
+iotc-explorer login "<Token value>"
 ```
 
 If you would rather not have the token persisted in your shell history, you can
@@ -67,13 +64,13 @@ You can watch the messages coming from either a specific device or all devices
 in your application using the `monitor-messages` command. This will start a
 watcher that will continuously output new messages as they come in.
 
-To watch all devices in your application, simply run:
+To watch all devices in your application, run the following command:
 
 ```
 iotc-explorer monitor-messages
 ```
 
-To watch a specific device, just add the device's id to the end of the command:
+To watch a specific device, just add the Device ID to the end of the command:
 
 ```
 iotc-explorer monitor-messages <your-device-id>
@@ -89,7 +86,7 @@ iotc-explorer monitor-messages --raw
 ### Get Device Twin
 
 You can use the `get-twin` command to get the contents of the twin for an IoT
-Central device. To do so, simply run the following:
+Central device. To do so, run the following command:
 
 ```
 iotc-explorer get-twin <your-device-id>
