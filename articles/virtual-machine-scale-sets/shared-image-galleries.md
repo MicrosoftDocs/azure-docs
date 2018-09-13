@@ -1,25 +1,27 @@
 ---
 title: Share VM images with Shared Galleries | Microsoft Docs
 description: Learn how to use shread image galleries to share VM images across your organization.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
+services: virtual-machine-scale-sets
+documentationcenter: virtual-machine-scale-sets
 author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-windows
+ms.service: virtual-machine-scale-sets
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 09/13/2018
 ms.author: cynthn
 ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
+
+
 
 # Shared Image Galleries overview
 
@@ -29,4 +31,4 @@ ms.custom:
 
 ## Next Steps
 
-Learn how to [deploy shared images](tutorial-shared-images.md).
+Learn how to deploy shared images using [Azure PowerShell](tutorial-shared-images-ps.md) or [Azure CLI] (tutorial-shared-images-cli.md)
