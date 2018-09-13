@@ -7,7 +7,7 @@ documentationcenter:
 author: "becczhang"
 manager: craigg
 ms.prod: 
-ms.reviewer: ""
+ms.reviewer: vanto
 ms.suite: sql
 ms.prod_service: sql-database, sql-data-warehouse
 ms.service: "sql-database"
