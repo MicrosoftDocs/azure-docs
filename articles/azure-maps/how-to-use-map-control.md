@@ -30,10 +30,12 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 3. In order to render a new map in your browser, add a **#map** reference in the `<style>` element.
 
     ```html
-    #map {
-                width: 100%;
-                height: 100%;
-            }
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
     ```
 
 4. In order to initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md)
