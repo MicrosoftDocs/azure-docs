@@ -27,9 +27,9 @@ To configure a hosted UI for your web app, follow these steps:
   
 4. Select a layout.
   
-  - Search bar and results (default) &mdash; Displays a search box and search results
-  - Results only &mdash; Displays search results only; doesn't display a search box
-  - Pop-over &mdash; Displays search results only in a sliding overlay; doesn't display a search box
+  - Search bar and results (default) &mdash; This layout is your traditional search page with search box and search results.
+  - Results only &mdash; This layout displays search results only. This layout doesn't display a search box. You must provide the search query by adding the query parameter (&q=\<query string>) to the request URL in the JavaScript snippet or HTML endpoint link.
+  - Pop-over &mdash; This layout provides a search box and displays the search results in a sliding overlay.
     
     > [!IMPORTANT]
     > Be sure to include the `customConfig` query parameter when selecting the **Results only** layout, see [Query parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).  
