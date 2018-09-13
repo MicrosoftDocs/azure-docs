@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 09/23/2018
 ms.author: jovanpop
 
 ---

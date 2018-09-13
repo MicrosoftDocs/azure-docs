@@ -15,7 +15,7 @@ ms.author: bonova
 ---
 # SQL Server instance migration to Azure SQL Database Managed Instance
 
-In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database Managed Instance](sql-database-managed-instance.md) (preview).
+In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
 At a high level, the database migration process looks like:
 
@@ -36,7 +36,7 @@ First, determine whether Managed Instance is compatible with the database requir
 
 Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. DMA does not yet support Managed Instance as migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review list of reported feature parity and compatibility issues against product documentation. See the [differences between Azure SQL Database Singleton and Managed Instance](sql-database-features.md) to check are there some reported blocking issues that not blockers in Managed Instance, because most of the blocking issues preventing a migration to Azure SQL Database have been removed with Managed Instance. For instance, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in Managed Instances. 
 
-If there are some reported blocking issues that are not removed in Azure SQL Managed Instance, you might need to consider an alternative option, such as [SQL Server on Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
+If there are some reported blocking issues that are not removed in Azure SQL Database Managed Instance, you might need to consider an alternative option, such as [SQL Server on Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
 
 - If you require direct access to the operating system or file system, for instance to install third party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
@@ -98,7 +98,7 @@ The following table provides more information regarding the methods you can use 
 |Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - When migrating a database protected by [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) to Azure SQL Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
+> - When migrating a database protected by [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) to Azure SQL Database Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 For a quickstart showing how to restore a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-get-started-restore.md).

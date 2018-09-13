@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/23/2018
 ms.author: carlrab
 ---
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)
@@ -18,17 +18,15 @@ In Azure, you can have your SQL Server workloads running in a hosted infrastruct
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database engine, based on the Enterprise Edition of SQL Server, that is optimized for modern application development. Azure SQL Database offers several deployment options:
   - You can deploy a single database to a [logical server](sql-database-logical-servers.md).
   - You can deploy into an [elastic pool](sql-database-elastic-pool.md) on a [logical server](sql-database-logical-servers.md) to share resources and reduce costs. 
+  - You can deploy to a [Azure SQL Database Managed Instances](sql-database-managed-instance.md). 
+      
+   The following illustration shows these deployment options:
 
-      > [!NOTE]
-      > An Azure SQL Database containing single and pooled databases offers most of database-scoped features of SQL Server.
+     ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
-      The following illustration shows these deployment options:
+     > [!NOTE]
+     > With all three versions, Azure SQL Database adds additional features that are not available in SQL Server, such as built-in intelligence and management. A logical server containing single and pooled databases offers most of database-scoped features of SQL Server. With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change. 
 
-      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
-  - You can deploy to a [Azure SQL Database Managed Instances (preview)](sql-database-managed-instance.md). 
-
-      > [!NOTE]
-      > With both versions, Azure SQL Database adds additional features that are not available in SQL Server, such as built-in intelligence and management. With the first version,  With Azure SQL Database Managed Instance, Azure SQL Database offers shared resources for databases and additional instance-scoped features. Azure SQL Database Managed Instance supports database migration with minimal to no database change.
 - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud on Windows Server or Linux virtual machines (VMs) running on Azure, also known as an infrastructure as a service (IaaS). SQL Server on Azure virtual machines is a good option for migrating on-premises SQL Server databases and applications without any database change. All recent versions and editions of SQL Server are available for installation in an IaaS virtual machine. The most significant difference from SQL Database is that SQL Server VMs allow full control over the database engine. You can choose when maintenance/patching will start, to change the recovery model to simple or bulk logged to enable faster load less log, to pause or start engine when needed, and you can fully customize the SQL Server database engine. With this additional control comes with added responsibility to manage the virtual machines.
 
 Learn how each deployment option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
