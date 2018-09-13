@@ -23443,6 +23443,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Web-Search/tutorial-bing-web-search-single-page-app-source.md",
+            "redirect_url": "https://github.com/erhopf/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
             "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
             "redirect_document_id": true
@@ -25543,6 +25548,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-apps-index.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/availability-zones/index.md",
             "redirect_url": "/azure/availability-zones/az-overview",
             "redirect_document_id": false
@@ -27536,11 +27546,6 @@
             "source_path": "articles/active-directory/active-directory-saas-access-panel-user-help.md",
             "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-user-help",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
-            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",

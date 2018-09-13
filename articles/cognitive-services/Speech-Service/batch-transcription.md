@@ -55,36 +55,38 @@ For stereo audio streams, Batch transcription splits the left and right channel 
 
 ## Authorization token
 
-As with all features of the Unified Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com). In addition, you acquire an API key from the Speech portal: 
+As with all features of the Unified Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com). Please follow these 6 easy steps.
 
-1. Sign in to [Custom Speech](https://customspeech.ai).
+1. Created a subcription key in Azure following our [Get-Started guide](get-started.md) 
 
-2. Select **Subscriptions**.
+2. Sign in to [Custom Speech](https://customspeech.ai).
 
-3. Select **Generate API Key**.
+3. Select **Subscriptions**.
+
+4. Select **Connect Existing Subscription**.
+
+5. Add the Subscription key and an alias in the view that pops up
 
     ![Screenshot of Custom Speech Subscriptions page](media/stt/Subscriptions.jpg)
 
-4. Copy and paste that key in the client code in the following sample.
+6. Copy and paste that key in the client code in the following sample.
 
 > [!NOTE]
-> If you plan to use a custom model, you will need the ID of that model too. Note that this is not the deployment or endpoint ID that you find on the Endpoint Details view. It is the model ID that you can retrieve when you select the details of that model.
+> If you plan to use a custom model, you will need the ID of that model too. Note that this is not the endpoint ID that you find on the Endpoint Details view. It is the model ID that you can retrieve when you select the details of that model.
 
 ## Sample code
 
 Customize the following sample code with a subscription key and an API key. This allows you to obtain a bearer token.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
