@@ -41,7 +41,7 @@ If you choose to install and use the CLI locally, this article requires that you
 > This article walks through the process of using a generalized managed image. It is not supported to create a scale set from a specialized VM image.
 
 
-[!INCLUDE [virtual-machines-common-shared-images-cli](../../../includes/virtual-machines-common-shared-images-cli.md)]
+[!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
 ## Create a scale set from the custom VM image
 Create a scale set with [az vmss create](/cli/azure/vmss#az-vmss-create). Instead of a platform image, such as *UbuntuLTS* or *CentOS*, specify the name of your custom VM image. The following example creates a scale set named *myScaleSet* that uses the custom image named *myImage* from the previous step:
@@ -58,7 +58,7 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
+[!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 
 ## Clean up resources

@@ -26,7 +26,7 @@ ms.custom:
 # Shared Image Galleries overview
 
 
-[!INCLUDE [virtual-machines-common-shared-image-galleries](../../../includes/virtual-machines-common-shared-image-galleries.md)]
+[!INCLUDE [virtual-machines-common-shared-image-galleries](../../includes/virtual-machines-common-shared-image-galleries.md)]
 
 
 ## Next Steps
