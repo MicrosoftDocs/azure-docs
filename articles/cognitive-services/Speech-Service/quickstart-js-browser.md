@@ -17,7 +17,7 @@ ms.author: fmegen
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK download, version 1.0.0.
+The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.0.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
@@ -30,8 +30,6 @@ The application is based on the Microsoft Cognitive Services Speech SDK download
 ## Create a new Website folder
 
 Create a new, empty folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
-
-The current version of the Cognitive Services Speech SDK is `1.0.0`.
 
 ## Unpack the Speech SDK for JavaScript into that folder
 
@@ -69,7 +67,7 @@ Create a new file in the folder, named `index.html` and open this file with a te
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Wire up handlers for the startRecognizeAsyncButton button, subscriptionKey, and regionKey fields defined by the UI code:
+1. Wire up handlers for the recognition button, recognition result, and subscription related fields defined by the UI code:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
@@ -92,11 +90,11 @@ That way, your subscription key will never leave your server while allowing user
 
 ## Build and run the sample locally
 
-To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and trigger a recognition using the microphone.
+To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](regions.md) and trigger a recognition using the microphone.
 
 ## Build and run the sample via a web server
 
-To launch your app, open your favorite web browser and point it to the public URL that you host the folder on and trigger a recognition using the microphone.. If configured, it will acquire a token from your token source.
+To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](regions.md), and trigger a recognition using the microphone. If configured, it will acquire a token from your token source.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/js-browser` folder.
