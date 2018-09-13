@@ -51,7 +51,7 @@ You can create a new user using the Azure Active Directory.
     The user is created and added to your Azure AD tenant.
 
 ## Add a new user within a hybrid environment
-If you have an environment with both Azure Active Directory (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect).
+If you have an environment with both Azure Active Directory (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).
 
 ## Delete a user
 You can delete an existing user using Azure Active Directory.
