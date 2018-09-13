@@ -62,11 +62,11 @@ You ‘Build’ the solution in Visual Studio successfully. Then, you ‘Rebuild
   Unable to copy file <Path to DLL> to “bin\Debug\FileName.dll”. The process cannot access the file ‘bin\Debug\FileName.dll’ because it is being used by another process.  
 
 #### Workaround
-* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) is installed, you have the following two options:
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is installed, you have the following two options:
   
   * Restart Visual Studio, or
   * Restart the solution. Then, perform only a Build on the solution.  
-* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
+* If [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) is not installed, open Task Manager, click the Processes tab, click the MSBuild.exe process, and then click the End Process button.  
 
 ### Routing to BasicHttpRelay endpoints is not supported from bridges and BizTalk Services Portal if non-printable characters are promoted as HTTP headers
 If you use non-printable characters as part of promoted properties for messages, those messages cannot be routed to relay destinations that use the BasicHttpRelay binding. Also, the promoted properties that are available as part of tracking are URL-encoded for blobs and un-encoded for destinations.  
