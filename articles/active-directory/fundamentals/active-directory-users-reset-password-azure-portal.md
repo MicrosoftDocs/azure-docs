@@ -21,7 +21,7 @@ ms.custom: it-pro
 You can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.
 
 >[!Note]
->You can only reset passwords that exist in your Azure AD tenant. That means that if your user is signing in using another email account, such as a Gmail account or a personal Microsoft account, you won't be able to reset the password.
+>If your Azure AD tenant is not the home directory for a user, you can't reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.
 
 ## To reset a password
 
