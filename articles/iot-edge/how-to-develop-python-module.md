@@ -18,7 +18,7 @@ ms.service: iot-edge
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code (VS Code) as the main tool to develop and debug Python modules.
 
 ## Prerequisites
-This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. And you simulate your IoT Edge device on your development machine.
+This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. And you simulate your IoT Edge device on your development machine with IoT Edge security daemon.
 
 > [!NOTE]
 > This debugging article demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug Python modules in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
