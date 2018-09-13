@@ -18,23 +18,23 @@ ms.component: blobs
 Azure storage offers different storage tiers which allow you to store Blob object data in the most cost-effective manner. The available tiers include:
 
 - **Premium storage (preview)** provides high performance hardware for data that is accessed frequently.
-
+ 
 - **Hot storage**: is optimized for storing data that is accessed frequently. 
 
 - **Cool storage** is optimized for storing data that is infrequently accessed and stored for at least 30 days.
-
+ 
 - **Archive storage** is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours).
 
 The following considerations accompany the different storage tiers:
 
 - The archive storage tier is only available at the blob level and not at the storage account level.
-
+ 
 - Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data, a slightly lower availability SLA and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
 
 - Archive storage is offline and offers the lowest storage costs but also the highest access costs.
-
+ 
 - Only the hot and cool storage tiers (not archive) can be set at the account level.
-
+ 
 - All tiers can be set at the object level.
 
 Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period to optimize costs. Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
@@ -61,7 +61,7 @@ During preview, the Premium access tier:
 
 - Is available as locally redundant storage (LRS)
 - Is only available in the following regions: North Europe, US East 2, US Central, and US West
-- Does not support automatic tiering or data lifecycle management
+- Does not support automatic tiering and data lifecycle management
 
 ## Hot access tier
 
@@ -104,7 +104,7 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot change the tier of a block blob that has snapshots.
 
-Data stored in the Premium access tier cannot be tiered to Hot, Cool or Archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from Premium access to Hot using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. *Put Block From URL* synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
+Data stored in the Premium access tier cannot be tiered to Hot, Cool or Archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from Premium access to Hot using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The *Put Block From URL* API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
 
 ### Blob lifecycle management
 Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) to learn more.  
