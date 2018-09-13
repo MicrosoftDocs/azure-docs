@@ -13,7 +13,6 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-#Customer intent: As a developer, I want to push real-time data in my ASP.NET apps. So that my clients are updated without the need to poll, or request updates.
 ---
 
 # What is Azure SignalR Service
@@ -41,5 +40,5 @@ There are three ways to use Azure SignalR Service:
 
 - **[Scale an ASP.NET Core SignalR App](signalr-overview-scale-aspnet-core.md)** - Integrate Azure SignalR Service with an ASP.NET Core SignalR application to scale out to tens of thousands of connections.
 - **[Build serverless real-time apps](signalr-overview-azure-functions.md)** - Use Azure Functions' integration with Azure SignalR to build serverless real-time applications in languages such as JavaScript, C#, and Java.
-- **[Integrate with REST API](#)** - Use Azure SignalR's REST API to build real-time apps on any platform.
+<!-- **[Integrate with REST API](#)** - Use Azure SignalR's REST API to build real-time apps on any platform. ->
 

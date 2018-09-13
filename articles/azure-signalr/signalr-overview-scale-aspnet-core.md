@@ -13,7 +13,6 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-#Customer intent: As a developer, I want to push real-time data in my ASP.NET apps. So that my clients are updated without the need to poll, or request updates.
 ---
 
 # Easily Scale ASP.NET Core SignalR with Azure SignalR
