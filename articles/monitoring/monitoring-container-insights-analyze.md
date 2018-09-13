@@ -80,7 +80,7 @@ Access to Azure Monitor for containers is available directly from an AKS cluster
 
 The default page opened when you click on **Health (preview)** is **Cluster**, and it includes four line performance charts displaying key performance metrics of your cluster. 
 
-![Example performance charts on the Cluster tab](./media/monitoring-container-insights-analyze/container-health-cluster-perfview.png)
+![Example performance charts on the Cluster tab](./media/monitoring-container-insights-analyze/containers-cluster-perfview.png)
 
 The performance chart displays four performance metrics:
 
@@ -97,19 +97,19 @@ As you expand the objects in the hierarchy, the properties pane updates based on
 
 Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object model, starting with a node in your cluster. Expand the node and you can view one or more pods running on the node. If more than one container is grouped to a pod, they are displayed as the last row in the hierarchy. You can also view how many non-pod related workloads are running on the host if the host has processor or memory pressure.
 
-![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-insights-analyze/container-health-nodes-view.png)
+![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
 You can select controllers or containers at the top of the page and review the status and resource utilization for those objects. Use the drop-down boxes at the top to filter by namespace, service, and node. If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value. 
 
-![Container nodes performance view](./media/monitoring-container-insights-analyze/container-health-node-metric-dropdown.png)
+![Container nodes performance view](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
 
 By default, Performance data is based on the last six hours, but you can change the window by using the **Time Range** option at the upper left. You can also filter the results within the time range by selecting **Avg**, **Min**, **Max**, **50th**, **90th**, and **95th** in the percentile selector. 
 
-![Percentile selection for data filtering](./media/monitoring-container-insights-analyze/container-health-metric-percentile-filter.png)
+![Percentile selection for data filtering](./media/monitoring-container-insights-analyze/containers-metric-percentile-filter.png)
 
-In the following example, note for node *aks-nodepool-3977305*, the value for **Containers** is 21, which is a roll-up of the total number of containers deployed.
+In the following example, note for node *aks-nodepool1-*, the value for **Containers** is 14, which is a roll-up of the total number of containers deployed.
 
-![Roll-up of containers per node example](./media/monitoring-container-insights-analyze/container-health-nodes-containerstotal.png)
+![Roll-up of containers per node example](./media/monitoring-container-insights-analyze/containers-nodes-containerstotal.png)
 
 It can help you quickly identify whether you have a proper balance of containers between nodes in your cluster. 
 
@@ -128,11 +128,11 @@ The information that's presented when you view Nodes is described in the followi
 
 In the selector, select **Controllers**.
 
-![Select controllers view](./media/monitoring-container-insights-analyze/container-health-controllers-tab.png)
+![Select controllers view](./media/monitoring-container-insights-analyze/containers-controllers-tab.png)
 
 Here you can view the performance health of your controllers.
 
-![<Name> controllers performance view](./media/monitoring-container-insights-analyze/container-health-controllers-view.png)
+![<Name> controllers performance view](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
 The row hierarchy starts with a controller and expands the controller. You view one or more containers. Expand a pod, and the last row displays the container grouped to the pod.  
 
@@ -154,20 +154,20 @@ The icons in the status field indicate the online status of the containers:
  
 | Icon | Status | 
 |--------|-------------|
-| ![Ready running status icon](./media/monitoring-container-insights-analyze/container-health-ready-icon.png) | Running (Ready)|
-| ![Waiting or paused status icon](./media/monitoring-container-insights-analyze/container-health-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon](./media/monitoring-container-health/container-health-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
-| ![Successful status icon](./media/monitoring-container-insights-analyze/container-health-green-icon.png) | Successfully stopped or failed to stop|
+| ![Ready running status icon](./media/monitoring-container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
+| ![Waiting or paused status icon](./media/monitoring-container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
+| ![Last reported running status icon](./media/monitoring-container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
+| ![Successful status icon](./media/monitoring-container-insights-analyze/containers-green-icon.png) | Successfully stopped or failed to stop|
 
 The status icon displays a count based on what the pod provides. It shows the worst two states, and when you hover over the status, it displays a roll-up status from all pods in the container. If there isn't a ready state, the status value displays **(0)**. 
 
 In the selector, select **Containers**.
 
-![Select containers view](./media/monitoring-container-insights-analyze/container-health-containers-tab.png)
+![Select containers view](./media/monitoring-container-insights-analyze/containers-containers-tab.png)
 
 Here you can view the performance health of your Azure Kubernetes containers.  
 
-![<Name> controllers performance view](./media/monitoring-container-insights-analyze/container-health-containers-view.png)
+![<Name> controllers performance view](./media/monitoring-container-insights-analyze/containers-containers-view.png)
 
 The information that's displayed when you view containers is described in the following table:
 
