@@ -25,7 +25,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Data Box Gateway, carefully review the information contained in the release notes.
 
-Preview release corresponds to the software version **Data Box Gateway Version 1.2**.
+Preview release corresponds to the software version **Data Box Gateway Version 1.1**.
 
 > [!IMPORTANT]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. <!--For detailed instructions on how to apply the release, go to [Install Preview release](data-box-gateway-install-update.md).-->
@@ -35,9 +35,9 @@ Preview release corresponds to the software version **Data Box Gateway Version 1
 
 The following table provides a summary of issues fixed in this release.
 
-| No. | Feature | Issue |
-| --- | --- | --- |
-| 1 |AAD-based authentication| This release contains changes that allows AAD to authenticate with the StorSimple Device Manager.|
+| No. | Issue |
+| --- | --- |
+| 1 | In this release, when a file that was uploaded by another tool (AzCopy) is refreshed and then updated in a way that increases/extends the file size, then the following error is observed: *Error 400: InvalidBlobOrBlock (The specified blob or block content is invalid.)*|
 
 
 ## Known issues in Preview release
@@ -46,17 +46,20 @@ The following table provides a summary of known issues for the Data Box Gateway 
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-| **1.** |Updates |The virtual arrays created in the preview release cannot be updated to a supported General Availability version. |These virtual arrays must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
-| **2.** |Provisioned data disk |Once you have provisioned a data disk of a certain specified size and created the corresponding Data Box Gateway, you must not shrink the data disk. Attempting to do results in a loss of all the data in the local tiers on the device. | |
-| **3.** |Group policy |In this release, when a file that was uploaded by another tool (AzCopy) is refreshed and then updated in a way that increases/extends the file size, then the following error is observed: Error 400: InvalidBlobOrBlock (The specified blob or block content is invalid.)  |This error will be fixed in a future release. |
-| **4.** |Local web UI |In this release, you can refresh only one share at a time. |This behavior will likely change in a future release. |
-| **5.** |Local web UI |Rename of objects is not supported. |Contact Edge Support if this feature is crucial for your workflow. |
-| **6.** |If a read-only file is copied to the device, the read-only property is not preserved. | |
-| **7.** |Tiered shares |The Help links in the Azure preview portal do not link to Edge-specific documentation.| |
+| **1.** |Updates |The Data Box Gateway devices created in the earlier preview releases cannot be updated to this version. |Download the virtual disk images from the new release and configure and deploy new devices. For more information, go to [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md). |
+| **2.** |Provisioned data disk |Once you have provisioned a data disk of a certain specified size and created the corresponding Data Box Gateway, you must not shrink the data disk. Attempting to shrink the disk results in a loss of all the local data on the device. | |
+| **3.** |Refresh |In this release, you can refresh only one share at a time. |This behavior will likely change in a future release. |
+| **4.** |Rename |Rename of objects is not supported. |Contact Microsoft Support if this feature is crucial for your workflow. |
+| **5.** |Copy| If a read-only file is copied to the device, the read-only property is not preserved. | |
+| **6.** |Logs| Due to a bug in this release, you may see instances of error code 110 in *error.xml* with unrecognizable item names. |This behavior will likely change in a future release. |
+| **7.** |Upload | Due to a bug in this release, you may instances of error code 2003 during the upload of specific files. |This behavior will likely change in a future release. |
+| **8.** |Deletion | Due to a bug in this release, if an NFS share is deleted, then the share may not be deleted. The share status will display *Deleting*.  |This occurs only when the share is using an unsupported file name. |
+| **8.** |Online help |The Help links in the Azure preview portal may not link to  documentation.|The Help links will work in the General Availability release. |
 
 
 
 ## Next steps
-<!--[Install Update](data-box-gateway-install-update.md) on your Data Box Gateway.-->
+
+- [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
 
