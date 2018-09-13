@@ -97,21 +97,21 @@ you can review and manage for your job:
 
 ![Job settings][job-overview]
 
-For more information about these areas, 
-select an area:
+For more information about these areas, select an area:
 
 * [**Properties**](#properties)
-* [**Action settings**](#ction-settings)
-* **Schedule**
-* **History**
-* **Users**
+* [**Action settings**](#action-settings)
+* [**Schedule**](#schedule)
+* [**History**](#history)
+* [**Users**](#users)
 
 <a name="properties"></a>
 
 ### Properties
 
-This section shows read-only properties that describe 
-the management metadata for your Scheduler job.
+To review the read-only properties that describe 
+the management metadata for your Scheduler job, 
+select **Properties**.
 
 ![Review job read-only properties][job-properties]
 
@@ -119,29 +119,36 @@ the management metadata for your Scheduler job.
 
 ### Action settings
 
-Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
+To change your job's advanced settings, select **Action settings**. 
 
-For all action types, you may change the retry policy and the error action.
+![Review action settings][job-action-settings]
 
-For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb. You may also add, delete, or change the headers and basic authentication information.
+| Action type | Description | 
+|-------------|-------------| 
+| All types | You can change the **Retry policy** and the **Error action** settings. | 
+| HTTP and HTTPS | You can change **Method** to any permitted method. You can also add, delete, or change the headers and basic authentication information. | 
+| Storage queue| You can change the storage account, queue name, SAS token, and body. | 
+| Service Bus | You can change the namespace, topic or queue path, authentication settings, transport type, message properties, and message body. | 
+||| 
 
-For storage queue action types, you may change the storage account, queue name, SAS token, and body.
-
-For service bus action types, you may change the namespace, topic/queue path, authentication settings, transport type, message properties, and message body.
-
-   ![][job-action-settings]
+<a name="schedule"></a>
 
 ### Schedule
 
-This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
+You can change your job's schedule, if you 
+set up a schedule through the job wizard. 
+For example, you can change the start date and time, 
+recurrence schedule, and the end date and time for recurring jobs.
+You can also build more 
+[complex schedules and advanced recurrences](scheduler-advanced-complexity.md) 
+for your job.
 
-This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
+![Review job schedule][job-schedule]
 
-You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
-
-   ![][job-schedule]
+<a name="history"></a>
 
 ### History
+
 The **History** tab displays selected metrics for every job execution in the system for the selected job. These metrics provide real-time values regarding the health of your Scheduler:
 
 1. Status  
@@ -157,7 +164,10 @@ You can click on a run to view its **History Details**, including the whole resp
 
    ![][job-history-details]
 
+<a name="users"></a>
+
 ### Users
+
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## See also
