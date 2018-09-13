@@ -8,6 +8,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: mjbrown
+ms.reviewer: sngun
 
 ---
 
@@ -48,7 +49,9 @@ $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}
 
 $iprangefilter = "<ip-range-filter>"
 
-$consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
+$consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>";
+                       "maxIntervalInSeconds"="<max-interval>"; 
+                       "maxStalenessPrefix"="<max-staleness-prefix>"}
 
 $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; 
                         "locations"=$locations; 
