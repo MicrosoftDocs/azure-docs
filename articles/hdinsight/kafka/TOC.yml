@@ -110,6 +110,8 @@
     - name: Use SSH tunneling
       href: ../hdinsight-linux-ambari-ssh-tunnel.md
       maintainContext: true
+    - name: Bring your own key
+      href: apache-kafka-byok.md
   - name: Manage
     items:
     - name: Create Linux clusters
