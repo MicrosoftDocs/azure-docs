@@ -47,7 +47,7 @@ Learn [how to set up logging for that logic app](../logic-apps/logic-apps-monito
 You can turn on logging either directly from your integration account 
 or [through the Azure Monitor service](#azure-monitor-service). 
 Azure Monitor provides basic monitoring with infrastructure-level data. 
-Learn more about [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
+Learn more about [Azure Monitor](../azure-monitor/overview.md).
 
 ### Turn on diagnostics logging directly from your integration account
 

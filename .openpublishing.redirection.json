@@ -28115,6 +28115,11 @@
             "source_path": "articles/monitoring/app-insights-java-eclipse.md",
             "redirect_url": "/azure/application-insights/app-insights-java-quick-start",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-get-started.md",
+            "redirect_url": "/azure/azure-monitor-overview",
+            "redirect_document_id" : true
         }
     ]
 }

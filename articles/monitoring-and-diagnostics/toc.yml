@@ -21,8 +21,6 @@
   items:
   - name: Sources of monitoring data
     href: monitoring-data-sources.md
-  - name: Azure Monitor
-    href: monitoring-overview-azure-monitor.md
   - name: Agents 
     href: ../monitoring/monitoring-overview-azure-agents.md
   - name: Metrics
