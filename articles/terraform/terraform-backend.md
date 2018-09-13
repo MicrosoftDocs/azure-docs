@@ -10,7 +10,7 @@ ms.date: 09/13/2018
 ms.author: nepeters
 ---
 
-# Storing Terraform state in Azure Storage
+# Store Terraform state in Azure Storage
 
 Terraform state is used to reconcile deployed resources with Terraform configurations. Using state, Terraform knows what Azure resources to add, update, or delete. By default Terraform state is stored locally when running *Terraform apply*. This configuration is not ideal for a few reasons:
 
@@ -77,7 +77,7 @@ To configure Terraform to use the backend, include a *backend* configuration wit
 
 The following example configures a Terraform back end and creates and Azure Resource Group.
 
-```tf
+```json
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate"
