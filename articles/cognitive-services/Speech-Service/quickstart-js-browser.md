@@ -99,6 +99,5 @@ To launch your app, open your favorite web browser and point it to the public UR
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/js-browser` folder.
 
-## Next steps
-
-* [Get our samples](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Get our samples](speech-sdk.md#get-the-samples)
