@@ -94,6 +94,8 @@
         href: enable-multi-master.md
       - name: Multi-master conflict resolution
         href: multi-master-conflict-resolution.md
+      - name: Multi-master support for MongoDB API
+        href: mongodb-multi-master-support.md
     - name: Change feed
       href: change-feed.md
     - name: Time to live
