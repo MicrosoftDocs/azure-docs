@@ -1,6 +1,6 @@
 ---
 title: Understand the Azure IoT Hub built-in endpoint | Microsoft Docs
-description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint toread device-to-cloud messages.
+description: Developer guide - describes how to use the built-in, Event Hub-compatible endpoint to read device-to-cloud messages.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -21,7 +21,7 @@ By default, messages are routed to the built-in service-facing endpoint (**messa
 
 IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint.
 
-By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this fallback route, messages that do not explicitly match any message routing rules are dropped.
+If you are using [message routing](iot-hub-devguide-messages-d2c.md) and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, all messages that do not match a query on any route are written to the built-in endpoint. If you disable this fallback route, messages that do not match any query are dropped.
 
 You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or with the [Azure portal][lnk-management-portal].
 
@@ -34,9 +34,8 @@ When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Ev
 When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name:
 
 1. Sign in to the [Azure portal][lnk-management-portal] and navigate to your IoT hub.
-1. Click **Endpoints**.
-1. In the **Built-in endpoints** section, click **Events**. 
-1. A properties page opens, which contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
+1. Click **Built-in endpoints**.
+1. The **Events** section contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
 
     ![Device-to-cloud settings][img-eventhubcompatible]
 
@@ -58,11 +57,9 @@ The SDKs and integrations that you can use with Event Hub-compatible endpoints t
 
 ## Next steps
 
-For more information about IoT Hub endpoints, see [IoT Hub endpoints][lnk-endpoints].
-
-The [Quickstarts][lnk-get-started] show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. For more detail, see the [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial.
-
-If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages][lnk-custom].
+* For more information about IoT Hub endpoints, see [IoT Hub endpoints][lnk-endpoints].
+* The [Quickstarts][lnk-get-started] show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. For more detail, see the [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial.
+* If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

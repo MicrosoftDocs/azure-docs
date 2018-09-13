@@ -10,12 +10,12 @@ ms.date: 02/26/2018
 ms.author: elioda
 ---
 
-# IoT Hub query language for device and module twins, jobs, and message routing
+# IoT Hub query language for device and module twins, jobs and message routing
 
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs], and [message routing][lnk-devguide-messaging-routes]. This article presents:
 
 * An introduction to the major features of the IoT Hub query language, and
-* The detailed description of the language.
+* The detailed description of the language. For details on query language for message routing, see [queries in message routing](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -300,126 +300,6 @@ Currently, queries on **devices.jobs** do not support:
 * Conditions that refer to the device twin in addition to job properties (see the preceding section).
 * Performing aggregations, such as count, avg, group by.
 
-## Device-to-cloud message routes query expressions
-
-Using [device-to-cloud routes][lnk-devguide-messaging-routes], you can configure IoT Hub to dispatch device-to-cloud messages to different endpoints. Dispatching is based on expressions evaluated against individual messages.
-
-The route [condition][lnk-query-expressions] uses the IoT Hub query language syntax as conditions in twin and job queries, but only a subset of the functions are available. Route conditions are evaluated on the message headers and body. Your routing query expression may involve only message headers, only the message body, or both message headers and message body. IoT Hub assumes a specific schema for the headers and message body in order to route messages, and the following sections describe what is required for IoT Hub to properly route.
-
-### Routing on message headers
-
-IoT Hub assumes the following JSON representation of message headers for message routing:
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-Message system properties are prefixed with the `'$'` symbol.
-User properties are always accessed with their name. If a user property name coincides with a system property (such as `$contentType`), the user property is retrieved with the `$contentType` expression.
-You can always access the system property using brackets `{}`: for instance, you can use the expression `{$contentType}` to access the system property `contentType`. Bracketed property names always retrieve the corresponding system property.
-
-Remember that property names are case insensitive.
-
-> [!NOTE]
-> All message properties are strings. System properties, as described in the [developer guide][lnk-devguide-messaging-format], are currently not available to use in queries.
->
-
-For example, if you use a `messageType` property, you might want to route all telemetry to one endpoint, and all alerts to another endpoint. You can write the following expression to route the telemetry:
-
-```sql
-messageType = 'telemetry'
-```
-
-And the following expression to route the alert messages:
-
-```sql
-messageType = 'alert'
-```
-
-Boolean expressions and functions are also supported. This feature enables you to distinguish between severity level, for example:
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Refer to the [Expression and conditions][lnk-query-expressions] section for the full list of supported operators and functions.
-
-### Routing on message bodies
-
-IoT Hub can only route based on message body contents if the message body is properly formed JSON encoded in UTF-8, UTF-16, or UTF-32. Set the content type of the message to `application/json`. Set the content encoding to one of the supported UTF encodings in the message headers. If either of the headers is not specified, IoT Hub does not attempt to evaluate any query expression involving the body against the message. If your message is not a JSON message, or if the message does not specify the content type and content encoding, you can still use message routing to route the message based on the message headers.
-
-The following example shows how to create a message with a properly formed and encoded JSON body:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-You can use `$body` in the query expression to route the message. You can use a simple body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with a message header reference. For example, the following are all valid query expressions:
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
-
 ## Basics of an IoT Hub query
 Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
 
@@ -609,8 +489,7 @@ Learn how to execute queries in your apps using [Azure IoT SDKs][lnk-hub-sdks].
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
