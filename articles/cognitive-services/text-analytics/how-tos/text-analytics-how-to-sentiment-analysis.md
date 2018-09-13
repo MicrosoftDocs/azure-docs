@@ -1,5 +1,5 @@
 ---
-title: Analyze sentiment in the Text Analytics REST API 
+title: 'Example: Analyze sentiment with the Text Analytics REST API'
 titleSuffix: Azure Cognitive Services
 description: Learn how to detect sentiment using the Text Analytics REST API.
 services: cognitive-services
@@ -8,12 +8,12 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
 ---
 
-# How to detect sentiment in Text Analytics
+# Example: How to detect sentiment in Text Analytics
 
 The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and returns a sentiment score for each document, ranging from 0 (negative) to 1 (positive).
 

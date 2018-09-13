@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Using C# to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started with using the Text Analytics API in Microsoft Cognitive Services on Azure.
+description: Get information and code samples to help you quickly get started with using the Text Analytics API.
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
