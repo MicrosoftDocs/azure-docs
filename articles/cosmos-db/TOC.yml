@@ -89,8 +89,10 @@
     - name: Multi-master
       href: multi-region-writers.md
       items:
-      - name: Multi-master setup
-        href: multi-master-workaround.md
+      - name: Enable multi-master
+        href: enable-multi-master.md
+      - name: Multi-master conflict resolution
+        href: multi-master-conflict-resolution.md
     - name: Change feed
       href: change-feed.md
     - name: Time to live
