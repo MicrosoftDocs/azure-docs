@@ -156,28 +156,30 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
-  # Handle groups (named groups and owning group)
+  # Handle named groups and owning group
   member_count = 0
   perms = 0
-  for g in get_groups(path) :
-    if (user_is_member_of_group(user, g)) :
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
       member_count += 1
-      perms | =  get_perms_for_group(path,g)
+      perms | =  entry.permissions
   if (member_count>0) :
     return ((desired_perms & perms & mask ) == desired_perms)
  
