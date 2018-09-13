@@ -17,11 +17,11 @@ Ultra SSD delivers high throughput, high IOPS and consistent low latency disk st
 ## Ultra SSD Features
 
 **Managed Disks**: Ultra SSDs are only available as Managed Disks. Ultra SSDs cannot be deployed as an Unmanaged Disk or Page Blob. While creating a Managed Disk, you specify the disk sku type as UltraSSD_LRS and indicate the size of disk, the IOPS and throughput you need, and Azure creates and manages the disk for you.  
-  
+
 **Virtual Machines**: Ultra SSDs are designed to work with all Premium SSD enabled Azure Virtual Machine SKUs, however at preview time the VM sizes will be limited to ES/DS v3 VM instances.  
-  
+
 **Highly durable and available**: Ultra SSDs are built on the same Azure Disks platform, which has consistently delivered high availability and durability for disks. Azure Disks are designed for 99.999 percent availability. Like all Managed Disks, Ultra SSDs will also offer Local Redundant Storage (LRS). With LRS, the platform maintains multiple replicas of data for every disk and has consistently delivered enterprise-grade durability for IaaS disks, with an industry-leading ZERO percent Annualized Failure Rate.
-  
+
 **Dynamic Performance Configuration**: Ultra SSDs allow you to dynamically change the performance (IOPS and throughput) of the disk along with your workload needs without having to restart your virtual machines.
 
 ## Scalability and performance targets
@@ -78,7 +78,7 @@ For details on the supported disk throughput on Ultra SSD, see the table in Scal
 
 ### Ultra SSD VM reservation fee
 
-We are introducing a capability on the VM that indicates your VM is Ultra SSD compatible. An Ultra SSD Compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. Adding this capability on the VM results in a reservation charge that is only imposed if you enabled Ultra SSD capability on the VM without attaching an Ultra SSD disk to it. When an Ultra SSD disk is attached to the Ultra SSD compatible VM, this charge would not be applied. This charge is per vcpu provisioned on the VM. 
+We are introducing a capability on the VM that indicates your VM is Ultra SSD compatible. An Ultra SSD Compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. Adding this capability on the VM results in a reservation charge that is only imposed if you enabled Ultra SSD capability on the VM without attaching an Ultra SSD disk to it. When an Ultra SSD disk is attached to the Ultra SSD compatible VM, this charge would not be applied. This charge is per vcpu provisioned on the VM.
 
 Refer to the Azure Disks pricing page for the new Ultra SSD Disks price details available in limited preview.
 
