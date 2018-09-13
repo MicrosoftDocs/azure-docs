@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Use the Bing Web Search SDK for C#"
+titleSuffix: Azure Cognitive Services
 description: Learn to use the Bing Web Search SDK for C#.
 services: cognitive-services
 author: erhopf

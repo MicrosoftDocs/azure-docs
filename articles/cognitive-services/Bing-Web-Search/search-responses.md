@@ -1,18 +1,18 @@
 ---
-title: Bing Web Search API responses | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Learn about answer types and responses provided by the Bing Web Search API. 
+title: Search responses - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Learn about answer types and responses provided by the Bing Web Search API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
 ---
 
-# Bing Web Search responses  
+# Bing Web Search API response structure and answer types  
 
 When you send Bing Web Search a search request, it returns a [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object in the response body. The object includes a field for each answer that Bing determined was relevant to query. This example illustrates a response object if Bing returned all answers:
 
