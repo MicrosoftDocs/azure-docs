@@ -57,7 +57,7 @@ For more information about users and roles in AAD, see the following resources:
 
 The Azure admin roles control the ability to map an Azure subscription to an AAD tenant.
 
-Find out more about the Azure admin roles in the article [How to add or change Azure Co-Administrator, Service Administrator, and Account Administrator][lnk-admin-roles].
+Find out more about the Azure admin roles in the article [Add or change Azure subscription administrators][lnk-admin-roles].
 
 ## FAQ
 
@@ -88,7 +88,7 @@ To continue learning about IoT solution accelerators, see how you can [customize
 [img-flowchart]: media/iot-accelerators-permissions/flowchart.png
 
 [lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
@@ -97,6 +97,5 @@ To continue learning about IoT solution accelerators, see how you can [customize
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-accelerators-remote-monitoring-customize.md
