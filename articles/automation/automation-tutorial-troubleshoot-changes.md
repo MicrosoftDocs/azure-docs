@@ -27,6 +27,7 @@ In this tutorial you learn how to:
 > * Enable Activity log connection
 > * Trigger an event
 > * View changes
+> * Configure alerts
 
 ## Prerequisites
 
@@ -168,7 +169,7 @@ Select a **WindowsServices** change, this opens the **Change Details** window. T
 
 ## Configure alerts
 
-Viewing changes in the Azure portal can be helpful, but being able to be alerted when a service stops is more beneficial.
+Viewing changes in the Azure portal can be helpful, but being able to be alerted when a change occurs, such as a stopped service is more beneficial.
 
 To add an alert for a stopped service, in the Azure portal, go to **Monitor**. Under **Shared Services**, select **Alerts** and click **+ New alert rule**
 
@@ -218,6 +219,7 @@ In this tutorial you learned how to:
 > * Enable Activity log connection
 > * Trigger an event
 > * View changes
+> * Configure alerts
 
 Continue to the overview for the Change tracking and Inventory solution to learn more about it.
 
