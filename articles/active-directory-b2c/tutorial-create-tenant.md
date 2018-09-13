@@ -47,7 +47,7 @@ You need to link your Azure AD B2C tenant to your Azure subscription to enable a
 
 Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
 
-![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-switch-tenant/switch-directories.png)
+![Switch to your Azure AD B2C tenant](./media/tutorial-create-tenant/switch-directories.png)
 
 1. Choose **Create a resource** in the upper top-left corner of the Azure portal.
 2. In the search box above the list of Azure Marketplace resources, search for and select **Active Directory B2C**, and then click **Create**.

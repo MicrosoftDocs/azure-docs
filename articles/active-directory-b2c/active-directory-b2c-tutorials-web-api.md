@@ -158,7 +158,7 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Update the policy setting with the name generated when you created your sign up and sign in policy.
+4. Update the policy setting with the name generated when you created your sign up and sign-in policy.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
@@ -183,7 +183,7 @@ You need to run both the **TaskWebApp** and **TaskService** projects.
     `https://localhost:44316/` is the web app.
     `https://localhost:44332/` is the web API.
 
-6. In the web app, click the sign up / sign in link in the menu banner to sign up for the web application. Use the account you created in the [web app tutorial](active-directory-b2c-tutorials-web-app.md). 
+6. In the web app, click the sign-up / sign-in link in the menu banner to sign up for the web application. Use the account you created in the [web app tutorial](active-directory-b2c-tutorials-web-app.md). 
 7. Once signed in, click the **To-do list** link and create a to-do list item.
 
 When you create a to-do list item, the web app makes a request to the web API to generate the to-do list item. You're protected web app is calling the protected web API in your Azure AD B2C tenant.
