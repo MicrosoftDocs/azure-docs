@@ -310,7 +310,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documents without sort 
 
 ## Unique indexes
 
-Azure Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default “_id” key. Now you can create custom indexes in Azure Cosmos DB by using the createIndex command, including the ‘unique’ constraint.
+Azure Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. Now you can create custom indexes in Azure Cosmos DB by using the createIndex command, including the 'unique’ constraint.
 
 Unique indexes are available for all MongoDB API accounts.
 

@@ -1,6 +1,6 @@
 ---
-title: Computer Vision API C# quickstart sdk analyze image | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: "Quickstart: Analyze an image - SDK, C# - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Analyze an image - SDK, C&#35;
+# Quickstart: Analyze an image - SDK, C&#35; - Computer Vision
 
 In this quickstart, you analyze both a local and a remote image to extract visual features using the Computer Vision Windows client library.
 

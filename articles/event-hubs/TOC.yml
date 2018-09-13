@@ -84,6 +84,10 @@
     href: event-hubs-go-get-started-send.md 
   - name: Receive events using Go 
     href: event-hubs-go-get-started-receive-eph.md 
+  - name: Send events using Python
+    href: event-hubs-python-get-started-send.md
+  - name: Receive events using Python
+    href: event-hubs-python-get-started-receive.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs
