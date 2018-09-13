@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Cosmos DB Cassandra API account, database and a table by using a Java application
+title: Create an Azure Cosmos DB Cassandra API account, a database, and a table by using a Java application
 description: This article shows how to create a Cassandra API account, add a database (also referred as a keyspace) and a table to that account by using a java application.
 services: cosmos-db
 author: kanshiG
@@ -13,7 +13,7 @@ ms.date: 09/18/2018
 
 # Create an Azure Cosmos DB Cassandra API account, database, and a table by using a Java application
 
-This article describes how to use a Java appliaction to create a Cassandra API account, add a database (also referred as a keyspace), and add a table to that account by using a Java application. The Java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
+This article describes how to use a Java application to create a Cassandra API account in Azure Cosmos DB, add a database (also referred as a keyspace), and add a table. The Java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
 
 ## Prerequisites 
 
@@ -85,7 +85,7 @@ Alternatively, you can also build the sample from scratch.
 
 ## Add a database and a table  
 
-This section describes how to add a database(keyspace) and a table. You will use Cassandra Query Language (CQL) to create the keyspace and a table. To learn about the CQL syntax for these commands, refer [create keyspace](https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCreateKeyspace.html) and [create table](https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCreateTable.html#cqlCreateTable) query syntax. 
+This section describes how to add a database (keyspace) and a table. Use the Cassandra Query Language (CQL) to create the keyspace and a table. To learn about the CQL syntax for these commands, refer to [create keyspace](https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCreateKeyspace.html) and [create table](https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCreateTable.html#cqlCreateTable) query syntax. 
 
 Under "src\main\java\com\azure\cosmosdb\cassandra" folder, create a new folder named "repository". Next, create the "UserRepository" Java class and add the following code to it: 
 
@@ -177,7 +177,7 @@ public class UserProfile {
  
 ## Run the app 
 
-Open command prompt or terminal window and change the folder path to where you have created the project. Run “mvn clean install” command to generate the cosmosdb-cassandra-examples.jar file within the target folder and run the application.  
+Open command prompt or terminal window. Change directory into the folder path to where you have created the project. Run `mvn clean install` command to generate the cosmosdb-cassandra-examples.jar file within the target folder and run the application.  
 
 ```bash
 cd "cassandra-demo" 
@@ -187,7 +187,7 @@ mvn clean install
 java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile 
 ```
 
-The terminal window displays notifications that the keyspace and table are created. You can now open Data Explorer in the Azure portal to confirm that the keyspace and table are created. 
+The terminal window displays notifications that the keyspace and table are created. Now, you can open Data Explorer in the Azure portal to confirm that the keyspace and table are created.
 
 ## Next steps
 
