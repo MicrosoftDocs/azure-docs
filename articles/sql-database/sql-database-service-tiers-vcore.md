@@ -25,7 +25,7 @@ The vCore model provides two service tiers General Purpose and Business Critical
 
 The following table helps you understand the differences between these two tiers:
 
-||**General Purpose**|**Business Critical**|**Hyperscale**|
+||**General Purpose**|**Business Critical**|**Hyperscale (preview)**|
 |---|---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements|
 |Compute|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
@@ -66,7 +66,7 @@ To monitor the current total size of MDF and LDF, use [sp_spaceused](https://doc
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-### Hyperscale service tier
+### Hyperscale service tier (preview)
 
 Storage is auto-managed for HyperScale database. Storage grows as needed. “Infinite Log” storage on fast Azure premium storage SSDs with no frequent log truncation needed.
 
@@ -79,7 +79,7 @@ Storage for database backups is allocated to support the Point in Time Restore (
 - **PITR**: Individual database backups are copied to [RA-GRS storage](../storage/common/storage-designing-ha-apps-with-ragrs.md) are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
 - **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
-### Hyperscale service tier
+### Hyperscale service tier (preview)
 
 snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and restore is very fast and not “size of data” operation(in minutes not hours/days) and will not impact the IO performance of Primary compute.
 
