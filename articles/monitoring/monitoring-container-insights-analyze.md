@@ -185,13 +185,13 @@ The information that's displayed when you view containers is described in the fo
 
 The icons in the status field indicate the online statuses of pods, as described in the following table:
  
-| Icon | Status | 
-|--------|-------------|
-| ![Ready running status icon](./media/monitoring-container-insights-analyze/container-health-ready-icon.png) | Running (Ready)|
-| ![Waiting or paused status icon](./media/monitoring-container-insights-analyze/container-health-waiting-icon.png) | Waiting or Paused|
-| ![Last reported running status icon](./media/monitoring-container-insights-analyze/container-health-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|
-| ![Terminated status icon](./media/monitoring-container-insights-analyze/container-health-terminated-icon.png) | Successfully stopped or failed to stop|
-| ![Failed status icon](./media/monitoring-container-insights-analyze/container-health-failed-icon.png) | Failed state |
+| Icon | Status |  
+|--------|-------------|  
+| ![Ready running status icon](./media/monitoring-container-insights-analyze/containers-ready-icon.png) | Running (Ready)|  
+| ![Waiting or paused status icon](./media/monitoring-container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|  
+| ![Last reported running status icon](./media/monitoring-container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|  
+| ![Terminated status icon](./media/monitoring-container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
+| ![Failed status icon](./media/monitoring-container-insights-analyze/containers-failed-icon.png) | Failed state |  
 
 ## Container data-collection details
 Container Insights collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
