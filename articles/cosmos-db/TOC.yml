@@ -455,7 +455,9 @@
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
     - name: Use cases
       items:
-    - name: Social media apps
-      href: social-media-apps.md
+      - name: Common use cases
+        href: use-cases.md
+      - name: Social media apps
+        href: social-media-apps.md
 
 
