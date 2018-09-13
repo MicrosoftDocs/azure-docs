@@ -13,11 +13,4 @@ ms.date: 09/14/2018
 ms.author: rogarana
 ---
 
-[!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-ultra-ssd.md)]
-
-## Next steps
-
-If you're interested in trying ultra SSDs, see the how to guide on the subject.
-
-> [!div class="nextstepaction"]
-> [Convert Azure managed disks storage from standard to premium, and vice versa](disks-enable-ultra-ssd.md)
+[!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]
