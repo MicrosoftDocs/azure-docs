@@ -3,8 +3,7 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
-author: RichardScheel
-manager: timlt
+author: raiye
 editor: ''
 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -14,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/12/2018
-ms.author: RichardScheel
+ms.author: raiye
 
 ---
 # Azure Guest OS
