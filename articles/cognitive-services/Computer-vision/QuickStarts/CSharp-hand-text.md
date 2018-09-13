@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Extract handwritten text - REST, C# - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using Computer Vision with C# in Cognitive Services.
+description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Extract handwritten text - REST, C&#35; - Computer Vision
+# Quickstart: Extract handwritten text using the REST API and C# in Computer Vision
 
 In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) methods, you can detect handwritten text in an image and extract recognized characters into a machine-usable character stream.
 
