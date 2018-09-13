@@ -26,7 +26,7 @@ After you've configured your custom search experience, you can test the configur
 4. Under the **Endpoints** tab, select an endpoint (for example, Web API). Your subscription determines which endpoints are shown (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) for subscription options). 
 5. Specify the parameter values. 
 
-    The following are the possible parameters you can set (the actual list depends on the selected endpoint).
+    The following are the possible parameters you can set (the actual list depends on the selected endpoint). For additional information about these parameters, see [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) reference.
 
     - **Query**: The search term to search for. Only available for Web, Image, Video, and Autosuggest endpoints.
     - **Custom Configuration ID**: The configuration ID of the selected Custom Search instance. This field is read only.
@@ -42,7 +42,7 @@ After you've configured your custom search experience, you can test the configur
 
 6. After you've specified all required options, click **Call** to view the JSON response in the right pane. 
 
-If you select the Hosted UI endpoint, you can test the search experience from the right pane.
+If you select the Hosted UI endpoint, you can test the search experience in the bottom pane.
 
 ## Next steps
 

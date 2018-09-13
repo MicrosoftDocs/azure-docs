@@ -103,8 +103,6 @@ It is important to note that super boost, boost, and demote give respective weig
 
 You can super boost, boost, or demote items by using the Ranking Adjust controls in the Active list or by using the Boost and Demote controls in the Preview pane. The service adds the slice to your Active list and adjusts the ranking accordingly.
 
-Super boost, boost, and demote changes are automatically saved and reflect instantly against your custom search endpoint. 
-
 Super boost, boost, and demote are not available for the Image Search and Video Search experiences.
 
 ## Pin to top

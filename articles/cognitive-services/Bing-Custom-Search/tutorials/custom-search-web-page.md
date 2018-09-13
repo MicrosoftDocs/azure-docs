@@ -170,7 +170,9 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
   
 4. In the **Hosted UI** page, scroll down to the section titled **Consuming the UI**. Click the *Endpoints* to access the JavaScript snippet. You can also get to the snippet by clicking **Production** and then the **Hosted UI** tab.
   
+  <!-- Get new screenshot after prod gets new bits
   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+  -->
   
 5. Paste the script element into the container you added.  
   
@@ -182,9 +184,9 @@ The remainder of this tutorial illustrates **Option 1: Javascript snippet**.
   }
   <br />
   <div id="customSearch">
-      <script type="text/javascript"
-              id="bcs_js_snippet"
-              src="https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate">
+      <script type="text/javascript" 
+          id="bcs_js_snippet"
+          src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
   </div>
   ```  
