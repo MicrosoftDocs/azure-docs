@@ -29,13 +29,13 @@ To run the tool on a cluster that is configured for [role-based access control (
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
 
-kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
+kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
 ```
 
 If you aren't using RBAC, you can run the command as follows:
 
 ```bash
-kubectl run --rm -i -t kube-advisor --image=mcr.microsoft.com/kube-advisor --restart=Never
+kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
 ```
 
 Within a few seconds, you should see a table describing potential improvements to your deployments.
