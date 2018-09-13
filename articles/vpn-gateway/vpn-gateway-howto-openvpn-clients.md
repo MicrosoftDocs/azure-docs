@@ -72,3 +72,5 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 10. You can connect by turning the VPN **ON** on the **Network Settings** page, or under the network icon in the system tray.
 
 ## Next steps
+
+If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [Vnet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to setup a vnet-to-vnet connection. Please be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
