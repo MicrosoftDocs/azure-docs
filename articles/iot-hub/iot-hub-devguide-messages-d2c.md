@@ -50,7 +50,7 @@ Apart from the built-in-Event Hubs compatible endpoint, you can also route data 
 When you use routing and custom endpoints, messages are only delivered to the built-in endpoint if they don't match any rules. To deliver messages to the built-in endpoint and custom endpoints, add a route that sends messages to the events endpoint.
 
 ## Reading data that has been routed
-You can configure a route by following this [tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-routing).
+You can configure a route by following this [tutorial](https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
 
 Use the following tutorials to learn how to read message from an endpoint.
 
@@ -63,7 +63,7 @@ Use the following tutorials to learn how to read message from an endpoint.
 ## Fallback route
 The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in-Event Hubs (**messages/events**), that is compatible with [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). If message routing is turned on, you can enable the fallback route capability. Note that once a route is created, data stops flowing to the built-in-endpoint, unless a route is created to that endpoint. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint. 
 
-You can enable/disable the fallback route in the Azure Portal->Message Routing blade. You can also use ARM for [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
+You can enable/disable the fallback route in the Azure Portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
 
 ## Non-telemetry events
 In addition to device telemetry, message routing also enables sending device twin change events and device lifecycle events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub will send a message indicating whether the device was deleted or created. 

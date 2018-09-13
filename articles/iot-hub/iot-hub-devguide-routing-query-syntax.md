@@ -1,6 +1,6 @@
 ---
-title: Query on Message Routing | Microsoft Docs
-description: Developer guide - Query synxtax for Message Routing on IoT Hub.
+title: Query on Azure IoT Hub message routing | Microsoft Docs
+description: Developer guide - Query synxtax for message routing on Azure IoT Hub.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -10,7 +10,7 @@ ms.date: 08/13/2018
 ms.author: asrastog
 ---
 
-# IoT Hub message routing query syntax 
+# IoT Hub message routing query syntax
 
 Message routing enables users to route different data types namely, device telemetry messages, device lifecycle events and device twin change events to various endpoints. You can also apply rich queries to this data before routing it to receive the data that matters to you. This article describes the IoT Hub message routing query language, and provides some common query patterns 
 
