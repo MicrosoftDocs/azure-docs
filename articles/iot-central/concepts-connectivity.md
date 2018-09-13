@@ -101,7 +101,9 @@ The CSV file should have the following columns (and headers)
 
 **Device set up**
 
-1. Use these connection details **Device Identity (IOTC_DEVICEID), and the Device Primary Key( IOTC_SASKEY_PRIMARY)** in your device code to provision and connect your device and start seeing the data flow through instantaneously 
+1. Use these connection details **Device Identity (IOTC_DEVICEID), Device Primary Key( IOTC_SASKEY_PRIMARY) and Scope ID** in your device code to provision and connect your device.
+If you have not already, get the **Scope Id** from your IoT Central App **Administration >   Device Connection > Scope ID**.
+
     * **MxChip:** If you are using an MxChip to connect follow [the step-by-step instructions here](howto-connect-devkit.md#add-a-real-device), start from the section **Prepare the DevKit device**.   
     *   **C language:** If you are using C please follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
 
