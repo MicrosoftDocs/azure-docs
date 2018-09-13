@@ -21,7 +21,7 @@ ms.component: na
 There are two options available in the Azure portal for analyzing data stored in Log analytics and for creating queries for ad hoc analysis. The queries that you create using these portals can be used for other features such as alerts and dashboards.
 
 ## Log Analytics page
-Open the Log Analytics page from **Logs (preview)** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](query-language/get-started-analytics-portal.md).
+Open the Log Analytics page from **Logs** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](query-language/get-started-analytics-portal.md).
 
 The Log Analytics page provides the following improvements over the [Log search](#log-search) experience.
 
@@ -52,7 +52,7 @@ Your browser requires access to the following addresses to access the Log Analyt
 
 
 ## Log search (Classic)
-Open the Log search page from **Logs** in the Log Analytics menu or from **Log Analytics** in the Azure Monitor menu. This is suitable for analyzing log data using basic queries. It provides multiple features for editing queries without having a full knowledge of the query language.  You can get a summary of these features in [Create log searches in Azure Log Analytics using Log Search](log-analytics-log-search-log-search-portal.md). 
+Open the Log search page from **Logs (Classic)** in the Log Analytics menu or from **Log Analytics** in the Azure Monitor menu. This is suitable for analyzing log data using basic queries. It provides multiple features for editing queries without having a full knowledge of the query language.  You can get a summary of these features in [Create log searches in Azure Log Analytics using Log Search](log-analytics-log-search-log-search-portal.md). 
 
 
 ![Log Search page](media/log-analytics-log-search-portals/log-search-portal.png)
