@@ -346,4 +346,4 @@ Your existing circuit will continue advertising the prefixes for Office 365 and 
 
 ## <a name="globalreach"></a>Global Reach (Preview)
 
-[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-include.md)]
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
