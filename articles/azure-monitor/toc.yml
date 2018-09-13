@@ -29,12 +29,6 @@
       href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
     - name: Collect - Windows computer
       href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
-  - name: Alerts
-    items:
-    - name: Alert (classic) on metric condition
-      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
-    - name: Alert on subscription activity
-      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
 - name: Tutorials
   items:
   - name: 1 - Analyze data
@@ -63,12 +57,6 @@
     href: ../log-analytics/powershell-samples.md?toc=/azure/azure-monitor/toc.json
 - name: Concepts
   items:
-  - name: FAQ
-    items:
-    - name: Log Analytics
-      href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
-    - name: Application Insights
-      href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
   - name: Azure management
     href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
   - name: Data sources
@@ -126,7 +114,7 @@
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: Log alerts
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
-    - name: Activity log alerts (Preview)
+    - name: Activity log alerts
       href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md?toc=/azure/azure-monitor/toc.json     
     - name: Extend alerts from Log Analytics to Azure
       href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
@@ -136,6 +124,12 @@
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Partner integrations
     href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
+  - name: FAQ
+    items:
+    - name: Log Analytics
+      href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
+    - name: Application Insights
+      href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
 - name: How-to guides
   items:
   - name: Plan and prepare
@@ -411,180 +405,6 @@
               href: ../application-insights/app-insights-export-stream-analytics.md?toc=/azure/azure-monitor/toc.json
         - name: Export data model
           href: ../application-insights/app-insights-export-data-model.md?toc=/azure/azure-monitor/toc.json
-  - name: Analyze data
-    items:
-    - name: Create metrics charts in Metrics Explorer
-      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
-    - name: View events in activity log
-      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
-    - name: View service notifications
-      href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
-    - name: Query log data
-      items:
-      - name: Language reference
-        href: https://docs.loganalytics.io
-      - name: Get started
-        items:
-        - name: Get started with Analytics portal
-          href: ../log-analytics/query-language/get-started-analytics-portal.md?toc=/azure/azure-monitor/toc.json
-        - name: Get started with queries
-          href: ../log-analytics/query-language/get-started-queries.md?toc=/azure/azure-monitor/toc.json
-        - name: Search queries
-          href: ../log-analytics/query-language/search-queries.md?toc=/azure/azure-monitor/toc.json
-        - name: Useful operators
-          href: ../log-analytics/query-language/useful-operators.md?toc=/azure/azure-monitor/toc.json
-      - name: Lessons
-        items:
-        - name: String operations
-          href: ../log-analytics/query-language/string-operations.md?toc=/azure/azure-monitor/toc.json
-        - name: Date and time operations
-          href: ../log-analytics/query-language/datetime-operations.md?toc=/azure/azure-monitor/toc.json
-        - name: Aggregation functions
-          href: ../log-analytics/query-language/aggregations.md?toc=/azure/azure-monitor/toc.json
-        - name: Advanced aggregations
-          href: ../log-analytics/query-language/advanced-aggregations.md?toc=/azure/azure-monitor/toc.json
-        - name: Joins
-          href: ../log-analytics/query-language/joins.md?toc=/azure/azure-monitor/toc.json
-        - name: JSON and data structures
-          href: ../log-analytics/query-language/json-data-structures.md?toc=/azure/azure-monitor/toc.json
-        - name: Advanced query writing
-          href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
-        - name: Charts and diagrams
-          href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
-      - name: Cheatsheets
-        items:
-        - name: SQL
-          href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
-        - name: Splunk
-          href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
-      - name: Application data
-        href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
-      - name: Cross-resource searches
-        href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
-      - name: Take action from search results
-        href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
-      - name: Use computer groups
-        href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
-      - name: Flow connector
-        href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
-      - name: Log Search API
-        href: https://dev.loganalytics.io/
-  - name: Visualize data
-    items:
-    - name: Views
-      href: ../log-analytics/log-analytics-view-designer.md?toc=/azure/azure-monitor/toc.json
-      items:
-      - name: Tile reference
-        href: ../log-analytics/log-analytics-view-designer-tiles.md?toc=/azure/azure-monitor/toc.json
-      - name: Visualization part reference
-        href: ../log-analytics/log-analytics-view-designer-parts.md?toc=/azure/azure-monitor/toc.json
-      - name: Filters
-        href: ../log-analytics/log-analytics-view-designer-filters.md?toc=/azure/azure-monitor/toc.json
-    - name: Dashboards
-      items:
-      - name: Logs
-        href: ../log-analytics/log-analytics-dashboards.md?toc=/azure/azure-monitor/toc.json
-      - name: Applications
-        href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
-    - name: Power BI
-      items:
-      - name: Export log data
-        href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
-      - name: Export application data
-        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
-      - name: Send metrics to Grafana
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
-  - name: Respond to incidents
-    items:
-    - name: Alerts
-      items:
-      - name: Create alert rules
-        items:
-        - name: Configure new metric or log alerts in Azure portal
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts in Azure portal
-          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json   
-        - name: Configure classic alerts with CLI
-          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts with Azure PowerShell
-          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
-        - name: Copy alerts from OMS portal to Azure portal 
-          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
-      - name: Use metric alerts
-        items:
-        - name: Alerts with dynamic thresholds
-          href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
-        - name: Create a newer metric alert with a Resource Manager template
-          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
-        - name: Create a classic metric alert with a Resource Manager template
-          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json    
-        - name: Have a classic metric alert call a webhook
-          href: ../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=/azure/azure-monitor/toc.json
-      - name: Use log alerts
-        items:  
-        - name: Webhook actions for log alerts
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
-        - name: Create a log alert with a Resource Manager template
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md?toc=/azure/azure-monitor/toc.json
-      - name: Use activity log alerts
-        items:
-        - name: Configure alerts on an activity log event
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
-        - name: Create activity log alerts with Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
-        - name: Migrate to activity log alerts
-          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure alerts on service notifications
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
-      - name: Use application alerts
-        items:
-        - name: Availability
-          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
-        - name: Metric alerts
-          href: ../application-insights/app-insights-alerts.md?toc=/azure/azure-monitor/toc.json
-      - name: Use action groups with alerts
-        items:
-        - name: Learn about the webhook schema
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
-        - name: SMS alert behavior
-          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
-        - name: Alert rate limiting
-          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
-        - name: Create action groups with Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
-        - name: Implement a Logic App action
-          href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
-    - name: Autoscale
-      items:
-      - name: Walkthrough of autoscale
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
-      - name: Understand Autoscale settings
-        href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
-      - name: Best practices
-        href: ../monitoring-and-diagnostics/insights-autoscale-best-practices.md?toc=/azure/azure-monitor/toc.json
-      - name: Common metrics
-        href: ../monitoring-and-diagnostics/insights-autoscale-common-metrics.md?toc=/azure/azure-monitor/toc.json
-      - name: Common patterns
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
-      - name: Autoscale using a custom metric
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
-      - name: Autoscale VM scale sets using Resource Manager templates
-        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md?toc=/azure/azure-monitor/toc.json
-      - name: Automatically scale machines in a VM scale set
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
-      - name: Configure webhooks and email notifications on autoscale
-        href: ../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md?toc=/azure/azure-monitor/toc.json
-    - name: Service notifications
-      items:
-      - name: View service notifications
-        href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
-      - name: Configure alerts on service notifications
-        href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
-    - name: IT Service Management Connector
-      href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
-      items:
-      - name: IT Service Management connections
-        href: ../log-analytics/log-analytics-itsmc-connections.md?toc=/azure/azure-monitor/toc.json
   - name: Gain insights
     items:
     - name: Monitor applications
@@ -705,6 +525,180 @@
         href: ../monitoring/monitoring-solutions.md?toc=/azure/azure-monitor/toc.json
       - name: Target solutions
         href: ../monitoring/monitoring-solution-targeting.md?toc=/azure/azure-monitor/toc.json
+  - name: Visualize data
+    items:
+    - name: Views
+      href: ../log-analytics/log-analytics-view-designer.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Tile reference
+        href: ../log-analytics/log-analytics-view-designer-tiles.md?toc=/azure/azure-monitor/toc.json
+      - name: Visualization part reference
+        href: ../log-analytics/log-analytics-view-designer-parts.md?toc=/azure/azure-monitor/toc.json
+      - name: Filters
+        href: ../log-analytics/log-analytics-view-designer-filters.md?toc=/azure/azure-monitor/toc.json
+    - name: Dashboards
+      items:
+      - name: Logs
+        href: ../log-analytics/log-analytics-dashboards.md?toc=/azure/azure-monitor/toc.json
+      - name: Applications
+        href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
+    - name: Power BI
+      items:
+      - name: Export log data
+        href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
+      - name: Export application data
+        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
+      - name: Send metrics to Grafana
+      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
+  - name: Analyze data
+    items:
+    - name: Create metrics charts in Metrics Explorer
+      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+    - name: View events in activity log
+      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+    - name: View service notifications
+      href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+    - name: Query log data
+      items:
+      - name: Language reference
+        href: https://docs.loganalytics.io
+      - name: Get started
+        items:
+        - name: Get started with Analytics portal
+          href: ../log-analytics/query-language/get-started-analytics-portal.md?toc=/azure/azure-monitor/toc.json
+        - name: Get started with queries
+          href: ../log-analytics/query-language/get-started-queries.md?toc=/azure/azure-monitor/toc.json
+        - name: Search queries
+          href: ../log-analytics/query-language/search-queries.md?toc=/azure/azure-monitor/toc.json
+        - name: Useful operators
+          href: ../log-analytics/query-language/useful-operators.md?toc=/azure/azure-monitor/toc.json
+      - name: Lessons
+        items:
+        - name: String operations
+          href: ../log-analytics/query-language/string-operations.md?toc=/azure/azure-monitor/toc.json
+        - name: Date and time operations
+          href: ../log-analytics/query-language/datetime-operations.md?toc=/azure/azure-monitor/toc.json
+        - name: Aggregation functions
+          href: ../log-analytics/query-language/aggregations.md?toc=/azure/azure-monitor/toc.json
+        - name: Advanced aggregations
+          href: ../log-analytics/query-language/advanced-aggregations.md?toc=/azure/azure-monitor/toc.json
+        - name: Joins
+          href: ../log-analytics/query-language/joins.md?toc=/azure/azure-monitor/toc.json
+        - name: JSON and data structures
+          href: ../log-analytics/query-language/json-data-structures.md?toc=/azure/azure-monitor/toc.json
+        - name: Advanced query writing
+          href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
+        - name: Charts and diagrams
+          href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
+      - name: Cheatsheets
+        items:
+        - name: SQL
+          href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+        - name: Splunk
+          href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Application data
+        href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Cross-resource searches
+        href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+      - name: Take action from search results
+        href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
+      - name: Use computer groups
+        href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
+      - name: Flow connector
+        href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
+      - name: Log Search API
+        href: https://dev.loganalytics.io/
+  - name: Respond to incidents
+    items:
+    - name: Alerts
+      items:
+      - name: Create alert rules
+        items:
+        - name: Configure new metric or log alerts in Azure portal
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure classic alerts in Azure portal
+          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json   
+        - name: Configure classic alerts with CLI
+          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure classic alerts with Azure PowerShell
+          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
+        - name: Copy alerts from OMS portal to Azure portal 
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+      - name: Use metric alerts
+        items:
+        - name: Alerts with dynamic thresholds
+          href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+        - name: Create a newer metric alert with a Resource Manager template
+          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+        - name: Create a classic metric alert with a Resource Manager template
+          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json    
+        - name: Have a classic metric alert call a webhook
+          href: ../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=/azure/azure-monitor/toc.json
+      - name: Use log alerts
+        items:  
+        - name: Webhook actions for log alerts
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
+        - name: Create a log alert with a Resource Manager template
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md?toc=/azure/azure-monitor/toc.json
+      - name: Use activity log alerts
+        items:
+        - name: Configure alerts on an activity log event
+          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
+        - name: Create activity log alerts with Resource Manager
+          href: ../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Migrate to activity log alerts
+          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure alerts on service notifications
+          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      - name: Use application alerts
+        items:
+        - name: Availability
+          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
+        - name: Metric alerts
+          href: ../application-insights/app-insights-alerts.md?toc=/azure/azure-monitor/toc.json
+      - name: Use action groups with alerts
+        items:
+        - name: Learn about the webhook schema
+          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
+        - name: SMS alert behavior
+          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+        - name: Alert rate limiting
+          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+        - name: Create action groups with Resource Manager
+          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Implement a Logic App action
+          href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
+    - name: Autoscale
+      items:
+      - name: Walkthrough of autoscale
+        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
+      - name: Understand Autoscale settings
+        href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
+      - name: Best practices
+        href: ../monitoring-and-diagnostics/insights-autoscale-best-practices.md?toc=/azure/azure-monitor/toc.json
+      - name: Common metrics
+        href: ../monitoring-and-diagnostics/insights-autoscale-common-metrics.md?toc=/azure/azure-monitor/toc.json
+      - name: Common patterns
+        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
+      - name: Autoscale using a custom metric
+        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+      - name: Autoscale VM scale sets using Resource Manager templates
+        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md?toc=/azure/azure-monitor/toc.json
+      - name: Automatically scale machines in a VM scale set
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+      - name: Configure webhooks and email notifications on autoscale
+        href: ../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md?toc=/azure/azure-monitor/toc.json
+    - name: Service notifications
+      items:
+      - name: View service notifications
+        href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      - name: Configure alerts on service notifications
+        href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+    - name: IT Service Management Connector
+      href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: IT Service Management connections
+        href: ../log-analytics/log-analytics-itsmc-connections.md?toc=/azure/azure-monitor/toc.json
   - name: Manage usage and cost
     items:
     - name: Usage and estimated costs
@@ -799,6 +793,43 @@
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+  - name: Query language reference
+    href: https://docs.loganalytics.io/docs/Language-Reference
+  - name: Azure CLI
+    href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure PowerShell
+    items:
+    - name: Monitor
+      href: /powershell/module/azurerm.insights
+    - name: Logs
+      href: /powershell/module/azurerm.operationalinsights
+  - name: REST API
+    items:
+    - name: Monitor
+      href: /rest/api/monitor/
+    - name: Logs
+      href: /rest/api/loganalytics 
+  - name: Metrics
+    items:
+    - name: Supported metrics
+      href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+    - name: Supported metrics for newer alerts
+      href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
+  - name: Schemas
+    items:
+    - name: Diagnostic logs services, categories, and schemas
+      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+    - name: Activity log event schema
+      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+    - name: Azure Diagnostics extension schema
+      href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: 1.3 and later
+        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
+      - name: 1.2
+        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
+      - name: 1.0
+        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -821,42 +852,3 @@
     href: https://stackoverflow.com/search?q=monitoring
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-  - name: Reference
-    items:
-    - name: Query language reference
-      href: https://docs.loganalytics.io/docs/Language-Reference
-    - name: Azure CLI
-      href: /cli/azure/monitor?view=azure-cli-latest
-    - name: Azure PowerShell
-      items:
-      - name: Monitor
-        href: /powershell/module/azurerm.insights
-      - name: Logs
-        href: /powershell/module/azurerm.operationalinsights
-    - name: REST API
-      items:
-      - name: Monitor
-        href: /rest/api/monitor/
-      - name: Logs
-        href: /rest/api/loganalytics 
-    - name: Metrics
-      items:
-      - name: Supported metrics
-        href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
-      - name: Supported metrics for newer alerts
-        href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
-    - name: Schemas
-      items:
-      - name: Diagnostic logs services, categories, and schemas
-        href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
-      - name: Activity log event schema
-        href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
-      - name: Azure Diagnostics extension schema
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
-        items:
-        - name: 1.3 and later
-          href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
-        - name: 1.2
-          href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
-        - name: 1.0
-          href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json

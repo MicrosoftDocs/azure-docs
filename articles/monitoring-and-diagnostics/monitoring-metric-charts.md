@@ -24,37 +24,7 @@ Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that
 
 Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
-## What are multi-dimensional metrics?
 
-Many of Azure's resources now expose multi-dimensional metrics. These metrics track multiple series of values for one or many named dimensions. For example, a metric "Available disk space" can have a dimension called "Drive" with values "C:", "D:", which would allow viewing either available disk space across all drives or for each drive individually. 
-
-The example below illustrates two datasets for a hypothetical metric called "Network Throughput". The first dataset has no dimensions. The second dataset shows the values with two dimensions, "IP Address" and "Direction":
-
-### Network Throughput
-(This metric has no dimensions)
-
- |Timestamp        | Metric Value | 
-   | ------------- |:-------------| 
-   | 8/9/2017 8:14 | 1,331.8 Kbps | 
-   | 8/9/2017 8:15 | 1,141.4 Kbps |
-   | 8/9/2017 8:16 | 1,110.2 Kbps |
-
-This non-dimensional metric can only answer a basic question like "what was my network throughput at a given time?”
-
-### Network Throughput + two dimensions ("IP" and "Direction")
-
-| Timestamp          | Dimension "IP" | Dimension "Direction" | Metric Value| 
-   | ------------- |:-----------------|:------------------- |:-----------|  
-   | 8/9/2017 8:14 | IP="192.168.5.2" | Direction="Send"    | 646.5 Kbps |
-   | 8/9/2017 8:14 | IP="192.168.5.2" | Direction="Receive" | 420.1 Kbps |
-   | 8/9/2017 8:14 | IP="10.24.2.15"  | Direction="Send"    | 150.0 Kbps | 
-   | 8/9/2017 8:14 | IP="10.24.2.15"  | Direction="Receive" | 115.2 Kbps |
-   | 8/9/2017 8:15 | IP="192.168.5.2" | Direction="Send"    | 515.2 Kbps |
-   | 8/9/2017 8:15 | IP="192.168.5.2" | Direction="Receive" | 371.1 Kbps |
-   | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Send"    | 155.0 Kbps |
-   | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100.1 Kbps |
-
-This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics. 
 
 ## How do I create a new chart?
 

@@ -99,7 +99,7 @@ The `--resource-group` argument is only required if `--storage-account` is not a
 
 ## Archive diagnostic logs via the REST API
 
-[See this document](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
+[See this document](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
 
 ## Schema of diagnostic logs in the storage account
 
