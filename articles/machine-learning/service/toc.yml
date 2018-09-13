@@ -77,7 +77,7 @@
       href: how-to-tune-hyperparameters.md    
   - name: Track and evaluate models	
     items:    
-    - name: Track run history and training metrics
+    - name: Track experiments and metrics
       href: how-to-track-experiments.md
   - name: Deploy models in production	
     items:    
