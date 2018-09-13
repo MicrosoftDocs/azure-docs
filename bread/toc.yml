@@ -6,6 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Fundamentals
+        tocHref: /azure/active-directory/fundamentals/
+        topicHref: /azure/active-directory/fundamentals/    
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
