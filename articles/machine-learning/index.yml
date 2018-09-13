@@ -15,7 +15,7 @@ metadata:
   ms.author: jmartens
 
 abstract:
-  description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud.  Tutorials, quickstarts, API references, and examples show you how.
+  description: Learn how to build intelligent algorithms into apps and websites using these Azure Machine Learning products.  Tutorials, quickstarts, API references, and examples show you how.
 
 sections:
 
@@ -26,7 +26,7 @@ sections:
     columns: 2
     items:
     - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Learn how this service empowers data scientists to develop AI solutions<br/> using Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>
+      html: <p>Learn how this service empowers data scientists to develop and manage AI solutions<br/> using the CLI and Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Azure Machine Learning service (preview)
