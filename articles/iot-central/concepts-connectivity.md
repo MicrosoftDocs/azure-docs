@@ -32,7 +32,7 @@ Based on your use case follow the instructions to connect devices to IoT Central
 ## Connect a single device
 Connecting a single device to IoT Central using SAS is easy and takes only a few steps 
 1. Add a **real device** from Device Explorer
-    * Enter the Device Id **<span style="color:Red">(should be lowercase)</span>** or use the suggested Device Id.
+    * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
     * Enter the Device Name or use the suggested name
     
     ![Add Device](media\concepts-connectivity\add-device.png)
@@ -69,9 +69,10 @@ To connect devices at scale with IoT Central using SAS, there are two steps invo
 **Register devices**
 
 To connect large number of devices to your application, Azure IoT Central offers bulk importing devices via a CSV file. 
+
 CSV file requirements:
 The CSV file should have the following columns (and headers)
-1.  IOTC_DeviceID **<span style="color:Red">(should be lowercase)</span>**
+1.  IOTC_DeviceID **<span style="color:Red">(should be lower case)</span>**
 1.  IOTC_DeviceName (Optional)
 
 
@@ -89,7 +90,7 @@ The CSV file should have the following columns (and headers)
 1.  Select the devices that you want to export and then click the **Export** action.
 1.  Once the export completes, a success message is shown along with a link to download the generated file.
 1.  Click on the success message to download the file to a local folder on the disk.
-1.  The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamry/Secondar Keys and Primary/Secondary certificate thumbrpints**
+1.  The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamary/Secondar Keys and Primary/Secondary certificate thumbrpints**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
@@ -100,7 +101,7 @@ The CSV file should have the following columns (and headers)
 
 **Device set up**
 
-1. Use these connection details **Device Identity, Device Name, and the Device Primary Key** in your device code to provision and connect your device and start seeing the data flow through instantaneously 
+1. Use these connection details **Device Identity (IOTC_DEVICEID), and the Device Primary Key( IOTC_SASKEY_PRIMARY)** in your device code to provision and connect your device and start seeing the data flow through instantaneously 
     * **MxChip:** If you are using an MxChip to connect follow [the step-by-step instructions here](howto-connect-devkit.md#add-a-real-device), start from the section **Prepare the DevKit device**.   
     *   **C language:** If you are using C please follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
 
@@ -135,7 +136,7 @@ To connect devices to IoT Central using X509 certificates, there are three key s
 
 1. **Device setup** : Generate the leaf certificates using the uploaded root certificate. Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on. 
 
-    *   Generate the leaf-certificates for your devices using the root/intermediate certificate you have added to this app. Make sure you use the **Device ID** as a cname in the leaf certificates and is in **<span style="color:Red">lowercase</span>**.
+    *   Generate the leaf-certificates for your devices using the root/intermediate certificate you have added to this app. Make sure you use the **Device ID** as a cname in the leaf certificates and is in **<span style="color:Red">lower case</span>**.
     Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for testing 
     *   **C language:** If you are using C please follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample and follow instructions to setup X509 device client.   
 
@@ -150,7 +151,7 @@ To connect devices to IoT Central using X509 certificates, there are three key s
 >Use the **Device ID** as a cname when generating the leaf certificates for devices.
 
 >[!NOTE]
->The **Device ID** should be lowercase 
+>The **Device ID** should be lower case 
  
 ## Connect without first registering devices
 One of the key scenarios IoTCentral enables is for OEMs to mass manufacture devices, generate credentials and configure them in the factory without having to first register them in IoT Central. Once the devices are turned on and connect to 
@@ -169,8 +170,8 @@ Follow the steps based on your choice of device authentication scheme (X509/SAS)
 ![Connection settings SAS](media\concepts-connectivity\connection-settings-sas.png)
 
 1. **Generate device credentials** 
-    *   **Certificates X509:** Generate the leaf-certificates for your devices using the root/intermediate certificate you have added to this app. Make sure you use the **Device ID** as a cname in the leaf certificates and **<span style="color:Red">(should be lowercase)</span>**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for testing.
-    *   **SAS** Device SAS keys can be generated using this [command line tool](https://www.npmjs.com/package/dps-keygen). Use the Primary SAS key (group SAS key) from the previous step. Make sure the Device ID **<span style="color:Red">is in lowercase</span>**.
+    *   **Certificates X509:** Generate the leaf-certificates for your devices using the root/intermediate certificate you have added to this app. Make sure you use the **Device ID** as a cname in the leaf certificates and **<span style="color:Red">(should be lower case)</span>**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for testing.
+    *   **SAS** Device SAS keys can be generated using this [command line tool](https://www.npmjs.com/package/dps-keygen). Use the Primary SAS key (group SAS key) from the previous step. Make sure the Device ID **<span style="color:Red">is in lower case</span>**.
 
         Use the below instructions to generate device SAS key           
 
