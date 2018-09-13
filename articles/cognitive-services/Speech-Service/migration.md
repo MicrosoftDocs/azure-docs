@@ -65,6 +65,6 @@ To get started with the new Speech SDK:
 
 ## Support
 
-For Bing Speech, please contact customer support by opening a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You could also contact us if your support need requires a [Technical Support Plan](https://azure.microsoft.com/support/plans/).
+For Bing Speech, please contact customer support by opening a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also contact us if your support need requires a [Technical Support Plan](https://azure.microsoft.com/support/plans/).
 
 For Speech Service, SDK, and API support, visit the Speech Service [support page](support.md).
