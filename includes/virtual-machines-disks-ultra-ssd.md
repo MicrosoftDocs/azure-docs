@@ -78,9 +78,9 @@ For details on the supported disk throughput on Ultra SSD, see the table in Scal
 
 ### Ultra SSD VM reservation fee
 
-We are introducing a capability on the VM that indicates your VM is Ultra SSD compatible. An Ultra SSD Compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. Adding this capability on the VM results in a reservation charge that is only imposed if you enabled Ultra SSD capability on the VM without attaching an Ultra SSD disk to it. When an Ultra SSD disk is attached to the Ultra SSD compatible VM, this charge would not be applied. This charge is per vcpu provisioned on the VM.
+We are introducing a capability on the VM that indicates your VM is Ultra SSD compatible. An Ultra SSD Compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. Adding this capability on the VM results in a reservation charge that is only imposed if you enabled Ultra SSD capability on the VM without attaching an Ultra SSD disk to it. When an Ultra SSD disk is attached to the Ultra SSD compatible VM, this charge would not be applied. This charge is per vCPU provisioned on the VM.
 
-Refer to the Azure Disks pricing page for the new Ultra SSD Disks price details available in limited preview.
+Refer to the [Azure Disks pricing page](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) for the new Ultra SSD Disks price details available in limited preview.
 
 ### Ultra SSD Preview Scope and Limitations
 
