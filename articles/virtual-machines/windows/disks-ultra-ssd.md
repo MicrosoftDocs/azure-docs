@@ -20,4 +20,4 @@ ms.author: rogarana
 If you're interested in trying ultra SSDs, see the how to guide on the subject.
 
 > [!div class="nextstepaction"]
-> [Enabling and using Ultra SSDs](disks-enable-ultra-ssd.md)
+> [How to enable and use Ultra SSDs](disks-enable-ultra-ssd.md)

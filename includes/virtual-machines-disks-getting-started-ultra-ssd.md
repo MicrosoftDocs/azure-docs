@@ -31,7 +31,7 @@ The response will will be similar to the form below, where X is the Zone to use 
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with Ultra SSD disks.
 
-## How to get started with Ultra SSD?
+## Deploying an Ultra SSD
 
 First, determine the VM Size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/en-us/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 Also refer to the sample [Create a VM with multiple Ultra SSD disks](https://aka.ms/UltraSSDTemplate) which shows how to create a VM with multiple Ultra SSD disks.
