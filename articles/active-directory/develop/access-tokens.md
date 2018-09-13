@@ -33,17 +33,17 @@ This is a v1.0 access token - view it in [JWT.ms](https://jwt.ms/#access_token=e
 
 If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization - the user, client, issuer, permissions, and more.  This document provides details on how a resource can validate and use the claims inside an access token.
 
-[!> NOTE] 
+[!> NOTE]
 >While testing your client application with a consumer Microsoft account (an MSA), you may find that the access token received by your client is an opaque string.  This is because the resource being accessed has requested legacy MSA tickets - these are encrypted and cannot be understood by the client.
 
 ## Claims in access tokens
 
 JWTs are split into three pieces - header, payload, and signature, each seperated by a period (`.`) and seperately Base64 encoded.  The header provides information about how to [validate  the token](Validating-tokens) - information about the type of token and how it was signed.  The payload contains all of the important data about the user or app that is attempting to call your service.  Finally, the signature is the raw material used to validate the token.  
 
-[!> Important] 
+[!> Important]
 >Claims are present only if a value exists to fill it.  Thus, your app should not take a dependency on a claim being present.  Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` ([client credential](v1-oauth2-client-creds-grant-flow.md) flows are on behalf of applications, which don't have first names).  Claims used for access token validation will always be present.
 
-[!> NOTE] 
+[!> NOTE]
 >Some claims are used to help Azure AD secure tokens from re-use and during special OBO flows.  These are marked as not being for public consumption in the description as "Opaque".  These claims may or may not appear in a token, and new ones may be added without notice.
 
 ### Header claims
@@ -60,7 +60,7 @@ JWTs are split into three pieces - header, payload, and signature, each seperate
 
 |Claim   | Format | Description |
 |-----|--------|-------------|
-|`aud` |  String, an App ID URI | 	Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure Portal. Your app should validate this value, and reject the token if the value does not match. |
+|`aud` |  String, an App ID URI | Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure Portal. Your app should validate this value, and reject the token if the value does not match. |
 |`iss` |  String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`.  The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`iat` |  int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occured.  |
 |`nbf` |  int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
@@ -75,13 +75,13 @@ JWTs are split into three pieces - header, payload, and signature, each seperate
 |`oid` |  String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. This means that it can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials |
 |`rh` |  Opaque String |An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
 |`scp` |  String, a space seperated list of scopes | The set of scopes exposed by your application for which the client application has requested (and received) consent.  Your app should verify that these scopes are valid ones exposed by your app, and make authorization decisions based on the value of these scopes. Only included for [user tokens](#user-and-application-tokens).  |
-|`roles`| String, a space seperated list of permissions | The set of permissions exposed by your application that the requesting application has been given permission to call.  This is used during the [client-credentials](LINK) flow in place of user scopes, and is only present in [applications tokens](#user-and-application-tokens). |
+|`roles`| String, a space seperated list of permissions | The set of permissions exposed by your application that the requesting application has been given permission to call.  This is used during the [client-credentials](v1-oauth2-client-creds-grant-flow.md) flow in place of user scopes, and is only present in [applications tokens](#user-and-application-tokens). |
 |`sub` |  String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
 |`tid` |  String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim.  |
 |`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. |
 |`upn` |  String | The username of the user.  May be a phone number, email address, or unformatted string.  Should only be used for display purposes and providing username hints in re-authentication scenarios. |
 |`uti` |  Opaque String | An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
-|`ver` |  String, either 1.0 or 2.0 | Indicates the version of the access token. | 
+|`ver` |  String, either 1.0 or 2.0 | Indicates the version of the access token. |
 
 #### v1.0 basic claims
 
@@ -96,11 +96,11 @@ These claims will be included in v1.0 tokens if applicable, but must be requeste
 |`in_corp`|boolean | Signals if the client is logging in from the corporate network. If they are not, the claim is not included |
 |`nickname`| String | An additional name for the user, separate from first or last name.|
 |`family_name` |  String | Provides the last name, surname, or family name of the user as defined on the  user object. |
-|`given_name` |  String |  	Provides the first or given name of the user, as set on the user object. |
+|`given_name` |  String | Provides the first or given name of the user, as set on the user object. |
 
 #### The `amr` claim
 
-Microsoft identities can authenticate in a variety of ways, which may be relevant to your application. 
+Microsoft identities can authenticate in a variety of ways, which may be relevant to your application.
 
 |Value |  Description |
 |-----|-------------|
