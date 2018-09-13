@@ -35,15 +35,14 @@ This article describes how to use a Java application to create a Cassandra API a
    |Setting   |Suggested value  |Description  |
    |---------|---------|---------|
    |ID   |   Enter a unique name    | Enter a unique name to identify this Azure Cosmos DB account. <br/><br/>Because cassandra.cosmosdb.azure.com is appended to the ID that you provide to create your contact point, use a unique but identifiable ID.         |
-   |API    |  Cassandra   |  The API determines the type of account to create.  
-Select **Cassandra** because in this article you are creating a wide-column database can be queries by using CQL syntax.  |
+   |API    |  Cassandra   |  The API determines the type of account to create. <br/>Select **Cassandra** because in this article you are creating a wide-column database can be queries by using CQL syntax.  |
    |Subscription    |  Your subscription        |  Select Azure subscription that you want to use for this Azure Cosmos DB account.        |
    |Resource Group   | Enter a name    |  Select **Create New**, then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.    |
    |Location    |  Select the region closest to your users    |  Select geographic location in which to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.    |
 
    ![Create account with portal](./media/create-cassandra-api-account-java/create-account.png)
 
-4. Then select **Create**. The account creation takes a few minutes. After the resource is created, you can see **Deployment succeeded** notification on the right-hand corner of the portal. 
+4. Next, select **Create**. <br/>The account creation takes a few minutes. After the resource is created, you can see **Deployment succeeded** notification on the right-hand corner of the portal. 
 
 ## Get the connection details of your account  
 
