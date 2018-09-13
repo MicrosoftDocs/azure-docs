@@ -27,7 +27,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
 
-3. In order to render a new map in your browser, add a **#map** reference in the `<style>` element.
+3. In order to render a new map in your browser, add a **#map** reference in the `<style>` element:
 
     ```html
     <style>
@@ -38,7 +38,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </style>
     ```
 
-4. In order to initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md)
+4. In order to initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md).
 
     ```html
     <div id="map">
