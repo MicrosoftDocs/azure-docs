@@ -1,6 +1,6 @@
 ---
-title: How to chart performance with Azure Monitor VM Insights | Microsoft Docs
-description: Performance is a feature of the Azure Monitor VM Insights solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
+title: How to chart performance with Azure Monitor VM insights | Microsoft Docs
+description: Performance is a feature of the Azure Monitor VM insights solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
 services:  log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 09/12/2018
 ms.author: magoedte
 ---
 
-# How to chart performance with Azure Monitor VM Insights
-VM Insights include a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing — Processor, Memory, Disk, and Network.  The charts show resource utilization over a period of time so you can identify bottlenecks or anomalies that may or may not be isolated, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, VM Insights is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance compliments the health monitoring feature of the solution and together, helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
+# How to chart performance with Azure Monitor VM insights
+Azure Monitor VM insights include a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing — Processor, Memory, Disk, and Network.  The charts show resource utilization over a period of time so you can identify bottlenecks or anomalies that may or may not be isolated, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, VM insights is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance compliments the health monitoring feature of the solution and together, helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
 
 ## Multi-VM perspective from Azure Monitor
-From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access VM Insights from Azure Monitor, perform the following. 
+From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access VM insights from Azure Monitor, perform the following. 
 
 1. In the Azure portal, select **Monitor**. 
 2. Choose **Virtual Machines (preview)** in the **Solutions** section.
 3. Select the **Performance** tab.
 
-![VM Insights Performance Aggregate view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
+![VM insights Performance Aggregate view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
 On the **Aggregate** tab, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution from the **Workspace** selector at the top of the page.  You then select from the **Group** selector, a subscription, resource group, or specific machine, over a specified period of time.  By default, the charts shows the last 24 hours.  Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
 
@@ -54,11 +54,11 @@ Selecting a virtual machine from the list opens the **Properties** panel on the 
 
 
 ## View performance directly from an Azure VM
-To access VM Insights directly from a virtual machine, perform the following.
+To access VM insights directly from a virtual machine, perform the following.
 
 1. In the Azure portal, select **Virtual Machines**. 
 2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
 3. Select the **Performance** tab. 
 
 ## Next steps
-To learn how to use the health feature, see [View Azure VM Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM Insights Map](monitoring-vminsights-maps.md). 
+To learn how to use the health feature, see [View Azure VM Insights Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View VM insights Map](monitoring-vminsights-maps.md). 
