@@ -35,7 +35,7 @@ Click on the "View Files" link in your Azure Function (right most pane in the Az
   "frameworks": {
     "net46":{
       "dependencies": {
-        "Microsoft.Azure.EventGrid": "1.4.0"
+        "Microsoft.Azure.EventGrid": "2.0.0"
       }
     }
    }
@@ -50,7 +50,7 @@ The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValida
 
 Manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [Azure CLI](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you're using the REST API, make sure you're using `api-version=2018-05-01-preview`.
 
-In C#, the `DeserializeEventGridEvents()` function deserializes the Event Grid events. For first-party events (not custom events), it deserializes the event data into the appropriate type, such as StorageBlobCreatedEventData. Use the `Microsoft.Azure.EventGrid.EventTypes` class to get supported event types and names.
+In C#, the `DeserializeEventGridEvents()` function deserializes the Event Grid events. It deserializes the event data into the appropriate type, such as StorageBlobCreatedEventData. Use the `Microsoft.Azure.EventGrid.EventTypes` class to get supported event types and names.
 
 To programmatically echo the validation code, use the following code. You can find related samples at [Event Grid Consumer example](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer).
 
