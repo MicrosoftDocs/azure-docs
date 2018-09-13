@@ -91,8 +91,7 @@ Use the following steps to install the VM Agent in offline mode.
 
         2.	Go to C:\WindowsAzure on the troubleshooter VM, look for any folder with the name C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX. Copy the GuestAgent folder that has latest version number from C:\WindowsAzure to the WindowsAzure folder in the attached OS disk. If you are not sure which folder should be copied, copy all GuestAgent folders. The following image shows an example of the GuestAgent folder that is copied to the attached OS disk.
 
-
-            ![Copy GuestAgent folder](./media/install-vm-agent-offline/copy-files.png)
+             ![Copy GuestAgent folder](./media/install-vm-agent-offline/copy-files.png)
 
 9.  Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive**​.
 
