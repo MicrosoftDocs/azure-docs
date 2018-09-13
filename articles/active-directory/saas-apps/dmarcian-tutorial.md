@@ -107,16 +107,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
 	| -- |
-	| `https://us.dmarcian.com/sso/saml/<account_ID>/sp.xml` |
-	| `https://dmarcian.com-eu/sso/saml/<account_ID>/sp.xml ` |
-	| `https://dmarcian.com-ap/sso/saml/<account_ID>/sp.xml` |
+	| `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+	| `https://dmarcian.com-eu/sso/saml/<ACCOUNT_ID>/sp.xml ` |
+	| `https://dmarcian.com-ap/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
 	| |
 	|--|
-	| `https://us.dmarcian.com/login/<account_ID>/handle/` |
-	| `https://dmarcian.com-eu/login/<account_ID>/handle/ `|
-	| `https://dmarcian.com-ap/login/<account_ID>/handle/`|
+	| `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
+	| `https://dmarcian.com-eu/login/<ACCOUNT_ID>/handle/ `|
+	| `https://dmarcian.com-ap/login/<ACCOUNT_ID>/handle/`|
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -125,9 +125,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern:
 	| |
 	|--|
-	| `https://us.dmarcian.com/login/<account_ID>/` |
-	| `https://dmarcian.com-eu/login/<account_ID>/` |
-	| `https://dmarcian.com-ap/login/<account_ID>/` |
+	| `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
+	| `https://dmarcian.com-eu/login/<ACCOUNT_ID>` |
+	| `https://dmarcian.com-ap/login/<ACCOUNT_ID>` |
 	 
 	> [!NOTE] 
 	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign-On URL which is explained later in the tutorial. 
@@ -140,13 +140,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/dmarcian-tutorial/tutorial_general_400.png)
 	
-7. In a different web browser window, login to dmarcian as a Security Administrator.
+7. In a different web browser window, log in to dmarcian as a Security Administrator.
 
 8. Click on **Profile** on the top right corner and navigate to **Preferences**.
 
 	![The Preferences ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
-9. Scroll down click on **Single Sign-On** section and then click on **Configure**.
+9. Scroll down and click on **Single Sign-On** section, then click on **Configure**.
 
 	![The single ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
@@ -154,20 +154,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The authentication ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-11. Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Assertion Consumer Service URL** for your instance and paste it in **Reply URL** textbox in **dmarcian Domain and URLs section** on Azure portal.
+	* Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Assertion Consumer Service URL** for your instance and paste it in **Reply URL** textbox in **dmarcian Domain and URLs section** on Azure portal.
 
-12. Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Entity ID** for your instance and paste it in **Identifier** textbox in **dmarcian Domain and URLs section** on Azure portal.
+	* Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Entity ID** for your instance and paste it in **Identifier** textbox in **dmarcian Domain and URLs section** on Azure portal.
 
-13. Under **Set up Authentication** section, in the **Identity Provider Metadata** textbox paste the **App Federation Metadata Url** which you have copied from Azure portal.
+	* Under **Set up Authentication** section, in the **Identity Provider Metadata** textbox paste the **App Federation Metadata Url**, which you have copied from Azure portal.
 
-14. Under **Set up Authentication** section, in the **Attribute Statements** textbox paste the url `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	* Under **Set up Authentication** section, in the **Attribute Statements** textbox paste the url `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-15. Under **Set up Login URL** textbox, copy the **Login URL** for your instance and paste it in **Sign-on URL** textbox in **dmarcian Domain and URLs section** on Azure portal.
+	* Under **Set up Login URL** section, copy the **Login URL** for your instance and paste it in **Sign-on URL** textbox in **dmarcian Domain and URLs section** on Azure portal.
 
-	> [!Note]
-	> You can modify the **Login URL** according to your organisation.
+		> [!Note]
+		> You can modify the **Login URL** according to your organisation.
 
-16. Click **Save**.
+	* Click **Save**.
 
 ### Create an Azure AD test user
 
@@ -203,11 +203,11 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a dmarcian test user
 
-To enable Azure AD users to log in to dmarcian, they must be provisioned into dmarcian. In dmarcian, provisioning is a manual task.
+To enable Azure AD users to login to dmarcian, they must be provisioned into dmarcian. In dmarcian, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to dmarcian as a Security Administrator.
+1. Login to dmarcian as a Security Administrator.
 
 2. Click on **Profile** on the top right corner and navigate to **Manage Users**.
 
