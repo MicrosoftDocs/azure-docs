@@ -32,7 +32,8 @@ The Microsoft speech recognition API supports the following languages in `intera
 | es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
 | fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong SAR) |
 | fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
-| fr-FR | French (France) | ||
+| fr-FR | French (France) | gu-IN | Gujarati (India) |
+| ta-IN |Tamil (India) | te-IN | Telugu (India) |
 
 ## Conversation mode
 
