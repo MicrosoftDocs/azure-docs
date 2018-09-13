@@ -56,7 +56,8 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   sudo service network-manager restart
   ```
 3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure Portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
-4. To connect using the command line type the following:
+4. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) for information about how to extract private key.
+5. To connect using the command line type the following:
   
   ```
   Sudo openvpn –config <name and path of your VPN profile file>

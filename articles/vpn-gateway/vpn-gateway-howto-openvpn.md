@@ -28,7 +28,7 @@ Install the latest version of the Resource Manager PowerShell cmdlets. For more 
 
 ## <a name="enable"></a>3. Enable OpenVPN on the gateway
 
-Once you have confirmation that the 'AllowVnetGatewayOpenVpnProtocol' feature flag has been enabled for your subscription, enable OpenVPN on your gateway. Make sure that the gateway is already configured for point-to-site (IKEv2 or SSTP) before running the following commands:
+Enable OpenVPN on your gateway. Make sure that the gateway is already configured for point-to-site (IKEv2 or SSTP) before running the following commands:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $rgname -name $name
