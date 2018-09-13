@@ -105,7 +105,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
 
-3. On the **Huddle Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Huddle Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode. Your huddle instance will be automatically be detected from the domain you enter below:
 
 	![Huddle Domain and URLs single sign-on information](./media/huddle-tutorial/tutorial_huddle_url.png)
 
@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| | |
 	|--|--|
 	| `https://<customsubdomain>.huddle.net`|
-	| `https://us.huddle.net` |
+	| `https://my.huddle.net` |
 	| |
 
 	b. In the **Reply URL** textbox, type any one of the URL using the following pattern:
@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| | |
 	|--|--|
 	| `https://<customsubdomain>.huddle.net/saml/idp-initiated-sso`|
-	| `https://us.huddle.net/saml/idp-initiated-sso`|
+	| `https://my.huddle.net/saml/idp-initiated-sso`|
 	| |
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| | |
 	|--|--|
 	| `https://<customsubdomain>.huddle.net`|
-	| `https://us.huddle.net`|
+	| `https://my.huddle.net`|
 	| |
 
 	> [!NOTE]
