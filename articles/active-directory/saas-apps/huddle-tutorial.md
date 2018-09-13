@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 3. On the **Huddle Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	> [!NOTE]
-	> Your huddle instance will be automatically be detected from the domain you enter below.
+	> Your huddle instance will be automatically detected from the domain you enter below.
 
 	![Huddle Domain and URLs single sign-on information](./media/huddle-tutorial/tutorial_huddle_url.png)
 
