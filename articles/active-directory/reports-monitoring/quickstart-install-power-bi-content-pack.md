@@ -39,21 +39,18 @@ To complete this quickstart, you need:
 ## Install Azure AD Power BI content pack 
 
 1. Log into [Power BI](https://app.powerbi.com/groups/me/getdata/services) with your Power BI Account. This is the same account as your O365 or Azure AD Account.
-2. At the bottom of the left navigation pane, select **Get Data**.
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/01.png)
-3. In the **Services** box, click **Get**.
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/02.png)
-4.	Search for **Azure Active Directory**.
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/03.png)
-5.	When prompted, type your Azure AD Tenant ID, and then click **Next**.
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/04.png) 
-6.	Click **Sign-in**. 
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/05.png) 
-7.	Enter your username and password, and then click **Sign in**.
-     ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/06.png) 
-8.	On the app consent dialog, click **Accept**.
-9.	When your Azure Active Directory Activity logs dashboard has been created, select it.
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/08.png) 
+
+2. Search for **Azure Active Directory Activity Logs** in the **Apps** page and select **Get it now**. 
+
+   ![Azure Active Directory Power BI Content Pack](./media/quickstart-install-power-bi-content-pack/getitnow.png) 
+    
+3. In the popup window, type your Azure AD Tenant ID, enter **7** for the number of days to query and then select **Next**.
+    
+   ![Azure Active Directory Power BI Content Pack](./media/quickstart-install-power-bi-content-pack/connect.png) 
+
+4. When your Azure Active Directory Activity logs dashboard has been created, select it.
+
+   ![Azure Active Directory Power BI Content Pack](./media/quickstart-install-power-bi-content-pack/dashboard.png) 
     
 ## Next steps
 
