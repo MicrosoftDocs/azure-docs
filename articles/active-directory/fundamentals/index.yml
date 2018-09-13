@@ -30,8 +30,8 @@ sections:
       href: active-directory-get-started-premium.md
     - image: 
         src: ./media/index/i_portal.png
-      text: Access the portal and create a tenant
-      href: active-directory-access-azure-ad.md
+      text: Access Azure AD to create a tenant
+      href: active-directory-access-create-new-tenant.md
     - image: 
         src: ./media/index/i_tasks.png
       text: View groups and members
