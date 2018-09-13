@@ -1,7 +1,6 @@
 ---
 title: How to configure the sign-in risk policy | Microsoft Docs
 description: Learn how to configure the Azure AD Identity Protection sign-in risk policy.
-compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised.
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
@@ -20,9 +19,6 @@ ms.author: markvi
 ms.reviewer: raluthra
 
 ---
-
-
-
 
 # How To: Configure the sign-in risk policy
 
@@ -118,4 +114,4 @@ For an overview of the related user experience, see:
 
 ## Next steps
 
-To get an overview of Azure AD Identity Protection, see the [Azure AD Identity Protection overview](overview).
+To get an overview of Azure AD Identity Protection, see the [Azure AD Identity Protection overview](overview.md).

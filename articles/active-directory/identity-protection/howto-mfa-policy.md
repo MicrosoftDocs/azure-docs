@@ -68,4 +68,4 @@ For an overview of the related user experience, see:
 
 ## Next steps
 
-To get an overview of Azure AD Identity Protection, see the [Azure AD Identity Protection overview](overview).
+To get an overview of Azure AD Identity Protection, see the [Azure AD Identity Protection overview](overview.md).

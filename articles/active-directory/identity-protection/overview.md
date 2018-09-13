@@ -101,6 +101,7 @@ For more details, see [Azure Active Directory risk events](../active-directory-i
 
 
 ## Investigation
+
 Your journey through Identity Protection typically starts with the Identity Protection dashboard.
 
 ![Remediation](./media/overview/1000.png "Remediation")
@@ -113,8 +114,6 @@ The dashboard gives you access to:
 It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
 
 You can tie your investigation activities to the [notifications](notifications.md) Azure Active Directory Protection sends per email.
-
-The following sections provide you with more details and the steps that are related to an investigation.  
 
 
 
