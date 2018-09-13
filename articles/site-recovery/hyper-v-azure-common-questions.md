@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
 
@@ -59,7 +59,7 @@ Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft
 
 ### What do I need on-premises?
 
-You need one or more VMs running on one or more standalone or clustered Hyper-V hosts. You can also replicate VMs running on hosts managed by System Center Virtual Machine Manager (VMM). You can also replicate VMs running on hosts managed by System Center Virtual Machine Manager (VMM).
+You need one or more VMs running on one or more standalone or clustered Hyper-V hosts. You can also replicate VMs running on hosts managed by System Center Virtual Machine Manager (VMM).
     - If you're not running VMM, during Site Recovery deployment, you gather Hyper-V hosts and clusters into Hyper-V sites. You install the Site Recovery agents (Azure Site Recovery Provider and Recovery Services agent) on each Hyper-V host.
     - If Hyper-V hosts are located in a VMM cloud, you orchestrate replication in VMM. You install the Site Recovery Provider on the VMM server, and the Recovery Services agent on each Hyper-V host. You map between VMM logical/VM networks, and Azure VNets.
     - 
@@ -161,11 +161,6 @@ Site Recovery needs access to Hyper-V hosts to replicate the VMs you select. Sit
 ### What does Site Recovery install on Hyper-V VMs?
 
 Site Recovery doesn't explicitly install anything on Hyper-V VMs enabled for replication.
-- During replication, VMs communicate with Site Recovery as follows:
-    - VMs communicate with the configuration server on port HTTPS 443 for replication management.
-    - VMs send replication data to the process server on port HTTPS 9443 (can be modified).
-    - If you enable multi-VM consistency, VMs communicate with each other over port 20004.
-
 
 
 
@@ -206,7 +201,7 @@ After your on-premises infrastructure is up and running again, you can fail back
 5. After workloads have failed back, you enable reverse replication, so that the on-premises VMs replicate to Azure again.
 
 ### Can I fail back to a different location?
-Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
 
 
 
