@@ -67,7 +67,7 @@
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure CLI
       href: howto-linkvnet-cli.md
-  - name: Link ExpressRoute circuits to each other using Global Reach
+  - name: Link ExpressRoute circuits together using Global Reach
     href: expressroute-global-reach.md
   - name: Configure a site-to-site VPN over Microsoft peering
     href: site-to-site-vpn-over-microsoft-peering.md

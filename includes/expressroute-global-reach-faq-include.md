@@ -9,8 +9,6 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-#### ExpressRoute Limits
-
 ### What is ExpressRoute Global Reach?
 
 ExpressRoute Global Reach is an Azure service that connects your on-premises networks via the ExpressRoute service through Microsoft's global network. For example, if you have a private data center in California connected to ExpressRoute in Silicon Valley and another private data center in Texas connected to ExpressRoute in Dallas, with ExpressRoute Global Reach, you can connect your private data centers together through the two ExpressRoute connections and your cross data center traffic will traverse through Microsoft's network backbone.

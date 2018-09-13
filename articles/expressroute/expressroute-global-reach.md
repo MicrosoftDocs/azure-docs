@@ -1,6 +1,6 @@
 ﻿---
 title: 'Azure ExpressRoute Global Reach | Microsoft Docs'
-description: This article helps you use Azure ExpressRoute Global reach to link ExpressRoute circuits together
+description: This article helps you use Azure ExpressRoute Global reach to link ExpressRoute circuits together to make a private network between your on-premises networks.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 ---
 
-# Link ExpressRoute circuits using ExpressRoute Global Reach (Preview)
+# Link ExpressRoute circuits together using ExpressRoute Global Reach (Preview)
 
 ExpressRoute is a private and resilient way to connect your on-premises networks to Microsoft Cloud. You can access many Microsoft cloud services such as Azure, Office 365, and Dynamics 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in Baltimore with an ExpressRoute circuit in Washington DC. Both branch offices can have high speed connectivity to Azure resources in both East US and West US. However, the branch offices cannot talk directly to each other. In other words, 10.0.1.0/24 can talk to 10.0.3.0/24 and 10.0.4.0/24, but NOT to 10.0.2.0/24.
 
@@ -62,7 +62,7 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 ### Identify your ExpressRoute circuits for configuration
 You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries and they're created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration in the sections below. If the two circuits are in different Azure subscriptions, you will need authorization from one Azure subscription and pass in the authorization key when you run the configuration command in the other Azure subscription.
 
-## Enable connectivity between your on-premises networks
+## To enable connectivity between your on-premises networks
 
 Use the following commands to get circuit 1 and circuit 2. The two circuits are in the same subscription.
 
@@ -116,9 +116,9 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 
 When the above operation is complete, you should have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
-## Get and verify the configuration
+## To get and verify the configuration
 
-Use the following command to verify the configuration on the circuit where the configuration was made, i.e. circuit 1 in the above example.
+Use the following command to verify the configuration on the circuit where the configuration was made. This example uses circuit 1 from the previous example.
 
 ```powershell
 $ckt1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
@@ -126,9 +126,9 @@ $ckt1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGrou
 
 If you simply run *$ckt1* in PowerShell, you'll see *CircuitConnectionStatus* in the output. It will tell you whether the connectivity is established, "Connected", or not, "Disconnected". 
 
-## Disable connectivity between your on-premises networks
+## To disable connectivity between your on-premises networks
 
-To disable it, run the commands against the circuit where the configuration was made, i.e. circuit 1 in the above example.
+To disable, run the commands against the circuit where the configuration was made. This example uses circuit 1 from previous examples.
 
 ```powershell
 $ckt1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
