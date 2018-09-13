@@ -92,8 +92,7 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
     - add the name of your WiFi network 
     - your WiFi network password
     - PIN CODE shown on the device LCD 
-    - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)
-      You can find the connection string at `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect` (on the top right)
+    - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)      
     - Select all the available telemetry measurements! 
 
 1. After you choose **Configure Device**, you see this page:

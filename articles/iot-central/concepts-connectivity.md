@@ -142,8 +142,16 @@ To connect devices to IoT Central using X509 certificates, there are three key s
 
 1. **Device setup** : Generate the leaf certificates using the uploaded root certificate. Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on. 
 
+    For further details look at the sample implementation for [RaspberryPi.](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi)  
+
+
+    **Further referenes**
+
     *   Generate the leaf-certificates for your devices using the root/intermediate certificate you have added to this app. Make sure you use the **Device ID** as a cname in the leaf certificates and is in **<span style="color:Red">lower case</span>**.
     Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for testing 
+
+
+
     *   **C language:** If you are using C please follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample and follow instructions to setup X509 device client.   
 
          ```
