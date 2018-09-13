@@ -6,7 +6,7 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -38,11 +38,11 @@ If you chose [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs
 ## What to expect if a Storage failover occurs
 If you chose [Geo-redundant storage (GRS)](storage-redundancy-grs.md) or [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommended), Azure Storage will keep your data durable in two regions (primary and secondary). In both regions, Azure Storage constantly maintains multiple replicas of your data.
 
-When a regional disaster affects your primary region, we will first try to restore the service in that region. Dependent upon the nature of the disaster and its impacts, in some rare occasions we may not be able to restore the primary region. At that point, we will perform a geo-failover. The cross-region data replication is an asynchronous process which can involve a delay, so it is possible that changes that have not yet been replicated to the secondary region may be lost. You can query the ["Last Sync Time" of your storage account](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) to get details on the replication status.
+When a regional disaster affects your primary region, we will first try to restore the service in that region. Dependent upon the nature of the disaster and its impacts, in some rare occasions we may not be able to restore the primary region. At that point, we will perform a geo-failover. Cross-region data replication is an asynchronous process that involves a delay, so it is possible that changes which have not yet been replicated to the secondary region may be lost. You can query the ["Last Sync Time" of your storage account](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) to get details on the replication status.
 
 A couple of points regarding the storage geo-failover experience:
 
-* Storage geo-failover will only be triggered by the Azure Storage team – there is no customer action required.
+* Storage geo-failover will only be triggered by the Azure Storage team – there is no customer action required. The failover is triggered when Azure Storage team has exhausted all options of restoring data in the same region, which provides the best combination of RTO and RPO.
 * Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the Microsoft-supplied DNS entry will need to be updated to switch from the primary region to the secondary region.  Microsoft will perform this update automatically as part of the geo-failover process.
 * Before and during the geo-failover, you won't have write access to your storage account due to the impact of the disaster but you can still read from the secondary if your storage account has been configured as RA-GRS.
 * When the geo-failover has been completed and the DNS changes propagated, read and write access to your storage account will be resumed; this points to what used to be your secondary endpoint. 
