@@ -1,6 +1,6 @@
 ---
-title:  | Microsoft Docs
-description: 
+title: Multi-master conflict resolution in Azure Cosmos DB | Microsoft Docs
+description: This article describes the conflict categories and conflict resolution modes such as Last-Writer-Wins (LWW), Custom – User-Defined Procedure, Custom – Asynchronous in Azure Comsos DB multi-master.
 services: cosmos-db
 author: markjbrown
 
@@ -123,7 +123,7 @@ DocumentCollection manualCollection = await myClient.CreateDocumentCollectionIfN
 });
 ```
  
-To read and process any conflicts in the conflicts feed, implement the code shown below. You can also optionally delete the conflict from the conflicts feed after it has been processed. Conflicts feed counts against storage, although this should be a small amount of data.
+To read and process any conflicts in the conflicts feed, implement the code shown below. Data stored in the conflicts feed adds some storage cost. So, it's recommended to delete the data stored in conflicts feed after they are processed.
 
 ```csharp
 FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollectionUri); 
