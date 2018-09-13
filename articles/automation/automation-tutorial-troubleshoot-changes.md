@@ -7,7 +7,7 @@ ms.component: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 08/27/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
@@ -62,9 +62,9 @@ It can take between 30 minutes and 6 hours for the data to be available for anal
 
 ## Using Change tracking in Log Analytics
 
-Change tracking generates log data that is sent to Log Analytics. 
+Change tracking generates log data that is sent to Log Analytics.
 To search the logs by running queries, select **Log Analytics** at the top of the **Change tracking** window.
-Change tracking data is stored under the type **ConfigurationChange**. 
+Change tracking data is stored under the type **ConfigurationChange**.
 The following sample Log Analytics query returns all the Windows Services that have been stopped.
 
 ```
@@ -77,7 +77,7 @@ To learn more about running and searching log files in Log Analytics, see [Azure
 ## Configure Change tracking
 
 Change tracking gives you the ability to track configuration changes on your VM. The following steps show you how to configure tracking of registry keys and files.
- 
+
 To choose which files and Registry keys to collect and track, select **Edit settings** at the top of the **Change tracking** page.
 
 > [!NOTE]
@@ -90,7 +90,7 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 1. On the **Windows Registry** tab, select **Add**.
     The **Add Windows Registry for Change Tracking** window opens.
 
-3. On the **Add Windows Registry for Change Tracking**, enter the information for the key to track and click **Save**
+1. On the **Add Windows Registry for Change Tracking**, enter the information for the key to track and click **Save**
 
 |Property  |Description  |
 |---------|---------|
@@ -165,6 +165,47 @@ You can see in the results, that there were multiple changes to the system, incl
 Select a **WindowsServices** change, this opens the **Change Details** window. The change details window shows details about the change and the values before and after the change. In this instance, the Software Protection service was stopped.
 
 ![Viewing change details in the portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
+
+## Configure alerts
+
+Viewing changes in the Azure portal can be helpful, but being able to be alerted when a service stops is more beneficial.
+
+To add an alert for a stopped service, in the Azure portal, go to **Monitor**. Under **Shared Services**, select **Alerts** and click **+ New alert rule**
+
+Under **1. Define alert condition**, click **+ Select target**. Under **Filter by resource type**, select Log **Analytics**. Select your Log Analytics workspace, and then select **Done**.
+
+![Select a resource](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+Select **+ Add criteria**.
+Under **Configure signal logic**, in the table, select **Custom log search**. Enter the following query in the Search query text box:
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+This query returns the computers that had the W3SVC service stopped in the specified timeframe.
+
+Under **Alert logic**, for **Threshold**, enter **0**. When you're finished, select **Done**.
+
+![Configure signal logic](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+Under **2. Define alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)**,**Warning(Sev 1)**, or **Critical(Sev 0)**.
+
+![Define alert details](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+Under **3. Define action group**, select **New action group**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+In the **Action group name** box, enter a name for the alert and a short name. The short name is used in place of a full action group name when notifications are sent by using this group.
+
+Under **Actions**, enter a name for the action, like **Email Administrators**. Under **ACTION TYPE**, select **Email/SMS/Push/Voice**. Under **DETAILS**, select **Edit details**.
+
+![Add action group](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+In the **Email/SMS/Push/Voice** pane, enter a name. Select the **Email** check box, and then enter a valid email address.
+
+To customize the subject of the alert email, under **Create rule**, under **Customize Actions**, select **Email subject**. When you're finished, select **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of that update deployment run.
+
+![email](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## Next Steps
 
