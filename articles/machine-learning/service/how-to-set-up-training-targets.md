@@ -306,6 +306,8 @@ To configure HDInsight as a compute target, you must provide the fully qualified
 
 > [!NOTE]
 > To find the FQDN for your cluster, visit the Azure portal and select your HDInsight cluster. From the __Overview__ section, the FQDN is part of the __URL__ entry. Just remove the `https://` from the beginning of the value.
+>
+> ![Screenshot of the HDInsight cluster overview with the URL entry highlighted](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
 ```python
 from azureml.core.compute import HDInsightCompute
