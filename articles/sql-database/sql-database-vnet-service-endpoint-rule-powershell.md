@@ -9,7 +9,7 @@ ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: "VNet Service endpoints"
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.reviewer: genemi, carlrab
+ms.reviewer: genemi, vanto
 ms.author: dmalik
 ---
 # Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database and SQL Data Warehouse
