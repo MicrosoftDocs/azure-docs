@@ -22,7 +22,7 @@ To complete the steps in this article, you need the following:
 
 * An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
 * A Raspberry Pi device running the Raspbian operating system. You need a monitor, keyboard, and mouse connected to your Raspberry Pi to access the GUI environment. The Raspberry Pi must be able to [connect to the internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
-* Optionally, a [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) add-on board for the Raspberry Pi. This board collects telemetry data from various sensors to send to your Azure IoT Central application. If you don't have a **Sense Hat** board, you can use an emulator instead.
+* Optionally, a [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) add-on board for the Raspberry Pi. This board collects telemetry data from various sensors to send to your Azure IoT Central application. If you don't have a **Sense Hat** board, you can use an emulator instead (avaialble as part of Raspberry Pi image).
 
 ## **Sample Devkits** application
 

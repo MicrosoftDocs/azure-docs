@@ -111,7 +111,7 @@ To bulk export devices from your application:
 
     [![Export Success](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamry/Secondar Keys and Primary/Secondary certificate thumbrpints**
+1. The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamry/Secondary Keys and Primary/Secondary certificate thumbrpints**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
