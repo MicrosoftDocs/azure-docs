@@ -1,18 +1,15 @@
 ---
-title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and .NET
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
+author: SnehaGunda
+ms.author: sngun
 ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: sngun
-
 ---
 
 # Quickstart: Build a Cassandra app with .NET and Azure Cosmos DB
@@ -64,7 +61,7 @@ Now let's switch to working with code. Let's clone a Cassandra API app from GitH
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
     ```
 
-3. Then open the CassandraQuickStartSample solution file in Visual Studio. 
+4. Next, open the CassandraQuickStartSample solution file in Visual Studio. 
 
 ## Review the code
 
@@ -157,9 +154,9 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
-    Press CTRL + C to stop exection of the program and close the console window. 
+    Press CTRL + C to stop execution of the program and close the console window. 
     
-    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
+    Now, you can open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
 
     ![View the data in Data Explorer](./media/create-cassandra-dotnet/data-explorer.png)
 
