@@ -66,7 +66,7 @@ Following caveats apply to data as it moves into Azure.
 
 ## Azure storage account size and object size limits
 
-Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Size of data copied into Azure storage account                      | Default Limit          |
 |---------------------------------------------------------------------|------------------------|
@@ -77,9 +77,12 @@ Here are the limits on the size of the data that is copied into storage account.
 
 Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.
 
-| Azure object type | Default Limit                                             |
+| Azure object type | Default limit                                             |
 |-------------------|-----------------------------------------------------------|
 | Block Blob        | ~ 8 TB                                                 |
-| Page Blob         | 1 TB <br> Every file uploaded in Page Blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> The VHD and VHDX are 512 bytes aligned.) |
+| Page Blob         | 1 TB <br> Every file uploaded in Page Blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> The VHD and VHDX are 512 bytes aligned. |
 
 
+## Next steps
+
+- [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md)

@@ -1,6 +1,6 @@
 ---
-title: Tutorial on provision Data Box Gateway in VMware | Microsoft Docs
-description: Second tutorial to deploy Data Box Gateway involves provisioning a virtual device in VMware.
+title: Tutorial on provision Azure Data Box Gateway in VMware | Microsoft Docs
+description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in VMware.
 services: databox-edge
 documentationcenter: NA
 author: alkohli
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2018
+ms.date: 09/13/2018
 ms.author: alkohli
 ms.custom: 
 ---
@@ -166,7 +166,7 @@ The next step is to power on this machine and get the IP address.
 > [!NOTE]
 > We recommend that you do not install VMware tools on your virtual device (as provisioned above). Installation of VMware tools will result in an unsupported configuration.
 
-## Step 3: Start the virtual device and get the IP
+## Start the virtual device and get the IP
 
 Perform the following steps to start your virtual device and connect to it.
 

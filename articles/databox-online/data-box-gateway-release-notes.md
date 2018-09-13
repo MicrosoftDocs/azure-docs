@@ -1,6 +1,6 @@
 ---
-title: Data Box Gateway Preivew release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Data Box Gateway running Preview release.
+title: Azure Data Box Gateway Preivew release notes| Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure Data Box Gateway running Preview release.
 services: databox-edge
 documentationcenter: ''
 author: alkohli
@@ -17,7 +17,7 @@ ms.date: 09/11/2018
 ms.author: alkohli
 
 ---
-# Data Box Gateway Preview release notes
+# azure Data Box Gateway Preview release notes
 
 ## Overview
 
@@ -48,13 +48,13 @@ The following table provides a summary of known issues for the Data Box Gateway 
 | --- | --- | --- | --- |
 | **1.** |Updates |The Data Box Gateway devices created in the earlier preview releases cannot be updated to this version. |Download the virtual disk images from the new release and configure and deploy new devices. For more information, go to [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md). |
 | **2.** |Provisioned data disk |Once you have provisioned a data disk of a certain specified size and created the corresponding Data Box Gateway, you must not shrink the data disk. Attempting to shrink the disk results in a loss of all the local data on the device. | |
-| **3.** |Refresh |In this release, you can refresh only one share at a time. |This behavior will likely change in a future release. |
+| **3.** |Refresh |In this release, you can refresh only one share at a time. | |
 | **4.** |Rename |Rename of objects is not supported. |Contact Microsoft Support if this feature is crucial for your workflow. |
 | **5.** |Copy| If a read-only file is copied to the device, the read-only property is not preserved. | |
-| **6.** |Logs| Due to a bug in this release, you may see instances of error code 110 in *error.xml* with unrecognizable item names. |This behavior will likely change in a future release. |
-| **7.** |Upload | Due to a bug in this release, you may instances of error code 2003 during the upload of specific files. |This behavior will likely change in a future release. |
+| **6.** |Logs| Due to a bug in this release, you may see instances of error code 110 in *error.xml* with unrecognizable item names. | |
+| **7.** |Upload | Due to a bug in this release, you may instances of error code 2003 during the upload of specific files. | |
 | **8.** |Deletion | Due to a bug in this release, if an NFS share is deleted, then the share may not be deleted. The share status will display *Deleting*.  |This occurs only when the share is using an unsupported file name. |
-| **8.** |Online help |The Help links in the Azure portal may not link to  documentation.|The Help links will work in the General Availability release. |
+| **9.** |Online help |The Help links in the Azure portal may not link to  documentation.|The Help links will work in the General Availability release. |
 
 
 

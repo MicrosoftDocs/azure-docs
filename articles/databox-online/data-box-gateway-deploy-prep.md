@@ -152,7 +152,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
 5. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
 
-## Next step
+## Next steps
 
 In this tutorial, you learned about Data Box Gateway topics such as:
 

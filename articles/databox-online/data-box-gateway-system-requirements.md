@@ -28,7 +28,7 @@ The system requirements for the Data Box Gateway virtual device include:
 > [!IMPORTANT]
 > Data Box Gateway is in Preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
 
-## Supported operating systems for clients connected to the device
+## Supported OS for clients connected to device
 
 Here is a list of the supported operating systems for clients or hosts connected to the Data Box Gateway.
 
@@ -47,7 +47,7 @@ Here is a list of the supported operating systems for clients or hosts connected
 |SMB    | 2.X, 3.X      | SMB 1 is not supported.|
 |NFS     | V3 and V4        |         |
 
-## Supported virtualization platforms for virtual device
+## Supported virtualization platforms for device
 
 | **Operating system/platform**  |**Versions**   |**Notes**  |
 |---------|---------|---------|
@@ -75,7 +75,7 @@ Here is a list of the supported storage types for the Data Box Gateway.
 | Azure page blob  | |
 | Azure Files | |
 
-## Supported browsers for local web UI for virtual device
+## Supported browsers for local web UI
 
 Here is a list of the browsers supported for the local web UI for the virtual device.
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial on provision Data Box Gateway in Hyper-V | Microsoft Docs
-description: Second tutorial to deploy Data Box Gateway involves provisioning a virtual device in Hyper-V.
+title: Tutorial on provision Azure Data Box Gateway in Hyper-V | Microsoft Docs
+description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in Hyper-V.
 services: databox-edge
 documentationcenter: NA
 author: alkohli
@@ -101,7 +101,7 @@ Perform the following steps to provision a device in your hypervisor.
 4. On the **Before you begin** page of the New Virtual Machine Wizard, click **Next**.
 5. On the **Specify name and location** page, provide a **Name** for your virtual device. Click **Next**.
    
-   > [! IMPORTANT]
+   > [!IMPORTANT]
    > In this release, you can only use uppercase letters for the name of your virtual device.
 
    <!--![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)-->
@@ -154,7 +154,7 @@ Perform the following steps to provision a device in your hypervisor.
 
     <!--![](./media/data-box-gateway-deploy-provision-hyperv/image17.png)-->
 
-## Step 3: Start the virtual device and get the IP
+## Start the virtual device and get the IP
 Perform the following steps to start your virtual device and connect to it.
 
 #### To start the virtual device
