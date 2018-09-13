@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-gedod
 ---
-# Tutorial: Bing image upload for insights
+# Tutorial: upload an image to Bing image upload for insights
 
 The Bing Image Search API provides a `POST` option to upload an image and search for information pertinent to the image. This C# console application uploads an image using the Image Search endpoint to get details about the image.
 The results, briefly, are JSON objects such as the following:

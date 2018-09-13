@@ -328,7 +328,7 @@ The Bing Image Search API can provide four types of suggestions to help guide us
 
 This application only renders the `relatedItems` suggestions, and places the resulting links in the page's sidebar. 
 
-## Rendering serach results
+## Rendering search results
 
 In this application, the `searchItemRenderers` object contains renderer functions that generate HTML for each kind of search result.
 
