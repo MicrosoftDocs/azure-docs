@@ -174,7 +174,7 @@ For longer running experiments, you can watch the progress of the run with a Jup
   # You can choose a specific Python environment by pointing to a Python path 
   #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
   ```
-4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for execution, including the ```mylib.py``` file.
+4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for training, including the ```mylib.py``` file.
   ```python
   from azureml.core import ScriptRunConfig
 
