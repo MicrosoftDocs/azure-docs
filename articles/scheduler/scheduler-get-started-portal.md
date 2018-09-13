@@ -1,69 +1,124 @@
 ---
-title: Get started with Azure Scheduler in Azure portal | Microsoft Docs
-description: Get started with Azure Scheduler in Azure portal
+title: Create scheduled jobs with Azure Scheduler - Azure portal | Microsoft Docs
+description: Learn how to create your first scheduled job with Azure Scheduler in the Azure portal
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.suite: infrastructure-services
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: hero-article
 ms.date: 08/10/2016
-ms.author: deli
-
 ---
-# Get started with Azure Scheduler in Azure portal
-It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities.
 
-## Create a job
-1. Sign in to [Azure portal](https://portal.azure.com/).  
-2. Click **+New** > type *Scheduler* in the search box >  select **Scheduler** in results > click **Create**.
-   
-    ![][marketplace-create]
-3. Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
-   
-   1. **Name:** `getmicrosoft`  
-   2. **Subscription:** Your Azure subscription   
-   3. **Job Collection:** Select an existing job collection, or click **Create New** > enter a name.
-4. Next, in **Action Settings**, define the following values:
-   
-   1. **Action Type:** ` HTTP`  
-   2. **Method:** `GET`  
-   3. **URL:** ` http://www.microsoft.com`  
-      
-      ![][action-settings]
-5. Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
-   
-   1. **Recurrence**: `Recurring`
-   2. **Start**: Today's date
-   3. **Recur every**: `12 Hours`
-   4. **End by**: Two days from today's date  
-      
-      ![][recurrence-schedule]
-6. Click **Create**
+# Create and schedule your first job with Azure Scheduler - Azure portal
 
-## Manage and monitor jobs
-Once a job is created, it appears in the main Azure dashboard. Click the job and a new window opens with the following tabs:
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, start using Azure Logic Apps instead, 
+> not Azure Scheduler. Learn how to 
+> [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
-1. Properties  
-2. Action Settings  
-3. Schedule  
-4. History
-5. Users
+This tutorial shows how easily you can create and schedule a job, 
+and then monitor and manage that job. 
+
+If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+
+## Create job
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).  
+
+1. On the main Azure menu, select **Create a resource**. 
+
+1. In the search box, enter "scheduler". From the results list, 
+select **Scheduler**, and then choose **Create**.
    
-   ![][job-overview]
+   ![Create Scheduler resource][marketplace-create]
+
+   Now create a job that sends a GET request to this URL: 
+   `http://www.microsoft.com/` 
+
+1. Under **Scheduler Job**, enter this information:
+
+   | Property | Example value | Description |
+   |----------|---------------|-------------| 
+   | **Name** | `getMicrosoft` | The name for your job | 
+   | **Job collection** | <*job-collection-name*> | Create a job collection, or select an existing collection. | 
+   | **Subscription** | <*Azure-subscription-name*> | The name for your Azure subscription | 
+   |||| 
+
+1. Select **Action settings - Configure**, provide this information, 
+and then choose **OK** when you're done:
+
+   | Property | Example value | Description |
+   |----------|---------------|-------------| 
+   | **Action** | **Http** | The type of action to run | 
+   | **Method** | **Get** | The method to call | 
+   | **URL** | **http://www.microsoft.com** | The destination URL | 
+   |||| 
+   
+   ![Define job][action-settings]
+
+1. Select **Schedule - Configure**, define the schedule, 
+and then select **OK** when you're done:
+
+   Although you can create a one-time job, 
+   this example sets up a recurrence schedule.
+
+   | Property | Example value | Description |
+   |----------|---------------|-------------| 
+   | **Recurrence** | **Recurring** | Either a one-time or recurring job | 
+   | **Start on** | <*today's-date*> | The job's start date | 
+   | **Recur every** | **1 Hours** | The recurrence interval and frequency | 
+   | **End** | **End by** two days from today's date | The job's end date | 
+   | **UTC offset** | **UTC +08:00** | The difference in time between Coordinated Universal Time (UTC) and your location's observed time | 
+   |||| 
+
+   ![Define schedule][recurrence-schedule]
+
+1. When you're ready, choose **Create**.
+
+   After you create your job, Azure deploys 
+   your job, which appears on the Azure dashboard. 
+
+1. When Azure shows a notification that deployment succeeded, 
+choose **Pin to dashboard**. Otherwise, choose the **Notifications** 
+icon (bell) on the Azure toolbar, and then choose **Pin to dashboard**.
+
+## Monitor and manage jobs
+
+To review, monitor, and manage your job, 
+on the Azure dashboard, choose your job. 
+Under **Settings**, here are the areas 
+you can review and manage for your job:
+
+![Job settings][job-overview]
+
+For more information about these areas, 
+select an area:
+
+* [**Properties**](#properties)
+* [**Action settings**](#ction-settings)
+* **Schedule**
+* **History**
+* **Users**
+
+<a name="properties"></a>
 
 ### Properties
-These read-only properties describe the management metadata for the Scheduler job.
 
-   ![][job-properties]
+This section shows read-only properties that describe 
+the management metadata for your Scheduler job.
+
+![Review job read-only properties][job-properties]
+
+<a name="action-settings"></a>
 
 ### Action settings
+
 Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
 
 For all action types, you may change the retry policy and the error action.
@@ -77,6 +132,7 @@ For service bus action types, you may change the namespace, topic/queue path, au
    ![][job-action-settings]
 
 ### Schedule
+
 This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
 
 This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)

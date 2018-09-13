@@ -10,7 +10,7 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/18/2016
+ms.date: 09/18/2018
 ---
 
 # What is Azure Scheduler?
