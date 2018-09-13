@@ -56,9 +56,13 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 After you've tested that your application integration works with Azure AD, submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
 
-After you sign in, the following page appears. Provide a business justification for needing access in the text box, and then select **Request Access**.
+After you sign in,  if you get the following error, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and pvovide the email which you want to use for submitting the request. Then Azure AD team will add the email account in the SharePoint portal. Once the account is added in the SharePoint portal, you can sign in to portal.  
 
-![Access Request on SharePoint portal](./media/howto-app-gallery-listing/accessrequest.png)
+![Access Request on SharePoint portal](./media/howto-app-gallery-listing/errorimage.png)
+
+And if the following page appears after sign in, provide a business justification for needing access in the text box, and then select **Request Access**.
+
+  ![Access Request on SharePoint portal](./media/howto-app-gallery-listing/accessrequest.png)
 
 Our team reviews the details and gives you access accordingly. Once your request is approved, you can sign in to the portal and submit the request by clicking the **Submit Request (ISV)** tile form the home page.
 
