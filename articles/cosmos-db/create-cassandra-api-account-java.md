@@ -8,7 +8,7 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ---
 
 # Create an Azure Cosmos DB Cassandra API account, database, and a table by using a Java application
@@ -83,7 +83,7 @@ Alternatively, you can also build the sample from scratch.
    
    - The [log4j.properties](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/resources/log4j.properties) file defines the level of logging required when interacting with the Cassandra API.  
 
-4. Next, navigate to `src/main/java/com/azure/cosmosdb/cassandra/` folder. Within the cassandra folder create another folder named `utils`. The new folder stores the utility classes required to connect to the Cassandra API account. 
+4. Next, navigate to `src/main/java/com/azure/cosmosdb/cassandra/` folder. Within the cassandra folder, create another folder named `utils`. The new folder stores the utility classes required to connect to the Cassandra API account. 
 
    Add the [CassandraUtils](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java) class to handle cluster creation, and to open and close Cassandra sessions. The cluster connects to the Azure Cosmos DB Cassandra API and returns a session to access. Use the [Configurations](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/Configurations.java) class to read connection string information from the config.properties file. 
 
@@ -142,7 +142,7 @@ This section describes how to add a database (keyspace) and a table, using  the 
    } 
    ```
 
-3. Locate the `src\main\java\com\azure\cosmosdb\cassandra` folder, create a new subfolder there named `examples`. 
+3. Locate the `src\main\java\com\azure\cosmosdb\cassandra` folder, and create a new subfolder named `examples`.
 
 4. Next, create the `UserProfile` Java class. This class contains the main method that calls the createKeyspace and createTable methods you defined earlier: 
 
