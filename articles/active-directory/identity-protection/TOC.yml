@@ -35,7 +35,7 @@
   - name: Use the Microsoft Graph API
     href: graph-get-started.md
   - name: FAQs
-    href: faq.md
+    href: faqs.md
 - name: Reference
   items:
   - name: Glossary
