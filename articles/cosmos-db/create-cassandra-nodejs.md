@@ -57,7 +57,7 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the uprofile.js file in the C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* The username and password values were set using the connection string page in the Azure portal. The `path\to\cert' provides a path to an X509 certificate. 
+* The username and password values were set using the connection string page in the Azure portal. The `path\to\cert` provides a path to an X509 certificate. 
 
    ```nodejs
    var ssl_option = {
