@@ -50,23 +50,23 @@ Health state calculates overall cluster status as *worst of*” the three states
 
 The following table provides a breakdown of the calculation controlling the health states for a monitored cluster on the multi-cluster view.
 
-|Status |Pod availability |  
-|-------|-----------------|  
-|User Pod||  
-|Healthy |100% |  
-|Warning |90 - 99% |  
-|Critical |<90% |  
-|Unknown |If not reported in last 30 minutes |  
-|System Pod||  
-|Healthy |100% |
-|Warning |N/A |
-|Critical |<100% |
-|Unknown |If not reported in last 30 minutes |
-|Node ||
-|Healthy |>85% |
-|Warning |60 - 84% |
-|Critical |<60% |
-|Unknown |If not reported in last 30 minutes |
+|||Status |Pod availability |  
+|-------|-------|-----------------|  
+|**User Pod**|||  
+||Healthy |100% |  
+||Warning |90 - 99% |  
+||Critical |<90% |  
+||Unknown |If not reported in last 30 minutes |  
+|**System Pod**|||  
+||Healthy |100% |
+||Warning |N/A |
+||Critical |<100% |
+||Unknown |If not reported in last 30 minutes |
+|**Node** |||
+||Healthy |>85% |
+||Warning |60 - 84% |
+||Critical |<60% |
+||Unknown |If not reported in last 30 minutes |
 
 From the list of clusters, you can drill-down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
