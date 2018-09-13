@@ -23,7 +23,7 @@ Azure Security Center analyzes the security state of your network resources. Whe
 This article addresses recommendations that apply to your network resources. Network recommendations center around next generation firewalls, Network Security Groups, virtual machines, endpoints, configuring inbound traffic rules, and more. For a list of network recommendations and remediation actions, see [Managing security recommendations in Azure Security Center](security-center-recommendations).
 
 > [!NOTE]
-> The **Networking** page lets you deep dive into your network resource health. This enhanced feature is available for the Azure Security Center stadard tier only. If you use the free tier, you can click the button to **View legacy networking** and recieve networking resource recommendations.
+> The **Networking** page lets you deep dive into your network resource health. This enhanced feature is available for the Azure Security Center stadard tier only. [If you use the free tier, you can click the button to **View legacy networking** and recieve networking resource recommendations](#legacy-networking).
 >
 
 The **Networking** page tiles provide an overview of the sections you can deep dive into, to get more information about the health of your network resources:
@@ -100,6 +100,45 @@ To drill down into a resource:
 Just in time virtual machine (VM) access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 For more information, see [Manage virtual machine access using just in time](security-center-just-in-time.md)
+
+## Legacy networking <a name ="legacy-networking"></a>
+
+If you don't have Security Center Standard tier, this section explains how to view free Networking recommendations.
+
+To access this information, in the Networking blade, click **View legacy networking**. 
+When you click a recommendation, you see more details about the recommendation, as shown in the following example:
+
+![Details for a recommendation in the Networking](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+
+In this example, the **Configure Missing Network Security Groups for Subnets** has a list of subnets and virtual machines that are missing network security group protection. If you click the subnet to which you want to apply the network security group, you see the **Choose network security group**. Here you can select the most appropriate network security group for the subnet, or you can create a new network security group.
+
+### Internet facing endpoints section
+In the **Internet facing endpoints** section, you can see the virtual machines that are currently configured with an Internet facing endpoint and its current status.
+
+![Virtual machines configured with Internet facing endpoint and status](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
+
+This table has the endpoint name that represents the virtual machine, the Internet facing IP address, and the current severity status of the network security group and the NGFW. The table is sorted by severity:
+
+* Red (on top): High priority and should be addressed immediately
+* Orange: Medium priority and should be addressed as soon as possible
+* Green (last one): Healthy state
+
+### Networking topology section
+The **Networking topology** section has a hierarchical view of the resources as shown in the following screenshot:
+
+![Hierarchical view of resources in Networking topology section](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
+
+This table is sorted (virtual machines and subnets) by severity:
+
+* Red (on top): High priority and should be addressed immediately
+* Orange: Medium priority and should be addressed as soon as possible
+* Green (last one): Healthy state
+
+In this topology view, the first level has [virtual networks](../virtual-network/virtual-networks-overview.md), [virtual network gateways](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md), and [virtual networks (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the network security group for those resources, as shown in the following example:
+
+![Status of the network security group in Networking topology section](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+
+The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following:
