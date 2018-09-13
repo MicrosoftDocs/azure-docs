@@ -3,7 +3,7 @@ title: Secure back-end services using client certificate authentication - Azure 
 description: Learn how to secure back-end services using client certificate authentication in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 

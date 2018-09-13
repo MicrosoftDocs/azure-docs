@@ -38,15 +38,15 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 In the following example, you create a metric measurement alert rule based off of the *Azure VMs - Processor Utilization* query saved in the [Visualize data tutorial](log-analytics-tutorial-dashboards.md). An alert is created for each virtual machine that exceeds a threshold of 90%.
 
 1. In the Azure portal, click **All services**. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
-2. In the left-hand pane, select **Alerts** and then click **New Alert Rule** from the top of the page to create a new alert.
+1. In the left-hand pane, select **Alerts** and then click **New Alert Rule** from the top of the page to create a new alert.
 
     ![Create new alert rule](./media/log-analytics-tutorial-response/alert-rule-02.png)
 
-3. For the first step, under the **Create Alert** section, you are going to select your Log Analytics workspace as the resource, since this is a log based alert signal.  Filter the results by choosing the specific **Subscription** from the drop-down list if you have more than one, which contains the VM and Log Analytics workspace created earlier.  Filter the **Resource Type** by selecting **Log Analytics** from the drop-down list.  Finally, select the **Resource** **DefaultLAWorkspace** and then click **Done**.
+1. For the first step, under the **Create Alert** section, you are going to select your Log Analytics workspace as the resource, since this is a log based alert signal.  Filter the results by choosing the specific **Subscription** from the drop-down list if you have more than one, which contains the VM and Log Analytics workspace created earlier.  Filter the **Resource Type** by selecting **Log Analytics** from the drop-down list.  Finally, select the **Resource** **DefaultLAWorkspace** and then click **Done**.
 
     ![Create alert step 1 task](./media/log-analytics-tutorial-response/alert-rule-03.png)
 
-4. Under the section **Alert Criteria**, click **Add Criteria** to define the query and then specify logic that the alert rule follows. From the **Configure signal logic** pane, select **Custom log search** as signal name and enter your query in **Search query**.
+1. Under the section **Alert Criteria**, click **Add Criteria** to define the query and then specify logic that the alert rule follows. From the **Configure signal logic** pane, select **Custom log search** as signal name and enter your query in **Search query**.
 
     For example:
     ```
@@ -57,21 +57,21 @@ In the following example, you create a metric measurement alert rule based off o
 
     The pane updates to present the configuration settings for the alert.  On the top, it shows the results for the last 30 minutes of the selected signal.
 
-5. Configure the alert with the following information:  
+1. Configure the alert with the following information:  
    a. From the **Based on* drop-down list select **Metric measurement**.  A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold.  
    b. For the **Condition**, select **Greater than** and enter **90** for **Threshold**.  
    c. Under Trigger Alert Based On section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of 3.  
    d. Under Evaluation based on section, accept the defaults. The rule will run every five minutes and return records that were created within this range of the current time.  
-6. Click **Done** to complete the alert rule.
+1. Click **Done** to complete the alert rule.
 
     ![Configure alert signal](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)
 
-7. Now moving onto the second step, provide a name of your alert in the **Alert rule name** field, such as **Percentage CPU greater than 90 percent**.  Specify a **Description** detailing specifics for the alert, and select **Critical(Sev 0)** for the **Severity** value from the options provided.
+1. Now moving onto the second step, provide a name of your alert in the **Alert rule name** field, such as **Percentage CPU greater than 90 percent**.  Specify a **Description** detailing specifics for the alert, and select **Critical(Sev 0)** for the **Severity** value from the options provided.
 
     ![Configure alert details](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
 
-8. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.  
-9. For the third and final step, you specify an **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define.  Configure a new action group with the following information:  
+1. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.  
+1. For the third and final step, you specify an **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define.  Configure a new action group with the following information:  
    a. Select **New action group** and the **Add action group** pane appears.  
    b. For **Action group name**, specify a name such as **IT Operations - Notify** and a **Short name** such as **itops-n**.  
    c. Verify the default values for **Subscription** and **Resource group** are correct. If not, select the correct one from the drop-down list.  
@@ -80,8 +80,8 @@ In the following example, you create a metric measurement alert rule based off o
    f. Click **OK** to save your changes.  
        ![Create new action group](./media/log-analytics-tutorial-response/action-group-properties-01.png)
 
-10. Click **OK** to complete the action group.
-11. Click **Create alert rule** to complete the alert rule. It starts running immediately.
+1. Click **OK** to complete the action group.
+1. Click **Create alert rule** to complete the alert rule. It starts running immediately.
 
     ![Complete creating new alert rule](./media/log-analytics-tutorial-response/alert-rule-01.png)
 

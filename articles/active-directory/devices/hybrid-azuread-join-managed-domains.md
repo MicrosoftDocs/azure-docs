@@ -13,10 +13,12 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
+
+#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
 
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for managed domains
@@ -46,8 +48,12 @@ This tutorial assumes that you are familiar with:
     
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
+-  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
+  
+
 To configure the scenario in this article, you need the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
- 
+
+Verify that Azure AD Connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well.
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. The related wizard configures the service connection points (SCP) for device registration.
 
@@ -97,7 +103,7 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
     ![Device options](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. On the **SCP** page, for each forest you want Azure AD Connect to the SCP, perform the following steps, and then click **Next**: 
+6. On the **SCP** page, for each forest you want Azure AD Connect to configure the SCP, perform the following steps, and then click **Next**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -152,8 +158,6 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
@@ -187,14 +191,13 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 If you are experiencing issues with completing hybrid Azure AD join for domain joined Windows devices, see:
 
-- [Troubleshooting Hybrid Azure AD join for Windows current devices](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
+- [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join manually](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md)
 

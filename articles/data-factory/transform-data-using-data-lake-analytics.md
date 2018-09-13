@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/01/2018
 ms.author: abnarain
 
 ---
@@ -36,8 +36,8 @@ The following table provides descriptions for the generic properties used in the
 | **type**                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | **accountName**          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | No                                       |
-| **subscriptionId**       | Azure subscription ID                    | No (If not specified, subscription of the data factory is used). |
-| **resourceGroupName**    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
+| **subscriptionId**       | Azure subscription ID                    | No                                       |
+| **resourceGroupName**    | Azure resource group name                | No                                       |
 
 ### Service principal authentication
 The Azure Data Lake Analytics linked service requires a service principal authentication to connect to the Azure Data Lake Analytics service. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to both the Data Lake Analytics and the Data Lake Store it uses. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
@@ -70,7 +70,7 @@ Use service principal authentication by specifying the following properties:
                 "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "<tenant ID>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },

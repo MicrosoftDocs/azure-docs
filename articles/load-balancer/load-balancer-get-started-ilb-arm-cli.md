@@ -104,7 +104,7 @@ Before you deploy some VMs and can test your load balancer, create the supportin
 
 ### Create NICs
 
-Create two network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create) and associate them with the private IP address. 
+Create two network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the private IP address. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -124,7 +124,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -178,7 +178,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
+Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -222,7 +222,7 @@ To get the private IP address of the load balancer, use [az network lb show](/cl
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupILB

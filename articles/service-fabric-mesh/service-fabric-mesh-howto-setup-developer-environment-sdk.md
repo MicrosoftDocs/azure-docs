@@ -1,20 +1,20 @@
 ---
-title: Set up a Windows development environment for Service Fabric Mesh apps | Microsoft Docs
+title: Set up a Windows development environment to build Service Fabric Mesh apps | Microsoft Docs
 description: Set up your Windows development environment so you can create a Service Fabric Mesh application and deploy it to Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: timlt  
-#Customer intent: As a developer, I need to prepare install the prerequisites to enable service fabric mesh development in visual studio.
+manager: jeconnoc
+#Customer intent: As a developer, I need to install the prerequisites to enable service fabric mesh development in visual studio.
 ---
 
-# Set up your Windows development environment to build Service Fabric applications
+# Set up your Windows development environment to build Service Fabric Mesh apps
 
-To build and run Azure Service Fabric apps on your Windows development machine, install the Service Fabric runtime, SDK, and tools.
+To build and run Azure Service Fabric Mesh applications on your Windows development machine, install the Service Fabric Mesh runtime, SDK, and tools.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -27,28 +27,30 @@ The following operating system versions are supported for development:
 
 ## Visual Studio
 
-Visual Studio 2017 is required to deploy Service Fabric apps. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
+Visual Studio 2017 is required to deploy Service Fabric Mesh applications. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
 
-- ASP.NET and web development
-- Azure Development
- 
-## Windows 10 - Install Docker
+* ASP.NET and web development
+* Azure Development
+
+## Install Docker
+
+#### Windows 10
 
 Download and install the latest version of [Docker Community Edition for Windows][download-docker] to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
-During installation, select **Use Windows containers instead of Linux containers** when asked. If Hyper-V is not enabled on your machine, the Docker install will offer to enable it. Click **OK** to do so if prompted.
+During installation, select **Use Windows containers instead of Linux containers** when asked.
 
-## Windows Server 2016 - Install Hyper-V and Docker
+If Hyper-V is not enabled on your machine, Docker's installer will offer to enable it. Click **OK** to do so if prompted.
 
-**Install Hyper-V**
+#### Windows Server 2016
 
-First, open PowerShell as an administrator and run the following command to install Hyper-V and restart your computer. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
+If you don't have the Hyper-V role enabled, open PowerShell as an administrator and run the following command to enable Hyper-V, and then restart your computer. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 ```
 
-**Install Docker**
+Restart your computer.
 
 Open PowerShell as an administrator and run the following commands to install Docker:
 
@@ -57,8 +59,6 @@ Install-Module DockerMsftProvider -Force
 Install-Package Docker -ProviderName DockerMsftProvider -Force
 Install-WindowsFeature Containers
 ```
-
-Restart your computer.
 
 ## SDK and tools
 

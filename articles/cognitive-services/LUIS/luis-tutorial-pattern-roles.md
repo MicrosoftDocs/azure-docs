@@ -10,7 +10,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
@@ -25,7 +25,7 @@ In this tutorial, use a simple entity with roles combined with patterns to incre
 * Create pattern for utterances using simple entity with roles
 * How to verify pattern prediction improvements
 
-For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
 If you don't have the Human Resources app from the [pattern](luis-tutorial-pattern.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub repository.
@@ -50,7 +50,7 @@ In this tutorial, the Human Resources app detects utterances about moving new em
 |[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
 
-You can't use the hierarchical entity in the pattern because only hierarchical parents are used in parents. In order to return the named locations of origin and destination, you muse use a pattern.
+You can't use the hierarchical entity in the pattern because only hierarchical parents are used in patterns. In order to return the named locations of origin and destination, you muse use a pattern.
 
 ### Simple entity for new employee name
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
@@ -123,23 +123,16 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
     If you removed the keyPhrase entity, add it back to the app now.
 
 ## Train the LUIS app
-The new intent and utterances require training. 
 
-1. In the top right side of the LUIS website, select the **Train** button.
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
-1. In the top right side of the LUIS website, select the **Publish** button. 
-
-2. Select the Production slot and the **Publish** button.
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query the endpoint without pattern
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -386,7 +379,8 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 The intent score is now much higher and the role names are part of the entity response.
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 

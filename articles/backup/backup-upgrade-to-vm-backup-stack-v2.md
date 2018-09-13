@@ -7,7 +7,7 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
 ---
 
@@ -102,7 +102,7 @@ There is no cost to upgrade the stack to v2. Snapshots are stored locally to spe
 
 ### Does upgrading to stack v2 increase the premium storage account snapshot limit by 10 TB?
 
-Snapshots taken as part of v2 stack count towards 10 TB snapshot limit of a premium storage account for unmanaged disks. 
+No, total snapshot limit per storage account still remains at 10TB. 
 
 ### In Premium Storage accounts, do snapshots taken for instant recovery point occupy the 10 TB snapshot limit?
 

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Creating and registering the publisher account | Microsoft Docs
 description: Instructions for creating a Microsoft Developer account so, upon approval, you can sell various offer types on the Azure Marketplace.
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: mbaldwin
+ms.author: hascipio
 
 ---
 # Create a Microsoft Developer account
@@ -35,7 +35,7 @@ When creating a company account, follow these guidelines if more than one person
 
 > [!Important]
 > Important To allow multiple users to access your Dev Center account, we recommend using Azure Active Directory to assign roles to individual users, who can access the account by signing in with their individual Azure AD credentials. For
-more info, see [Manage account users](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
+more info, see [Manage account users](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
 
 * Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual—for example, windowsapps@fabrikam.com.
 * Limit access to this Microsoft account to the smallest possible number of developers.
@@ -47,7 +47,7 @@ more info, see [Manage account users](https://msdn.microsoft.com/windows/uwp/pub
 
 Your developer account should be accessed primarily from trusted PCs. This is critical because there is a limit to the number of codes generated per account, per week. It also enables the most seamless sign-in experience.
 
-For more information on additional developer account guidelines and security, click [here](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+For more information on additional developer account guidelines and security, click [here](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### Instructions
 1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.

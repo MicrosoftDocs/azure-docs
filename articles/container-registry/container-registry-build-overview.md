@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 08/01/2018
 ms.author: marsma
 ---
 
@@ -27,9 +27,22 @@ Trigger container image builds automatically when code is committed to a Git rep
 
 ## Quick Build: inner-loop extended to the cloud
 
-The beginning of lifecycle management starts before developers commit their first lines of code. ACR Build's [Quick Build](container-registry-tutorial-quick-build.md) feature enables an integrated local inner-loop development experience, offloading builds to Azure. With Quick Builds, you can verify your automated build definitions prior to committing your code.
+The beginning of lifecycle management starts before developers commit their first lines of code. ACR Build's [Quick Build](container-registry-tutorial-quick-build.md) feature enables an integrated local inner-loop development experience, offloading builds to Azure. With Quick Builds, you can verify your automated build pipelines prior to committing your code.
 
-Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a local context, sends it to the ACR Build service and, by default, pushes the built image to its registry upon completion. ACR Build follows your geo-replicated registries, enabling dispersed development teams to leverage the closest replicated registry.
+Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a **context** (the set of files to build), sends it to the ACR Build service and, by default, pushes the built image to its registry upon completion.
+
+The following table shows a few examples of supported context locations for ACR Build:
+
+| Context location | Description | Example |
+| ---------------- | ----------- | ------- |
+| Local filesystem | Files within a directory on the local filesystem. | `/home/user/projects/myapp` |
+| GitHub master branch | Files within the master (or other default) branch of a GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub branch | Specific branch of a GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub PR | Pull request in a GitHub repo. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| GitHub subfolder | Files within a subfolder in a GitHub repo. Example shows combination of PR and subfolder specification. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
+
+ACR Build also follows your geo-replicated registries, enabling dispersed development teams to leverage the closest replicated registry.
 
 ACR Build is designed as a container lifecycle primitive. For example, integrate ACR Build into your CI/CD solution. By executing [az login][az-login] with a [service principal][az-login-service-principal], your CI/CD solution could then issue [az acr build][az-acr-build] commands to kick off image builds.
 

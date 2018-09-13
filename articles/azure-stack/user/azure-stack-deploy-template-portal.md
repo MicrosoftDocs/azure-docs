@@ -3,7 +3,7 @@ title: Deploy templates using the portal in Azure Stack | Microsoft Docs
 description: Learn how to use the Azure Stack portal to deploy templates.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer:
 
 ---

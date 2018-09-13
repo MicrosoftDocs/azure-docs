@@ -1,4 +1,4 @@
----
+﻿---
 title: Make virtual machines available to your Azure Stack users| Microsoft Docs
 description: Learn how to make virtual machines available on Azure Stack
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
@@ -47,23 +47,23 @@ Offers are groups of one or more plans that providers present to users to purcha
 
    ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-2. In **New Offer**, enter a **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+1. In **New Offer**, enter a **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
    ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-3. Select **Base plans**, and in the **Plan** section, select **Add** to add a new plan to the offer.
+1. Select **Base plans**, and in the **Plan** section, select **Add** to add a new plan to the offer.
 
    ![Add a plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-4. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
+1. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
 
    ![Plan display name](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-5. Select **Services**. From the list of Services, pick  **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Choose **Select** to add these services to the plan.
+1. Select **Services**. From the list of Services, pick  **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Choose **Select** to add these services to the plan.
 
    ![Plan services](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-6. Select **Quotas**, and then select the first service that you want to create a quota for. For an IaaS quota, use the following example as a guide for configuring quotas for the Compute, Network, and Storage services.
+1. Select **Quotas**, and then select the first service that you want to create a quota for. For an IaaS quota, use the following example as a guide for configuring quotas for the Compute, Network, and Storage services.
 
    - First, create a quota for the Compute service. In the namespace list, select **Microsoft.Compute** and then select **Create new quota**.
 
@@ -79,15 +79,15 @@ Offers are groups of one or more plans that providers present to users to purcha
 
       Repeat these steps for the Network and Storage services. When you're finished, select **OK** in **Quotas** to save all the quotas.
 
-7. In **New plan**, select **OK**.
+1. In **New plan**, select **OK**.
 
-8. Under **Plan**, select the new plan and then **Select**.
+1. Under **Plan**, select the new plan and then **Select**.
 
-9. In **New offer**, select **Create**. You'll see a notification when the offer is created.
+1. In **New offer**, select **Create**. You'll see a notification when the offer is created.
 
-10. On the dashboard menu, select **Offers** and then pick the offer you created.
+1. On the dashboard menu, select **Offers** and then pick the offer you created.
 
-11. Select **Change State**, and then chose **Public**.
+1. Select **Change State**, and then chose **Public**.
 
     ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
 
@@ -115,12 +115,12 @@ Now that you’ve created an offer, you can test it. You'll sign in as a user, s
 
    ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. To view the subscription, select **More services**, and then select **Subscriptions**. Select your new subscription to see which services are part of the subscription.
+   c. To view the subscription, select **All services**, and then under the **GENERAL** category select **Subscriptions**. Select your new subscription to see which services are part of the subscription.
 
    >[!NOTE]
    >After you subscribe to an offer, you might have to refresh the portal to see which services are part of the new subscription.
 
-2. **Provision a virtual machine**
+1. **Provision a virtual machine**
 
    From the user portal you can provision a virtual machine using the new subscription.
 

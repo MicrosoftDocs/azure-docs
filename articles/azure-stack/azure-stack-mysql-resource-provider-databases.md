@@ -31,7 +31,7 @@ You can create and manage self-service databases in the user portal. An Azure St
 
 4. Under **Create Database**, select **SKU**. Under **Select a MySQL SKU**, pick the SKU for your database.
 
-    ![Select a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![Select a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
     >As hosting servers are added to Azure Stack, they're assigned a SKU. Databases are created in the pool of hosting servers in a SKU.

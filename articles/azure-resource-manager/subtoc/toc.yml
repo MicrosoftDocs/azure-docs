@@ -588,6 +588,13 @@
   - name: Vaults
     href: /azure/templates/Microsoft.KeyVault/vaults
     maintainContext: true
+    items:
+    - name: Access Policies
+      href: /azure/templates/Microsoft.KeyVault/vaults/accessPolicies
+      maintainContext: true
+    - name: Secrets
+      href: /azure/templates/Microsoft.KeyVault/vaults/secrets
+      maintainContext: true
 - name: Location Based Services
   items:
   - name: Accounts

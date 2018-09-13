@@ -7,7 +7,7 @@ author: juliako
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/31/2018
 ms.author: juliako
 
 ---

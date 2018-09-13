@@ -3,7 +3,7 @@ title: Azure virtual machine extensions and features | Microsoft Docs
 description: Learn what Azure VM extensions anre how to use them with Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
+ms.author: roiyz
 ---
 
 # Azure virtual machine extensions and features

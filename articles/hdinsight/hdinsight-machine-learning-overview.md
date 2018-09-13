@@ -1,20 +1,15 @@
 ---
-title: Machine learning overview - Azure HDInsight | Microsoft Docs
+title: Machine learning overview - Azure HDInsight 
 description: Describes the machine learning options in HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: nitinme
+ms.author: jasonh
 ---
 # Machine learning on HDInsight
 

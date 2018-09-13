@@ -234,7 +234,7 @@ Once stopped, enable Accelerated Networking on the NIC of your VM:
 
 ```azurecli
 az network nic update \
-    --name myVM -n myNic \
+    --name myNic \
     --resource-group myResourceGroup \
     --accelerated-networking true
 ```

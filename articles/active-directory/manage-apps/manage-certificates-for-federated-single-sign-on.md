@@ -84,4 +84,4 @@ The following renewal steps should result in no significant downtime for your us
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Article index for application management in Azure Active Directory](../active-directory-apps-index.md)
 * [Application access and single sign-on with Azure Active Directory](what-is-single-sign-on.md)
-* [Troubleshooting SAML-based single sign-on](../develop/active-directory-saml-debugging.md)
+* [Troubleshooting SAML-based single sign-on](../develop/howto-v1-debug-saml-sso-issues.md)

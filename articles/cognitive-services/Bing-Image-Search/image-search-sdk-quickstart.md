@@ -1,6 +1,6 @@
 ---
-title: Image search SDK C# quickstart | Microsoft Docs
-description: Setup Image search SDK in C# console application.
+title: "Quickstart: Request and filter images using the SDK using C#"
+description: In this quickstart, you request and filter the images returned by Bing Image Search, using C#.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
 author: mikedodaro
@@ -12,7 +12,7 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-# Image Search SDK C# quickstart
+# Quickstart: Request and filter images using the SDK and C#
 
 The Bing Image Search SDK contains the functionality of the REST API for image requests and parsing results. 
 

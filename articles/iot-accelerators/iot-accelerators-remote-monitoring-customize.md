@@ -30,6 +30,8 @@ The following steps outline the process to set up a local environment for UI dev
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
+    You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
+
 1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to find the name and public IP address of your virtual machine. For example:
 
     ```sh
@@ -359,6 +361,7 @@ The **Dashboard** page displays KPIs in the **System KPIs** panel. These KPIs ar
 
       ...
     });
+    ```
 
 1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
 

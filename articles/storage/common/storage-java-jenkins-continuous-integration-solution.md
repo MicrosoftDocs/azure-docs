@@ -4,10 +4,10 @@ description: This tutorial show how to use the Azure blob service as a repositor
 ms.topic: article
 ms.author: tarcher
 author: tarcher
-manager: jpconnock
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
+ms.component: common
 ---
 
 # Using Azure Storage with a Jenkins continuous integration solution

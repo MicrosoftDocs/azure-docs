@@ -1,18 +1,45 @@
 ---
-title: Cognitive Services Speech SDK Documentation
+title: Cognitive Services Speech SDK Documentation | Microsoft Docs
 description: Release notes - what has changed in the most recent releases
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
+manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: wolfma
 ---
 
 # Release notes
+
+## Cognitive Services Speech SDK 0.6.0: 2018-August release
+
+**New features**
+
+* UWP apps built with the Speech SDK can now pass the Windows App Certification Kit (WACK).
+  Check out our [UWP quickstart](quickstart-csharp-uwp.md).
+* Support for .NET Standard 2.0 on Linux (Ubuntu 16.04 x64).
+* Experimental: Support Java 8 on Windows (64-bit) and Linux (Ubuntu 16.04 x64).
+  Check out the [Java Run-Time Environment quickstart](quickstart-java-jre.md)
+
+**Functional changes**
+
+* Exposing additional error detail information on connection errors.
+
+**Breaking changes**
+
+* On Java (Android), the `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` function no longer requires a path parameter. The path is now automatically detected on all supported platforms.
+* The get-accessor of the property `EndpointUrl` in Java and C# was removed.
+
+**Bug fixes**
+
+* In Java, the audio synthesis result on the translation recognizer is now implemented.
+* Fixed a bug, that could cause inactive threads and an increased number of open and unused sockets.
+* Fixed a problem, where a long running recognition could terminate in the middle the transmission.
+* Fixed a race condition in recognizer shutdown.
 
 ## Cognitive Services Speech SDK 0.5.0: 2018-July release
 
@@ -30,7 +57,7 @@ ms.author: wolfma
 **Functional changes**
 
 * `StartContinuousRecognitionAsync()` supports long running recognition
-* The recognition result contains more fields: offset from the audio begining and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* The recognition result contains more fields: offset from the audio beginning and duration (both in ticks) of the recognized text, additional values representing recognition status, e.g., `InitialSilenceTimeout`, `InitialBabbleTimeout`.
 * Support AuthorizationToken for creating factory instances.
 
 **Breaking changes**
@@ -47,7 +74,7 @@ ms.author: wolfma
 
 * Fixed incorrect return values in result when `RecognizeAsync()` times out.
 * The dependency on media foundation libraries on Windows is removed. The SDK is now using Core Audio APIs.
-* Documentation fix: added a region page to describe what are the supported regions.
+* Documentation fix: added a [regions](regions.md) page to describe what are the supported regions.
 
 **Known issues**
 

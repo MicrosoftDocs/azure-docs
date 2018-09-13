@@ -3,8 +3,8 @@ title: Become a Publisher in the storefronts on the marketplace | Azure
 description: This article describes how to become a publisher on the marketplace.  
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor:
 
 ms.assetid: 
@@ -26,7 +26,7 @@ This article covers registering as a cloud marketplace publisher. Depending on y
 |  | Registration step | Duration | Details |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 minutes | [Create a Microsoft ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 min | [Create a Microsoft ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
 | 3 | Submit the marketplace registration form | 15 min | [Submit the marketplace nomination form](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
 | 4 |  Sign into Cloud Partner Portal | 1-3 days | [Sign into Cloud Partner Portal](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Register in Microsoft Developer Center (Dev Center) (for Azure Marketplace transact offers) | 5-10 days | [Register in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
@@ -45,7 +45,7 @@ After registering, record the Microsoft Partner Network ID for your organization
 ---  
 
 ## 2. Create a Microsoft Account  
-| 15 minutes |  
+| 15 min |  
 A Microsoft account, e.g. *@outlook.com or @live.com*, is used to access many Microsoft devices and services. It is required for Azure Marketplace transact offers, and we recommend its use to all cloud publishers. For more information on the benefits and uses of a Microsoft account, [visit this page](https://account.microsoft.com/account/). You will use a personal Microsoft account to access the Cloud Partner Portal, the publishing platform that you will use to create and manage your marketplace offers. 
 
 [! IMPORTANT] Please note that a Microsoft account associated with your work email will not allow you to access the portal.
@@ -61,7 +61,7 @@ A Microsoft account, e.g. *@outlook.com or @live.com*, is used to access many Mi
 ---  
 
 ## 3. Submit the marketplace registration form  
-| 15 mins |  
+| 15 min |  
 Complete this brief [registration form](https://azuremarketplace.microsoft.com/en-us/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
 
 You will be asked to include the following information:
@@ -71,7 +71,7 @@ You will be asked to include the following information:
 
 ---  
 ## 4. Sign into Cloud Partner Portal
-| 1-3 days|
+| 1-3 days | <br>
 Our Marketplace Onboarding Team will review and validate the marketplace registration details provided in step 3. Once approved, you will receive a welcome email with account credentials and guidance on signing-in to the [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 You will use the [Cloud Partner Portal](https://cloudpartner.azure.com) to create, publish, and manage marketplace offers. Once you receive the approval welcome email, you can immediately log into the [Cloud Partner Portal](https://cloudpartner.azure.com) with your Microsoft account to access additional technical information about publishing to marketplace and creating your offer. 
@@ -101,8 +101,8 @@ Once you have completed the [Dev Center](https://developer.microsoft.com/en-us/s
 
 
 ## Next steps
-* Learn about the marketplace storefronts: AppSource and Azure Marketplace
-*	Determine your offer for the marketplace
+* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+*	[Determine the listing type for your solution](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
 
  
 ---  

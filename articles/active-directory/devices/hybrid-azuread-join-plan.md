@@ -21,7 +21,13 @@ ms.reviewer: sandeo
 ---
 # How to plan your hybrid Azure Active Directory join implementation
 
-In a similar way to a user, the device is becoming another identity that you as an IT admin, want to protect and use to protect your resources at any time and location. You can accomplish this goal by bringing your device identities to Azure AD. You can do this by doing an Azure AD join, a hybrid Azure AD join or an Azure AD registered device state. By bringing your devices to Azure AD, you get to maximize your end user productivity by enjoying Single-Sign-On (SSO) across your cloud and on-premises resources and at the same time securing access to your cloud and on-premises resources by enabling Conditional Access. For more details, see Conditional Access in Azure AD.
+In a similar way to a user, a device is becoming another identity you want to protect and also use to protect your resources at any time and location. You can accomplish this goal by bringing your devices' identities to Azure AD using one of the following methods:
+
+- Azure AD join
+- Hybrid Azure AD join
+- Azure AD registration
+
+By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](../active-directory-conditional-access-azure-portal.md).
 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
 
@@ -87,11 +93,16 @@ If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, 
 
 The registration of Windows down-level devices is not supported for devices configured for user profile roaming or credential roaming. If you are relying on roaming of profiles or settings, use Windows 10.
 
+- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+ 
+- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
+
+- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+
+
 The registration of Windows Server running the Domain Controller (DC) role is not supported.
 
 If your organization requires access to the Internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration using machine context, it is necessary to configure outbound proxy authentication using machine context.
-
-Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see How to control the hybrid Azure AD join of your devices.
 
 
 Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md).
@@ -111,11 +122,12 @@ If your environment has managed domains, hybrid Azure AD join supports:
 
 - Pass Through Authentication (PTA) with Seamless Single Sign On (SSO) 
 
-- Password Has Sync (PHS) with Seamless Single Sign On (SSO) 
+- Password Hash Sync (PHS) with Seamless Single Sign On (SSO) 
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 
 - [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
+
 
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 

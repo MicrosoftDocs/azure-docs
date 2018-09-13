@@ -4,15 +4,11 @@ description: Learn which languages are supported (GA) and which are experimental
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
-ms.service: functions
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/02/2018
 ms.author: glenga
 
 ---
@@ -36,13 +32,13 @@ There are three levels of support:
 
 ### Experimental languages
 
-The experimental languages in 1.x don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object.
+The experimental languages in version 1.x don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object.
 
-Experimental support for PowerShell is limited to version 4.0 because that is what's installed on the VMs that Function apps run on. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-The 2.x runtime doesn't support experimental languages. In 2.x, we will add support for a language only when it scales well and supports advanced triggers.
+Experimental support for PowerShell is limited to version 5.1, because that is what's installed by default on the VMs on which function apps run. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 If you want to use one of the languages that are only available in 1.x, stay on the 1.x runtime. But don't use experimental languages for anything that you rely on, as there is no official support for them. You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
+
+The version 2.x runtime doesn't support experimental languages. Support for new languages is added only when the language can be supported in production. 
 
 ### Language extensibility
 

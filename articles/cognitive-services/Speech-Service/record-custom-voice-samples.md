@@ -63,13 +63,13 @@ The starting point of any custom voice recording session is the script, which co
 
 The utterances in your script can come from anywhere: fiction, non-fiction, transcripts of speeches, news reports, and anything else available in printed form. If you want to make sure your voice does well on specific kinds of words (such as medical terminology or programming jargon), you may want to include sentences from scholarly papers or technical documents. (However, see [Legalities](#legalities) below.) You can also write your own text.
 
-Your utterances don't need come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This will give your custom voice a better chance of pronouncing those phrases well. And if you should decide to use a recording in place of synthesized speech, you'll already have it in the same voice as your synthesized speech.
+Your utterances don't need come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This will give your custom voice a better chance of pronouncing those phrases well. And if you should decide to use a recording in place of synthesized speech, you'll already have it in the same voice.
 
 While consistency is key in choosing voice talent, variety is the hallmark of a good script. Your script should include many different words and sentences with a variety of sentence lengths, structures, and moods. Every sound in the language should be represented multiple times and in numerous contexts (called *phonetic coverage).* 
 
 Furthermore, the text should incorporate all the ways that a particular sound can be represented in writing, and place each sound at varying places in the sentences. Both declarative sentences and questions should be included and read with appropriate intonation.
 
-It's difficult to write a script that provides *just enough* data to allow the Custom Speech portal to build a good voice. In practice, the simplest way to make a script that achieves robust phonetic coverage is to include a large number of samples. Microsoft's standard voices were built from tens of thousands of utterances. You should be prepared to record a few to several thousand utterances to build a production-quality custom voice.
+It's difficult to write a script that provides *just enough* data to allow the Custom Speech portal to build a good voice. In practice, the simplest way to make a script that achieves robust phonetic coverage is to include a large number of samples. Microsoft's standard voices were built from tens of thousands of utterances. You should be prepared to record a few to several thousand utterances at minimum to build a production-quality custom voice.
 
 Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
 
@@ -80,7 +80,7 @@ You can write your script in Microsoft Word. The script is for use during the re
 A basic script format includes three columns:
 
 * The number of the utterance, starting at 1. Numbering will make it easy for everyone in the studio to refer to a particular utterance ("let's try number 356 again"). You can use Word's paragraph numbering feature to number the rows of the table automatically.
-* A blank column where you'll write in the take number or time code of each utterance to help you find it in the finished recording.)
+* A blank column where you'll write in the take number or time code of each utterance to help you find it in the finished recording.
 * The text of the utterance itself.
 
 ![Sample script](media/custom-voice/script.png)
@@ -108,7 +108,7 @@ Fortunately, it is possible to avoid these issues entirely. There are many sourc
 
 ## Recording your script
 
-Preferably, you should record your script at a professional recording studio that specializes in voice work. They'll have a recording booth, the right equipment, and the right people to operate it. It pays not to skimp on recording.
+Record your script at a professional recording studio that specializes in voice work. They'll have a recording booth, the right equipment, and the right people to operate it. It pays not to skimp on recording.
 
 Discuss your project with the studio's recording engineer and listen to his or her advice. The recording should have little or no dynamic range compression (maximum of 4:1). It is critical that the audio have consistent volume and a high signal-to-noise ratio, while being free of unwanted sounds.
 
@@ -137,7 +137,7 @@ Listen closely to a recording of silence in your "booth," figure out where any n
 > [!TIP]
 > In some cases, you may be able to use an equalizer or a noise reduction software plug-in to help remove noise from your recordings, though it is always best to stop it at its source.
 
-Levels should be set so that most of the available dynamic range of digital recording is used without overdriving. That means loud, but not so loud that the audio distorts. Below is an example of the waveform of a good recording.
+Set levels so that most of the available dynamic range of digital recording is used without overdriving. That means loud, but not so loud that the audio distorts. Below is an example of the waveform of a good recording.
 
 ![good recording waveform](media/custom-voice/good-recording.png)
 
@@ -154,9 +154,9 @@ Ideally, have different people serve in the roles of director, engineer, and tal
 To avoid wasting studio time, run through the script with your voice talent before the recording session. While the voice talent becomes familiar with the text, he or she can clarify the pronunciation of any unfamiliar words.
 
 > [!NOTE]
-> Most recording studios offer electronic display of scripts in the recording booth. In this case, type your run-through notes directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hardcopy, too. And you'll still want the third printed copy as a backup for the talent in case the computer is down!
+> Most recording studios offer electronic display of scripts in the recording booth. In this case, type your run-through notes directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hardcopy, too. And you'll still want a third printed copy as a backup for the talent in case the computer is down!
 
-Your voice talent may ask which word you want emphasized in an utterance. Actors call this the "operative word." Tell them you want a natural reading with no particular emphasis. Emphasis can be added when speech is synthesized; it should not be a part of the original recording.
+Your voice talent may ask which word you want emphasized in an utterance (the "operative word"). Tell them you want a natural reading with no particular emphasis. Emphasis can be added when speech is synthesized; it should not be a part of the original recording.
 
 Direct the talent to pronounce words distinctly. Every word of the script should be pronounced as written. Sounds should not be omitted or slurred together, as is common in casual speech, *unless they have been written that way in the script.*
 
@@ -171,7 +171,7 @@ Talent should *not* add distinct pauses between words. The sentence should still
 
 ### The recording session
 
-Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or page and a half. Each time, compare the new recording to the reference. This practice helps the talent remain consistent in volume, tempo, pitch, and intonation. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound.
+Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or so. Each time, compare the new recording to the reference. This practice helps the talent remain consistent in volume, tempo, pitch, and intonation. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound.
 
 The match file is especially important when resuming recording after a break, or on another day. You'll want to play it a few times for the talent and have them repeat it each time until they are matching well.
 
@@ -180,16 +180,16 @@ Coach your talent to take a deep breath and pause for a moment before each utter
 Record a good five seconds of silence before the first recording to capture the "room tone." This helps the Custom Voice portal compensate for any remaining noise in the recordings.
 
 > [!TIP]
-> All you really need is the voice talent's lines, so you can make a monophonic (single-channel) recording of just their lines. However, if you record in stereo, you can use the second channel to record the chatter in the control room to capture discussion of particular lines or takes. Remove this track from the version uploaded to the Custom Voice portal.
+> All you really need is the voice talent, so you can make a monophonic (single-channel) recording of just their lines. However, if you record in stereo, you can use the second channel to record the chatter in the control room to capture discussion of particular lines or takes. Remove this track from the version uploaded to the Custom Voice portal.
 
 Listen closely, using headphones, to the voice talent's performance. You're looking for good but natural diction, correct pronunciation, and a lack of unwanted sounds. Don't hesitate to ask your talent to re-record an utterance that doesn't meet these standards. 
 
 > [!TIP] 
-> When recording a high volume of utterances, a single utterance may not have a noticeable effect on the resulting custom voice. So it may be more expedient to simply note any utterances with issues, exclude them from your data set, and see how your custom voice turns out. You can always go back to the studio and record the missed samples later.
+> If you are using a large number of utterances, a single utterance may not have a noticeable effect on the resulting custom voice. So it may be more expedient to simply note any utterances with issues, exclude them from your data set, and see how your custom voice turns out. You can always go back to the studio and record the missed samples later.
 
 Take a note of the take number or time code on your script for each utterance. Ask the engineer if they can mark each utterance in the recording's metadata or cue sheet as well.
 
-Take regular breaks and provide a drink to help your voice talent keep his or her voice in good shape.
+Take regular breaks and provide a beverage to help your voice talent keep his or her voice in good shape.
 
 ### After the session
 

@@ -6,6 +6,12 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Devices
+        tocHref: /azure/active-directory/devices/
+        topicHref: /azure/active-directory/devices/
+      - name: Conditional Access
+        tocHref: /azure/active-directory/conditional-access/
+        topicHref: /azure/active-directory/conditional-access/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -21,9 +27,9 @@
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
-      - name: Managed Service Identity
-        tocHref: /azure/active-directory/managed-service-identity/
-        topicHref: /azure/active-directory/managed-service-identity/
+      - name: Managed identities for Azure resources
+        tocHref: /azure/active-directory/managed-identities-azure-resources/
+        topicHref: /azure/active-directory/managed-identities-azure-resources/
       - name: User Help
         tocHref: /azure/active-directory/user-help/
         topicHref: /azure/active-directory/user-help/         
@@ -33,6 +39,12 @@
       - name: Domain Services
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
+      - name: Users, groups, and roles
+        tocHref: /azure/active-directory/users-groups-roles/
+        topicHref: /azure/active-directory/users-groups-roles/
+      - name: Manage applications
+        tocHref: /azure/active-directory/manage-apps/
+        topicHref: /azure/active-directory/manage-apps/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -249,6 +261,9 @@
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
+    - name: Project Acoustics
+      tocHref: /azure/cognitive-services/acoustics/
+      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/

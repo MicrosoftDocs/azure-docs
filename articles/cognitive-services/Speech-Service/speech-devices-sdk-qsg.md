@@ -39,11 +39,11 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 ## Set up the development kit
 
-1. Plug in the development kit's power adapter. A green power indicator should light up under the top board.
+1. Power up the dev kit using a mini USB cable connected to a PC or a power adptor. A green power indicator should light up under the top board.
 
-1. Connect the development kit to a computer using a mini USB cable.
+1. Connect the development kit to a computer using a second mini USB cable.
 
-    ![connecting the dev kit](media/speech-devices-sdk/qsg-1.jpg)
+    ![connecting the dev kit](media/speech-devices-sdk/qsg-1.png)
 
 1. Orient your development kit appropriately.
 
@@ -52,7 +52,7 @@ Before starting development with the Speech Devices SDK, gather the information 
     |Circular|Upright, with microphones facing the ceiling|
     |Linear|On its side, with microphones facing you (shown below)|
 
-    ![linear dev kit orientation](media/speech-devices-sdk/qsg-2.jpg)
+    ![linear dev kit orientation](media/speech-devices-sdk/qsg-2.png)
 
 1. Install the certificates and the wake word (keyword) table file, and set the permissions of the sound device. Type the following commands in a command window.
 
@@ -77,9 +77,22 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 1.	Your device should be listed under "Choose a device". Click the **View** button next to it. 
  
-1.	Connect to your wireless network by clicking **Settings**, then **WLAN**.
+1.	Connect to your wireless network by clicking on the folder icon, then **Settings**, then **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > If your company has policies regarding connecting devices to the wifi system, you need to obtain the Mac Address and contact your IT department about how to connect it to your wifi system. To find the Mac Address of the dev kit, click on the file folder icon on the desktop of the dev kit, then **Settings**, search for "Mac address", click on **Mac address** to get into **Advanced WLAN**, write down the Mac address found towards the bottom. Also, some companies might have a time limit of how long a device can be connected to their wifi systems. You might need to extend the dev kit's registration with your wifi system, after a certain number of days.  
+ 
+ 
+   ![Vysor file folder](media/speech-devices-sdk/qsg-10.png)
+   
+   ![Vysor Mac Address](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > If you want to attach a speaker to the dev kit, you can connect it to the Audio line out. You should also choose a good quality 3.5mm speaker.
+ 
+   ![Vysor Audio](media/speech-devices-sdk/qsg-14.png)
  
 ## Run a sample application
 
@@ -121,7 +134,7 @@ To run the Roobo tests and validate your development kit setup, build and instal
         exit
         ```
 
-    * Copy the files `kws.table`, `kws_g.fst`, `kws_k.fst`, and `words_kw.txt`) to the device's \data\keyword\ folder. Run the following commands in o command window.
+    * Copy the files `kws.table`, `kws_g.fst`, `kws_k.fst`, and `words_kw.txt`) to the device's \data\keyword\ folder. Run the following commands in o command window. If you have created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is going to be in the same directory as `kws.table`, `kws_g.fst`, `kws_k.fst`, and `words_kw.txt` files are. Please use adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword commmand to push the kws.table file to the dev kit instead.
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -174,7 +187,11 @@ To run the Roobo tests and validate your development kit setup, build and instal
 
 ## Troubleshooting
 
-If you get certificate failures when using the Speech service, make sure the device has the correct date and time.
+If you get certificate failures when using the Speech service, make sure the device has the correct date and time. Go to **Settings**, click on **Date & time** under System, and **Select time zone** to be your current time zone. Keep **Automatic date & time** ON. When you see the dev kit's time matches your PC's time, then you will know the dev kit is connected to the internet. 
+
+ ![Vysor file folder](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Vysor file folder](media/speech-devices-sdk/qsg-13.png)
 
 For more development information, see Roobo's [development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 

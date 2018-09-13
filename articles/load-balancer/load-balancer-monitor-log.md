@@ -1,6 +1,6 @@
 ---
-title: Monitor operations, events, and counters for Load Balancer | Microsoft Docs
-description: Learn how to enable alert events, and probe health status logging for Azure Load Balancer
+title: Monitor operations, events, and counters for public Basic Load Balancer | Microsoft Docs
+description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
 ---
 
-# Log analytics for Azure Load Balancer
+# Log analytics for public Basic Load Balancer
 
->[!NOTE] 
->Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
+>[!IMPORTANT] 
+>Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md) which exposes telemetry via multi-dimensional metrics in Azure Monitor.
 
-You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
+You can use different types of logs in Azure to manage and troubleshoot Basic Load Balancers. Some of these logs can be accessed through the portal. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
 * **Audit logs:** You can use [Azure Audit Logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure portal.
 * **Alert event logs:** You can use this log to view alerts raised by the load balancer. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.
 * **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
 > [!IMPORTANT]
-> Log analytics currently works only for Internet facing load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+> Log analytics currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Enable logging
 
@@ -52,7 +52,9 @@ Sign-in to the [Azure portal](http://portal.azure.com). If you don't already hav
 7. Under **LOGS**, select an existing storage account, or create a new one. Use the slider to determine how many days worth of event data will be stored in the event logs. 
 8. Click **Save**.
 
-    ![Portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+Diagnostics will be saved in Table Storage in the specified storage account. If logs are not being saved, it is because no relevant logs are being produced.
+
+![Portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
 > Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.

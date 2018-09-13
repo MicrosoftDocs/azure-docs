@@ -8,7 +8,7 @@ ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
 ---
@@ -33,8 +33,9 @@ To complete the steps in this article, you need the following prerequisites:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), a standalone self-contained command-line environment.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 or higher installed.
-- AzureRM PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).\[AzureRM.Sql module](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 or higher.
-- Run the following commands in PowerShell to install/update the PowerShell module:
+- AzureRM PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+- [AzureRM.Sql module](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 or higher.
+  Run the following commands in PowerShell to install/update the PowerShell module:
 
    ```powershell
    Install-Module -Name AzureRM.Sql
@@ -103,16 +104,6 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
 
 4. Follow the wizard to export certificate and private key to a Personal Information Exchange format
 
-## Extract certificate from file to base-64 string
-
-Execute the following script in the PowerShell and get base-64 encoded certificate as an output:
-
-```powershell
-$fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
-$base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
-echo $base64EncodedCert
-```
-
 ## Upload certificate to Azure SQL Managed Instance using Azure PowerShell cmdlet
 
 1. Start with preparation steps in PowerShell:
@@ -124,15 +115,16 @@ echo $base64EncodedCert
    Connect-AzureRmAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzureRmSubscription
-   # Set subscription for the session
+   # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
    Select-AzureRmSubscription Guid_Subscription_Id
    ```
 
 2. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target Managed Instance:
 
    ```powershell
-   $privateBlob = "<base-64-encoded-certificate-string>"
-   $securePrivateBlob = $privateBlob  | ConvertTo-SecureString -AsPlainText -Force
+   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
+   $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
+   $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
    Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
@@ -144,4 +136,4 @@ The certificate is now available to the specified Managed Instance and backup of
 
 In this article, you learned how to migrate certificate protecting encryption key of database with Transparent Data Encryption, from the on-premises or IaaS SQL Server to Azure SQL Managed Instance.
 
-See [Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) to learn how to restore a database backup to an Azure SQL Database Managed Instance.
+See [Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started-restore.md) to learn how to restore a database backup to an Azure SQL Database Managed Instance.

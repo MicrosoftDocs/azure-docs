@@ -1,26 +1,19 @@
-﻿---
+---
 title: Configure Azure Storage Firewalls and Virtual Networks | Microsoft Docs
 description: Configure layered network security for your storage account.
 services: storage
-documentationcenter: ''
 author: cbrooksmsft
-manager: cbrooks
-editor: cbrooks
-
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-
+ms.component: common
 ---
 # Configure Azure Storage Firewalls and Virtual Networks
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
 
 > [!IMPORTANT]
-> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  For participating services you can re-enable functionality through the [Exceptions](#Exceptions) section below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
+> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  For participating services you can re-enable functionality through the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) section below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
 >
 
 ## Scenarios
@@ -36,7 +29,7 @@ Virtual Machine Disk traffic (including mount and unmount operations, and disk I
 
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 
-Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is supported via creating an exception as documented in the [Exceptions](/storage/common/storage-network-security#exceptions) section of this article.  Firewall exceptions are not applicable with Managed Disks as they are already managed by Azure.
+Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is supported via creating an exception as documented in the [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) section of this article.  Firewall exceptions are not applicable with Managed Disks as they are already managed by Azure.
 
 ## Change the default network access rule
 By default, storage accounts accept connections from clients on any network.  To limit access to selected networks, you must first change the default action.
@@ -209,7 +202,7 @@ IP network rules for storage accounts can be managed through the Azure portal, P
 2. Click on the settings menu called **Firewalls and virtual networks**.
 3. Ensure that you have elected to allow access from 'Selected networks'.
 4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under Firewall, Address Ranges.
-5. To remove an IP network rule, click "..." to open the context menu for the rule, and click "Remove".
+5. To remove an IP network rule, click the trash can icon next to the network rule.
 6. Click *Save* to apply your changes.
 
 #### PowerShell
