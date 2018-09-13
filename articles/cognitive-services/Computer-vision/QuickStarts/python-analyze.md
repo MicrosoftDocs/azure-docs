@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Analyze a remote image - REST, Python - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you analyze a remote image using Computer Vision with Python in Cognitive Services.
+description: In this quickstart, you analyze a remote image using the Computer Vision API with Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Analyze a remote image - REST, Python - Computer Vision
+# Quickstart: Analyze a remote image using the REST API and Python in Computer Vision
 
 In this quickstart, you analyze a remote image using Computer Vision. To analyze a local image, see [Analyze a local image with Python](python-disk.md).
 
