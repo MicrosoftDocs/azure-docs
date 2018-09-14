@@ -1,5 +1,5 @@
 ---
-title: Multi-master support for Azure Cosmos DB MongoDB API Accounts | Microsoft Docs
+title: Multi-master support for Azure Cosmos DB MongoDB API Accounts 
 description: 
 services: cosmos-db
 author: markjbrown
@@ -12,9 +12,9 @@ ms.reviewer: sngun
 
 ---
 
-# Multi-master support for Azure Cosmos DB MongoDB API Accounts
+# Use MongoDB clients with multi-master
 
-The multi-master feature is enabled for MongoDB API accounts in the same way it is enabled for other Azure Cosmos DB APIs. After enabling multi-master for MongoDB API accounts, each instance of a client application can select its preferred region for reads and writes. From the MongoDB driver perspective, the preferred region appears to the client as the replica set primary. In this manner every region of your distributed database can act as replica set primary. Azure Cosmos DB multi-master allows you to significantly reduce write latencies for your globally distributed MongoDB applications. 
+The multi-master feature is enabled for MongoDB API accounts in the same way it is enabled for other Azure Cosmos DB APIs. After enabling multi-master for MongoDB API accounts, each instance of a client application can select its preferred region for reads and writes. From the MongoDB driver perspective, the preferred region appears to the client as the replica set primary. In this manner, every region of your distributed database can act as replica set primary. Azure Cosmos DB multi-master allows you to significantly reduce write latencies for your globally distributed MongoDB applications. 
 
 ## Set the primary region
 
@@ -36,7 +36,7 @@ Certain drivers such as the NodeJS driver will always first issue writes to the 
 
 ## Conflict resolution mode
 
-Conflict resolution mode for Azure Cosmos DB MongoDB API accounts is always last-writer-wins, using the regional server timestamp that accepted the write.
+The conflict resolution mode for Azure Cosmos DB MongoDB API accounts is always last-writer-wins, using the regional server timestamp that accepted the write.
 
 ## Next steps
 

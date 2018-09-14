@@ -1,5 +1,5 @@
 ---
-title: Multi-master at global scale with Azure Cosmos DB | Microsoft Docs
+title: Multi-master at global scale with Azure Cosmos DB 
 description: Learn about Azure Cosmos DB multi-master, key benifits offered by multi-master and use cases where it is helpful.
 services: cosmos-db
 author: rimman
@@ -16,8 +16,7 @@ ms.reviewer: sngun
 
 # Azure Cosmos DB multi-master
 
-
-With Azure Cosmos DB multi-master support, you can perform writes on any container (that is, collections, graphs, tables) in a write-enabled region. Data written to one region is propagated to all other regions. Multi-master is available for all API’s, including SQL, MongoDB, Cassandra, Graph, and Table.
+With Azure Cosmos DB multi-master support, multiple regions can act as write regions. You can perform writes on any container (that is, collections, graphs, tables) in a write-enabled region and the data written to one region is propagated to all other regions. Multi-master is available for all API’s, including SQL, MongoDB, Cassandra, Graph, and Table.
 
 Azure Cosmos DB multi-master is composed of multiple master regions that equally participate in a write-anywhere model. Azure Cosmos DB regions operating as master regions in a multi-master configuration automatically work to converge the data of all replicas and ensure global consistency and data integrity.
 
@@ -44,7 +43,7 @@ Following are the key benefits available for accounts that have multi-master ena
 
 * **Social media apps** – Social media applications require low-latency, high-availability, and scalability to provide a great experience for users located around the globe. Azure Cosmos DB multi-master puts data closer to users for lower latency. Multiple write locations provide high-availability with the ability to seamlessly write to another region and the ability for regions to scale independently depending on usage. 
 
-* **IoT** - Azure Cosmos DB multi-master simplifies data processing for IoT applications. Geo-distributed edge deployments often need to track time series data from multiple locations. Each device can be homed to its closest region. As devices travel, (that is, a car, aircraft, train) devices can dynamically be rehomed to write to another region. 
+* **IoT** - Azure Cosmos DB multi-master simplifies data processing for IoT applications. Geo-distributed edge deployments often need to track time series data from multiple locations. Each device can be homed to its closest region. When devices such as cars, aircraft, train travel long distances, those devices can be dynamically rehomed to write to the closest available region. 
 
 * **E-Commerce** - Ecommerce requires very low-latency as well as high-availability. Multi-master allows users to write to data in a region closest to them increasing the responsiveness of applications. 
 
@@ -52,7 +51,7 @@ Following are the key benefits available for accounts that have multi-master ena
 
 * **Metering** - Counting and regulating usage (such as API calls, transactions/second, minutes used) can be implemented globally with simplicity using Azure Cosmos DB multi-master. Built-in conflict resolution assures both accuracy of counts and regulation in real time. 
 
-* **Personalization** - Whether you’re maintaining geographically distributed counters that trigger actions such as loyalty points awards or implementing personalized user session views, the high availability and simplified geo-distributed counting provided by Azure Cosmos DB, allows applications deliver high performance with simplicity. 
+* **Personalization** - If you have geographically distributed counters that trigger actions such as loyalty points, awards or implement personalized user session views, high availability is the key feature required in such scenarios. Azure Cosmos DB provides high availability and simplified geo-distributed that allows applications deliver high performance. 
 
 ## Next steps  
 
