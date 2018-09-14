@@ -66,6 +66,8 @@ giving you giving you alternative ways for handling failures:
 * Set up retry policies.
 * Set up alternate endpoints.
 
+<a name="retry-policies"></a>
+
 ### Retry policies
 
 Azure Scheduler lets you set up retry policies. If a job fails, 
@@ -81,7 +83,7 @@ which happens because the default retry policy won't work in this case.
 So, you might want to change the standard retry policy so that retries 
 happen, for example, every three hours, rather than every 30 seconds. 
 
-To learn how to change the retry policy, see 
+To learn how to set up a retry policy, see 
 [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
 ### Alternate endpoints
