@@ -136,7 +136,7 @@ sections:
           - href:
       - title: Configure Azure network for Managed Instance
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: 
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
