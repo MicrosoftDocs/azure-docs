@@ -37,7 +37,7 @@ In the code above, a [map object](https://docs.microsoft.com/javascript/api/azur
 
 In the code above, a [map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is constructed via `new atlas.Map()`. Map properties such as bounding box are part of [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest). CameraBoundsOptions can be defined via [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) function of the map class.
 
-## Try out the code 
+## Try out the code
 
 Take a look at the sample code above. You can edit the JavaScript code on the JS tab on the left, and see the map view changes on the Result tab on the right. You can also click on the “Edit on CodePen” button and edit the code in CodePen. 
 
@@ -45,13 +45,23 @@ Take a look at the sample code above. You can edit the JavaScript code on the JS
 
 ## Next steps
 
-Learn more about the classes and methods used in this article: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera)
-    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
-    
-For more code examples to add to your maps, see the following articles: 
-* [Choose a map style](choose-map-style.md)
-* [Add map controls](map-add-controls.md)
-    
+Learn more about the classes and methods used in this article:
 
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Dive deeper into specific functionalities:
+
+> [!div class="nextstepaction"]
+> [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera)
+
+> [!div class="nextstepaction"]
+>  [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
+
+See the following code examples:
+
+> [!div class="nextstepaction"]
+> [Choose a map style](choose-map-style.md)
+
+> [!div class="nextstepaction"]
+> [Add map controls](map-add-controls.md)
