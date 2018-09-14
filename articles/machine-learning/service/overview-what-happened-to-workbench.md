@@ -34,7 +34,7 @@ Most of the artifacts created in the earlier version of the Azure Machine Learni
 
 <a name="timeline"></a>
 
-## What's the support timeline?
+## Support timeline
 
 You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release. You can still find the documentation for the old features in the Resources section at the bottom of the [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
@@ -56,7 +56,7 @@ Run histories are now called _experiments_ in the current release. You can colle
 (./media/overview-what-happened-to-workbench/image001.jpg#lightbox)
 
 
-## Can I still prepare data?
+## Can I still prep data?
 
 Your pre-existing data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  
 
@@ -78,15 +78,15 @@ The models you deployed as web services using your Model Management account will
 
 In the newer version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. You can also [deploy to FPGAs and to the IoT edge](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models using the new SDK or CLI. 
 
-## Will the SDK and CLI still work?
+## What about the SDK & CLI?
 
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). We recommend that you start creating your new experiments and models with the latest SDK and/or CLI.
 
 In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
-## What about Visual Studio Code Tools for AI?
+## What about VS Code Tools for AI?
 
-With this latest release, the Visual Studio Code Tools for AI extension has been expanded and improved to work with the above new features.
+With this latest release, the Visual Studio (VS) Code Tools for AI extension has been expanded and improved to work with the above new features.
 
 ## What about domain packages?
 
