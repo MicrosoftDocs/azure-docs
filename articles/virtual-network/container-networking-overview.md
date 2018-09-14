@@ -3,8 +3,8 @@ title: Container networking with Azure Virtual Network | Microsoft Docs
 description: Learn about how to enable containers to use an Azure Virtual Network.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: aanandr
+manager: NarayanAnnamalai
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/14/2018
-ms.author: jdial
+ms.author: aanandr
 ms.custom: 
 
 ---
