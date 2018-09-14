@@ -95,7 +95,7 @@ The folder structure for a Python Functions project looks like the following:
 
 There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). Shared code should be kept in a separate folder.
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+Binding extensions used by the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools) using Azure Functions Core Tools. 
 
 When deploying a Functions project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
 
