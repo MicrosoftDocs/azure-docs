@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is hybrid identity?
-    href: /azure/active-directory/hybrid/whatis-hybrid-identity.md
+    href: whatis-hybrid-identity.md
     maintainContext: true
 - name: Tutorials
   expanded: true
