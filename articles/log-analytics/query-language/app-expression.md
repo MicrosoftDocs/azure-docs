@@ -75,4 +75,4 @@ union
 ## Next steps
 
 - See the [workspace expression](workspace-expression.md) to refer to Log Analytics workspace.
-- Read about how [Log Analytics data](../../log-analytics/log-analytics-queries.md) is stored.
+- Read about how [Log Analytics data](../../log-analytics/log-analytics-log-search.md) is stored.
