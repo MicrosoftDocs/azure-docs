@@ -150,5 +150,5 @@ The key metrics in the benchmark are throughput and response time.
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- For details on specific compute sizes and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
