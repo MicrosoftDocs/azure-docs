@@ -38,16 +38,31 @@ az group create --name myresourcegroup --location westus
 ## Create an Azure Database for MariaDB server
 Create an Azure Database for MariaDB server with the **[az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create)** command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates a server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 5** **General Purpose** server with 2 **vCores**. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
-```azurecli-interactive
-az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
-```
+**Setting** | **Sample value** | **Description**
+---|---|---
+name | mydemoserver | Choose a unique name that identifies your Azure Database for MariaDB server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+resource-group | myresourcegroup | Provide the name of the Azure resource group.
+sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See below this table for more information about the sku-name parameter.
+backup-retention | 7 | How long a backup should be retained. Unit is days. Range is 7-35. 
+geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not. Allowed values: Enabled, Disabled.
+location | westus | The Azure location for the server.
+ssl-enforcement | Enabled | Whether ssl should be enabled or not for this server. Allowed values: Enabled, Disabled.
+storage-size | 51200 | The storage capacity of the server (unit is megabytes). Valid storage-size is minimum 5120MB and increases in 1024MB increments. See the [pricing tiers](./concepts-pricing-tiers.md) document for more information about storage size limits. 
+version | 10.2 | The MariaDB major engine version.
+admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+admin-password | Password123 | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+
 The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
 + `--sku-name B_Gen5_4` maps to Basic, Gen 5, and 4 vCores.
 + `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
 + `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
 Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
+
+The following example creates a server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 5** **General Purpose** server with 2 **vCores**. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
+```azurecli-interactive
+az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
+```
 
 ## Configure firewall rule
 Create an Azure Database for MariaDB server-level firewall rule using the **[az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create)** command. A server-level firewall rule allows an external application, such as the **mysql** command-line tool or MySQL Workbench to connect to your server through the Azure MariaDB service firewall. 
@@ -63,7 +78,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 > 
 
 ## Configure SSL settings
-By default, SSL connections between your server and client applications are enforced. This default ensures security of "in-motion" data by encrypting the data stream over the internet. To make this quick start easier, disable SSL connections for your server. Disabling SSL is not recommended for production servers. <!--For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).-->
+By default, SSL connections between your server and client applications are enforced. This default ensures security of "in-motion" data by encrypting the data stream over the internet. To make this quick start easier, disable SSL connections for your server. Disabling SSL is not recommended for production servers. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).
 
 The following example disables enforcing SSL on your MariaDB server.
  
@@ -91,8 +106,8 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
