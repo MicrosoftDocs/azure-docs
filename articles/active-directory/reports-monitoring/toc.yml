@@ -12,6 +12,8 @@
     items:
     - name: Download a sign-in report
       href: quickstart-download-sign-in-report.md
+    - name: Download an audit report
+      href: quickstart-download-audit-report.md
     - name: Configure named locations
       href: quickstart-configure-named-locations.md
     - name: Install Power BI content pack
