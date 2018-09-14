@@ -45,75 +45,96 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 1. To register an application, go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) and select **New registration**.
 > 1. Enter a name for your application and click **Register**.
 > 1. Select the **Authentication** page, then add `msal<AppId>://auth` (where *<AppId>* is the application ID from the application you just registered), select **Public client (mobile & desktop)** under **Type**, and then select **Save**.
->
->> [!TIP]
->> To find the *Application ID*, go to Overview page.
 
-> [!div renderon="portal" class="sxs-lookup"]
-> ### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a reply URL as `msal<AppId>://auth` (where msal<AppId> is this application Id).
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
->
-> > [!div id="appconfigured"]
-> > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with this attribute
+## More Information
 
-## Step 2: Download your web server or project
+Read these sections to learn more about this quickstart.
 
-- [Download the XCode Project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+### MSAL
 
-## Step 3: Configure your project
+MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory. You can use carthage to install it by first running the following command in bash terminal from App’s root folder to build MSAL:
 
-1. Extract the zip file and open the project in XCode.
-1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet:
+```bash
+echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
+carthage update
+```
 
-	> [!div renderon="portal" class="sxs-lookup"]
-    > ```swift
-    > let kClientID = "Enter_the_Application_Id_here"
-    > ```
+Then, in XCode, open the **General**, go to **Linked Frameworks and Libraries** and add **MSAL.framework** in **Add other...**, then add the following content in **New Run Script Phase** under **Build Phases** tab:
 
-	> [!div renderon="docs"]
-    > ```swift
-    > let kClientID = "<ENTER_THE_APPLICATION_ID_HERE>"
-    > ```	
-1. Press Control + click **Info.plist** to bring up the contextual menu, and then select **Open As** > **Source Code**.
-1. Under the dict root node, add the following code:
+```text
+/usr/local/bin/carthage copy-frameworks
+```
 
-	> [!div renderon="portal" class="sxs-lookup"]
-    > ```xml
-    > <key>CFBundleURLTypes</key>
-    > <array>
-    >     <dict>
-    >         <key>CFBundleTypeRole</key>
-    >         <string>Editor</string>
-    >         <key>CFBundleURLName</key>
-    >         <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-    >         <key>CFBundleURLSchemes</key>
-    >         <array>
-    >             <string>msalEnter_the_Application_Id_here</string>
-    >         </array>
-    >     </dict>
-    > </array>
-    > ```
+And the following to **Input Files**:
 
-	> [!div renderon="docs"]
-    > ```xml
-    > <key>CFBundleURLTypes</key>
-    > <array>
-    >     <dict>
-    >         <key>CFBundleTypeRole</key>
-    >         <string>Editor</string>
-    >         <key>CFBundleURLName</key>
-    >         <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-    >         <key>CFBundleURLSchemes</key>
-    >         <array>
-    >             <string>msal<ENTER_THE_APPLICATION_ID_HERE></string>
-    >         </array>
-    >     </dict>
-    > </array>
-    > ```
+```text
+$(SRCROOT)/Carthage/Build/iOS/MSAL.framework
+```
 
-> [!div renderon="docs"]
-> 5. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
+> [!NOTE]
+> #### Install Carthage to download and build MSAL
+> Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library. Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases)
+
+### MSAL initialization
+
+You can add the reference for MSAL by adding the following code:
+
+```swift
+import MSAL
+```
+
+Then, initialize MSAL using the following code:
+
+```swift
+self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, authority: kAuthority)
+```
+
+> |Where: ||
+> |---------|---------|
+> | `clientId` | The Application ID from the application registered in *portal.azure.com* |
+> | `authority` | The Azure AD v2.0 endpoint. In most of cases this will be *https<span/>://login.microsoftonline.com/common* |
+
+### Requesting tokens
+
+MSAL has two methods used to acquire tokens: `acquireToken` and `acquireTokenSilent`.
+
+#### Getting an access token interactively
+
+Some situations require forcing users to interact with Azure Active Directory (Azure AD) v2.0 endpoint which will result in a context switch to the system browser to either validate users's credentials or for consent. Some examples include:
+
+* The first time users sign in to the application
+* When users may need to reenter their credentials because the password has expired
+* When your application is requesting access to a resource that the user needs to consent to
+* When two factor authentication is required
+
+```swift
+applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /* Add your handling logic */}
+```
+
+> |Where:||
+> |---------|---------|
+> | `forScopes` | Contains the scopes being requested (that is, [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+
+#### Getting an access token silently
+
+You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `acquireTokenSilent`method to obtain tokens to access protected resources after the initial `acquireToken` method:
+
+```swift
+applicationContext.acquireTokenSilent(forScopes: self.kScopes, user: applicationContext.users().first) { (result, error) in /* Add your handling logic */}
+```
+
+> |Where: ||
+> |---------|---------|
+> | `forScopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `user` | The user requesting the token (MSAL supports multiple users in a single app). In the case of this Quickstart, the value points to the first user in the cache (`applicationContext.users().first`). |
+
+## Next steps
+
+Try out the iOS tutorial for a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart.
+
+### Learn the steps to create the application used in this quickstart
+
+> [!div class="nextstepaction"]
+> [Call Graph API iOS tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
