@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/123/2018
+ms.date: 09/13/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
