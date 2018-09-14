@@ -13,6 +13,8 @@ ms.author: v-jaswel
 # Quickstart for Microsoft Translator Speech API with Java 
 <a name="HOLTop"></a>
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 This article shows you how to use the Microsoft Translator Speech API to translate words spoken in a .wav file.
 
 ## Prerequisites

@@ -14,6 +14,8 @@ ms.author: v-jansko
 
 # How to sign up for the Microsoft Translator Speech API
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Follow these steps to sign up for the Microsoft Translator Speech API.
 
 ## 1: Sign into Azure 	

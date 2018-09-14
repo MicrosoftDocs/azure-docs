@@ -14,6 +14,8 @@ ms.author: v-jerkin
 ---
 # Tutorial: Microsoft Translator WPF application in C#
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 This tutorial is a tour of an interactive speech translation tool that uses the Microsoft Translator Speech translation service, a part of Microsoft Cognitive Services in Azure. You learn how to:
 
 > [!div class="checklist"]

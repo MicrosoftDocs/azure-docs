@@ -11,6 +11,9 @@ ms.date: 3/5/2018
 ms.author: v-jansko
 ---
 # Languages supported by the Microsoft Translator Speech API
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 The following languages are supported for speech translation. If both languages are supported for speech translation, speech to speech or speech to text is available. If the target language is not supported for speech translation, only speech to text translation is available. 
 
 | Speech language    |

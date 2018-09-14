@@ -15,6 +15,8 @@ ms.author: v-jansko
 
 # Speech API: Languages
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Microsoft Translator continually extends the list of languages supported by its services. Use this API to discover the set of languages currently available for use with the Speech Translation service.
 
 Code samples demonstrating use of the API to get available languages are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
