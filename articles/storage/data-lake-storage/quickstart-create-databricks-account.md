@@ -137,7 +137,7 @@ Perform the following tasks to run a Spark SQL job on the data.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/small_radio_json.json"
     )
     ```
 
