@@ -115,6 +115,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 > In some cases the Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
+> - Both subscriptions must have the Microsoft.Sql provider registered.
 
 ## Limitations
 
