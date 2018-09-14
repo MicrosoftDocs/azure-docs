@@ -34,6 +34,9 @@
     - name: 'Using Java (Windows or Linux)'
       href: quickstart-java-jre.md
       displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+    - name: 'Using JavaScript (Browser)'
+      href: quickstart-js-browser.md
+      displayName: recognize speech, speech recognition, speech to text, stt
     - name: 'Using Objective-C (iOS)'
       href: quickstart-objectivec-ios.md
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
@@ -120,6 +123,8 @@
     href: regions.md
   - name: REST APIs
     href: rest-apis.md
+  - name: Swagger Reference
+    href: https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc# 
 #  - name: WebSockets protocols
 #    href: websockets.md
   - name: Speech SDK API
