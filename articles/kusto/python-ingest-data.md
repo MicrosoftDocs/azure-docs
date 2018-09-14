@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Ingest data using the Data Explorer Python library'
-description: 'In this quickstart, you learn how to ingest (load) data into Data Explorer using Python.'
+title: 'Quickstart: Ingest data using the Azure Data Explorer Python library'
+description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Python.'
 services: kusto
 author: mgblythe
 ms.author: mblythe
@@ -12,13 +12,13 @@ ms.date: 09/24/2018
 #Customer intent: As a Python developer, I want to ingest data into Data Explorer so that I can query data to include in my apps.
 ---
 
-# Quickstart: Ingest data using the Data Explorer Python library
+# Quickstart: Ingest data using the Azure Data Explorer Python library
 
 Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer provides two client libraries for Python: an [ingest library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) and [a data library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a test cluster. You then queue ingestion to the cluster and validate the results.
 
 This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
-# Prerequisites
+## Prerequisites
 
 * An Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -26,7 +26,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 
 * [Python](https://www.python.org/downloads/) installed on your development computer.
 
-# Install the data and ingest libraries
+## Install the data and ingest libraries
 
 Install *azure-kusto-data* and *azure-kusto-ingest*.
 
@@ -82,7 +82,7 @@ DESTINATION_TABLE = "StormEvents"
 DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
 ```
 
-# Set source file information
+## Set source file information
 
 This example uses a sample file hosted on Azure Blob Storage. The **StormEvents** sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
@@ -99,7 +99,7 @@ FILE_SIZE = 64158321    # in bytes
 BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + "/" + FILE_PATH + SAS_TOKEN
 ```
 
-# Create a table on your test cluster
+## Create a table on your test cluster
 
 The following code creates a table that matches the schema of the data in the StormEvents.csv file. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign-in, then return to run the next code block. Subsequent code blocks that make a connection require the same sign-in.
 
@@ -112,7 +112,7 @@ df_table_create_output = ENGINE_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE
 df_table_create_output
 ```
 
-# Define ingestion mapping
+## Define ingestion mapping
 
 The following code maps incoming CSV data to the column names and data types used when creating the table.
 
@@ -124,7 +124,7 @@ df_mapping_create_output = ENGINE_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAP
 df_mapping_create_output
 ```
 
-# Queue a message for ingestion
+## Queue a message for ingestion
 
 The following code queues a message to pull data from blob storage and ingest that data into Data Explorer.
 
@@ -138,7 +138,7 @@ INGESTION_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)
 print('Done queueing up ingestion with Kusto')
 ```
 
-# Validate that data was ingested into the table
+## Validate that data was ingested into the table
 
 Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into Data Explorer. Run the following code to get the count of records in the StormEvents table.
 
@@ -150,7 +150,7 @@ df = ENGINE_CLIENT.execute_query(KUSTO_DATABASE, QUERY).primary_results[0].to_da
 df
 ```
 
-# Run troubleshooting queries
+## Run troubleshooting queries
 
 Sign in [https://kusto.azure.com](https://kusto.azure.com) and connect to your cluster. Run the following command in your database to see if there were any ingestion failures in the last four hours. Replace the database name before running.
     
