@@ -78,6 +78,12 @@
       href: point-to-site-vpn-client-configuration-radius.md
     - name: Integrate P2S VPN RADIUS authentication with NPS server
       href: vpn-gateway-radiuis-mfa-nsp.md
+  - name: Configure OpenVPN
+    items:
+    - name: Configure OpenVPN for Point-to-Site connections
+      href: vpn-gateway-howto-openvpn.md
+    - name: Configure OpenVPN clients
+      href: vpn-gateway-howto-openvpn-clients.md
   - name: Configure VNet-to-VNet connections
     items:
     - name: Azure portal
