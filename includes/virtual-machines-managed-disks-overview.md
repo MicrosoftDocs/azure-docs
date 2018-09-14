@@ -55,7 +55,7 @@ When using Managed Disks, the following billing considerations apply:
 
 Let's take a closer look at these options.
 
-**Storage Type:** Managed Disks offers 3 performance tiers: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard SSD (Preview), and [Premium](../articles/virtual-machines/windows/premium-storage.md). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Storage Type:** Managed Disks offers 3 performance tiers: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard SSD, and [Premium](../articles/virtual-machines/windows/premium-storage.md). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
