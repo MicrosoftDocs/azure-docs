@@ -58,7 +58,8 @@ Extend the data you're collecting into the actual operation of the resources by 
 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
 
-
+### Custom sources
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../log-analytics/log-analytics-data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 
 
