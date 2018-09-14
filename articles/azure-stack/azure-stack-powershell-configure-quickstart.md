@@ -78,8 +78,7 @@ Download the Azure Stack tools and connect.
 cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
 expand-archive master.zip -DestinationPath . -Force
 
@@ -148,8 +147,7 @@ Download the Azure Stack tools and connect.
 cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
-https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
+https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
 expand-archive master.zip -DestinationPath . -Force
 
