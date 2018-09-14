@@ -37,13 +37,15 @@ The following table describes the types of storage accounts and their capabiliti
 
 <sup>2</sup>All storage accounts are encryption using Storage Service Encryption (SSE) for data at rest. For more information, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
-<sup>3</sup>The archive tier is available at the individual blob level only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+<sup>3</sup>The archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 <sup>4</sup>Zone-redundant storage (ZRS) is available only for standard general-purpose v2 storage accounts. For more information about ZRS, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md). For more information about other replication options, see [Azure Storage replication](storage-redundancy.md).
 
 ### General-purpose v2 accounts
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
+
+Microsoft recommends using a general-purpose v2 storage account for most scenarios. To learn how to upgrade your existing general-purpose v1 or Blob storage account to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). 
 
 General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
 
@@ -59,7 +61,7 @@ General-purpose v1 accounts provide access to all Azure Storage services, but ma
 
 ### Blob storage accounts
 
-A Blob storage account is a specialized storage account for storing unstructured data as blobs (objects). Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support block blobs and append blobs, but not page blobs.
+A Blob storage account is a specialized storage account for storing unstructured object data. Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support storing block blobs and append blobs, but not page blobs.
 
 Blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
 
@@ -67,7 +69,7 @@ Blob storage accounts offer multiple access tiers for storing data based on your
 
 General-purpose storage accounts have two performance tiers:
 
-* A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks. For more information about standard storage, see [Cost-effective Standard Storage and unmanaged and managed Azure VM disks](../../virtual-machines/windows/standard-storage.md).
+* A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
 * A premium storage performance tier for storing Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
 
 ## Access tiers for blob data
@@ -126,10 +128,11 @@ You can grant access to the data in your storage account using any of the follow
 - Use Azure AD credentials to authenticate a user, group, or other identity for access to blob and queue data (preview). If authentication of an identity is successful, then Azure AD returns a token to use in authorizing the request to Azure Blob storage or Queue storage. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (preview)](storage-auth-aad.md).
 - Use your storage account access key to construct a connection string that your application uses at runtime to access Azure Storage. For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).     
 - Use a shared access signature to delegate access to resources in your storage account. A shared access signature is a token that encapsulates all of the information needed to authorize a request to Azure Storage on the URL. You can specify the storage resource, the permissions granted, and the interval over which the permissions are valid as part of the shared access signature. For more information, see [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-- Your storage account 
 
 > [!NOTE]
-> Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. Microsoft recommends using Azure AD authentication for your Azure Storage applications when possible.
+> Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. 
+>
+> Microsoft recommends using Azure AD authentication for your Azure Storage blob and queue applications when possible.
 
 ## Storage account billing
 

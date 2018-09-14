@@ -14,23 +14,22 @@ ms.author: tamram
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
 
-General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
-
+General-purpose v2 storage accounts offer multiple access tiers for storing blob data based on your usage patterns. For more information on access tiers, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 ## Plan your upgrade strategy
 
 To ensure a smooth upgrade of your existing general-purpose v1 or Blob storage account to a general-purpose v2 account, consider your scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
 
-* You have an existing GPv1 storage account and want to evaluate a change to a GPv2 storage account, with the right storage tier for blob data.
-* You have decided to use a GPv2 storage account or already have one and want to evaluate whether you should use the hot or cool storage tier for blob data.
+* You have an existing general-purpose v1 storage account and want to evaluate a change to a general-purpose v2 storage account, with the right storage tier for blob data.
+* You have decided to use a general-purpose v2 storage account or already have one and want to evaluate whether you should use the hot or cool storage tier for blob data.
 
-In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a GPv2 storage account and compare that against your current costs.
+In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a general-purpose v2 storage account and compare that against your current costs.
 
 General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only for Blob storage. Blobs can be stored in a hot, cool, or archive tier, depending on your anticipated access patterns. Assigning the right access tier for blob data in your general-purpose v2 account can help reduce costs.
 
 ### Decide on an access tier for blob data in your storage account
 
-To estimate the cost of storing and accessing blob data in a GPv2 storage account, evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
+To estimate the cost of storing and accessing blob data in a general-purpose v2 storage account in a particular tier, evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
 
 * Your Blob storage consumption, in gigabytes, including:
     - How much data is being stored in the storage account?
@@ -39,9 +38,7 @@ To estimate the cost of storing and accessing blob data in a GPv2 storage accoun
     - How much data is being read from and written to the storage account? 
     - How many read operations versus write operations occur on the data in the storage account?
 
-For more information on choosing an access tier, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
-
-### Estimate capacity and transaction costs
+To decide on the best access tier for your needs, it can be helpful to determine how much capacity your blob data is currently using, and how that data is being used. 
 
 To gather usage data for your storage account prior to migration, you can monitor the storage account using [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor performs logging and provides metrics data for Azure services, including Azure Storage. 
 
@@ -53,7 +50,7 @@ For more information, see [Azure Storage metrics in Azure Monitor](storage-metri
 
 ## Upgrade to a general-purpose v2 account
 
-You can upgrade a general-purpose v1 or Blob storage account to a GPv2 account using the Azure Portal, PowerShell, or Azure CLI. Upgrading an account cannot be reversed and may result in billing charges.
+You can upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account using the Azure Portal, PowerShell, or Azure CLI. Upgrading an account cannot be reversed and may result in billing charges.
 
 ### Upgrade using the Azure portal
 
@@ -64,9 +61,9 @@ You can upgrade a general-purpose v1 or Blob storage account to a GPv2 account u
 5. Under **Confirm upgrade**, type in the name of your account. 
 6. Click **Upgrade** at the bottom of the blade.
 
-#### Upgrade with PowerShell
+### Upgrade with PowerShell
 
-To upgrade a GPv1 account to a GPv2 account using PowerShell, first update PowerShell to use the latest version of the **AzureRm.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) for information about installing PowerShell. 
+To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **AzureRm.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) for information about installing PowerShell. 
 
 Next, call the following command to upgrade the account, substituting the name of your resource group and storage account:
 
@@ -74,9 +71,9 @@ Next, call the following command to upgrade the account, substituting the name o
 Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
-#### Upgrade with Azure CLI
+### Upgrade with Azure CLI
 
-To upgrade a GPv1 account to a GPv2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI. 
+To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI. 
 
 Next, call the following command to upgrade the account, substituting the name of your resource group and storage account:
 
