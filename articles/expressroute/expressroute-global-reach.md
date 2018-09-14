@@ -1,18 +1,18 @@
 ﻿---
 title: 'Azure ExpressRoute Global Reach | Microsoft Docs'
-description: This article helps you use Azure ExpressRoute Global reach to link ExpressRoute circuits together to make a private network between your on-premises networks.
+description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.author: cherylmc
 
 ---
 
-# Link ExpressRoute circuits together using ExpressRoute Global Reach (Preview)
+# Link ExpressRoute circuits to enable ExpressRoute Global Reach (Preview)
 
 ExpressRoute is a private and resilient way to connect your on-premises networks to Microsoft Cloud. You can access many Microsoft cloud services such as Azure, Office 365, and Dynamics 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in Baltimore with an ExpressRoute circuit in Washington DC. 
 
