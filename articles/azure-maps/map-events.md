@@ -35,4 +35,4 @@ See the following articles for full code examples:
 > [Show search results](./map-search-location.md)
 
 > [!div class="nextstepaction"]
-> [code sample page](http://aka.ms/AzureMapsSamples)
+> [Code sample page](http://aka.ms/AzureMapsSamples)

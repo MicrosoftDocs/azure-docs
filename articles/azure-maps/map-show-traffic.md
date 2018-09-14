@@ -3,7 +3,7 @@ title: Show traffic with Azure Maps | Microsoft Docs
 description: How to display traffic data on a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Show traffic on the map
 
-This article shows you how to show traffic and incidents information on the map. 
+This article shows you how to show traffic and incidents information on the map.
 
 ## Understand the code
 
@@ -26,12 +26,20 @@ The second block of code uses [setTraffic](https://docs.microsoft.com/javascript
 
 ## Next steps
 
-Learn more about the classes and methods used in this article: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
+Learn more about the classes and methods used in this article:
 
-For more code examples to add to your maps, see the following articles: 
-* [Interacting with the map – mouse events](./map-events.md)
-* [Building an accessible map](./map-accessibility.md)
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Check out our [code sample page](http://aka.ms/AzureMapsSamples) for more mapping scenarios.
+See the following articles for full code samples:
+
+> [!div class="nextstepaction"]
+> [Code sample page](http://aka.ms/AzureMapsSamples)
+
+Enrich user experiences:
+
+> [!div class="nextstepaction"]
+> [Map interaction with mouse events](./map-events.md)
+
+> [!div class="nextstepaction"]
+> [Building an accessible map](./map-accessibility.md)
