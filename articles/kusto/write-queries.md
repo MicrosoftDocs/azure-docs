@@ -1,6 +1,6 @@
 ---
-title: Write queries in Azure Kusto
-description: In this how-to, you learn how to perform basic and more advanced queries using the Azure Kusto Query Language.
+title: Write queries in Kusto Query Language
+description: In this how-to, you learn how to perform basic and more advanced queries using the Kusto Query Language.
 services: kusto
 author: mgblythe
 ms.author: mblythe
@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 
 # Write Kusto queries for Azure Data Explorer
 
-In this article, you learn how to use the Azure Kusto Query Language to perform basic queries with the most common operators. You also get exposure to some of the more advanced features of the language.
+In this article, you learn how to use the Kusto Query Language to perform basic queries with the most common operators. You also get exposure to some of the more advanced features of the language.
 
 ## Prerequisites
 
@@ -23,17 +23,19 @@ You can run the queries in this article in one of two ways:
 
 - On your own cluster that includes the StormEvents sample data. For  more information, see [Quickstart: Create an Azure Kusto cluster and database](create-cluster-database-portal.md).
 
+The StormEvents sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+
 ## Overview of the Kusto Query Language
 
 A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model designed to make the syntax easy to read, author, and automate. The query uses schema entities that are organized in a hierarchy similar to SQL: databases, tables, and columns.
 
-The query consists of a sequence of query statements, delimited by a semicolon (`;`), with at least one statement being a [**tabular expression statement**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_tabularexpressionstatements.html), which is a statement that produces data arranged in a table-like mesh of columns and rows. The query's tabular expression statements produce the results of the query.
+The query consists of a sequence of query statements, delimited by a semicolon (`;`), with at least one statement being a tabular expression statement, which is a statement that produces data arranged in a table-like mesh of columns and rows. The query's tabular expression statements produce the results of the query.
 
 The syntax of the tabular expression statement has tabular data flow from one tabular query operator to another, starting with data source (for example, a table in a database, or an operator that produces data) and then flowing through a set of data transformation operators that are bound together through the use of the pipe (`|`) delimiter.
 
 For example, the following Kusto query has a single statement, which is a tabular expression statement. The statement starts with a reference to a table called `StormEvents` (the database that host this table is implicit here, and part of the connection information). The data (rows) for that table are then filtered by the value of the `StartTime` column, and then filtered by the value of the `State` column. The query then returns the count of "surviving" rows.
 
-**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA)**\]**
+**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA){:target="_blank"}**\]**
 ```Kusto
 StormEvents
 | where StartTime >= datetime(2007-11-01) and StartTime < datetime(2007-12-01)
@@ -47,6 +49,8 @@ In this case, the result is:
 |-----|
 |   23|
 
+For more information see the [Kusto Query Language reference](https://aka.ms/kustolangref).
+
 ## Most common operators
 
 The operators covered in this section are the building blocks to understanding Kusto queries. Most queries you write will include several of these operators.
@@ -59,6 +63,8 @@ To run queries on your own cluster:
 
 1. At the top of Query Explorer, select **Run**.
 
+### count
+
 [**count**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_countoperator.html): Returns the count of rows in the table.
 
 The following query returns the count of rows in the StormEvents table.
@@ -67,6 +73,8 @@ The following query returns the count of rows in the StormEvents table.
 ```Kusto
 StormEvents | count
 ```
+
+### take
 
 [**take**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_takeoperator.html): Returns up to the specified number of rows of data.
 
@@ -80,6 +88,8 @@ StormEvents | take 5
 > [!TIP]
 > There is no guarantee which records are returned unless the source data is sorted.
 
+### project
+
 [**project**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_projectoperator.html):
 Selects a subset of columns.
 
@@ -92,6 +102,8 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
+### where
+
 [**where**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_whereoperator.html): Filters a table to the subset of rows that satisfy a predicate.
 
 The following query filters the data by `EventType` and `State`.
@@ -103,6 +115,8 @@ StormEvents
 | take 5
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
+
+### sort
 
 [**sort**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_sortoperator.html): Sort the rows of the input table into order by one or more columns.
 
@@ -120,6 +134,8 @@ StormEvents
 > [!NOTE]
 > The order of operations is important. Try putting `take 5` before `sort by`. Do you get different results?
 
+### top
+
 [**top**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_topoperator.html): Returns the first *N* records sorted by the specified columns.
 
 The following query returns the same results as above with one less
@@ -132,6 +148,8 @@ StormEvents
 | top 5 by DamageProperty desc
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
+
+### extend
 
 [**extend**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_extendoperator.html): Computes derived columns.
 
@@ -147,6 +165,8 @@ StormEvents
 ```
 
 Expressions can include all the usual operators (+, -, *, /, %), and there's a range of useful functions that you can call.
+
+### summarize
 
 [**summarize**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html): Aggregates groups of rows.
 
@@ -176,6 +196,8 @@ The result of a **summarize** operation has:
 - A column for each computed expression
 
 - A row for each combination of by values
+
+### render
 
 [**render**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_renderoperator.html): Renders results as a graphical output.
 
@@ -223,11 +245,13 @@ StormEvents
 ```
 
 > [!NOTE]
-> The **render** operator is a client-side feature rather than part of the engine. It's integrated into the language for ease of use.
+> The **render** operator is a client-side feature rather than part of the engine. It's integrated into the language for ease of use. The web version of Query Explorer support the following options: barchart, columnchart, piechart, timechart, and linechart. 
 
 ## Scalar operators
 
 This section covers some of the most important scalar operators.
+
+### bin()
 
 [**bin()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_binfunction.html): Rounds values down to an integer multiple of a given bin size.
 
@@ -239,6 +263,8 @@ StormEvents
 | where StartTime > datetime(2007-02-14) and StartTime < datetime(2007-02-21)
 | summarize event_count = count() by bin(StartTime, 1d)
 ```
+
+### case()
 
 [**case()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_casefunction.html): Evaluates a list of predicates, and returns the first result expression whose predicate is satisfied, or the final **else** expression. You can use this operator to categorize or group data:
 
@@ -256,6 +282,8 @@ StormEvents
 | sort by State asc
 ```
 
+### extract()
+
 [**extract()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_extractfunction.html?q=extract): Gets a match for a regular expression from a text string.
 
 The following query extracts specific attribute values from a trace.
@@ -268,6 +296,8 @@ MyData
 ```
 
 This query uses a **let** statement, which binds a name (in this case `MyData`) to an expression. For the rest of the scope, in which the **let** statement appears (global scope or in a function body scope), the name can be used to refer to its bound value.
+
+### parse_json()
 
 [**parse_json()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_parsejsonfunction.html?q=parse_json): Interprets a string as a JSON value, and returns the value as dynamic. It is superior to using the **extractjson()** function when you need to extract more than one element of a compound JSON object.
 
@@ -302,6 +332,8 @@ MyData
 | project Trace.value, Trace.counter, Trace.min, Trace.max, Trace.stdDev
 ```
 
+### ago()
+
 [**ago()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_agofunction.html?q=ago): Subtracts the given timespan from the current UTC clock time.
 
 The following query returns data for the last 12 hours.
@@ -315,6 +347,8 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 | where TimeStamp > ago(12h)
 ```
 
+### startofweek()
+
 [**startofweek()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofweekfunction.html?q=startof): Returns the start of the week containing the date, shifted by an offset, if provided
 
 The following query returns the start of the week with different offsets.
@@ -326,16 +360,9 @@ range offset from -1 to 1 step 1
 ```
 
 This query uses the **range** operator, which generates a single-column
-table of values. See also:
-[**startofday()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofdayfunction.html?q=start%20of)*,*
-[**startofweek()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofweekfunction.html?q=startofweek)*,*
-[**startofyear()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofyearfunction.html?q=startofyear())*,*
-[**startofmonth()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofmonthfunction.html?q=startofmonth)*,*
-[**endofday()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofdayfunction.html?q=endofday)*,*
-[**endofweek()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofweekfunction.html?q=endofweek)*,*
-[**endofmonth()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofmonthfunction.html?q=endofmonth),
-and
-[**endofyear()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofyearfunction.html?q=endofyear).
+table of values. See also: [**startofday()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofdayfunction.html?q=start%20of), [**startofweek()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofweekfunction.html?q=startofweek), [**startofyear()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofyearfunction.html?q=startofyear()), [**startofmonth()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_startofmonthfunction.html?q=startofmonth), [**endofday()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofdayfunction.html?q=endofday), [**endofweek()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofweekfunction.html?q=endofweek), [**endofmonth()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofmonthfunction.html?q=endofmonth), and [**endofyear()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_endofyearfunction.html?q=endofyear).
+
+### between()
 
 [**between()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_betweenoperator.html?q=between):
 Matches the input that is inside the inclusive range.
@@ -361,6 +388,8 @@ StormEvents
 ## Tabular operators
 
 Kusto has many tabular operators, some of which are covered in other sections of this article. Here we'll focus on **parse**. 
+
+### parse
 
 [**parse**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_parseoperator.html?q=parse): Evaluates a string expression and parses its value into one or more calculated columns. There are three ways to parse: simple (the default), regex, and relaxed.
 
@@ -411,13 +440,15 @@ let MyTrace = datatable (EventTrace:string)
 'Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00Z, releaseTime=02/17/2016 08:41:00Z, previousLockTime=02/17/2016 08:40:00Z)'
 ];
 MyTrace
-| parse kind=relaxed "Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=NULL, sliceNumber=23, lockTime=02/17/2016 08:40:01, releaseTime=NULL, previousLockTime=02/17/2016 08:39:01)" with * "resourceName=" resourceName ", totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long * "lockTime=" lockTime ", releaseTime=" releaseTime:date "," * "previousLockTime=" previouLockTime:date ")" *  
-| project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previouLockTime
+| parse kind=relaxed "Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=NULL, sliceNumber=23, lockTime=02/17/2016 08:40:01, releaseTime=NULL, previousLockTime=02/17/2016 08:39:01)" with * "resourceName=" resourceName ", totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long * "lockTime=" lockTime ", releaseTime=" releaseTime:date "," * "previousLockTime=" previousLockTime:date ")" *  
+| project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previousLockTime
 ```
 
 ## Time series analysis
 
-[make-series](https://kusto.azurewebsites.net/docs/query/make-seriesoperator.html): aggregates together groups of rows like [summarize](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html), but generates a (time) series vector per each combination of by values.
+### make-series
+
+[**make-series**](https://kusto.azurewebsites.net/docs/query/make-seriesoperator.html): aggregates together groups of rows like [summarize](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html), but generates a (time) series vector per each combination of by values.
 
 The following query returns a set of time series for the count of storm events per day. The query covers a three-month period for each state, filling missing bins with the constant 0:
 
@@ -446,6 +477,8 @@ For more information, review the full list of [series functions](https://kusto.a
 
 We covered basic aggregations, like **count** and **summarize**, earlier in this article. This section introduces more advanced options.
 
+### top-nested
+
 [**top-nested**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_topnestedoperator.html?q=top-nested): Produces hierarchical top results, where each level is a drill-down based on previous level values.
 
 This operator is useful for dashboard visualization scenarios, or when it is necessary to answer a question like the following: "Find the top-N values of K1 (using some aggregation); for each of them, find what are the top-M values of K2 (using another aggregation); ..."
@@ -461,6 +494,8 @@ top-nested 3 of Source by sum(BeginLat),
 top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
+### pivot() plugin
+
 [**pivot() plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_pivotplugin.html?q=pivot): Rotates a table by turning the unique values from one column in the input table into multiple columns in the output table. The operator performs aggregations where they are required on any remaining column values in the final output.
 
 The following query applies a filter and pivots the rows into columns.
@@ -474,6 +509,8 @@ StormEvents
 | evaluate pivot(State)
 ```
 
+### dcount()
+
 [**dcount()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcount_aggfunction.html?q=dcount): Returns an estimate of the number of distinct values of an expression in the group. Use [**count()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_countoperator.html?q=count) to count all values. 
 
 The following query counts distinct `Source` by `State`.
@@ -483,6 +520,8 @@ The following query counts distinct `Source` by `State`.
 StormEvents
 | summarize Sources = dcount(Source) by State
 ```
+
+### dcountif()
 
 [**dcountif()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcountif_aggfunction.html?q=dcount): Returns an estimate of the number of distinct values of the expression for rows for which the predicate evaluates to true.
 
@@ -494,6 +533,8 @@ StormEvents
 | take 100
 | summarize Sources = dcountif(Source, DamageProperty < 5000) by State
 ```
+
+### dcount_hll()
 
 [**dcount_hll()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_dcount_hllfunction.html?q=dcount):
 Calculates the **dcount** from HyperLogLog results (generated by [**hll**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_hll_aggfunction.html) or [**hll_merge**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_hll_merge_aggfunction.html)).
@@ -508,6 +549,8 @@ StormEvents
 | project dcount_hll(hllMerged)
 ```
 
+### arg_max()
+
 [**arg_max()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_arg_max_aggfunction.html?q=arg_max):
 Finds a row in the group that maximizes an expression, and returns the value of another expression (or * to return the entire row).
 
@@ -521,6 +564,8 @@ StormEvents
 | project State, StartTime, EndTime, EventType
 ```
 
+### makeset()
+
 [**makeset()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_makeset_aggfunction.html?q=makeset): Returns a dynamic (JSON) array of the set of distinct values that an expression takes in the group.
 
 The following query returns all the times when a flood was reported by each state and creates an array from the set of distinct values.
@@ -532,6 +577,8 @@ StormEvents
 | summarize FloodReports = makeset(StartTime) by State
 | project State, FloodReports
 ```
+
+### mvexpand
 
 [**mvexpand**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_mvexpandoperator.html?q=mvexpand):
 Expands multi-value collection(s) from a [**dynamic**](https://kusto.azurewebsites.net/docs/concepts/concepts_datatypes_dynamic.html)-typed column so that each value in the collection gets a separate row. All the other columns in an expanded row are duplicated. It's the opposite of makelist.
@@ -547,6 +594,8 @@ let FloodDataSet = StormEvents
 FloodDataSet
 | mvexpand FloodReports
 ```
+
+### percentiles()
 
 [**percentiles()**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_percentiles_aggfunction.html): Returns an estimate for the specified [**nearest-rank percentile**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_percentiles_aggfunction.html) of the population defined by an expression. The accuracy depends on the density of population in the region of the percentile. Can be used only in the context of aggregation inside [**summarize**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_summarizeoperator.html).
 
@@ -577,6 +626,8 @@ StormEvents
 
 This section covers elements that enable you to create more complex queries, join data across tables, and query across databases and clusters.
 
+### let
+
 [**let**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_letstatement.html): Improves modularity and reuse. The **let** statement allows you to break a potentially complex expression into multiple parts, each bound to a name, and compose those parts together. A **let** statement can also be used to create user-defined functions and views (expressions over tables whose results look like a new table). Expressions bound by a **let** statement can be of scalar type, of tabular type, or user-defined function (lambdas).
 
 The following example creates a tabular type variable and uses it in a subsequent expression.
@@ -594,11 +645,13 @@ LightningStorms
 | distinct State
 ```
 
+### join
+
 [**join**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_joinoperator.html): Merge the rows of two tables to form a new table by matching values of the specified column(s) from each table. Kusto supports a full range of join types: **fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
 
 The following example joins two tables with an inner join.
 
-**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAMtJLVGIULBVSEksAcKknFQN79RKq%2bKSosy8dB2FsMSc0lRDq5z8vHRNXq5oXi4FIFBPVNcx1IGyk9R1jJDYxlBmsrqOCS9XrDUvVw7Qgkj8FhihWwA0yNBAB2GUETLHGM5JAVpiALElQqFGISs%2fM08hOzMvxTYzLy%2b1CGhrfp4C0DIAjRIdGuMAAAA%3d)**\]**
+**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVGIULBVSEksAcKknFQN79RKq+KSosy8dB2FsMSc0lRDq5z8vHRNXq5oXi4FIFBPVNcx1IGyk9R1jJDYxjB2srqOCS9XrDUvVw7Qhkj8Nhih2wA0ydAAySgjZI4xnJMCtMQAYkuEQo1CVn5mnkJ2Zl6KbWZeXmoR0Nb8PAWgZQAFPLdO5AAAAA==)**\]**
 ```Kusto
 let X = datatable(Key:string, Value1:long)
 [
@@ -621,18 +674,11 @@ X
 > [!TIP]
 > Use **where** and **project** operators to reduce the numbers of rows and columns in the input tables, before the join. If one table is always smaller than the other, use it as the left (piped) side of the join. The columns for the join match must have the same name. Use the **project** operator if necessary to rename a column in one of the tables.
 
+### serialize
+
 [**serialize**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_serializeoperator.html?q=serialize): Serializes the row set so you can use functions that require serialized data, like **row_number()**.
 
-The following query fails, because the data is not serialized.
-
-**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcmmVpSk5qUoFOWXx%2beV5ialFinYInE0NAGIU%2fZ8TQAAAA%3d%3d)**\]**
-```Kusto
-StormEvents
-| summarize count() by State
-| extend row_number = row_number()
-```
-
-Once the data is serialized, the query succeeds.
+The following query succeeds because the data is serialized.
 
 **\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcumFmUm5gBlQZzUipLUvBSFovzy%2bLzS3KTUIgVbJI6GJgB4pV4NWgAAAA%3d%3d)**\]**
 ```Kusto
@@ -666,6 +712,8 @@ cluster("MyCluster").database("Wiki").PageViews
 
 This section includes elements and queries that demonstrate how easy it is to perform analysis of user behaviors in Kusto.
 
+### activity_counts_metrics plugin
+
 [**activity_counts_metrics plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_counts_metrics_plugin.html): Calculates useful activity metrics (total count values, distinct count values, distinct count of new values, and aggregated distinct count). Metrics are calculated for each time window, then they are compared, and aggregated to and with all previous time windows.
 
 The following query analyzes user adoption by calculating daily activity counts.
@@ -697,6 +745,8 @@ T
 window)
 ```
 
+### activity_engagement plugin
+
 [**activity_engagement plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_engagement_plugin.html): Calculates activity engagement ratio based on ID column over a sliding timeline window. **activity_engagement plugin** can be used for calculating DAU, WAU, and MAU (daily, weekly, and monthly active users).
 
 The following query returns the ratio of total distinct users using an application daily compared to total distinct users using the application weekly, on a moving seven-day window.
@@ -719,6 +769,8 @@ range _day from _start to _end step 1d
 
 > [!TIP]
 > When calculating DAU/MAU, change the end data and the moving window period (OuterActivityWindow).
+
+### activity_metrics plugin
 
 [**activity_metrics plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_metrics_plugin.html):
 Calculates useful activity metrics (distinct count values, distinct count of new values, retention rate, and churn rate) based on the current period window vs. the previous period window.
@@ -743,6 +795,8 @@ range _day from _start to _end step 1d
 | render timechart
 ```
 
+### new_activity_metrics plugin
+
 [**new_activity_metrics plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_new_activity_metrics_plugin.html):
 Calculates useful activity metrics (distinct count values, distinct count of new values, retention rate, and churn rate) for the cohort of new users. The concept of this plugin is similar to [**activity_metrics plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_activity_metrics_plugin.html), but focuses on new users.
 
@@ -763,6 +817,8 @@ range Day from _start to _end step 1d
 | project from_Day, to_Day, retention_rate, churn_rate
 ```
 
+### session_count plugin
+
 [**session_count plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_session_count_plugin.html): Calculates the count of sessions based on ID column over a timeline.
 
 The following query returns the count of sessions. A session is considered active if a user ID appears at least once at a timeframe of 100-time slots, while the session look-back window is 41-time slots.
@@ -780,6 +836,8 @@ _data
 | render linechart
 ```
 
+### funnel_sequence plugin
+
 [**funnel_sequence plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_funnel_sequence_plugin.html):
 Calculates the distinct count of users who have taken a sequence of states; shows the distribution of previous and next states that have led to or were followed by the sequence.
 
@@ -794,16 +852,18 @@ StormEvents
 | evaluate funnel_sequence(EpisodeId, StartTime, datetime(2007-01-01), datetime(2008-01-01), 1d,365d, EventType, dynamic(['Tornado']))
 ```
 
+### funnel_sequence_completion plugin
+
 [**funnel_sequence_completion plugin**](https://kusto.azurewebsites.net/docs/queryLanguage/query_language_funnel_sequence_completion_plugin.html): Calculates the funnel of completed sequence steps within different time periods.
 
-The following query checks the completion funnel of the sequence: `Hail -> Tornado -> Thunderstorm Wind` in "overall" times of one hour, four hours, and one day (`[1h, 4h, 1d]`).
+The following query checks the completion funnel of the sequence: `Hail -> Tornado -> Thunderstorm -> Wind` in "overall" times of one hour, four hours, and one day (`[1h, 4h, 1d]`).
 
-**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAF2QTYvCMBCG74X%2bh7m1Qhbadf2AxaOwe27Bg4iEzkgD6aQmqeLijzcpbhEhgZA8eXjf0eTh6Ly0HjaA0pNXHeWfRbH6KMqwZt9poiNDjG%2fE%2bo24KkZzrdQfBXC%2bXOD%2fg6PzQNzEa7yx7FST77MfqXQmIKuNZYlmPLYDI1nnje3SZBd02WGy92SVQffqKFsBX2GXOGJV%2fLe9EHuXJnegi9RDiAungZn0lOLYmK4PSmU43%2fbKGaRfFFDFGdShmnjOQ6RJLC1eiwkY%2ffWtH7GnUUzpZg9RmKUyTwEAAA%3d%3d)**\]**
+**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 ```Kusto
 let _start = datetime(2007-01-01);
 let _end = datetime(2008-01-01);
 let _windowSize = 365d;
-let _sequence = dynamic(['Hail', 'Tornado', 'Thunderstorm Wind']);
+let _sequence = dynamic(['Hail', 'Tornado', 'Thunderstorm', 'Wind']);
 let _periods = dynamic([1h, 4h, 1d]);
 StormEvents
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start, _end, _windowSize, EventType, _sequence, _periods)
@@ -842,5 +902,4 @@ The following example deletes the function that was created in the first step.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [What is Kusto?](https://docs.microsoft.com/azure)
+[Kusto Query Language reference](https://aka.ms/kustolangref)
