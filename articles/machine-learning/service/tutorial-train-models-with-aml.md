@@ -451,7 +451,8 @@ print(model.name, model.id, model.version, sep = '\t')
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-You can also just delete the Azure Managed Compute cluster. But even if you don't delete it, when the jobs are done, all cluster nodes will be shut down and you will not incur any additional compute charges since autoscale_enabled is set to True, and cluster_min_nodes is set to 0.
+You can also  delete just the Azure Managed Compute cluster. However, since autoscale is turned on ans the cluster minimum is 0, this particular resource will not incur additional compute charges when not in use.
+
 
 ```python
 # optionally, delete the Azure Managed Compute cluster
