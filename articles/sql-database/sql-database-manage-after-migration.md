@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
@@ -31,9 +31,9 @@ This article discusses some of the core characteristics of Azure SQL DB as a pla
 Business continuity and disaster recovery abilities enable you to continue your business, as usual, in case of a disaster. The disaster could be a database level event (for example, someone mistakenly drops a crucial table) or a data-centre level event (regional catastrophe, for example a tsunami). 
 
 ### How do I create and manage backups on SQL Database?
-You don’t create backups on Azure SQL DB and that is because you don’t have to. SQL Database automatically backs up databases for you, so you no longer must worry about scheduling, taking and managing backups. The platform takes a full backup every week, differential backup every few hours and a log backup every 5 minutes to ensure the disaster recovery is efficient, and the data loss minimal. The first full backup happens as soon as you create a database. These backups are available to you for a certain period called the “Retention Period” and varies according to the performance tier you choose.  SQL Database provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+You don’t create backups on Azure SQL DB and that is because you don’t have to. SQL Database automatically backs up databases for you, so you no longer must worry about scheduling, taking and managing backups. The platform takes a full backup every week, differential backup every few hours and a log backup every 5 minutes to ensure the disaster recovery is efficient, and the data loss minimal. The first full backup happens as soon as you create a database. These backups are available to you for a certain period called the “Retention Period” and varies according to the service tier you choose. SQL Database provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Performance tier|Retention period in days|
+|Service tier|Retention period in days|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -219,9 +219,9 @@ Additionally, if you notice a degradation in the overall performance of your dat
 For a comprehensive set of recommendations for tuning performance issues, see: [Tune your database](sql-database-performance-guidance.md#tune-your-database).
 
 ### How do I ensure I am using the appropriate service tier and performance level?
-SQL Database offers various service tiers Basic, Standard, and Premium. Each service tier you get a guaranteed predictable performance tied to that service level. Depending on your workload, you may have bursts of activity where your resource utilization might hit the ceiling of the current performance level that you are in. In such cases, it is useful to first start by evaluating whether any tuning can help (for example, adding or altering an index etc.). If you still encounter limit issues, consider moving to a higher performance level or service level. 
+SQL Database offers various service tiers Basic, Standard, and Premium. Each service tier you get a guaranteed predictable performance tied to that service tier. Depending on your workload, you may have bursts of activity where your resource utilization might hit the ceiling of the current performance level that you are in. In such cases, it is useful to first start by evaluating whether any tuning can help (for example, adding or altering an index etc.). If you still encounter limit issues, consider moving to a higher service tier or performance level. 
 
-|**Service level**|**Common Use Case Scenarios**|
+|**Service tier**|**Common Use Case Scenarios**|
 |---|---|
 |**Basic**|Applications with a handful users and a database that doesn’t have high concurrency, scale, and performance requirements. |
 |**Standard**|Applications with a considerable concurrency, scale, and performance requirements coupled with low to medium IO demands. |

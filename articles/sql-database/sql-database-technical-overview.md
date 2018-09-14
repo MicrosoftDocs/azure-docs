@@ -7,7 +7,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 09/07/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
@@ -31,11 +31,7 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
 > [!IMPORTANT]
 > To understand the feature differences between SQL Database and SQL Server, see [SQL features](sql-database-features.md). 
 
-SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
-
-> [!NOTE]
-> SQL Database Managed Instance is currently in preview and is only available at a single service level. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
->
+SQL Database delivers predictable performance with multiple resource types, service tiers, and performance levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
 ## Scalable performance and pools
 

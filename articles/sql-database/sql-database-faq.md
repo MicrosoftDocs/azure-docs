@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 
 ---
@@ -73,8 +73,8 @@ For backup storage of a single database, you are charged on a prorated basis for
 ## How do I select the right SKU when converting an existing database to the new service tiers? 
 For existing SQL Database applications using the DTU-based model, the General Purpose service tier is comparable with the Standard tier. The Business Critical service tier is comparable with the Premium tier. In both cases, you should allocate at least 1 vCore for each 100 DTU that your application uses in the DTU-based model.
 
-## Do the new vCore-based service tiers offer the performance levels compatible with all existing service level objectives (SLOs)?
-The new vCore-based service tiers offer comparable performance choices for all elastic pools and databases using 100 DTUs or more.  We will continue to add more SLOs over time to accommodate sub 100 DTU workloads.
+## Do the new vCore-based service tiers offer the performance levels compatible with all existing performance levels?
+The new vCore-based service tiers offer comparable performance choices for all elastic pools and databases using 100 DTUs or more.  We will continue to add more performance levels over time to accommodate sub 100 DTU workloads.
 
 ## Are there any database feature differences between the existing DTU-based and new vCore-based service tiers? 
 The new service tiers support a superset of the features available with the current DTU-based offerings. The additional features include a set of additional dynamic management views (DMVs) and additional resource configuration options. 
