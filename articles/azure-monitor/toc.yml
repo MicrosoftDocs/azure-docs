@@ -21,6 +21,12 @@
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Mobile application
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+  - name: Alerts
+    items:
+    - name: Alert (classic) on metric condition
+      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
+    - name: Alert on subscription activity
+      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
@@ -65,6 +71,8 @@
       href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
     - name: Data sources
       href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+    - name: Azure data sources
+      href: ../monitoring-and-diagnostics/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log
       href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
     - name: Diagnostic logs
