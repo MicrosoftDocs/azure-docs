@@ -52,7 +52,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![Screenshot of License Acceptance dialog box](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Accept the license")
 
-AFter the package is installed, a confirmation appears in the Package Manager console.
+After the package is installed, a confirmation appears in the Package Manager console.
 
 
 ## Add sample code
