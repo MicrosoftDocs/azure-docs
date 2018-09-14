@@ -28,8 +28,20 @@ sections:
       href: /azure/kusto/create-cluster-database-portal
     - image: 
         src: /azure/kusto/media/index/portal.svg
-      text: Explore data with Query Explorer
+      text: Ingest streaming data from Event Hubs
+      href: /azure/kusto/ingest-data-event-hub
+    - image: 
+        src: /azure/kusto/media/index/portal.svg
+      text: Query data with Web Explorer
       href: /azure/kusto/explore-data
+    - image: 
+        src: /azure/kusto/media/index/logo-python.svg
+      text: Ingest queued data with Python
+      href: /azure/kusto/python-ingest-data
+    - image: 
+        src: /azure/kusto/media/index/logo-python.svg
+      text: Query data with Python
+      href: /azure/kusto/python-query-data
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -55,7 +67,5 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: Languages
-      html: <p><a href="https://kusdoc2.azurewebsites.net/docs/query/essentials/overview.html">Kusto Query Language (KQL)</a><p><a href="https://kusdoc2.azurewebsites.net/docs/controlCommands/controlcommands.html">Control commands</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/getting_the_kusto_client_libraries.html">.NET Framework</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/python/kusto_python_client_library.html">Python</a></p><p><a href="https://kusdoc2.azurewebsites.net/docs/api/javascript/kusto_javascript_intellisense.html">JavaScript</a></p>
-    - title: REST
-      html: <p><a href="https://kusdoc2.azurewebsites.net/docs/api/rest/api_rest.html">REST API Reference</a></p>
+    - title: Languages and API
+      html: <p><a href="https://aka.ms/kustolangref">Kusto Query Language (KQL), Management commands, and APIs</a>
