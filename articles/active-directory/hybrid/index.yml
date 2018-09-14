@@ -37,17 +37,17 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: /azure/active-directory/active-directory-aadconnect
+        - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
           html: <p>Learn how to get started extending your identities to the cloud using password hash sync</p>
           image:
             src: media/index/azuread2.png
           title: Integrate a single AD forest using password hash sync (PHS)
-        - href: /azure/active-directory/connect/active-directory-aadconnect
+        - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
           html: <p>Learn how to get started extending your identities to the cloud using pass-through authentication.</p>
           image:
             src: media/index/manage2.png
           title: Integrate a single AD forest using pass-through authentication (PTA)
-        - href: /azure/active-directory/connect/active-directory-aadconnectfed-whatis
+        - href: /azure/active-directory/hybrid/tutorial-federation 
           html: <p>Find out how to federate Azure Active Directory (Azure AD) Connect with on-premises Active Directory Federation Services (AD FS) and Azure AD.</p>
           image:
             src: media/index/federate2.png
