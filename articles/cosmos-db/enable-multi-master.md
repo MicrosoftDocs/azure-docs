@@ -77,7 +77,7 @@ az cosmosdb create \
    --resource-group "myResourceGroup" \
    --default-consistency-level "Session" \
    --enable-automatic-failover "true" \
-   --locations "eastus=0" "westus=1" \
+   --locations "EastUS=0" "WestUS=1" \
    --enable-multiple-write-locations true \
 ```
 
