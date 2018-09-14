@@ -182,12 +182,12 @@ The **Require users to consent on every device** setting enables you to require 
 Here is a list of the supported platforms and software.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Mac | Other |
+> |  | iOS | Android | Windows 10 | macOS | Other |
 > | --- | --- | --- | --- | --- | --- |
 > | **Native app** | Yes | Yes | Yes |  |  |
 > | **Edge** | Yes | Yes | Yes |  |  |
 > | **Internet Explorer** | Yes | Yes | Yes |  |  |
-> | **Chrome** | Yes | Yes | Yes |  |  |
+> | **Chrome (with extension)** | Yes | Yes | Yes |  |  |
 
 Per-device Terms of use has the following constraints:
 
