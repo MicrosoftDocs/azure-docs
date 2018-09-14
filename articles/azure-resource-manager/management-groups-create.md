@@ -34,8 +34,8 @@ You can create the management group by using the portal, PowerShell, or Azure CL
 
     ![Main Group](media/management-groups/main.png)
 4.  Fill in the management group ID field.
-    - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier is not editable after creation as it is used throughout the Azure system to identify this group.
-    - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
+    - The **Management Group Name** is the directory unique identifier that is used to submit commands on this management group. This identifier is not editable after creation as it is used throughout the Azure system to identify this group.
+    - The **display name** field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
 
     ![Create](media/management-groups/create_context_menu.png)  
 5.  Select **Save**
