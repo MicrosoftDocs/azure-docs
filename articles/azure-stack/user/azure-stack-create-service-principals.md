@@ -6,7 +6,6 @@ documentationcenter: na
 author: sethmanheim
 manager: femila
 
-
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
