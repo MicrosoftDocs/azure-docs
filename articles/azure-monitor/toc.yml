@@ -108,8 +108,10 @@
   - name: Respond to incidents
     href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=/azure/azure-monitor/toc.json
     items:
-    - name: About alerts (classic)  
+    - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+    - name: Classic alerts 
+      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-classic.md?toc=/azure/azure-monitor/toc.json  
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: Log alerts
@@ -118,8 +120,6 @@
       href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md?toc=/azure/azure-monitor/toc.json     
     - name: Extend alerts from Log Analytics to Azure
       href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
-    - name: Action groups
-      href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
   - name: Visualize data
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Partner integrations
@@ -658,6 +658,8 @@
           href: ../application-insights/app-insights-alerts.md?toc=/azure/azure-monitor/toc.json
       - name: Use action groups with alerts
         items:
+        - name: Create action groups
+          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
         - name: Learn about the webhook schema
           href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
         - name: SMS alert behavior
