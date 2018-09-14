@@ -60,12 +60,13 @@ In this quickstart, you'll learn a Windows desktop .NET (WPF) application can si
 
 #### Step 3: Configure your Visual Studio project
 
- 1. Open the project in Visual Studio.
- 1. Edit **App.Xaml.cs** and replace the line starting with `private static string ClientId` with the Application ID from the application you just registered:
+1. Extract the zip file to a local folder (for example, **C:\Azure-Samples**)
+1. Open the project in Visual Studio.
+1. Edit **App.Xaml.cs** and replace the line starting with `private static string ClientId` with the Application ID from the application you just registered:
 
-    ```csharp
-    private static string ClientId = "Enter_the_Application_Id_here";
-    ```
+```csharp
+private static string ClientId = "Enter_the_Application_Id_here";
+```
 
 ## More information
 
@@ -121,13 +122,14 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
 You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `AcquireTokenAsync` method:
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
+var accounts = await App.PublicClientApp.GetAccountsAsync();
+authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
 ```
 
 > |Where: ||
 > |---------|---------|
-> | `_scopes` | Contains the scopes being requested (that is, `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs) |
- | `App.PublicClientApp.Users.FirstOrDefault()` | The first user in the cache (MSAL support multiple users in a single app) |
+> |scopes | Contains the scopes being requested (i.e. `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs) |
+> |accounts.FirstOrDefault() | The first user in the cache (MSAL support multiple users in a single app) |
 
 ## Next steps
 

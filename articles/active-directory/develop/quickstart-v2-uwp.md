@@ -130,7 +130,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 > |Where: ||
 > |---------|---------|
 > |scopes | Contains the scopes being requested (i.e. `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs) |
- |accounts.FirstOrDefault() | The first user in the cache (MSAL support multiple users in a single app) |
+> |accounts.FirstOrDefault() | The first user in the cache (MSAL support multiple users in a single app) |
 
 ## What is next
 
