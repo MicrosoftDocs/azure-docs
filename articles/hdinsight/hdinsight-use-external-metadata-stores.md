@@ -8,7 +8,7 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 09/14/2018
 ---
 # Use external metadata stores in Azure HDInsight
 
@@ -64,6 +64,7 @@ Here are some general HDInsight Hive metastore best practices:
 - Use a custom metastore whenever possible, as this will help separate compute resources (your running cluster) and metadata (stored in the metastore).
 - Start with an S2 tier, which provides  50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
 - Ensure that the metastore created for one HDInsight cluster version is not shared across different HDInsight cluster versions. Different Hive versions use different schemas. For example, you cannot share a metastore with both Hive 1.2 and Hive 2.1 clusters.
+- Sharing metastores with multiple HDInsight clusters means that the clusters use the same metadata. If you intend each cluster to access separate data, use a separate database for the metastores for each cluster.
 - Back up your custom metastore periodically.
 - Keep your metastore and HDInsight cluster in the same region.
 - Monitor your metastore for performance and availability using Azure SQL Database Monitoring tools, such as the Azure portal or Azure Log Analytics.
