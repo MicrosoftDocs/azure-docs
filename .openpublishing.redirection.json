@@ -28097,6 +28097,11 @@
             "redirect_document_id" : false
         },
         {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
             "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md",
             "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : true
@@ -28115,6 +28120,11 @@
             "source_path": "articles/monitoring-and-diagnostics/monitoring-get-started.md",
             "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-azure.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_document_id" : true
         }
     ]
 }

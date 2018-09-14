@@ -197,6 +197,8 @@
           href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
         - name: Enable diagnostic settings with Resource Manager templates
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Prepare for JSON Lines diagnostic logs format
+          href: ../monitoring-and-diagnostics//monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshoot
         items:
         - name: Troubleshoot VM Extension
@@ -792,6 +794,12 @@
         href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
 - name: Reference
   items:
+  - name: Application Insights
+    items:
+    - name: Dependency auto-collection
+      href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
+    - name: Telemetry correlation
+      href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights data model
     items:
     - name: Overview
@@ -810,8 +818,6 @@
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
-  - name: Telemetry correlation
-    href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure PowerShell
