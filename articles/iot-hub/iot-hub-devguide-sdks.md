@@ -30,33 +30,35 @@ Azure IoT Hub device SDK for .NET:
 * Install from [Nuget][lnk-nuget-csharp-device]
 * [Source code][lnk-dotnet-sdk]
 * [API reference][lnk-dotnet-ref]
-* [Module reference][https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet]
+* [Module reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
 Azure IoT Hub device SDK for C: written in ANSI C (C99) for portability and broad platform compatibility
 * Install from [apt-get, MBED, Arduino IDE, or Nuget][lnk-c-package]
 * [Source code][lnk-c-sdk]
 * [API reference][lnk-c-ref]
-* [Module reference][https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h]
+* [Module reference](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Azure IoT Hub device SDK for Java: 
 * Add to [Maven][lnk-maven-device] project
 * [Source code][lnk-java-sdk]
 * [API reference][lnk-java-ref]
-* [Module reference][https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable]
+* [Module reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
 
 Azure IoT Hub device SDK for Node.js: 
 * Install from [npm][lnk-npm-device]
 * [Source code][lnk-node-sdk]
 * [API reference][lnk-node-ref]
-* [Module reference][https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest]
+* [Module reference](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
 Azure IoT Hub device SDK for Python: 
 * Install from [pip][lnk-pip-device]
 * [Source code][lnk-python-sdk]
+* API reference: see [C API reference][lnk-c-ref]
 
 Azure IoT Hub device SDK for iOS: 
 * Install from [CocoaPod][lnk-cocoa-device]
 * [Samples][lnk-ios-sample]
+* API reference: see [C API reference][lnk-c-ref]
 
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
