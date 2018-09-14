@@ -1,6 +1,6 @@
 - name: Azure Active Directory B2B Documentation
   href: index.yml
-  displayName: Azure Active Directory B2B Documentation
+  items:
   - name: Overview
     items:
     - name: What is B2B guest user access?
@@ -10,8 +10,8 @@
   - name: Quickstarts
     items:
     - name: Add guest users in the portal
-     href: b2b-quickstart-add-guest-users-portal.md
-   - name: Add guest users with PowerShell
+      href: b2b-quickstart-add-guest-users-portal.md
+    - name: Add guest users with PowerShell
       href: b2b-quickstart-invite-powershell.md
   - name: Tutorials
     items:
@@ -68,7 +68,7 @@
       - name: API and customization
         href: customize-invitation-api.md
     - name: Manage guest accounts
-        items:
+      items:
       - name: Add a B2B user to a role
         href: add-guest-to-role.md
       - name: Dynamic groups and B2B users
@@ -78,7 +78,7 @@
       - name: B2B for Azure AD integrated apps
         href: configure-saas-apps.md
     - name: Manage access in a hybrid organization
-        items:
+      items:
       - name: Grant local users access to cloud apps
         href: hybrid-on-premises-to-cloud.md
       - name: Grant B2B users access to local apps
