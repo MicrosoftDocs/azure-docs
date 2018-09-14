@@ -60,7 +60,7 @@ This quickstart contains a code sample that demonstrates how an ASP.NET Core Web
 
 #### Step 3: Configure your project
 
-1. Extract the zip file to a local folder (for example, `C:\Samples`)
+1. Extract the zip file to a local folder (for example, **C:\Azure-Samples**)
 1. If you use Visual Studio 2017, open the project in Visual Studio (optional)
 1. Edit **appsettings.json** and replace the value for `ClientId` with the the Application Id from the application you just registered:
 
