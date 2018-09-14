@@ -17,7 +17,7 @@ ms.date: 08/07/2018
 ms.author: harijay
 ---
 
-# Virtual Machine Serial Console (preview) 
+# Virtual Machine Serial Console
 
 
 The Virtual Machine Serial Console on Azure provides access to a text-based console for Linux virtual machines. This serial connection is to the COM1 serial port of the virtual machine, providing access to the virtual machine that is independent of a virtual machine's network or operating system state. Access to the serial console for a virtual machine can currently only be done via the Azure portal and is allowed only for those users who have VM Contributor or above access to the virtual machine. 
@@ -25,8 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Windows VMs, [click here](../windows/serial-console.md).
 
 > [!Note] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-> Currently this service is in **public preview** and access to the serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available Azure Government or Azure China cloud.
 
 
 ## Prerequisites 
@@ -176,7 +175,7 @@ Pasting very long strings does not work | Serial console limits the length of st
 ## Frequently asked questions 
 **Q. How can I send feedback?**
 
-A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
+A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred), send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
 
 **Q. Does serial console support copy/paste?**
 
