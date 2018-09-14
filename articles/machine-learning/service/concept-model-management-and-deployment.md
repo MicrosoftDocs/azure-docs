@@ -50,17 +50,6 @@ The image can also include SDK components for logging and monitoring. The SDK lo
 
 All the objects used to create the image are stored in an Azure storage account in your workspace. The image is created and stored in the Azure Container Registry. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
 
-## Model logging and data capture SDK
-
-The model logging and data capture SDK can be used to monitor input, output, and other relevant data from your model. The data is stored as a blob in the Azure Storage account for your workspace.
-
-To use the SDK with your model, you import the SDK into your scoring script or application. You can then use the SDK to log data such as parameters, results, or input details.
-
-> [!NOTE]
-> Microsoft does not see the data you collect from your model. The data is sent directly to the Azure storage account for your workspace.
-
-If you decide to enable model data collection every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, will be provisioned automatically.
-
 ## Deployment
 
 You can deploy registered images into the cloud or to edge devices. The deployment process creates all the resources needed to monitor, load-balance, and auto-scale your model. You can also upgrade an existing deployment to use a newer image.
@@ -91,3 +80,14 @@ You can deploy your models to traditional "heavy edge" devices (systems that ran
 ### Hardware-accelerated edge deployments
 
 You can automatically optimize certain models to take advantage of new hardware accelerators in edge devices. This service leverages Azure IoT Edge and allows you to run your models in real-time with cloud-like performance on the edge in semi-connected environments.
+
+## Model logging and data capture SDK
+
+The model logging and data capture SDK can be used to monitor input, output, and other relevant data from your model. The data is stored as a blob in the Azure Storage account for your workspace.
+
+To use the SDK with your model, you import the SDK into your scoring script or application. You can then use the SDK to log data such as parameters, results, or input details.
+
+> [!NOTE]
+> Microsoft does not see the data you collect from your model. The data is sent directly to the Azure storage account for your workspace.
+
+If you decide to enable model data collection every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, will be provisioned automatically.
