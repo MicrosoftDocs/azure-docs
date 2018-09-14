@@ -25,14 +25,15 @@ Azure Machine Learning supports the following compute targets:
 
 |Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
 |----|:----:|:----:|:----:|:----:|
-|Local computer| Maybe | &nbsp; | ✓ | &nbsp; |
-|Data Science Virtual Machine (DSVM) | ✓ | ✓ | ✓ | ✓ |
-|Azure Batch AI| ✓ | ✓ | ✓ | ✓ | ✓ |
-|Azure Container Instance| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-|Azure HDInsight| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
+|[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+__[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It is a serverless cloud offering that is inexpensive and easy to create and work with. ACI does not support GPU acceleration, automated hyper parameter tuning, or automated model selection. Also, it cannot be used in a pipeline.
 
 The key differentiators between the computer targets are:
-* __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware that is installed.
+* __GPU acceleration__: GPUs are available with the Data Science Virtual Machine and Azure Batch AI. You may have access to a GPU on your local computer, depending on the hardware, drivers, and frameworks that are installed.
 * __Automated hyperparameter tuning__: Azure Machine Learning automated hyperparameter optimization helps you find the best hyperparameters for your model.
 * __Automated model selection__: Azure Machine Learning can intelligently recommend algorithm and hyperparameter selection when building a model. Automated model selection helps you converge to a high-quality model faster than manually trying different combinations. For more information, see the [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) document.
 * __Pipelines__: Azure Machine Learning enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) document.
@@ -64,38 +65,25 @@ Switching from one compute target to another involves creating a [run configurat
 
 When you start a training run, the entire directory that contains your training scripts is submitted. A snapshot is created and sent to the compute target. For more information, see [snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
-## Local computer
+## <a id="local"></a>Local computer
 
 When training locally, you use the SDK to submit the training operation. You can train using a user-managed or system-managed environment.
 
 ### User-managed environment
 
-In a user-managed environment, you are responsible for ensuring that all the necessary packages are available in the Python environment you choose to run the script in.
+In a user-managed environment, you are responsible for ensuring that all the necessary packages are available in the Python environment you choose to run the script in. The following code snippet is an example of configuring training for a user-managed environment:
 
-1. Start by creating a local run config
+```python
+from azureml.core.runconfig import RunConfiguration
 
-    ```python
-    from azureml.core.runconfig import RunConfiguration
+# Editing a run configuration property on-fly.
+run_config_user_managed = RunConfiguration()
 
-    # Editing a run configuration property on-fly.
-    run_config_user_managed = RunConfiguration()
+run_config_user_managed.environment.python.user_managed_dependencies = True
 
-    run_config_user_managed.environment.python.user_managed_dependencies = True
-
-    # You can choose a specific Python environment by pointing to a Python path 
-    #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
-
-    ```
-
-2. Submit the script to run in the user-managed environment.
-
-    ```python
-    from azureml.core import ScriptRunConfig
-
-    src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-    run = exp.submit(src)
-    run.wait_for_completion(show_output=True)
-    ```
+# You can choose a specific Python environment by pointing to a Python path 
+#run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
+```
   
 ### System-managed environment
 
@@ -117,44 +105,36 @@ run_config_system_managed.prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-You can submit the run the same way as in the user-managed example. 
+## <a id="dsvm"></a>Data Science Virtual Machine
 
-```python 
-src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
-run = exp.submit(src)
-run.wait_for_completion(show_output = True)
-```
-
-## Data Science Virtual Machine
-
-Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Ubuntu-based Data Science Virtual Machines (DSVM).
+Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Data Science Virtual Machines (DSVM).
 
 > [!WARNING]
-> Azure Machine Learning does not support CentOS. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
+> Azure Machine Learning only supports virtual machines running Ubuntu. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
 
 The following steps use the SDK to configure a Data Science Virtual Machine (DSVM) as a training target:
 
-1. Create or attach a Virtual Machine
+1. Create or attach a Virtual Machine. The following code snippet checks to see if you have a DSVM with the given name, if not a new one is created:
+
+    ```python
+    from azureml.core.compute import DsvmCompute
+    from azureml.core.compute_target import ComputeTargetException
+
+    compute_target_name = 'mydsvm'
+
+    try:
+        dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
+        print('found existing:', dsvm_compute.name)
+    except ComputeTargetException:
+        print('creating new.')
+        dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
+        dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
+        dsvm_compute.wait_for_completion(show_output = True)
+    ```
     
-    * Check to see if you have a DSVM with the same name, if not create a new VM:
-    
-        ```python
-        from azureml.core.compute import DsvmCompute
-        from azureml.core.compute_target import ComputeTargetException
+   It takes around 5 minutes to create the DSVM instance.
 
-        compute_target_name = 'mydsvm'
-
-        try:
-            dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
-            print('found existing:', dsvm_compute.name)
-        except ComputeTargetException:
-            print('creating new.')
-            dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-            dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
-            dsvm_compute.wait_for_completion(show_output = True)
-        ```
-
-2. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
+1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
     ```python
     from azureml.core.runconfig import RunConfiguration
@@ -184,19 +164,13 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
     ```
 
-3. Submit the script to run in the Docker environment on the remote VM. The first time you submit the script the system downloads the base image, layers in packages specified in the `conda_dependencies.yml` file, creates a container, and then runs the script in the container.
+1. To delete the compute resources when you are finished, use the following code:
 
     ```python
-    from azureml.core import Run
-    from azureml.core import ScriptRunConfig
-
-    src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config)
-    run = exp.submit(src)
-    run.wait_for_completion(show_output = True)
+    dsvm_compute.delete()
     ```
-4. Clean up the compute resources when you are finished. '''dsvm_compute.delete() ```
-    
-## Azure Batch AI
+
+## <a id="batch"></a>Azure Batch AI
 
 If it takes a long time to train your model, you can use Azure Batch AI to distribute the training across a cluster of compute resources in the cloud. Batch AI can also be configured to enable a GPU resource.
 
@@ -238,13 +212,18 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-For more information on using the BatchAiCompute object, see the reference documentation. You can also check the Batch AI cluster and job status using az-cli commands:
-    - Check cluster status. You can see how many nodes are running. ```$ az batchai cluster list```
-    - Check job status. You can see how many jobs are running. ```$ az batchai job list```
+You can also check the Batch AI cluster and job status using the following Azure CLI commands:
 
-## Azure Container Instance (ACI)
+- Check cluster status. You can see how many nodes are running by using `az batchai cluster list`.
+- Check job status. You can see how many jobs are running by using `az batchai job list`.
 
-Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. Linux-based ACI is available in westus, eastus, westeurope, northeurope, westus2, and southeastasia regions. See details [here](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
+It takes around 5 minutes to create the Batch AI cluster
+
+## <a name='aci'></a>Azure Container Instance (ACI)
+
+Azure Container Instances are isolated containers that have faster startup times and do not require the user to manage any Virtual Machines. The Azure Machine Learning service uses Linux containers, which are available in the westus, eastus, westeurope, northeurope, westus2, and southeastasia regions. For more information, see [region availability](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). 
+
+The following example shows how to use the SDK to create an ACI compute target and use it to train a model: 
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -280,18 +259,9 @@ run_config.auto_prepare_environment = True
 run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-You can then submit the experiment to train on the newly created Azure Container Instance.
-```python
-from azureml.core.script_run_config import ScriptRunConfig
+It can take from a few seconds to a few minutes to create an ACI compute target.
 
-script_run_config = ScriptRunConfig(source_directory = script_folder,
-                                    script= 'train.py',
-                                    run_config = run_config)
-
-run = experiment.submit(script_run_config)
-```
-
-## Attach an HDInsight cluster 
+## <a id="hdinsight"></a>Attach an HDInsight cluster 
 
 HDInsight is a popular platform for big-data analytics. It provides Apache Spark, which can be used to train your model. 
 
@@ -330,30 +300,52 @@ run_config = RunConfiguration.load(project_object = project, run_config_name = '
 run_config.auto_prepare_environment = True
 ```
 
+## Submit training run
+    
+The code for submitting a training run is the same regardless of the compute target:
+
+* Create a `ScriptRunConfig` object using the run configuration for the compute target.
+* Submit the run.
+* Wait for the run to complete.
+
+The following example uses the configuration for the system-managed local compute target created earlier in this document:
+
+```pyghon
+src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+run = exp.submit(src)
+run.wait_for_completion(show_output = True)
+```
+
 ## View and set up compute using the Azure portal
 
-You can view what compute is associated with your workspace from the web portal. To get to the list of compute:
-1. Visit the web portal and navigate to your workspace.
+You can view what compute targets are associated with your workspace from the Azure portal. To get to the list, use the following steps:
+
+1. Visit the [Azure portal](https://portal.azure.com) and navigate to your workspace.
 2. Click on the __Compute__ link under the __Applications__ section.
-![View compute tab](./media/how-to-set-up-training-targets/compute_tab.png)
+
+    ![View compute tab](./media/how-to-set-up-training-targets/compute_tab.png)
 
 ### Create a compute target
 
-The web portal makes it easy to create Batch AI and Virtual Machines. To create compute from the portal, follow the above steps to view the list of compute and then do the following.
+TFollow the above steps to view the list of compute targets, and then use the following steps to create a compute target:
 
 1. Click the __+__ sign to add a compute target.
-![Add compute ](./media/how-to-set-up-training-targets/add_compute.png)
-2. Enter a name for the compute target.
-3. Select the type of compute to attach for __Training__. 
-4. Select __Create New__ and fill out the required form. 
-5. Select __Create__
-6. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
-![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
+
+    ![Add compute ](./media/how-to-set-up-training-targets/add_compute.png)
+
+1. Enter a name for the compute target.
+1. Select the type of compute to attach for __Training__. 
+1. Select __Create New__ and fill out the required form. 
+1. Select __Create__
+1. You can view the status create operation by selecting the compute target from the list.
+
+    ![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
+
 7. Now you can submit a run against these targets as detailed above.
 
 ### Reuse existing compute in your workspace
 
-The web portal makes it easy to attach existing compute to your workspace.
+Follow the above steps to view the list of compute targets, then use the following steps to reuse compute target:
 
 1. Click the **+** sign to add a compute target.
 2. Enter a name for the compute target.
@@ -373,7 +365,7 @@ The web portal makes it easy to attach existing compute to your workspace.
 
 ## Next steps
 
-* [What is Azure Machine Learning service](overview-what-is-azure-ml.md)
-* [Quickstart: Create a workspace with Python](quickstart-get-started.md)
+* [Azure Machine Learning SDK reference](http://aka.ms/aml-sdk)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
+* [Where to deploy models](how-to-deploy-and-where.md)
 * [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md)
