@@ -51,7 +51,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 
     # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
   - Azure Stack 1807 or earlier:
