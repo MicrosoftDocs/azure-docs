@@ -13,23 +13,30 @@ ms.date: 09/24/2018
 ---
 
 # Track experiments and training metrics in Azure Machine Learning
-With the Azure Machine Learning service, you can track your experiments and monitor metrics to create better models. You can add logging to your training script to be able to track your experiments in the Web Portal as well as with widgets in Jupyter Notebooks. In this document, you will learn about the different ways to track your run in a local Jupyter Notebook. You can also check the progress of a running job in multiple ways through the Jupyter widget as well as a wait_for_completion method.
+
+With the Azure Machine Learning service, you can track your experiments and monitor metrics to create better models. You can add logging to your training script to be able to track your experiments in the Web Portal as well as with widgets in Jupyter Notebooks. In this article, you'll learn about the different ways to track your run in a local Jupyter Notebook. You can also check the progress of a running job in multiple ways through the Jupyter widget as well as a `wait_for_completion` method.
 
 ## What can be tracked
-The below items can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, view [the SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
 
-  - Log metrics
-    - Scalar values (float, integers, or strings)
-    - Lists (float, integers, or strings)
-    - Row or table (names lists of the above types)
-    - Images
-  - Tag a run
-  - Give the run a name
-  - Upload a file or directory
+The following log metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+
+- Scalar values (float, integers, or strings)
+- Lists (float, integers, or strings)
+- Row or table (names lists of the above types)
+- Images
+
+You can also:
+
+- Tag a run
+- Give the run a name
+- Upload a file or directory
 
 ## Add experiment tracking
-You can add tracking through Azure Machine Learning services to your training experiment. This example trains a simple sklearn Ridge model locally in a local Jupyter notebook. Learn more about submitting experiments to different environments [here](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets). 
-1. Load the workspace. To learn more about setting the workspace configuration, follow this [Quickstart guide](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+
+You can add tracking to your training experiment through Azure Machine Learning services. The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+
+1. Load the workspace. To learn more about setting the workspace configuration, follow the [Getting started](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started) quickstart.
+
   ```python
   from azureml.core import Workspace, Run
   import azureml.core
@@ -38,7 +45,9 @@ You can add tracking through Azure Machine Learning services to your training ex
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
+
 2. Create the Experiment.
+
   ```python
   from azureml.core import Experiment
 
@@ -46,7 +55,9 @@ You can add tracking through Azure Machine Learning services to your training ex
   experiment_name = 'train-in-notebook'
   exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
+
 3. Start a training run in a local Jupyter Notebook. 
+
   ``` python
   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
   from sklearn.datasets import load_diabetes
@@ -69,7 +80,8 @@ You can add tracking through Azure Machine Learning services to your training ex
   joblib.dump(value = reg, filename = 'model.pkl');
   ```
 
-4. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record as well. The code below adds tags, logs, and uploads a model file to the experiment run. 
+4. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record as well. The following code adds tags, logs, and uploads a model file to the experiment run.
+
   ```python 
   run = Run.start_logging(experiment = exp)
   run.tag("Description","My first run!")
@@ -86,20 +98,24 @@ You can add tracking through Azure Machine Learning services to your training ex
 ```
 
 ## View the experiment in the web portal
-When an experiment is done running, you can  browse to the recorded experiment run record. You can do this in two ways:
-  - Get the URL to the run directly ```print(run.get_portal_url())```
-  - You can also view the run details by submitting the name of the run, in this case, ```run```. This will point you to the Experiment name, Id, Type, Status, Datils Page, a link to the Web Portal and a link to documentation.
 
-The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values. 
+When an experiment has finished running, you can  browse to the recorded experiment run record. You can do this in two ways:
 
-Under the outputs tab, you can view and download the model.pkl that we uploaded in the code above. This example did not save anything to logs, but if it had, you could see these under the logs tab. 
+- Get the URL to the run directly ```print(run.get_portal_url())```
+- View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
 
-You can also download the snapshot of the experiment you submitted. 
+The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
+
+Under the outputs tab, you can view and download the model.pkl that we uploaded in the code above. This example did not save anything to logs, but if it had, you could see these under the logs tab.
+
+You can also download the snapshot of the experiment you submitted.
 
 ## Monitor progress using Jupyter widgets
+
 For longer running experiments, you can watch the progress of the run with a Jupyter Notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes. This example runs locally against a user-managed environment. We can now expand on the basic ridge model from above and do a simple parameter sweep to sweep over alpha values of a sklearn ridge model to capture metrics and trained models in runs under the experiment.
 
 1. Create a training script. This uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
+
   ```python
   %%writefile $project_folder/train.py
 
@@ -151,9 +167,11 @@ For longer running experiments, you can watch the progress of the run with a Jup
       print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
   
   ```
-  The script uses the Ridge model example and adds several logs, uploads the model file, and also registers each model. In this case we uploaded the models to the logs folder due to the missing ```outputs/``` preface to the name in the line ```run.upload_file)```.
+
+   The script uses the Ridge model example and adds several logs, uploads the model file, and also registers each model. In this case we uploaded the models to the logs folder due to the missing ```outputs/``` preface to the name in the line ```run.upload_file```
   
 2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
+
   ```python
   %%writefile $script_folder/mylib.py
   import numpy as np
@@ -162,7 +180,9 @@ For longer running experiments, you can watch the progress of the run with a Jup
       # list of numbers from 0.0 to 1.0 with a 0.05 interval
       return np.arange(0.0, 1.0, 0.05)
   ```
-3. Configure a user-managed local environment. 
+
+3. Configure a user-managed local environment.
+
   ```python
   from azureml.core.runconfig import RunConfiguration
 
@@ -174,26 +194,34 @@ For longer running experiments, you can watch the progress of the run with a Jup
   # You can choose a specific Python environment by pointing to a Python path 
   #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
   ```
+
 4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for training, including the ```mylib.py``` file.
+
   ```python
   from azureml.core import ScriptRunConfig
 
   src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
   run = exp.submit(src)
   ```
+
 5. View the Jupyter widget while waiting for the run to complete.
+
   ```python
   
   from azureml.train.widgets import RunDetails
   RunDetails(run).show()
   ```
-  
+
 ## Get log results upon completion
+
 Model training and monitoring happen in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. Use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
   
 ## Query run metrics
-You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the parameter sweep example above to determine the best model. 
+
+You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the parameter sweep example above to determine the best model.
+
 1. Start off by determining what the best alpha value is in the list of metrics from above.
+
   ```python
   import numpy as np
 
@@ -204,25 +232,35 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
       best_alpha
   ))
   ```
-2. Once you load all of the metrics, you can find the run with the lowest Mean Squared Error value 
+
+2. Once you load all of the metrics, you can find the run with the lowest Mean Squared Error value.
+
   ```python
   best_run_id = min(child_run_metrics, key = lambda k: child_run_metrics[k]['mse'])
   best_run = child_runs[best_run_id]
   print('Best run is:', best_run_id)
   print('Metrics:', child_run_metrics[best_run_id])
   ```
-3. You can add tags to your runs to make them easier to catalog. In this case, we add a tag for the best run so that we can 
+
+3. You can add tags to your runs to make them easier to catalog. In this case, we add a tag for the best run so that we can.
+
   ```python
   best_run.tag("Description","The best one")
   best_run.get_tags()
   ```
-### Register the best model
-In the above example, we registered each individual model within the script. Now that we have the best model, we can register it as well with ```model = run.register_model(model_name='best_ridge_model', model_path<<best-model-path>>)```
 
-## List file names 
+### Register the best model
+
+In the above example, we registered each individual model within the script. Now that we have the best model, we can register it as well with ```model = run.register_model(model_name='best_ridge_model', model_path<<best-model-path>>)```.
+
+## List file names
+
 You can list all of the files that are associated with this run record by called ```run.get_file_names()```.
 
 ## Next steps
+
 Try these next steps to learn how to use this Azure Machine Learning SDK for Python:
-1. Learn how to register the best model and deploy it.
-2. Follow the tutorial for training using PyTorch.
+
+1. See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+2. Learn how to [Train PyTorch Models with Azure Machine Learning](how-to-train-pytorch.md).
