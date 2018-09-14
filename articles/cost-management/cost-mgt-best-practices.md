@@ -137,7 +137,7 @@ For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 Do you need to import your billing data into an external system, like a dashboard or financial system? You can schedule automated reports daily to avoid manually downloading files every month. And you can export billing data to an Azure storage account and get notified using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md). Then you can use your Azure data to combine it with custom data that you can use in your own systems.
 
-For more information about exporting billing data, see [Create and manage exported data](tuorial-export-acm-data).
+For more information about exporting billing data, see [Create and manage exported data](tutorial-export-acm-data.md).
 
 ### Create budgets
 
