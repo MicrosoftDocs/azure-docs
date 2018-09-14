@@ -51,15 +51,7 @@ To learn more about the classes and methods used in this article:
 Add control to your maps:
 
 > [!div class="nextstepaction"]
-> [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)
-
-> [!div class="nextstepaction"]
 > [Add map controls](./map-add-controls.md)
-
-Enrich your map apps with styling:
-
-> [!div class="nextstepaction"]
-> [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle)
 
 > [!div class="nextstepaction"]
 > [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
