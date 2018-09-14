@@ -23,11 +23,11 @@ sections:
     - image: 
         src: https://docs.microsoft.com/en-us/media/common/i_cligeneric.svg
       text: Azure PowerShell
-      href: /azure/networking/networking-overview
+      href: https://go.microsoft.com/fwlink/?linkid=2020925
     - image: 
         src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
       text: Azure Portal
-      href: /azure/networking/networking-overview
+      href: https://go.microsoft.com/fwlink/?linkid=2020698
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -35,9 +35,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/networking/networking-overview">Create a Front Door with App Service</a>
-    - html: <a href="/azure/networking/networking-overview">Configure application protection with Front Door</a>
-    - html: <a href="/azure/networking/networking-overview">Use a Front Door with Application Gateway</a>
+    - html: <a href="https://go.microsoft.com/fwlink/?linkid=2020931">Create a Front Door with App Service</a>
+    - html: <a href="https://go.microsoft.com/fwlink/?linkid=2021008">Configure application protection with Front Door</a>
+    - html: <a href="https://go.microsoft.com/fwlink/?linkid=2021014">Use a Front Door with Application Gateway</a>
 - title: Reference
   items:
   - type: list
@@ -45,6 +45,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/azure/networking/networking-overview">Azure CLI</a></p><p><a href="li/azure/networking/networking-overviewnk">Azure PowerShell</a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2020937">Azure CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>
     - title: REST
-      html: <p><a href="/azure/networking/networking-overview">REST API</a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2020948">REST API</a></p>
