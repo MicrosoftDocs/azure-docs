@@ -65,16 +65,6 @@ See the code samples for Daemon or Server Application to Web API scenarios. And,
 
 When the first application uses its authorization code to get a JWT access token, it also receives a JWT refresh token. When the access token expires, the refresh token can be used to re-authenticate the user without prompting for credentials. This refresh token is then used to authenticate the user, which results in a new access token and refresh token.
 
-## Service-to-service apps that use the Azure AD v2.0 endpoint
-
-Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow.
-
-In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:
-
-![Daemon app authentication flow](./media/v2-app-types/convergence_scenarios_daemon.png)
-
-To build a daemon app, see the [client credentials documentation](v2-oauth2-client-creds-grant-flow.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
 ## Next steps
 
 - Learn more about other [Application types and scenarios](app-types.md)
