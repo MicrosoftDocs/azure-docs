@@ -51,35 +51,35 @@
   items: 
   - name: Build app
     items: 
-    - name: 1. With custom domain
+    - name: 1. Determine user intentions
       href: luis-quickstart-intents-only.md
-    - name: 2. Add prebuilt intents and entities
+    - name: 2. Identify common intents
       href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. Add regular expression entity
+    - name: 3. Extract well-formatted data
       href: luis-quickstart-intents-regex-entity.md
-    - name: 4. Add list entity
+    - name: 4. Extract exact text matches
       href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. Add hierarchical entity
+    - name: 5. Extract contextually-related data
       href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Add composite entity
+    - name: 6. Group and extract related data
       href: luis-tutorial-composite-entity.md
-    - name: 7. Add simple entity and phrase list
+    - name: 7. Extract names
       href: luis-quickstart-primary-and-secondary-data.md
-    - name: 8. Add keyPhrase entity
+    - name: 8. Extract key phrases
       href: luis-quickstart-intent-and-key-phrase.md
-    - name: 9. Add sentiment analysis
+    - name: 9. Extract sentiment
       href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: Improve app 
     items: 
-    - name: Review endpoint utterances
+    - name: 1. Fix unsure predictions
       href: luis-tutorial-review-endpoint-utterances.md
-    - name: With batch test
+    - name: 2. Batch test datasets
       href: luis-tutorial-batch-testing.md
-    - name: With patterns
+    - name: 3. Add common utterance formats
       href: luis-tutorial-pattern.md
-    - name: With roles
+    - name: 4. Extract contextually-related patterns
       href: luis-tutorial-pattern-roles.md
-    - name: With Pattern.any entity
+    - name: 5. Extract free-form data
       href: luis-tutorial-pattern-any.md
 - name: Samples
   items:
