@@ -20,7 +20,7 @@ This dataset has about 100 scenarios of chit-chat in the voice of three personas
 
 Some examples of the different personalities:
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|User query|Professional|Friendly|Humorous|
+|User query|The Professional|The Friend|The Comic|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
 |`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
