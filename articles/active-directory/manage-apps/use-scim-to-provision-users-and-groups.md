@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 
 ms.author: barbkess
@@ -83,7 +83,7 @@ Applications that support the SCIM profile described in this article can be conn
 13. Click **Save** to start the Azure AD provisioning service. 
 14. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users and/or groups you wish to sync.
 
-Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
 
 >[!NOTE]
 >The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. 
@@ -151,7 +151,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 13. Click **Save** to start the Azure AD provisioning service. 
 14. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users and/or groups you wish to sync.
 
-Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](check-status-user-account-provisioning.md).
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
@@ -449,7 +449,7 @@ The following illustration shows the messages that Azure Active Directory sends 
   ````
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
-    Content-type: application/json
+    Content-type: application/scim+json
     {
       "schemas":
       [
@@ -551,7 +551,7 @@ The following illustration shows the messages that Azure Active Directory sends 
   ````
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-    Content-type: application/json
+    Content-type: application/scim+json
     {
       "schemas": 
       [
@@ -690,12 +690,11 @@ The following illustration shows the messages that Azure AcD sends to a SCIM ser
 *Figure 6: Group provisioning and de-provisioning sequence*
 
 ## Related articles
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [Automate User Provisioning/Deprovisioning to SaaS Apps](../active-directory-saas-app-provisioning.md)
-* [Customizing Attribute Mappings for User Provisioning](../active-directory-saas-customizing-attribute-mappings.md)
-* [Writing Expressions for Attribute Mappings](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Scoping Filters for User Provisioning](../active-directory-saas-scoping-filters.md)
-* [Account Provisioning Notifications](../active-directory-saas-app-provisioning.md)
+* [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
+* [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
+* [Writing Expressions for Attribute Mappings](functions-for-customizing-application-data.md)
+* [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Account Provisioning Notifications](user-provisioning.md)
 * [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

@@ -3,7 +3,7 @@ title: Install Symantec Endpoint Protection on a Windows VM in Azure | Microsoft
 description: Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the Classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: roiyz
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: cynthn
+ms.author: roiyz
 
 ---
 

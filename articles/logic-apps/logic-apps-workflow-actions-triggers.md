@@ -1,18 +1,14 @@
 ---
-# required metadata
 title: Trigger and action types reference - Azure Logic Apps | Microsoft Docs
 description: Learn about trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
-
-# optional metadata
 ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.topic: reference
+ms.date: 06/22/2018
 ---
 
 # Trigger and action types reference for Workflow Definition Language in Azure Logic Apps
@@ -174,6 +170,7 @@ behavior depends on whether or not sections are included.
 |---------|------|-------------| 
 | headers | JSON Object | The headers from the response | 
 | body | JSON Object | The body from the response | 
+| status code | Integer | The status code from the response | 
 |||| 
 
 *Example*
@@ -355,6 +352,7 @@ The endpoint's response determines whether the workflow runs.
 |---------|------|-------------| 
 | headers | JSON Object | The headers from the response | 
 | body | JSON Object | The body from the response | 
+| status code | Integer | The status code from the response | 
 |||| 
 
 *Requirements for incoming requests*
@@ -364,7 +362,7 @@ conform to a specific trigger pattern or contract,
 and recognize these properties:  
   
 | Response | Required | Description | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. | 
 | Retry-after header | No | The number of seconds until the logic app polls the endpoint again | 
 | Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
@@ -458,6 +456,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 |---------|------|-------------| 
 | headers | JSON Object | The headers from the response | 
 | body | JSON Object | The body from the response | 
+| status code | Integer | The status code from the response | 
 |||| 
 
 *Example*
@@ -902,7 +901,7 @@ and help you organize workflow execution
 ### Built-in actions
 
 | Action type | Description | 
-|-------------|-------------|  
+|-------------|-------------| 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
@@ -2882,6 +2881,181 @@ This setting puts your logic app into "high throughput" mode.
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## Authenticate triggers or actions
+
+HTTP endpoints support different kinds of authentication. 
+You can set up authentication for these HTTP triggers and actions:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [HTTP Webhook](../connectors/connectors-native-webhook.md)
+
+Here are the kinds of authentication you can set up:
+
+* [Basic authentication](#basic-authentication)
+* [Client certificate authentication](#client-certificate-authentication)
+* [Azure Active Directory (Azure AD) OAuth authentication](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### Basic authentication
+
+For this authentication type, your trigger or action definition can 
+include an `authentication` JSON object that has these properties:
+
+| Property | Required | Value | Description | 
+|----------|----------|-------|-------------| 
+| **type** | Yes | "Basic" | The authentication type to use, which is "Basic" here | 
+| **username** | Yes | "@parameters('userNameParam')" | A parameter that passes the user name to authenticate for accessing the target service endpoint |
+| **password** | Yes | "@parameters('passwordParam')" | A parameter that passes the password to authenticate for accessing the target service endpoint |
+||||| 
+
+For example, here's the format for the `authentication` 
+object in your trigger or action definition. 
+For more information about securing parameters, 
+see [Secure sensitive information](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### Client Certificate authentication
+
+For this authentication type, your trigger or action definition can 
+include an `authentication` JSON object that has these properties:
+
+| Property | Required | Value | Description | 
+|----------|----------|-------|-------------| 
+| **type** | Yes | "ClientCertificate" | The authentication type to use for Secure Sockets Layer (SSL) client certificates | 
+| **pfx** | Yes | <*base64-encoded-pfx-file*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
+| **password** | Yes | "@parameters('passwordParam')" | A parameter with the password for accessing the PFX file |
+||||| 
+
+For example, here's the format for the `authentication` 
+object in your trigger or action definition. 
+For more information about securing parameters, 
+see [Secure sensitive information](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### Azure Active Directory (AD) OAuth authentication
+
+For this authentication type, your trigger or action definition can 
+include an `authentication` JSON object that has these properties:
+
+| Property | Required | Value | Description | 
+|----------|----------|-------|-------------| 
+| **type** | Yes | `ActiveDirectoryOAuth` | The authentication type to use, which is "ActiveDirectoryOAuth" for Azure AD OAuth | 
+| **authority** | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the authentication token |  
+| **tenant** | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant | 
+| **audience** | Yes | <*resource-to-authorize*> | The resource that you want authorization to use, for example, `https://management.core.windows.net/` | 
+| **clientId** | Yes | <*client-ID*> | The client ID for the app requesting authorization | 
+| **credentialType** | Yes | "Secret" or "Certificate" | The credential type the client uses for requesting authorization. This property and value don't appear in your underlying definition, but determines the required parameters for the credential type. | 
+| **password** | Yes, only for "Certificate" credential type | "@parameters('passwordParam')" | A parameter with the password for accessing the PFX file | 
+| **pfx** | Yes, only for "Certificate" credential type | <*base64-encoded-pfx-file*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
+| **secret** | Yes, only for "Secret" credential type | <*secret-for-authentication*> | The base64-encoded secret that the client uses for requesting authorization |
+||||| 
+
+For example, here's the format for the `authentication` object when 
+your trigger or action definition uses the "Secret" credential type:
+For more information about securing parameters, 
+see [Secure sensitive information](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## Secure sensitive information
+
+To protect sensitive information that you use for authentication, 
+such as usernames and passwords, in your trigger and action definitions, 
+you can use parameters and the `@parameters()` expression so that this 
+information isn't visible after you save your logic app. 
+
+For example, suppose you're using "Basic" authentication 
+in your trigger or action definition. Here is an example 
+`authentication` object that specifies a username and password:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+In the `parameters` section for your logic app definition, 
+define the parameters you used in your trigger or action definition:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+If you're creating or using an Azure Resource Manager deployment template, 
+you also have to include an outer `parameters` section for your template definition. 
+For more information about securing parameters, see 
+[Secure access to your logic apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## Next steps
 

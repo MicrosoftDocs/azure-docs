@@ -7,13 +7,12 @@ author: PatAltimore
 manager: femila
 editor: ''
 
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/12/2018
 ms.author: patricka
 
 ---
@@ -89,3 +88,5 @@ The compliance documentation can be found on the [Microsoft Service Trust Portal
 ## Next steps
 
 - [Learn how to rotate your secrets in Azure Stack](azure-stack-rotate-secrets.md)
+- [PCI-DSS and the CSA-CCM documents for Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [DoD and NIST documents for Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

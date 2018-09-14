@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
@@ -37,6 +37,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-15five-tutorial.png)| [15Five](15five-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-23video-tutorial.png)| [23 Video](23video-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-360online-tutorial.png)| [360 Online](360online-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-4me-tutorial.png)| [4me](4me-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-8x8virtualoffice-tutorial.png)| [8x8 Virtual Office](8x8virtualoffice-tutorial.md)|
 
 ## A
@@ -72,6 +73,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-apptio-tutorial.png)| [Apptio](apptio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-aravo-tutorial.png)| [Aravo](aravo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-arc-tutorial.png)| [Arc Publishing - SSO](arc-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-arcgis-tutorial.png)| [ArcGIS Online](arcgis-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-ariba-tutorial.png)| [Ariba](ariba-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-asana-tutorial.png)| [Asana](asana-tutorial.md)|[Asana - User Provisioning](asana-provisioning-tutorial.md)|
@@ -111,6 +113,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâonline](bpmonline-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](bridge-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-bridgelineunbound-tutorial.png)| [Bridgeline Unbound](bridgelineunbound-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-brightspace-desire2learn-tutorial.png)| [Brightspace by Desire2Learn](brightspace-desire2learn-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bynder-tutorial.png)| [Bynder](bynder-tutorial.md)|
 
@@ -137,7 +140,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - User Provisioning](cisco-spark-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - User Provisioning](cisco-webex-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - User Provisioning](clarizen-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)||
 | ![logo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Clear Review](clearreview-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-clearcompany-tutorial.png)| [ClearCompany](clearcompany-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-clever-tutorial.png)| [Clever](clever-tutorial.md)|
@@ -145,6 +148,8 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-newsignature-tutorial.png)| [Cloud Management Portal for Microsoft Azure](newsignature-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-cloudpassage-tutorial.png)| [CloudPassage](cloudpassage-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-collaborativeinnovation-tutorial.png)| [Collaborative Innovation](collaborativeinnovation-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-comeetrecruitingsoftware-tutorial.png)| [Comeet Recruiting Software](comeetrecruitingsoftware-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-comm100livechat-tutorial.png)| [Comm100 Live Chat](comm100livechat-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-communifire-tutorial.png)| [Communifire](communifire-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-competencyiq-tutorial.png)| [CompetencyIQ](competencyiq-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-complianceelf-tutorial.png)| [Compliance ELF](complianceelf-tutorial.md)|
@@ -173,6 +178,8 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-docusign-tutorial.png)| [DocuSign](docusign-tutorial.md)|[DocuSign - User Provisioning](docusign-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-dossier-tutorial.png)| [Dossier](dossier-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-dovetale-tutorial.png)| [Dovetale](dovetale-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Dow Jones Factiva](dowjones-factiva-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| [Dropbox for Business - User Provisioning](dropboxforbusiness-provisioning-tutorial.md)| 
 | ![logo](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
@@ -186,6 +193,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-ekincare-tutorial.png)| [eKincare](ekincare-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-elionboarding-tutorial.png)| [Eli Onboarding](elionboarding-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](elium-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-eluminate-tutorial.png)| [eLuminate](eluminate-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-empcenter-tutorial.png)| [EmpCenter](empcenter-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-encompass-tutorial.png)| [Encompass](encompass-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-envimmis-tutorial.png)| [Envi MMIS](envimmis-tutorial.md)|
@@ -204,6 +212,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-factset-tutorial.png)| [FactSet](factset-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-fidelitynetbenefits-tutorial.png)| [Fidelity NetBenefits](fidelitynetbenefits-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-fieldglass-tutorial.png)| [Fieldglass](fieldglass-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-figma-tutorial.png)| [Figma](figma-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-filecloud-tutorial.png)| [FileCloud](filecloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-filesanywhere-tutorial.png)| [FilesAnywhere](filesanywhere-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-firmplay-tutorial.png)| [FirmPlay - Employee Advocacy for Recruiting](firmplay-tutorial.md)|
@@ -243,6 +252,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-heroku-tutorial.png)| [Heroku](heroku-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hirevue-tutorial.png)| [HireVue](hirevue-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-hornbill-tutorial.png)| [Hornbill](hornbill-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hostedgraphite-tutorial.png)| [Hosted Graphite](hostedgraphite-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hpesaas-tutorial.png)| [HPE SaaS](hpesaas-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hr2day-tutorial.png)| [HR2day by Merces](hr2day-tutorial.md)|
@@ -285,6 +295,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-jdacloud-tutorial.png)| [JDA Cloud](jdacloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jiramicrosoft-tutorial.png)| [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jira52microsoft-tutorial.png)| [JIRA SAML SSO by Microsoft (V5.2)](jira52microsoft-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jitbit-helpdesk-tutorial.png)| [Jitbit Helpdesk](jitbit-helpdesk-tutorial.md)|
@@ -293,6 +304,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-jobscience-tutorial.png)| [Jobscience](jobscience-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jobscore-tutorial.png)| [JobScore](jobscore-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jostle-tutorial.png)| [Jostle](jostle-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-kantegassoforbamboo-tutorial.png)| [Kantega SSO for Bamboo](kantegassoforbamboo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-kantegassoforbitbucket-tutorial.png)| [Kantega SSO for Bitbucket](kantegassoforbitbucket-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-kantegassoforconfluence-tutorial.png)| [Kantega SSO for Confluence](kantegassoforconfluence-tutorial.md)|
@@ -326,7 +338,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize Cloud](lifesize-cloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [LINE WORKS](worksmobile-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](linkedinelevate-tutorial.md)|[LinkedIn Elevate - User Provisioning](linkedinelevate-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning - User Provisioning](linkedinlearning-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator - User Provisioning](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![logo](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|
@@ -344,6 +356,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-mercell-tutorial.png)| [Mercell](mercell-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mercerhrs-tutorial.png)| [Mercer BenefitsCentral (MBC)](mercerhrs-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-merchlogix-tutorial.png)| [Merchlogix](merchlogix-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-metanetworksconnector-tutorial.png)| [Meta Networks Connector](metanetworksconnector-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mimecast-admin-console-tutorial.png)| [Mimecast Admin Console](mimecast-admin-console-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mimecast-personal-portal-tutorial.png)| [Mimecast Personal Portal](mimecast-personal-portal-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mindflash-tutorial.png)| [Mindflash](mindflash-tutorial.md)|
@@ -364,6 +377,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-n2fexpensereports-tutorial.png)| [N2F - Expense reports](n2f-expensereports-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-namely-tutorial.png)| [Namely](namely-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-neotalogicstudio-tutorial.png)| [Neota Logic Studio](neotalogicstudio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-netdocuments-tutorial.png)| [NetDocuments](netdocuments-tutorial.md)|
@@ -374,6 +388,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-nomadesk-tutorial.png)| [Nomadesk](nomadesk-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-nomadic-tutorial.png)| [Nomadic](nomadic-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-novatus-tutorial.png)| [Novatus](novatus-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-nuclino-tutorial.png)| [Nuclino](nuclino-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-oc-tanner-tutorial.png)| [O.C. Tanner - AppreciateHub](oc-tanner-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-officespace-tutorial.png)| [OfficeSpace Software](officespace-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-oneteam-tutorial.png)| [Oneteam](oneteam-tutorial.md)|
@@ -420,6 +435,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-procoresso-tutorial.png)| [Procore SSO](procoresso-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-projectplace-tutorial.png)| [Projectplace](projectplace-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-promapp-tutorial.png)| [Promapp](promapp-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-promaster-tutorial.png)| [ProMaster (by Inlogik)](promaster-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-proofpoint-ondemand-tutorial.png)| [Proofpoint on Demand](proofpoint-ondemand-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-proxyclick-tutorial.png)| [Proxyclick](proxyclick-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
@@ -440,7 +456,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-redbrickhealth-tutorial.png)| [RedBrick Health](redbrickhealth-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-redvector-tutorial.png)| [RedVector](redvector-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-reflektive-tutorial.png)| [Reflektive](reflektive-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-replicon-tutorial.png)| [Replicon](replicon-tutorial.md)|[Replicon - User Provisioning](replicon-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-replicon-tutorial.png)| [Replicon](replicon-tutorial.md)||
 | ![logo](./media/tutorial-list/active-directory-saas-reviewsnap-tutorial.png)| [Reviewsnap](reviewsnap-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-reward-gateway-tutorial.png)| [Reward Gateway](reward-gateway-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-rfpio-tutorial.png)| [RFPIO](rfpio-tutorial.md)|
@@ -455,10 +471,11 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-safeconnect-tutorial.png)| [SafeConnect](safeconnect-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-safetynet-tutorial.png)| [SafetyNet](safetynet-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|[Salesforce - User Provisioning](salesforce-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-sandbox-tutorial.png)| [Salesforce Sandbox](salesforce-sandbox-tutorial.md)|[Salesforce Sandbox - User Provisioning](salesforce-sandbox-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|[Samanage - User Provisioning](samanage-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-saml-tutorial.png)| [SAML 1.1 Token enabled LOB App](saml-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bamboo-tutorial.png)| [SAML SSO for Bamboo by resolution GmbH](bamboo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bitbucket-tutorial.png)| [SAML SSO for Bitbucket by resolution GmbH](bitbucket-tutorial.md)|
@@ -472,6 +489,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.png)| [SAP Cloud Platform Identity Authentication](sap-hana-cloud-platform-identity-authentication-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-saphana-tutorial.png)| [SAP HANA](saphana-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sap-netweaver-tutorial.png)| [SAP NetWeaver](sap-netweaver-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-saucelabs-tutorial.png)| [Sauce Labs - Mobile and Web Testing](saucelabs-mobileandwebtesting-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-scalexenterprise-tutorial.png)| [ScaleX Enterprise](scalexenterprise-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC LifeCycle](scclifecycle-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-screencast-tutorial.png)| [Screencast-O-Matic](screencast-tutorial.md)|
@@ -482,6 +500,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-sd-elements-tutorial.png)| [SD Elements](sd-elements-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-secretserver-on-premises-tutorial.png)| [Secret Server (On-Premises)](secretserver-on-premises-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-securedeliver-tutorial.png)| [SECURE DELIVER](securedeliver-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-securew2joinnowconnector-tutorial.png)| [SecureW2 JoinNow Connector](securejoinnow-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sedgwickcms-tutorial.png)| [Sedgwick CMS](sedgwickcms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sensoscientific-tutorial.png)| [SensoScientific Wireless Temperature Monitoring System](sensoscientific-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sequr-tutorial.png)| [Sequr](sequr-tutorial.md)|
@@ -493,9 +512,11 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-showpad-tutorial.png)| [Showpad](showpad-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-signalfx-tutorial.png)| [SignalFx](signalfx-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-silkroad-life-suite-tutorial.png)| [SilkRoad Life Suite](silkroad-life-suite-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-silverback-tutorial.png)| [Silverback](silverback-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-simplenexus-tutorial.png)| [SimpleNexus](simplenexus-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skilljar-tutorial.png)| [Skilljar](skilljar-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skillport-tutorial.png)| [Skillport](skillport-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-skillsbase-tutorial.png)| [Skills Base](skillsbase-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skillsmanager-tutorial.png)| [Skills Manager](skillsmanager-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skydeskemail-tutorial.png)| [SkyDesk Email](skydeskemail-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skyhighnetworks-tutorial.png)| [Skyhigh Networks](skyhighnetworks-tutorial.md)|
@@ -503,12 +524,15 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - User Provisioning](slack-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-smallimprovements-tutorial.png)| [Small Improvements](smallimprovements-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-smarteru-tutorial.png)| [SmarterU](smarteru-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-smartlpa-tutorial.png)| [SmartLPA](smartlpa-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-smartrecruiters-tutorial.png)| [SmartRecruiters](smartrecruiters-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-snowflake-tutorial.png)| [Snowflake](snowflake-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-softeon-tutorial.png)| [Softeon WMS](softeon-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-soonr-tutorial.png)| [Soonr Workplace](soonr-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-spaceiq-tutorial.png)| [SpaceIQ](spaceiq-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-spacio-tutorial.png)| [Spacio](spacio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial.png)| [Splunk Enterprise and Splunk Cloud](splunkenterpriseandsplunkcloud-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-spotinst-tutorial.png)| [Spotinst](spotinst-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-spring-cm-tutorial.png)| [SpringCM](spring-cm-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-springerlink-tutorial.png)| [Springer Link](springerlink-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sprinklr-tutorial.png)| [Sprinklr](sprinklr-tutorial.md)|
@@ -527,7 +551,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-tyeexpress-tutorial.png)| [T&E Express](tyeexpress-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|[Tableau Online - User Provisioning](tableau-online-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-tableauserver-tutorial.png)| [Tableau Server](tableauserver-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-talentlms-tutorial.png)| [TalentLMS](talentlms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-tangoanalytics-tutorial.png)| [Tango Analytics](tangoanalytics-tutorial.md)|
@@ -557,6 +581,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-trello-tutorial.png)| [Trello](trello-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-trisotechdigitalenterpriseserver-tutorial.png)| [Trisotech Digital Enterprise Server](trisotechdigitalenterpriseserver-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-turborater-tutorial.png)| [TurboRater](turborater-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-uberflip-tutorial.png)| [Uberflip](uberflip-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-ultipro-tutorial.png)| [UltiPro](ultipro-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-unifi-tutorial.png)| [UNIFI](unifi-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-userecho-tutorial.png)| [UserEcho](userecho-tutorial.md)|
@@ -574,26 +599,30 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :---: | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-wdesk-tutorial.png)| [Wdesk](wdesk-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-weekdone-tutorial.png)| [Weekdone](weekdone-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-wikispaces-tutorial.png)| [Wikispaces](wikispaces-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-wingspanetmf-tutorial.png)| [Wingspan eTMF](wingspanetmf-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-wizergosproductivitysoftware-tutorial.png)| [Wizergos Productivity Software](wizergosproductivitysoftware-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-work-com-tutorial.png)| [Work.com](work-com-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - User Provisioning](workday-inbound-tutorial.md)| 
+| ![logo](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - User Provisioning](workday-inbound-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-workfront-tutorial.png)| [Workfront](workfront-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-workpath-tutorial.png)| [Workpath](workpath-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|[Workplace by Facebook - User Provisioning](workplacebyfacebook-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](workrite-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](workstars-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](xmatters-ondemand-tutorial.md)|[xMatters OnDemand - User Provisioning](xmatters-ondemand-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](xmatters-ondemand-tutorial.md)||
 | ![logo](./media/tutorial-list/active-directory-saas-yardielearning-tutorial.png)| [Yardi eLearning](yardielearning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-yardione-tutorial.png)| [YardiOne](yardione-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Yonyx Interactive Guides](yonyx-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-youearnedit-tutorial.png)| [YouEarnedIt](youearnedit-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|[Zendesk - User Provisioning](zendesk-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-zenqms-tutorial.png)| [ZenQMS](zenqms-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-zephyrsso-tutorial.png)| [ZephyrSSO](zephyrsso-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-ziflow-tutorial.png)| [Ziflow](ziflow-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-zivver-tutorial.png)| [ZIVVER](zivver-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-zoho-mail-tutorial.png)| [Zoho](zoho-mail-tutorial.md)|
@@ -610,4 +639,4 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 ## Related articles
 
-[Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+[Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)

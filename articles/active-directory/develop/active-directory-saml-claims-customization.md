@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -126,9 +126,9 @@ There are some restricted claims in SAML. If you add these claims, then Azure AD
 	| http://schemas.microsoft.com/identity/claims/scope |
 
 ## Next steps
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
+* [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Troubleshooting SAML-Based Single Sign-On](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

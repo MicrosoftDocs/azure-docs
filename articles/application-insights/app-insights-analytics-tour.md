@@ -224,7 +224,7 @@ Using [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-op
 
 ### Convert to local time
 
-Timestamps are always in UTC. So if you're on the US Pacific coast and it's winter, you might like this:
+Timestamps are always in UTC. So if you're on the US Pacific coast and it's winter, then the local time is -8 hours from UTC, you might like this:
 
 ```AIQL
 
@@ -236,7 +236,7 @@ Timestamps are always in UTC. So if you're on the US Pacific coast and it's wint
 ## [Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): aggregate groups of rows
 `Summarize` applies a specified *aggregation function* over groups of rows.
 
-For example, the time your web app takes to respond to a request is reported in the field `duration`. Let's see the average response time to all requests:
+For example, the time your web app takes to respond to a request is reported in the field `duration`. Let's see the average response time for all requests:
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -459,7 +459,7 @@ To get a separate breakdown for each country, we just have to bring the client_C
 ## Join
 We have access to several tables, including requests and exceptions.
 
-To find the exceptions related to a request that returned a failure response, we can join the tables on `session_Id`:
+To find the exceptions related to a request that returned a failure response, we can join the tables on `operation_Id`:
 
 ```AIQL
 

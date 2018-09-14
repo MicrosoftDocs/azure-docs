@@ -32,12 +32,12 @@ the PC settings that are built into the Windows operating system. Generally, the
 * *Passwords*, including Internet passwords, Wi-Fi profiles, and others.
 * *Language preferences*, which includes settings for keyboard layouts, system language, date and time, and more.
 * *Ease of access features*, such as high-contrast theme, Narrator, and Magnifier.
-* *Other Windows settings*, such as command prompt settings and application list.
+* *Other Windows settings*, such as mouse settings.
 
 **Application data**: Universal Windows apps can write settings data to a roaming folder, and any data written to this folder will automatically be synced. It’s up to the individual app developer to design an app to take advantage of this capability. For more details about how to develop a Universal Windows app that uses roaming, see the [appdata storage API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) and the [Windows 8 appdata roaming developer blog](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## What account is used for settings sync?
-In Windows 8 and Windows 8.1, settings sync always used consumer Microsoft accounts. Enterprise users had the ability to connect a Microsoft account to their Active Directory domain account to gain access to settings sync. In Windows 10, this connected Microsoft account functionality is being replaced with a primary/secondary account framework.
+In Windows 8.1, settings sync always used consumer Microsoft accounts. Enterprise users had the ability to connect a Microsoft account to their Active Directory domain account to gain access to settings sync. In Windows 10, this connected Microsoft account functionality is being replaced with a primary/secondary account framework.
 
 The primary account is defined as the account used to sign in to Windows. This can be a Microsoft account, an Azure Active Directory (Azure AD) account, an on-premises Active Directory account, or a local account. In addition to the primary account, Windows 10 users can add one or more secondary cloud accounts to their device. A secondary account is generally a Microsoft account, an Azure AD account, or some other account such as Gmail or Facebook. These secondary accounts provide access to additional services such as single sign-on and the Windows Store, but they are not capable of powering settings sync.
 
@@ -57,7 +57,7 @@ If an app’s owner cannot be identified, it will roam with the primary account.
 >
 
 ## How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?
-If you are joined to the Active Directory domain running Windows 8 or Windows 8.1 with a connected Microsoft account, you will sync settings through your Microsoft account. After upgrading to Windows 10, you will continue to sync user settings via Microsoft account as long as you are a domain-joined user and the Active Directory domain does not connect with Azure AD.
+If you are joined to the Active Directory domain running Windows 8.1 with a connected Microsoft account, you will sync settings through your Microsoft account. After upgrading to Windows 10, you will continue to sync user settings via Microsoft account as long as you are a domain-joined user and the Active Directory domain does not connect with Azure AD.
 
 If the on-premises Active Directory domain does connect with Azure AD, your device will attempt to sync settings using the connected Azure AD account. If the Azure AD administrator does not enable Enterprise State Roaming, your connected Azure AD account will stop syncing settings. If you are a Windows 10 user and you sign in with an Azure AD identity, you will start syncing windows settings as soon as your administrator enables settings sync via Azure AD.
 
@@ -93,12 +93,12 @@ Administrators can configure UE-V to roam Windows desktop app data by changing r
 In the future, Microsoft may investigate ways to make UE-V deeply integrated into Windows and extend UE-V to roam settings through the Azure AD cloud.
 
 ## Can I store synced settings and data on premises?
-Enterprise State Roaming stores all synced data in the Azure cloud. UE-V offers an on-premises roaming solution.
+Enterprise State Roaming stores all synced data in the Microsoft cloud. UE-V offers an on-premises roaming solution.
 
 ## Who owns the data that’s being roamed?
 The enterprises own the data roamed via Enterprise State Roaming. Data is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using the Azure Rights Management service from Azure Information Protection. This is an improvement compared to Microsoft account-based settings sync, which encrypts only certain sensitive data such as user credentials before it leaves the device.
 
-Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by the Azure Rights Management service before it leaves a Windows 10 device, so no other user can read this data. If your organization has a paid subscription for the Azure Rights Management service, you can use other protection features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how this protection service works, see [What is Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by the Azure Rights Management service before it leaves a Windows 10 device, so no other user can read this data. If your organization has a paid subscription for the Azure Rights Management service, you can use other protection features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how this protection service works, see [What is Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
 ## Can I manage sync for a specific app or setting?
 In Windows 10, there is no MDM or Group Policy setting to disable roaming for an individual application. Tenant administrators can disable appdata sync for all apps on a managed device, but there is no finer control at a per-app or within-app level.

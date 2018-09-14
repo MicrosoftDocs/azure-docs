@@ -15,8 +15,6 @@
     href: lifecycle-deployment.md
   - name: 5. Customer acceptance
     href: lifecycle-acceptance.md
-  - name: With Azure ML
-    href: http://aka.ms/datascienceprocess
 - name: Roles and tasks
   href: roles-tasks.md
   items:
@@ -28,8 +26,6 @@
     href: project-lead-tasks.md
   - name: Individual contributor
     href: project-ic-tasks.md
-- name: Project structure
-  href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
 - name: Project planning
   href: team-data-science-process-project-templates.md
 - name: Development
@@ -96,9 +92,6 @@
     href: team-data-science-process-for-devops.md
 - name: How To
   items:
-  - name: Use TDSP in Azure ML
-    href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-    maintainContext: true
   - name: Set up data science environments
     href: environment-setup.md
     items:
@@ -220,6 +213,9 @@
         maintainContext: true
   - name: Deploy models in production
     href: deploy-models-in-production.md
+  - name: Use TDSP in Azure ML
+    href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
+    maintainContext: true
 - name: Related
   items:
   - name: Azure Machine Learning - AML
@@ -227,38 +223,30 @@
   - name: Microsoft Cognitive Toolkit - CNTK
     href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true
-  - name: Cortana Intelligence Partner Solutions
-    items:
-    - name: Azure AI Gallery
-      href: https://gallery.azure.ai
-    - name: Cortana Intelligence publishing guide
-      href: cortana-intelligence-appsource-publishing-guide.md
-    - name: Cortana Intelligence solution evaluation tool
-      href: cortana-intelligence-appsource-evaluation-tool.md
+  - name: Azure AI Gallery
+    href: https://gallery.azure.ai
   - name: Cortana Analytics
     items:
-    - name: APIs
+    - name: Anomaly detection
+      href: apps-anomaly-detection-api.md
+    - name: Cognitive Services
+      href: https://docs.microsoft.com/azure/cognitive-services/
+    - name: Predictive maintenance
       items:
-      - name: Anomaly detection
-        href: apps-anomaly-detection-api.md
-      - name: Cognitive Services
-        href: https://docs.microsoft.com/azure/cognitive-services/
-      - name: Predictive maintenance
-        items:
-        - name: Overview
-          href: cortana-analytics-playbook-predictive-maintenance.md
-        - name: Architecture
-          href: cortana-analytics-architecture-predictive-maintenance.md
-        - name: Technical guide
-          href: cortana-analytics-technical-guide-predictive-maintenance.md
-      - name: Vehicle telemetry
-        items:
-        - name: Overview
-          href: cortana-analytics-playbook-vehicle-telemetry.md
-        - name: Playbook
-          href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-        - name: Setup
-          href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+      - name: Overview
+        href: cortana-analytics-playbook-predictive-maintenance.md
+      - name: Architecture
+        href: cortana-analytics-architecture-predictive-maintenance.md
+      - name: Technical guide
+        href: cortana-analytics-technical-guide-predictive-maintenance.md
+    - name: Vehicle telemetry
+      items:
+      - name: Overview
+        href: cortana-analytics-playbook-vehicle-telemetry.md
+      - name: Playbook
+        href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+      - name: Setup
+        href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
   - name: Blogs
@@ -281,8 +269,6 @@
       href: https://newsignature.com/services/professional-services/advanced-analytics/
     - name: Blue Granite
       href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
-    - name: Microsoft Consulting Services
-      href: https://www.microsoft.com/en-us/microsoftservices/business-analytics.aspx
   - name: Related Microsoft resources
     items:
     - name: MSDN forum

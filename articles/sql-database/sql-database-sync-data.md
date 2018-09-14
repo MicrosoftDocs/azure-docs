@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
@@ -42,9 +42,9 @@ A Sync Group has the following properties:
 
 ## When to use Data Sync
 
-Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL Databases or SQL Server databases. Here are the main use cases for Data Sync:
+Data Sync is useful in cases where data needs to be kept up-to-date across several Azure SQL databases or SQL Server databases. Here are the main use cases for Data Sync:
 
--   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
+-   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
 
 -   **Distributed Applications:** In many cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but you also need to run a reporting or analytics workload on this data, it's helpful to have a second database for this additional workload. This approach minimizes the performance impact on your production workload. You can use Data Sync to keep these two databases synchronized.
 
@@ -112,7 +112,9 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 -   A table cannot have an identity column that is not the primary key.
 
--   A primary key cannot have the datetime data type.
+-   A primary key cannot have the following data types: sql_variant, binary, varbinary, image, xml. 
+
+-   Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
 
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
@@ -126,7 +128,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 -   XMLSchemaCollection (XML supported)
 
--   Cursor, Timestamp, Hierarchyid
+-   Cursor, RowVersion, Timestamp, Hierarchyid
 
 #### Unsupported column types
 
@@ -158,7 +160,7 @@ There is no charge for the SQL Data Sync service itself.  However, you still acc
 
 ### What regions support Data Sync?
 
-SQL Data Sync is available in all public cloud regions.
+SQL Data Sync is available in all regions.
 
 ### Is a SQL Database account required? 
 
@@ -171,7 +173,10 @@ Not directly. You can sync between SQL Server on-premises databases indirectly, 
 Yes. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
 -   If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 -   Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
-   
+
+### Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China)?
+Yes. You can sync between SQL Databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
+
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them?
 
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
@@ -225,7 +230,3 @@ For more info about SQL Database, see the following articles:
 -   [SQL Database Overview](sql-database-technical-overview.md)
 
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
-
-### Developer reference
-
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

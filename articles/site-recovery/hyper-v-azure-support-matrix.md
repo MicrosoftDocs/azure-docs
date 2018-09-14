@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/14/2018
 ms.author: raynew
 ---
 
@@ -21,7 +21,7 @@ This article summarizes the supported components and settings for disaster recov
 
 **Scenario** | **Details**
 --- | ---
-Hyper-V with Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](tutorial-vmm-to-vmm.md).
+Hyper-V with Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-disaster-recovery.md).
 Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.
 
 
@@ -40,8 +40,8 @@ The following table summarizes VM support. Site Recovery supports any workloads 
 
  **Component** | **Details**
 --- | ---
-VM configuration | VMs that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
-Guest operating system | Any guest OS supported by Azure.<br/><br/> Windows Server 2016 Nano Server isn't supported.
+VM configuration | VMs that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
+Guest operating system | Any guest OS [supported for Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)..<br/><br/> Windows Server 2016 Nano Server isn't supported.
 
 
 ## VM/Disk management
@@ -109,7 +109,8 @@ RDM | NA | NA
 Disk >1 TB | Yes, up to 4,095 GB | Yes, up to 4,095 GB
 Disk: 4K logical and physical sector | Not supported: Gen 1/Gen 2 | Not supported: Gen 1/Gen 2
 Disk: 4K logical and 512 bytes physical sector | Yes |  Yes
-Volume with striped disk >1 TB<br/><br/> Logical volume management (LVM) | Yes | Yes
+Logical volume management (LVM). LVM is supported on data disks only. Azure provides only a single OS disk. | Yes | Yes
+Volume with striped disk >1 TB | Yes | Yes
 Storage Spaces | Yes | Yes
 Hot add/remove disk | No | No
 Exclude disk | Yes | Yes

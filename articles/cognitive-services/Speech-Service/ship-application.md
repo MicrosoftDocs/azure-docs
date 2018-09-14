@@ -1,10 +1,9 @@
 ---
-title: Azure Cognitive Services, Cognitive Services Speech SDK API Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Cognitive Services, Cognitive Services Speech SDK API Documentation - Tutorials, API Reference
 description: Learn how to create and develop apps with the Cognitive Services Speech SDK
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -28,7 +27,7 @@ The Cognitive Services Speech SDK requires the [Microsoft Visual C++ Redistribut
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-If your application is using managed code, the `.Net Framework 4.6.1` or later is required on the target machine.
+If your application is using managed code, the `.NET Framework 4.6.1` or later is required on the target machine.
 
 For microphone input, the Media Foundation Libraries need to be installed. These libraries are part of Windows 10 and Windows Server 2016. It is possible to use the Speech SDK without these libraries, as long as microphone is not used as the audio input device.
 

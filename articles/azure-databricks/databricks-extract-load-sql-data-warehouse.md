@@ -10,7 +10,7 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: "Active"
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
@@ -338,7 +338,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 2.  You can further transform this data to rename the column **level** to **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     You get an output as shown in the following snippet.
 
@@ -381,7 +381,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 2. Specify a temporary folder that will be used while moving data between Azure Databricks and Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
 3. Run the following snippet to store Azure Blob storage access keys in the configuration. This ensures that you do not have to keep the access key in the notebook in plain text.
 

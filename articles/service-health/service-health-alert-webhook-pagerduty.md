@@ -24,13 +24,13 @@ This article shows you how to set up Azure service health notifications through 
 ## Creating a service health integration URL in PagerDuty
 1.  Make sure you have signed up for and are signed into your [PagerDuty](https://www.pagerduty.com/) account.
 
-2.  Navigate to the **Services** section in PagerDuty.
+1.  Navigate to the **Services** section in PagerDuty.
 
     ![The "Services" section in PagerDuty](./media/webhook-alerts/pagerduty-services-section.png)
 
-3.  Select **Add New Service** or open an existing service you have set up.
+1.  Select **Add New Service** or open an existing service you have set up.
 
-4.  In the **Integration Settings**, select the following:
+1.  In the **Integration Settings**, select the following:
 
     a. **Integration Type**: Microsoft Azure
 
@@ -38,9 +38,9 @@ This article shows you how to set up Azure service health notifications through 
 
     ![The "Integration Settings" in PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
-5.  Fill out any other required fields and select **Add**.
+1.  Fill out any other required fields and select **Add**.
 
-6.  Open this new integration and copy and save the **Integration URL**.
+1.  Open this new integration and copy and save the **Integration URL**.
 
     ![The "Integration URL" in PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
 
@@ -48,7 +48,7 @@ This article shows you how to set up Azure service health notifications through 
 ### For a new action group:
 1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-2. Define in the list of **Actions**:
+1. Define in the list of **Actions**:
 
     a. **Action Type:** *Webhook*
 
@@ -56,16 +56,16 @@ This article shows you how to set up Azure service health notifications through 
 
     c. **Name:** Webhook's name, alias, or identifier.
 
-3. Select **Save** when done to create the alert.
+1. Select **Save** when done to create the alert.
 
 ### For an existing action group:
 1. In the [Azure portal](https://portal.azure.com/), select **Monitor**.
 
-2. In the **Settings** section, select **Action groups**.
+1. In the **Settings** section, select **Action groups**.
 
-3. Find and select the action group you want to edit.
+1. Find and select the action group you want to edit.
 
-4. Add to the list of **Actions**:
+1. Add to the list of **Actions**:
 
     a. **Action Type:** *Webhook*
 
@@ -73,12 +73,12 @@ This article shows you how to set up Azure service health notifications through 
 
     c. **Name:** Webhook's name, alias, or identifier.
 
-5. Select **Save** when done to update the action group.
+1. Select **Save** when done to update the action group.
 
 ## Testing your webhook integration via an HTTP POST request
 1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Create an HTTP POST request as follows:
+1. Create an HTTP POST request as follows:
 
     ```
     POST        https://events.pagerduty.com/integration/<IntegrationKey>/enqueue
@@ -87,9 +87,9 @@ This article shows you how to set up Azure service health notifications through 
 
     BODY        <service health payload>
     ```
-3. You should receive a `202 Accepted` with a message containing your "event ID."
+1. You should receive a `202 Accepted` with a message containing your "event ID."
 
-4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
+1. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
 
 ## Next steps
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).

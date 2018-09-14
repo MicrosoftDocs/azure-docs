@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/25/2018
+ms.date: 08/27/2018
 ms.author: aljo
 
 ---
-# Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
+# Customize Service Fabric cluster settings
+This article describes how to customize the various fabric settings for your Service Fabric cluster. For clusters hosted in Azure, you can customize settings through the [Azure portal](https://portal.azure.com) or by using an Azure Resource Manager template. For standalone clusters, you customize settings by updating the ClusterConfig.json file and performing a configuration upgrade on your cluster. 
 
 > [!NOTE]
 > Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
@@ -32,14 +32,14 @@ This document tells you how to customize the various fabric settings and the fab
 - **NotAllowed** – These settings cannot be modified. Changing these settings requires that the cluster be destroyed and a new cluster created. 
 
 ## Customize cluster settings using Resource Manager templates
-The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
+The steps below show how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section using Azure Resource Explorer.
 
 1. Go to https://resources.azure.com
 2. Navigate to your subscription by expanding **subscriptions** -> **\<Your Subscription>** -> **resourceGroups** -> **\<Your Resource Group>** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Your Cluster Name>**
 3. In the top right corner, select **Read/Write.**
 4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
 
-```
+```json
       {
         "name": "Diagnostics",
         "parameters": [
@@ -51,16 +51,46 @@ The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *D
       }
 ```
 
+You can also customize cluster settings in one of the following ways with Azure Resource Manager:
+
+- Use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) to export and update the Resource Manger template.
+- Use [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) to export and update the Resource Manager template.
+- Use the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) to export and update the Resource Manager template.
+- Use the Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) and [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) commands to modify the setting directly.
+- Use the Azure CLI [az sf cluster setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) commands to modify the setting directly.
+
+## Customize cluster settings for standalone clusters
+Standalone clusters are configured through the ClusterConfig.json file. To learn more, see [Configuration settings for a standalone Windows cluster](./service-fabric-cluster-manifest.md).
+
+You can add, update, or remove settings in the `fabricSettings` section under the [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) section in ClusterConfig.json. 
+
+For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under `fabricSettings`:
+
+```json
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+After you've modified the settings in your ClusterConfig.json file, follow the directions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to apply the settings to your cluster. 
+
+
 The following is a list of Fabric settings that you can customize, organized by section.
 
 ## ApplicationGateway/Http
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|string, default is "None"|Static| This does not validate the server certificate; succeed the request. Refer to config ServiceCertificateThumbprints for the comma-separated list of thumbprints of the remote certs that the reverse proxy can trust. Refer to config ServiceCommonNameAndIssuer for the subject name and issuer thumbprint of the remote certs that the reverse proxy can trust. |
+|ApplicationCertificateValidationPolicy|string, default is "None"|Static| This does not validate the server certificate; succeed the request. Refer to config ServiceCertificateThumbprints for the comma-separated list of thumbprints of the remote certs that the reverse proxy can trust. Refer to config ServiceCommonNameAndIssuer for the subject name and issuer thumbprint of the remote certs that the reverse proxy can trust. To learn more, see [Reverse proxy secure connection](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Uint, default is 16384 |Dynamic| Gives the size of for the chunk in bytes used to read the body. |
 |CrlCheckingFlag|uint, default is 0x40000000 |Dynamic| Flags for application/service certificate chain validation; e.g. CRL checking 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Setting to 0 disables CRL checking Full list of supported values is documented by dwFlags of CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Time in seconds. default is 120 |Dynamic|Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
-|ForwardClientCertificate|bool, default is FALSE|Dynamic|When set to false, reverse proxy will not request for the client certificate.When set to true, reverse proxy will request for the client certificate during the SSL handshake and forward the base64 encoded PEM format string to the service in a header named X-Client-Certificate.The service can fail the request with appropriate status code after inspecting the certificate data. If this is true and client does not present a certificate, reverse proxy will forward an empty header and let the service handle the case. Reverse proxy will act as a transparent layer.|
+|ForwardClientCertificate|bool, default is FALSE|Dynamic|When set to false, reverse proxy will not request for the client certificate.When set to true, reverse proxy will request for the client certificate during the SSL handshake and forward the base64 encoded PEM format string to the service in a header named X-Client-Certificate.The service can fail the request with appropriate status code after inspecting the certificate data. If this is true and client does not present a certificate, reverse proxy will forward an empty header and let the service handle the case. Reverse proxy will act as a transparent layer. To learn more, see [Set up client certificate authentication](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |string, default is "None" |Static| Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
 |GatewayX509CertificateFindType |string, default is "FindByThumbprint" |Dynamic| Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, default is "" |Dynamic| Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that does not exist; FindValueSecondary is looked up. |
@@ -72,13 +102,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 |NumberOfParallelOperations | Uint, default is 5000 |Static|Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
 |RemoveServiceResponseHeaders|string, default is "Date; Server"|Static|Semi colon/ comma-separated list of response headers that will be removed from the service response; before forwarding it to the client. If this is set to empty string; pass all the headers returned by the service as-is. i.e do not overwrite the Date and Server |
 |ResolveServiceBackoffInterval |Time in seconds, default is 5 |Dynamic|Specify timespan in seconds.  Gives the default back-off interval before retrying a failed resolve service operation. |
-|SecureOnlyMode|bool, default is FALSE|Dynamic| SecureOnlyMode: true: Reverse Proxy will only forward to services that publish secure endpoints. false: Reverse Proxy can forward requests to secure/non-secure endpoints.  |
-|ServiceCertificateThumbprints|string, default is ""|Dynamic|The comma-separated list of thumbprints of the remote certs that the reverse proxy can trust.  |
+|SecureOnlyMode|bool, default is FALSE|Dynamic| SecureOnlyMode: true: Reverse Proxy will only forward to services that publish secure endpoints. false: Reverse Proxy can forward requests to secure/non-secure endpoints. To learn more, see [Reverse proxy endpoint selection logic](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
+|ServiceCertificateThumbprints|string, default is ""|Dynamic|The comma-separated list of thumbprints of the remote certs that the reverse proxy can trust. To learn more, see [Reverse proxy secure connection](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| Subject name and issuer thumbprint of the remote certs that the reverse proxy can trust.|
+|PropertyGroup|X509NameMap, default is None|Dynamic| Subject name and issuer thumbprint of the remote certs that the reverse proxy can trust. To learn more, see [Reverse proxy secure connection](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## BackupRestoreService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -154,9 +184,10 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## DnsService
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|InstanceCount|int, default is -1|Static|default value is -1 which means that DnsService is running on every node. OneBox needs this to be set to 1 since DnsService uses well known port 53, so it cannot have multiple instances on the same machine.|
+|EnablePartitionedQuery|bool, default is FALSE|Static|The flag to enable support for DNS queries for partitioned services. The feature is turned off by default. For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md)|
+|InstanceCount|int, default is -1|Static|Default value is -1 which means that DnsService is running on every node. OneBox needs this to be set to 1 since DnsService uses well known port 53, so it cannot have multiple instances on the same machine.|
 |IsEnabled|bool, default is FALSE|Static|Enables/Disables DnsService. DnsService is disabled by default and this config needs to be set to enable it. |
-|PartitionPrefix|string, default is "-"|Static|Controls the partition prefix string value in DNS queries for partitioned services. The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>Cannot be an empty string.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md).|
+|PartitionPrefix|string, default is "--"|Static|Controls the partition prefix string value in DNS queries for partitioned services. The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>Cannot be an empty string.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, default is ""|Static|Controls the partition suffix string value in DNS queries for partitioned services.The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md). |
 
 ## FabricClient
@@ -317,6 +348,9 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ApplicationHostCloseTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. When Fabric exit is detected in a self activated processes; FabricRuntime closes all of the replicas in the user's host (applicationhost) process. This is the timeout for the close operation. |
 |ApplicationUpgradeTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(360)|Dynamic| Specify timespan in seconds. The timeout for application upgrade. If the timeout is less than the "ActivationTimeout" deployer will fail. |
 |ContainerServiceArguments|string, default is "-H localhost:2375 -H npipe://"|Static|Service Fabric (SF) manages docker daemon (except on windows client machines like Win10). This configuration allows user to specify custom arguments that should be passed to docker daemon when starting it. When custom arguments are specified, Service Fabric do not pass any other argument to Docker engine except '--pidfile' argument. Hence users should not specify '--pidfile' argument as part of their customer arguments. Also, the custom arguments should ensure that docker daemon listens on default name pipe on Windows (or Unix domain socket on Linux) for Service Fabric to be able to communicate with it.|
+|ContainerServiceLogFileMaxSizeInKb|int, default is 32768|Static|Maximum file size of log file generated by docker containers.  Windows only.|
+|ContainerServiceLogFileNamePrefix|string, default is "sfcontainerlogs"|Static|File name prefix for log files generated by docker containers.  Windows only.|
+|ContainerServiceLogFileRetentionCount|int, default is 10|Static|Number of log files generated by docker containers before log files are overwritten.  Windows only.|
 |CreateFabricRuntimeTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. The timeout value for the sync FabricCreateRuntime call |
 |DefaultContainerRepositoryAccountName|string, default is ""|Static|Default credentials used instead of credentials specified in ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|string, default is ""|Static|Default password credentials used instead of credentials specified in ApplicationManifest.xml|
@@ -324,6 +358,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(10)|Dynamic|Specify timespan in seconds. Back-off interval for the deployment failure. On every continuous deployment failure the system will retry the deployment for up to the MaxDeploymentFailureCount. The retry interval is a product of continuous deployment failure and the deployment backoff interval. |
 |EnableActivateNoWindow| bool, default is FALSE|Dynamic| The activated process is created in the background without any console. |
+|EnableContainerServiceDebugMode|bool, default is TRUE|Static|Enable/disable logging for docker containers.  Windows only.|
 |EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
 |EnableProcessDebugging|bool, default is FALSE|Dynamic| Enables launching application hosts under debugger |
 |EndpointProviderEnabled| bool, default is FALSE|Static| Enables management of Endpoint resources by Fabric. Requires specification of start and end application port range in FabricNode. |
@@ -586,10 +621,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|string, default is ""|Static|AAD Cert Endpoint Format, default Azure Commercial, specified for non-default environment such as Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|string, default is ""|Static|Native Client application name or ID representing Fabric Clients |
 |AADClusterApplication|string, default is ""|Static|Web API application name or ID representing the cluster |
+|AADLoginEndpoint|string, default is ""|Static|AAD Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https://login.microsoftonline.us" |
 |AADTenantId|string, default is ""|Static|Tenant ID (GUID) |
 |AdminClientCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates used by clients in admin role. It is a comma-separated name list. |
+|AADTokenEndpointFormat|string, default is ""|Static|AAD Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https://login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, default is ""|Dynamic|All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims. |
 |AdminClientIdentities|string, default is ""|Dynamic|Windows identities of fabric clients in admin role; used to authorize privileged fabric operations. It is a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically assigned admin role; so is group ServiceFabricAdministrators. |
 |CertificateExpirySafetyMargin|TimeSpan, default is Common::TimeSpan::FromMinutes(43200)|Static|Specify timespan in seconds. Safety margin for certificate expiration; certificate health report status changes from OK to Warning when expiration is closer than this. Default is 30 days. |

@@ -48,7 +48,6 @@ For more command options, run `az acs scale --help`.
 
 * Depending on the orchestrator you deploy in your cluster, you can separately scale the number of instances of a container running on the cluster. For example, in a DC/OS cluster, use the [Marathon UI](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) to change the number of instances of a container application.
 
-* Currently, autoscaling of agent nodes in a container service cluster is not supported.
 
 ## Next steps
 * See [more examples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 commands with Azure Container Service.

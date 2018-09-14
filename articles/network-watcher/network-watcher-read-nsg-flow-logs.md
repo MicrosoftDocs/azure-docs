@@ -20,11 +20,11 @@ ms.author: jdial
 
 Learn how to read NSG flow logs entries with PowerShell.
 
-NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data. In this article you learn how to read portions of the flow logs.
+NSG flow logs are stored in a storage account in [block blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data. In this article you learn how to read portions of the flow logs.
 
 ## Scenario
 
-In the following scenario, you have an example flow log that is stored in a storage account. we step through how you can selectively read the latest events in NSG flow logs. In this article we will use PowerShell, however, the concepts discussed in the article are not limited to the programming language and are applicable to all languages supported by the Azure Storage APIs
+In the following scenario, you have an example flow log that is stored in a storage account. You learn how to selectively read the latest events in NSG flow logs. In this article you use PowerShell, however, the concepts discussed in the article are not limited to the programming language, and are applicable to all languages supported by the Azure Storage APIs.
 
 ## Setup
 
@@ -94,7 +94,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## Read the block blob
 
-Next we need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. We use the [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method to retrieve the data.
+Next you need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method to retrieve the data.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -128,7 +128,7 @@ $valuearray += $value
 }
 ```
 
-Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. We do not want the last value is just the closing bracket.
+Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You do not want the last value, because it is the closing bracket.
 
 The results of this value are shown in the following example:
 
@@ -153,7 +153,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they are written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
-
 
 ## Next steps
 

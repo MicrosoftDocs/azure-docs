@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/29/2018
 ms.author: carlrab
 
 ---
@@ -17,8 +17,10 @@ ms.author: carlrab
 The current version of SQL Database is V12. Version V11 has been retired.
 
 ## What is the SLA for SQL Database?
-We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
+We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. 0.01% is reserved for patches, upgrades, and failovers. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/). For information about the availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md). 
 
+## Can I control when patching downtime occurs
+No. The impact of patching is generally not noticable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app.
 ## What is the new vCore-based purchasing model for Azure SQL Database?
 
 The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale their compute and storage rsources based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for more information. 
@@ -42,7 +44,6 @@ The [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid
 ## Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
 You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, the SQL Server license can only be used in the cloud in SQL Database, and does not have dual use rights on-premises and in the cloud.
 
-
 ## How does Azure Hybrid Benefit for SQL Server differ from license mobility?
 Today, we offer license mobility benefits to SQL Server customers with Software Assurance that allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
 Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
@@ -65,7 +66,7 @@ SQL Database customers will have the following rights associated with Azure Hybr
 The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier, we automatically allocate at least 3 Always ON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage.
 
 ## How am I charged for storage - based on what I configure upfront or on what the database uses?
-Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs.
+Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs. 
 
 For backup storage of a single database, you are charged on a prorated basis for the storage that was allocated to the database backups minus the size of the database. For backup storage of an elastic pool, you are charged on a prorated basis for the storage that was allocated to the database backups of all the databases in the pool minus the maximum data size of the elastic pool. Any increase in the database size or elastic pool, or increase in the transaction rate, requires more storage and thus increases your backup storage bill.  When you increase the maximum data size, this new amount is deducted from the billed backup storage size.
 
@@ -85,7 +86,7 @@ Yes, you can independently select the level of compute your application needs an
 You can configure the backup retention for PITR between 7 and 35 days. The backups storage will be charged separately based on the actual storage consumption if it exceeds the storage amount equal to the maximum data size. In preview, by default the PITR retention period is set to 7 days. In many cases, the maximum data size is sufficient for storing 7 days of backups.
 
 ## Why do you allow selection of the hardware generation for compute?
-Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. The table above shows the differences between Gen4 and Gen5. In particular, Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher. We want to make these differences transparent so that you can achieve the optimal price/performance ratio for your application.
+Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher. For more information, see [vCore purchase model](sql-database-service-tiers-vcore.md)
 
 ## Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier? 
 The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using the Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
@@ -151,7 +152,7 @@ For example:
 - If you create a Managed Instance in the General Purpose tier with 8 vCores, and then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.
 
 > [!NOTE]
-> For a limited period through June 30th 2018, backup charges and IO charges are free of charge.
+> For a limited period, backup charges and IO charges are free of charge.
 
 ## How does the use of active geo-replication in an elastic pool show up on my bill?
 Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)
@@ -163,7 +164,10 @@ Auditing is built into the SQL Database service at no extra cost and is availabl
 In the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
 ## How do I manage databases and logins?
-See [Managing databases and logins](sql-database-manage-logins.md).
+See [Managing databases and logins](sql-database-manage-logins.md). 
+
+> [!NOTE]
+> You cannot change the name of the server admin account after it is created.
 
 ## How do I make sure only authorized IP addresses are allowed to access a server?
 See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).

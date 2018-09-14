@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/10/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -63,6 +63,9 @@ If your application expects custom roles to be passed in a SAML response, you ne
     c. Select the following permissions from the list (if you don't have these already) and select **Modify Permissions**.
 
 	  ![List of permissions and "Modify Permissions" button](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+	> [!Note]
+	> Cloud App Administrator and App Administrator role will not work in this scenario as we need the Global Admin permissions for Directory Read and Write.
 
     d. Accept the consent. You're logged in to the system again.
 

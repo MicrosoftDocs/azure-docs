@@ -71,6 +71,8 @@
       href: create-ssl-portal.md
     - name: SSL termination using Azure PowerShell
       href: tutorial-ssl-powershell.md
+    - name: End-to-end SSL termination using Azure PowerShell
+      href: application-gateway-end-to-end-ssl-powershell.md
     - name: Renew certificates
       href: renew-certificates.md
     - name: Configure SSL policy
@@ -124,7 +126,7 @@
         href: redirect-internal-site-cli.md
   - name: Multi-tenant support
     items:
-    - name: Configure multi-tenat support
+    - name: Configure multi-tenant support
       href: create-web-app.md
   - name: Redirect web traffic using Azure PowerShell
     href: tutorial-url-redirect-powershell.md

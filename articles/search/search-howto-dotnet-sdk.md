@@ -583,6 +583,5 @@ This step completes the tutorial, but don't stop here. **Next steps** provides a
 
 ## Next steps
 * Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).
-* Deepen your knowledge through [videos and other samples and tutorials](search-video-demo-tutorial-list.md).
 * Review [naming conventions](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) to learn the rules for naming various objects.
 * Review [supported data types](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) in Azure Search.

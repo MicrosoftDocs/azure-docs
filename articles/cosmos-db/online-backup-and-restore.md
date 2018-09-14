@@ -3,14 +3,14 @@ title: Online backup and restore with Azure Cosmos DB | Microsoft Docs
 description: Learn how to perform automatic backup and restore on an Azure Cosmos DB database.
 keywords: backup and restore, online backup
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
+ms.author: govindk
 
 ---
 # Automatic online backup and restore with Azure Cosmos DB
@@ -21,7 +21,7 @@ This article starts with a quick recap of the data redundancy and availability i
 ## High availability with Cosmos DB - a recap
 Cosmos DB is designed to be [globally distributed](distribute-data-globally.md) – it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. Azure Cosmos DB offers [99.99% availability SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts. All the writes in Azure Cosmos DB are durably committed to local disks by a quorum of replicas within a local data center before acknowledging to the client. The high availability of Cosmos DB relies on local storage and does not depend on any external storage technologies. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
 
-As illustrated in the following diagram, a single Cosmos DB container is [horizontally partitioned](partition-data.md). A “partition” is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions – East US, West US and Central India). The “partition set” is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and Cosmos DB will transparently fail over to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
+As illustrated in the following diagram, a single Cosmos DB container is [horizontally partitioned](partition-data.md). A "partition" is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions – East US, West US and Central India). The "partition set" is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and Cosmos DB will transparently fail over to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
 
 The following image illustrates the high degree of redundancy with Cosmos DB.
 
@@ -46,7 +46,7 @@ As described above, Azure Cosmos DB takes snapshots of your data every four hour
 For SQL API, If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
 
 > [!NOTE]
-> If you “Provision throughput for a set of containers at Database level” – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidently deleted your container - collection/table/graph if you use this new capability. 
+> If you "Provision throughput for a set of containers at Database level" – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidently deleted your container. Data can't be restored if you don't contact the support team within 8 hours. 
 
 
 ## Restoring a database from an online backup

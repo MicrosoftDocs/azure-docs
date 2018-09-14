@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/11/2018
+ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt  
@@ -19,18 +19,19 @@ For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azu
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
-
-Remove any previous install of the Azure Service Fabric Mesh CLI module.
-
-```azurecli-interactive
-az extension remove --name mesh
-```
+## Install the Service Fabric Mesh CLI locally
+If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.43 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
 
 Install the Azure Service Fabric Mesh CLI extension module using following command. 
 
 ```azurecli-interactive
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
+az extension add --name mesh
+```
+
+To update an existing Azure Service Fabric Mesh CLI module, run the following command.
+
+```azurecli-interactive
+az extension update --name mesh
 ```
 
 You can also set up your [Windows development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md).

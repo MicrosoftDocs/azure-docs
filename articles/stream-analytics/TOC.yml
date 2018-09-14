@@ -20,7 +20,7 @@
     href: stream-analytics-with-azure-functions.md
   - name: 3 - Run a Javascript UDF
     href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Deploy with CI/CD in VSTS
+  - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Samples
   items:
@@ -42,14 +42,20 @@
       href: stream-analytics-documentdb-output.md
   - name: Window functions
     href: stream-analytics-window-functions.md
+  - name: Geospatial functions
+    href: stream-analytics-geospatial-functions.md
   - name: Compatibility level
     href: stream-analytics-compatibility-level.md
   - name: Common query patterns
     href: stream-analytics-stream-analytics-query-patterns.md
+  - name: Parse JSON and AVRO data
+    href: stream-analytics-parsing-json.md
   - name: Event ordering considerations
     href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
+  - name: Error policy
+    href: output-error-policy.md
 - name: How-to-guides
   items:
   - name: Manage
@@ -92,6 +98,8 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs- Azure .Net SDK
       href: stream-analytics-monitor-jobs.md
+    - name: Monitor jobs- Visual Studio
+      href: stream-analytics-monitor-jobs-use-vs.md
   - name: Scale
     items:
     - name: Scale with streaming units
@@ -113,8 +121,10 @@
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Develop a cloud job
-      href: stream-analytics-tools-for-visual-studio.md
+    - name: Test a job locally
+      href: stream-analytics-vs-tools-local-run.md
+    - name: View jobs in Visual Studio
+      href: stream-analytics-vs-tools.md
     - name: Develop an Edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline

@@ -1,16 +1,19 @@
 ---
-title: Text Analytics With Power BI - Azure Cognitive Services | Microsoft Docs
+title: 'Tutorial: Text Analytics with Power BI'
+titleSuffix: Azure Cognitive Services
 description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: tutorial
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: luisca
 ---
-# Text Analytics with Power BI
+
+# Tutorial: Integrate Power BI with the Text Analytics Cognitive Service
 
 Microsoft Power BI distills organizational data into beautiful reports, which you can distribute across your organization for faster, deeper insight. The Text Analytics service, part of Cognitive Services in Microsoft Azure, can extract the most important phrases from text via its Key Phrases API. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 
@@ -90,7 +93,7 @@ Now we're ready to create the custom function that will integrate Power BI and T
 The function receives the text to be processed as a parameter. It converts data to and from the required JavaScript Object Notation (JSON) and makes the HTTP request to the Key Phrases API endpoint. After parsing the response, the function returns a string containing a comma-separated list of the extracted key phrases.
 
 > [!NOTE]
-> Power BI Desktop custom functions are written in the [Power Query M formula language](https://msdn.microsoft.com/library/mt211003.aspx), or just "M" for short. M is a functional programming language based on [F#](http://www.tryfsharp.org/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
+> Power BI Desktop custom functions are written in the [Power Query M formula language](https://msdn.microsoft.com/library/mt211003.aspx), or just "M" for short. M is a functional programming language based on [F#](https://docs.microsoft.com/dotnet/fsharp/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
 
 You should still be in the Query Editor window. From the Home ribbon, click **New Source** (in the New Query group) and choose **Blank Query** from the drop-down menu. 
 
@@ -223,7 +226,7 @@ Here are two versions of a Language Detection function. The first returns the IS
     apikey      = "YOUR_API_KEY_HERE",
     endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
@@ -237,7 +240,7 @@ in  language
     apikey      = "YOUR_API_KEY_HERE",
     endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),

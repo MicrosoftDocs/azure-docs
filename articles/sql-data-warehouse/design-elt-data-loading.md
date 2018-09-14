@@ -3,7 +3,7 @@ title: Instead of ETL, design ELT for Azure SQL Data Warehouse | Microsoft Docs
 description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data or Azure SQL Data Warehouse.  
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
@@ -15,6 +15,8 @@ ms.reviewer: igorstan
 # Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse
 
 Instead of Extract, Transform, and Load (ETL), design an Extract, Load, and Transform (ELT) process for loading data into Azure SQL Data Warehouse. This article introduces ways to design an ELT process that moves data into an Azure data warehouse.
+
+> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## What is ELT?
 
@@ -96,7 +98,7 @@ To format the text files:
 ## Load to a staging table
 To get data into the data warehouse, it works well to first load the data into a staging table. By using a staging table, you can handle errors without interfering with the production tables, and you avoid running rollback operations on the production table. A staging table also gives you the opportunity to use SQL Data Warehouse to run transformations before inserting the data into production tables.
 
-To load with T-SQL, run the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL statement. This command inserts the results of a select statement into a new table. When the statement selects from an external table, it imports the external data. 
+To load with T-SQL, run the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement. This command inserts the results of a select statement into a new table. When the statement selects from an external table, it imports the external data. 
 
 In the following example, ext.Date is an external table. All rows are imported into a new table called dbo.Date.
 

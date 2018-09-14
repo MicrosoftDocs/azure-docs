@@ -1,10 +1,9 @@
 ---
-title: Use Text to Speech using Speech services | Microsoft Docs
+title: Use Text to Speech using Speech services
 description: Learn how to use Text to Speech in the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -20,7 +19,7 @@ The body of the POST request for Text to Speech may be plain text (ASCII or UTF8
 
 The regional Text to Speech endpoints are shown here. Use the one appropriate to your subscription.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## Specify a voice
 

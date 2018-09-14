@@ -9,13 +9,27 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portal
-    href: sql-database-get-started-portal.md
-  - name: Create DB - Azure CLI
-    href: sql-database-get-started-cli.md
-  - name: Create DB - Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Connect and query
+  - name: Create
+    items: 
+    - name: Single database
+      href: sql-database-get-started-portal.md
+    - name: Managed Instance
+      href: sql-database-managed-instance-get-started.md
+  - name: Configure
+    items:
+    - name: Logical server firewall rule
+      href: sql-database-get-started-portal-firewall.md
+    - name: Client VM connection to a Managed Instance
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Point-to-site connection to a Managed Instance
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Load data
+    items:
+    - name: Import BACPAC into a single database
+      href: sql-database-import.md
+    - name: Restore a database backup to a Managed Instance
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Query
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -56,13 +70,9 @@
     href: sql-database-security-tutorial.md
   - name: 5 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: 6 - Create Managed Instance
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - Restore a backup to a Managed Instance
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - Migrate to a Managed Instance using DMS
+  - name: 6 - Migrate to a Managed Instance using DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - Set up Azure SQL Data Sync
+  - name: 7 - Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
   items:
@@ -74,47 +84,51 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Purchasing models and resources
+  - name: Purchasing models
     items: 
-    - name: Purchasing models
+    - name: vCore vs. DTU
       href: sql-database-service-tiers.md
-    - name: vCore-based model
+    - name: vCore model
       href: sql-database-service-tiers-vcore.md
-    - name: DTU-based model
+    - name: DTU model
       href: sql-database-service-tiers-dtu.md
     - name: Resource limits
-      href: sql-database-resource-limits.md  
-  - name: Logical servers and single DBs
-    items:
-    - name: Logical servers and single DBs
-      href: sql-database-servers-databases.md
-    - name: Manage servers and single DBs
-      href: sql-database-servers-databases-manage.md
-    - name: vCore-based resource limits
-      href: sql-database-vcore-resource-limits-single-databases.md  
-    - name: DTU-based resource limits
-      href: sql-database-dtu-resource-limits-single-databases.md
-    - name: Scale single DB resources
-      href: sql-database-single-database-scale.md
+      href: sql-database-resource-limits.md
+    - name: Prepay for reserved capacity
+      href: sql-database-reserved-capacity.md
+  - name: Logical servers
+    items: 
+    - name: Create and manage
+      href: sql-database-logical-servers.md
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
     - name: T-SQL differences
       href: sql-database-transact-sql-information.md
-  - name: Elastic pools and pooled DBs
+  - name: Single databases
     items:
-    - name: Elastic pools and pooled DBs
+    - name: Create and manage
+      href: sql-database-single-databases-manage.md
+    - name: vCore-based resource limits
+      href: sql-database-vcore-resource-limits-single-databases.md  
+    - name: DTU-based resource limits
+      href: sql-database-dtu-resource-limits-single-databases.md
+    - name: Scale resources
+      href: sql-database-single-database-scale.md
+  - name: Elastic pools
+    items:
+    - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: Manage pools and pooled DBs
+    - name: Create and manage
       href: sql-database-elastic-pool-manage.md
     - name: vCore-based resource limits
       href: sql-database-vcore-resource-limits-elastic-pools.md  
     - name: DTU-based resource limits
       href: sql-database-dtu-resource-limits-elastic-pools.md  
-    - name: Scale elastic pool resources
+    - name: Scale resources
       href: sql-database-elastic-pool-scale.md
-  - name: Managed Instances
+  - name: Managed instances
     items:
-    - name: Managed Instances
+    - name: Managed instances
       href: sql-database-managed-instance.md
     - name: VNet configuration
       href: sql-database-managed-instance-vnet-configuration.md
@@ -122,10 +136,14 @@
       href: sql-database-managed-instance-custom-dns.md
     - name: Sync network configuration
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Connectivity architecture
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
+    - name: Transactional replication
+      href: https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance?toc=/azure/sql-database/toc.json
   - name: Business continuity
     items:
     - name: Business continuity
@@ -138,7 +156,7 @@
       items:
       - name: Long-term backup retention
         href: sql-database-long-term-retention.md
-      - name: Configure using Axure blob storage
+      - name: Configure using Azure blob storage
         href: sql-database-long-term-backup-retention-configure.md
       - name: Configure using Azure vault (deprecated)
         href: sql-database-long-term-backup-retention-configure-vault.md
@@ -184,7 +202,7 @@
         href: sql-database-managed-instance-threat-detection.md
     - name: Firewall rules
       items:
-      - name: Oveview
+      - name: Create and manage
         href: sql-database-firewall-configure.md      
       - name: Virtual network endpoints
         href: sql-database-vnet-service-endpoint-rule-overview.md
@@ -228,6 +246,18 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
+    - name: TDE with Azure SQL
+      items:
+      - name: TDE with Azure SQL  
+        href: transparent-data-encryption-azure-sql.md
+      - name: TDE with Bring Your Own Key
+        href: transparent-data-encryption-byok-azure-sql.md
+      - name: Configure TDE with BYOK
+        href: transparent-data-encryption-byok-azure-sql-configure.md
+      - name: Rotate TDE BYOK keys
+        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+      - name: Remove TDE protector
+        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
   - name: Elastic scalability
     items:
     - name: Resource scalability
@@ -286,6 +316,12 @@
       href: sql-database-single-database-monitor.md
     - name: Perf recommendations
       href: sql-database-advisor.md
+    - name: Intelligent query processing
+      items:
+      - name: Intelligent query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Adaptive query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
     - name: Automatic tuning
       items:
       - name: Automatic tuning
@@ -430,6 +466,8 @@
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+  - name: Manage file space
+    href: sql-database-file-space-management.md
   - name: Develop apps
     items:
     - name: Connectivity
@@ -454,7 +492,7 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-  - name: Multi-tenant SaaS reference architecture
+  - name: Multi-tenant SaaS sample application
     items:
     - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md
@@ -576,4 +614,4 @@
   - name: Architecture center
     href: /azure/architecture/
   - name: Customer stories
-    href: https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc

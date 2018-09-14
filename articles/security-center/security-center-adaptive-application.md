@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
 
 ---
@@ -83,8 +83,7 @@ The **Groups of VMs** section contains three tabs:
 
 5. Once you finish your selections, select **Create**.
 
-6. Security Center applies the appropriate rules on each of the selected VMs by leveraging AppLocker built in capabilities for Windows servers. In addition, Security Center always enables application control in Audit mode by default. After validating that the whitelist did not have any adverse effects on your workload, you can switch to **Enforce** mode. For more information, see [How AppLocker works](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref).
- 
+
 > [!NOTE]
 > - Security Center relies on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. New customers of Security Center standard tier should expect a behavior in which at first their groups of VMs appear under the *no recommendation* tab.
 > - Adaptive Application Controls from Security Center doesn’t support VMs for which an AppLocker policy is already enabled by either a GPO or a local security policy.

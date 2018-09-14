@@ -9,7 +9,7 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -29,7 +29,7 @@ This article helps you find troubleshooting information about common problems re
 - Seamless SSO doesn't work in Internet Explorer when Enhanced Protected mode is turned on.
 - Seamless SSO doesn't work on mobile browsers on iOS and Android.
 - If a user is part of too many groups in Active Directory, the user's Kerberos ticket will likely be too large to process, and this will cause Seamless SSO to fail. Azure AD HTTPS requests can have headers with a maximum size of 50 KB; Kerberos tickets need to be smaller than that limit to accommodate other Azure AD artifacts (typically, 2 - 5 KB) such as cookies. Our recommendation is to reduce user's group memberships and try again.
-- If you're synchronizing 30 or more Active Directory forests, you can't enable Seamless SSO through Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-azure-ad-seamless-sso) the feature on your tenant.
+- If you're synchronizing 30 or more Active Directory forests, you can't enable Seamless SSO through Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-the-feature) the feature on your tenant.
 - Adding the Azure AD service URL (https://autologon.microsoftazuread-sso.com) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
 - Disabling the use of the **RC4_HMAC_MD5** encryption type for Kerberos in your Active Directory settings will break Seamless SSO. In your Group Policy Management Editor tool ensure that the policy value for **RC4_HMAC_MD5** under **Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> Security Options -> "Network Security: Configure encryption types allowed for Kerberos"** is "Enabled".
 
@@ -45,7 +45,7 @@ Click through to see all the AD forests that have been enabled for Seamless SSO.
 
 ## Sign-in failure reasons in the Azure Active Directory admin center (needs a Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) in the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) in the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
 ![Azure Active Directory admin center: Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
 
@@ -71,7 +71,7 @@ Use the following checklist to troubleshoot Seamless SSO problems:
 - Ensure that the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
 - If you have enabled both [Azure AD Join](../active-directory-azureadjoin-overview.md) and Seamless SSO on your tenant, ensure that the issue is not with Azure AD Join. SSO from Azure AD Join takes precedence over Seamless SSO if the device is both registered with Azure AD and domain-joined. With SSO from Azure AD Join the user sees a sign-in tile that says "Connected to Windows".
 - Ensure that the Azure AD URL (https://autologon.microsoftazuread-sso.com) is part of the user's Intranet zone settings.
-- Ensure that the corporate device is joined to the Active Directory domain.
+- Ensure that the corporate device is joined to the Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md) for Seamless SSO to work.
 - Ensure that the user is logged on to the device through an Active Directory domain account.
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
 - Ensure that the device is connected to the corporate network.
@@ -101,10 +101,9 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 
 ### Step 1: Import the Seamless SSO PowerShell module
 
-1. Download and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Browse to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-4. Import the Seamless SSO PowerShell module by using this command: `Import-Module .\AzureADSSO.psd1`.
+1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Browse to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+3. Import the Seamless SSO PowerShell module by using this command: `Import-Module .\AzureADSSO.psd1`.
 
 ### Step 2: Get the list of Active Directory forests on which Seamless SSO has been enabled
 
@@ -114,18 +113,22 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 ### Step 3: Disable Seamless SSO for each Active Directory forest where you've set up the feature
 
 1. Call `$creds = Get-Credential`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.
-   >[!NOTE]
-   >We use the Domain Administrator's username, provided in the User Principal Names (UPN) (johndoe@contoso.com) format or the domain qualified sam-account name (contoso\johndoe or contoso.com\johndoe) format, to find the intended AD forest. If you use domain qualified sam-account name, we use the domain portion of the username to [locate the Domain Controller of the Domain Administrator using DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). If you use UPN instead, we [translate it to a domain qualified sam-account name](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) before locating the appropriate Domain Controller.
+
+    >[!NOTE]
+    >We use the Domain Administrator's username, provided in the User Principal Names (UPN) (johndoe@contoso.com) format or the domain qualified sam-account name (contoso\johndoe or contoso.com\johndoe) format, to find the intended AD forest. If you use domain qualified sam-account name, we use the domain portion of the username to [locate the Domain Controller of the Domain Administrator using DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). If you use UPN instead, we [translate it to a domain qualified sam-account name](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) before locating the appropriate Domain Controller.
+
 2. Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACCT` computer account from the on-premises domain controller for this specific Active Directory forest.
 3. Repeat the preceding steps for each Active Directory forest where you’ve set up the feature.
 
 ### Step 4: Enable Seamless SSO for each Active Directory forest
 
 1. Call `Enable-AzureADSSOForest`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.
+
    >[!NOTE]
    >We use the Domain Administrator's username, provided in the User Principal Names (UPN) (johndoe@contoso.com) format or the domain qualified sam-account name (contoso\johndoe or contoso.com\johndoe) format, to find the intended AD forest. If you use domain qualified sam-account name, we use the domain portion of the username to [locate the Domain Controller of the Domain Administrator using DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). If you use UPN instead, we [translate it to a domain qualified sam-account name](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) before locating the appropriate Domain Controller.
+
 2. Repeat the preceding step for each Active Directory forest where you want to set up the feature.
 
 ### Step 5. Enable the feature on your tenant
 
-To turn on the feature on your tenant, call `Enable-AzureADSSO` and enter **true** at the `Enable:` prompt.
+To turn on the feature on your tenant, call `Enable-AzureADSSO -Enable $true`.

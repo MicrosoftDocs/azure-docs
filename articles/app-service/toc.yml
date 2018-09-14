@@ -25,6 +25,8 @@
     href: app-service-web-get-started-java.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
+  - name: Run custom Windows container
+    href: app-service-web-get-started-windows-container.md
 - name: Tutorials
   items:
   - name: App with DB
@@ -148,7 +150,7 @@
       href: app-service-authentication-how-to.md
     - name: Restrict IPs
       href: app-service-ip-restrictions.md
-    - name: Use Managed Service Identity
+    - name: Use a managed identity
       href: app-service-managed-service-identity.md
     - name: Use SSL cert in application code
       href: app-service-web-ssl-cert-load.md
@@ -247,7 +249,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: /azure/architecture/reference-architectures/app-service-web-app/
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
@@ -102,26 +102,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Open a web browser and navigate to the URL to see the website running in Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Set up Service Fabric Mesh CLI 
+You can use the Azure Cloud Shell or a local installation of the Azure CLI for the remaining steps. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI for the remaining steps.
-
-If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
-
-## Install the az mesh cli
-At the CLI prompt
-
-1) Remove any previous install of the Azure Service Fabric Mesh CLI module.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI, however, at public preview it would ship as a part of the Azure CLI.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## Check application deployment status
 

@@ -2,8 +2,8 @@
 title: Programmatically create Azure Enterprise subscriptions| Microsoft Docs
 description: Learn how to create additional Azure Enterprise or Enterprise Dev/Test subscriptions programmatically.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
+ms.author: adpick
 ---
 
 # Programmatically create Azure Enterprise subscriptions (preview)
@@ -24,9 +24,11 @@ When you create an Azure subscription from this API, that subscription is govern
 
 ## Prerequisites
 
-* Your account must be an Account Owner in an Azure EA enrollment. If not, ask your Enrollment Administrator to [add you as an Account Owner using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
+You must have an Owner or Contributor role on the Enrollment Account you wish to create subscriptions under. There are two ways to get these roles:
 
-* If you want to use a service principal to create the EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscription.md).
+* Your Enrollment Administrator can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (log-in required) which makes you an Owner of the Enrollment Account. Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
+
+* An existing Owner of the Enrollment Account can [grant you access](grant-access-to-create-subscription.md). Similarly, if you want to use a service principal to create the EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscription.md).
 
 ## Find accounts you have access to
 
@@ -170,7 +172,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | `EnrollmentAccountObjectId`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This value is a GUID that you get from `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 | `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
-| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.| 
+| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 To see a full list of all parameters, see [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
 
@@ -191,7 +193,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Yes       | String | The Object ID of the enrollment account that the subscription is created under and billed to. This value is a GUID that you get from `az billing enrollment-account list`. |
 | `owner-object-id`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 | `owner-upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.|
-| `owner-spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.| 
+| `owner-spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 

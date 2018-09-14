@@ -26,7 +26,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
 
 ## Clean up deployment 
 

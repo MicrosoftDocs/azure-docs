@@ -35,12 +35,20 @@ If you're unfamiliar with the process of auto-provisioning, review [Auto-provisi
 
 In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) which include the sample code for the X.509 boot sequence.
 
-1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
@@ -93,7 +101,7 @@ In this section, you will prepare a development environment used to build the [A
 
 In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
+* Self-signed certificates are for testing only, and should not be used in production.
 * The default expiration date for a self-signed certificate is 1 year.
 
 You will use sample code from the Azure IoT C SDK to create the certificate to be used with the individual enrollment entry for the simulated device.
@@ -108,7 +116,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
     The output window displays a locally generated self-signed X.509 certificate for your simulated device. Copy the output to clipboard, starting from **-----BEGIN CERTIFICATE-----** and ending with the first **-----END CERTIFICATE-----**, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
  
-5. Using a text editor, save the certifiate to a new file named **_X509testcert.pem_**. 
+5. Using a text editor, save the certificate to a new file named **_X509testcert.pem_**. 
 
 
 ## Create a device enrollment entry in the portal
@@ -139,7 +147,7 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note down the **_ID Scope_** value.
 
-    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
 2. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 

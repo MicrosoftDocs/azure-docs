@@ -128,11 +128,11 @@ The information helps you to identify the:
 
 1. Find the zone that is authoritative for the name that the client is trying to update.
 
-2. Use the solution to check the inventory information of that zone.
+1. Use the solution to check the inventory information of that zone.
 
-3. Verify that the dynamic update for the zone is enabled.
+1. Verify that the dynamic update for the zone is enabled.
 
-4. Check whether the zone is configured for secure dynamic update or not.
+1. Check whether the zone is configured for secure dynamic update or not.
 
     ![Dynamic DNS Registrations blade](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
@@ -172,7 +172,7 @@ On the Log Search page, you can create a query. You can filter your search resul
 
     c. To view the log data for configuration changes, select **ConfigurationChange** as the **Subtype** filter from the facet control on the left. A table that lists all the configuration change events for the selected time period is displayed.
 
-2. In the **search query box**, type `DnsInventory` to view all the DNS inventory-related data for the DNS servers managed by the solution. The results list the log data for DNS servers, DNS zones, and resource records.
+1. In the **search query box**, type `DnsInventory` to view all the DNS inventory-related data for the DNS servers managed by the solution. The results list the log data for DNS servers, DNS zones, and resource records.
 
     ![DnsInventory log search](./media/log-analytics-dns/log-search-dnsinventory.png)
 

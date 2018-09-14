@@ -7,10 +7,10 @@ author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: cfowler
+manager: jeconnoc
 ---
 
 # Create your first function running on Linux using the Azure CLI (preview)
@@ -45,7 +45,7 @@ Linux hosting for Functions is currently only supported on an App Service plan. 
 
 ## Create a function app on Linux
 
-You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command with a Linux App Service plan. 
+You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command with a Linux App Service plan. 
 
 In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. The _deployment-source-url_ parameter is a sample repository in GitHub that contains a "Hello World" HTTP triggered function.
 

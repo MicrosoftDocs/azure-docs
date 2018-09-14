@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - NGINX | Microsoft Docs
 description: Azure PowerShell Script Sample - NGINX
 services: virtual-machines-linux

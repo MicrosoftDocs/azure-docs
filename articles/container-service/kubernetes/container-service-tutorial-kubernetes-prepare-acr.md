@@ -35,13 +35,13 @@ This tutorial requires that you are running the Azure CLI version 2.0.4 or later
 
 When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named `myResourceGroup` is created in the `westeurope` region.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. In this example, a resource group named `myResourceGroup` is created in the `westeurope` region.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#az_acr_create) command. The name of a Container Registry **must be unique**.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#az-acr-create) command. The name of a Container Registry **must be unique**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -51,7 +51,7 @@ Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for th
 
 ## Container registry login
 
-Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) command to log in to the ACR instance. You need to provide the unique name given to the container registry when it was created.
+Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) command to log in to the ACR instance. You need to provide the unique name given to the container registry when it was created.
 
 ```azurecli
 az acr login --name <acrName>
@@ -120,7 +120,7 @@ This takes a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command. Update the command with the ACR instance name.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

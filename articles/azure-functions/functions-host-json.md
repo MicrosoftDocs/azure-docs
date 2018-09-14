@@ -2,18 +2,14 @@
 title: host.json reference for Azure Functions
 description: Reference documentation for the Azure Functions host.json file.
 services: functions
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/12/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # host.json reference for Azure Functions

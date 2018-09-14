@@ -1,20 +1,14 @@
 ---
 title: Custom connector topic links - Azure Logic Apps | Microsoft Docs
 description: Links to topics about how to create, use, share, and certify custom connectors
-author: ecfan
-manager: jeconnoc
-editor: 
 services: logic-apps
-documentationcenter: 
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
-ms.author: LADocs; estfan
 ---
 
 # Custom connectors in Logic Apps

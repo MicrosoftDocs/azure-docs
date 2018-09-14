@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -38,13 +38,16 @@ Ensure that the following prerequisites are in place:
 
 * **Use a supported Azure AD Connect topology**: Ensure that you are using one of Azure AD Connect's supported topologies described [here](active-directory-aadconnect-topologies.md).
 
+    >[!NOTE]
+    >Seamless SSO supports multiple AD forests, whether there are AD trusts between them or not.
+
 * **Set up domain administrator credentials**: You need to have domain administrator credentials for each Active Directory forest that:
     * You synchronize to Azure AD through Azure AD Connect.
     * Contains users you want to enable for Seamless SSO.
     
 * **Enable modern authentication**: You need to enable [modern authentication](https://aka.ms/modernauthga) on your tenant for this feature to work.
 
-* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), you need versions 16.0.8730.xxxx or above.
+* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
 ## Step 2: Enable the feature
 
@@ -52,9 +55,12 @@ Enable Seamless SSO through [Azure AD Connect](active-directory-aadconnect.md).
 
 If you're doing a fresh installation of Azure AD Connect, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the **User sign-in** page, select the **Enable single sign on** option.
 
+>[!NOTE]
+> The option will be available for selection only if the Sign On method is **Password Hash Synchronization** or **Pass-through Authentication**.
+
 ![Azure AD Connect: User sign-in](./media/active-directory-aadconnect-sso/sso8.png)
 
-If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**.
+If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**. If you are using Azure AD Connect versions 1.1.880.0 or above, the **Enable single sign on** option will be selected by default. If you are using older versions of Azure AD Connect, select the **Enable single sign on** option.
 
 ![Azure AD Connect: Change the user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -75,6 +81,9 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 4. Verify that the **Seamless single sign-on** feature appears as **Enabled**.
 
 ![Azure portal: Azure AD Connect pane](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> Seamless SSO creates a computer account named `AZUREADSSOACC` (which represents Azure AD) in your on-premises Active Directory (AD) in each AD forest. This computer account is needed for the feature to work. Move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
 
 ## Step 3: Roll out the feature
 
@@ -169,7 +178,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 
 #### Safari (macOS)
 
-Ensure that the machine running the macOS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Ensure that the machine running the macOS is joined to AD. Instructions for AD-joining your macOS device is outside the scope of this article.
 
 #### Google Chrome (all platforms)
 
@@ -189,7 +198,7 @@ Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers.
 
 To test the feature for a specific user, ensure that all the following conditions are in place:
   - The user signs in on a corporate device.
-  - The device is joined to your Active Directory domain.
+  - The device is joined to your Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
   - The device has a direct connection to your domain controller (DC), either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
   - You have [rolled out the feature](##step-3-roll-out-the-feature) to this user through Group Policy.
 
