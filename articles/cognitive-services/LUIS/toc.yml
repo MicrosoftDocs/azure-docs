@@ -199,7 +199,7 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-  - name: Publish app
+  - name: Publish
     href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
@@ -227,7 +227,6 @@
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Spread endpoint quota across keys with Traffic Manager
         href: luis-traffic-manager.md  
-
   - name: Migrate to V2 API
     href: luis-migration-api-v1-to-v2.md
   - name: Find region programmatically
