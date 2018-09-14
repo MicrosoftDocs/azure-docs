@@ -44,14 +44,14 @@ ms.author: mtillman
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="fundamentals/index.yml">Learn the fundamentals</a></h3> 
+                                                                    <h3><a href="fundamentals/index.yml">Fundamentals</a></h3> 
 																	<p>
-																	    <a href="fundamentals/active-directory-whatis.md">Azure Active Directory overview</a><br>
-                                                                        <a href="fundamentals/understand-azure-identity-solutions.md">Basic concepts and terms</a><br>
+																	    <a href="fundamentals/active-directory-whatis.md">What is Azure AD?</a><br>
                                                                         <a href="fundamentals/active-directory-get-started-premium.md">Sign up for Azure AD Premium</a><br>
-                                                                        <a href="fundamentals/get-started-azure-ad.md">Access Azure AD Portal</a><br>
-																	    <a href="fundamentals/get-started-azure-ad.md">Create your Azure AD environment</a><br>
-                                                                        <a href="">Build your directory</a>
+                                                                        <a href="fundamentals/active-directory-access-create-new-tenant.md">Access Azure AD and create a tenant</a><br>
+                                                                        <a href="fundamentals/add-users-azure-active-directory.md">Create a group and add members</a><br>
+																	    <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Assign roles to users</a><br>
+                                                                        <a href="fundamentals/license-users-groups.md">Assign licenses to users</a>
 																    </p>
 																</div>
                                                             </div>
