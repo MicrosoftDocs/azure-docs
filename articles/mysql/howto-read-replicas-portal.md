@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# How to create and manage read replicas in Azure Database for MySQL using the Azure Portal
+# How to create and manage read replicas in Azure Database for MySQL using the Azure portal
 
 In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MySQL service using the Azure portal.
 

@@ -52,7 +52,7 @@ Replica servers are created using the same server configurations as the master, 
 - Backup redundancy option
 - MySQL engine version
 
-After a replica has been created, the pricing tier (except to and from Basic), compute generation, vCores, storage, and backup retention period can be changed independently from the master server. It is recommended that if a master's server configuration is updated, the replicas' configuration should also be updated to equal or greater values. This ensures that the replica is able to keep up with changes made to the master.
+After a replica has been created, you can change the pricing tier (except to and from Basic), compute generation, vCores, storage, and backup retention independently from the master server. It is recommended that if a master's server configuration is updated, the replicas' configuration should also be updated to equal or greater values. This ensures that the replica is able to keep up with changes made to the master.
 
 ### Deleting the master server
 
