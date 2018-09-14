@@ -8,7 +8,7 @@ author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
@@ -65,7 +65,7 @@ After the package is installed, a confirmation appears in the Package Manager co
 
 ## Add sample code
 
-1. Open the source file *helloworld.cpp*. Replace all the code in it with the following.
+1. Open the source file *helloworld.cpp*. Replace all the code below the initial include statement (`#include "stdafx.h"` or `#include "pch.h"`) with the following:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -95,7 +95,7 @@ Look for this sample in the `quickstart/cpp-windows` folder.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Recognize intents from speech by using the Speech SDK for C++](how-to-recognize-intents-from-speech-cpp.md)
 
 ## See also
 

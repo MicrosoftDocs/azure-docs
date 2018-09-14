@@ -8,7 +8,7 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
