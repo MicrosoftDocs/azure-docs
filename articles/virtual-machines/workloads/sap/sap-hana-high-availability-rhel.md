@@ -34,6 +34,8 @@ ms.author: sedusch
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
 [2292690]:https://launchpad.support.sap.com/#/notes/2292690
 [2455582]:https://launchpad.support.sap.com/#/notes/2455582
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -296,9 +298,9 @@ The steps in this section use the following prefixes:
 
 1. **[A]** Install the SAP HANA
 
-To install SAP HANA System Replication, follow <https://access.redhat.com/articles/3004101>.
+   To install SAP HANA System Replication, follow <https://access.redhat.com/articles/3004101>.
 
-1. **[A]** Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
+   * Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
    * Choose installation: Enter **1**.
    * Select additional components for installation: Enter **1**.
    * Enter Installation Path [/hana/shared]: Select Enter.
