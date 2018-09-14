@@ -24,10 +24,11 @@ CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 The response will will be similar to the form below, where X is the Zone to use for deploying in East US 2. Z can be either 1, 2, or 3.
 
-
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+
+If there was no response from the command, that means your registration to the feature is either still pending, or not approved yet.
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with Ultra SSD disks.
 
@@ -47,13 +48,13 @@ Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to cr
     "createOption": "Empty"  
 },  
 "diskSizeGB": 1024,  
- “diskIOPSReadWrite": 80000,  
-“diskMBpsReadWrite": 1200,  
+"diskIOPSReadWrite": 80000,  
+"diskMBpsReadWrite": 1200,  
 }
 ```
 
 Add an additional capability on the properties of the VM to indicate its Ultra SSD Enabled:
-a
+
 ```json
     {
     "apiVersion": "2018-06-01", 
@@ -98,15 +99,10 @@ a
   "diskMBpsReadWrite": 1200,  }]
 },
     "networkProfile": {
-            ... 
+            ...
         }
     }
 }
 ```
+
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
-
-Additional scenarios:
-
-During VM creation, Ultra SSD disk can be implicitly created as well. However, these disks will get a default value for IOPS (500) and throughput (8 MBps). Add link to Resource Manager templates 
-Additional Ultra SSD disks can be attached to Ultra SSD Compatible VMs. 
-Ultra SSD supports adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the Virtual Machine. Once a disk performance resize operation has been issued on a disk, it can take up to one hour for the change to actually take effect. Growing the disk capacity does require a Virtual Machine to be deallocated.
