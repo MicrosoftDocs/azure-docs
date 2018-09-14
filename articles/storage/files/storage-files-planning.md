@@ -63,7 +63,24 @@ For maximum security, we strongly recommend always enabling both encryption at-r
 
 If you are using Azure File Sync to access your Azure file share, we will always use HTTPS and SMB 3.0 with encryption to sync your data to your Windows Servers, regardless of whether you require encryption of data at-rest.
 
-## Data redundancy
+## File share media type
+Azure Files supports two media types: standard and premium.
+
+* **Standard file shares** are backed by rotational hard disks (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
+* **Premium file shares (preview)** are backed by solid state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model.
+
+### Provisioned shares
+Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned the share will be issued 1 IOPS and 0.1 MiB/s throughput up to the max per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput. Share size can be increased at any time and decreased any time but can be decreased once every 24 hours since the last increase. IOPS/throughput scale changes will be effective with in 24 hours after the size change. 
+
+| Provisioned capacity | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
+|----------------------|---------|---------|-------|-------|
+| Baseline IOPS | 100 | 500 | 1,024 | 5,120 | 
+| Burst limit | 300 | 1,500 | 3,072 | 15,360 | 
+| Throughput | 110 MiB/sec | 150 MiB/sec | 202 MiB/sec | 612 MiB/sec |
+
+On a best effort basis, all shares can burst up to 3 IOPS per GiB of provisioned storage for up to 1 hour and can run steady at 1 IOPS per GiB of provisioned capacity up to the maximum of the share. New shares start with the full burst credit based on the provisioned capacity.
+
+## File share redundancy
 Azure Files supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), and geo-redundant storage (GRS). The following sections describe the differences between the different redundancy options:
 
 ### Locally redundant storage
