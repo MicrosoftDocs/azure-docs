@@ -50,7 +50,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   1. Open the Azure portal
   2. In the left menu, select virtual machines.
   3. Click on the VM in the list. The overview page for the VM will open.
-  4. Scroll down to the Support + Troubleshooting section and click on serial console (Preview) option. A new pane with the serial console will open and start the connection.
+  4. Scroll down to the Support + Troubleshooting section and click on the "Serial console" option. A new pane with the serial console will open and start the connection.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -161,13 +161,14 @@ The VM is in a stopped deallocated state. Start the VM and retry the serial cons
 You do not have the required permissions to use this VM the serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
 Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
 Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653), which change fairly regularly.
+A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
+
 ## Known issues 
-As we are still in the preview stages for serial console access, we are working through some known issues. Below is the list of these with possible workarounds:
+We are aware of some issues with the serial console. Here is a list of these issues and steps for mitigation.
 
 Issue                           |   Mitigation 
 :---------------------------------|:--------------------------------------------|
 Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to properly connect to the serial port.
-A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
 Serial console text only takes up a portion of the screen size (often after using a text editor) | Serial consoles do not support negotiating about window size ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), which means that there will be no SIGWINCH signal sent to update screen size and the VM will have no knowledge of your terminal's size. We recommend instaling xterm or some other similar utility that gives you the 'resize' command. Running 'resize' will fix this.
 Pasting very long strings does not work | Serial console limits the length of strings pasted into the terminal to 2048 characters. This is to prevent overwhelming the serial port bandwidth.
 
