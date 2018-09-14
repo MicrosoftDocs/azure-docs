@@ -176,7 +176,7 @@ to start with the public IP model first.
 
 Each consortium member deployment includes:
 
--   Virtual M Scale Sets (VMSS) for running the PoA validators
+-   Virtual Machine Scale Sets (VMSS) for running the PoA validators
 
 -   Azure Load Balancer for distributing RPC, peering, and Governance
     DApp requests
@@ -441,7 +441,8 @@ part of [Step 2](#step-2-new-admin-deployment).
 1.  Collect the new admin's public Ethereum address.
 
 2.  Navigate to the Governance DApp and create a new admin with the
-    Ethereum address and an appropriate alias
+    Ethereum address and an appropriate alias (please use browser
+    with the admin's Metamask installed to do this)
 
 3.  Notify the other existing members of the new request so that they
     can vote to add this new admin
