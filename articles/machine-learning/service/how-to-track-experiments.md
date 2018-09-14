@@ -102,7 +102,7 @@ You can add tracking to your training experiment through Azure Machine Learning 
 When an experiment has finished running, you can  browse to the recorded experiment run record. You can do this in two ways:
 
 - Get the URL to the run directly ```print(run.get_portal_url())```
-- View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Datils Page, a link to the Web Portal and a link to documentation.
+- View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
 
 The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
@@ -168,7 +168,7 @@ For longer running experiments, you can watch the progress of the run with a Jup
   
   ```
 
-   The script uses the Ridge model example and adds several logs, uploads the model file, and also registers each model. In this case we uploaded the models to the logs folder due to the missing ```outputs/``` preface to the name in the line ```run.upload_file)```.
+   The script uses the Ridge model example and adds several logs, uploads the model file, and also registers each model. In this case we uploaded the models to the logs folder due to the missing ```outputs/``` preface to the name in the line ```run.upload_file```
   
 2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
 
