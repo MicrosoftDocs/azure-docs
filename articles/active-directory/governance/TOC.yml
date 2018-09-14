@@ -12,6 +12,8 @@
     href: complete-access-review.md
   - name: Perform an access review
     href: perform-access-review.md
+  - name: Review your access
+    href: review-your-access.md
   - name: Guest access with access reviews
     href: manage-guest-access-with-access-reviews.md
   - name: Manage user access with reviews

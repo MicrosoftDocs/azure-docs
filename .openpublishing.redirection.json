@@ -23644,7 +23644,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-azure-ad-controls-how-to-review-your-access.md",
-            "redirect_url": "/azure/active-directory/governance/how-to-review-your-access",
+            "redirect_url": "/azure/active-directory/governance/review-your-access",
             "redirect_document_id": true
         },
         {
