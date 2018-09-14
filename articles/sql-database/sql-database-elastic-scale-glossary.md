@@ -8,7 +8,7 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: sstein
 
 ---
@@ -74,7 +74,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Split**: The act of moving several shardlets from one shard to another (typically new) shard. A sharding key is provided by the user as the split point.
 
-**Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
+**Vertical Scaling**: The act of scaling up (or down) the compute size of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
