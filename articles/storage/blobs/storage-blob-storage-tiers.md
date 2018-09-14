@@ -203,7 +203,7 @@ Data storage along with other limits are set at the account level and not per st
 
 [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
 
-[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
+[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
 
