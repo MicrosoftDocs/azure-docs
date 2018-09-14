@@ -48,7 +48,7 @@
     - name: Azure Cloud Shell integration
       href: terraform-cloud-shell.md
 - name: How-to guides
-  item:
+  items:
     - name: Store state in Azure Storage
       href: terraform-backend.md
 - name: Reference
