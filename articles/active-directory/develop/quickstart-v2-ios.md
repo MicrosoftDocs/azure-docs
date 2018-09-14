@@ -44,18 +44,18 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 
 > 1. To register an application, go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) and select **New registration**.
 > 1. Enter a name for your application and click **Register**.
-> 1. Select the **Authentication** page, then add `msal{AppId}://auth` (where *{AppId}* is the application ID from the application you just registered), select **Public client (mobile & desktop)** under **Type**, and then select **Save**.
+> 1. Select the **Authentication** page, then add `msal<AppId>://auth` (where *<AppId>* is the application ID from the application you just registered), select **Public client (mobile & desktop)** under **Type**, and then select **Save**.
 >
 >> [!TIP]
 >> To find the *Application ID*, go to Overview page.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > ### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a reply URL as `msal{AppId}://auth` (where msal{AppId} is this application Id).
+> For the code sample for this quickstart to work, you need to add a reply URL as `msal<AppId>://auth` (where msal<AppId> is this application Id).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
-> > [!div id="appconfigured" class="hidden"]
+> > [!div id="appconfigured"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with this attribute
 
 ## Step 2: Download your web server or project
