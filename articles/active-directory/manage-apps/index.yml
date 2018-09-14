@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure AD Application Management Documentation
+title: Application Management Documentation
 metadata:
-  title: Application management documentation
+  title: Azure Active Directory application management documentation
   meta.description: Learn how to manage and deploy applications with Azure Active Directory.
   services: active-directory
   author: barbkess
