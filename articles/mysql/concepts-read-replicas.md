@@ -71,6 +71,6 @@ Users on the master server are replicated to the read replicas. You can only con
 
 - Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
 
-<!-->
+<!--
 - Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
 -->
