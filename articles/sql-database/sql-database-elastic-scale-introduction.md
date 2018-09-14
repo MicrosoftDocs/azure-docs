@@ -7,7 +7,7 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: sstein
 
 ---
@@ -49,7 +49,7 @@ The following figure shows the horizontal and vertical dimensions of scaling, wh
 
 Horizontal scaling refers to adding or removing databases in order to adjust capacity or overall performance. This is also called “scaling out”. Sharding, in which data is partitioned across a collection of identically structured databases, is a common way to implement horizontal scaling.  
 
-Vertical scaling refers to increasing or decreasing the performance level of an individual database—this is also known as “scaling up.”
+Vertical scaling refers to increasing or decreasing the compute size of an individual database—this is also known as “scaling up.”
 
 Most cloud-scale database applications use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer’s database to grow or shrink resources as needed by the workload.
 

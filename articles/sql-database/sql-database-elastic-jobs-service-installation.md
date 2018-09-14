@@ -88,7 +88,7 @@ The parameters provided on this sample invocation can be modified for your desir
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Provides the performance level for a Standard edition. This parameter defaults to S0. Parameter values of S0/S1/S2/S3/S4/S6/S9/S12 are accepted which cause the Azure SQL Database to use the respective performance level. For more information on SQL Database performance levels, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Provides the compute size for a Standard edition. This parameter defaults to S0. Parameter values of S0/S1/S2/S3/S4/S6/S9/S12 are accepted which cause the Azure SQL Database to use the respective compute size. For more information on SQL Database compute sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

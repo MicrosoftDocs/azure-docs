@@ -1,19 +1,19 @@
 ---
 title: 'Azure SQL Database service tiers - DTU | Microsoft Docs'
-description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
+description: Learn about service tiers for single and pool databases to provide compute sizes and storage sizes.  
 services: sql-database
 author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
 
 ---
-# Choosing a DTU-based service tier, performance level, and storage resources 
+# Choosing a DTU-based service tier, compute size, and storage resources 
 
-Service tiers are differentiated by a range of performance levels with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing performance levels without downtime. Single databases and elastic pools are billed hourly based on service tier and performance level.
+Service tiers are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing compute sizes without downtime. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, currently in public preview does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
@@ -35,7 +35,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 ## Single database DTU and storage limits
 
-Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -68,7 +68,7 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 Physical characteristics (CPU, memory, IO) associated to each DTU measure are calibrated using a benchmark that simulates real-world database workload.
 
 ### Correlating benchmark results to real world database performance
-It is important to understand that all benchmarks are representative and indicative only. The transaction rates achieved with the benchmark application will not be the same as those that might be achieved with other applications. The benchmark comprises a collection of different transaction types run against a schema containing a range of tables and data types. While the benchmark exercises the same basic operations that are common to all OLTP workloads, it does not represent any specific class of database or application. The goal of the benchmark is to provide a reasonable guide to the relative performance of a database that might be expected when scaling up or down between performance levels. In reality, databases are of different sizes and complexity, encounter different mixes of workloads, and will respond in different ways. For example, an IO-intensive application may hit IO thresholds sooner, or a CPU-intensive application may hit CPU limits sooner. There is no guarantee that any particular database will scale in the same way as the benchmark under increasing load.
+It is important to understand that all benchmarks are representative and indicative only. The transaction rates achieved with the benchmark application will not be the same as those that might be achieved with other applications. The benchmark comprises a collection of different transaction types run against a schema containing a range of tables and data types. While the benchmark exercises the same basic operations that are common to all OLTP workloads, it does not represent any specific class of database or application. The goal of the benchmark is to provide a reasonable guide to the relative performance of a database that might be expected when scaling up or down between compute sizes. In reality, databases are of different sizes and complexity, encounter different mixes of workloads, and will respond in different ways. For example, an IO-intensive application may hit IO thresholds sooner, or a CPU-intensive application may hit CPU limits sooner. There is no guarantee that any particular database will scale in the same way as the benchmark under increasing load.
 
 The benchmark and its methodology are described in more detail below.
 
@@ -150,5 +150,5 @@ The key metrics in the benchmark are throughput and response time.
 
 ## Next steps
 
-- For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- For details on specific performance levels and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- For details on specific compute sizes and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
+- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

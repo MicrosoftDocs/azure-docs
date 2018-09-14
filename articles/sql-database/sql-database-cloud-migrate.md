@@ -46,7 +46,7 @@ The following list contains the general workflow for a SQL Server database migra
 
 The following list contains recommendations for best performance during the import process.
 
-* Choose the highest service tier and performance level that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
+* Choose the highest service tier and compute size that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
 * Minimize the distance between your BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes
