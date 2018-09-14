@@ -15,8 +15,6 @@
         href: create-sql-api-java.md
       - name: Node.js
         href: create-sql-api-nodejs.md
-      - name: Node.js - V2 preview
-        href: create-sql-api-nodejs-preview.md
       - name: Python
         href: create-sql-api-python.md
       - name: Xamarin
@@ -143,8 +141,6 @@
               href: sql-api-async-java-get-started.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
-            - name: Node.js - V2 preview
-              href: sql-api-nodejs-get-started-preview.md
           - name: Build a web app
             items:
             - name: .NET
@@ -153,8 +149,6 @@
               href: sql-api-java-application.md
             - name: Node.js
               href: sql-api-nodejs-application.md
-            - name: Node.js - V2 preview
-              href: sql-api-nodejs-application-preview.md
             - name: Python
               href: sql-api-python-application.md
             - name: Xamarin
@@ -175,8 +169,6 @@
           href: sql-api-async-java-samples.md
         - name: Node.js samples
           href: sql-api-nodejs-samples.md
-        - name: Node.js - V2 preview samples
-          href: sql-api-nodejs-samples-preview.md
         - name: Python samples
           href: sql-api-python-samples.md
         - name: PowerShell
