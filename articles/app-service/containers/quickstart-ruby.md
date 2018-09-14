@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -41,7 +41,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## Run the application locally
 
-The rails server needs to be running in order for the application to work. Change to the `hello-world` directory, and use the `rails server` command to start the server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window, change to the `hello-world` directory, and use the `rails server` command to start the server.
 
 ```bash
 cd hello-world\bin

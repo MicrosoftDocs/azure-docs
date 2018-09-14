@@ -3,7 +3,7 @@ title: How to use Azure Service Bus queues with Python | Microsoft Docs
 description: Learn how to use Azure Service Bus queues from Python.
 services: service-bus-messaging
 documentationcenter: python
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # How to use Service Bus queues with Python

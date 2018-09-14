@@ -4,7 +4,7 @@ description: Learn how to run MapReduce jobs on Hadoop in HDInsight clusters.
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

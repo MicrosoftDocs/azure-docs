@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviwer: japere
 ---
@@ -666,5 +666,5 @@ To assign a license to a group, follow the steps below:
 >
 
 ## Next steps
-[Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md)
+[Add new users to Azure Active Directory](./fundamentals/add-users-azure-active-directory.md)
 

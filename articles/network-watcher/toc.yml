@@ -103,8 +103,6 @@
         href: network-watcher-nsg-flow-logging-rest.md
     - name: Analyze NSG flow logs
       items:
-      - name: Upcoming flow log format changes
-        href: prepare-flow-log.md
       - name: Read NSG flow logs
         href: network-watcher-read-nsg-flow-logs.md
       - name: Use traffic analytics

@@ -36,7 +36,7 @@ Assume that the user has been authenticated on an application using the [OAuth 2
 
 The steps that follow constitute the On-Behalf-Of flow and are explained with the help of the following diagram.
 
-![OAuth2.0 On-Behalf-Of Flow](/media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. The client application makes a request to API A with the token A (with an `aud` claim of API A).

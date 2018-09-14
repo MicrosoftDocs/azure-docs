@@ -162,7 +162,6 @@ Observe the following items in the *OnlineReindex.sql* script:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-.
 > * Create a job agent to run T-SQL jobs across multiple databases
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases

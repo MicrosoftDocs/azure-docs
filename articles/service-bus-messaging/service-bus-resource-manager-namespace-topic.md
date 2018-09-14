@@ -3,7 +3,7 @@ title: Create Azure Service Bus namespace topic subscription using Azure Resourc
 description: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template

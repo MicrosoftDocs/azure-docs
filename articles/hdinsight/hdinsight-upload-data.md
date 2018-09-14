@@ -4,7 +4,7 @@ description: Learn how to upload and access data for Hadoop jobs in HDInsight us
 keywords: etl hadoop, getting data into hadoop, hadoop load data
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017

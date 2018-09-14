@@ -26,7 +26,7 @@ To use a Github account as an identity provider in Azure Active Directory (Azure
 1. Sign in to the [GitHub Developer](https://github.com/settings/developers) website with your GitHub credentials.
 2. Select **OAuth Apps** and then select **Register a new application**.
 3. Enter an **Application name** and your **Homepage URL**.
-4. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Authorization callback URL**. Replace **{tenant}** with your Azure AD B2C tenant's name (for example, contosob2c.onmicrosoft.com).
+4. Enter `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **Authorization callback URL**. Replace **{tenant}** with your Azure AD B2C tenant's name (for example, contosob2c).
 5. Click **Register application**.
 6. Copy the values of **Client ID** and **Client Secret**. You need both to add the identity provider to your tenant.
 

@@ -17,7 +17,7 @@ ms.date: 08/14/2018
 ms.author: alsin
 ---
 
-# Windows Commands - CMD 
+# Windows Commands - CMD and PowerShell
 
 This section includes example commands for performing common tasks in scenarios where you may need to use SAC to access your Windows VM, such as when you need to troubleshoot RDP connection failures.
 
@@ -87,6 +87,8 @@ or
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### Set NIC to use DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+For more information about `netsh`, [click here](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Azure VMs should always be configured in the guest OS to use DHCP to obtain an IP address. The Azure static IP setting still uses DHCP to give the static IP to the VM.
 ### Ping

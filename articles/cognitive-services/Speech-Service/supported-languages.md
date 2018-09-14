@@ -34,7 +34,7 @@ The Microsoft speech recognition API supports the following languages.
 
 ## Text to Speech
 
-The **Text to Speech** API offers the following voices, each of which supports a specific language and dialect, identified by locale.
+The speech synthesis API offers the following voices, each of which supports a specific language and dialect, identified by locale.
 
 Locale | Language | Gender | Service name mapping
 -------|----------|---------|--------------------
@@ -46,11 +46,11 @@ cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jak
 da-DK | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
-de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda) "
+de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo) "
+| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)"
 el-GR | Greek | Male | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)"
-en-AU | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine) "
+en-AU | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)"
 en-CA | English (Canada) | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)"
@@ -123,13 +123,16 @@ zh-TW | Chinese (Taiwan)|Female | "Microsoft Server Speech Text to Speech Voice 
 
 ### Customization
 
-Custom **Text to Speech** voice fonts support US English (en-US) and Chinese (zh-CN).
+Voice customization is available for US English (en-US), mainland Chinese (zh-CN) and Italian (it-IT).
+
+> [!NOTE]
+> Italian voice training starts with a dataset of 2,000+ utterances. Chinese-English bilingual models are also supported with an initial dataset of 2,000+ utterances.
 
 ## Speech Translation
 
 The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech Language table below. The available target languages depend on whether the translation target is speech or text.
 
-You can obtain the list of languages either programmatically or using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
+You can obtain the list of languages programmatically using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
 
 ### Speech languages
 

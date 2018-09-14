@@ -36,6 +36,20 @@
       href: active-directory-b2c-tutorials-spa-webapi.md
 - name: Samples
   href: code-samples.md
+- name: Concepts
+  items:
+  - name: Applications types
+    href: active-directory-b2c-apps.md
+  - name: Authentication protocols
+    href: active-directory-b2c-reference-protocols.md
+  - name: OAuth 2.0
+    href: active-directory-b2c-reference-oauth-code.md
+  - name: OpenId Connect
+    href: active-directory-b2c-reference-oidc.md
+  - name: Tokens
+    href: active-directory-b2c-reference-tokens.md
+  - name: User accounts
+    href: user-overview.md
 - name: How-to guides
   items:
   - name: Register your application
@@ -44,8 +58,6 @@
     href: active-directory-b2c-reference-policies.md
   - name: Mobile & desktop apps
     items:
-    - name: Overview
-      href: active-directory-b2c-reference-oauth-code.md
     - name: iOS
       items:
       - name: iOS Swift using MSAL
@@ -66,8 +78,6 @@
       href: configure-ropc.md
   - name: Web apps
     items:
-    - name: Overview
-      href: active-directory-b2c-reference-oidc.md
     - name: ASP.NET
       href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
     - name: ASP.NET Core
@@ -237,14 +247,6 @@
     items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
-    - name: Glossary
-      items:
-      - name: Type of applications
-        href: active-directory-b2c-apps.md
-      - name: Authentication protocols
-        href: active-directory-b2c-reference-protocols.md
-      - name: Tokens
-        href: active-directory-b2c-reference-tokens.md
     - name: Region availability & data residency
       href: active-directory-b2c-reference-tenant-type.md
     - name: Enable billing
@@ -261,12 +263,16 @@
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
     href: active-directory-b2c-faqs.md
+  - name: Getting help
+    href: /azure/active-directory/develop/developer-support-help-options
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=active-directory-b2c
+  - name: Solutions and training
+    href: solution-articles.md
   - name: Stack Overflow 
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support

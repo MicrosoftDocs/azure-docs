@@ -8,14 +8,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Windows to use with Windows containers
 
-The Azure IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** provides and maintains security standards on the Edge device. The daemon starts on every boot and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
 
-This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. 
+To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+
+This article lists the steps to install the Azure IoT Edge runtime with Windows containers on your Windows x64 (AMD/Intel) system. 
 
 Windows support is currently in Preview.
 
@@ -23,6 +25,8 @@ Windows support is currently in Preview.
 Azure IoT Edge with Windows containers can be used with:
   * Windows 10/IoT Enterprise/IoT Core with April 2018 update (Build 17134).
   * Windows Server 1803
+
+For more information about which operating systems are currently supported, refer to [Azure IoT Edge support](support.md#operating-systems).
 
 ## Install the container runtime 
 

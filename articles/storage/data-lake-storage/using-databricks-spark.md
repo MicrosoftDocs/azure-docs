@@ -2,7 +2,7 @@
 title: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark | Microsoft Docs
 description: Learn to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
-tags: azure-portal
+
 author: dineshm
 ms.component: data-lake-storage-gen2
 ms.service: storage
@@ -62,7 +62,7 @@ The next step is to create a [Databricks cluster](https://docs.azuredatabricks.n
     ```bash
     spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<file_system>@<account_name>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<file_system>@<account_name>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
 
@@ -93,10 +93,10 @@ Re-open Databricks in your browser and execute the following steps:
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  
-    accountname = "<insert account name>' 
-    accountkey = " <insert account key>'
-    fullname = "fs.azure.account.key." +accountname+ ".blob.core.windows.net"
-    accountsource = "abfs://dbricks@" +accountname+ ".blob.core.windows.net/folder1"
+    accountname = "<insert account name>"
+    accountkey = " <insert account key>"
+    fullname = "fs.azure.account.key." +accountname+ ".dfs.core.windows.net"
+    accountsource = "abfs://dbricks@" +accountname+ ".dfs.core.windows.net/folder1"
     #create a dataframe to read data
     flightDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/On_Time_On_Time*.csv")
     #read the all the airline csv files and write the output to parquet format for easy query

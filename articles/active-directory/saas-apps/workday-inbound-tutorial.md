@@ -17,7 +17,7 @@ ms.date: 06/18/2018
 ms.author: asmalser
 
 ---
-# Tutorial: Configure Workday for automatic user provisioning
+# Tutorial: Configure Workday for automatic user provisioning (preview)
 
 The objective of this tutorial is to show you the steps you need to perform to import people from Workday into both Active Directory and Azure Active Directory, with optional writeback of some attributes to Workday.
 
@@ -27,9 +27,9 @@ The [Azure Active Directory user provisioning service](../active-directory-saas-
 
 * **Provisioning users to Active Directory** - Synchronize selected sets of users from Workday into one or more Active Directory forests.
 
-* **Provisioning cloud-only users to Azure Active Directory** - Hybrid users who exist in both Active Directory and Azure Active Directory can be provisioned into the latter using [AAD Connect](../connect/active-directory-aadconnect.md). However, users that are cloud-only can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service.
+* **Provisioning cloud-only users to Azure Active Directory** - In scenarios where on-premises Active Directory is not used, users can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service. 
 
-* **Writeback of email addresses to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
+* **Writeback of email addresses to Workday** - The Azure AD user provisioning service can write the email addresses of Azure AD users  back to Workday. 
 
 ### What human resources scenarios does it cover?
 
@@ -282,7 +282,7 @@ Before configuring user provisioning to an Active Directory forest, consider the
 
    * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string.
 
@@ -452,6 +452,9 @@ Agent\\Modules\\AADSyncAgent
 * Input: For "Directory Name", enter the AD Forest name, as entered in part \#2
 * Input: Admin username and password for Active Directory forest
 
+>[!TIP]
+> If you receive the error message "The relationship between the primary domain and the trusted domain failed", it is because the local machine is in an environment where multiple Active Directory forests or domains are configured, and at least one configured trust relationship is either failing or not operational. To resolve the issue, either correct or remove the broken trust relationship.
+
 **Command #3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -463,7 +466,6 @@ Agent\\Modules\\AADSyncAgent
 
 >[!IMPORTANT]
 >There is presently a known issue with global administrator credentials not working if they have multi-factor authentication enabled. As a workaround, disable multi-factor authentication for the global administrator.
-
 
 **Command #4**
 
@@ -588,7 +590,7 @@ The following sections describe setting up a connection between Workday and Azur
 
    * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
 
@@ -730,7 +732,7 @@ Follow these instructions to configure writeback of user email addresses from Az
 
    * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string (if
         necessary).
@@ -754,8 +756,7 @@ Active Directory.
     users in Azure Active Directory should have their email addresses written back to Workday. The default scope is “all
     users in Azure AD”. 
 
-3. In the **Attribute mappings** section, you can define how individual
-    Workday attributes map to Active Directory attributes. There is a mapping for the email address by default. However, the matching ID must be updated to match users in Azure AD with their corresponding entries in Workday. A popular matching method is to synchronize the Workday worker ID or employee ID to extensionAttribute1-15 in Azure AD, and then use this attribute in Azure AD to match users back in Workday.
+3. In the **Attribute mappings** section, update the matching ID to indicate the attribute in Azure Active Directory where the Workday worker ID or employee ID is stored. A popular matching method is to synchronize the Workday worker ID or employee ID to extensionAttribute1-15 in Azure AD, and then use this attribute in Azure AD to match users back in Workday. 
 
 4. To save your mappings, click **Save** at the top of the Attribute-Mapping section.
 
@@ -898,6 +899,10 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 * When running the **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell command, there is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account in Azure AD with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com).
 
+* Writing data to the thumbnailPhoto user attribute in on-premises Active Directory is not currently supported.
+
+* The "Workday to Azure AD" connector is not currently supported on Azure AD tenants where AAD Connect is enabled.  
+
 * A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](#Part 3: Configure the on-premises synchronization agent)
 
 ## Managing personal data
@@ -909,3 +914,4 @@ The Workday provisioning solution for Active Directory requires a synchronizatio
 * [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
+

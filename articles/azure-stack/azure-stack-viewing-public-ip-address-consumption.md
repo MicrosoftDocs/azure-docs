@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 
 ---
@@ -39,9 +39,8 @@ under **Tenant Resources**.
 To view the total number of public IP addresses that have been consumed
 in the region:
 
-1. In the Azure Stack administrator portal, select **More services**, under **Administrative Resources**, select **Resource providers**.
-2. From the list of **Resource Providers**, select **Network**.
-3. The **Network** pane displays the **Public IP pools usage** tile in the **Overview** section.
+1. In the Azure Stack administrator portal, select **All services**. Then, under the **ADMINISTRATION** category select **Network**.
+1. The **Network** pane displays the **Public IP pools usage** tile in the **Overview** section.
 
 ![Network Resource Provider pane](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 

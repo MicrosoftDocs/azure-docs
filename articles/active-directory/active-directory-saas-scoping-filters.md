@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 
 ms.custom: H1Hack27Feb2017
@@ -111,7 +111,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 * [Automate user provisioning and deprovisioning to SaaS applications](active-directory-saas-app-provisioning.md)
 * [Customize attribute mappings for user provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Account provisioning notifications](active-directory-saas-account-provisioning-notifications.md)
+* [Account provisioning notifications](active-directory-saas-app-provisioning.md)
 * [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [List of tutorials on how to integrate SaaS apps](saas-apps/tutorial-list.md)
 

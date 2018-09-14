@@ -13,22 +13,34 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
 ---
 # Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see the [Introduction to device management in Azure Active Directory](overview.md).
 
-If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps. 
-
-
 
 > [!TIP]
 > If using Azure AD Connect is an option for you, see [Select your scenario](hybrid-azuread-join-plan.md#select-your-scenario). By using Azure AD Connect, you can simplify the configuration of hybrid Azure AD join significantly.
+
+
+
+If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. In this tutorial, you learn how to manually configure hybrid Azure AD join for your devices.
+
+> [!div class="checklist"]
+> * Prerequisites
+> * Configuration steps
+> * Configure service connection point
+> * Setup issuance of claims
+> * Enable Windows down-level devices
+> * Verify joined devices
+> * Troubleshoot your implementation
+ 
 
 
 

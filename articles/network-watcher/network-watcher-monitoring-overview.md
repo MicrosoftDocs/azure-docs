@@ -83,9 +83,7 @@ The information is helpful when planning future resource deployments.
 
 ### Analyze traffic to or from a network security group
 
-Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. If you currently use tools to analyze flow logs, review the [changes](prepare-flow-log.md) coming soon to the flow log format. The changes will require you to change your analysis tooling.
-
-You can analyze logs using a variety of tools, such as PowerBI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
+Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools, such as PowerBI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
 
 ![Traffic analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 

@@ -1,5 +1,5 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Speech Service and SDK Documentation
+- name: Speech Service and SDK
   href: index.yml
 - name: Overview
   expanded: true
@@ -31,6 +31,9 @@
     - name: 'Using Java (Android)'
       href: quickstart-java-android.md
       displayName: recognize speech, speech recognition, speech to text, stt
+    - name: 'Using Java (Windows or Linux)'
+      href: quickstart-java-jre.md
+      displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
@@ -95,6 +98,8 @@
     items:
     - name: Migrate from the Translator Speech API to the Speech Service
       href: migrating-to-speech-service.md
+    - name: From Custom Speech service
+      href: how-to-migrate-from-custom-speech-service.md
 - name: Concepts
   items:
   - name: Speech-to-Text
