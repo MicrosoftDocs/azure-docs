@@ -157,12 +157,9 @@ service.delete()
 registered_model.delete()
 ```
 
-## Secure your deployment with SSL/TLS and authentication
+## Secure FPGA web services
 
-Azure Machine Learning Hardware Accelerated Models provides SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients.
-
-> [!NOTE]
-> The steps in this section only apply to Azure Machine Learning Hardware Accelerated Models.
+Azure Machine Learning models running on FPGAs provide SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients.
 
 > [!IMPORTANT]
 > Authentication is only enabled for services that have provided an SSL certificate and key. 
