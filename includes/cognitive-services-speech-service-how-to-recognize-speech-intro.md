@@ -10,9 +10,9 @@ ms.author: wolfma
 
 The Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides the simplest way to use **Speech to Text** in your application with full functionality.
 
-1. Create a speech factory and provide a Speech service subscription key (or an authorization token) and a [region](~/articles/cognitive-services/speech-service/regions.md) as parameters. You can also provide a custom endpoint to specify a non-standard service endpoint.
+1. Create a speech configuration and provide a Speech service subscription key (or an authorization token) and a [region](~/articles/cognitive-services/speech-service/regions.md) as parameters. Change the configuration as needed. For example, provide a custom endpoint to specify a non-standard service endpoint, or select the spoken input language or output format.
 
-1. Get a speech recognizer from the speech factory. You can configure the input language and the output format. A recognizer can use your device's default microphone, an audio stream, or audio from a file.
+1. Create a speech recognizer from the speech configuration. Provide an audio configuration if you want recognize from a source other than your default microphone (for example, audio stream or audio file).
 
 1. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results. Otherwise, your application receives only a final transcription result.
 

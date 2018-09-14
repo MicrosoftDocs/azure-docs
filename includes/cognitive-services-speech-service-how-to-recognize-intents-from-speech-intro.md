@@ -10,9 +10,9 @@ ms.author: wolfma
 
 The Microsoft Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides a way to recognize **intents from speech** and is supported by the Cognitive Services [Language Understanding service (LUIS)](https://www.luis.ai/home).
 
-1. Create a speech factory with a LUIS subscription key and [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition) as parameters. The LUIS subscription key is called **endpoint key** in the service documentation. You can't use the LUIS authoring key. (See the note later in this section.)
+1. Create a speech configuration with a LUIS subscription key and [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition) as parameters. The LUIS subscription key is called **endpoint key** in the service documentation. You can't use the LUIS authoring key. (See the note later in this section.)
 
-1. Get an intent recognizer from the speech factory. A recognizer can use your device's default microphone, an audio stream, or audio from a file.
+1. Create an intent recognizer from the speech configuration. Provide an audio configuration if you want recognize from a source other than your default microphone (for example, audio stream or audio file).
 
 1. Get the language understanding model that's based on your **AppId**. Add the intents you require. 
 

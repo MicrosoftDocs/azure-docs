@@ -11,9 +11,9 @@ ms.author: wolfma
 The Microsoft Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides the simplest way to use **speech translation** in your application.
 The SDK provides the full functionality of the service. The basic process for performing speech translation includes the following steps:
 
-1. Create a speech factory and provide a Speech service subscription key or an authorization token and a [region](~/articles/cognitive-services/speech-service/regions.md) as parameters.
-   
-1. Create a translation recognizer from the speech factory. You can configure the source and target translation languages, as well as specify whether you want text or speech output. There are various flavors of translation recognizers based on the audio source that you use.
+1. Create a speech translation configuration and provide a Speech service subscription key (or an authorization token) and a [region](~/articles/cognitive-services/speech-service/regions.md) as parameters. Change the configuration as needed. For example, you can configure the source and target translation languages, as well as specify whether you want text or speech output.
+
+1. Create a translation recognizer from the speech factory. Provide an audio configuration if you want recognize from a source other than your default microphone (for example, audio stream or audio file).
 
 1. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results, as well as a synthesis event for the optional audio output. Otherwise, your application receives only a final transcription result.
 
