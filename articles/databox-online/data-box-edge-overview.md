@@ -97,13 +97,13 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
     
 * **Data Box Edge resource** – a resource in the Azure portal that lets you manage a Data Box Edge device from a web interface that you can access from different geographical locations. Use the Data Box Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
-    <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
+    ![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)
 
     <!--For more information, go to [Use the Data Box Edge service to administer your Data Box Edge device](data-box-Edge-portal-ui-admin.md).-->
 
 * **Data Box local web UI** - Use the local web UI to run diagnostics, shut down and restart the Data Box Edge device, view copy logs, and contact Microsoft Support to file a service request.
 
-    <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
+    ![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)
 
     <!-- For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-Edge-portal-ui-admin.md).-->
 
@@ -127,23 +127,16 @@ Data Box Edge physical device, Azure resource, and target storage account to whi
 Data Box Edge is in preview and you need to sign up. Perform the following steps to sign up for Data Box Gateway:
 
 1. Sign into the Azure portal at: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-2. Click **+** to create a new resource. Search for **Data Box Edge**. Select **Data Box Edge/Data Box Gateway (Preview)**.
-    
-    ![The Data Box Edge sign up 1](media/data-box-edge-overview/data-box-edge-sign-up1.png)
 
-3. Click **Create**.
-
-    ![The Data Box Edge sign up 2](media/data-box-edge-overview/data-box-edge-sign-up2.png)
-
-4. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the Data Box Edge option, click **Sign up**.
+2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the Data Box Edge option, click **Sign up**.
 
     ![The Data Box Edge sign up 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
 
-5.  Answer the questions regarding data residence country, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review **Privacy and terms** and select the checkbox against **Microsoft can use your email address to contact you**.
+3.  Answer the questions regarding data residence country, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review **Privacy and terms** and select the checkbox against **Microsoft can use your email address to contact you**.
 
     ![The Data Box Edge sign up 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
 
-6. Once you are signed up and enabled for preview, you can order a Data Box Edge.
+4. Once you are signed up and enabled for preview, you can order a Data Box Edge.
 
 ## Next steps
 

@@ -91,17 +91,12 @@ If you have an existing Data Box Gateway resource to manage your virtual devices
 
 Perform the following steps in the Azure portal to create a Data Box resource.
 1. Use your Microsoft Azure credentials to log into Azure preview portal at this URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
-2. Click the **+ Create a resource** and search for Data Box Gateway. Click **Data Box Edge/Data Box Gateway (Preview))**. 
 
-    ![Search Data Box Gateway service](media/data-box-gateway-deploy-prep/data-box-gateway-service-search.png)
-
-3. Click **Create**.
-
-4. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the **Data Box Gateway** option, click **Create**.
+2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the **Data Box Gateway** option, click **Create**.
 
     ![Search Data Box Gateway service](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-5. For the new resource, enter or select the following information.
+3. For the new resource, enter or select the following information.
     
     |Setting  |Value  |
     |---------|---------|
@@ -110,8 +105,8 @@ Perform the following steps in the Azure portal to create a Data Box resource.
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
     |Location     |For this release, East US, West US 2, South East Asia, and West Europe are available. <br> Choose a location closest to the geographical region where you want to deploy your device.|
   
- 5. Check **Pin to dashboard** to get a quick link to this resource on your dashboard.
-6. Click **Create**.
+4. Check **Pin to dashboard** to get a quick link to this resource on your dashboard.
+5. Click **Create**.
  
 The resource creation takes a few minutes. After the resource is successfully created, you are notified appropriately.
 
