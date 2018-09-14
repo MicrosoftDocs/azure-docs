@@ -5,17 +5,17 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ---
 
 # Fail over and fail back physical servers replicated to Azure
 
-This tutorial describes how to fail over a physical server to Azure. After you've failed over, you fail the server back to your on-premises site when it's available. 
+This tutorial describes how to fail over a physical server to Azure. After you've failed over, you fail the server back to your on-premises site when it's available.
 
 ## Preparing for failover and failback
 
-Physical servers replicated to Azure using Site Recovery can only fail back as VMware VMs. You need a VMware infrastructure in order to fail back. 
+Physical servers replicated to Azure using Site Recovery can only fail back as VMware VMs. You need a VMware infrastructure in order to fail back.
 
 Failover and failback has four stages:
 
@@ -40,7 +40,7 @@ Verify the server properties, and make sure that it complies with [Azure require
 
 1. In **Settings** > **Replicated items** click the machine > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. You can use one of the following options:
-   - **Latest** (default): This option first processes all the data sent to Site Recovery. It
+   - **Latest**: This option first processes all the data sent to Site Recovery. It
      provides the lowest RPO (Recovery Point Objective) because the Azure VM created after failover
      has all the data that was replicated to Site Recovery when the failover was triggered.
    - **Latest processed**: This option fails over the machine to the latest recovery point processed by
@@ -58,7 +58,13 @@ Verify the server properties, and make sure that it complies with [Azure require
 
 > [!WARNING]
 > Don't cancel a failover in progress. Before failover begins, machine replication stops. If you cancel the failover, it stops, but the machine won't replicate again.
-> For physical servers, additional failover processing can take around eight to ten minutes to complete. 
+> For physical servers, additional failover processing can take around eight to ten minutes to complete.
+
+## Prepare to connect to Azure VMs after failover
+
+If you want to connect to Azure VMs using RDP/SSH after failover, follow the requirements summarized in the table [here](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.md) to troubleshoot any connectivity issues post failover.
 
 ## Create a process server in Azure
 
@@ -139,4 +145,3 @@ replicating to Azure again as follows:
 
 After the reprotection finishes, the VM replicates back to Azure, and you can run a failover as
 required.
-

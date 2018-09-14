@@ -22,7 +22,7 @@ monikerRange: 'vsts'
 
 # Create a CI/CD pipeline for .NET with the Azure DevOps Project
 
-Configure continuous integration (CI) and continuous delivery (CD) for your .NET core or ASP.NET application with The **Azure DevOps Project**.  The Azure DevOps Project simplifies the initial configuration of an Azure DevOps Services build and release pipeline.
+Configure continuous integration (CI) and continuous delivery (CD) for your .NET core or ASP.NET application with the **Azure DevOps Project**.  The Azure DevOps Project simplifies the initial configuration of an Azure DevOps Services build and release pipeline.
 
 If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
