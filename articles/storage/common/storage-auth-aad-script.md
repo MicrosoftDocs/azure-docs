@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -56,7 +56,7 @@ To use Azure PowerShell to sign in with an Azure AD identity:
 1. Make sure that you have the latest version of PowerShellGet installed. Run the following command to install the latest:
  
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview"
+    Install-Module PowerShellGet –Repository PSGallery –Force
     ```
 
 2. Uninstall any previous installations of Azure PowerShell.
@@ -69,7 +69,7 @@ To use Azure PowerShell to sign in with an Azure AD identity:
 4. Install the preview module:
 
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
+        Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview" 
     ```
 
 5. Call the [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 
