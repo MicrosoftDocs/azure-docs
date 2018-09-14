@@ -1,19 +1,19 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Kusto Documentation
+title: Data Explorer Documentation
 metadata:
-  title: Kusto Documentation - Quickstarts, tutorials, and language and API references | Microsoft Docs
-  description: Kusto is a log analytics cloud platform optimized for ad-hoc big data queries.
+  title: Data Explorer Documentation - Quickstarts, tutorials, and language and API references | Microsoft Docs
+  description: Data Explorer is a log analytics cloud platform optimized for ad-hoc big data queries.
   author: mgblythe
   manager: kfile
-  ms.service: kusto
+  ms.service: data-explorer
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/24/2018
   ms.author: mblythe
 abstract:
-  description: Kusto is a log analytics cloud platform optimized for ad-hoc big data queries.</p>
+  description: Data Explorer is a log analytics cloud platform optimized for ad-hoc big data queries.</p>
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -33,7 +33,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to build and manage end-to-end data solutions:'
+    text: 'Learn how to build end-to-end solutions:'
   - type: list
     style: unordered
     items:
