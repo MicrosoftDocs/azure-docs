@@ -21,6 +21,32 @@ The JavaScript experience for Azure Functions makes it easy to export a function
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
+## Folder structure
+
+The folder structure for a JavaScript project looks like the following:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.js) and binding configuration file (function.json).
+
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+
 ## Exporting a function
 Each JavaScript function must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always take a `context` object as the first parameter.
 
