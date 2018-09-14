@@ -117,7 +117,8 @@ The webhook is now called when a resource group is created in your subscription.
     
         // Return an error if the resource in the activity log isn't a resource group. 
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
-            "Microsoft.Resources/subscriptions/resourcegroups"))
+            "Microsoft.Resources/subscriptions/resourceGroups", 
+            System.StringComparison.OrdinalIgnoreCase))
         {
             log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new

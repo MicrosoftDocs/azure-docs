@@ -1,6 +1,6 @@
 ---
-title: Language Understanding (LUIS) regions and endpoints - Azure - Cognitive Services LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Publishing regions and endpoints - LUIS
+titleSuffix: Azure Cognitive Services
 description: The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you publish an app, LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region.
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/11/2018
 ms.author: diberry
 ---
 # Regions and keys
@@ -24,6 +24,11 @@ There are three LUIS websites, based on region. You must author and publish in t
 |[au.luis.ai][au.luis.ai]|Australia|
 |[eu.luis.ai][eu.luis.ai]|Europe|
 
+## Regions and Azure resources
+The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS resource in **westus** and add it to the app as a resource, the app is published in that region. 
+
+## Public apps
+A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with their resource key.
 
 ## Publishing regions
 
