@@ -48,8 +48,8 @@ To unblock a suspicious sign-in, you have the following options:
 ## Unblocking accounts at risk
 To unblock an account at risk, you have the following options:
 
-1. **Reset password** - You can reset the user's password. For more information, see [manual secure password reset](overview.md#manual-secure-password-reset).
-2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. For more information, see [closing risk events manually](overview.md#closing-risk-events-manually).
+1. **Reset password** - You can reset the user's password. 
+2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. 
 3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
