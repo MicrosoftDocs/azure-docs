@@ -27,7 +27,7 @@ ms.author: sedusch
 [sap-hana-ha]:sap-hana-high-availability.md
 
 > [!NOTE]
-> Pacemaker on Red Hat Enterprise Linux uses the Azure Fence Agent to fence a cluster node if required. A failover can take up to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
+> Pacemaker on Red Hat Enterprise Linux uses the Azure Fence Agent to fence a cluster node if required. A failover can take up to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore. For more information, read  [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
 
 ![Pacemaker on RHEL overview](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
