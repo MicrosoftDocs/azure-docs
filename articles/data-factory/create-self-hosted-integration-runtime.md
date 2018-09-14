@@ -92,7 +92,7 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 9. Get the Authentication key using Azure PowerShell. PowerShell example for retrieving authentication key:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
 	```
 11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, do the following steps:
 	1. Paste the **authentication key** in the text area.
