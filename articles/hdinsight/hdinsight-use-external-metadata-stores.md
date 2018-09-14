@@ -25,9 +25,9 @@ There are two ways you can set up a metastore for your HDInsight clusters:
 
 By default, HDInsight provisions a metastore with every cluster type. You can instead specify a custom metastore. The default metastore includes the following considerations:
 - No additional cost. HDInsight provisions a metastore with every cluster type without any additional cost to you.
-- Each default metastore is part of the cluster lifecycle. When you delete a cluster that metastore and metadata are also deleted.
+- Each default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
 - You cannot share the default metastore with other clusters.
-- The default metastore uses the basic Azure SQL DB, which has a 5 DTU (database transaction unit) limit.
+- The default metastore uses the basic Azure SQL DB, which has a five DTU (database transaction unit) limit.
 This default metastore is typically used for relatively simple workloads that don't require multiple clusters and don’t need metadata preserved beyond the cluster's lifecycle.
 
 
@@ -40,11 +40,7 @@ HDInsight also supports custom metastores, which are recommended for production 
 - You pay for the cost of a metastore (Azure SQL DB) according to the performance level you choose.
 - You can scale up the metastore as needed.
 
-
 ![HDInsight Hive Metadata Store Use Case](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
-
-<!-- Image – Typical shared custom Metastore scenario in HDInsight (?) -->
-
 
 
 ### Select a custom metastore during cluster creation
@@ -61,12 +57,12 @@ You can also add additional clusters to a custom metastore from Azure portal or 
 
 Here are some general HDInsight Hive metastore best practices:
 
-- Use a custom metastore whenever possible, as this will help separate compute resources (your running cluster) and metadata (stored in the metastore).
+- Use a custom metastore whenever possible, to help separate compute resources (your running cluster) and metadata (stored in the metastore).
 - Start with an S2 tier, which provides  50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
-- Ensure that the metastore created for one HDInsight cluster version is not shared across different HDInsight cluster versions. Different Hive versions use different schemas. For example, you cannot share a metastore with both Hive 1.2 and Hive 2.1 clusters.
-- Sharing metastores with multiple HDInsight clusters means that the clusters use the same metadata. If you intend each cluster to access separate data, use a separate database for the metastores for each cluster.
-- Back up your custom metastore periodically.
-- Keep your metastore and HDInsight cluster in the same region.
+- When sharing a metastore across multiple cluster, ensure all clusters have the same HDInsight versions. Different Hive versions use different metastore database schemas. For example, you cannot share a metastore across Hive 1.2 and Hive 2.1 versioned clusters.
+- Sharing metastores with multiple HDInsight clusters means that the clusters use the same metadata and underlying file data. If you intend each cluster to access separate data, use a separate database for the metastore on each cluster.
+- Back up your custom metastore periodically. Azure SQL Database has a number of automatic backup options.
+- Locate your metastore and HDInsight cluster in the same region, for highest performance and lowest network egress charges.
 - Monitor your metastore for performance and availability using Azure SQL Database Monitoring tools, such as the Azure portal or Azure Log Analytics.
 
 ## Oozie Metastore
