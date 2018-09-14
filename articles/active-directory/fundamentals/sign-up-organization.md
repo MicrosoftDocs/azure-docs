@@ -23,7 +23,6 @@ Sign up for Azure Active Directory (Azure AD) a new Microsoft Azure subscription
 - **Work or school account.** Use your work or school-related account to get access to all the small, medium, and enterprise cloud services from Microsoft, such as Azure, Microsoft Intune, or Office 365. After you sign up for one of these services as an organization, Azure AD automatically provisions a cloud-based directory that represents your organization. For more information, see [Manage your Azure AD directory](active-directory-administer.md).
 
 ## Next steps
-After your cloud-based directory is created, you can create groups, users, and you can assign licenses based on which cloud service subscriptions are needed, such as Azure or Azure AD. For more information, see [Fundamentals Documentation](index.yml)
 
 - [Sign up as an organization](https://azure.microsoft.com/pricing/purchase-options/)
 
