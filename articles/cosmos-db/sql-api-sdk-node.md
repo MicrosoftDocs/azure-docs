@@ -43,6 +43,10 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="2.0.0"/>2.0.0</a>
+* GA of Version 2.0.0 of the JavaScript SDK
+* Added support for multi-region writes.
+
 ### <a name="2.0.0-3"/>2.0.0-3</a>
 * RC1 of Version 2.0.0 of the JavaScript SDK for public preview.
 * New object model, with top-level CosmosClient and methods split across relevant Database, Container, and Item classes. 
