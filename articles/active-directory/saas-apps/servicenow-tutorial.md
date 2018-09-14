@@ -225,7 +225,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		![Activate plugin](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
 
-	* After clicking on the **Test Connection**, you will get the popup window where you need to enter credentials and the below page with results is shown. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
+	* After clicking on the **Test Connection**, you will get the popup window where you need to enter credentials and the below page with results is shown. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** button.
 
 		![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
   
@@ -264,7 +264,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 		* Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
 			> [!NOTE]
-			> The ServiceNow instance homepage is a concatenation of your **ServieNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
+			> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
 		* Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
@@ -280,7 +280,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 		
 		* Click on **Test Connection** at the top right corner of the page.
 
-		* After clicking on the **Test Connection**, you will get the popup window where you need to enter credentials and the below page with results is shown. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
+		* After clicking on the **Test Connection**, you will get the popup window where you need to enter credentials and the below page with results is shown. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** button.
 
 		  ![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
 
@@ -394,7 +394,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. In the **ServiceNow Homepage** textbox, type the URL of your ServiceNow instance homepage.
 
 	> [!NOTE]
-	> The ServiceNow instance homepage is a concatenation of your **ServieNow tenant URL** and **/navpage.do** (for example: `https://fabrikam.service-now.com/navpage.do`).
+	> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example: `https://fabrikam.service-now.com/navpage.do`).
 
 	b. In the **Entity ID / Issuer** textbox, type the URL of your ServiceNow tenant.
 
