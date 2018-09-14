@@ -110,7 +110,7 @@ az storage account create \
 ```
 
 ### List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-account-manage.md#storage-account-access-keys). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-account-manage.md#access-keys). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 View the access keys for the storage account you created:
 
