@@ -131,13 +131,13 @@ Cost analysis allows you to analyze your organizational costs in-depth by slicin
 - **Invoice reconciliation** - Is my latest invoiced cost more than the previous month? How did spending habits change month-over-month?
 - **Internal chargeback** - Now that I know how much I'm being charged, how should those charges be broken down for my organization?
 
-For more information, see [cost analysis](tutorial-acm-cost-analysis.md).
+For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 ### Export billing data on a schedule
 
-Do you need to import your billing data into an external system, like a dashboard or financial system? You can schedule automated reports on a regular basis to avoid manually downloading files every month. And you can export billing data to an Azure storage account and get notified using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md). Then you can use your Azure data to combine it with custom data that you can use in your own systems.
+Do you need to import your billing data into an external system, like a dashboard or financial system? You can schedule automated reports daily to avoid manually downloading files every month. And you can export billing data to an Azure storage account and get notified using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md). Then you can use your Azure data to combine it with custom data that you can use in your own systems.
 
-For more information about exporting billing data, see [Download cost analysis data](tutorial-acm-cost-analysis.md#download-cost-analysis-data).
+For more information about exporting billing data, see [Create and manage exported data](tuorial-export-acm-data).
 
 ### Create budgets
 
