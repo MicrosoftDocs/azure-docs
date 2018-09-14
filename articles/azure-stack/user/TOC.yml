@@ -21,6 +21,8 @@
     href: azure-stack-quick-create-vm-linux-cli.md
 - name: Tutorials
   items:
+  - name: Create highly available SQL databases
+    href: azure-stack-tutorial-sqlrp.md
   - name: Deploy apps to Azure and Azure Stack
     href: azure-stack-solution-pipeline.md
   - name: Configure hybrid cloud identity
