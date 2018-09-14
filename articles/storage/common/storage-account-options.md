@@ -9,6 +9,7 @@ ms.date: 07/14/2018
 ms.author: hux
 ms.component: common
 ---
+
 # Azure Storage account options
 
 ## Overview
@@ -37,6 +38,9 @@ GPv2 storage accounts expose the **Access Tier** attribute at the account level,
 >
 > Microsoft recommends using general-purpose v2 storage accounts over Blob storage accounts for most scenarios.
 
+> [!NOTE]
+> The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions.
+
 ### Upgrade a storage account to GPv2
 
 Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using Azure portal, PowerShell, or Azure CLI. This change cannot be reversed, and no other account type changes are permitted. For more information on evaluating your existing storage account, see the [Evaluating and migrating to GPv2 storage accounts](#evaluating-and-migrating-to-gpv2-storage-accounts) section.
@@ -61,7 +65,7 @@ To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure CLI, fir
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-```` 
+``` 
 
 ### General-purpose v1 accounts
 
@@ -338,7 +342,7 @@ No. Blob storage accounts support only block and append blobs, and not page blob
 
 **Can I tier page blobs in GPv2 storage accounts?**
 
-No. Page blobs will infer the storage tier of your account but it has no effect on pricing or availability. You will not be able to change the access tier of a page blob to hot, cool, or archive. The Set Blob Tier operation is allowed on a page blob in a premium storage account but it only determines the allowed size, IOPS, and bandwidth of the premium page blob. For more information, see [Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier).
+No. Page blobs will infer the storage tier of your account but it has no effect on pricing or availability. You will not be able to change the access tier of a page blob to hot, cool, or archive. The Set Blob Tier operation is allowed on a page blob in a premium storage account but it only determines the allowed size, IOPS, and bandwidth of the premium page blob. For more information, see [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier).
 
 **Do I need to change my existing applications to use GPv2 storage accounts?**
 
