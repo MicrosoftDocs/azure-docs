@@ -15,7 +15,7 @@ metadata:
   ms.date: 09/24/2018
   ms.author: jmartens
 abstract:
-  description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how. 
+  description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how. 
 sections:
 
 - items:
@@ -24,7 +24,7 @@ sections:
     className: cardsB
     columns: 1
     items:
-    - html: <p>Train and deploy your ML models in a fully-managed cloud service.</p>
+    - html: <p>Train and deploy your ML models in an Azure cloud service. <a href="overview-what-is-azure-ml.md">Learn more about the service</a></p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Azure Machine Learning service
@@ -50,8 +50,8 @@ sections:
 
 - title: Reference
   items:
-  - html: <p><a href="http://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a></p>
-  - html: <p><a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a></p>
+  - html: <a href="http://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
+  - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a>
 
 - title: Other Azure Machine Learning Technologies
   items:
