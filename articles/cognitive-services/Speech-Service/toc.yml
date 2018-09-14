@@ -99,7 +99,7 @@
   - name: Migrate
     items:
     - name: From the Translator Speech API
-      href: how-to-migrate-from-translator-api.md
+      href: how-to-migrate-from-translator-speech-api.md
     - name: From Custom Speech Service
       href: how-to-migrate-from-custom-speech-service.md
     - name: From Bing Speech
