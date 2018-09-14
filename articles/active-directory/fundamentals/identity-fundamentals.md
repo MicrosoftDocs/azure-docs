@@ -23,7 +23,7 @@ Watch this short video for a quick overview of Azure AD identity management and 
 
 Azure AD also provides a set of tools that can help you secure, automate, and manage your environment, including resetting passwords, user and group management, and app requests. Azure AD can also help you manage user-owned devices and access and control of Software as a Service (SaaS) apps.
 
-For more information about the costs of Azure Active Directory Premium editions and the associated tools, see [Azure Active Directory pricing](https://azure.microsoft.com/docs.microsoft.com//pricing/details/active-directory/).
+For more information about the costs of Azure Active Directory Premium editions and the associated tools, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Connect on-premises Active Directory with Azure AD and Office 365
 Extend your on-premises Active Directory implementation into the cloud by integrating your on-premises directories with Azure AD through [hybrid identity management](https://aka.ms/aadframework). [Azure AD Connect](../connect/active-directory-aadconnect.md) provides this integration, giving your users a single identity and single sign-on (SSO) access to both your on-premises resources and your cloud services, such as Office 365.
