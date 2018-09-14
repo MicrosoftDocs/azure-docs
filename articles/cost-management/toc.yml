@@ -7,17 +7,15 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: Start using Azure Cost Management
-      href: quickstart-start-using-acm.md
+    - name: Start analyzing costs
+      href: quick-acm-cost-analysis.md
   - name: Tutorials
     items:
-    - name: 1 - Cost analysis
-      href: tutorial-acm-cost-analysis.md
-    - name: 2 - Create and manage budgets
+    - name: 1 - Create and manage budgets
       href: tutorial-acm-create-budgets.md
-    - name: 3 - Export data
+    - name: 2 - Export data
       href: tutorial-export-acm-data.md
-    - name: 4 - Optimization recommendations
+    - name: 3 - Optimization recommendations
       href: tutorial-acm-opt-recommendations.md
   - name: Concepts
     items:

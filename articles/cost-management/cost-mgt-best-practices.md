@@ -174,4 +174,4 @@ Customers who sign an Enterprise Agreement can create an up-front monetary commi
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../batch/batch-low-pri-vms.md).
 
 ## Next steps
-- If you're new to Cost Management, [start using Azure Cost Management](quickstart-start-using-acm.md).
+- If you're new to Cost Management, read the overview at [What is Azure Cost Management?](overview-cost-mgt.md) to learn how it helps monitor and control Azure spending and optimize resource use.

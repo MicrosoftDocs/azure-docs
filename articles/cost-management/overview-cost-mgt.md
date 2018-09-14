@@ -52,5 +52,5 @@ Azure has other tools that are not a part of the Azure Cost Management feature s
 
 Now that you're familiar with Cost Management, the next step is to start using the service.
 
-- [Start using Azure Cost Management](quickstart-start-using-acm.md).
+- Start using Azure Cost Management to [analyze costs](quick-acm-cost-analysis.md).
 - You can also read more about [Azure Cost Management best practices](cost-mgt-best-practices.md).
