@@ -53,9 +53,6 @@ Add control to your maps:
 > [!div class="nextstepaction"]
 > [Add map controls](./map-add-controls.md)
 
-> [!div class="nextstepaction"]
-> [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
-
 Add a map pin:
 
 > [!div class="nextstepaction"]
