@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Explore data in Azure Kusto'
-description: 'In this quickstart, you learn how to query and share data in Query Explorer in Azure Kusto.'
+title: 'Quickstart: Query data in Azure Data Explorer'
+description: 'In this quickstart, you learn how to query and share data in Azure Data Explorer.'
 services: kusto
 author: mgblythe
 ms.author: mblythe
@@ -9,32 +9,32 @@ ms.service: kusto
 ms.topic: quickstart
 ms.date: 09/24/2018
 
-#Customer intent: As a user of Kusto, I want to query and share data so I can understand my data and share analysis with colleagues.
+#Customer intent: As a user of Azure Data Explorer, I want to query and share data so I can understand my data and share analysis with colleagues.
 ---
 
-# Quickstart: Explore data in Azure Kusto
+# Quickstart: Explore data in Azure Data Explorer
 
-Azure Kusto is a log analytics platform that is optimized for ad-hoc big data queries. Kusto provides Query Explorer, which enables you to run and share queries. Query Explorer is available in the Azure portal and as a stand-alone web application. In this article, you work in the stand-alone version, which enables you to connect to multiple clusters and to share deep links to your queries.
+Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data explorer provides a web application that enables you to run and share queries. The application is available in the Azure portal and as a stand-alone web application. In this article, you work in the stand-alone version, which enables you to connect to multiple clusters and to share deep links to your queries.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Kusto.
+To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer.
 
-## Sign in to Query Explorer
+## Sign in to the application
 
-Sign in to [Query Explorer](https://kusto.azure.com/).
+Sign in to [the application](https://kusto.azure.com/).
 
 ## Add clusters
 
-When you first open Query Explorer, there are no connections.
+When you first open the application, there are no connections.
 
 ![Add cluster](media/explore-data/add-cluster.png)
 
-You must add a connection to at least one cluster before you can start running queries. In this section, you add connections to the Kusto *help cluster* that we have set up to aid learning, and to the test cluster you created in a previous quickstart.
+You must add a connection to at least one cluster before you can start running queries. In this section, you add connections to the Data Explorer *help cluster* that we have set up to aid learning, and to the test cluster you created in a previous quickstart.
 
-1. In the upper-left of Query Explorer, select **Add cluster**.
+1. In the upper-left of the application, select **Add cluster**.
 
 1. In the **Add cluster** dialog box, enter `https://help.kusto.windows.net`, then select **Add**.
 
@@ -42,9 +42,9 @@ You must add a connection to at least one cluster before you can start running q
 
     ![Sample databases](media/explore-data/sample-databases.png)
 
-    We use the **StormEvents** table later in this quickstart, and in other Kusto articles.
+    We use the **StormEvents** table later in this quickstart, and in other Data Explorer articles.
 
-Now you add the test cluster you created.
+Now add the test cluster you created.
 
 1. Select **Add cluster**.
 
@@ -67,9 +67,13 @@ You can now run queries against either cluster that you're connected to (assumin
     | sort by StartTime desc
     | take 10
     ```
-    This query returns the ten oldest records in the **StormEvents** table. The left side of the result should look like the following table.
+    This query returns the ten newest records in the **StormEvents** table. The left side of the result should look like the following table.
 
     ![Query result set](media/explore-data/result-set-01.png)
+
+    The following image shows the state the application should now be in, with clusters added, and a query with results.
+
+    ![Full application](media/ingest-data-event-hub/full-application.png)
 
 1. Copy and paste the following query into the query window, below the first query. Notice how it's not formatted on separate lines like the first query.
 
@@ -153,7 +157,7 @@ Now you've seen how basic queries work, let's look at how you can use the table 
 
 ## Share queries
 
-Many times, you want to share the queries you create in Query Explorer. You can provide a deep link so that other users with access to the cluster can run the queries.
+Many times, you want to share the queries you create. You can provide a deep link so that other users with access to the cluster can run the queries.
 
 1. In the query window, select the first query you copied in.
 
@@ -169,7 +173,7 @@ Many times, you want to share the queries you create in Query Explorer. You can 
 
 ## Provide feedback
 
-Kusto is currently in preview, and we welcome feedback on your experience with Query Explorer. You can do this now or wait until you've spent more time with it.
+Data Explorer is currently in preview, and we welcome feedback on your experience. You can do this now or wait until you've spent more time with it.
 
 1. In the upper-right of the application, select the feedback icon: ![Feedback icon](media/explore-data/icon-feedback.png).
 
@@ -177,9 +181,9 @@ Kusto is currently in preview, and we welcome feedback on your experience with Q
 
 ## Clean up resources
 
-You didn't create any resources in this quickstart, but if you'd like to remove one or both clusters from Query Explorer, right-click the cluster and select **Remove connection**.
+You didn't create any resources in this quickstart, but if you'd like to remove one or both clusters from the application, right-click the cluster and select **Remove connection**.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Write queries in Azure Kusto](write-queries.md)
+> [Write queries in Azure Data Explorer](write-queries.md)

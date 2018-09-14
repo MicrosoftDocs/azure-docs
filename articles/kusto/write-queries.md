@@ -21,7 +21,7 @@ You can run the queries in this article in one of two ways:
 - On the Kusto *help cluster* that we have set up to aid learning.
     [Sign in to the cluster](https://kusto.azure.com/clusters/help/databases/samples) with an organizational email account that is a member of Azure Active directory.
 
-- On your own cluster that includes the StormEvents sample data. For  more information, see [Quickstart: Create an Azure Kusto cluster and database](create-cluster-database-portal.md).
+- On your own cluster that includes the StormEvents sample data. For  more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) and [Ingest sample data into Azure Data Explorer](ingest-sample-data.md).
 
 The StormEvents sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
@@ -35,7 +35,7 @@ The syntax of the tabular expression statement has tabular data flow from one ta
 
 For example, the following Kusto query has a single statement, which is a tabular expression statement. The statement starts with a reference to a table called `StormEvents` (the database that host this table is implicit here, and part of the connection information). The data (rows) for that table are then filtered by the value of the `StartTime` column, and then filtered by the value of the `State` column. The query then returns the count of "surviving" rows.
 
-**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA){:target="_blank"}**\]**
+**\[**[**Click to run query**](https://kusto.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA)**\]**
 ```Kusto
 StormEvents
 | where StartTime >= datetime(2007-11-01) and StartTime < datetime(2007-12-01)

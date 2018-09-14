@@ -20,7 +20,7 @@ Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big
 
 * An Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* To complete this quickstart, you must first [provision a cluster and database](create-cluster-database-portal.md).
+* To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer.
 
 * Download the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data.
 
@@ -126,7 +126,7 @@ Connect to the event hub from Data Explorer, so that data flowing into the event
     | Event hub namespace connection string | A unique string from your namespace | The string you copied earlier from **Connection string - primary key**. |
     | Table | *TestTable* | The table you created in **TestDatabase**. |
     | File format | *JSON* | JSON and CSV formats are supported. |
-    | Table | *TestMapping* | The mapping you created in **TestDatabase**. |
+    | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**. |
 
     For this quickstart, you use *static routing* from the event hub, where you specify the table name, file format, and mapping. You can also use dynamic routing, where your application sets these properties.
 

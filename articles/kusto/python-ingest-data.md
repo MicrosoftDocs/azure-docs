@@ -22,7 +22,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 
 * An Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* A test cluster and database. For more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md). You must have *admin* or *ingestor and user* permissions on the database.
+* To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer. You must have *admin* or *ingestor and user* permissions on the database.
 
 * [Python](https://www.python.org/downloads/) installed on your development computer.
 
