@@ -5,11 +5,13 @@ services: cosmos-db
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
+
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/18/2018
- ---
+---
+
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through Cassandra Query Language (CQL) v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
@@ -71,9 +73,31 @@ For other datatypes and attributes, make a feature request or vote on the [userv
 Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 * Token  
-* Aggregate MIN(), MAX(), SUM(), and AVG()  
-* Blob conversion functions - typeAsBlob(value), blobAsType(value)
-* UUID and timeuuid functions - dateOf(), now(), minTimeuuid(), unixTimestampOf(), toDate(timeuuid), toTimestamp(timeuuid), toUnixTimestamp(timeuuid), toDate(timestamp), toUnixTimestamp(timestamp), toTimestamp(date), toUnixTimestamp(date)
+* Aggregate 
+
+  * MIN()  
+  * MAX()  
+  * SUM()  
+  * AVG()  
+
+* Blob conversion functions 
+
+  * typeAsBlob(value)  
+  * blobAsType(value)
+
+* UUID and timeuuid functions 
+
+  * dateOf()  
+  * now()  
+  * minTimeuuid()  
+  * unixTimestampOf()  
+  * toDate(timeuuid)  
+  * toTimestamp(timeuuid)  
+  * toUnixTimestamp(timeuuid)  
+  * toDate(timestamp)  
+  * toUnixTimestamp(timestamp)  
+  * toTimestamp(date)  
+  * toUnixTimestamp(date)  
 
 
 For other functions, make a feature request or vote on the [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
@@ -114,21 +138,9 @@ cqlsh.py <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT
 
 Azure Cosmos DB supports the following database commands on all Cassandra API accounts.
 
-* CREATE KEYSPACE - The following options of this command are not applicable to Azure Cosmos DB Cassandra API.
+* CREATE KEYSPACE 
 
-  * replication factor is not applicable because availability is guaranteed by Azure Cosmos DB.  
-
-  * class option is not applicable because data in an Azure Cosmos DB account is always replicated.
-
-  * Durable writes option is not applicable because Azure Cosmos DB always commits all the data.
-
-* CREATE TABLE - The following options of this command are not applicable to Azure Cosmos DB Cassandra API.
-
-  * The bloom filter, caching, dclocal_read_repair_chance, memtable_flush_period_in_ms, min_index_interval, max_index_interval, read_repair_chance, speculative_retry, compression, compaction options are not applicable because Cassandra API is a managed service with CQL V4 compatibility. It does not require read repair, compaction, it doesn't require additional data structures and their management to provide the SLA-based performance, and availability. The following command shows how to create a table with a specific throughput by using cqlsh: 
-
-   ``` bash 
-   CREATE TABLE keyspaceName.tablename (user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=100000
-   ```
+* CREATE TABLE 
 
 * ALTER TABLE 
 
@@ -139,6 +151,8 @@ Azure Cosmos DB supports the following database commands on all Cassandra API ac
 * SELECT 
 
 * UPDATE 
+
+* BATCH - Only unlogged commands are supported 
 
 * DELETE
 
@@ -155,8 +169,6 @@ foreach (string key in insertResult.Info.IncomingPayload)
             Console.WriteLine($“CustomPayload:  {key}: {value}”); 
         } 
 ```
-
-* BATCH - Only unlogged commands are supported 
 
 ## Consistency mapping 
 
