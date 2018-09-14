@@ -50,7 +50,7 @@ Learn more about the classes and methods used in this article:
 > [!div class="nextstepaction"]
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Dive deeper into specific functionalities:
+Dig into specific functionalities:
 
 > [!div class="nextstepaction"]
 > [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera)
