@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: signalr
+author: anthonychu
+ms.service: signalr
+ms.topic: include
+ms.date: 09/14/2018
+ms.author: antchu
+ms.custom: include file
+---
+
 ## Clean up resources
 
 If you're not going to continue to use this app, delete all resources created by this quickstart with the following steps so you don't incur any charges:

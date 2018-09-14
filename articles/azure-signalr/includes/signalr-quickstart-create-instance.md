@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: signalr
+author: anthonychu
+ms.service: signalr
+ms.topic: include
+ms.date: 09/14/2018
+ms.author: antchu
+ms.custom: include file
+---
+
 ## Create an Azure SignalR Service instance
 
 Your application will connect to a SignalR Service instance in Azure.
