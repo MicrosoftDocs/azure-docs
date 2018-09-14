@@ -75,8 +75,8 @@ If your branch device partner is not listed in the section below, please contact
 
 You can check the following links to gather more information about services offered by the preferred partners. 
 
-|Preferred Partner| |
-|---|---|
+|Preferred Partners|
+|---|
 |[Barracuda Networks](https://www.barracuda.com/AzurevWAN)|
 | [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |
 | [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)|
