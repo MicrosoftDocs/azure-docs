@@ -14,8 +14,6 @@ ms.author: v-deken
 ---
 # Quickstart: Use a domain model using the REST API and PHP in Computer Vision
 
-In this quickstart, you use a domain model to identify landmarks or celebrities in an image using Computer Vision.
-
 In this quickstart, you use a domain model to identify landmarks or, optionally, celebrities in a remotely stored image by using Computer Vision's REST API. With the [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) method, you can apply a domain-specific model to recognize content within an image.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
