@@ -93,4 +93,5 @@ Look for this sample in the `quickstart/objectivec-ios` folder.
 
 ## Next steps
 
-* [Get our samples](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Get our samples](speech-sdk.md#get-the-samples)
