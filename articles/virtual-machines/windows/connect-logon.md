@@ -25,21 +25,21 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
 
 ## Connect to the virtual machine
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left menu, select **Virtual Machines**.
+2. On the left menu, select **Virtual Machines**.
 3. Select the virtual machine from the list.
 4. On the top of the page for the virtual machine, select **Connect**.
-2. In the **Connect to virtual machine** page, select the appropriate options and select **Download RDP file**.
+2. On the **Connect to virtual machine** page, select the appropriate options and select **Download RDP file**.
 2. Open the downloaded RDP file and select **Connect** when prompted. 
-2. You will get a warning that the `.rdp` file is from an unknown publisher. This is expected. In the Remote Desktop window, select **Connect** to continue.
+2. You will get a warning that the .rdp file is from an unknown publisher. This is expected. In the **Remote Desktop Connection** window, select **Connect** to continue.
    
     ![Screenshot of a warning about an unknown publisher.](./media/connect-logon/rdp-warn.png)
 3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Enter the credentials for an account on the virtual machine and then select **OK**.
    
-     **Local account** - this is usually the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the name of the virtual machine and it is entered as *vmname*&#92;*username*.  
+     **Local account**: This is usually the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the name of the virtual machine and it is entered as *vmname*&#92;*username*.  
    
-    **Domain joined VM** - if the VM belongs to a domain, enter the user name in the format *Domain*&#92;*Username*. The account also needs to either be in the Administrators group or have been granted remote access privileges to the VM.
+    **Domain joined VM**: If the VM belongs to a domain, enter the user name in the format *Domain*&#92;*Username*. The account also needs to either be in the Administrators group or have been granted remote access privileges to the VM.
    
-    **Domain controller** - if the VM is a domain controller, enter the user name and password of a domain administrator account for that domain.
+    **Domain controller**: If the VM is a domain controller, enter the user name and password of a domain administrator account for that domain.
 4. Select **Yes** to verify the identity of the virtual machine and finish logging on.
    
    ![Screenshot showing a message abut verifying the identity of the VM.](./media/connect-logon/cert-warning.png)
