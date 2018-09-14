@@ -118,7 +118,7 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
 														<br><br>
-                                                        <h3>Access reviews</h3>
+                                                        <h3><a href="governance/access-reviews-overview.md">Access reviews</a></h3>
                                                         <p>
                                                             <a href="governance/create-access-review.md">Create an access review</a><br>
                                                             <a href="governance/perform-access-review.md">Perform an access review</a><br>
