@@ -20,13 +20,13 @@ ms.author: rolyon
 # Azure Active Directory Terms of use feature
 Azure AD Terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Azure AD Terms of use.
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## What can I do with Terms of use?
 Azure AD Terms of use enables you to do the following:
 - Require employees or guests to agree to your Terms of use before getting access.
 - Present general Terms of use for all users in your organization.
-- Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](users-groups-roles/groups-dynamic-membership.md)).
+- Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../users-groups-roles/groups-dynamic-membership.md)).
 - Present specific Terms of use when accessing high business impact applications, like Salesforce.
 - Present Terms of use in different languages.
 - List who has or hasn't agreed to your Terms of use.
@@ -36,7 +36,7 @@ Azure AD Terms of use enables you to do the following:
 To use and configure Azure AD Terms of use, you must have:
 
 - Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.
-    - If you don't have one of theses subscriptions, you can [get Azure AD Premium](fundamentals/active-directory-get-started-premium.md) or [enable Azure AD Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+    - If you don't have one of theses subscriptions, you can [get Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) or [enable Azure AD Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 - One of the following administrator accounts for the directory you want to configure:
     - Global administrator
     - Security administrator
@@ -53,11 +53,11 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 1. Navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-    ![Terms of use blade](media/active-directory-tou/tou-blade.png)
+    ![Terms of use blade](./media/active-directory-tou/tou-blade.png)
 
 1. Click **New terms**.
 
-    ![Add TOU](media/active-directory-tou/new-tou.png)
+    ![Add TOU](./media/active-directory-tou/new-tou.png)
 
 1. Enter the **Name** for the Terms of use
 
@@ -69,7 +69,7 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 5. For **Require users to expand the Terms of use**, select On or Off.  If this setting is set to On, end users will be required to view the Terms of use prior to accepting them.
 
-6. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](conditional-access/best-practices.md).
+6. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](../../cognitive-services/qnamaker/concepts/best-practices.md).
 
     >[!IMPORTANT]
     >Conditional access policy controls (including Terms of use) do not support enforcement on service accounts.  We recommend excluding all service accounts from the conditional access policy.
@@ -80,18 +80,18 @@ Once you have finalized your Terms of use document, use the following procedure 
 
     You should now see your new Terms of use.
 
-    ![Add TOU](media/active-directory-tou/create-tou.png)
+    ![Add TOU](./media/active-directory-tou/create-tou.png)
 
 ## View report of who has accepted and declined
 The Terms of use blade shows a count of the users who have accepted and declined. These counts and who accepted/declined are stored for the life of the Terms of use.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
-    ![Audit Event](media/active-directory-tou/view-tou.png)
+    ![Audit Event](./media/active-directory-tou/view-tou.png)
 
 1. Click the numbers under **Accepted** or **Declined** to view the current state for users.
 
-    ![Audit Event](media/active-directory-tou/accepted-tou.png)
+    ![Audit Event](./media/active-directory-tou/accepted-tou.png)
 
 ## View Azure AD audit logs
 If you want to view additional activity, Azure AD Terms of use includes audit logs. Each user consent triggers an event in the audit logs that is stored for 30 days. You can view these logs in the portal or download as a .csv file.
@@ -102,22 +102,22 @@ To get started with Azure AD audit logs, use the following procedure:
 
 1. Click **View audit logs**.
 
-    ![Audit Event](media/active-directory-tou/audit-tou.png)
+    ![Audit Event](./media/active-directory-tou/audit-tou.png)
 
 1. On the Azure AD audit logs screen, you can filter the information using the provided drop-down lists to target specific audit log information.
 
-    ![Audit Event](media/active-directory-tou/audit-logs-tou.png)
+    ![Audit Event](./media/active-directory-tou/audit-logs-tou.png)
 
 1. You can also click **Download** to download the information in a .csv file for use locally.
 
 ## What Terms of use looks like for users
 Once a Terms of use is created and enforced, users, who are in scope, will see the following screen during sign in.
 
-![Audit Event](media/active-directory-tou/user-tou.png)
+![Audit Event](./media/active-directory-tou/user-tou.png)
 
 The following screen shows how Terms of use looks on mobile devices.
 
-![Audit Event](media/active-directory-tou/mobile-tou.png)
+![Audit Event](./media/active-directory-tou/mobile-tou.png)
 
 Users are only required to accept the Terms of use once and they will not see the Terms of use again on subsequent sign ins.
 
@@ -128,11 +128,11 @@ Users can review and see the Terms of use that they have accepted by using the f
 
 1. In the upper right corner, click your name and select **Profile** from the drop-down.
 
-    ![Profile](media/active-directory-tou/tou14.png)
+    ![Profile](./media/active-directory-tou/tou14.png)
 
 1. On your Profile page, click **Review terms of use**.
 
-    ![Audit Event](media/active-directory-tou/tou13a.png)
+    ![Audit Event](./media/active-directory-tou/tou13a.png)
 
 1. From there, you can review the Terms of use you have accepted. 
 
@@ -147,7 +147,7 @@ You can edit some details of Terms of use, but you can't modify an existing docu
 
 1. In the Edit terms of use pane, change the name, display name, or require users to expand values.
 
-    ![Add TOU](media/active-directory-tou/edit-tou.png)
+    ![Add TOU](./media/active-directory-tou/edit-tou.png)
 
 1. Click **Save** to save your changes.
 
@@ -162,13 +162,13 @@ The following procedure describes how to add a Terms of use language.
 
 1. In the details pane, click the **Languages** tab.
 
-    ![Add TOU](media/active-directory-tou/languages-tou.png)
+    ![Add TOU](./media/active-directory-tou/languages-tou.png)
 
 1. Click **Add language**.
 
 1. In the Add terms of use language pane, upload your localized PDF and select the language.
 
-    ![Add TOU](media/active-directory-tou/language-add-tou.png)
+    ![Add TOU](./media/active-directory-tou/language-add-tou.png)
 
 1. Click **Add** to add the language.
 
@@ -183,12 +183,12 @@ You can delete old Terms of use using the following procedure.
 
 1. In the message that appears asking if you want to continue, click **Yes**.
 
-    ![Add TOU](media/active-directory-tou/delete-tou.png)
+    ![Add TOU](./media/active-directory-tou/delete-tou.png)
 
     You should no longer see your Terms of use.
 
 ## Deleted users and active Terms of use
-By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global administrator can explicitly [permanently delete a recently deleted user](fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequent data about that user will be removed from the active Terms of use.  Audit information about deleted users remains in the audit log.
+By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequent data about that user will be removed from the active Terms of use.  Audit information about deleted users remains in the audit log.
 
 ## Policy changes
 Conditional access policies take effect immediately. When this happens, the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in again in order to satisfy the new policy.
@@ -225,7 +225,7 @@ A: Yes. Currently there are 108 different languages an administrator can configu
 A: The Terms of use is triggered during the sign-in experience.
 
 **Q: What applications can I target a Terms of use to?**</br>
-A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](./manage-apps/view-applications-portal.md).
+A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](./../manage-apps/view-applications-portal.md).
 
 **Q: Can I add multiple Terms of use to a given user or app?**</br>
 A: Yes, by creating multiple conditional access policies targeting those groups or applications. If a user falls in scope of multiple Terms of use, they agree to one Terms of use at a time.
@@ -238,4 +238,4 @@ A: You can [review previously accepted Terms of use](#how-users-can-review-their
 
 ## Next steps
 
-- [Best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md)
+- [Best practices for conditional access in Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md)
