@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/14/2018
 ms.author: jeedes
 
 ---
@@ -62,7 +62,7 @@ To configure the integration of dmarcian into Azure AD, you need to add dmarcian
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![The Enterprise applications blade][2]
+	![The Enterprise applications][2]
 	
 3. To add new application, click **New application** button on the top of dialog.
 
@@ -140,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/dmarcian-tutorial/tutorial_general_400.png)
 	
-7. In a different web browser window, log in to dmarcian as a Security Administrator.
+7. In a different web browser window, sign in to dmarcian as a Security Administrator.
 
 8. Click on **Profile** on the top right corner and navigate to **Preferences**.
 
@@ -203,11 +203,11 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a dmarcian test user
 
-To enable Azure AD users to login to dmarcian, they must be provisioned into dmarcian. In dmarcian, provisioning is a manual task.
+To enable Azure AD users to sign in to dmarcian, they must be provisioned into dmarcian. In dmarcian, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Login to dmarcian as a Security Administrator.
+1. Sign in to dmarcian as a Security Administrator.
 
 2. Click on **Profile** on the top right corner and navigate to **Manage Users**.
 
