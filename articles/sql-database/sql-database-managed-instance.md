@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/14/2018
 ms.author: bonova
 ---
 
@@ -56,7 +56,7 @@ The following table helps you understand how to select the optimal configuration
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Hardware|Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core)|Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread)|
-|Performance levels|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
+|Compute sizes|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
 |Memory|7 GB per vCore|5.5 GB per vCore|
 ||||
 
