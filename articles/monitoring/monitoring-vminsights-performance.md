@@ -1,14 +1,14 @@
 ---
 title: How to chart performance with Azure Monitor for VMs | Microsoft Docs
 description: Performance is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
-services:  log-analytics
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 
 ms.assetid: 
-ms.service:  log-analytics
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -59,6 +59,8 @@ To access directly from a virtual machine, perform the following.
 1. In the Azure portal, select **Virtual Machines**. 
 2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
 3. Select the **Performance** tab. 
+
+![VM insights Performance directly from VM view](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
 
 ## Next steps
 To learn how to use the health feature, see [View Azure Monitor for VMs Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md). 
