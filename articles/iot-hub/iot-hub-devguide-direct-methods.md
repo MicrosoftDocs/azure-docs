@@ -107,7 +107,7 @@ For this purpose, use the `ServiceClient.InvokeDeviceMethodAsync()` method and p
 ## Handle a direct method on a device
 ### MQTT
 #### Method invocation
-Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`. The number of subscriptions per device is capped at 5. It is therefore recommended not to subscribe to each direct method individually. Instead consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages based on your desired method names.
+Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`. The number of subscriptions per device is limited to 5. It is therefore recommended not to subscribe to each direct method individually. Instead consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages based on your desired method names.
 
 The body that the device receives is in the following format:
 
