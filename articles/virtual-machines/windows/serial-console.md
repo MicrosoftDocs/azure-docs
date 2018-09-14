@@ -200,7 +200,7 @@ Pasting very long strings does not work | Serial console limits the length of st
 ## Frequently asked questions 
 **Q. How can I send feedback?**
 
-A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
+A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
 
 **Q. Does serial console support copy/paste?**
 
