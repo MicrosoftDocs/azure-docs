@@ -15,16 +15,16 @@ ms.custom: codepen
 
 This article shows you how to make a route request and show the route on the map.
 
-There are two ways to do so, one way is by querying the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module and the other is by making an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both are discussed below.
+There are two ways to do so. The first way is by to query the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module. The second way is to make an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both ways are discussed below.
 
 ## Query the route via service module
-
-### Understand the code
 
 <iframe height='500' scrolling='no' title='Show directions from A to B on a map (Service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Show directions from A to B on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+
+### Understand the code
 
 The line in the second block of code instantiates a service client.
 
