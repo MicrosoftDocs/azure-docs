@@ -1,5 +1,6 @@
 ---
-title: Glossary for the Language Understanding (LUIS) API Service | Microsoft Docs
+title: Glossary for the Language Understanding (LUIS) API Service 
+titleSuffix: Azure Cognitive Services
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 services: cognitive-services
 author: diberry
@@ -7,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
@@ -162,7 +163,7 @@ Speech priming allows your speech service to be primed with your LUIS model.
 
 ## <a name="spelling-correction"></a>Spelling correction
 
-On the Publish page, enable [Bing spell checker](luis-how-to-publish-app.md#enable-bing-spell-checker) to correct misspelled words in the utterances before prediction. 
+Enable Bing spell checker to correct misspelled words in the utterances before prediction. 
 
 ## <a name="starter-key"></a>Starter key
 
