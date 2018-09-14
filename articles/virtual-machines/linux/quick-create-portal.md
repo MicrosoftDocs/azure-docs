@@ -47,7 +47,7 @@ Log in to the Azure portal at http://portal.azure.com
 
 1. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type the *myResourceGroup* for the name. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group. 
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
