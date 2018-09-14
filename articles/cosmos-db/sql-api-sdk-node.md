@@ -36,9 +36,9 @@ ms.custom: H1Hack27Feb2017
 |API Documentation  |  [JavaScript SDK reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-cosmos-js#installation)
 |Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| Samples | [Node.js code samples](sql-api-nodejs-samples-preview.md)
-| Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started-preview.md)
-| Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Samples | [Node.js code samples](sql-api-nodejs-samples.md)
+| Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
+| Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)
 | Current supported platform | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - required for SDK Version 2.0.0 and above.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## Release notes
