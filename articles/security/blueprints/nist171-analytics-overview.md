@@ -15,28 +15,28 @@ ms.author: jomolesk
 ## Overview
 [NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
 
-This Azure Security and Compliance Blueprint provides guidance to help customers deploy a data analytics architecture in Azure that implements a subset of NIST SP 800-171 controls. This solution demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data analytics solutions in Azure.
+This Azure Security and Compliance Blueprint provides guidance to help customers deploy a data analytics architecture in Azure that implements a subset of NIST SP 800-171 controls. This solution demonstrates ways in which customers can meet specific security and compliance requirements. It also serves as a foundation for customers to build and configure their own data analytics solutions in Azure.
 
-This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements and shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
+This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements. They shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture. Requirements might vary based on the specifics of each customer's implementation.
 
 ## Architecture diagram and components
-This solution provides an analytics platform upon which customers can build their own analytics tools. The reference architecture outlines a generic use case where customers input data either through bulk data imports by the SQL/Data Administrator or through operational data updates via an Operational User. Both workstreams incorporate Azure Functions for importing data into Azure SQL Database. Azure Functions must be configured by the customer through the Azure portal to handle the import tasks unique to the customer's analytics requirements.
+This solution provides an analytics platform upon which customers can build their own analytics tools. The reference architecture outlines a generic use case. Customers can use it to input data through bulk data imports by the SQL/Data Administrator. They also can use it to input data through operational data updates via an Operational User. Both workstreams incorporate Azure Functions for importing data into Azure SQL Database. Azure Functions must be configured by the customer through the Azure portal to handle the import tasks unique to the customer's analytics requirements.
 
-Azure offers a variety of reporting and analytics services for the customer; however, this solution incorporates Azure Machine Learning services in conjunction with Azure SQL Database to rapidly browse through data and deliver quicker results through smarter modeling of data. Azure Machine Learning is a form of machine learning intended to increase query speeds by discovering new relationships between datasets. Once the data has been trained through several statistical functions, up to 7 additional query pools (8 total including the customer server) can be synchronized with the same tabular models to spread query workload and reduce response times.
+Azure offers a variety of reporting and analytics services for the customer. This solution incorporates Azure Machine Learning services along with SQL Database to rapidly browse through data and deliver quicker results through smarter modeling of data. Machine Learning is a form of machine learning intended to increase query speeds by discovering new relationships between datasets. After the data is trained through several statistical functions, up to seven additional query pools (eight total including the customer server) can be synchronized with the same tabular models to spread query workload and reduce response times.
 
-For enhanced analytics and reporting, Azure SQL Database can be configured with column store indexes. Both Azure Machine Learning and Azure SQL Database can be scaled up or down or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
+For enhanced analytics and reporting, SQL Database can be configured with column store indexes. Machine Learning and SQL Database can be scaled up or down or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
 
-Once data is uploaded to the Azure SQL Database and trained by Azure Machine Learning, it is digested by both the Operational User and SQL/Data Administrator with Power BI. Power BI displays data intuitively and pulls together information across multiple datasets to draw greater insight. Its high degree of adaptability and easy integration with Azure SQL Database ensures that customers can configure it to handle a wide array of scenarios as required by their business needs.
+After data is uploaded to the SQL Database and trained by Machine Learning, it's digested by the Operational User and SQL/Data Administrator with Power BI. Power BI displays data intuitively and pulls together information across multiple datasets to draw greater insight. Power BI has a high degree of adaptability and easily integrates with SQL Database. Customers can configure it to handle a wide array of scenarios that are required by their business needs.
 
-The entire solution is built upon Azure Storage, which customers configure from the Azure portal. Azure Storage encrypts all data with Storage Service Encryption to maintain confidentiality of data at rest. Geographic redundant storage ensures that an adverse event at the customer's primary data center will not result in a loss of data, as a second copy will be stored in a separate location hundreds of miles away.
+The entire solution is built upon Azure Storage, which customers configure from the Azure portal. Storage encrypts all data with Storage Service Encryption to maintain confidentiality of data at rest. Geographic redundant storage ensures that an adverse event at the customer's primary data center doesn't result in a loss of data. A second copy is stored in a separate location hundreds of miles away.
 
-For enhanced security, all resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory role-based access control is used for controlling access to deployed resources, including their keys in Azure Key Vault. System health is monitored through Azure Security Center and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
+For enhanced security, all resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory role-based access control (RBAC) is used to control access to deployed resources. These resources include customer keys in Azure Key Vault. System health is monitored through Azure Security Center and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single dashboard that's easy to use.
 
-Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the resource group**.
+SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends that you configure a VPN or ExpressRoute connection for management and data import into the resource group**.
 
 ![Data Analytics for NIST SP 800-171 reference architecture diagram](images/nist171-analytics-architecture.png "Data Analytics for NIST SP 800-171 reference architecture diagram")
 
-This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
+This solution uses the following Azure services. For more information, see the [deployment architecture](#deployment-architecture) section.
 
 - Application Insights
 - Azure Active Directory
@@ -45,12 +45,12 @@ This solution uses the following Azure services. Further details are in the [dep
 - Azure Event Grid
 - Azure Functions
 - Azure Key Vault
+- Azure Log Analytics
 - Azure Machine Learning
 - Azure Monitor
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
 - Azure Virtual Network
 	- (1) /16 Network
 	- (2) /24 Networks
@@ -61,16 +61,16 @@ This solution uses the following Azure services. Further details are in the [dep
 The following section details the deployment and implementation elements.
 
 **Azure Event Grid**:
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) allows customers to easily build applications with event-based architectures. Users select the Azure resource they would like to subscribe to and give the event handler or webhook an endpoint to send the event to. Customers can secure webhook endpoints by adding query parameters to the webhook URL when creating an Event Subscription. Azure Event Grid only supports HTTPS webhook endpoints. Azure Event Grid allows customers to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid utilizes Azure role-based access control.
+With [Event Grid](https://docs.microsoft.com/azure/event-grid/overview), customers can easily build applications with event-based architectures. Users select the Azure resource they want to subscribe to. Then they give the event handler or webhook an endpoint to send the event to. Customers can secure webhook endpoints by adding query parameters to the webhook URL when they create an Event Subscription. Event Grid  supports only HTTPS webhook endpoints. With Event Grid, customers can control the level of access given to different users to do various management operations. Users can list event subscriptions, create new ones, and generate keys. Event Grid uses Azure RBAC.
 
 **Azure Functions**:
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is a server-less compute service that enables users to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events.
+[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is a server-less compute service that users can use to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events.
 
 **Azure Machine Learning**:
-[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends.
+[Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends.
 
 **Azure Data Catalog**:
-[Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) makes data sources easily discoverable and understandable by the users who manage the data. Common data sources can be registered, tagged, and searched for  data. The data remains in its existing location, but a copy of its metadata is added to Data Catalog, along with a reference to the data source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
+[Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) makes data sources easily discoverable and understandable by the users who manage the data. Common data sources can be registered, tagged, and searched for data. The data remains in its existing location, but a copy of its metadata is added to Data Catalog. A reference to the data source location is included. The metadata is indexed to make each data source easily discoverable via search. Indexing also makes it understandable to the users who discover it.
 
 ### Virtual network
 This reference architecture defines a private virtual network with an address space of 10.0.0.0/16.
@@ -86,14 +86,14 @@ Each of the network security groups have specific ports and protocols open so th
 **Subnets**: Each subnet is associated with its corresponding network security group.
 
 ### Data in transit
-Azure encrypts all communications to and from Azure datacenters by default. All transactions to Azure Storage through the Azure portal occur via HTTPS.
+Azure encrypts all communications to and from Azure datacenters by default. All transactions to Storage through the Azure portal occur via HTTPS.
 
 ### Data at rest
 
 The architecture protects data at rest through encryption, database auditing, and other measures.
 
 **Azure Storage**:
-To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).  This helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by NIST SP 800-171.
+To meet encrypted data at rest requirements, all [Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). This helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by NIST SP 800-171.
 
 **Azure Disk Encryption**:
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
