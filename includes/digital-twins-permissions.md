@@ -55,9 +55,9 @@ As a solution developer, you might need to create a middle-tier application that
 	```
 
 <!-- Images -->
-[1]: /media/quickstart-view-occupancy-dotnet/AADAppRegistration1.png
-[2]: /media/quickstart-view-occupancy-dotnet/AADAppRegistration2.png
-[3]: /media/quickstart-view-occupancy-dotnet/AADAppRegistration3.png
+[1]: /media/quickstart-view-occupancy-dotnet/aad-app-registration1.png
+[2]: /media/quickstart-view-occupancy-dotnet/aad-app-registration2.png
+[3]: /media/quickstart-view-occupancy-dotnet/aad-app-registration3.png
 
 
 
