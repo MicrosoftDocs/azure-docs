@@ -95,7 +95,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|Only single DBs in this service tier|50|100|100|100|100|
+|Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|
 |Min/max elastic pool vcore choices per database|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Number of replicas|3|3|3|3|3|3|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
