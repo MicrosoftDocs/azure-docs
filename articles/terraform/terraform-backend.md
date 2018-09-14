@@ -102,7 +102,7 @@ The lock can be see when examining the blob though the Azure portal or other Azu
 
 ![Azure blob with lock](media/terraform-backend/lock.png)
 
-## Next Steps
+## Next steps
 
 Learn more about Terraform backed configuration at the [Terraform backend documentation][terraform-backend].
 
