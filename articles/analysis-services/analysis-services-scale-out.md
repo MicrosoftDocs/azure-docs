@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -25,6 +25,8 @@ Regardless of the number of query replicas you have in a query pool, processing 
 When scaling out, new query replicas are added to the query pool incrementally. It can take up to five minutes for new query replica resources to be included in the query pool; ready to receive client connections and queries. When all new query replicas are up and running, new client connections are load balanced across all query pool resources. Existing client connections are not changed from the resource they are currently connected to.  When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. They are reconnected to a remaining query pool resource when the scale in operation has completed, which can take up to five minutes.
 
 When processing models, after processing operations are completed, a synchronization must be performed between the processing server and the query replicas. When automating processing operations, it's important to configure a synchronization operation upon successful completion of processing operations. Synchronization can be performed manually in the portal, or by using PowerShell or REST API. 
+
+### Separate processing from query pool
 
 For maximum performance for both processing and query operations, you can choose to separate your processing server from the query pool. When separated, existing and new client connections are assigned to query replicas in the query pool only. If processing operations only take up a short amount of time, you can choose to separate your processing server from the query pool only for the amount of time it takes to perform processing and synchronization operations, and then include it back into the query pool. 
 
@@ -48,7 +50,7 @@ The number of query replicas you can configure are limited by the region your se
 
 1. In the portal, click **Scale-out**. Use the slider to select the number of query replica servers. The number of replicas you choose is in addition to your existing server.
 
-2. In **Separate the processing server from the querying pool**, select yes to exclude your processing server from query servers.
+2. In **Separate the processing server from the querying pool**, select yes to exclude your processing server from query servers. Client connections using the default connection string (without :rw) are redirected to replicas in the query pool. 
 
    ![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -94,6 +96,13 @@ For end-user client connections like Power BI Desktop, Excel, and custom apps, u
 For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and AMO, use **Management server name**. The management server name includes a special `:rw` (read-write) qualifier. All processing operations occur on the management server.
 
 ![Server names](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## Troubleshoot
+
+**Issue:** Users get error **Cannot find server '\<Name of the server>' instance in connection mode 'ReadOnly'.**
+
+**Solution:** When selecting the **Separate the processing server from the querying pool** option, client connections using the default connection string (without :rw) are redirected to query pool replicas. If replicas in the query pool are not yet online because synchronization has not yet been completed, redirected client connections can fail. To prevent failed connections, choose not to separate the processing server from the querying pool until a scale-out and synchronization operation are complete. You can use the Memory and QPU metrics to monitor synchronization status.
+
 
 ## Related information
 
