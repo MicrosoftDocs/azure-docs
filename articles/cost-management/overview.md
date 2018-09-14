@@ -26,9 +26,6 @@ Monitoring your usage and spending is critically important for cloud infrastruct
 
 Reports help you monitor spending to analyze and track cloud usage, costs, and trends. Using Over Time reports, you can detect anomalies that differ from normal trends. Inefficiencies in your cloud deployment are visible in optimization reports. You can also notice inefficiencies in cost analysis reports.
 
-![Cost Over Time report](media\overview\cost-over-time-rpt.png)
-
-
 ## Manage costs
 
 Historical data can help manage costs when you analyze usage and costs over time to identify trends. Trends are then used to forecast future spending. Cloudyn also includes useful projected cost reports.
@@ -42,8 +39,6 @@ Alerting helps manage costs by notifying you automatically when unusual spending
 ## Improve efficiency
 
 You can determine optimal VM usage and identify idle VMs or remove idle VMs and unattached disks with Cloudyn. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs. However, optimization reports are not currently supported for CSP partner accounts or subscriptions.
-
-![sizing recommendations](.\media\overview\sizing.png)
 
 If you provisioned AWS Reserved Instances, you can improve your reserved instances utilization with Optimization reports where you can view buying recommendations, modify unused reservations, and plan provisioning.
 
