@@ -167,7 +167,7 @@ public static Task SendMessage(
 
 #### Send to a user
 
-You can send a message only to connections that have been authenticated to a user or users by specifying one or more user IDs in the `UserIds` property of the SignalR message.
+You can send a message only to connections that have been authenticated to a user by setting the `UserId` property of the SignalR message.
 
 ```cs
 [FunctionName("SendMessage")]
@@ -179,7 +179,7 @@ public static Task SendMessage(
         new SignalRMessage 
         {
             // the message will only be sent to these user IDs
-            UserIds = new [] { "userId1", "userId2" },
+            UserId = "userId1",
             Target = "newMessage", 
             Arguments = new [] { message } 
         });
@@ -220,7 +220,7 @@ module.exports = function (context, req) {
 
 #### Send to a user
 
-You can send a message only to connections that have been authenticated to a user or users by specifying one or more user IDs in the `userIds` property of the SignalR message.
+You can send a message only to connections that have been authenticated to a user by setting the `userId` property of the SignalR message.
 
 *function.json* stays the same. Here's the JavaScript code:
 
@@ -228,7 +228,7 @@ You can send a message only to connections that have been authenticated to a use
 module.exports = function (context, req) {
     context.bindings.signalRMessages = [{
         // message will only be sent to these user IDs
-        "userIds": [ "userId1", "userId2" ],
+        "userId": "userId1",
         "target": "newMessage",
         "arguments": [ req.body ]
     }];
