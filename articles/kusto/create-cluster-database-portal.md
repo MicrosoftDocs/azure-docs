@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Create an Azure Data Explorer cluster and database'
 description: 'In this quickstart, you learn how to create an Azure Data Explorer cluster and database, and ingest (load) data.'
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # Quickstart: Create an Azure Data Explorer cluster and database
 
-Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. To use Data Explorer, you first create a *cluster*, and create one or more *databases* in that cluster. Then you *ingest* (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database, then you ingest sample data into the database. This gives you a basic understanding of how Data Explorer works.
+Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. To use Data Explorer, you first create a *cluster*, and create one or more *databases* in that cluster. Then you *ingest* (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database. In subsequent articles, we show you how to ingest data.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -76,31 +76,6 @@ Create a database within the cluster to hold sample data.
 
     ![Step three: ingest data](media/create-cluster-database-portal/data-ingestion.png)
 
-## Ingest sample data
-
-You now ingest data into the database. The **StormEvents** sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
-
-1. On the **Overview** tab, select **Query Explorer**.
-
-1. In Query Explorer, paste the following command, and select **Run**.
-
-    ```Kusto
-    .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
-
-    .ingest into table StormEvents h'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (ignoreFirstRecord=true)
-    ```
-
-1. After ingestion completes, paste the following query, select the query in Query Explorer, and select **Run**.
-
-    ```Kusto
-    StormEvents
-    | sort by StartTime asc
-    | take 5
-    ```
-    The query returns the following results from the ingested sample data:
-
-    ![Query results](media/create-cluster-database-portal/query-results.png)
-
 ## Stop and restart the cluster
 
 You can stop and restart a cluster depending on business needs.
@@ -131,4 +106,7 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 
 ## Next steps
 
-[Ingest streaming data](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
+
+

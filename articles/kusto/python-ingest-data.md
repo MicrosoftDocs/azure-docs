@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Ingest data using the Azure Data Explorer Python library'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Python.'
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
@@ -22,7 +22,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 
 * An Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-* A test cluster and database. For more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md). You must have *admin* or *ingestor and user* permissions on the database.
+* To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer. You must have *admin* or *ingestor and user* permissions on the database.
 
 * [Python](https://www.python.org/downloads/) installed on your development computer.
 
@@ -131,7 +131,6 @@ The following code queues a message to pull data from blob storage and ingest th
 ```python
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
-# All ingestion properties are documented here: https://kusdoc2.azurewebsites.net/docs/management/data-ingest.html#ingestion-properties
 INGESTION_PROPERTIES  = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
 INGESTION_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
 
@@ -178,4 +177,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Write Kusto queries](write-queries.md)
+> [Write Kusto queries](write-kusto-queries.md)

@@ -1,8 +1,8 @@
-- name: Kusto Documentation
+- name: Data Explorer Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Kusto?
+  - name: What is Data Explorer?
 - name: Quickstarts
   expanded: true
   items:
@@ -18,19 +18,21 @@
   - name: Query data
     expanded: true
     items:
-    - name: Web Explorer
-      href: explore-data.md
+    - name: Web explorer
+      href: web-query-data.md
     - name: Python
       href: python-query-data.md
 - name: Tutorials
 - name: Concepts
   items:
-  - name: Data ingestion
-    href: ingest-data.md
+  - name: Data ingestion overview
+    href: ingest-data-overview.md
 - name: How-to guides
   items:
   - name: Write Kusto queries
-    href: write-queries.md
+    href: write-kusto-queries.md
+  - name: Ingest sample data
+    href: ingest-sample-data.md
 - name: Reference
   items:
   - name: Language reference

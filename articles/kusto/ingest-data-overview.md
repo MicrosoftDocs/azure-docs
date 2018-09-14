@@ -1,22 +1,22 @@
 ---
-title: 'Azure Kusto data ingestion'
-description: 'Learn about the different ways you can ingest (load) data in Azure Kusto'
-services: kusto
+title: 'Azure Data Explorer data ingestion'
+description: 'Learn about the different ways you can ingest (load) data in Azure Data Explorer'
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Azure Kusto data ingestion
+# Azure Data Explorer data ingestion
 
-Data ingestion is the process used to load data records from one or more sources to create or update a table in Azure Kusto. Once ingested, the data becomes available for query. The diagram below shows the end-to-end flow for working in Kusto, including data ingestion.
+Data ingestion is the process used to load data records from one or more sources to create or update a table in Azure Data Explorer. Once ingested, the data becomes available for query. The diagram below shows the end-to-end flow for working in Data Explorer, including data ingestion.
 
-![Overall data flow](media/ingest-data/overall-data-flow.png)
+![Overall data flow](media/ingest-data-overview/overall-data-flow.png)
 
-The Kusto Data Management service, which is responsible for data ingestion, provides the following functionality:
+The Data Explorer data management service, which is responsible for data ingestion, provides the following functionality:
 
 - **Data pull** : Pull data from external sources (Event Hubs, IoT Hubs), or read ingestion requests from an Azure Queue.
 - **Batching** : Batch data flowing to the same database and table to optimize ingestion throughput.
@@ -28,44 +28,39 @@ The Kusto Data Management service, which is responsible for data ingestion, prov
 
 ## Ingestion methods
 
-Kusto supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Kusto offers connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
+Data Explorer supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Data Explorer offers connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
 
 ### Connectors
 
-Kusto has connectors to the following messaging services, which can be managed using the Kusto Management wizard in the Azure portal.
-
-- **Azure Event Hub**: Stream your data from Azure Event Hub.
-- **Azure IoT Hub**: Stream your IoT Hub data directly to Kusto.
-- **Azure Event Grid**: Configure blob creation notifications on a blob container to be delivered to Kusto, to trigger ingestion of new blobs.
+Data Explorer currently supports the Event Hub connector, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
 
 ### Programmatic ingestion​
 
-Kusto provides SDKs that can be used both for query and data ingestion into Kusto.
-Programmatic ingestion is optimized for reducing ingestion costs (COGs), by attempting to minimize storage transactions during and following the ingestion process.
+Data Explorer provides SDKs that can be used both for query and data ingestion. Programmatic ingestion is optimized for reducing ingestion costs (COGs), by attempting to minimize storage transactions during and following the ingestion process.
 
 **Client flow**:
 
 1. Data is uploaded to an Azure blob.
-2. An ingestion message pointing to the blob and describing how and where it needs to be ingested is posted to an Azure queue. The Kusto Data Management service listens on this queue.
+2. An ingestion message pointing to the blob and describing how and where it needs to be ingested is posted to an Azure queue. The Data Explorer data management service listens on this queue.
 
 **Service flow**:
 
-1. An Ingestion message is dequeued from an Azure queue by the Kusto Data Management service.
+1. An Ingestion message is dequeued from an Azure queue by the Data Explorer data management service.
 2. The data (blob URI) is batched with similar messages for the same database and table.
-3. Once a batch is _sealed_, an ingest command containing URIs of all the blobs in the batch is dispatched to the engine service, which downloads all the blobs and produces one or more data shards.
+3. Once a batch is *sealed*, an ingest command containing URIs of all the blobs in the batch is dispatched to the engine service, which downloads all the blobs and produces one or more data shards.
 
 **Available SDKs and open source projects** :
 
-- .NET @ Nuget.org: [Microsoft.Azure.Kusto.Data](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/4.0.0-beta) and [Microsoft.Azure.Kusto.Ingest](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/4.0.1-beta)
+- .NET @ Nuget.org: [Microsoft.Azure.Data Explorer.Data](https://www.nuget.org/packages/Microsoft.Azure.Data Explorer.Data/4.0.0-beta) and [Microsoft.Azure.Data Explorer.Ingest](https://www.nuget.org/packages/Microsoft.Azure.Data Explorer.Ingest/4.0.1-beta)
 - [Python @ GitHub: azure-kusto-python](https://github.com/Azure/azure-kusto-python)
 - Python @ PyPi: [azure-kusto-data](https://pypi.org/project/azure-kusto-data/) and [azure-kusto-ingest](https://pypi.org/project/azure-kusto-ingest/)
 - [Java @ GitHub: azure-kusto-java](https://repos.opensource.microsoft.com/Azure/repos/azure-kusto-java)
-- [Logstash Kusto plugin (uses Java SDK)](https://repos.opensource.microsoft.com/Azure/repos/logstash-output-kusto)
+- [Logstash Data Explorer plugin (uses Java SDK)](https://repos.opensource.microsoft.com/Azure/repos/logstash-output-kusto)
 - [REST API](https://kusto.azurewebsites.net/docs/api/kusto-ingest-client-rest.html)
 
 **Programmatic ingestion techniques** :
 
-- Ingesting data directly into the Kusto Engine (most appropriate for exploration and prototyping):
+- Ingesting data directly into the Data Explorer engine (most appropriate for exploration and prototyping):
 
   - **Inline ingestion**: control command (.ingest inline) containing in-band data is intended for ad-hoc testing purposes.
 
@@ -73,9 +68,9 @@ Programmatic ingestion is optimized for reducing ingestion costs (COGs), by atte
 
   - **Ingest from storage** : control command (.ingest into) with data stored externally (e.g., Azure Blob Storage) allows efficient bulk ingestion of data.
 
-- Ingesting data through the Kusto Data Management service (high-throughput and reliable ingestion)
+- Ingesting data through the Data Explorer data management service (high-throughput and reliable ingestion)
 
-  - [Queued ingestion](https://kusto.azurewebsites.net/docs/api/kusto-ingest-client-library.html#queued-ingestion) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Kusto Data Management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable, and cheap  data ingestion.
+  - [Queued ingestion](https://kusto.azurewebsites.net/docs/api/kusto-ingest-client-library.html#queued-ingestion) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable, and cheap  data ingestion.
 
 **Latency of different methods**:
 
@@ -108,7 +103,7 @@ For organizations with an existing infrastructure based on a messaging service l
 
 ## Supported data formats
 
-For all ingestion methods other than ingest from query, the data must be formatted in one of the supported data formats so that Kusto can parse it.
+For all ingestion methods other than ingest from query, the data must be formatted in one of the supported data formats so that Data Explorer can parse it.
 
 - CSV, TSV, PSV, SCSV, SOH​
 - JSON (line-separated, multiline), Avro​
@@ -118,5 +113,4 @@ When data is being ingested, data types are inferred based on the target table c
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [What is Kusto?](https://docs.microsoft.com/azure)
+[Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
