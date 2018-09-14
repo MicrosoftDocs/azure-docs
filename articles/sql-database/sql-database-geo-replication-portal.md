@@ -2,14 +2,14 @@
 title: 'Azure portal: SQL Database geo-replication | Microsoft Docs'
 description: Configure geo-replication for Azure SQL Database in the Azure portal and initiate failover
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: carlrab
-
+ms.author: sashan
+ms.reviewer: carlrab
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
 
