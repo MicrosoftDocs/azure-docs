@@ -1,6 +1,6 @@
 ---
 title: Manage your Azure Active Directory tenant | Microsoft Docs
-description: Explains what an Azure AD tenant is and how to manage Azure using Azure Active Directory.
+description: Learn about what an Azure AD tenant is and how to manage Azure using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman

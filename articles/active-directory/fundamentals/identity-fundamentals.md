@@ -1,5 +1,5 @@
 ---
-title: Azure identity and access management using Azure Active Directory | Microsoft Docs
+title: What are the fundamentals of Azure identity and access management? - Azure Active Directory | Microsoft Docs
 description: Learn about the advanced protection capabilities and additional tools that are available with Azure Active Directory Premium editions.
 services: active-directory
 author: eross-msft
@@ -15,7 +15,7 @@ ms.reviewer: jsnow
 ms.custom: it-pro
 ---
 
-# Azure identity and access management
+# What are the fundamentals of Azure identity and access management?
 Azure AD Premium is a cloud-based identity and access management solution, with advanced protection capabilities. These advanced capabilities help provide a secure identity for all of your apps, identity protection (enhanced with the [Microsoft intelligence security graph](https://www.microsoft.com/security/intelligence)), and [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Azure AD helps to protect your users' identities in real time, helping you to create risk-based and adaptive access policies around your organization's data.
 
 Watch this short video for a quick overview of Azure AD identity management and protection:

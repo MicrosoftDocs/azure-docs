@@ -1,6 +1,6 @@
 ---
 title: What is Azure Active Directory (Azure AD)? | Microsoft Docs
-description: Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated apps.
+description: Learn about how to use Azure Active Directory to extend your existing on-premises identities into the cloud or to develop Azure AD integrated apps.
 services: active-directory
 author: eross-msft
 manager: mtillman

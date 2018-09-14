@@ -1,6 +1,6 @@
 ---
 title: How to sign up for Azure Active Directory as an organization | Microsoft Docs
-description: Learn about how to sign up your organization to use Azure and Azure Active Directory.
+description: Learn how to sign up your organization to use Azure and Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman

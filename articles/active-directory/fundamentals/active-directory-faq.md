@@ -1,6 +1,6 @@
 ---
-title: Azure AD FAQ | Microsoft Docs
-description: Azure Active Directory FAQ answers common questions about Azure and Azure Active Directory, password management, and application access.
+title: Azure Active Directory - FAQ | Microsoft Docs
+description: Learn common questions and answers about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 author: eross-msft
 manager: mtillman
