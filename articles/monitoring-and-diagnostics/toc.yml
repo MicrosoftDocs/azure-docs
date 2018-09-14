@@ -2,8 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Monitoring in Azure
-    href: monitoring-overview.md
+  - name: Azure Monitor
+    href: ../azure-monitor/overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -21,8 +21,6 @@
   items:
   - name: Sources of monitoring data
     href: monitoring-data-sources.md
-  - name: Azure Monitor
-    href: monitoring-overview-azure-monitor.md
   - name: Agents 
     href: ../monitoring/monitoring-overview-azure-agents.md
   - name: Metrics
@@ -55,8 +53,6 @@
     href: monitoring-partners.md
 - name: How-to guides
   items:
-  - name: Walkthrough of Azure Monitor
-    href: monitoring-get-started.md
   - name: Create metrics charts in Metrics Explorer
     href: monitoring-metric-charts.md
   - name: Use alerts
