@@ -18,7 +18,7 @@ The following document specifies behavior for Front Door with routing rules that
 ## Delivery of large files
 Azure Front Door Service delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the backend. After receiving a full or byte-range file request, a Front Door environment requests the file from the backend in chunks of 8 MB.
 </br>After the chunk arrives at the Front Door environment, it is cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file is downloaded (if requested), all byte ranges are available (if requested), or the client terminates the connection.
-</br>For more information on the byte-range request, read [RFC 7233](www.rfc-base.org/rfc-7233.html).
+</br>For more information on the byte-range request, read [RFC 7233](http://www.rfc-base.org/rfc-7233.html).
 Front Door caches any chunks as they're received and so the entire file doesn't need to be cached on the Front Door cache. Subsequent requests for the file or byte ranges are served from the cache. If not all the chunks are cached, pre-fetching is used to request chunks from the backend. This optimization relies on the ability of the backend to support byte-range requests; if the backend doesn't support byte-range requests, this optimization isn't effective.
 
 ## File Compression
