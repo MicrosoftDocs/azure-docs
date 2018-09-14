@@ -1,18 +1,18 @@
 ---
 title: Azure Front Door Service | Microsoft Docs
 description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load balancing user traffic for your application.
-services: front-door
+services: frontdoor
 documentationcenter: ''
-author: sharadag
+author: sharad4u
 editor: ''
-ms.service: front-door
-customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
+ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/29/2018
 ms.author: sharadag
+# customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
 
 # What is Azure Front Door Service?

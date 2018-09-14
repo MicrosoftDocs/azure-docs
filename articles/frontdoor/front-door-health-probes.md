@@ -1,10 +1,10 @@
 ---
 title: Azure Front Door - backend health monitoring | Microsoft Docs
 description: This articles helps you understand how Azure Front Door Service monitors the health of your backends
-services: front-door
+services: frontdoor
 documentationcenter: ''
-author: sharadag
-ms.service: front-door
+author: sharad4u
+ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -3,8 +3,8 @@ title: Azure Front Door - routing architecture | Microsoft Docs
 description: This articles helps you understand the global view aspect of Front Door's architecture.
 services: front-door
 documentationcenter: ''
-author: sharadag
-ms.service: front-door
+author: sharad4u
+ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
