@@ -54,7 +54,7 @@ For this tutorial, you create a single VNet with three subnets:
 
 ![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets in the same region with one or more subnets.
+This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets in the same region with one or more subnets.
 
 
 

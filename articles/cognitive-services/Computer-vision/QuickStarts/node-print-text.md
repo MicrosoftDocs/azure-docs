@@ -1,17 +1,18 @@
 ---
-title: Computer Vision API Node.js quickstart OCR | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you extract printed text from an image using Computer Vision with Node.js in Cognitive Services.
+title: "Quickstart: Extract printed text (OCR) - REST, Node.js - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you extract printed text from an image using the Computer Vision API with Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Extract printed text (OCR) - REST, Node.js
+# Quickstart: Extract printed text (OCR) using the REST API and Node.js in Computer Vision
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 

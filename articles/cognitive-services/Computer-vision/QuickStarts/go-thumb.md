@@ -1,17 +1,18 @@
 ---
-title: Computer Vision API Go quickstart create thumbnail | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you generate a thumbnail from an image using Computer Vision with Go in Cognitive Services.
+title: "Quickstart: Generate a thumbnail - REST, Go - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you generate a thumbnail from an image using the Computer Vision API with Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Generate a thumbnail - REST, Go
+# Quickstart: Generate a thumbnail using the REST API and Go in Computer Vision
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

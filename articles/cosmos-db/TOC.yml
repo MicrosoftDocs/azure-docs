@@ -223,9 +223,8 @@
       items: 
       - name: Overview
         href: mongodb-introduction.md
-        items:
-        - name: MongoDB support
-          href: mongodb-feature-support.md
+      - name: MongoDB support
+        href: mongodb-feature-support.md
       - name: Tutorials
         items:
         - name: 1 - Create account
@@ -274,9 +273,8 @@
       items: 
       - name: Overview
         href: graph-introduction.md
-        items:
-        - name: Gremlin support
-          href: gremlin-support.md
+      - name: Gremlin support
+        href: gremlin-support.md
       - name: Tutorials
         items:
         - name: 1 - Query data
@@ -377,6 +375,8 @@
         href: local-emulator-export-ssl-certificates.md
       - name: Visual Studio Code extension
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+    - name: Set up VSTS CI/CD pipeline
+      href: tutorial-setup-ci-cd.md
     - name: Best practices
       items:
       - name: Performance tips
@@ -393,8 +393,6 @@
         href: key-value-store-cost.md
       - name: SQL data partitioning
         href: sql-api-partition-data.md
-      - name: Graph data partitioning
-        href: graph-partitioning.md
     - name: Integrate with other Azure services
       items: 
       - name: Change feed Ecommerce solution
@@ -457,9 +455,9 @@
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
     - name: Use cases
       items:
-    - name: Data consistency explained through baseball
-      href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-    - name: Social media apps
-      href: social-media-apps.md
+      - name: Common use cases
+        href: use-cases.md
+      - name: Social media apps
+        href: social-media-apps.md
 
 
