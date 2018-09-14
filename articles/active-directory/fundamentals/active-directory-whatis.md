@@ -20,6 +20,19 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud-based dir
 
 ![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
 
+## Benefits of Azure AD
+Azure AD helps you to:
+
+-   Create and manage a single identity for each user across your entire enterprise, keeping users, groups, and devices in sync with [Azure AD Connect](../connect/active-directory-aadconnect).
+
+-   Provide single sign-on access to your apps, including thousands of pre-integrated SaaS apps, and to provide more secure remote access to on-premises SaaS applications using the [Azure AD Application Proxy](../manage-apps/application-proxy.md).
+
+-   Allow application access security by enforcing rules-based [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) policies for both on-premises and cloud apps.
+
+-   Improve user productivity with [self-service password reset](../user-help/active-directory-passwords), and group and application access requests using the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction).
+
+-   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
+
 ## Who uses Azure AD
 Azure AD is intended for IT admins, app developers, and for users of Office 365, Azure, or Dynamics CRM Online.
 
