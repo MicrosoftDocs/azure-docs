@@ -261,7 +261,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication 
  
-Replication is supported on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### RESTORE statement 
  
@@ -329,23 +329,24 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### SQL Server Agent 
- 
+### SQL Server Agent
+
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs - only T-SQL job steps are currently supported (more steps will be added during public preview).
- - SSIS is not yet supported. 
- - Replication is not yet supported  
-  - Transaction-Log reader is not yet supported.  
-  - Snapshot is not yet supported.  
-  - Distributor is not yet supported.  
-  - Merge is not supported.  
+- Replication jobs available in public preview for:
+  - Transaction-log reader.  
+  - Snapshot.
+  - Distributor.  
+  - Merge.  
+- Jobs - T-SQL job steps are currently supported
+- Other types of job steps are not currently supported (more step types will be added during public preview).
+  - SSIS is not yet supported. 
   - Queue Reader is not supported.  
- - Command shell is not yet supported. 
+  - Command shell is not yet supported. 
   - Managed Instance cannot access external resources (for example, network shares via robocopy).  
- - PowerShell is not yet supported.
- - Analysis Services are not supported.  
+  - PowerShell is not yet supported.
+  - Analysis Services are not supported.  
 - Notifications are partially supported.
- - Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
  - Pager is not supported.  
  - NetSend is not supported. 
  - Alerts are not yet not supported.
