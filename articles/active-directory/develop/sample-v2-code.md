@@ -22,14 +22,14 @@ ms.custom: aaddev
 
 # Azure Active Directory code samples (V2 endpoint)
 
+[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
+
 You can use Microsoft Azure Active Directory (Azure AD) to:
 
 - Add authentication and authorization to your web applications and web APIs.
 - Require an access token to access a protected web API.
 
 This article briefly describes and provides you with links to samples for the Azure AD V2 endpoint. These samples show you how it's done, along with code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and set up. Comments within the code are there to help you understand the critical sections.
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 > [!NOTE]
 > If you are interested in V1 samples, see [Azure AD code samples (V1 endpoint)](sample-v1-code.md).
