@@ -49,7 +49,7 @@ FunctionsProject
 
 There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.java) and binding configuration file (function.json).
 
-You can put more than one function in a project. Avoid putting your functions into separate jars.
+You can put more than one function in a project. Avoid putting your functions into separate jars. The FunctionApp in the target directory is what gets deployed to your function app in Azure.
 
 ## Triggers and annotations
 
