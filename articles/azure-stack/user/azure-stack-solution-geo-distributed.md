@@ -104,7 +104,7 @@ Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can
 Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](azure/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator. 
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
 
 #### Add Code to VSTS Project
 
