@@ -25,7 +25,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 ## <a name="windows"></a>Windows clients
 
 1. Download and install the OpenVPN client from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
-2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure Portal, or' New-AzureRmVpnClientConfiguration' in PowerShell.
+2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or' New-AzureRmVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Then, open the vpnconfig.ovpn configuration file from the OpenVPN folder in Notepad.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5. Fill in the private key section with the P2S client certificate private key in base64. For information about how to extract private key, see [export the key](vpn-gateway-certificates-point-to-site.md#clientexport).
@@ -36,7 +36,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 ## <a name="mac"></a>Mac clients
 
 1. Download and install an OpenVPN client, such as [TunnelBlik](https://tunnelblick.net/downloads.html). 
-2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in Azure Portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
+2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
 5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) for information about how to extract private key.
@@ -55,9 +55,9 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   sudo apt-get -y install network-manager-openvpn
   sudo service network-manager restart
   ```
-3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure Portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
+3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
 4. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) for information about how to extract private key.
-5. To connect using the command line type the following:
+5. To connect using the command line, type the following:
   
   ```
   Sudo openvpn –config <name and path of your VPN profile file>
@@ -73,4 +73,4 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## Next steps
 
-If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [Vnet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to setup a vnet-to-vnet connection. Please be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [Vnet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Please be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
