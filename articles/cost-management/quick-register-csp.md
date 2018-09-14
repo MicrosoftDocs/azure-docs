@@ -1,7 +1,7 @@
 ---
 
-title: Register using CSP Partner information with Azure Cost Management | Microsoft Docs
-description: Use your CSP Partner information to register with Azure Cost Management.
+title: Register using CSP Partner information with Cloudyn | Microsoft Docs
+description: Use your CSP Partner information to register with Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
@@ -16,7 +16,7 @@ manager: dougeby
 
 # Register with the CSP Partner program and view cost data
 
-As a CSP partner, you can register with Azure Cost Management. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
+As a CSP partner, you can register with Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
 
 >[!NOTE]
@@ -32,12 +32,12 @@ For more information, see [Connect to the Partner Center API](https://msdn.micro
 
 - Sign in to the Azure portal at http://portal.azure.com.
 
-## Register with Azure Cost Management
+## Register with Cloudyn
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
-2. Under **Overview**, click **Cost Management**  
-    ![Cost Management page](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. On the **Cost Management** page, click **Go to Cost Management** to open the Cloudyn registration page in a new window.
+2. Under **Overview**, click **Cloudyn**  
+    ![Cloudyn page](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. On the **Cloudyn** page, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.
 4. On the Cloudyn portal trial registration page, type your company name, select **Microsoft CSP Partner Program Administrator**, and then click **Next**.  
 5. Enter an **Application ID**, **Commerce ID**, **Application Secret key**, and select the **Default Pricing Plan**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
   1. Go to **Dashboard**, click the **Settings** symbol, click **Partner settings**, and then click **App Management**.
@@ -69,7 +69,7 @@ Indirect CSP partners sign in to the Cloudyn portal using the accounts that you 
 
 ## Next steps
 
-In this quickstart, you used your CSP information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management, continue to the tutorial for Cost Management.
+In this quickstart, you used your CSP information to register with Cloudyn. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Cloudyn, continue to the tutorial for Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Review usage and costs](./tutorial-review-usage.md)

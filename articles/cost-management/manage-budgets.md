@@ -1,11 +1,11 @@
 ---
-title: Manage budgets in Azure Cost Management | Microsoft Docs
-description: This article helps you create and manage budgets in Cost Management.
+title: Manage budgets in Cloudyn | Microsoft Docs
+description: This article helps you create and manage budgets in Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -14,7 +14,7 @@ ms.custom:
 
 # Manage budgets
 
-Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cost Management.
+Setting up budgets and budget-based alerts help to improve your cloud governance and accountability. This article helps you quickly create budgets and start managing them in Cloudyn.
 
 When you have an Enterprise or MSP account, you can use your hierarchical cost entity structure to assign monthly budget quotas to different business units, departments, or any other cost entity. When you have a Premium account, you can use the budget management functionality, which is then applied to your entire cloud expenditure. All budgets are manually assigned.
 
@@ -78,5 +78,10 @@ In the Cost vs. Budget Over Time report, click **Actions** and then select **Sch
 
 ## Next steps
 
+<<<<<<< HEAD
+- If you haven't already completed the first tutorial for Cloudyn, read it at  [Review usage and costs](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage).
+- Learn more about the [reports available in Cloudyn](use-reports.md).
+=======
 - If you haven't already completed the first tutorial for Cost Management, read it at  [Review usage and costs](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
 - Learn more about the [reports available in Cost Management](use-reports.md).
+>>>>>>> d3e3acaa056e123071871a11def51c0a1cb326ef
