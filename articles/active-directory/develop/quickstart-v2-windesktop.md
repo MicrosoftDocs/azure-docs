@@ -11,7 +11,7 @@ ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2018
@@ -42,7 +42,7 @@ In this quickstart, you'll learn a Windows desktop .NET (WPF) application can si
 >
 > #### Step 1: Register your application
 > 
-> 1. To register an application for this code sample, go to the [Azure portal - Application Registration](https://aka.ms/registeredappsprod) and select **New registration**.
+> 1. To register an application for this code sample, go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs) and select **New registration**.
 > 1. Enter a name for your application, add `urn:ietf:wg:oauth:2.0:oob` in **Reply URL**, and click **Register**.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]
