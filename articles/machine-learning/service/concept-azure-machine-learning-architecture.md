@@ -106,7 +106,7 @@ The image registry keeps track of images created from your models. You can provi
 
 A deployment is an instantiation of your image into either a Web Service that may be hosted in the cloud or an IoT Module for integrated device deployments. 
 
-### Web Service
+### Web service
 
 A deployed web service can use Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA).
 The service is created from an image that encapsulates your model, script, and associated files. The image has a load-balanced, HTTP endpoint that receives scoring requests sent to the web service.
