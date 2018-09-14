@@ -98,8 +98,8 @@
     displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
   - name: Migrate to the Speech Service
     items:
-      name: Migrate from Bing Speech
-      href: howto-migrate-from-bing-speech.md
+    - name: Migrate from Bing Speech
+      href: how-to-migrate-from-bing-speech.md
 - name: Concepts
   items:
   - name: Speech-to-Text
