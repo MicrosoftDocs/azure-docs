@@ -14,7 +14,7 @@ ms.reviewer: sngun
 
 # Multi-master conflict resolution in Azure Cosmos DB 
 
-Azure Cosmos DB multi-master provides global conflict resolution modes to ensure data is consistent across all regions where it is replicated. There are different data conflict categories and you can choose among three different conflict resolution modes to fit your scenarios.
+Azure Cosmos DB multi-master provides global conflict resolution modes to ensure data is consistent across all regions where it is replicated. Users can choose among three different conflict resolution modes to manage across the three categories of possible conflict categories.
 
 ## Conflict categories
 
