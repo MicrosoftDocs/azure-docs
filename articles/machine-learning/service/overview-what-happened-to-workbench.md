@@ -62,7 +62,7 @@ Your pre-existing data preparation files are not portable to the latest release 
 
 With smaller data sets, you can use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/azureml_dataprep/?view=azure-dataprep-py) to quickly prepare your data prior to modeling. 
 
-You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. [Learn how to get the data prep SDK](concept-data-preparation.md). 
+You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. [Learn how to get the data prep SDK](how-to-data-prep.md). 
 
 ## Will projects persist?
 
