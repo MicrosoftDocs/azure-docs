@@ -25,7 +25,7 @@
       href: how-to-connect-install-select-installation.md
     - name: Install Azure AD Connect with Express settings (Password Hash Synch)
       href:  how-to-connect-install-express.md
-    - name: Install Azure AD Connect Federation with Custom settings
+    - name: Install Azure AD Connect Federation or other Custom settings
       href:  how-to-connect-install-custom.md
     - name: Install Azure AD Connect with Pass-through Authentication (PTA)
       href:  how-to-connect-pta-quick-start.md 

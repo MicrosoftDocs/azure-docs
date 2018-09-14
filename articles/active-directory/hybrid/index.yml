@@ -62,9 +62,9 @@ sections:
     - type: list
       style: unordered
       items:
-      - html: <a href="/azure/active-directory/connect/install">Install options for your hybrid identity environment</a>
-      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Plan and design your hybrid identity environment</a>
-      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Manage your hyrid identity environment</a>
-      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Manage your federated hybrid identity environment</a>
-      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Monitor your hybrid identity environment</a>      
+      - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-custom">Install Azure AD Connect in your hybrid identity environment</a>
+      - html: <a href="/azure/active-directory/hybrid/how-to-connect-sso">Seamless single Sign-On with Azure AD Connect</a>
+      - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-prerequisites">Azure AD Connect pre-requisites</a>
+      - html: <a href="/azure/active-directory/hybrid/reference-connect-version-history">Azure AD Connect version release history</a>
+      - html: <a href="/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler">Manage the Azure AD Connect Sync scheduler</a>      
      
