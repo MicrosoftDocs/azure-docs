@@ -46,7 +46,7 @@
   - name: Virtual network for Azure services
     href: virtual-network-for-azure-services.md
   - name: Container networking
-    href: ../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    href: container-networking.md
   - name: Business continuity
     href: virtual-network-disaster-recovery-guidance.md
   - name: IP addressing
@@ -164,6 +164,8 @@
         href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: Create a DMZ with NSGs
         href: virtual-networks-dmz-nsg.md
+    -name: Container networking
+    href: deploy-container-networking.md
   - name: Configure
     items:
     - name: Name resolution for VMs and cloud services
