@@ -276,9 +276,6 @@ To learn more about using the Device SDKs, see one of the following articles for
 - [Connect a Raspberry Pi device to your Azure IoT Central application](howto-connect-raspberry-pi-python.md)
 - [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit.md).
 
-The following video presents an overview of how to connect a real device to Azure IoT Central:
-
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Connect-real-devices-to-Microsoft-IoT-Central/Player]
 
 ## Protocols
 
