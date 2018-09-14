@@ -22,15 +22,15 @@ ms.custom:
 
 # Enable containers to use Azure Virtual Network capabilities
 
-Bring the rich set of Azure network capabilities to containers, by utilizing the same software defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure Virtual Machine. The plug-in assigns IP addresses from a virtual network to containers brought up in the virtual machine, attaching them to the virtual network, and connecting them directly to other containers and virtual network resources. The plug-in doesn’t rely on overlay networks, or routes, for connectivity, and provides the same performance as virtual machines. At a high-level, the plug-in provides the following capabilities:
+Bring the rich set of Azure network capabilities to containers, by utilizing the same software defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure Virtual Machine. The plug-in assigns IP addresses from a virtual network to containers brought up in the virtual machine, attaching them to the virtual network, and connecting them directly to other containers and virtual network resources. The plug-in doesn’t rely on overlay networks, or routes, for connectivity, and provides the same performance as virtual machines. At a high level, the plug-in provides the following capabilities:
 
 - A virtual network IP address is assigned to every Kubernetes Pod, which could consist of one or more containers.
-- Pods can connect to peered virtual networks and to on-premises over ExpressRoute or a site-to-site VPN. Pods are are also reachable from peered and on-premises networks.
+- Pods can connect to peered virtual networks and to on-premises over ExpressRoute or a site-to-site VPN. Pods are also reachable from peered and on-premises networks.
 - Pods can access services such as Azure Storage and Azure SQL Database, that are protected by virtual network service endpoints.
 - Network security groups and routes can be applied directly to Pods.
 - Pods can be placed directly behind an Azure internal or public Load Balancer, just like virtual machines
 - Pods can be assigned a public IP address, which makes them directly accessible from the internet. Pods can also access the internet themselves.
-- Works seamlessly with Kubernetes resources such as Services, Ingress controllers and Kube DNS. A Kubernetes Service can also be exposed internally or externally through the Azure Load Balancer.
+- Works seamlessly with Kubernetes resources such as Services, Ingress controllers, and Kube DNS. A Kubernetes Service can also be exposed internally or externally through the Azure Load Balancer.
 
 The following picture shows how the plug-in provides Azure Virtual Network capabilities to Kubernetes Pods:
 
@@ -44,7 +44,7 @@ Pods are brought up in a virtual machine that is part of a virtual network. A po
 
 ## Internet access
 
-To enable Pods to access the internet, the plug-in configures *iptables* rules (virtual filtering platform (VFP) rules, in the case of Windows) to network address translate (NAT) the internet bound traffic from Pods. The source IP address of the packet is translated to the primary IP address on the virtual machine's network interface. Typically, all traffic destined to an IP address outside of the IP range of the virtual network is translated.
+To enable Pods to access the internet, the plug-in configures *iptables* rules (virtual filtering platform (VFP) rules, for Windows) to network address translate (NAT) the internet bound traffic from Pods. The source IP address of the packet is translated to the primary IP address on the virtual machine's network interface. Typically, all traffic destined to an IP address outside of the IP range of the virtual network is translated.
 
 ## Limits
 
