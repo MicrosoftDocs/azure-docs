@@ -44,7 +44,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 **How does the Kafka cluster access my key vault?**
 
-    You need to associate a managed identity with the HDInsight Kafka cluster during cluster creation. This managed identity can be created before or during cluster creation. You also need to grant the managed identity access to the key vault where the key is stored.
+   You need to associate a managed identity with the HDInsight Kafka cluster during cluster creation. This managed identity can be created before or during cluster creation. You also need to grant the managed identity access to the key vault where the key is stored.
 
 **Is this feature available for all Kafka clusters on HDInsight?**
 
