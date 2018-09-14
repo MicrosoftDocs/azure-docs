@@ -13,7 +13,7 @@ ms.date: 07/14/2017
 # Run U-SQL and debug locally in Visual Studio Code
 This article describes how to run U-SQL jobs on a local development machine to speed up early coding phases or to debug code locally in Visual Studio Code. For instructions on Azure Data Lake Tool for Visual Studio Code, see [Use Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
-Only Windows installations of the Azure Data Lake Tools for Visual Studio support the run U-SQL debug U-SQL locally. Installations on macOS and Linux-based operating systems do not support this feature. 
+Only Windows installations of the Azure Data Lake Tools for Visual Studio support the action to run U-SQL locally and debug U-SQL locally. Installations on macOS and Linux-based operating systems do not support this feature.
 
 ## Set up the U-SQL local run environment
 
