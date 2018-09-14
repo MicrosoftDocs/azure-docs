@@ -46,6 +46,77 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 1. Enter a name for your application and click **Register**.
 > 1. Select the **Authentication** page, then add `msal<AppId>://auth` (where *<AppId>* is the application ID from the application you just registered), select **Public client (mobile & desktop)** under **Type**, and then select **Save**.
 
+>> [!TIP]
+>> To find the *Application ID*, go to Overview page.
+
+> [!div renderon="portal" class="sxs-lookup"]
+> ### Step 1: Configure your application
+> For the code sample for this quickstart to work, you need to add a reply URL as `msal<AppId>://auth` (where msal<AppId> is this application Id).
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make this change for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with this attribute
+
+## Step 2: Download your web server or project
+
+- [Download the XCode Project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+
+## Step 3: Configure your project
+
+1. Extract the zip file and open the project in XCode.
+1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet:
+
+	> [!div renderon="portal" class="sxs-lookup"]
+    > ```swift
+    > let kClientID = "Enter_the_Application_Id_here"
+    > ```
+
+	> [!div renderon="docs"]
+    > ```swift
+    > let kClientID = "<ENTER_THE_APPLICATION_ID_HERE>"
+    > ```	
+1. Press Control + click **Info.plist** to bring up the contextual menu, and then select **Open As** > **Source Code**.
+1. Under the dict root node, add the following code:
+
+	> [!div renderon="portal" class="sxs-lookup"]
+    > ```xml
+    > <key>CFBundleURLTypes</key>
+    > <array>
+    >     <dict>
+    >         <key>CFBundleTypeRole</key>
+    >         <string>Editor</string>
+    >         <key>CFBundleURLName</key>
+    >         <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    >         <key>CFBundleURLSchemes</key>
+    >         <array>
+    >             <string>msalEnter_the_Application_Id_here</string>
+    >         </array>
+    >     </dict>
+    > </array>
+    > ```
+
+	> [!div renderon="docs"]
+    > ```xml
+    > <key>CFBundleURLTypes</key>
+    > <array>
+    >     <dict>
+    >         <key>CFBundleTypeRole</key>
+    >         <string>Editor</string>
+    >         <key>CFBundleURLName</key>
+    >         <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    >         <key>CFBundleURLSchemes</key>
+    >         <array>
+    >             <string>msal<ENTER_THE_APPLICATION_ID_HERE></string>
+    >         </array>
+    >     </dict>
+    > </array>
+    > ```
+
+> [!div renderon="docs"]
+> 5. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
+
+
 ## More Information
 
 Read these sections to learn more about this quickstart.
