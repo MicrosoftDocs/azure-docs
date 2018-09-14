@@ -33,5 +33,5 @@ Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous a
 ## Next steps
 
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* For more information on pricing, see the [Azure Database for PostgreSQL Pricing page](https://azure.microsoft.com/en-us/pricing/details/postgresql/) 
+* For more information on pricing, see the [Azure Database for PostgreSQL Pricing page](https://azure.microsoft.com/pricing/details/postgresql/) 
 * Configure [Azure Database for PostgreSQL Advanced Threat Protection](howto-database-threat-protection-using-portal.md) using the Azure portal  

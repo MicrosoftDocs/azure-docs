@@ -1,24 +1,24 @@
 ---
-title: Threat Protection - Azure Database for PostgreSQL | Microsoft Docs
+title: Threat Protection - Azure Database for MySQL | Microsoft Docs
 description: Threat Protection detects anomalous database activities indicating potential security threats to the database. 
-services: postgresql
+services: mysql
 author: bolzmj
 manager: kfile
-ms.service: postgresql
+ms.service: mysql
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: mbolz
 
 ---
-# Advanced Threat Protection for Azure Database for PostgreSQL
+# Advanced Threat Protection for Azure Database for MySQL
 
-Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+Advanced Threat Protection for Azure Database for MySQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 Threat Protection is part of the Advanced Threat Protection (ATP) offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
 
 ## Set up threat detection for your database in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the configuration page of the Azure Database for PostgreSQL server you want to protect. In the security settings, select **Threat Protection (Preview)**.
+2. Navigate to the configuration page of the Azure Database for MySQL server you want to protect. In the security settings, select **Threat Protection (Preview)**.
 3. On the **Threat Protection (Preview)** configuration page:
 
    - Enable Advanced Threat Protection on the server.
@@ -55,4 +55,4 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 ## Next steps
 
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* For more information on pricing, see the [Azure Database for PostgreSQL Pricing page](https://azure.microsoft.com/pricing/details/postgresql/)  
+* For more information on pricing, see the [Azure Database for MySQL Pricing page](https://azure.microsoft.com/pricing/details/mysql/)  
