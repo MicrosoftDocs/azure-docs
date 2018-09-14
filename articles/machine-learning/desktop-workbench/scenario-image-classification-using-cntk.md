@@ -286,7 +286,7 @@ It is important that each image can be assigned to exactly one attribute. For ex
 Collecting a sufficiently large number of annotated images for training and testing can be difficult. One way to overcome this problem is to scrape images from the Internet.
 
 > [!IMPORTANT] 
-> For any images you use, make sure you don't violate copyrights. 
+> For any images you use, make sure you don't violate the image's copyright and licensing. 
 
 <!--
 For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:

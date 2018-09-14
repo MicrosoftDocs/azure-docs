@@ -6,6 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Identity Protection
+        tocHref: /azure/active-directory/identity-protection/
+        topicHref: /azure/active-directory/identity-protection/
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
@@ -42,6 +45,9 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
+      - name: Access reviews
+        tocHref: /azure/active-directory/governance/
+        topicHref: /azure/active-directory/governance/
       - name: Manage applications
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
