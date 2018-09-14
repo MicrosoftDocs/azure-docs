@@ -68,7 +68,9 @@ To set allocated memory or other JVM runtime options in both the Tomcat and Java
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `$JAVA_OPTS -Xms512m -Xmx1204m`.
 
-To configure the app setting from the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section: 
+
+
+To configure the app setting from the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heapsize:
 
 ```xml
 <appSettings> 
@@ -79,9 +81,7 @@ To configure the app setting from the Azure App Service Linux Maven plugin, add 
 </appSettings> 
 ```
 
-Developers should check their app service configuration and plan tier to find the optimal allocation of memory for their Java applications. Weigh the service plan against the number of applications instances and deployment slots when making your calculations.
-
-Azure does not allow customers to set per-instance runtime memory limits directly in their app settings. Give your apps more memory by subscribing to a larger plan and then customizing Java runtime using the steps above. 
+When tuning application heap settings, review your App Service plan details to find the optimal allocation of memory for each of your applications. taking into account number of application instances and deployment slots. 
 
 ### Turn on web sockets
 
@@ -130,10 +130,6 @@ If you need to enable multiple sign-in providers, follow the instructions in the
 ### Configure TLS/SSL
 
 Follow the instructions in the [Bind an existing custom SSL certificate](/azure/app-service/app-service-web-tutorial-custom-ssl) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
-
-### Use certificates to access external resources
-
-The [Use an SSL certificate in your application code](/azure/app-service/app-service-web-ssl-cert-load) how-to guide provides the steps for uploading and making certificates available to your application code. You can use these certificates to authenticate with external resources, such as secured databases or APIs.
 
 ## Tomcat configuration
 
@@ -209,7 +205,16 @@ For shared server-level resources:
 </resource-env-ref>
 ```
 
-4. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. 
+4. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. To upload these files to your App Service instance, perform the following steps:  
+    1. Install the Azure App Service webpp extension:
+      ```azurecli-interactive
+      az extension add –name webapp
+      ```
+    2. Run the following CLI command to create a SSH tunnel from your local system to App Service:
+      ```azurecli-interactive
+      az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
+      ```
+    3. Connect to the local tunneling port with your SFTP client and upload the files to `/home/tomcat/lib`.
 
 5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat` and use the updated configuration and classes.
 
