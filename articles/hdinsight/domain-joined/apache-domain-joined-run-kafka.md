@@ -125,7 +125,7 @@ To create two topics, **salesevents** and **marketingspend**:
    ```
 
    >[!NOTE] 
-   >Only the process owner of Kafka service, such as root, can write to Zookeeper `znodes (/configs/topics)`. Ranger policies are not enforced when a non-privileged user creates a topic. This is because the `kafka-topics.sh` script communicates directly with Zookeeper to create the topic. Entries are added to the Zookeeper nodes, while the watchers on the broker side monitor and create topics accordingly. The authorization can't be done through the ranger plugin, and the command above is executed as sudo through the Kafka broker.
+   >Only the process owner of Kafka service, such as root, can write to Zookeeper znodes `/config/topics`. Ranger policies are not enforced when a non-privileged user creates a topic. This is because the `kafka-topics.sh` script communicates directly with Zookeeper to create the topic. Entries are added to the Zookeeper nodes, while the watchers on the broker side monitor and create topics accordingly. The authorization can't be done through the ranger plugin, and the command above is executed as sudo through the Kafka broker.
 
 
 ## Test the Ranger policies
