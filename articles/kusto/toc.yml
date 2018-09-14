@@ -9,16 +9,18 @@
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
   - name: Ingest data
+    expanded: true
     items:
     - name: Streaming data - Event Hub
       href: ingest-data-event-hub.md
     - name: Queued data - Python
       href: python-ingest-data.md
   - name: Query data
+    expanded: true
     items:
-     -name: Web Explorer
+    - name: Web Explorer
       href: explore-data.md
-     -name: Python
+    - name: Python
       href: python-query-data.md
 - name: Tutorials
 - name: Concepts
