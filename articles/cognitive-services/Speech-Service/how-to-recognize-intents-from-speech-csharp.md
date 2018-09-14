@@ -149,10 +149,10 @@ With the recognizer created and the intents added, recognition can begin. The Sp
 
 |Recognition mode|Methods to call|Result|
 |----------------|-----------------|---------|
-|Single-shot|`RecognizeAsynnc()`|Returns the recognized intent, if any, after one utterance.|
+|Single-shot|`RecognizeAsync()`|Returns the recognized intent, if any, after one utterance.|
 |Continuous|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Recognizes multiple utterances. Emits events (e.g. `IntermediateResultReceived`) when results are available.|
 
-The tutorial application uses single-shot mode and so calls `RecognizeAsynnc()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression:
+The tutorial application uses single-shot mode and so calls `RecognizeAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression:
 
 ```csharp
 result.Properties.Get<string>(ResultPropertyKind.LanguageUnderstandingJson) 
@@ -168,7 +168,7 @@ By default, LUIS recognizes intents in US English (`en-us`). By passing a locale
 
 ## Continuous recognition from a file
 
-The following code illustrates two additional capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` to start recognition instead of `RecognizeAsynnc()`.
+The following code illustrates two additional capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` to start recognition instead of `RecognizeAsync()`.
 
 The other capability is reading the audio containing the speech to be processed from a WAV file. This involves calling the factory's `CreateIntentRecognizerWithFileInput()` method instead of `CreateIntentRecognizer()`. The file must be single-channel (mono) with a sampling rate of 16 kHz.
 
