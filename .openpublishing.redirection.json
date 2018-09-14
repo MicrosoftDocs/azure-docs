@@ -28114,7 +28114,7 @@
         {
             "source_path": "articles/monitoring-and-diagnostics/monitoring-get-started.md",
             "redirect_url": "/azure/azure-monitor/overview",
-            "redirect_document_id" : true
+            "redirect_document_id" : false
         }
     ]
 }
