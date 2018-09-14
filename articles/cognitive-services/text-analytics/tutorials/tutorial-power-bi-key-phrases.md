@@ -1,17 +1,19 @@
 ---
-title: Text Analytics With Power BI - Azure Cognitive Services | Microsoft Docs
+title: 'Tutorial: Text Analytics with Power BI'
+titleSuffix: Azure Cognitive Services
 description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: tutorial
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: luisca
 ---
 
-# Tutorial: Text Analytics with Power BI
+# Tutorial: Integrate Power BI with the Text Analytics Cognitive Service
 
 Microsoft Power BI Desktop is a free application that lets you connect to, transform, and visualize your data. The Text Analytics service, part of Microsoft Azure Cognitive Services, provides natural language processing. Given raw unstructured text, it can extract the most important phrases, analyze sentiment, and identify well-known entities such as brands. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 

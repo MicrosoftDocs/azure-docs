@@ -152,7 +152,7 @@ You can combine these parameters to enable multiple output options.
 
 ### REST API
 
-Read about how to [change diagnostics settings by using the Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
+Read about how to [change diagnostics settings by using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). 
 
 ### Resource Manager template
 

@@ -88,9 +88,9 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
-    [Byte[]] $AdminHostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx -Encoding Byte)
+    [Byte[]]$AdminHostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx -Encoding Byte)
 
-    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
+    Invoke-Command -ComputerName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
     -ConfigurationName "PrivilegedEndpoint" `
     -ArgumentList @($AdminHostingCertContent, $CertPassword) `
@@ -105,9 +105,9 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
-    [Byte[]] $HostingCertContent = [Byte[]](Get-Content c:\certificate\myhostingcertificate.pfx  -Encoding Byte)
+    [Byte[]]$HostingCertContent = [Byte[]](Get-Content c:\certificate\myhostingcertificate.pfx  -Encoding Byte)
 
-    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
+    Invoke-Command -ComputerName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
     -ConfigurationName "PrivilegedEndpoint" `
     -ArgumentList @($HostingCertContent, $CertPassword) `
