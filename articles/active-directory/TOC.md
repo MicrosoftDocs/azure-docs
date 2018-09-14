@@ -325,22 +325,6 @@
 
 ## Secure your identities
 
-### Azure AD Identity Protection
-#### [Overview](identity-protection/overview.md)
-#### [Enable](identity-protection/enable.md)
-#### [Detect vulnerabilities](identity-protection/vulnerabilities.md)
-#### [Risk events](active-directory-identity-protection-risk-events.md)
-#### [Notifications](identity-protection/notifications.md)
-#### [Sign-in experience](identity-protection/flows.md)
-#### [Simulate risk events](identity-protection/playbook.md)
-#### [Unblock users](identity-protection/howto-unblock-user.md)
-#### [Configure the multi-factor authentication registration policy](identity-protection/howto-mfa-policy.md)
-#### [Configure the sign-in risk policy](identity-protection/howto-sign-in-risk-policy.md)
-#### [Configure the user risk policy](identity-protection/howto-user-risk-policy.md)
-#### [Block access when a session risk is detected](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [FAQs](identity-protection/faqs.md)
-#### [Glossary](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
