@@ -38,7 +38,7 @@ There is a limit on the number of virtual machines you can provision on an Azure
 
 It is important to emphasize that virtual machine cores have a regional total limit and a regional per size series (Dv2, F, etc.) limit that are separately enforced. For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#subscription-limits-1).
 
@@ -58,7 +58,7 @@ For a more detailed and up-to-date list of quota limits, check the Azure-wide qu
 
 There is also a limit on the number of container instances that you can spin up in a given time period (scoped hourly) or across your entire subscription.
 
-[!INCLUDE [container-instances-limits](../../../../includes/container-instances-limits.md)]
+[!INCLUDE [container-instances-limits](../../../includes/container-instances-limits.md)]
 
 For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#container-instances-limits).
 
@@ -91,4 +91,4 @@ The limits can't be raised above the maximum limit value shown in the tables. 
 When requesting a quota increase, you need to select the service you are requesting to raise the quota against, which could be services such as AzureML quota, Batch AI quota, or Storage quota. 
 
 > [!NOTE]
-> [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../../../../articles/billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
+> [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../../billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
