@@ -128,7 +128,7 @@ For single databases, the following tables show the resources available for a si
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (TB)|100 |100 |100 |100 |100 |100B|
+|Max data size (TB)|100 |100 |100 |100 |100 |100 |
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |
 |TempDB size (GB)|32|64|128|256|384|384|
 |Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
@@ -150,7 +150,7 @@ For single databases, the following tables show the resources available for a si
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
-|Max log size (TGB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
