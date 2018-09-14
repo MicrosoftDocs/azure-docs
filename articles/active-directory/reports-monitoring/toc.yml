@@ -1,19 +1,17 @@
-- name: Reports and Monitoring documentation
+- name: Reports and monitoring documentation
   href: index.yml
 - name: Overview
   items:
   - name: What are Azure AD reports?
     href: overview-reports.md
 
-- name: Get Started
+- name: Quickstarts
   expanded: true
   items:
   - name: Reports
     items:
     - name: Download a sign-in report
       href: quickstart-download-sign-in-report.md
-    - name: Access Reporting API with certificates
-      href: tutorial-access-api-with-certificates.md
     - name: Configure named locations
       href: quickstart-configure-named-locations.md
     - name: Install Power BI content pack
@@ -23,6 +21,16 @@
     items:
     - name: Route logs to storage account
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
+
+- name: Tutorials
+  items:
+  - name: Reports
+    items:
+    - name: Access Reporting API with certificates
+      href: tutorial-access-api-with-certificates.md
+
+  - name: Monitoring
+    items:
     - name: Stream logs to event hub
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
     - name: Integrate activity logs with Splunk
