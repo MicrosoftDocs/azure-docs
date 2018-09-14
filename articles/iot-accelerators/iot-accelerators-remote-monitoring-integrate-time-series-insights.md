@@ -17,7 +17,7 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 The Remote Monitoring solution accelerator now provides automatic deployment and integration with Time Series Insights. In this how-to, you learn how to configure Time Series Insights for an existing Remote Monitoring solution that doesn't already include Time Series Insights.
 
 > [!NOTE]
-> Time Series Insights is not yet available in Azure China Cloud. New deployments in Azure China Cloud continue to use Cosmos DB for all storage.
+> Time Series Insights is not currently available in the Azure China cloud. New Remote Monitoring solution accelerator deployments in the Azure China cloud use Cosmos DB for all storage.
 
 ## Prerequisites
 
