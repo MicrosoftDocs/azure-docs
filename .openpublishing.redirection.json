@@ -28080,6 +28080,26 @@
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
             "redirect_url": "/azure/dev-spaces/index",
             "redirect_document_id" : true
-        }
+        },
+        {
+            "source_path": "articles/cosmos-db/create-sql-api-nodejs-preview.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
+            "redirect_document_id" : false
+        },    
+        {
+            "source_path": "articles/cosmos-db/sql-api-nodejs-application-preview.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-application",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-nodejs-get-started-preview.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-get-started",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-nodejs-samples-preview.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-samples",
+            "redirect_document_id" : false
+        }            
     ]
 }

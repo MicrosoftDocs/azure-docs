@@ -1,20 +1,19 @@
 ---
-title: 'Azure Cosmos DB: Build an app with Node.js and the SQL API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a Node.js app using JavaScript SDK to manage Azure Cosmos DB SQL API data | Microsoft Docs'
 description: Presents a Node.js code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 author: deborahc
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/30/2018
+ms.date: 09/18/2018
 ms.author: dech
 
 ---
-# Azure Cosmos DB: Build a Node.js app using SQL API, JavaScript SDK 2.0 and the Azure portal 
+# Azure Cosmos DB: Build a Node.js app using JavaScript SDK to manage Azure Cosmos DB SQL API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -55,7 +54,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 
 ## Clone the sample application
 
-Now let's clone a SQL API app from Github, set the connection string, and run it. You will see how easy it is to work with data programmatically. 
+Now let's clone a SQL API app from Github, set the connection string, and run it.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
