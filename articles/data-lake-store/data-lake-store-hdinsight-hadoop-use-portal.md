@@ -87,7 +87,7 @@ In this section, you configure Data Lake Storage Gen1 access from HDInsight clus
 
 ### Specify a service principal
 
-You can either use an existing service principal or create a new one.
+From the Azure portal, you can either use an existing service principal or create a new one.
 
 **To create a service principal from the Azure portal**
 
