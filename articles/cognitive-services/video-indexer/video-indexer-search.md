@@ -1,5 +1,5 @@
 ---
-title: Find exact moments within videos
+title: Find exact moments within videos - Video Indexer
 titlesuffix: Azure Cognitive Services
 description: This topic demonstrates how to find exact moments within videos using Video Indexer.
 services: cognitive services
