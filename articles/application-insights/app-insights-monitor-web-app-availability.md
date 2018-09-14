@@ -264,7 +264,7 @@ If your test must sign in using OAuth, the general approach is:
 ## Performance tests
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 
-From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account.
+From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Azure DevOps account.
 
 When the test is complete, you are shown response times and success rates.
 
