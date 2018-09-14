@@ -31,7 +31,7 @@ Azure AD helps you to:
 
 -   Improve user productivity with [self-service password reset](../user-help/user-help-reset-password.md), and group and application access requests using the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md).
 
--   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
+-   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/docs.microsoft.com//azure/architecture/checklist/availability) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
 
 ## Who uses Azure AD
 Azure AD is intended for IT admins, app developers, and for users of Office 365, Azure, or Dynamics CRM Online.
