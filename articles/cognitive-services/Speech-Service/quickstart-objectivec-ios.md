@@ -29,7 +29,8 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 
 The current version of the Cognitive Services Speech SDK is `1.0.0`.
 
-The Cognitive Services Speech SDK for Mac and iOS can be downloaded as a zip-file from https://aka.ms/csspeech/iosbinary. Download and copy the files to the `speechsdk` subdirectory in your home directory.
+The Cognitive Services Speech SDK for Mac and iOS is currently distributed as a Cocoa Framework.
+It can be downloaded from https://aka.ms/csspeech/iosbinary. Download the file to your home directory.
 
 
 ## Create an Xcode Project 
@@ -49,14 +50,14 @@ In the dialogs that follow, make the following selections:
     1. Choose your home directory to put the project in. This will create a `helloworld` directory in your home directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.
     1. Adjust the paths to the SDK in the *Project Settings*.
-        1. In the **General** tab under the **Linked Frameworks and Libraries** header, add the SDK library as a framework: **Add framework** > **Add other...** > Navigate to `speechsdk/lib/` in your home directory and choose the file `libMicrosoft.CognitiveServices.Speech.core.dylib`.
+        1. In the **General** tab under the **Linked Frameworks and Libraries** header, add the SDK library as a framework: **Add framework** > **Add other...** > Navigate to your home directory and choose the file `MicrosoftCognitiveServicesSpeech.framework`.
+        ![Added Framework](media/sdk/qs-objectivec-framework.png)
         1. Go to the **Build Settings** tab and activate **All** settings.
-        1. Add the path to SDK headers (`$(SRCROOT)/../speechsdk/include`) to the *Header Search Path* under the **Search Paths** heading.
-        ![Header Search Path setting](media/sdk/qs-objectivec-header-search-path.png)
-        1. Add the path to the directory containing the library (`$(SRCROOT)/../speechsdk/lib`) to the *Library Search Path* under the **Search Paths** heading.
-        ![Library Search Path setting](media/sdk/qs-objectivec-library-search-path.png)
-        1. Add the path to the directory containing the library (`$(SRCROOT)/../speechsdk/lib`) to the *Runpath Search Path* under the **Linking** heading.
-        ![Runpath Search Path setting](media/sdk/qs-objectivec-runpath-search-path.png)
+        1. Add the directory `$(SRCROOT)/..` to the *Framework Search Paths* under the **Search Paths** heading.
+        ![Framework Search Path setting](media/sdk/qs-objectivec-framework-search-paths.png)
+        1. Add the directory `$(SRCROOT)/..` to the *Runpath Search Paths* under the **Linking** heading.
+        ![Runpath Search Path setting](media/sdk/qs-objectivec-runpaths.png)
+
 
 ## Set up the UI
 
