@@ -6,17 +6,19 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 09/14/2018
 ms.author: dobett
 ---
 
 # Understand and use Azure IoT Hub SDKs
 
-There are two categories of software development kits (SDKs) for working with IoT Hub:
+There are three categories of software development kits (SDKs) for working with IoT Hub:
 
 * **Device SDKs** enable you to build apps that run on your IoT devices using device client or module client. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub.  You can also use module client to author [modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) for [Azure IoT Edge runtime](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
 * **Service SDKs** enable you to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices or modules.
+
+* **Device Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 Learn about the benefits of developing using Azure IoT SDKs [here][lnk-benefits-blog].
 
@@ -102,7 +104,29 @@ Azure IoT Hub service SDK for iOS:
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 
+## Device provisioning SDKs
 
+The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
+
+Azure Provisioning device and service SDKs for C#:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/device)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/service)
+
+Azure Provisioning device and service SDKs for Java:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning-device-client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
+
+Azure Provisioning device and service SDKs for Node.js:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)
+
+Azure Provisioning device and service SDKs for Python:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-python/blob/master/provisioning_device_client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)
+
+Azure Provisioning device and service SDKs for C:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning/service)
 
 ## Next steps
 
