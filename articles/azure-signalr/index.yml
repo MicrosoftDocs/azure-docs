@@ -72,17 +72,17 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="#">ASP.NET Core</a>
+    - html: <a href="https://github.com/Azure/azure-signalr">ASP.NET Core SDK</a>
     - html: <a href="#">Azure Functions Bindings</a>
-    - html: <a href="#">REST API</a>
+    - html: <a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a>
   - type: paragraph
     text: Connect to Azure SignalR with Clients SDKs
   - type: list
     style: unordered
     items:
-    - html: <a href="#">JavaScript</a>
-    - html: <a href="#">.NET Standard</a>
-    - html: <a href="#">Java</a>
+    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript</a>
+    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET Standard</a>
+    - html: <a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java</a>
 - title: Samples
   items:
   - type: list
