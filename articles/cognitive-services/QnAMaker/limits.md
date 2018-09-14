@@ -17,7 +17,7 @@ Comprehensive list of limits across QnA Maker.
 
 ## Knowledge Bases
 
-* Maximum number of knowledge bases based on [Azure Search tier limits](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Maximum number of knowledge bases based on [Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -28,7 +28,7 @@ Comprehensive list of limits across QnA Maker.
 * Maximum number of deep-links that can be crawled for extraction of QnAs from FAQ HTML pages: 20
 
 ## Metadata Limits
-* Maximum number of metadata fields per knowledge base, based on [Azure Search tier limits](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Maximum number of metadata fields per knowledge base, based on [Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
