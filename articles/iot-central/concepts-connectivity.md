@@ -119,17 +119,28 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 To connect devices to IoT Central using X509 certificates, there are three key steps involved 
 1. **Configure the connection settings** in IoT Central app by adding/verifying the X509 root/intermediate certificate used to generate the device certificates.  There are two steps to configure connection settings for X509 Certificates.  
 
-    *   **Add X509 root or intermediate certificate** used to generate the leaf device certificates. Go to Administration > Device Connection > Certificates. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate CA certs for **TESTING PURPOSES ONLY**.
-          ![Connection settings](media\concepts-connectivity\connection-settings.PNG)
+    *   **Add X509 root or intermediate certificate** you are using  to generate the leaf device certificates. Go to Administration > Device Connection > Certificates. 
+    
+        ![Connection settings](media\concepts-connectivity\connection-settings.PNG)
     *   **Certificate verification:** Verifying certificate ownership ensures that the uploader of the certificate is in possession of the certificate's private key. To verify the certificate
         *  Generate Verification code, click the button next to the Verification code field to generate the verification code. 
-        *  Create an X.509 verification certificate with the verification code 
+        *  Create an X.509 verification certificate with the verification code, save the certificate as a .cer file. 
         *  Upload the signed verification certificate and click verify.
 
         ![Connection settings](media\concepts-connectivity\verify-cert.png)
     *   **Secondary Certificate:** During the lifecycle of your IoT solution, you'll need to roll certificates. Two of the main reasons for rolling certificates would be a security breach, and certificate expirations. Secondary certificates are used to reduce downtime for devices attempting to provision while you are updating the Primary certificate.
-      
-1. **Register devices** by importing them into IoT Central via a CSV file, follow the steps from the previous section to register devices.
+
+    **FOR TESTING PURPOSES ONLY:** Below are some utility commandline tools you can use for testing.
+
+    * If you are using MxChip here is a [commandline tool](https://github.com/obastemur/iot-central-firmware/tree/expsdk/tools/dice) to generate CA certs add it to your IoT Central app and verify the certificates. 
+
+    *   Use this [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to
+        * Create the certificate chain, (follow Step 2 in the GitHub docs). 
+         Save the certs as .cer files and upload to IoT Central (Primary).   
+        * Get the Verification Code from the IoT Central App, generate the certificate (follow Step 3 in the GitHub docs), and upload to verify. 
+        * Create leaf certs with your device Id as a parameter to the tool(follow Step 4). Save the cert and use it on your device.     
+
+1. **Register devices** by importing them into IoT Central via a CSV file.
 
 1. **Device setup** : Generate the leaf certificates using the uploaded root certificate. Make sure you use the **Device ID** as the CNAME in the leaf certificates and is in **lower case**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for **TESTING PURPOSES ONLY**.
 
@@ -205,7 +216,6 @@ You can get connection the details such as **Scope ID, Device ID, Device Primary
   ![Connection details](media\concepts-connectivity\device-connect.PNG)
 
 Use the below instructions to get the device connection string  
-
 
  ```cmd/sh
 npm i -g dps-keygen
