@@ -227,11 +227,12 @@ A.  Audit reports are a native feature for Data Box and are available at no extr
 
 ### What type of reporting is available to support chain of custody?
 A.  Following reporting is available to support chain of custody:
-    - Transport logistics from DHL and UPS.
-    - Logging of powering on and user share access.
-    - Manifest file with a 64-bit cyclic redundancy check (CRC-64) or checksum for each file ingested successfully into the Data Box.
-    - Reporting of files that failed to upload to Azure storage account.
-    - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
+
+- Transport logistics from DHL and UPS.
+- Logging of powering on and user share access.
+- Manifest file with a 64-bit cyclic redundancy check (CRC-64) or checksum for each file ingested successfully into the Data Box.
+- Reporting of files that failed to upload to Azure storage account.
+- Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
 ### Are the carrier tracking logs ( from UPS/DHL) available? 
 A.  Carrier tracking logs are captured in the Data Box audit log report. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
