@@ -75,21 +75,23 @@ Before building out a distributed app footprint, it helps to have the following 
 
 ## Part 1: Create a geo-distributed app
 
-Summary
+In this part, you will create a web app.
 
 > [!div class="checklist"]
-> - Item
-> - Item
+> - Create web apps and publish
+> - Add Code to VSTS Project
+> - Point the app build to multiple cloud targets.
+> - Manage and configure the CD process
 
 ### Prerequisites
 
-The list above of components is the list of prerequisites. An Azure subscription and Azure Stack installation are required.
+An Azure subscription and Azure Stack installation are required.
 
 ### Geo-distributed app steps
 
 ### Obtain a custom domain and configure DNS
 
-Update the DNS zone file for the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Register a custom domain with a public Registrar.
 
