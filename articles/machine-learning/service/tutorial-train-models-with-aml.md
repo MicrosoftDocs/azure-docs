@@ -451,7 +451,7 @@ print(model.name, model.id, model.version, sep = '\t')
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-You can also  delete just the Azure Managed Compute cluster. However, since autoscale is turned on ans the cluster minimum is 0, this particular resource will not incur additional compute charges when not in use.
+You can also  delete just the Azure Managed Compute cluster. However, since autoscale is turned on and the cluster minimum is 0, this particular resource will not incur additional compute charges when not in use.
 
 
 ```python
