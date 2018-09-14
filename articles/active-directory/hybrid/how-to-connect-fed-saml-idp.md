@@ -198,7 +198,7 @@ Once federation has been configured you can switch back to “non-federated” (
 ## Provision user principals to Azure AD / Office 365
 Before you can authenticate your users to Office 365, you must provision Azure AD with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Azure AD in advance, then they cannot be used for federated sign-in. Either Azure AD Connect or Windows PowerShell can be used to provision user principals.
 
-Azure AD Connect can be used to provision principals to your domains in your Azure AD Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Azure AD Connect can be used to provision principals to your domains in your Azure AD Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md).
 
 Windows PowerShell can also be used to automate adding new users to Azure AD and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets, you must download the [Azure Active Directory Modules](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
 
@@ -231,7 +231,7 @@ As the administrator, before you verify and manage single sign-on (also called i
 3.	Install Windows PowerShell for single sign-on with SAML 2.0 identity provider
 4.	Set up a trust between SAML 2.0 identity provider and Azure AD
 5.	Provisioned a known test user principal to Azure Active Directory (Office 365) either through Windows PowerShell or Azure AD Connect.
-6.	Configure directory synchronization using [Azure AD Connect](../connect/active-directory-aadconnect.md).
+6.	Configure directory synchronization using [Azure AD Connect](whatis-hybrid-identity.md).
 
 After setting up single sign-on with your SAML 2.0 SP-Lite based identity Provider, you should verify that it is working correctly.
 

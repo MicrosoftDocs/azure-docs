@@ -415,4 +415,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ## Next steps
 * [Implementing password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md)
 * [Azure AD Connect Sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)

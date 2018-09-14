@@ -103,7 +103,7 @@ Here are some common identity and access scenarios with recommendations as to wh
 ## Where can I learn more?
 We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:
 
-* [Enabling your directory for hybrid management with Azure AD Connect](../connect/active-directory-aadconnect.md)
+* [Enabling your directory for hybrid management with Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 * [Additional security for an ever connected world](../authentication/multi-factor-authentication.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Manage your passwords from anywhere](../user-help/active-directory-passwords-update-your-own-password.md)

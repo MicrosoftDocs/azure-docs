@@ -61,4 +61,4 @@ Or you can query the attributes through the Microsoft Graph API, by using [Micro
 ## Next steps
 Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

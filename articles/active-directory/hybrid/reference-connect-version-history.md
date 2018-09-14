@@ -1117,4 +1117,4 @@ Released: September 2014
 **Initial release of Azure AD Sync.**
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

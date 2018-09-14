@@ -99,4 +99,4 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](how-to-connect-preview.md#user-writeback) feature. |
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

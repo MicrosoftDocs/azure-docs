@@ -17,7 +17,7 @@ ms.author: billmath
 
 ---
 # Azure AD Connect Health Agent Installation
-This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](../connect-health/active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
+This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](whatis-hybrid-identity-health.md#download-and-install-azure-ad-connect-health-agent).
 
 ## Requirements
 The following table is a list of requirements for using Azure AD Connect Health.
@@ -326,7 +326,7 @@ The role parameter currently takes the following values:
 >
 
 ## Related links
-* [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
+* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)

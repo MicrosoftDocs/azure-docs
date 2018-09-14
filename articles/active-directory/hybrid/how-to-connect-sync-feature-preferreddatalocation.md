@@ -257,4 +257,4 @@ Learn more about the configuration model in the sync engine:
 Overview topics:
 
 * [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)

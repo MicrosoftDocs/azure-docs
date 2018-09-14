@@ -187,4 +187,4 @@ To learn how to install Azure AD Connect for these scenarios, see [Custom instal
 
 Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

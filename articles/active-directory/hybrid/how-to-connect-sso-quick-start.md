@@ -51,7 +51,7 @@ Ensure that the following prerequisites are in place:
 
 ## Step 2: Enable the feature
 
-Enable Seamless SSO through [Azure AD Connect](../connect/active-directory-aadconnect.md).
+Enable Seamless SSO through [Azure AD Connect](whatis-hybrid-identity.md).
 
 If you're doing a fresh installation of Azure AD Connect, choose the [custom installation path](how-to-connect-install-custom.md). At the **User sign-in** page, select the **Enable single sign on** option.
 

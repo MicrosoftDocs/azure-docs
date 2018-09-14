@@ -169,6 +169,6 @@ It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/
 
 ## See also
 * [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
 * [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

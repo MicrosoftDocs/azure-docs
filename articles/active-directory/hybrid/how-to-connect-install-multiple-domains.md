@@ -170,4 +170,4 @@ Learn more about these features, which were enabled with the installation: [Auto
 
 Learn more about these common topics: [scheduler and how to trigger sync](how-to-connect-sync-feature-scheduler.md).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

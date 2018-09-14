@@ -69,4 +69,4 @@ The following table provides a summary of these tasks and a brief description of
 | **Enable Staging Mode** |Stage information that is not immediately synchronized and is not exported to Azure AD or on-premises Active Directory.  With this feature, you can preview the synchronizations before they occur. |
 
 ## Next steps
-Learn more about [integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

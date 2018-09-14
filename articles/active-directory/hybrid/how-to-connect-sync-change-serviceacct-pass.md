@@ -109,4 +109,4 @@ Now that the Synchronization Service has access to the encryption key and all th
 
 * [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)

@@ -194,4 +194,4 @@ Read [Add your custom domain name to Azure Active Directory](../active-directory
 Azure AD Connect detects if you are running in a non-routable domain environment and would appropriately warn you from going ahead with express settings. If you are operating in a non-routable domain, then it is likely that the UPN, of the users, have non-routable suffixes too. For example, if you are running under contoso.local, Azure AD Connect suggests you to use custom settings rather than using express settings. Using custom settings, you are able to specify the attribute that should be used as UPN to sign in to Azure after the users are synced to Azure AD.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

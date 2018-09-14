@@ -60,4 +60,4 @@ Some customers start with a cloud-only solution with Azure AD and they do not ha
 If the only reason why you plan to add on-premises AD is to support LOBs (Line-of-Business apps), then maybe you should consider to use [Azure AD domain services](../../active-directory-domain-services/index.yml) instead.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

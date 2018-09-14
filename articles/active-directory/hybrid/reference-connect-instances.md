@@ -59,4 +59,4 @@ Features currently not present in the Microsoft Azure Government cloud:
 * Other Azure AD Premium services are not available.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

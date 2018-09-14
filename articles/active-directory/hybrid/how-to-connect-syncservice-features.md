@@ -104,5 +104,5 @@ After enabling this feature, existing userPrincipalName values will remain as-is
 
 ## See also
 * [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 

@@ -86,4 +86,4 @@ Important notes to take note of before you proceed:
 - Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](how-to-connect-post-installation.md).
 - Learn more about these features, which were enabled with the installation: [Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md) and [Azure AD Connect Health](how-to-connect-health-sync.md).
 - Learn more about these common topics: [scheduler and how to trigger sync](how-to-connect-sync-feature-scheduler.md).
-- Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

@@ -65,4 +65,4 @@ Convert the fabrikam.com managed domain to federated:
 The above operation will federate the domain fabrikam.com with the same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
 
 ## Next steps
-[Connect Active Directory with Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Connect Active Directory with Azure Active Directory](whatis-hybrid-identity.md)

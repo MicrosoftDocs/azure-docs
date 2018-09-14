@@ -183,5 +183,5 @@ On the **User sign-in** page, select the desired user sign-in.
 >
 
 ## Next steps
-- Learn more about [integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 - Learn more about [Azure AD Connect design concepts](plan-connect-design-concepts.md).

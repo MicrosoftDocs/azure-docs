@@ -1332,4 +1332,4 @@ Would return "has"
 ## Additional Resources
 * [Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 * [Azure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)

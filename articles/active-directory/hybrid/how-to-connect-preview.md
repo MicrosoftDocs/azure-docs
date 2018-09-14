@@ -49,4 +49,4 @@ An Office 365 group is represented as a distribution group in on-premises AD DS.
 ## Next steps
 Continue your [Custom installation of Azure AD Connect](how-to-connect-install-custom.md).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

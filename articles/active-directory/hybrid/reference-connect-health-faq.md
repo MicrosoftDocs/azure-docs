@@ -188,7 +188,7 @@ Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure aud
 
 
 ## Related links
-* [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
+* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)

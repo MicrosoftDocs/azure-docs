@@ -185,5 +185,5 @@ Azure AD Connect Health for Sync is integrated with Azure AD Connect installatio
 * Simpler Agent Deployment using Azure AD Global Admin credentials.  
 
 ## Next steps
-Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../connect-health/active-directory-aadconnect-health.md).
+Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](whatis-hybrid-identity-health.md).
 

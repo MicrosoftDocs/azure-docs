@@ -21,7 +21,7 @@ ms.author: billmath
 # Azure AD Connect sync: Understand and customize synchronization
 The Azure Active Directory Connect synchronization services (Azure AD Connect sync) is a main component of Azure AD Connect. It takes care of all the operations that are related to synchronize identity data between your on-premises environment and Azure AD. Azure AD Connect sync is the successor of DirSync, Azure AD Sync, and Forefront Identity Manager with the Azure Active Directory Connector configured.
 
-This topic is the home for **Azure AD Connect sync** (also called **sync engine**) and lists links to all other topics related to it. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+This topic is the home for **Azure AD Connect sync** (also called **sync engine**) and lists links to all other topics related to it. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 
 The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**.
 
@@ -62,4 +62,4 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 | [Functions Reference](reference-connect-sync-functions-reference.md) |Lists all functions available in declarative provisioning. |
 
 ## Additional Resources
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)

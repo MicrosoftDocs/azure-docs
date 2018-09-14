@@ -1,4 +1,4 @@
-﻿---
+---
 title: Hybrid identity design - adoption strategy Azure | Microsoft Docs
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
 documentationcenter: ''
@@ -39,7 +39,7 @@ The scenarios defined in the above figure are:
 * **Federated**: these identities exist both on-premises and in the cloud.  Using Azure AD Connect, these users are either created or joined with existing Azure AD accounts.  
 
 > [!NOTE]
-> For more information about the Synchronization options, read [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+> For more information about the Synchronization options, read [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 > 
 > 
 

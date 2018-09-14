@@ -42,7 +42,7 @@ Password hash synchronization is an extension to the directory synchronization f
 * Configure directory synchronization between your on-premises Active Directory instance and your Azure Active Directory instance.
 * Enable password hash synchronization.
 
-For more details, see [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+For more details, see [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 
 > [!NOTE]
 > For more details about Azure Active Directory Domain Services configured for FIPS and password hash synchronization, see "Password hash synchronization and FIPS" later in this article.
@@ -168,5 +168,5 @@ If you have problems with password hash synchronization, see [Troubleshoot passw
 
 ## Next steps
 * [Azure AD Connect sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
 * [Get a step-by-step deployment plan for migrating from ADFS to Password Hash Synchronization](https://aka.ms/authenticationDeploymentPlan)

@@ -226,7 +226,7 @@ There is a limit of 20 sync service accounts in Azure AD. To get the list of exi
 To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## Related documentation
-If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md), the following table provides links to related topics.
+If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md), the following table provides links to related topics.
 
 |Topic |Link|  
 | --- | --- |
@@ -237,4 +237,4 @@ If you did not read the documentation on [Integrating your on-premises identitie
 |After installation | [Verify the installation and assign licenses ](how-to-connect-post-installation.md)|
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

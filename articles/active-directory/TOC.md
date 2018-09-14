@@ -307,7 +307,7 @@
 
 
 ## Manage your directory
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
@@ -319,7 +319,7 @@
 #### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
-### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Integrate on-premises identities using Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
@@ -376,8 +376,8 @@
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
+## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 

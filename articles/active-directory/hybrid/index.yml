@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Hybrid identity documentation
+metadata:
+  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
+  title: Hybrid identity documentation
+  meta.description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.
+  services: active-directory
+  author: billmath
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/18/2018
+  ms.author: billmath
+abstract:
+  description: Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.</br></br></br>Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. This topic will guide you through the planning, deployment, and operation steps. It is a collection of links to the topics related to this area. 
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video2.png
+      width: 250  
+    title: Extend on-premises directories to the cloud (1:11:12)
+    href: https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player
+    width: 250
+sections:
+
+
+
+   
+  - title: Step-by-Step Tutorials
+    items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/active-directory/active-directory-aadconnect
+          html: <p>Learn how to get started extending your identities to the cloud using password hash sync</p>
+          image:
+            src: media/index/azuread2.png
+          title: Integrate a single AD forest using password hash sync (PHS)
+        - href: /azure/active-directory/connect/active-directory-aadconnect
+          html: <p>Learn how to get started extending your identities to the cloud using pass-through authentication.</p>
+          image:
+            src: media/index/manage2.png
+          title: Integrate a single AD forest using pass-through authentication (PTA)
+        - href: /azure/active-directory/connect/active-directory-aadconnectfed-whatis
+          html: <p>Find out how to federate Azure Active Directory (Azure AD) Connect with on-premises Active Directory Federation Services (AD FS) and Azure AD.</p>
+          image:
+            src: media/index/federate2.png
+          title: Integrate a single AD forest using federation
+
+  - title: How-to Guides
+    items:
+    
+    - type: paragraph
+      text: Learn how to accomplish various tasks for hybrid identity
+
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="/azure/active-directory/connect/install">Install options for your hybrid identity environment</a>
+      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Plan and design your hybrid identity environment</a>
+      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Manage your hyrid identity environment</a>
+      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Manage your federated hybrid identity environment</a>
+      - html: <a href="/azure/active-directory/connect/active-directory-aadconnectfed-whatis">Monitor your hybrid identity environment</a>      
+     

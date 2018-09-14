@@ -29,5 +29,5 @@ Want to sign up for Azure as an organization? [**Sign up now**](https://azure.mi
 
 * [Microsoft Azure blog](https://azure.microsoft.com/blog/)
 * [What is Azure AD?](active-directory-whatis.md)
-* [Use your on-premises identity infrastructure in the cloud](../connect/active-directory-aadconnect.md)
+* [Use your on-premises identity infrastructure in the cloud](../hybrid/whatis-hybrid-identity.md)
 

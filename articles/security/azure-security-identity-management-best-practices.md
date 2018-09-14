@@ -55,7 +55,7 @@ To accomplish this [hybrid identity](../active-directory/hybrid/plan-hybrid-iden
 
 Organizations that fail to integrate their on-premises identity with their cloud identity experience increased administrative overhead in managing accounts, which increases the likelihood of mistakes and security breaches.
 
-For more information on Azure AD synchronization, see the article [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md).
+For more information on Azure AD synchronization, see the article [Integrating your on-premises identities with Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md).
 
 ## Enable Single Sign-On (SSO)
 
@@ -64,7 +64,7 @@ When you have multiple directories to manage, this becomes an administrative pro
 Use SSO to enable users to access their [SaaS applications](../active-directory/manage-apps/what-is-single-sign-on.md) based on their organizational account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) and [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md). Your application can be configured to use Azure AD as a [SAML-based identity](../active-directory/fundamentals-identity.md) provider. As a security control, Azure AD will not issue a token allowing them to sign into the application unless they have been granted access using Azure AD. You may grant access directly, or through a group that they are a member of.
 
 > [!NOTE]
-> the decision to use SSO will impact how you integrate your on-premises directory with your cloud directory. If you want SSO, you will need to use federation, because directory synchronization will only provide [same sign-on experience](../active-directory/active-directory-aadconnect.md).
+> the decision to use SSO will impact how you integrate your on-premises directory with your cloud directory. If you want SSO, you will need to use federation, because directory synchronization will only provide [same sign-on experience](../active-directory/hybrid/whatis-hybrid-identity.md).
 >
 >
 

@@ -27,7 +27,7 @@ The two identity synchronization tools that are deprecated were offered for sing
 The last release of DirSync was released in July 2014 and the last release of Azure AD Sync was released in May 2015.
 
 ## What is Azure AD Connect
-Azure AD Connect is the successor to DirSync and Azure AD Sync. It combines all scenarios these two supported. You can read more about it in [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Azure AD Connect is the successor to DirSync and Azure AD Sync. It combines all scenarios these two supported. You can read more about it in [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 
 ## Deprecation schedule
 | Date | Comment |
@@ -64,4 +64,4 @@ It is supported to upgrade from any DirSync release currently being used.
 The Azure AD Connector for FIM/MIM has **not** been announced as deprecated. It is at **feature freeze**; no new functionality is added and it receives no bug fixes. Microsoft recommends customers using it to plan to move from it to Azure AD Connect. It is strongly recommended to not start any new deployments using it. This Connector will be announced deprecated in the future.
 
 ## Additional Resources
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)

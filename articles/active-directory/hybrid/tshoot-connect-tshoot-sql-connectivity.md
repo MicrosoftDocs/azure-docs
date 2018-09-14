@@ -168,5 +168,5 @@ PS C:\Program Files\Microsoft Azure Active Directory Connect\tools>
 ```
 
 ## Next Steps
-- [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+- [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
 -  [Azure AD connectivity with Azure AD Connect](tshoot-connect-connectivity.md)

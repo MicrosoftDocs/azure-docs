@@ -28,5 +28,5 @@ If your organization uses a third-party federation solution, you can configure s
 
 ## Next Steps
 
-- [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+- [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md)
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)

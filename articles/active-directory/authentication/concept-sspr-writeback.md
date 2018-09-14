@@ -16,7 +16,7 @@ ms.reviewer: sahenry
 ---
 # What is password writeback?
 
-Having a cloud based password reset utility is great but most companies still have an on-premises directory where their users exist. How does Microsoft support keeping traditional on-premises Active Directory (AD) in sync with password changes in the cloud? Password writeback is a feature enabled with [Azure AD Connect](./../connect/active-directory-aadconnect.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real-time.
+Having a cloud based password reset utility is great but most companies still have an on-premises directory where their users exist. How does Microsoft support keeping traditional on-premises Active Directory (AD) in sync with password changes in the cloud? Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real-time.
 
 Password writeback is supported in environments that use:
 

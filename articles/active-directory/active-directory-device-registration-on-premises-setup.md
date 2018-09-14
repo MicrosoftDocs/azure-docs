@@ -102,7 +102,7 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 
 **See:**
 
-- [Integrate your on-premises directories with Azure Active Directory](./connect/active-directory-aadconnect.md) - to review conceptual information.
+- [Integrate your on-premises directories with Azure Active Directory](hybrid/whatis-hybrid-identity.md) - to review conceptual information.
 
 - [Custom installation of Azure AD Connect](hybrid/how-to-connect-install-custom.md) - for installation instructions.
 

@@ -61,13 +61,13 @@ Learn more about these features, which were enabled with the installation: [Auto
 
 Learn more about these common topics: [scheduler and how to trigger sync](how-to-connect-sync-feature-scheduler.md).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 
 ## Related documentation
 
 | Topic | Link |
 | --- | --- |
-| Azure AD Connect overview | [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+| Azure AD Connect overview | [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md)
 | Install using customized settings | [Custom installation of Azure AD Connect](how-to-connect-install-custom.md) |
 | Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](reference-connect-accounts-permissions.md) |

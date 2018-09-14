@@ -66,7 +66,7 @@ Ensure that the following prerequisites are in place.
 
 ## Step 2: Enable the feature
 
-Enable Pass-through Authentication through [Azure AD Connect](../connect/active-directory-aadconnect.md).
+Enable Pass-through Authentication through [Azure AD Connect](whatis-hybrid-identity.md).
 
 >[!IMPORTANT]
 >You can enable Pass-through Authentication on the Azure AD Connect primary or staging server. It is highly recommended that you enable it from the primary server. If you are setting up an Azure AD Connect staging server in the future, you **must** continue to choose Pass-through Authentication as the sign-in option; choosing another option will **disable** Pass-through Authentication on the tenant and override the setting in the primary server.

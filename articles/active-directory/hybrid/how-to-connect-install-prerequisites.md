@@ -205,4 +205,4 @@ The minimum requirements for computers running AD FS or Web Application Servers 
 * Azure VM: A2 configuration or higher
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

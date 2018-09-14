@@ -110,7 +110,7 @@ Read more about [Diagnose and remediate duplicated attribute sync errors](how-to
 ## Related links
 * [Troubleshooting Errors during synchronization](tshoot-connect-sync-errors.md)
 * [Duplicate Attribute Resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
-* [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
+* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)

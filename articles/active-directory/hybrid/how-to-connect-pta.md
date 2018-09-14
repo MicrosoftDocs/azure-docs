@@ -56,7 +56,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 - Integrated with cloud-based [self-service password management](../authentication/active-directory-passwords-overview.md), including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.
 - Multi-forest environments are supported if there are forest trusts between your AD forests and if name suffix routing is correctly configured.
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
-- It can be enabled via [Azure AD Connect](../connect/active-directory-aadconnect.md).
+- It can be enabled via [Azure AD Connect](whatis-hybrid-identity.md).
 - It uses a lightweight on-premises agent that listens for and responds to password validation requests.
 - Installing multiple agents provides high availability of sign-in requests.
 - It [protects](../authentication/howto-password-smart-lockout.md) your on-premises accounts against brute force password attacks in the cloud.

@@ -71,4 +71,4 @@ Shadow attributes are also used when there are duplicate attribute values. For m
 
 ## See also
 * [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

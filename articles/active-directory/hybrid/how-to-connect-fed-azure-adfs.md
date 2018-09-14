@@ -369,7 +369,7 @@ You can use an existing virtual network or create a new VNET while deploying thi
 * [AD FS and Web Application Proxy Links](https://aka.ms/ADFSLinks) 
 
 ## Next steps
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
 * [Configuring and managing your AD FS using Azure AD Connect](how-to-connect-fed-whatis.md)
 * [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 

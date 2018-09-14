@@ -51,7 +51,7 @@ This feature provides graphical trends of different performance counters, which 
 By default, we have preselected four performance counters; however, you can include others by clicking the filter command and selecting or deselecting any desired performance counters. Additionally, you can double-click a performance counter graph to open a new blade, which includes data points for each of the monitored domain controllers.
 
 ## Related links
-* [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
+* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)

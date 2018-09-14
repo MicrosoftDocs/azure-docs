@@ -39,7 +39,7 @@ The following scenarios are _not_ supported:
 
 - Detection of users with [leaked credentials](../reports-monitoring/concept-risk-events.md#leaked-credentials).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
-- Pass-through Authentication is not integrated with [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- Pass-through Authentication is not integrated with [Azure AD Connect Health](whatis-hybrid-identity-health.md).
 
 >[!IMPORTANT]
 >As a workaround for unsupported scenarios _only_ (except Azure AD Connect Health integration), enable Password Hash Synchronization on the [Optional features](how-to-connect-install-custom.md#optional-features) page in the Azure AD Connect wizard.

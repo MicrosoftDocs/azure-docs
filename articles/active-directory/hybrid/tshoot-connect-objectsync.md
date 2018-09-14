@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect: Troubleshoot object synchronization | Microsoft Docs'
 description: This topic provides steps for how to troubleshoot issues with object synchronization using the troubleshooting task.
 services: active-directory
@@ -97,4 +97,4 @@ In addition to analyzing the object, the troubleshooting task also generates an 
 ![](media\tshoot-connect-objectsync\objsynch8.png)
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

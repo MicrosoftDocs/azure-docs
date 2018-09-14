@@ -73,7 +73,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 |**If you...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
 |Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](sql-database-security-overview.md)|
-|Used AD on SQL Server on-premises|[Federate AD with Azure AD](../active-directory/connect/active-directory-aadconnect.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
+|Used AD on SQL Server on-premises|[Federate AD with Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
 |Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](sql-database-conditional-access.md), and use [Azure AD Universal authentication with MFA support](sql-database-ssms-mfa-authentication.md).|
 |Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](sql-database-aad-authentication-configure.md).|

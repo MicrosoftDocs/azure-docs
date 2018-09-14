@@ -172,5 +172,5 @@ Azure AD Tenant user object:
 - UserPrincipalName	: us5@verified.contoso.com
 
 ## Next Steps
-- [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+- [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md)
 - [Custom installation of Azure AD Connect](how-to-connect-install-custom.md)

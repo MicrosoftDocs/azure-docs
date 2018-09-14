@@ -160,4 +160,4 @@ If you want to install a newer version of Azure AD Connect: close the Azure AD C
 
 
 ## Next steps
-Learn more about [integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

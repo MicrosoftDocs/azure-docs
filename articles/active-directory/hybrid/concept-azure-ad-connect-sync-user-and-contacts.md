@@ -70,5 +70,5 @@ When an object has been exported to Azure AD then it is not allowed to change th
 
 ## Additional Resources
 * [Azure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
 

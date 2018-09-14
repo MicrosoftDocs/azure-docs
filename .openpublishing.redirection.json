@@ -15126,11 +15126,7 @@
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
         },
-		        {
-            "source_path": "articles/active-directory/active-directory-aadconnect.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
-            "redirect_document_id": false
-        },
+
 		
         {
             "source_path": "articles/active-directory/develop/index.md",
@@ -25551,6 +25547,16 @@
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-identification-authentication-controls",
             "redirect_document_id": true
         },
+		{
+		    "source_path": "articles/active-directory/connect/active-directory-aadconnect.md",
+            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+            "redirect_document_id": false
+        },
+{
+            "source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health.md",
+            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity-health",
+           "redirect_document_id": false
+},
         {
             "source_path": "articles/security/blueprints/fedramp-incident-response-controls.md",
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-incident-response-controls",

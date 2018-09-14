@@ -305,4 +305,4 @@ When synchronizing multiple AD forests, you can configure group-based filtering 
 
 ## Next steps
 - Learn more about [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
-- Learn more about [integrating your on-premises identities with Azure AD](../connect/active-directory-aadconnect.md).
+- Learn more about [integrating your on-premises identities with Azure AD](whatis-hybrid-identity.md).

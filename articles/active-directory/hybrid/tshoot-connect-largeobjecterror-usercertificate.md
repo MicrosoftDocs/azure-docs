@@ -177,5 +177,5 @@ Now that the issue is resolved, re-enable the built-in sync scheduler:
 > The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 

@@ -208,7 +208,7 @@ Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-ac
 
 
 ## Related links
-* [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
+* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)

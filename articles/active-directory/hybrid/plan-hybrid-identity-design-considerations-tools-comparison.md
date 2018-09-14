@@ -95,5 +95,5 @@ PP = Public Preview
 | Allow advanced customization for attribute flows |● |● | |● |● |
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 
