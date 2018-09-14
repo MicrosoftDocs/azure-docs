@@ -22,14 +22,14 @@ Configuration options available in automated ML:
 
 * Select your experiment type, e.g.,  Classification, Regression 
 * Data source, formats, and fetch data
-* Choose your compute target that is, local or remote 
+* Choose your compute target (local or remote)
 * `AutoML` experiment settings
 * Run `AutoML` experiment
 * Explore model metrics
 * Register and deploy model
 
 ## Select your experiment type
-Before you begin your experiment, you should determine the kind of Machine Learning problem you are solving. Automated ML supports two categories of supervised learning Classification and Regression. Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
+Before you begin your experiment, you should determine the kind of Machine Learning problem you are solving. Automated ML supports two categories of supervised learning: Classification and Regression. Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 Classification | Regression
 --|--
 sklearn.linear_model.LogisticRegression	| sklearn.linear_model.ElasticNet
@@ -49,7 +49,8 @@ lightgbm.LGBMClassifier	|
 
 ## Data source and format for `AutoML` experiment
 `AutoML` supports data that resides on your local desktop or in the cloud in Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into 1) Numpy arrays X (features) and y (target variable or also known as label) or 2) Pandas dataframe. 
-Following are examples.
+
+Examples:
 
 1.	Numpy arrays
 
@@ -69,13 +70,14 @@ Following are examples.
     le.fit(df["Label"].values) 
     y = le.transform(df["Label"].values) 
     df = df.drop(["Label"], axis=1) 
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42
+    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
 
 ## Fetch data for running experiment on remote compute
 
-If you are using a remote compute to run AutoML experiment, the data fetch must be wrapped in a separate python script `GetData()`. This script is run on the remote compute where AutoML experiment is run. `GetData` eliminates the need to fetch the data over the wire for each iteration. Without `GetData`, your experiment will fail when you run on remote compute.
-Here is an example of `GetData`
+If you are using a remote compute to run your AutoML experiment, the data fetch must be wrapped in a separate python script `GetData()`. This script is run on the remote compute where the AutoML experiment is run. `GetData` eliminates the need to fetch the data over the wire for each iteration. Without `GetData`, your experiment will fail when you run on remote compute.
+
+Here is an example of `GetData`:
 
 ```python
 %%writefile $project_folder/get_data.py 
@@ -94,13 +96,13 @@ def get_data(): # Burning man 2016 data
     return { "X" : df, "y" : y }
 ```
 
-In your `AutoMLConfig` object, you specify the data_script parameter and provide the path to the `GetData` script file similar to below
+In your `AutoMLConfig` object, you specify the `data_script` parameter and provide the path to the `GetData` script file similar to below:
 
 ```python
-automl_config = AutoMLConfig(****, data_script = project_folder + "./get_data.py", **** )
+automl_config = AutoMLConfig(****, data_script=project_folder + "./get_data.py", **** )
 ```
 
-`GetData` script can return the following
+`GetData` script can return the following:
 Key	| Type |	Mutually Exclusive with	| Description
 ---|---|---|---
 X |	Pandas Dataframe or Numpy Array	| data_train, label, columns |	All features to train with
@@ -116,60 +118,61 @@ cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the
 
 ## Train and validation data
 
-You can specify separate train and validation set either through the get_data() or directly in the `AutoMLConfig`  method.
+You can specify separate train and validation set either through get_data() or directly in the `AutoMLConfig`  method.
 
 ## Cross validation split options
 
 ### K-Folds Cross Validation
 
-Use n_cross_validations setting to specify the number of cross validations. The training data set will be randomly split into n_cross_validations folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for n_cross_validations rounds until each fold is used once as validation set. Finally, the average scores across all n_cross_validations rounds will be reported, and the corresponding model will be retrained on the whole training data set.
+Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
 ### Monte Carlo Cross Validation (a.k.a. Repeated Random Sub-Sampling)
 
-Use `validation_size` to specify the percentage of the training data set that should be used for validation, and use `n_cross_validations` to specify the number of cross validations. During each cross validation round, a subset of size `validation_size` will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
+Use `validation_size` to specify the percentage of the training dataset that should be used for validation, and use `n_cross_validations` to specify the number of cross validations. During each cross validation round, a subset of size `validation_size` will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
 ### Custom validation dataset
 
-Use custom validation dataset if random split is not acceptable (Usually time series data or imbalanced data). With this, you can specify your own validation dataset. The model will be evaluated against the validation dataset specified instead of random dataset.
+Use custom validation dataset if random split is not acceptable (usually time series data or imbalanced data). With this, you can specify your own validation dataset. The model will be evaluated against the validation dataset specified instead of random dataset.
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated ML training experiment runs on a compute target that you own and manage. Compute options supported are
+Next determine where the model will be trained. An automated ML training experiment runs on a compute target that you own and manage. 
 
-1.	Your local machine such as a local desktop or laptop – Generally when you have small data set and you are still in the exploration stage
-1.	A remote machine in the cloud – Azure Data Science Virtual Machine running Linux – You have large dataset and want to scale up to a large machine that is available in the Azure Cloud. 
-1.	Azure Batch AI cluster –  A managed cluster that you can set up to scale out and run AutoML iterations in parallel. 
+Compute options supported are:
+1.	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
+2.	A remote machine in the cloud – [Azure Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) running Linux – You have a large dataset and want to scale up to a large machine that is available in the Azure Cloud. 
+3.	Azure Batch AI cluster –  A managed cluster that you can set up to scale out and run AutoML iterations in parallel. 
 
 
 ## Configure your experiment settings
 
-There are several knobs that you can use to configure AutoML experiment. These parameters are set by instantiating an AutoMLConfig object.
+There are several knobs that you can use to configure your AutoML experiment. These parameters are set by instantiating an `AutoMLConfig` object.
 
 Some examples include:
 
-1.	Classification experiment using AUC weighted as primary metric with a max time of 12,000 seconds per iteration. With the experiment to end after 50 iterations and 2 cross validation folds.
+1.	Classification experiment using AUC weighted as the primary metric with a max time of 12,000 seconds per iteration, with the experiment to end after 50 iterations and 2 cross validation folds.
 
     ```python
     automl_classifier = AutoMLConfig(
-        task = 'classification',
-        primary_metric = 'AUC_weighted',
-        max_time_sec = 12000,
-        iterations = 50,
-        X = X, 
-        y = y,
-        n_cross_validations = 2)
+        task='classification',
+        primary_metric='AUC_weighted',
+        max_time_sec=12000,
+        iterations=50,
+        X=X, 
+        y=y,
+        n_cross_validations=2)
     ```
 2.	Below is an example of a regression experiment set to end after 100 iterations, with each iteration lasting up to 600 seconds with 5 validation cross folds.
 
     ````python
     automl_regressor = AutoMLConfig(
-        task = 'regression',
-        max_time_sec = 600,
-        iterations = 100,
-        primary_metric = 'r2_score',
-        X = X, 
-        y = y,
-        n_cross_validations = 5)
+        task='regression',
+        max_time_sec=600,
+        iterations=100,
+        primary_metric='r2_score',
+        X=X, 
+        y=y,
+        n_cross_validations=5)
     ````
 
 This table lists parameter settings available for your experiment and their default values.
@@ -192,7 +195,7 @@ Property |	Description	| Default Value
 `y` |	Label data to train with. For classification, should be an array of integers.|	None
 `X_valid`|_Optional_ All features to validate with. If not specified, X is split between train and validate |	None
 `y_valid`	|_Optional_ The label data to validate with. If not specified, y is split between train and validate	| None
-`sample_weight` |	_Optional_ A weight value for each sample. Use when you would like to assign different weights for your data points 	None
+`sample_weight` |	_Optional_ A weight value for each sample. Use when you would like to assign different weights for your data points | 	None
 `sample_weight_valid`	| 	_Optional_ A weight value for each validation sample. If not specified, sample_weight is split between train and validate	| None
 `run_configuration` |	RunConfiguration object.  Used for remote runs. |None
 `data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
