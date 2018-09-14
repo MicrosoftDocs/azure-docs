@@ -37,11 +37,6 @@ Azure Machine Learning service lets you start training on your local machine, an
 When you have the right model, you can easily deploy it in a container such as Docker. This means that it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md), or you can use the container in your own deployments, either on-premises or in the cloud.
 You can manage the deployed models, and track multiple runs as you experiment to find the best solution.
 
-> [!NOTE]
-> For a technical, in-depth look at this service, see [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md).
-
-In addition to Azure Machine Learning service, Microsoft provides other options to build, deploy, and manage machine learning models. For more information on these options, see [Other machine learning products from Microsoft](./overview-more-machine-learning.md).
-
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## What can I do with Azure Machine Learning service?
@@ -81,13 +76,16 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 
 ## Next steps
 
-- Create a machine learning workspace using the article [Use Azure Portal to get started](quickstart-get-started.md).
+- Create a machine learning workspace using the article [Use Azure Portal to get started](quickstart-get-started.md)
  
-- Follow the full-length tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md), to learn how to train and deploy models with Azure Machine Learning service.
+- Follow the full-length tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md), to learn how to train and deploy models with Azure Machine Learning service
 
-- For information about allowing Azure Machine Learning to auto-generate and auto-tune your model, see [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md).
+- For information about allowing Azure Machine Learning to auto-generate and auto-tune your model, see [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
 - For a technical, in-depth look at the service, see [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md)
+
+- For more information on other machine learning products from Microsoft, see [Other machine learning products from Microsoft](./overview-more-machine-learning.md)
+
 
 <!-- 
 
