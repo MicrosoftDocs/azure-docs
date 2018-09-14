@@ -29,6 +29,10 @@ Based on your use case follow the instructions to connect devices to IoT Central
 1. [Connect devices at scale using X509 certificates](#connect-devices-using-x509-certificates) **recommended for production workloads**
 1. [Connect without first registering devices](#connect-without-first-registering-devices) 
 
+
+>[!NOTE]
+>Here is the global end point for devices to connect and provision  **global.azure-devices-provisioning.net**.
+
 ## Connect a single device
 Connecting a single device to IoT Central using SAS is easy and takes only a few steps 
 1. Add a **real device** from Device Explorer, click on **+New > Real** to add a real device.
@@ -52,6 +56,8 @@ Connecting a single device to IoT Central using SAS is easy and takes only a few
          static const char* const REGISTRATION_NAME = "Enter Device Id here";
         ```
     *   **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
+
+
 
 ## Connect devices at scale using Shared Access Signatures
 
