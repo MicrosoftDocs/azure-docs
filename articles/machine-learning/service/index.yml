@@ -50,8 +50,11 @@ sections:
 
 - title: Reference
   items:
-  - html: <a href="http://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
-  - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a>
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="http://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
+    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a>
 
 - title: Other Azure Machine Learning Technologies
   items:
