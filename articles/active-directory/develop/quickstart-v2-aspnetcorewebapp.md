@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev 
 
@@ -42,10 +42,10 @@ This quickstart contains a code sample that demonstrates how an ASP.NET Core Web
 >
 > ### Option 2: Register and manually configure your application and code sample
 >
-> [!div renderon="docs" class="sxs-lookup"]
+> [!div renderon="docs"]
 > #### Step 1: Register your application
 >
-> [!div renderon="docs"]
+> [!div renderon="docs" class="sxs-lookup"]
 > 1. To register an application for this code sample, go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade) and select **New registration**.
 > 1. Enter a name for your application, add `https://localhost:3110/` in **Reply URL**, and click **Register**.
 > 1. Select then **Authentication** menu, check **Access tokens** and **ID tokens** under **Implicit Grant**, and then select **Save**.

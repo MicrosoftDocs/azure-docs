@@ -44,11 +44,13 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 > #### Step 1: Register your application
 > 
 > 1. To register an application for this code sample, go to the [Azure portal - Application Registration](https://aka.ms/registeredappsprod) and select **New registration**.
-> 1. Enter a name for your application, add `urn:ietf:wg:oauth:2.0:oob` in **Reply URL**, and click **Register**.
+> 1. Enter a name for your application
+> 1. Select the supported Microsoft accounts for your new application
+> 1. Select **Public client (mobile & desktop) and add `urn:ietf:wg:oauth:2.0:oob` in **Redirect URI**, and click **Register**.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a reply URL as **urn:ietf:wg:oauth:2.0:oob**.
+> For the code sample for this quickstart to work, you need to add a redirect URL as **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -59,7 +61,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
  - [Download the Visual Studio 2017 project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
 
-## Step 3: Configure your Visual Studio project
+#### Step 3: Configure your Visual Studio project
 
 1. Extract the zip file to a local folder (for example, **C:\Azure-Samples**)
 1. Open the project in Visual Studio
