@@ -23,13 +23,13 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud-based dir
 ## Benefits of Azure AD
 Azure AD helps you to:
 
--   Create and manage a single identity for each user across your entire enterprise, keeping users, groups, and devices in sync with [Azure AD Connect](../connect/active-directory-aadconnect).
+-   Create and manage a single identity for each user across your entire enterprise, keeping users, groups, and devices in sync with [Azure AD Connect](../connect/active-directory-aadconnect.md).
 
 -   Provide single sign-on access to your apps, including thousands of pre-integrated SaaS apps, and to provide more secure remote access to on-premises SaaS applications using the [Azure AD Application Proxy](../manage-apps/application-proxy.md).
 
 -   Allow application access security by enforcing rules-based [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) policies for both on-premises and cloud apps.
 
--   Improve user productivity with [self-service password reset](../user-help/active-directory-passwords), and group and application access requests using the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction).
+-   Improve user productivity with [self-service password reset](../user-help/active-directory-passwords,md), and group and application access requests using the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md).
 
 -   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
 
@@ -73,4 +73,4 @@ Sign up for a free 30-day trial and deploy your first cloud solution, see [Azure
 Sign up for a free 30-day trial and start integrating your apps with Azure AD, see [Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/). For more information, you can also see the [Developers Guide](../develop/azure-ad-developers-guide.md) for Azure Active Directory.
 
 ## Next steps
-[Learn more about the fundamentals of Azure identity and access management](https://docs.microsoft.com/azure/active-directory/identity-fundamentals).
+[Learn more about the fundamentals of Azure identity and access management](identity-fundamentals.md).

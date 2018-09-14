@@ -26,7 +26,7 @@ Azure AD also provides a set of tools that can help you secure, automate, and ma
 For more information about the costs of Azure Active Directory Premium editions and the associated tools, see [Azure Active Directory pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
 
 ## Connect on-premises Active Directory with Azure AD and Office 365
-Extend your on-premises Active Directory implementation into the cloud by integrating your on-premises directories with Azure AD through [hybrid identity management](https://aka.ms/aadframework). [Azure AD Connect](../connect/active-directory-aadconnect) provides this integration, giving your users a single identity and single sign-on (SSO) access to both your on-premises resources and your cloud services, such as Office 365.
+Extend your on-premises Active Directory implementation into the cloud by integrating your on-premises directories with Azure AD through [hybrid identity management](https://aka.ms/aadframework). [Azure AD Connect](../connect/active-directory-aadconnect.md) provides this integration, giving your users a single identity and single sign-on (SSO) access to both your on-premises resources and your cloud services, such as Office 365.
 
 Azure AD Connect replaces older versions of identity integration tools, such as DirSync and Azure AD Sync, helping to support your identity synchronization needs between on-premises and Azure AD. Azure AD Connect synchronization is enabled through:
 
@@ -39,7 +39,7 @@ Azure AD Connect replaces older versions of identity integration tools, such as 
 ## Increase productivity and reduce helpdesk costs with self-service and single sign-on experiences
 Users save time when they have a single username and password, along with a consistent experience on every device. Users also save time by performing self-service tasks,  like[resetting a forgotten password](../user-help/active-directory-passwords-update-your-own-password.md) or requesting access to an application without waiting for assistance from the helpdesk.
 
-Furthering the SSO and consistent experience, Azure AD [extends your on-premises Active Directory](../connect/active-directory-aadconnect) into the cloud, letting your users use their primary organizational account for their domain-joined devices, company resources, and all the web and SaaS applications they need to use to get a job done. 
+Furthering the SSO and consistent experience, Azure AD [extends your on-premises Active Directory](../connect/active-directory-aadconnect.md) into the cloud, letting your users use their primary organizational account for their domain-joined devices, company resources, and all the web and SaaS applications they need to use to get a job done. 
 
 Additionally, application access can be automatically provisioned (or de-provisioned) based on group memberships and a user's employee status, helping you control access to gallery apps or your own on-premises apps that you’ve developed and published through the [Azure AD Application Proxy](../manage-apps/application-proxy.md).
 
