@@ -89,7 +89,7 @@ Create a table in Data Explorer, to which Event Hubs will send data. You create 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    This command maps incoming JSON to the column names and data types you used when creating the table.
+    This command maps incoming JSON data to the column names and data types used when creating the table.
 
 ## Connect to the event hub
 

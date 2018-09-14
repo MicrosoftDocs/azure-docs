@@ -1,4 +1,5 @@
 - name: Kusto Documentation
+- href: index.yml
 - name: Overview
   items:
   - name: What is Kusto?
@@ -7,10 +8,18 @@
   items:
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
-  - name: Ingest streaming data
-    href: ingest-data-event-hub.md
+  - name: Ingest data
+    items:
+    - name: Streaming data - Event Hub
+      href: ingest-data-event-hub.md
+    - name: Queued data - Python
+      href: python-ingest-data.md
   - name: Query data
-    href: explore-data.md
+    items:
+     -name: Web Explorer
+      href: explore-data.md
+     -name: Python
+      href: python-query-data.md
 - name: Tutorials
 - name: Concepts
   items:
@@ -21,4 +30,7 @@
   - name: Write Kusto queries
     href: write-queries.md
 - name: Reference
+  items:
+  - name: Language reference
+  - href: https://aka.ms/kustolangref
 - name: Resources

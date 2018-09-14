@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Write queries in Azure Kusto
+# Write Kusto queries for Azure Data Explorer
 
 In this article, you learn how to use the Azure Kusto Query Language to perform basic queries with the most common operators. You also get exposure to some of the more advanced features of the language.
 
