@@ -50,11 +50,15 @@ Connecting a single device to IoT Central using SAS is easy and takes only a few
     Below are the references for other languages you might want to use.
 
     *   **C language:** If you are using C, follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
+
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
+         
          static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
+
          static const char* const REGISTRATION_NAME = "Enter Device Id here";
         ```
+
     *   **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
 
 
@@ -136,9 +140,11 @@ To connect devices to IoT Central using X509 certificates, there are three key s
         ![Connection settings](media\concepts-connectivity\verify-cert.png)
     *   **Secondary Certificate:** During the lifecycle of your IoT solution, you'll need to roll certificates. Two of the main reasons for rolling certificates would be a security breach, and certificate expirations. Secondary certificates are used to reduce downtime for devices attempting to provision while you are updating the Primary certificate.
 
-    **FOR TESTING PURPOSES ONLY:** Below are some utility commandline tools you can use for testing.
+    **FOR TESTING PURPOSES ONLY** 
+    
+    Below are some utility commandline tools you can use to generate CA certs and device certs.
 
-    * If you are using MxChip here is a [commandline tool](https://github.com/obastemur/iot-central-firmware/tree/expsdk/tools/dice) to generate CA certs add it to your IoT Central app and verify the certificates. 
+    * If you are using MxChip here is a [commandline tool](http://aka.ms/iotcentral-docs-dicetool) to generate CA certs add it to your IoT Central app and verify the certificates. 
 
     *   Use this [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to
         * Create the certificate chain (follow Step 2 in the GitHub docs). 
@@ -150,10 +156,12 @@ To connect devices to IoT Central using X509 certificates, there are three key s
 
 1. **Device setup** : Generate the leaf certificates using the uploaded root certificate. Make sure you use the **Device ID** as the CNAME in the leaf certificates and is in **lower case**. Here is a [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to generate leaf/device certs for **TESTING PURPOSES ONLY**.
 
-    Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on.    For further details look at the sample implementation for [RaspberryPi.](https://github.com/obastemur/iot-central-firmware/tree/python_new/RaspberryPi)  
+    Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on.    
 
     **Further referene** 
-    *   **C language:** If you are using C follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device.   
+    *   Sample implementation for [RaspberryPi.](http://aka.ms/iotcentral-docs-Raspi-releases)  
+
+    *   [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
 >[!NOTE]
 >Use the **Device ID** as a cname when generating the leaf certificates for devices.
@@ -216,23 +224,24 @@ Device is Registeretd when
 1.  **Blocked**: The operator can block a device, once a device is blocked it cannot send data to IoT Central and will have to be reset. Devices that are blocked have the *Provisioning status* of **Blocked**. The operator can also unblock the device. Once unblocked the device *Provisioning status* return to its previous *Provisioning status* (Registered or Provisioned). 
 
 ## Getting device connection string
-If you already have an IoT Central app and have devices connected, you can get device connection string to Azure IoT Hub using this [commandline tool](https://www.npmjs.com/package/dps-keygen), while you migrate your device code to use DPS SDK. 
-You can get connection the details such as **Scope ID, Device ID, Device Primary key** from the device page and get the connection string.
+You can get Iot hub device connection string to Azure IoT Hub using the following steps 
+1. Get connection details such as **Scope ID, Device ID, Device Primary key** from the device page (got to the device page > click Connect ) 
 
-  ![Connection details](media\concepts-connectivity\device-connect.PNG)
+    ![Connection details](media\concepts-connectivity\device-connect.PNG)
 
-Use the below instructions to get the device connection string  
+1. Get the device connection string using the commnd line tool below.
+    Use the below instructions to get the device connection string  
 
- ```cmd/sh
-npm i -g dps-keygen
- ```
- **Usage**
-In order to create a connection string, find your binary under bin/ folder
- ```cmd/sh
-dps_cstr <scope_id> <device_id> <Primary Key(for device)>
- ```
- Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+    **Usage**
 
+    In order to create a connection string, find the binary under bin/ folder
+    ```cmd/sh
+    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
+    ```
+    Learn more about the [dps-keygen tool here.](https://www.npmjs.com/package/dps-keygen)
 
 ## SDK support
 
