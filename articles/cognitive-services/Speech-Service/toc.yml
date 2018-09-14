@@ -40,6 +40,10 @@
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
+- name: Tutorials
+  items:
+    - name: 'Recognize intents in speech (C#)'
+      href: how-to-recognize-intents-from-speech-csharp.md
 - name: How-to guides
   items:
   - name: Recognize speech
@@ -59,8 +63,6 @@
   - name: Recognize intents from speech
     displayName: recognize intent, intent recognition, language understanding service, luis
     items:
-    - name: 'C#'
-      href: how-to-recognize-intents-from-speech-csharp.md
     - name: C++
       href: how-to-recognize-intents-from-speech-cpp.md
     - name: Java
