@@ -26,7 +26,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 2. Create or import Azure Key Vault.
 
-   HDInsight only supports Azure Key Vault. If you have your own key vault, can import your keys into Azure Key Vault. Remember that the keys must have "Soft Delete" and "No Not Purge" enabled. 
+   HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the keys must have "Soft Delete" and "No Not Purge" enabled. 
 
    To create a new key vault, follow the [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates).
 
