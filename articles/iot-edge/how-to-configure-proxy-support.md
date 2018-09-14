@@ -84,7 +84,6 @@ Restart IoT Edge for the changes to take effect.
 Restart-Service iotedge
 ```
 
-
 ## Configure the Edge agent
 
 The Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config.yaml file. The Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
