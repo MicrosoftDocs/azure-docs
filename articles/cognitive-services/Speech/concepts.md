@@ -12,6 +12,8 @@ ms.author: zhouwang
 ---
 # Basic concepts
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 This page describes some basic concepts in Microsoft speech recognition service. We recommend you to read this page before using Microsoft speech recognition API in your application.
 
 ## Understanding speech recognition

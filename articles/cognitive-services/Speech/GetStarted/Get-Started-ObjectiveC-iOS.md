@@ -12,6 +12,8 @@ ms.author: zhouwang
 ---
 # Get started with the Speech Recognition API in Objective-C on iOS
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 With the Speech Recognition API, you can develop iOS applications that use cloud-based Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it's sending audio to the service.
 
 This article uses a sample application to demonstrate the basics of how to get started with the  Speech Recognition API to develop an iOS application. For a complete API reference, see the [Speech SDK client library reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).

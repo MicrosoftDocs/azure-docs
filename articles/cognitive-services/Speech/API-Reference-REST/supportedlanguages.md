@@ -12,6 +12,8 @@ ms.author: zhouwang
 ---
 # Supported languages
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 ## Interactive and dictation mode
 
 The Microsoft speech recognition API supports the following languages in `interactive` and `dictation` modes. 

@@ -12,6 +12,8 @@ ms.author: zhouwang
 ---
 # Troubleshooting
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 ## Error `HTTP 403 Forbidden`
 
 When using speech recognition API, it returns an `HTTP 403 Forbidden` error.

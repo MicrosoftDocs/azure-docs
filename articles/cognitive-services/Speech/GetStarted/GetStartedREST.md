@@ -12,6 +12,8 @@ ms.author: zhouwang
 ---
 # Get started with speech recognition by using the REST API
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 With cloud-based Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
 
 ## Prerequisites

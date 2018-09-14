@@ -12,6 +12,8 @@ ms.author: priyar
 ---
 # Bing text to speech API
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 ## <a name="Introduction"></a>Introduction
 
 With the Bing text to speech API, your application can send HTTP requests to a cloud server, where text is instantly synthesized into human-sounding speech and returned as an audio file. This API can be used in many different contexts to provide real-time text-to-speech conversion in a variety of different voices and languages.

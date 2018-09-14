@@ -13,6 +13,8 @@ ms.author: zhouwang
 
 # Microsoft Bing Speech API overview
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 The cloud-based Microsoft Bing Speech API provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, user dialog using natural speech conversation, and speech transcription and dictation. The Microsoft Speech API supports both *Speech to Text* and *Text to Speech* conversion.
 
 - **Speech to Text** API converts human speech to text that can be used as input or commands to control your application.
