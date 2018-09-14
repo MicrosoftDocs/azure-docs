@@ -73,15 +73,16 @@ The following table shows the types of blob operations that are disabled for the
 
 |Scenario  |Blob state  |Blob operations not allowed  |
 |---------|---------|---------|
-|Effective retention interval on the blob has not yet expired and/or legal hold is set     |Immutable: both delete and write-protected         |Delete Container, Delete Blob, Put Blob1, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
-|Effective retention interval on the blob has expired     |Write-protected only (delete operations are allowed)         |Put Blob, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
+|Effective retention interval on the blob has not yet expired and/or legal hold is set     |Immutable: both delete and write-protected         |Delete Container, Delete Blob, Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
+|Effective retention interval on the blob has expired     |Write-protected only (delete operations are allowed)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
 |All legal holds cleared, and no time-based retention policy is set on the container     |Mutable         |None         |
 |No WORM policy is created (time-based retention or legal hold)     |Mutable         |None         |
 
+<sup>1</sup> The application may call this operation to create a blob once. All subsequent operations on the blob are disallowed.
+
 > [!NOTE]
-> The first Put Blob, Put Block List and Put Block operations that are necessary to create a blob, are allowed in the first two scenarios from the preceding table. All subsequent operations are disallowed.
 >
-> Immutable storage is available only in GPv2 and Blob storage accounts. The account must be created through [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Immutable storage is available only in General Purpose V2 and Blob Storage Accounts. The account must be created through [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## Pricing
 
@@ -170,11 +171,11 @@ Immutable storage can be used with any blob type, but we recommend that you use 
 
 **Do I need to always create a new storage account to use this feature?**
 
-You can use immutable storage with any existing or newly created GPv2 or blob storage accounts. This feature is available only for Blob storage.
+You can use immutable storage with any existing or newly created General Purpose V2 or Blob Storage Accounts. This feature is available only for Blob storage.
 
 **What happens if I try to delete a container with a *locked* time-based retention policy or legal hold?**
 
-The Delete Container operation will fail if at least one blob exists with a locked time-based retention policy or a legal hold. The Delete Container operation will succeed if there exists no blob with an active retention interval and there are no legal holds. You must delete the blobs before you can delete the container.
+The Delete Container operation will fail if at least one blob exists with a locked time-based retention policy or a legal hold. The Delete Container operation will succeed only if no blob with an active retention interval exists and there are no legal holds. You must delete the blobs before you can delete the container.
 
 **What happens if I try to delete a storage account with a WORM container that has a *locked* time-based retention policy or legal hold?**
 
