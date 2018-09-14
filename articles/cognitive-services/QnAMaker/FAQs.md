@@ -81,6 +81,6 @@ Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation t
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 
 1. Create your FAQ bot by following the instructions [here](./Tutorials/create-qna-bot.md).
-2. Enable the web chat by following the steps [here](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)
+2. Enable the web chat by following the steps [here](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
 
