@@ -17,7 +17,7 @@ ms.date: 09/11/2018
 ms.author: alkohli
 
 ---
-# azure Data Box Gateway Preview release notes
+# Azure Data Box Gateway Preview release notes
 
 ## Overview
 
