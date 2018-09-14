@@ -103,7 +103,7 @@
     - name: From Custom Speech service
       href: how-to-migrate-from-custom-speech-service.md
       name: Migrate from Bing Speech
-      href: howto-migrate-from-bing-speech.md
+      href: how-to-migrate-from-bing-speech.md
 - name: Concepts
   items:
   - name: Speech-to-Text
