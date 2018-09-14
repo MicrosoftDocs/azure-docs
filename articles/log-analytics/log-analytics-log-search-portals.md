@@ -51,6 +51,9 @@ Your browser requires access to the following addresses to access the Log Analyt
 | docs.loganalytics.io   | Dynamic | 80,443 |
 
 
+## Resource 
+If you launch Log Analytics from a resource in the Azure portal, then the scope of your query will be limited to records from that resource. 
+
 ## Log search
 Open the Log search page from **Logs** in the Log Analytics menu or from **Log Analytics** in the Azure Monitor menu. This is suitable for analyzing log data using basic queries. It provides multiple features for editing queries without having a full knowledge of the query language.  You can get a summary of these features in [Create log searches in Azure Log Analytics using Log Search](log-analytics-log-search-log-search-portal.md). 
 
