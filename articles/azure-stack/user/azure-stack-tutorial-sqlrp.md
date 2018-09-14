@@ -141,60 +141,30 @@ After the SQL Server AlwayOn availability group has been created, and properly c
 Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the SQL load balancer that was recorded previously when the SQL AlwaysOn availablity group's resource group was created. In addition, the operator will need to know the SQL Server authentication credentials used to access the SQL instances in the AlwaysOn availability group.
 
 > [!NOTE]
-> Run this step from the Azure Stack administration portal as an Azure Stack Operator.
+> This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
 
-With the IP and login information provided by the tenant user, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availablity group](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-sql-resource-provider-hosting-servers#provide-high-availability-using-sql-always-on-availability-groups). 
+With the SQL AlwaysOn availability group's load balancer listener IP and SQL authentication login information provided by the tenant user, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availablity group](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-sql-resource-provider-hosting-servers#provide-high-availability-using-sql-always-on-availability-groups). 
+
+Aslo, ensure that the Azure Stack Operator creates plans and offers to make SQL AlwaysOn database creation available for users. The operator will need to add the **Microsoft.SqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](.\.\azure-stack-plan-offer-quota-overview.md).
+
+> [!TIP]
+> The **Microsoft.SqlAdapter** service will not be available to add to plans until the [SQL Server resource provider has been deployed](.\.\azure-stack-sql-resource-provider-deploy.md).
 
 ## Create a highly available SQL database
-After the SQL AlwaysOn availablity group has been created, configured, and added as an Azure Stack SQL Hosting Server, a tenant user with a subscription including SQL Server database capablities can create SQL databases supporting AlwaysOn functionality by following the setps in this section. 
+After the SQL AlwaysOn availablity group has been created, configured, and added as an Azure Stack SQL Hosting Server, a tenant user with a subscription including SQL Server database capablities can create SQL databases supporting AlwaysOn functionality by following the steps in this section. 
 
 > [!NOTE]
 > Run these steps from the Azure Stack user portal as a tenant user with a subscription providing SQL Server capabilities (Microsoft.SQLAdapter service).
 
 1. Sign in to the user portal:
-    - For an integrated system deployment, the URL varies based on your solution's region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-    - If you’re using the Azure Stack Development Kit (ASDK), the portal address is [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+    - If you’re using the Azure Stack Development Kit (ASDK), the user portal address is [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
 
 2. Select **\+** **Create a resource** > **Data \+ Storage**, and then **SQL Database**.
 
-     ![Custom template deployment](media/azure-stack-tutorial-sqlrp/custom-deployment.md)
+     ![Custom template deployment](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
 
 3. Provide the required SQL database information: 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Next steps
@@ -208,4 +178,4 @@ In this tutorial you learned how to:
 
 Advance to the next tutorial to learn how to:
 > [!div class="nextstepaction"]
-> [Make SQL databases available to your Azure Stack users](azure-stack-tutorial-sql-server.md)
+> [Make SQL databases available to your Azure Stack users](azure-stack-tutorial-sql-server.png)
