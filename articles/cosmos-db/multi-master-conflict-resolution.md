@@ -32,9 +32,10 @@ There are three conflict resolution modes offered by Azure Cosmos DB. Conflict r
 
 ### Last-Writer-Wins (LWW)
 
-Last-Writer-Wins is the default conflict resolution mode. In this mode, conflicts are resolved based on the value assigned to a property in the document. The value assigned must be an integer and it is sent within the "ConflictResolutionPath" property when creating the collection. If this property does not exist within the document, then the conflict is resolved by using the timestamp(_ts) value of the document. 
+Last-Writer-Wins is the default conflict resolution mode. In this mode, conflicts are resolved based on an integer value passed in a property on the document. If this property does not exist within the document, then the conflict is resolved by using the timestamp(_ts) value of the document.
 
-The following code snippet is an example of how to configure Last-Writer-Wins conflict resolution policy when creating a collection using the .Net SDK. In this example, `/userDefinedId` is the conflict resolution path, and the document with the largest `userDefinedId` value will always win the conflict. To register a Last-Writer-Wins resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
+The following code snippet is an example of how to configure Last-Writer-Wins conflict resolution policy when using the .Net SDK. The "ConflictResolutionPath" defines the path to the property which is used to resolve the conflict. In this example, `/userDefinedId` is the conflict resolution path, and the document with the largest `userDefinedId` value will always win the conflict. To register a Last-Writer-Wins resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
+
 
 ```csharp
 DocumentCollection lwwCollection = await myClient.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("myDatabase"), new DocumentCollection 
