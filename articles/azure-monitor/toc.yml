@@ -155,13 +155,21 @@
     - name: Manage workspaces
       items:
       - name: Create a workspace
-        href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
+        items:
+        - name: Use Azure portal
+          href: ../log-analytics/log-analytics-quick-create-workspace.md ?toc=/azure/azure-monitor/toc.json 
+        - name: Use Azure CLI
+          href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
+        - name: Use Azure PowerShell
+          href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
       - name: Delete a workspace
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Design for service providers
         href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
     - name: Install and configure agents
       items:
+      - name: Agent comparison
+        href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
       - name: Windows agents
         href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
       - name: VM Extension for Windows
@@ -484,7 +492,7 @@
     - name: Monitor virtual machines
       items:
       - name: Agent Health
-        href: ../operations-management-suite/oms-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
+        href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: VMWare Analytics
         href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
       - name: Wire Data
@@ -512,7 +520,7 @@
       - name: DNS
         href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
       - name: Office 365
-        href: ../operations-management-suite/oms-solution-office-365.md?toc=/azure/azure-monitor/toc.json
+        href: ../monitoring/monitoring-solution-office-365.md?toc=/azure/azure-monitor/toc.json
       - name: Assess Operations Manager
         href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
       - name: Surface Hub

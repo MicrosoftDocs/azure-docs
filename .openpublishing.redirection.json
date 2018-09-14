@@ -2893,7 +2893,7 @@
         },
         {
             "source_path": "articles/application-insights/app-insights-search-diagnostic-logs.md",
-            "redirect_url": "/azure/application-insights/app-insights-analytics-diagnostics",
+            "redirect_url": "/azure/application-insights/app-insights-analytics",
             "redirect_document_id": false
         },
         {
@@ -17931,7 +17931,7 @@
         },
         {
             "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
@@ -23214,7 +23214,7 @@
         },
         {
             "source_path": "articles/operations-management-suite/operations-management-suite-monitoring-product-comparison.md",
-            "redirect_url": "/azure/monitoring/monitoring-overview",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
@@ -28097,28 +28097,23 @@
             "redirect_document_id" : false
         },
         {
-            "source_path": "articles/monitoring/monitoring-overview-azure-monitor.md",
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md",
             "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : true
         },
         {
             "source_path": "articles/application-insights/app-insights-analytics-diagnostics.md",
-            "redirect_url": "/azure/azure-monitor/overview",
-            "redirect_document_id" : false
-        },
-        {
-            "source_path": "articles/monitoring/app-insights-analytics-diagnostics.md",
             "redirect_url": "/azure/application-insights/app-insights-analytics",
             "redirect_document_id" : true
         },
         {
-            "source_path": "articles/monitoring/app-insights-java-eclipse.md",
+            "source_path": "articles/application-insights/app-insights-java-eclipse.md",
             "redirect_url": "/azure/application-insights/app-insights-java-quick-start",
             "redirect_document_id" : true
         },
         {
             "source_path": "articles/monitoring-and-diagnostics/monitoring-get-started.md",
-            "redirect_url": "/azure/azure-monitor-overview",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : true
         }
     ]
