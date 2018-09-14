@@ -27,7 +27,7 @@ The following are prerequisites required for completing this tutorial
 - A computer with [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
 - An [Azure subscription](https://azure.microsoft.com/en-us/free)
 - A copy of Windows Server 2016
-- A [custom domain](active-directory/fundamentals/add-custom-domain.md) that can be verified
+- A [custom domain](../../active-directory/fundamentals/add-custom-domain.md) that can be verified
 
 > [!NOTE]
 > Copies of the PowerShell scripts that are used in this tutorial are available on Github [here](https://github.com/billmath/tutorial-phs).
@@ -219,8 +219,10 @@ Now that we have a tenant and a global administrator, we need to add our custom 
 3. Select **Add custom domain**.
 ![Federation](media/tutorial-federation/custom1.png)
 
-1. On **Custom domain names**, enter the name of your custom domain in the box, and click **Add Domain**.
-2. On the custom domain name screen you will be supplied with either TXT or MX information.  This information must be added to the DNS information of the domain registrar under your domain.  So you need to go to your domain registrar, enter either the TXT or MX information in the DNS settings for your domain.  This will allow Azure to verify your domain.  This may take up to 24 hours for Azure to verify it.  For more information, see the [add a custom domain](active-directory/fundamentals/add-custom-domain.md) documentation.
+1. On **Custom domain names**, enter the name of your custom domain in the box, and click **
+2. 
+3. **.
+2. On the custom domain name screen you will be supplied with either TXT or MX information.  This information must be added to the DNS information of the domain registrar under your domain.  So you need to go to your domain registrar, enter either the TXT or MX information in the DNS settings for your domain.  This will allow Azure to verify your domain.  This may take up to 24 hours for Azure to verify it.  For more information, see the [add a custom domain](../../active-directory/fundamentals/add-custom-domain.md) documentation.
 ![Federation](media/tutorial-federation/custom2.png)
 
 1. To ensure that it is verified, click the Verify button.

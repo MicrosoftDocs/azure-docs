@@ -48,7 +48,7 @@
     - name: Move Azure AD Connect database from SQL Express to SQL Server
       href: how-to-connect-install-move-db.md
     - name: When you already have Azure AD
-      href: active-directory-aadconnect-existing-tenant.md
+      href: how-to-connect-install-existing-tenant.md
     - name: Post installation tasks
       href: how-to-connect-post-installation.md
   - name: Plan and Design
@@ -60,7 +60,7 @@
     - name: How will users sign-in
       href: plan-connect-user-signin.md
     - name: Special considerations for instances
-      href: active-directory-aadconnect-instances.md
+      href: reference-connect-instances.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview
@@ -244,7 +244,7 @@
      - name: Understanding Declarative Provisioning Expressions
        href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
      - name: Understanding the defualt configuration
-       href: concept-azure-ad-connect-sync-default-configuration.md.md
+       href: concept-azure-ad-connect-sync-default-configuration.md
      - name: Understanding users and contacts
        href: concept-azure-ad-connect-sync-user-and-contacts.md
      - name: Understandingr shadow attributes
