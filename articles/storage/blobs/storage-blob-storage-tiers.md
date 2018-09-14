@@ -69,7 +69,7 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 > Archive storage and blob-level tiering only support block blobs. You also cannot change the tier of a block blob that has snapshots.
 
 ### Blob lifecycle management
-Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) to learn more.  
+Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) to learn more.  
 
 ### Blob-level tiering billing
 
@@ -187,7 +187,7 @@ Data storage along with other limits are set at the account level and not per st
 
 [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
 
-[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
+[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
