@@ -84,7 +84,7 @@ Windows agents must be configured to communicate with a WSUS server or they must
 
 For Linux, the machine must have access to an update repository. The update repository can be private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. A Log Analytics agent for Linux that's configured to report to multiple Log Analytics workspaces isn't supported with this solution.
 
-For information about how to install the Log Analytics Agent for Linux and to download the latest version, see [Log Analytics agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information about how to install the Log Analytics agent for Windows, see [Log Analytics Agent for Windows](../log-analytics/log-analytics-windows-agent.md).
+For information about how to install the Log Analytics Agent for Linux and to download the latest version, see [Log Analytics agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information about how to install the Log Analytics agent for Windows, see [Log Analytics agent for Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## Permissions
 
