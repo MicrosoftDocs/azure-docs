@@ -347,6 +347,8 @@ The web portal makes it easy to create Batch AI and Virtual Machines. To create 
 5. Select __Create__
 6. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
 ![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
+You will then see the details for that compute.
+![View details](./media/how-to-set-up-training-targets/vm_view.PNG)
 7. Now you can submit a run against these targets as detailed above.
 
 ### Reuse existing compute in your workspace
