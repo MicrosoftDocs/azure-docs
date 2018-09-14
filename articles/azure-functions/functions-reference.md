@@ -5,24 +5,13 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-<<<<<<< HEAD
-=======
-editor: ''
-tags: ''
->>>>>>> fc83df5ddcb... More v2 clean up
 keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-<<<<<<< HEAD
 ms.date: 10/12/2017
-=======
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/05/2018
->>>>>>> fc83df5ddcb... More v2 clean up
 ms.author: glenga
 
 ---

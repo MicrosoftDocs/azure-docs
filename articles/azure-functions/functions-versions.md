@@ -8,7 +8,7 @@ manager: jeconnoc
 
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/29/2018
+ms.date: 09/14/2018
 ms.author: glenga
 
 ---
@@ -46,14 +46,22 @@ You may wish to move an existing app written in 1.x to 2.x.  Most of the conside
 
 While most of the trigger and binding properties and configurations remain the same between versions, in 2.x you will need to install any trigger or binding to the app. The only exception for this is HTTP and Timer triggers.  See [Register and install binding extensions](./functions-triggers-bindings.md#register-binding-extensions).  Note that there may also be changes in the `function.json` or attributes of the function between versions (for example, CosmosDB `connection` property is now `ConnectionStringSetting`).  Reference the [existing binding table](#bindings) for links to documentation for each binding.
 
+### Changes in features available
+
+In addition to changes in languages and bindings, there are some features that have been removed, updated, or replaced between versions.  Below are some of the main considerations to make when starting with 2.x after using 1.x.  In v2.x the following changes were made:
+
+* To improve performance, "webhook" type triggers are removed and replaced with "HTTP" triggers.
+* Host configuration (`host.json`) should either be empty or contain `version` of `2.0` for one of the properties.
+* To improve monitoring and observability, the WebJobs Dashboard (`AzureWebJobsDashboard`) is replaced with [Azure Application Insights](functions-monitoring.md) (`APPINSIGHTS_INSTRUMENTATIONKEY`)
+* Application settings (`local.settings.json`) require a value for the property `FUNCTIONS_WORKER_RUNTIME` that maps to the language of the app `dotnet | node | java | python`.
+    * To improve footprint and startup time, apps are limited to a single language. You can publish multiple apps to have functions in different languages for the same solution.
+* Default timeout for functions in an app service plan is 30 minutes.  It can still be manually set to unlimited.
+* [Due to .NET core limitiations](https://github.com/Azure/azure-functions-host/issues/3414), `.fsx` scripts for F# functions have been removed. Compiled F# functions are still supported.
+* The format of webhook-based triggers (e.g. Event Grid) has changed to `https://{app}/runtime/webhooks/{triggerName}`
+
 ### Upgrading a locally developed application
 
 If your v1.x app was developed locally, you can make changes to the app or project to make it compatible with v2.  It is recommended to create a new app and port over the code to the new app.  While there are changes that could be made to an existing app to perform an in place upgrade, there are a number of other improvements between v1 and v2 that legacy code likely is not taking advantage of (for example in C# the change from `TraceWriter` to `ILogger`).  
-
-There are also changes in required properties in application settings (`local.settings.json`) and `host.json` including:
-
-* Application settings (`local.settings.json`) require a value for the property `FUNCTIONS_WORKER_RUNTIME` that maps to the language of the app `dotnet | node | java | python`.
-* Host configuration (`host.json`) should either be empty or contain `version` of `2.0`.
 
 The recommended path is start from one of the v2 templates and move over code into a new project or app.
 
@@ -98,10 +106,6 @@ All built-in Azure Functions bindings have adopted this model and are no longer 
 The following table indicates which bindings are supported in each runtime version.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-## Known issues in 2.x
-
-For more information about bindings support and other functional gaps in 2.x, see [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ## Next steps
 
