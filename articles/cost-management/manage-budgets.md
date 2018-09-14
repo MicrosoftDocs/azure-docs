@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 9/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -21,6 +21,8 @@ When you have an Enterprise or MSP account, you can use your hierarchical cost e
 Based on assigned budgets, you can set threshold alerts based on the percentage of your budget that's consumed and define the severity of each threshold.
 
 Budget reports show the assigned budget. Users can view when their spending is over, under, or at par with their consumption over time. When you select **Show/Hide Fields** at the top of a budget report, you can view cost, budget, accumulated cost, or total budget.
+
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information about budgets in Cost Management, see [Create and manage budgets](tutorial-acm-create-budgets.md).
 
 ## Create budgets
 

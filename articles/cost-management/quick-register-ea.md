@@ -6,7 +6,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/14/2018
 ms.topic: quickstart
 ms.custom:
 ms.service: cost-management
@@ -17,6 +17,8 @@ manager: dougeby
 # Register an Azure Enterprise Agreement and view cost data
 
 You use your Azure Enterprise Agreement to register with Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
+
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
 
 ## Sign in to Azure
 

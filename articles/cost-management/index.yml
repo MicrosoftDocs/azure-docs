@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Cost Management Documentation
 metadata:
   title: Cost Management Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Cost Management is a cost management solution that helps monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations with our quickstarts and tutorials.
+  description: Azure Cost Management is a cost management solution that helps you monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations with our quickstarts and tutorials.
   services: cost-management
   author: bandersmsft
   manager: dougeby
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/14/2019
   ms.author: banders
 abstract:
-  description: Azure Cost Management is a cost management solution that helps monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations with our quickstarts and tutorials.
+  description: Azure Cost Management is a cost management solution that helps you monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
