@@ -152,3 +152,12 @@ Your application may recieve tokens on behalf of a user (the usual flow) or dire
 
 * App-only tokens will not have a `scp` claim, and will instead have a `roles` claim.  This is where application permission (as opposed to delegated permissions) will be recorded.  For more information on delegated and application permissions, see the [Permission and Consent](v1-permissions-and-consent.md) documentation.
 * Many human-specific claims will be missing - e.g. `name`.
+
+## Next steps
+
+* For a complete list of developer resources, including reference information for the protocols and OAuth2 authorization grant flows support by Azure AD, refer to the [Azure AD Developer's Guide][AAD-Developers-Guide]
+* See [How to integrate an application with Azure AD][ACOM-How-To-Integrate] for additional depth on the application integration process.
+
+<!--Reference style links in use-->
+[AAD-Developers-Guide]:azure-ad-developers-guide.md
+[ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
