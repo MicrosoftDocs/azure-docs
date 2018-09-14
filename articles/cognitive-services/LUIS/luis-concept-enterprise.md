@@ -63,4 +63,4 @@ A dispatch application has 500 dispatch sources, equivalent to 500 intents, as t
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool
