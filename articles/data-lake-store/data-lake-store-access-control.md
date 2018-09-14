@@ -37,18 +37,6 @@ Both Access ACLs and Default ACLs have the same structure.
 >
 >
 
-## Users and identities
-
-Every file and folder has distinct permissions for these identities:
-
-* The owning user
-* The owning group
-* Named users
-* Named groups
-* All other users
-
-The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
-
 ## Permissions
 
 The permissions on a filesystem object are **Read**, **Write**, and **Execute**, and they can be used on files and folders as shown in the following table:
@@ -96,7 +84,19 @@ Following are some common scenarios to help you understand which permissions are
 >
 
 
-## The super-user
+## Users and identities
+
+Every file and folder has distinct permissions for these identities:
+
+* The owning user
+* The owning group
+* Named users
+* Named groups
+* All other users
+
+The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
+
+### The super-user
 
 A super-user has the most rights of all the users in the Data Lake Storage Gen1 account. A super-user:
 
@@ -111,7 +111,7 @@ If you want to create a custom role-based-access control (RBAC) role that has su
 - Microsoft.Authorization/roleAssignments/write
 
 
-## The owning user
+### The owning user
 
 The user who created the item is automatically the owning user of the item. An owning user can:
 
@@ -123,7 +123,7 @@ The user who created the item is automatically the owning user of the item. An o
 >
 >
 
-## The owning group
+### The owning group
 
 **Background**
 
