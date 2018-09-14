@@ -30,10 +30,10 @@ The following table helps you understand the differences between these two tiers
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements|
 |Compute|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |Gen4: 7 GB per core<br>Gen5: 5.5 GB per core|
-|Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Local SSD storage,<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |Flexible, auto-grow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. Log lives in Azure premium storage and virtually “infinite log” with no frequent log truncation (once in 35 days in preview)|
+|Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Local SSD storage,<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |Flexible, auto-grow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
 |IO throughput (approximate)|Single database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200,000 maximum IOPS|TBD|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone redundant HA|?|
-|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and restore is very fast and not of size of data operations (in minutes not hours/days) and will not impact the IO performance of Primary compute.|
+|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).|
 |In-Memory|Not supported|Supported|Not supported|
 |||
 
@@ -81,7 +81,7 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 ### Hyperscale service tier (preview)
 
-snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and restore is very fast and not “size of data” operation(in minutes not hours/days) and will not impact the IO performance of Primary compute.
+snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and not of size of data operations (in minutes not hours/days).
 
 ## Azure Hybrid Use Benefit
 
