@@ -93,7 +93,7 @@ You can manage Data Lake Storage Gen1 resources by doing following operations:
 *	View Data Lake Storage Gen1 resources shared by others through an ACL under **Local and Attached**.
 *	Perform file and folder CRUD operations: support recursive folders and multi-selected files. 
 *	Drag, drop, and add a folder to quickly access recent locations. This operation mirrors the desktop File Explorer experience. 
-*	Copy and open an Azure Data Lake hyperlink in Storage Explorer with one click. 
+*	Copy and open a Data Lake Storage Gen1 hyperlink in Storage Explorer with one click. 
 *	Display Activity Log in the lower-right pane to view activity status.
 *	Display folder statistics and file properties.
 

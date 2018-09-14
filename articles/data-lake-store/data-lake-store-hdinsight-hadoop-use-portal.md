@@ -161,7 +161,7 @@ After the cluster setup is complete, on the cluster blade, verify your results b
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Add service principal to HDInsight cluster")
 
-* To verify that the service principal is correctly associated with the HDInsight cluster, click **Data Lake Store access** in the left pane.
+* To verify that the service principal is correctly associated with the HDInsight cluster, click **Data Lake Storage Gen1 access** in the left pane.
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
 

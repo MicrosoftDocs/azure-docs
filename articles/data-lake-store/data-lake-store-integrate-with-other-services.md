@@ -15,7 +15,7 @@ ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
-# Integrating Azure Data Lake Storage Gen1 with other Azure Services
+# Integrating Azure Data Lake Storage Gen1 with other Azure services
 Azure Data Lake Storage Gen1 can be used in conjunction with other Azure services to enable a wider range of scenarios. The following article lists the services that Data Lake Storage Gen1 can be integrated with.
 
 ## Use Data Lake Storage Gen1 with Azure HDInsight
