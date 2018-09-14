@@ -70,5 +70,5 @@ Integrate your exported model into an application. Several sample applications a
 * A sample for [using your exported CoreML model in an iOS application](https://go.microsoft.com/fwlink/?linkid=857726) for real-time image classification with Swift
 * Sample iOS application for [using your exported CoreML model with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) for real-time image classification 
 * Sample for [using your exported Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) for real-time image classification 
-* [Using your Tensorflow model with Windows](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/export-model-python)
-* Sample for [using your exported ONNX model with Windows Machine Learning](https://azure.microsoft.com/en-us/resources/samples/cognitive-services-onnx-customvision-sample/)
+* [Using your Tensorflow model with Windows](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
+* Sample for [using your exported ONNX model with Windows Machine Learning](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/)
