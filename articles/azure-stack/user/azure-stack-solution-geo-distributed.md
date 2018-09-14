@@ -244,7 +244,6 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 
 ![Alt text](media\azure-stack-solution-geo-distributed\image27.png)
 
-
 > [!div class="checklist"]
 > - Map an existing custom DNS name to Azure Web Apps
 > - Use a **CNAME recorder an **A record** to map a custom DNS name to App Service.
