@@ -6,7 +6,7 @@ description: What is the difference between Azure Active Directory B2B collabora
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: overview
 ms.date: 03/15/2017
 
 ms.author: mimart
