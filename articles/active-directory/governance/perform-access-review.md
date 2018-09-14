@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) simplifies how enterprises manage access to ap
 
 To see the pending access reviews, click the review access link in the email. Starting in August 2018, the email notifications for Azure AD roles have an updated design. The following shows an example email that is sent when a user is invited to be a reviewer. 
 
-![Review access email](./media/active-directory-azure-ad-controls-perform-access-review/new-ar-email.png)
+![Review access email](./media/perform-access-review/new-ar-email.png)
 
 If you don't have the email, you can locate the access reviews by following these steps:
 
