@@ -3,7 +3,7 @@ title: Create a map with Azure Maps | Microsoft Docs
 description: How to create a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
