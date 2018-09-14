@@ -36,17 +36,6 @@ In this article, you create your own gallery and custom images of an Azure virtu
 > * Delete a resources
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-
-
-## Before you begin
-
-The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
-
-To complete the example in this article, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the article, replace the resource group and VM names where needed.
 
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../../includes/virtual-machines-common-shared-images-cli.md)]
 

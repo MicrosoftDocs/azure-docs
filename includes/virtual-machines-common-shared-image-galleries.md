@@ -23,15 +23,15 @@ Shared images encompasses multiple resources:
 
 ### Regional Support
 
-Regional support for shared image alleries is limited, but will expand over time. For preview: 
+Regional support for shared image alleries is limited, but will expand over time. For preview, here are the lists of where you can create galleries and regions where can replicate any gallery: 
 
 | Create Gallery In  | Replicate Version To |
 |--------------------|----------------------|
 | West Central US    |South Central US|
-|                    |East US|
-|                    |East US 2|
-|                    |West US|
-|                    |West US 2|
+| East US 2          |East US|
+| South Central US   |East US 2|
+| Southeast Asia     |West US|
+| West Europe        |West US 2|
 |                    |Central US|
 |                    |North Central US|
 |                    |Canada Central|
@@ -41,7 +41,7 @@ Regional support for shared image alleries is limited, but will expand over time
 |                    |South India|
 |                    |Southeast Asia|
 
-
+West Central US, South Central US, East US 2, Southeast Asia, West Europe
 
 ## Scaling
 Shared Image Gallery allows you to specify the number of replicas you want Azure to keep for the images. This helps in multi-VM/VMSS deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation process being throttled due to overloading of a single replica.
