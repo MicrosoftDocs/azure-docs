@@ -13,13 +13,21 @@ ms.date: 09/24/2018
 
 # Tune hyperparameters for your model
 
+In this article, we demonstrate how to efficiently tune hyperparameters for your model. We will show you how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
+
+## What are hyperparameters?
 Hyperparameters are adjustable parameters chosen prior to training a model, that govern the training process itself. For example, prior to training a deep neural network, you will need to decide the number of hidden layers in the network and the number of nodes in each layer. These values usually stay constant during the training process.
 
 In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations to find a configuration that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
 
 Azure Machine Learning Service allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
 
-In this article, we demonstrate how to efficiently perform a hyperparameter sweep. We will show you how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
+In order to tune hyperparameters for your model using Azure Machine Learning service, you will need to do the following -
+* Define the hyperparameter search space
+* Specify a primary metric to optimize
+* Specify an early termination policy
+* Allocate resources for hyperparameter tuning
+* Launch an experiment with the above configuration
 
 ## Define the hyperparameter search space
 Azure Machine Learning service automatically tunes hyperparameters by exploring the range of values defined for each hyperparameter.
@@ -112,8 +120,13 @@ param_sampling = BayesianParameterSampling( {
 > early_termination_policy = NoTerminationPolicy()
 > ```
 
-## Log metrics for hyperparameter tuning
-In order to use Azure Machine Learning service for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric. See [Primary Metric](#primary-metric).
+## Specify a primary metric to optimize
+When tuning hyperparameters, you need to specify the primary metric that you want the hyperparameter tuning experiment to optimize. Each training run is evaluated for this primary metric and poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to specifying the primary metric name, you also need to specify the goal of the optimization - whether to maximize or minimize the primary metric.
+* `primary_metric_name`: The name of the primary metric to optimize. The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Log metrics for hyperparameter tuning](#log-metrics-for-hyperparameter-tuning).
+* `primary_metric_goal`: It can be either PrimaryMetricGoal.MAXIMIZE or PrimaryMetricGoal.MINIMIZE and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
+
+### Log metrics for hyperparameter tuning
+In order to use Azure Machine Learning service for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric. See [Specify a primary metric to optimize](#specify-a-primary-metric-to-optimize).
 
 You can update your training script to log this metric, using the following sample snippet -
 
@@ -191,15 +204,7 @@ early_termination_policy = NoTerminationPolicy()
 ### Default Policy
 If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
-## Configure your hyperparameter tuning experiment
-In addition to defining the hyperparameter search space and early termination policy, you will need to specify the metric that you want to optimize and configure resources allocated for hyperparameter tuning.
-
-### Primary Metric
-The primary metric is the metric that the hyperparameter tuning experiment will optimize. Each training run is evaluated for this primary metric and poorly performing runs (where the primary metric does not meet criteria set by the early termination policy) will be terminated. In addition to specifying the primary metric name, you also need to specify the goal of the optimization - whether to maximize or minimize the primary metric.
-* `primary_metric_name`: The name of the primary metric to optimize. The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Log metrics for hyperparameter tuning](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: It can be either PrimaryMetricGoal.MAXIMIZE or PrimaryMetricGoal.MINIMIZE and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
-
-### Resources allocated to hyperparameter tuning
+## Allocate resources for hyperparameter tuning
 You can control your resource budget for your hyperparameter tuning experiment by specifying the maximum total number of training runs and optionally, the maximum duration for your hyperparameter tuning experiment (in minutes). 
 * `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
 * `max_duration_minutes`: Maximum duration of the hyperparameter tuning experiment in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically canceled.
@@ -210,7 +215,8 @@ You can control your resource budget for your hyperparameter tuning experiment b
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 * `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel.
 
-Finally, in order to configure your hyperparameter tuning experiment, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators).
+## Configure your hyperparameter tuning experiment
+You can configure your hyperparameter tuning experiment using the defined hyperpameter search space, early termination policy, primary metric and resource allocation from the sections above. Additionally, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators).
 
 Here is an example of how you can configure your hyperparameter tuning experiment -
 
@@ -234,7 +240,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-where `experiment_name` is the name you want to assign to your hyperparameter tuning experiment.
+where `experiment_name` is the name you want to assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (See [link](/concept-azure-machine-learning-architecture.md) for more information on experiments).
 
 ## Visualize your hyperparameter tuning experiment
 Azure Machine Learning SDK provides a Notebook widget that can be used to visualize the progress of your training runs. The following snippet can be used to visualize all your hyperparameter tuning runs in one place -
