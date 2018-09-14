@@ -13,6 +13,7 @@ ms.author: diberry
 ---
 
 # Glossary
+The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS API Service.
 
 ## <a name="active-version"></a>Active version
 
@@ -68,7 +69,7 @@ In the LUIS context, a **domain** is an area of knowledge. Your domain is specif
 
 ## <a name="endpoint"></a>Endpoint
 
-The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Publish](luis-how-to-publish-app.md)** page of your app, in the Resources and Keys table or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Keys and endpoints](/luis-how-to-manage-keys.md)** page of your app, or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 An example endpoint looks like:
 
@@ -171,7 +172,7 @@ Same as [programmatic key](#programmatic-key), renamed to Authoring key.
 
 ## <a name="subscription-key"></a>Subscription key
 
-The subscription key is the **endpoint** key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). This key is not the [authoring key](#programmatic-key). If you have an endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current endpoint key inside the endpoint URL at the bottom of [**Publish App** page](luis-how-to-publish-app.md) in [LUIS](luis-reference-regions.md) website. It is the value of **subscription-key** name/value pair. 
+The subscription key is the **endpoint** key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). This key is not the [authoring key](#programmatic-key). If you have an endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current endpoint key inside the endpoint URL at the bottom of [**Keys and endpoints** page](luis-how-to-manage-keys.md) in [LUIS](luis-reference-regions.md) website. It is the value of **subscription-key** name/value pair. 
 
 ## <a name="test"></a>Test
 
