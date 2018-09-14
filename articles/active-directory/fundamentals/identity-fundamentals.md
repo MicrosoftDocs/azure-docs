@@ -37,7 +37,7 @@ Azure AD Connect replaces older versions of identity integration tools, such as 
 - **Health monitoring.** Azure AD Connect Health provides monitoring and a central location on the Azure portal to view this activity. For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../connect-health/active-directory-aadconnect-health.md).
 
 ## Increase productivity and reduce helpdesk costs with self-service and single sign-on experiences
-Users save time when they have a single username and password, along with a consistent experience on every device. Users also save time by performing self-service tasks, like[resetting a forgotten password](../user-help/active-directory-passwords-update-your-own-password.md) or requesting access to an application without waiting for assistance from the helpdesk.
+Users save time when they have a single username and password, along with a consistent experience on every device. Users also save time by performing self-service tasks,  like[resetting a forgotten password](../user-help/active-directory-passwords-update-your-own-password.md) or requesting access to an application without waiting for assistance from the helpdesk.
 
 Furthering the SSO and consistent experience, Azure AD [extends your on-premises Active Directory](../connect/active-directory-aadconnect) into the cloud, letting your users use their primary organizational account for their domain-joined devices, company resources, and all the web and SaaS applications they need to use to get a job done. 
 
@@ -52,4 +52,4 @@ Using conditional access policies in Azure AD Premium lets you create policy-bas
 [Privileged Identity Management (PIM)](../privileged-identity-management/pim-getting-started.md), included with the Azure Active Directory Premium 2 edition, helps you to discover, restrict, and monitor administrative accounts and their access to resources in your Azure Active Directory and other Microsoft online services. PIM also helps you administer on-demand administrative access for the exact period of time you need, meaning that you can allow administrators to request multi-factor authenticated, temporary elevation of their privileges for a pre-configured period of time before their accounts return to a normal user state.
 
 ## Next steps
-
+For more information about the Azure AD architecture, see [What is the Azure AD architecture?](active-directory-architecture.md).
