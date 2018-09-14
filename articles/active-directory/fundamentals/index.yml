@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure AD Fundamentals Documentation
+title: Azure Active Directory fundamentals documentation
 metadata:
   document_id: 
-  title: Azure Active Directory Fundamentals Documentation
+  title: Azure Active Directory fundamentals documentation
   description: Learn about the basic concepts and processes available while using Azure Active Directory.
   services: active-directory
   ms.component: fundamentals
@@ -39,7 +39,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Sign up for Azure AD premium</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Sign up for Azure AD Premium</a>
     - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">How to add a custom domain name</a>
     - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">How to create a basic group and add members</a>
     - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">How to add group owners</a>

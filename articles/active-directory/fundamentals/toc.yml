@@ -1,4 +1,4 @@
-- name: Fundamentals Documentation
+- name: Fundamentals documentation
   href: index.yml
 - name: 'Overview'
   expanded: true
@@ -78,7 +78,7 @@
     href: active-directory-faq.md
   - name: Azure Active Directory deployment plans
     href: active-directory-deployment-plans.md
-  - name: Manage your Azure AD directory
+  - name: Manage your Azure AD Directory
     href: active-directory-administer.md
   - name: Azure identity solutions
     href: understand-azure-identity-solutions.md    
