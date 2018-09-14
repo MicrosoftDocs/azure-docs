@@ -33,15 +33,15 @@ The **AzureRM.Bootstrapper** module that is available through the PowerShell Gal
 Install-Module -Name AzureRm.BootStrapper
 ```
 
-## Azure Stack Version and profile versions
+## Azure Stack version and profile versions
 
 The following table lists the required API profile version and PowerShell administrator module moniker used for recent releases of Azure Stack. If you are using this article with a version before 1808, update your version profile and moniker with the correct value.
 
 | Version No. | API version profile | PS admin module moniker |
 | --- | --- | --- |
-| Azure Stack 1808 | 2018-03-01-hybrid | 1.5.0 |
-| Azure STack 1804 | 2017-03-09-profile | 1.4.0 |
-| Version before 1804 | 2017-03-09-profile | 1.2.11 |
+| 1808 or later | 2018-03-01-hybrid | 1.5.0 |
+| 1804 or later | 2017-03-09-profile | 1.4.0 |
+| Versions before 1804 | 2017-03-09-profile | 1.2.11 |
 
 > [!Note]  
 > To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
