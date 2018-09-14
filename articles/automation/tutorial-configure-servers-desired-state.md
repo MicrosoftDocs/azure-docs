@@ -4,8 +4,8 @@ description: Tutorial - Manage server configurations with Azure Automation State
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
