@@ -70,7 +70,7 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 1. For **Require users to expand the terms of use**, select On or Off. If this setting is set to On, end users will be required to view the Terms of use prior to accepting them.
 
-1. For **Require users to consent on every device**, select On or Off. If this setting is set to On, end users will be required to agree to the Terms of use on every device they are accessing from. For more information, see [Device-based Terms of use](#device-based-terms-of-use).
+1. For **Require users to consent on every device**, select On or Off. If this setting is set to On, end users will be required to agree to the Terms of use on every device they are accessing from. For more information, see [Per-device Terms of use](#per-device-terms-of-use).
 
 1. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](conditional-access/best-practices.md).
 
@@ -175,9 +175,9 @@ The following procedure describes how to add a Terms of use language.
 
 1. Click **Add** to add the language.
 
-## Device-based Terms of use
+## Per-device Terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to [register their device in Azure AD](./devices/overview.md). When the device is registered, the device ID is used to enforce the Terms of use on each device.
+The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the Terms of use on each device.
 
 Here is a list of the supported platforms and software.
 
@@ -189,11 +189,21 @@ Here is a list of the supported platforms and software.
 > | **Internet Explorer** | Yes | Yes | Yes |  |  |
 > | **Chrome** | Yes | Yes | Yes |  |  |
 
-Device-based Terms of use has the following constraints:
+Per-device Terms of use has the following constraints:
 
 - A device can only be registered with one tenant.
-- Shared computers are not supported because users may not have permissions to register the device.
-- Intune enrollment app is not supported.
+- A user must have permissions to register their device.
+- The Intune enrollment app is not supported.
+
+If the user's device is not registered, they will receive a message that they need to register their device. Their experience will be dependent on the platform and software.
+
+### Register Windows 10 device
+
+If a user is using Windows 10 and Edge, they will receive a message similar to the following to [register their device](/intune-user-help/enroll-your-w10-device-access-work-or-school).
+
+![Windows 10 Edge - Register device prompt](media/active-directory-tou/per-device-win10-edge.png)
+
+If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ## Delete Terms of use
 You can delete old Terms of use using the following procedure.
