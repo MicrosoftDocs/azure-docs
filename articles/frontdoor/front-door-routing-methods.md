@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - traffic routing methods | Microsoft Docs
-description: This articles helps you understand the different traffic routing methods used by Front Door
+description: This article helps you understand the different traffic routing methods used by Front Door
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -24,20 +24,22 @@ There are four main concepts to traffic routing available in Front Door:
 * **[Weighted](#weighted):** You can assign weights to your different backends when you want to distribute traffic across a set of backends, either evenly or according to weight coefficients.
 * **[Session Affinity](#sessionaffinity):** You can configure session affinity for your frontend hosts or domains when you want that subsequent requests from a user are sent to the same backend as long as the user session is still active and the backend instance still reports healthy based on health probes. 
 
-All Front Door configurations include monitoring of backend health and automated instant global failover. For more information, see [Front Door Backend Monitoring](front-door-healt-probes.md). Your Front Door can be configured to either work based off a single routing method and depending on your application needs you can use multiple or all of these routing methods in combination to build an optimal routing topology.
+All Front Door configurations include monitoring of backend health and automated instant global failover. For more information, see [Front Door Backend Monitoring](front-door-health-probes.md). Your Front Door can be configured to either work based off a single routing method and depending on your application needs you can use multiple or all of these routing methods in combination to build an optimal routing topology.
 
 ## <a name = "latency"></a>Lowest latencies based traffic-routing
 
-Deploying backends in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to your end users. The default traffic-routing method for your Front Door configuration forwards requests from your end users to the closest backend from the AFD environment that received the request. Combined with the Anycast architecture of Azure Front Door Service, this approach ensures that each of your end users get maximum performance personalized based on their location.
+Deploying backends in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to your end users. The default traffic-routing method for your Front Door configuration forwards requests from your end users to the closest backend from the Front Door environment that received the request. Combined with the Anycast architecture of Azure Front Door Service, this approach ensures that each of your end users get maximum performance personalized based on their location.
 
 The 'closest' backend is not necessarily closest as measured by geographic distance. Instead, Front Door determines the closest backends by measuring network latency. Read more about [Front Door's routing architecture](front-door-routing-architecture.md). 
 
 Below is the overall decision flow:
+</br>
 | Available backends | Priority | Latency signal (based on health probe) | Weights |
 |-------------| ----------- | ----------- | ----------- |
-| Firstly, select all backends that are enabled and returned healthy (200 OK) for the health probe. Say, there are six backends A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. So, list of available backends is A, B, D, and F.  | Next, the top priority backends amongst the available ones are selected. Say, backend A, B, and D have priority 1 and backend F has a priority of 2. So, selected backends will be A, B, and D.| Select the backends with latency range (least latency & latency sensitivity in ms specified). Say, if A is 15 ms, B is 30 ms and D is 60 ms away from the AFD environment where the request landed, and latency sensitivity is 30 ms, then lowest latency pool comprises of backend A and B, because D is beyond 30 ms away from the closest backend that is A. | Lastly, Front Door will round robin the traffic among the final selected pool of backends in the ratio of weights specified. Say, if backend A has a weight of 5 and backend B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among backends A and B. |
+| Firstly, select all backends that are enabled and returned healthy (200 OK) for the health probe. Say, there are six backends A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. So, list of available backends is A, B, D, and F.  | Next, the top priority backends amongst the available ones are selected. Say, backend A, B, and D have priority 1 and backend F has a priority of 2. So, selected backends will be A, B, and D.| Select the backends with latency range (least latency & latency sensitivity in ms specified). Say, if A is 15 ms, B is 30 ms and D is 60 ms away from the Front Door environment where the request landed, and latency sensitivity is 30 ms, then lowest latency pool comprises of backend A and B, because D is beyond 30 ms away from the closest backend that is A. | Lastly, Front Door will round robin the traffic among the final selected pool of backends in the ratio of weights specified. Say, if backend A has a weight of 5 and backend B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among backends A and B. |
 
-__Note:__ By default, the latency sensitivity property is set to 0 ms, that is, always forward the request to the fastest available backend.
+>[!NOTE]
+> By default, the latency sensitivity property is set to 0 ms, that is, always forward the request to the fastest available backend.
 
 
 ## <a name = "priority"></a>Priority-based traffic-routing
@@ -64,7 +66,7 @@ The weighted method enables some useful scenarios:
 * **Cloud-bursting for additional capacity**: Quickly expand an on-premises deployment into the cloud by putting it behind Front Door. When you need extra capacity in the cloud, you can add or enable more backends and specify what portion of traffic goes to each backend.
 
 ## <a name = "affinity"></a>Session Affinity
-By default, without session affinity, Front Door forwards requests originating from the same client to different backends based on load balancing configuration particularly as the latencies to different backends change or if different requests from the same user lands on a different AFD environment. However, some stateful applications or in certain other scenarios, prefer that subsequent requests from the same user land on the same backend that processed the initial request. The cookie-based session affinity feature is useful when you want to keep a user session on the same backend. By using Front Door managed cookies, Azure Front Door Service can direct subsequent traffic from a user session to the same backend for processing as long as the backend is healthy and the user session hasn't expired. 
+By default, without session affinity, Front Door forwards requests originating from the same client to different backends based on load balancing configuration particularly as the latencies to different backends change or if different requests from the same user lands on a different Front Door environment. However, some stateful applications or in certain other scenarios, prefer that subsequent requests from the same user land on the same backend that processed the initial request. The cookie-based session affinity feature is useful when you want to keep a user session on the same backend. By using Front Door managed cookies, Azure Front Door Service can direct subsequent traffic from a user session to the same backend for processing as long as the backend is healthy and the user session hasn't expired. 
 
 Session affinity can be enabled at a frontend host level that is for each of your configured domains (or subdomains). Once enabled, Front Door adds a cookie to the user's session. Cookie-based session affinity allows Front Door to identify different users even if behind the same IP address, which in turn allows a more even distribution of traffic between your different backends.
 
@@ -72,5 +74,5 @@ The lifetime of the cookie is the same as the user's session, as Front Door curr
 
 ## Next steps
 
-- Learn how to [create a Front Door](front-door-create.md).
-- Learn [how Front Door works](front-door-how-it-works.md).
+- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn [how Front Door works](front-door-routing-architecture.md).

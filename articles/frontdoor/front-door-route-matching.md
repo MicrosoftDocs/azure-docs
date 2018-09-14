@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - Routing rule matching monitoring | Microsoft Docs
-description: This articles helps you understand how Azure Front Door Service matches which routing rule to use for an incoming request
+description: This article helps you understand how Azure Front Door Service matches which routing rule to use for an incoming request
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -15,9 +15,9 @@ ms.author: sharadag
 
 # ​​How Front Door matches requests to a routing rule
 
-After establishing a connection and doing an SSL handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determining from all the configurations, which particular routing rule to match the request to and then taking the defined action. The following document explains how AFD determines which Route configuration to use when processing an HTTP request.
+After establishing a connection and doing an SSL handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determining from all the configurations, which particular routing rule to match the request to and then taking the defined action. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
 
-## Structure of an AFD Route configuration
+## Structure of a Front Door Route configuration
 A Front Door routing rule configuration is composed of two major parts: a "left-hand side" and a "right-hand side". We match the incoming request to the left-hand side of the route while the right-hand side defines how we process the request.
 
 ### Incoming Match (left-hand side)
@@ -102,8 +102,8 @@ Given that configuration, the following example matching table would result:
 | www.contoso.com/path/       | H             |
 | www.contoso.com/path/zzz    | B             |
 
->[!NOTE]
-> **Warning:** </br> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.
+>[!WARNING]
+> </br> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.
 >
 > Example configuration:
 >
@@ -118,9 +118,9 @@ Given that configuration, the following example matching table would result:
 > | profile.domain.com/other | None. Error 400: Bad Request |
 
 ### Routing decision
-Once we've matched to a single Front Door routing rule, we then need to choose how to process the request. If for the matched routing rule, Front Door has a cached response available then the same gets served back to the client. Otherwise, the next thing that gets evaluated is, if you have configured [URL Rewrite (custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule. If there isn't a custom forwarding path defined, then the request gets forwarded to the appropriate backend in the configured backend pool as is. Else, the request path is updated as per the [custom forwarding path](front-door-url-rewrite.md) defined and then forward to the backend.
+Once we've matched to a single Front Door routing rule, we then need to choose how to process the request. If for the matched routing rule, Front Door has a cached response available then the same gets served back to the client. Otherwise, the next thing that gets evaluated is whether you have configured [URL Rewrite (custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule or not. If there isn't a custom forwarding path defined, then the request gets forwarded to the appropriate backend in the configured backend pool as is. Else, the request path is updated as per the [custom forwarding path](front-door-url-rewrite.md) defined and then forward to the backend.
 
 ## Next steps
 
-- Learn how to [create a Front Door](front-door-create.md).
-- Learn [how Front Door works](front-door-how-it-works.md).
+- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn [how Front Door works](front-door-routing-architecture.md).

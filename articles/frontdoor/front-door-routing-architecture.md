@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - routing architecture | Microsoft Docs
-description: This articles helps you understand the global view aspect of Front Door's architecture.
+description: This article helps you understand the global view aspect of Front Door's architecture.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -22,7 +22,7 @@ There are opportunities to optimize the traffic when routing to Azure Front Door
 ## <a name = "anycast"></a>Selecting the Front Door environment for traffic routing (Anycast)
 
 Routing to the Azure Front Door environments leverages [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic, so user traffic will go to the closest environment in terms of network topology (fewest hops). This architecture typically offers better round-trip times for end users (maximizing the benefits of Split TCP). Front Door organizes its environments into primary and fallback "rings".  The outer ring has environments that are closer to users, offering lower latencies.  The inner ring has environments that can handle the failover for the outer ring environment in case an issue happens. The outer ring is the preferred target for all traffic, but the inner ring is necessary to handle traffic overflow from the outer ring. In terms of VIPs (Virtual Internet Protocol addresses), each frontend host, or domain served by Front Door is assigned a primary VIP, which is announced by environments in both the inner and outer ring, as well as a fallback VIP, which is only announced by environments in the inner ring. 
-</br> This overall strategy ensures that requests from your end users always reach the closest AFD environment and that even if the preferred AFD environment is unhealthy then traffic automatically moves to the next closest environment.
+</br> This overall strategy ensures that requests from your end users always reach the closest Front Door environment and that even if the preferred Front Door environment is unhealthy then traffic automatically moves to the next closest environment.
 
 ## <a name = "splittcp"></a>Connecting to Front Door environment (Split TCP)
 
@@ -39,5 +39,4 @@ Finally, assuming there is no caching configured, the user request is forwarded 
 
 ## Next steps
 
-- Learn how to [create a Front Door](front-door-create.md).
-- Learn about [Front Door's routing methods](front-door-routing-methods.md).
+- Learn how to [create a Front Door](quickstart-create-front-door.md).

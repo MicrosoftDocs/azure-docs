@@ -28,6 +28,8 @@
     href: front-door-health-probes.md
   - name: URL Rewrite
     href: front-door-url-rewrite.md
+  - name: Caching with Front Door
+    href: front-door-caching.md
 - name: Resources
   items:
   - name: Azure Roadmap
