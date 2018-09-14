@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: patricka
 
 ---
@@ -81,9 +81,15 @@ Network ACLs are enforced in three layers:
 
 ## Regulatory compliance
 
-Azure Stack has gone through a formal assessment by a 3rd-party assessor organization (3PAO). As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards is available. The documentation is not a certification of Azure Stack due to the standards including several personnel-related and process-related controls. Rather, customers can use this documentation to jump-start their certification process. The assessments include the following standards: PCI-DSS and the CSA Cloud Control Matrix. [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry. [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards, including FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53, and others.
+Azure Stack has gone through a formal assessment by a 3rd-party assessor organization (3PAO). As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards is available. The documentation is not a certification of Azure Stack due to the standards including several personnel-related and process-related controls. Rather, customers can use this documentation to jump-start their certification process.
 
-The compliance documentation can be found on the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/TrustDocuments) in the section Trust Documents > Data Protection > Compliance Guides. The compliance guides are a protected resource and require you to sign-in with your Azure cloud service credentials.
+The assessments include the following standards:
+
+- PCI-DSS and the CSA Cloud Control Matrix. [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry.
+- [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards, including FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53, and others.
+- [FedRAMP High](https://blogs.msdn.microsoft.com/azuregov/2018/08/13/announcing-azure-stack-for-azure-government-customers-to-enable-it-modernization-and-tactical-edge-scenarios/) for government customers.
+
+The compliance documentation can be found on the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/TrustDocuments). The compliance guides are a protected resource and require you to sign-in with your Azure cloud service credentials.
 
 ## Next steps
 
