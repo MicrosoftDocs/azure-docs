@@ -59,7 +59,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-create)|
+|CLI|[az network public-ip prefix create]((/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
 
 ## Create a static public IP address from a prefix
@@ -93,7 +93,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-list) to list public IP addresses, [az network public-ip prefix show](/cli/azure/network/public-ip#az-network-public-ip-prefix-show) to show settings; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) to update; [az network public-ip prefix delete](/cli/azure/network/public-ip#az-network-public-ip-prefix-delete) to delete|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) to list public IP addresses, [az network public-ip prefix show]((/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) to show settings; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) to update; [az network public-ip prefix delete](/(/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) to delete|
 |PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) to retrieve a public IP address object and view its settings, [Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) to update settings; [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) to delete|
 
 ## Permissions
