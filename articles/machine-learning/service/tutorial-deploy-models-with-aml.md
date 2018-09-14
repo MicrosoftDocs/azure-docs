@@ -65,7 +65,7 @@ Start by setting up a testing environment.
 Import the Python packages needed for this tutorial.
 
 ```python
-%matplotlib inline
+%%matplotlib inline
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -138,6 +138,7 @@ conf_mx = confusion_matrix(y_test, y_hat)
 print(conf_mx)
 print('Overall accuracy:', np.average(y_hat == y_test))
 ```
+
 The output shows the confusion matrix:
 
     [[ 960    0    1    2    1    5    6    3    1    1]
@@ -247,7 +248,7 @@ from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
                                                memory_gb = 1, 
-                                               tags = {"data": "MNIST",  "method" : "sklearn"},
+                                               tags = {"data": "MNIST",  "method" : "sklearn"}, 
                                                description = 'Predict MNIST with sklearn')
 ```
 
