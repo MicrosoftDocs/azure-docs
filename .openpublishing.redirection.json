@@ -28130,6 +28130,11 @@
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
             "redirect_url": "/azure/dev-spaces/index",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
+            "redirect_document_id" : true
         }
     ]
 }
