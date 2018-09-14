@@ -19,7 +19,7 @@ Multi-master support can be enabled while creating an Azure Cosmos DB account. M
 > [!IMPORTANT]
 > Currently, multi-master support can be enabled for new Azure Cosmos DB accounts only. Existing Azure Cosmos DB accounts cannot use feature. We are working to provide support for existing accounts and will announce this support when it's available.
 
-After you create an Azure Cosmos DB account with multi-master support, you can create databases, containers, upload documents, and assign conflict resolution policies. For more information on conflict types and conflict resolution policies, see [multi-master conflict resolution](multi-master-conflict-resolution.md) article.
+After you create an Azure Cosmos DB account with multi-master support, you can create databases, containers, upload documents, and assign conflict resolution policies. For more information on conflict types and conflict resolution policies, see the [multi-master conflict resolution](multi-master-conflict-resolution.md) article.
 
 ## Enable multi-master using Azure portal
 
