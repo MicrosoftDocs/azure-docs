@@ -44,7 +44,7 @@ ms.author: mtillman
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="fundamentals/index.yml">Fundamentals</a></h3> 
+                                                                    <h3><a href="fundamentals/index.yml">Learn the fundamentals</a></h3> 
 																	<p>
 																	    <a href="fundamentals/active-directory-whatis.md">What is Azure AD?</a><br>
                                                                         <a href="fundamentals/active-directory-get-started-premium.md">Sign up for Azure AD Premium</a><br>
