@@ -1,5 +1,5 @@
 ---
-title: Migrate to Azure Machine Learning, general availability
+title: Migrate to Azure Machine Learning service
 description: Learn how to upgrade or migrate to the late version of Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -14,6 +14,7 @@ ms.date: 09/24/2018
 
 **If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
 
+## What can I migrate?
 Most artifacts created in the first preview of Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't disappear. To migrate, register the artifacts again with the updated Azure Machine Learning offering. 
 
 The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning service. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
@@ -24,6 +25,7 @@ The following table and article explain what you can do with your existing asset
 |Model dependencies & schemas (as local files)|Yes|None. Works as before.|
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
+|Data prep files|No|[Prepare any size data set](#dataprep) for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks.|
 |Compute targets|No|Register them in new workspace.|
 |Registered models|No|Re-register the model under a new workspace.|
 |Registered manifests|No|None. Manifests no longer exists as a concept in the new workspace.|
@@ -36,7 +38,7 @@ The following table and article explain what you can do with your existing asset
 Learn more about [what changed in this release](overview-what-happened-to-workbench.md)?
 
 >[!Warning]
->This article is not for Azure Machine Learning Studio users. It is for customers who have installed the Workbench (preview) application and/or have experimentation and model management preview accounts.
+>This article is not for Azure Machine Learning Studio users. It is for Azure Machine Learning service customers who have installed the Workbench (preview) application and/or have experimentation and model management preview accounts.
 
 <a name="resources"></a>
 
@@ -106,6 +108,8 @@ az ml history info
 # download all artifacts of a run
 az ml history download
 ```
+
+<a name="dataprep"></a>
 
 ## Data preparation files
 Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](concept-data-preparation.md). 
