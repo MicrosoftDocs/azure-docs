@@ -59,7 +59,7 @@
     - name: Use automated modeling	
       items:
       - name: Configure auto training
-        href: how-to-automl.md 
+        href: how-to-configure-auto-train.md 
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
     - name: Access data
