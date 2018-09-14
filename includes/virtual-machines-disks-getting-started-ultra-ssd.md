@@ -14,7 +14,7 @@
 
 Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
-To enable access to the new disk type [fill out this survey to request access](https://aka.ms/UltraSSDPreviewSignUp).
+To enable access to the new disk type [fill out this survey requesting access](https://aka.ms/UltraSSDPreviewSignUp).
 
 Once approved, run one of the following commands to determine which zone to deploy Ultra SSD to in East US 2:
 
@@ -57,16 +57,16 @@ Add an additional capability on the properties of the VM to indicate its Ultra S
 
 ```json
     {
-    "apiVersion": "2018-06-01", 
-    "type": "Microsoft.Compute/virtualMachines", 
-    "name": "[parameters('virtualMachineName')]", 
-    "zones": ["[parameters('zone')]"], 
-    "location": "[parameters('location')]", 
-    "dependsOn": [ 
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('virtualMachineName')]",
+    "zones": ["[parameters('zone')]"],
+    "location": "[parameters('location')]",
+    "dependsOn": [
     "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"],
-    "properties": { 
-        "hardwareProfile": { 
-            "vmSize": "[parameters('virtualMachineSize')]" 
+    "properties": {
+        "hardwareProfile": {
+            "vmSize": "[parameters('virtualMachineSize')]"
             },
         "additionalCapabilities" :
         {
@@ -82,16 +82,16 @@ Add an additional capability on the properties of the VM to indicate its Ultra S
 "createOption": "FromImage",
 "managedDisk": {
 "storageAccountType": "Premium_LRS"
-} 
-}, 
-"imageReference": { 
-... 
-}, 
-"dataDisks": [ { 
-  "lun": 0, 
-  "createOption": "Empty", 
-  "caching": "None", 
-  "managedDisk": { 
+}
+},
+"imageReference": {
+...
+},
+"dataDisks": [ {
+  "lun": 0,
+  "createOption": "Empty",
+  "caching": "None",
+  "managedDisk": {
 "storageAccountType": "UltraSSD_LRS"
   }, 
   "diskSizeGB": 1024,  
