@@ -4,10 +4,8 @@ titleSuffix: Azure
 description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
 services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlund
 ms.author: grhuynh
-ms.service: genomics
 ms.topic: quickstart
 ms.date: 02/05/2018
 

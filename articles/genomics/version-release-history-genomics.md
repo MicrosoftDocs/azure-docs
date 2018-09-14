@@ -4,8 +4,7 @@ titleSuffix: Azure
 description: The Microsoft Genomics regularly updates the Microsoft Genomics Python client for fixes and new functionality. 
 services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
