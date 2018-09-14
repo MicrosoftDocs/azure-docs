@@ -24,8 +24,8 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | **[Composite](./luis-concept-entity-types.md)|100 with up to 10 children |
 | Explicit list | 50 per application|
 | **[Hierarchical](./luis-concept-entity-types.md) |100 with up to 10 children |
-| [Intents][intents]|500 per application<br>[Dispatch-based](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) application has corresponding 500 dispatch sources|
-| [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction.<br>Example 1: 1 Canonical form with 19K synonyms<br>Example 2: 10K canonical forms with 1 synonym each |
+| [Intents][intents]|500 per application<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources|
+| [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
