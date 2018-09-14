@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Query data in Azure Data Explorer'
 description: 'In this quickstart, you learn how to query and share data in Azure Data Explorer.'
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
 #Customer intent: As a user of Azure Data Explorer, I want to query and share data so I can understand my data and share analysis with colleagues.
 ---
 
-# Quickstart: Explore data in Azure Data Explorer
+# Quickstart: Query data in Azure Data Explorer
 
 Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data explorer provides a web application that enables you to run and share queries. The application is available in the Azure portal and as a stand-alone web application. In this article, you work in the stand-alone version, which enables you to connect to multiple clusters and to share deep links to your queries.
 
@@ -30,7 +30,7 @@ Sign in to [the application](https://kusto.azure.com/).
 
 When you first open the application, there are no connections.
 
-![Add cluster](media/explore-data/add-cluster.png)
+![Add cluster](media/web-query-data/add-cluster.png)
 
 You must add a connection to at least one cluster before you can start running queries. In this section, you add connections to the Data Explorer *help cluster* that we have set up to aid learning, and to the test cluster you created in a previous quickstart.
 
@@ -40,7 +40,7 @@ You must add a connection to at least one cluster before you can start running q
 
 1. In the left pane, you should now see the **help** cluster. Expand the **Samples** database so that you can see the sample tables that you have access to.
 
-    ![Sample databases](media/explore-data/sample-databases.png)
+    ![Sample databases](media/web-query-data/sample-databases.png)
 
     We use the **StormEvents** table later in this quickstart, and in other Data Explorer articles.
 
@@ -52,7 +52,7 @@ Now add the test cluster you created.
 
     In the example below, you see the **help** cluster and a new cluster, **docscluster.westus** (full URL is `https://docscluster.westus.kusto.windows.net/`).
 
-    ![Test cluster](media/explore-data/test-cluster.png)
+    ![Test cluster](media/web-query-data/test-cluster.png)
 
 ## Run queries
 
@@ -69,7 +69,7 @@ You can now run queries against either cluster that you're connected to (assumin
     ```
     This query returns the ten newest records in the **StormEvents** table. The left side of the result should look like the following table.
 
-    ![Query result set](media/explore-data/result-set-01.png)
+    ![Query result set](media/web-query-data/result-set-01.png)
 
     The following image shows the state the application should now be in, with clusters added, and a query with results.
 
@@ -83,13 +83,13 @@ You can now run queries against either cluster that you're connected to (assumin
 
 1. Click the new query in the window, which selects the query. Press Shift+Alt+F to format the query, so it looks like the following.
 
-    ![Formatted query](media/explore-data/formatted-query.png)
+    ![Formatted query](media/web-query-data/formatted-query.png)
 
 1. Press Shift+Enter, which is a shortcut to run a query.
 
    This query returns the same records as the first one, but includes only the columns specified in the `project` statement. The result should look like the following table.
 
-    ![Query result set](media/explore-data/result-set-02.png)
+    ![Query result set](media/web-query-data/result-set-02.png)
 
 1. At the top of the query window, select **Recall**.
 
@@ -107,7 +107,7 @@ You can now run queries against either cluster that you're connected to (assumin
     ```
     The result should look like the following chart.
 
-    ![Column chart](media/explore-data/column-chart.png)
+    ![Column chart](media/web-query-data/column-chart.png)
 
 ## Work with the table grid
 
@@ -115,17 +115,17 @@ Now you've seen how basic queries work, let's look at how you can use the table 
 
 1. Rerun the first query, then mouse-over the **State** column, and select **Group by State**.
 
-    ![Group by state](media/explore-data/group-by.png)
+    ![Group by state](media/web-query-data/group-by.png)
 
 1. In the grid, expand **California** to see records for that state.
 
-    ![Query result set](media/explore-data/result-set-03.png)
+    ![Query result set](media/web-query-data/result-set-03.png)
 
     This type of grouping can be helpful when doing exploratory analysis.
 
 1. Mouse-over the **Group** column, then select **Reset columns**.
 
-    ![Reset columns](media/explore-data/reset-columns.png)
+    ![Reset columns](media/web-query-data/reset-columns.png)
 
     This returns the grid to its original state.
 
@@ -141,17 +141,17 @@ Now you've seen how basic queries work, let's look at how you can use the table 
 
 1. On the right side of the grid, select **Columns** to see the tool panel.
 
-    ![Tool panel](media/explore-data/tool-panel.png)
+    ![Tool panel](media/web-query-data/tool-panel.png)
 
     This panel functions similarly to the pivot table field list in Excel, enabling you to do more analysis in the grid itself.
 
 1. Select **Pivot Mode**, then drag columns as follows: **State** to **Row groups**; **DamageProperty** to **Values**; and **EventType** to **Column labels**.  
 
-    ![Pivot mode](media/explore-data/pivot-mode.png)
+    ![Pivot mode](media/web-query-data/pivot-mode.png)
 
     The result should look like the following pivot table.
 
-    ![Pivot table](media/explore-data/pivot-table.png)
+    ![Pivot table](media/web-query-data/pivot-table.png)
 
     Notice how Vermont and Alabama each have two events under the same category, while Texas has two events under different categories. Pivot tables enable you to quickly spot things like this; they are a great tool for quick analysis.
 
@@ -169,13 +169,13 @@ Many times, you want to share the queries you create. You can provide a deep lin
 
 1. Paste the link into a new browser window. The result should look like the following after the query runs.
 
-    ![Shared query](media/explore-data/shared-query.png)
+    ![Shared query](media/web-query-data/shared-query.png)
 
 ## Provide feedback
 
 Data Explorer is currently in preview, and we welcome feedback on your experience. You can do this now or wait until you've spent more time with it.
 
-1. In the upper-right of the application, select the feedback icon: ![Feedback icon](media/explore-data/icon-feedback.png).
+1. In the upper-right of the application, select the feedback icon: ![Feedback icon](media/web-query-data/icon-feedback.png).
 
 1. Enter your feedback, then select **Submit**.
 
@@ -186,4 +186,4 @@ You didn't create any resources in this quickstart, but if you'd like to remove 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Write queries in Azure Data Explorer](write-queries.md)
+> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)

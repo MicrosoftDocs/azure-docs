@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Query data using the Azure Data Explorer Python library'
 description: 'In this quickstart, you learn how to query data from Azure Data Explorer using Python.'
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 

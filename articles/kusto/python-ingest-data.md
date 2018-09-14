@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Ingest data using the Azure Data Explorer Python library'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Python.'
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
@@ -131,7 +131,6 @@ The following code queues a message to pull data from blob storage and ingest th
 ```python
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
-# All ingestion properties are documented here: https://kusdoc2.azurewebsites.net/docs/management/data-ingest.html#ingestion-properties
 INGESTION_PROPERTIES  = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
 INGESTION_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
 
@@ -178,4 +177,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Write Kusto queries](write-queries.md)
+> [Write Kusto queries](write-kusto-queries.md)

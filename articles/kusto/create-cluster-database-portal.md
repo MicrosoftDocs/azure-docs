@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Create an Azure Data Explorer cluster and database'
 description: 'In this quickstart, you learn how to create an Azure Data Explorer cluster and database, and ingest (load) data.'
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
@@ -106,4 +106,7 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 
 ## Next steps
 
-[Ingest streaming data](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
+
+

@@ -1,18 +1,18 @@
 ---
 title: Ingest sample data into Azure Data Explorer
 description: Learn about how to ingest (load) weather-related sample data into Azure Data Explorer.
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
 # Ingest sample data into Azure Data Explorer
 
-This article shows you how to ingest (load) sample data into a Data Explorer database. There are [several ways to ingest data](ingest-data.md); this article focuses on a basic approach that is suitable for testing purposes.
+This article shows you how to ingest (load) sample data into a Data Explorer database. There are [several ways to ingest data](ingest-data-overview.md); this article focuses on a basic approach that is suitable for testing purposes.
 
 ## Prerequisites
 
@@ -49,6 +49,6 @@ The **StormEvents** sample data set contains weather-related data from the [Nati
 
 ## Next steps
 
-[Write Kusto queries](write-queries.md)
+[Write Kusto queries](write-kusto-queries.md)
 
-[Azure Data Explorer data ingestion](ingest-data.md)
+[Azure Data Explorer data ingestion](ingest-data-overview.md)

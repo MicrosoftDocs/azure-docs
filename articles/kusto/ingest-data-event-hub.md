@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Ingest data from Event Hub into Azure Data Explorer'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
-services: kusto
+services: data-explorer
 author: mgblythe
 ms.author: mblythe
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
@@ -188,4 +188,4 @@ If you don't plan to use your event hub again, delete the resource group *test-h
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore data](explore-data.md)
+> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
