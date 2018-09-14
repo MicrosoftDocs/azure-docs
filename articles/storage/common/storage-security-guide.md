@@ -140,9 +140,9 @@ Another advantage of using Azure Key Vault is you can also control access to you
 Note: it is recommended to use only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
 
 #### Resources
-* [About Azure Storage Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
+* [Manage storage account settings in the Azure portal](storage-account-manage.md)
 
-  This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
+  This article describes viewing, copying, and regenerating storage access keys.
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
 
   This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for  Resource Manager storage accounts.
