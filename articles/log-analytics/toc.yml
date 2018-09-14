@@ -117,8 +117,6 @@
     items:
     - name: Language documentation
       items:
-      - name: Language reference
-        href: https://docs.loganalytics.io
       - name: Get started
         items:
         - name: Get started with Log Search portal
@@ -155,6 +153,14 @@
           href: query-language/sql-cheatsheet.md
         - name: Splunk
           href: query-language/splunk-cheatsheet.md
+      - name: Language reference
+        items:
+        - name: Language reference
+          href: https://docs.loganalytics.io
+        - name: app expression
+          href: query-language/app-expression.md
+        - name: workspace expression
+          href: query-language/workspace-expression.md
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
