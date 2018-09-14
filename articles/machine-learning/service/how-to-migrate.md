@@ -56,22 +56,12 @@ This new workspace is the top-level service resource and enables you to use all 
 
 Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
-To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. Using a single CLI command or in a few lines of Python code, your existing project files will continue to work in the latest version. For a complete example, try the [Portal/SDK quickstart](quickstart-get-started.md). 
+To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.
 
-+ For [CLI](reference-azure-machine-learning-cli.md), use:
-  ```azurecli
-  az ml project attach -w <my_workspace_name> -p <proj_dir_path> --history <run_history_name>
-  ```
-
-+ For the new <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, use:
-  ```python
-  from azureml.core import Workspace, Project
-    
-  ws = Workspace.from_config()
-  proj = Project.attach(workspace_object=ws, run_history='<run_history_name>', directory='<proj_dir_path>')
-  ```
-
-Replace the information in \<\>  brackets with the name of your workspace, file path to your local project directory, and the name for run history.   
+For example:
+```python
+run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+```
 
 <a name="services"></a>
 
