@@ -39,7 +39,7 @@ In the code above, a [map object](https://docs.microsoft.com/javascript/api/azur
 
 ## Try out the code
 
-Take a look at the sample code above. You can edit the JavaScript code on the JS tab on the left, and see the map view changes on the Result tab on the right. You can also click on the “Edit on CodePen” button and edit the code in CodePen. 
+Take a look at the sample code above. You can edit the JavaScript code on the JS tab on the left, and see the map view changes on the Result tab on the right. You can also click on the “Edit on CodePen” button and edit the code in CodePen.
 
 <a id="relatedReference"></a>
 
@@ -50,15 +50,7 @@ Learn more about the classes and methods used in this article:
 > [!div class="nextstepaction"]
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Dig into specific functionalities:
-
-> [!div class="nextstepaction"]
-> [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera)
-
-> [!div class="nextstepaction"]
->  [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
-
-See the following code examples:
+See code examples to add functionality to your app:
 
 > [!div class="nextstepaction"]
 > [Choose a map style](choose-map-style.md)
