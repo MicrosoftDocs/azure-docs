@@ -34,5 +34,5 @@
 - name: Reference
   items:
   - name: Language reference
-  - href: https://aka.ms/kustolangref
+  - href: 'https://aka.ms/kustolangref'
 - name: Resources
