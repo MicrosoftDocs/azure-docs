@@ -107,7 +107,6 @@ from azureml.core import Workspace
 
 ws = Workspace.from_config()
 print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
-print(ws._auth.get_authentication_header())
 
 from azureml.core.model import Model
 model_name = "resnet-50-rtai"
