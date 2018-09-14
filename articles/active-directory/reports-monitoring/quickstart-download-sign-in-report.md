@@ -1,5 +1,5 @@
 ---
-title: Quickstart Download a sign-in report | Microsoft Docs
+title: Quickstart Download a sign-in report using the Azure portal | Microsoft Docs
 description: Learn how to download a sign-in report using the Azure portal 
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
-# Quickstart: Download a sign-in report
+# Quickstart: Download a sign-in report using the Azure portal
 
 In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours.
 
@@ -33,8 +33,8 @@ You need:
 ## Quickstart: Download a sign-in report
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Select **Switch Directory** from the account menu, to switch to the correct tenant.
-3. Select **Azure Active Directory** from the left navigation pane, and then select **Sign-ins**. 
+2. Select **Azure Active Directory** from the left navigation pane and use the **Switch directory** button to select your active directory.
+3. From the dashboard, select **Azure Active Directory** and then select **Sign-ins**. 
 4. Choose **last 24 hours** in the **Date** filter drop-down and select **Apply** to view the sign-ins for the past 24 hours. 
 5. Select the **Download** button to download a CSV file containing the filtered records. 
 
