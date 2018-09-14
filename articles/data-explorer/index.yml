@@ -23,25 +23,25 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /azure/kusto/media/index/portal.svg
+        src: /azure/data-explorer/media/index/portal.svg
       text: Create a cluster and database
-      href: /azure/kusto/create-cluster-database-portal
+      href: /azure/data-explorer/create-cluster-database-portal
     - image: 
-        src: /azure/kusto/media/index/portal.svg
+        src: /azure/data-explorer/media/index/portal.svg
       text: Ingest streaming data from Event Hubs
-      href: /azure/kusto/ingest-data-event-hub
+      href: /azure/data-explorer/ingest-data-event-hub
     - image: 
-        src: /azure/kusto/media/index/portal.svg
+        src: /azure/data-explorer/media/index/portal.svg
       text: Query data with Web Explorer
-      href: /azure/kusto/explore-data
+      href: /azure/data-explorer/explore-data
     - image: 
-        src: /azure/kusto/media/index/logo-python.svg
+        src: /azure/data-explorer/media/index/logo-python.svg
       text: Ingest queued data with Python
-      href: /azure/kusto/python-ingest-data
+      href: /azure/data-explorer/python-ingest-data
     - image: 
-        src: /azure/kusto/media/index/logo-python.svg
+        src: /azure/data-explorer/media/index/logo-python.svg
       text: Query data with Python
-      href: /azure/kusto/python-query-data
+      href: /azure/data-explorer/python-query-data
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -49,7 +49,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/kusto/write-queries">Write queries in Kusto Query Language</a>
+    - html: <a href="/azure/data-explorer/write-queries">Write queries in Kusto Query Language</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
@@ -59,7 +59,7 @@ sections:
     - title: Kusto Query Language (KQL)
       href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
       image: 
-        src: /azure/kusto/media/index/logo-pluralsight.svg
+        src: /azure/data-explorer/media/index/logo-pluralsight.svg
         href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
 - title: Reference
   items:
