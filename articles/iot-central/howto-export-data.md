@@ -38,7 +38,7 @@ This article describes how to use the continuous data export feature in Azure Io
 
 ### Measurements
 
-The measurements that devices send are exported to your storage account once per minute. The data has all the new messages received by IoT Central from all devices during that time. The exported AVRO files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
+The measurements that devices send are exported to your storage account once per minute. The data has all the new messages received by IoT Central from all devices during that time. The exported AVRO files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
 
 > [!NOTE]
 > The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the device ID.
