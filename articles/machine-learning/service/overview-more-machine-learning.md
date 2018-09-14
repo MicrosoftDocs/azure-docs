@@ -1,6 +1,6 @@
 ---
-title: Machine learning products from Microsoft - Azure | Microsoft Docs
-description: Microsoft provides a variety of products to build, deploy, and manage your machine learning models. 
+title: What are the machine learning product options from Microsoft? - Azure | Microsoft Docs
+description: Compare the variety of products from Microsoft to build, deploy, and manage your machine learning models. 
 services: machine-learning
 author: haining
 ms.author: haining
@@ -13,9 +13,9 @@ ms.topic: overview
 ms.date: 09/24/2018
 ---
 
-# Machine learning products from Microsoft
+# What are the machine learning product options from Microsoft?
 
-Microsoft provides a variety of products to build, deploy, and manage your machine learning models. Choose the product or service you need to develop your machine learning solutions most effectively.
+Microsoft provides a variety of product options to build, deploy, and manage your machine learning models. Compare these products and choose what you need to develop your machine learning solutions most effectively.
 
 | Machine learning product | What it is | What you can do with it |
 |-|-|-|
