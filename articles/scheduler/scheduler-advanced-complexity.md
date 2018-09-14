@@ -113,7 +113,7 @@ you can use when setting up recurrences and schedules for jobs:
 | **recurrence** | No | Specifies the recurrence rules for when the job runs. This **recurrence** object supports these elements: **frequency**, **interval**, **endTime**, **count**, and **schedule**. <p>If you use the **recurrence** element, you must also use the **frequency** element, while other **recurrence** elements are optional. |
 | **frequency** | Yes with **recurrence** | Specifies a string that represents the time unit for when the job recurs. Supports these values: "minute", "hour", "day", "week", "month", and "year" |
 | **interval** | No | Specifies a positive integer for the number of time units represented by **frequency** and determines how often the job runs. For example, if **interval** is 10 and **frequency** is "week", the job recurs every 10 weeks. <p>Here are the maximum intervals for each frequency: <p>- 18 for a monthly frequency <br>- 78 for weekly frequency <br>- 548 for daily frequency <br>- For hour and minute frequency, the supported range is 1 <= **interval** <= 1000. | 
-| **schedule** | No | A job with a specified frequency alters its recurrence based on a recurrence schedule. A **schedule** value contains modifications based on minutes, hours, week days, month days, and week number. |
+| **schedule** | No | A job with a specified frequency alters its recurrence based on a recurrence schedule. A **schedule** value contains modifications based on minutes, hours, weekdays, month days, and week number. |
 | **count** | No | A positive integer (greater than zero) that specifies the number of times the job runs before it's completed.<br /><br />**count** represents the number of times the job runs before being determined completed. For example, for a job that's executed daily with a **count** of 5 and a start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.<br /><br />If no **endTime** or **count** is specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
 | **endTime** | No | A string that specifies the date-time beyond which the job doesn't run. You can set a value for **endTime** that's in the past. If **endTime** and **count** aren't specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
 |||| 
@@ -164,7 +164,8 @@ You can use **schedule** to *limit* the number of job executions. For example, i
 
 You can also use **schedule** to *expand* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs on month days 1 and 2, the job runs on the first and second days of the month instead of only once a month.
 
-If you specify multiple schedule elements, the order of evaluation is from the largest to smallest: week number, month day, week day, hour, and minute.
+If you specify multiple schedule elements, the order of evaluation is from the largest to smallest: 
+week number, month day, weekday, hour, and minute.
 
 The following table describes schedule elements in detail:
 

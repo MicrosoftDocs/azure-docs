@@ -282,6 +282,9 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 | **endTime** | No | <*none*> | The date and time for when to stop the recurrence with the default to recur indefinitely. If you specify both **count** and **endTime**, the rule that first completes is honored. | 
 ||||
 
+For more information, see 
+[Build complex schedules and advanced recurrences](../scheduler/scheduler-advanced-complexity.md).
+
 <a name="retry-policy"></a>
 
 ## retryPolicy
@@ -289,7 +292,7 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 For the case when a Scheduler job might fail, you can set up a retry policy, 
 which determines whether and how Scheduler retries the action. By default, 
 Scheduler retries the job four more times at 30-second intervals. 
-You can makes this policy more or less aggressive, for example, 
+You can make this policy more or less aggressive, for example, 
 this policy retries an action two times per day:
 
 ```json
@@ -330,7 +333,7 @@ completed and faulted jobs after 60 days.
 
 ## status
 
-After a job starts, Schedulerreturns information 
+After a job starts, Scheduler returns information 
 about the job's status through the **status** object, 
 which only Scheduler controls. However, you can find 
 the **status** object inside the **job** object. 

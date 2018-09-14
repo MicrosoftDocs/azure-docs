@@ -35,7 +35,7 @@ Azure Scheduler is available in the Azure portal across almost
 [every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). 
 So, if an Azure datacenter in a hosted region becomes unavailable, 
 you can still use Azure Scheduler because the service's failover 
-capabilities make Scheduler available fromm another datacenter.
+capabilities make Scheduler available from another datacenter.
 
 ### Geo-regional job replication
 
@@ -61,7 +61,7 @@ Azure Scheduler guarantees its own high-availability but
 takes a different approach to user-created jobs. For example, 
 suppose your job invokes an HTTP endpoint that's unavailable. 
 Azure Scheduler still tries to run your job successfully by 
-giving you giving you alternative ways for handling failures: 
+giving you alternative ways for handling failures: 
 
 * Set up retry policies.
 * Set up alternate endpoints.
@@ -72,7 +72,7 @@ giving you giving you alternative ways for handling failures:
 
 Azure Scheduler lets you set up retry policies. If a job fails, 
 then by default, Scheduler retries the job four more times at 
-30-second intervals. You can makes this retry policy more agressive, 
+30-second intervals. You can make this retry policy more aggressive, 
 such as 10 times at 30-second intervals, or less aggressive, 
 such as two times at daily intervals.
 
@@ -104,7 +104,7 @@ the alternate action.
 ![Scheduler behavior with retry policy and alternate endpoint](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png)
 
 The action type for the alternate action can differ from the original action. 
-For example, although the original action calls an an HTTP endpoint, 
+For example, although the original action calls an HTTP endpoint, 
 the alternate action might log errors by using a Storage queue, 
 Service Bus queue, or Service Bus topic action.
 
