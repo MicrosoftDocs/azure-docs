@@ -34,7 +34,7 @@ The bot responds to questions from the knowledge base you created, via the QnAMa
     - Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net).
     - Select the subscription, resource group, App service plan, and location.
 
-4. Select SDK version of **SDK v3** and SDK language of **C#** or **Node.js**.
+4. To see instructions for creating a QnA bot with SDK v4 - see [QnA v4 bot template](https://aka.ms/convsolutionsrepo). To use the v3 templates, select SDK version of **SDK v3** and SDK language of **C#** or **Node.js**.
 
     ![bot sdk settings](../media/qnamaker-tutorials-create-bot/bot-v3.png)
 
