@@ -27,7 +27,7 @@ QnA Maker supports question/answer extraction in any language page, but the effe
 |Spanish|es-*|
 
 ## Query matching and relevance
-QnA Maker depends on [language analyzers](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support) in Azure search for providing results. Special re-ranking features are available for En-* languages that enable better relevance.
+QnA Maker depends on [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) in Azure search for providing results. Special re-ranking features are available for En-* languages that enable better relevance.
 
 QnA Maker auto-detects the language of the knowledge base during creation and sets the analyzer accordingly. You can create knowledge bases in the following languages. Read [this](../How-To/language-knowledge-base.md) for more details about how QnA Maker handles languages.
 
