@@ -11,7 +11,7 @@ manager:
 ms.custom: codepen
 ---
 
-# Interacting with the map – mouse events
+# Interact with the map using mouse events
 
 This article shows you how to use event listener to make the map interactive.
 
