@@ -16,11 +16,11 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
 
 ## Circuit metrics
 
-![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg) "circuit metrics"
+![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
 ## Metrics per peering : private/ public/ Microsoft peering in bits/second
 
-![metrics per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) "metrics per peering"
+![metrics per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
 ### You can only select Inbound or Outbound Metrics
 
@@ -28,7 +28,7 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
 
 ## ExpressRoute gateway connections in bits/seconds
 
-![gateway connections](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) "gateway connections"
+![gateway connections](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
 
 ## Alerts for ExpressRoute gateway connections
 
