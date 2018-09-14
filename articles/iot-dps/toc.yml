@@ -41,6 +41,11 @@
           href: quick-create-simulated-device-x509-node.md
         - name: Python
           href: quick-create-simulated-device-x509-python.md
+    - name: Symmetric Key attestation
+      items:
+        - name: C
+          href: quick-create-simulated-device-symm-key.md
+
   - name: Device enrollment using provisioning service APIs
     items:
     - name: TPM attestation
@@ -83,6 +88,8 @@
   items:
   - name: Auto-provisioning
     href: concepts-auto-provisioning.md  
+  - name: Reprovisioning
+    href: concepts-device-reprovision.md  
   - name: Devices
     href: concepts-device.md
   - name: Security
@@ -91,6 +98,8 @@
     href: concepts-service.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
+  - name: Symmetric key attestation
+    href: concepts-symmetric-key-attestation.md
 - name: How-to guides
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
@@ -103,8 +112,10 @@
       href: how-to-manage-enrollments-sdks.md
     - name: Configure verified CA certificates
       href: how-to-verify-certificates.md
-    - name: Rolling device certificates
+    - name: Roll device certificates
       href: how-to-roll-certificates.md
+    - name: Reprovision devices
+      href: how-to-reprovision.md
     - name: Manage disenrollment
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
@@ -125,6 +136,8 @@
       maintainContext: true
   - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
+  - name: Use symmetric keys with legacy devices
+    href: how-to-legacy-device-symm-key.md
   - name: Use SDK tools for development
     href: how-to-use-sdk-tools.md
 - name: Reference
