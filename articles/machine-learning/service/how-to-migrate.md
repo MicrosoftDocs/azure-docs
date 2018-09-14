@@ -112,7 +112,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## Data preparation files
-Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](concept-data-preparation.md). 
+Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](how-to-data-prep.md). 
 
 ## Next steps
 

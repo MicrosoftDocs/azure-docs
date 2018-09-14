@@ -46,7 +46,7 @@
   - name: Set up training environments	
     href: how-to-set-up-training-targets.md
   - name: Prepare data for modeling
-    href: concept-data-preparation.md   
+    href: how-to-data-prep.md   
     items:
     - name: Load data
       href: how-to-load-data.md
