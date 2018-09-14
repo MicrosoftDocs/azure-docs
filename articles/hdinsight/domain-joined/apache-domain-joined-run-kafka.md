@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
     > [!NOTE] 
     > Ranger credentials are not the same as Hadoop cluster credentials. To prevent browsers from using cached Hadoop credentials, use a new InPrivate browser window to connect to the Ranger Admin UI.
 
-2. Login using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials are not the credentials of your HDInsight cluster or the SSH credentials of the Linux HDInsight node.
+2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials are not the same as the credentials of your HDInsight cluster or the SSH credentials of the Linux HDInsight node.
 
    ![Apache Ranger Admin UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
@@ -91,7 +91,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
 
 To create two topics, **salesevents** and **marketingspend**:
 
-1. Use the following command to open a SSH connection to the cluster:
+1. Use the following command to open an SSH connection to the cluster:
 
     ```bash
     ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
@@ -132,7 +132,7 @@ To create two topics, **salesevents** and **marketingspend**:
 
 Based on the Ranger policies configured, **sales_user** can produce/consume topic **salesevents** but can't produce/consume to topic **marketingspend**. Conversely, **marketing_user** can produce/consume topic **marketingspend** but can't produce/consume **salesevents**.
 
-1. Open a new SSH connection to the cluster. Use the following command to login as **sales_user1**:
+1. Open a new SSH connection to the cluster. Use the following command to sign in as **sales_user1**:
 
     ```bash
     ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
