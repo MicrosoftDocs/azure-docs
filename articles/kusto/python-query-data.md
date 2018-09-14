@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Query data using the Data Explorer Python library'
-description: 'In this quickstart, you learn how to query data from Data Explorer using Python.'
+title: 'Quickstart: Query data using the Azure Data Explorer Python library'
+description: 'In this quickstart, you learn how to query data from Azure Data Explorer using Python.'
 services: kusto
 author: mgblythe
 ms.author: mblythe
@@ -12,13 +12,13 @@ ms.date: 09/24/2018
 #Customer intent: As a Python developer, I want to query data so I can include it in my apps.
 ---
 
-# Quickstart: Query data using the Data Explorer Python library
+# Quickstart: Query data using the Azure Data Explorer Python library
 
 Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this quickstart, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
 
 This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
-# Prerequisites
+## Prerequisites
 
 * An organizational email account that is a member of Azure Active Directory (AAD).
 
