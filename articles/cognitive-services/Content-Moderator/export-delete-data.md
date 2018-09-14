@@ -13,7 +13,7 @@ ms.author: v-jaswel
 
 # Export or delete user data in Content Moderator
 
-Content Moderator collects user data to operate the service, but customers have full control over viewing, exporting, and deleting their data, using the [Review UI](http://contentmoderator.cognitive.microsoft.com/) and the [APIs](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/api-reference).
+Content Moderator collects user data to operate the service, but customers have full control over viewing, exporting, and deleting their data, using the [Review UI](http://contentmoderator.cognitive.microsoft.com/) and the [APIs](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
