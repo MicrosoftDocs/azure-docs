@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Front Door Service Documentation (Preview)
+metadata:
+  title: Azure Front Door Service Documentation (Preview)
+  meta.description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  services: frontdoor
+  author: vhorne
+  ms.service: frontdoor
+  ms.topic: landing-page
+  ms.date: 9/14/2018
+  ms.author: victorh
+abstract:
+  description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Create a Front Door for a highly available global web application.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /media/common/i_cligeneric.svg
+      text: Azure PowerShell
+      href: /azure/networking/networking-overview
+    - image: 
+        src: /media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/networking/networking-overview
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to configure Azure Front Door Service for your needs.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/networking/networking-overview">Create a Front Door with App Service</a>
+    - html: <a href="/azure/networking/networking-overview>Configure application protection with Front Door</a>
+    - html: <a href="/azure/networking/networking-overview">Use a Front Door with Application Gateway</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/azure/networking/networking-overview">Azure CLI</a></p><p><a href="li/azure/networking/networking-overviewnk">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/azure/networking/networking-overview">REST API</a></p>
