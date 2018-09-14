@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: mtillman
 
 ---
@@ -118,11 +118,11 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
 														<br><br>
-                                                        <h3>Compliance</h3>
+                                                        <h3>Access reviews</h3>
                                                         <p>
-                                                            <a href="active-directory-azure-ad-controls-create-access-review.md">Create an access review</a><br>
-                                                            <a href="active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md">Manage user access</a><br>
-                                                            <a href="active-directory-tou.md">Terms of use</a>
+                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
+                                                            <a href="governance/perform-access-review.md">Perform an access review</a><br>
+                                                            <a href="governance/active-directory-tou.md">Terms of use</a>
                                                         </p>
                                                     </div>
                                                 </div>
