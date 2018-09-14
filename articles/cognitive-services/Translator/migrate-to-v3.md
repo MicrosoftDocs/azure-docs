@@ -1,20 +1,21 @@
 ---
-title: Microsoft Translator Text API - Migrate to V3 | Microsoft Docs
+title: Migrate to V3 - Translator Text API
+titlesuffix: Azure Cognitive Services
 description: Learn how to migrate from V2 to V3 of the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
 ---
 
-# Microsoft Translator Text API V2 to V3 Migration
+# Translator Text API V2 to V3 Migration
 
-The Microsoft Translator team has released Version 3 (V3) of the Text Translation API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. V2 will be deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. V2 will be deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
 
 The end of this document contains helpful links for you to learn more.
 
