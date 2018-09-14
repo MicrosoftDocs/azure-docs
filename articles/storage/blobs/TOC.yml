@@ -91,10 +91,6 @@
       href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Upgrade a storage account
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Create a storage account
-      href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Storage account options
-      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Authorization
     href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     items:
