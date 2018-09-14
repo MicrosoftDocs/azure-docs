@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure AD Application Management Documentation
 metadata:
-  title: Azure Active Directory Application Management Documentation
+  title: Application management documentation
   meta.description: Learn how to manage and deploy applications with Azure Active Directory.
   services: active-directory
   author: barbkess
@@ -11,7 +11,7 @@ metadata:
   ms.assetid: 
   ms.service: active-directory
   ms.topic: landing-page
-  ms.date: 09/06/2018
+  ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
   description: Learn how to manage and deploy applications with Azure Active Directory.
@@ -36,6 +36,6 @@ sections:
   - type: paragraph
     text: Learn how to enable a simple and secure sign-in process for your applications.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configure single sign-on</a>
