@@ -6,17 +6,48 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: tomfitz
 ---
 
-# Event Grid message delivery and retry 
+# Event Grid message delivery and retry
 
 This article describes how Azure Event Grid handles events when delivery isn't acknowledged.
 
-Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered webhook of each subscription immediately. If a webhook doesn't acknowledge receipt of an event within 60 seconds of the first delivery attempt, Event Grid retries delivery of the event. 
+Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered endpoint of each subscription immediately. If an endpoint doesn't acknowledge receipt of an event, Event Grid retries delivery of the event.
 
 Currently, Event Grid sends each event individually to subscribers. The subscriber receives an array with a single event.
+
+## Retry intervals and duration
+
+Event Grid uses an exponential backoff retry policy for event delivery. If an endpoint doesn't respond or returns a failure code, Event Grid retries delivery on the following schedule:
+
+1. 10 seconds
+2. 30 seconds
+3. 1 minute
+4. 5 minutes
+5. 10 minutes
+6. 30 minutes
+7. 1 hour
+
+Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
+
+By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
+
+## Dead-letter events
+
+When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
+
+Event Grid sends an event to the dead-letter location when it has tried all of its retry attempts. If Event Grid receives a 400 (Bad Request) or 413 (Request Entity Too Large) response code, it immediately sends the event to the dead-letter endpoint. These response codes indicate delivery of the event will never succeed.
+
+There is a five-minute delay between the last attempt to deliver an event and when it is delivered to the dead-letter location. This delay is intended to reduce the number Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
+
+Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
+`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+
+You might want to be notified when an event has been sent to the dead letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events.
+
+For an example of setting up a dead letter location, see [Dead letter and retry policies](manage-event-delivery.md).
 
 ## Message delivery status
 
@@ -44,31 +75,7 @@ The following HTTP response codes indicate that an event delivery attempt failed
 - 503 Service Unavailable
 - 504 Gateway Timeout
 
-If you have [configured a dead-letter endpoint](manage-event-delivery.md) and Event Grid receives either a 400 or 413 response code, Event Grid immediately sends the event to the dead-letter endpoint. Otherwise, Event Grid retries all errors.
-
-## Retry intervals and duration
-
-Event Grid uses an exponential backoff retry policy for event delivery. If your webhook doesn't respond or returns a failure code, Event Grid retries delivery on the following schedule:
-
-1. 10 seconds
-2. 30 seconds
-3. 1 minute
-4. 5 minutes
-5. 10 minutes
-6. 30 minutes
-7. 1 hour
-
-Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
-
-By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
-
-## Dead-letter events
-
-When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. To see undelivered events, you can pull them from the dead-letter location. For more information, see [Dead letter and retry policies](manage-event-delivery.md).
-
 ## Next steps
 
 * To view the status of event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
-* To customize event delivery options, see [Manage Event Grid delivery settings](manage-event-delivery.md).
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+* To customize event delivery options, see [Dead letter and retry policies](manage-event-delivery.md).
