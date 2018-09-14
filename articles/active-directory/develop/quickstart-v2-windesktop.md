@@ -45,7 +45,7 @@ In this quickstart, you'll learn a Windows desktop .NET (WPF) application can si
 > 1. To register an application for this code sample, go to the [Azure portal - Application Registration](https://aka.ms/registeredappsprod) and select **New registration**.
 > 1. Enter a name for your application, add `urn:ietf:wg:oauth:2.0:oob` in **Reply URL**, and click **Register**.
 
-> [!div renderon="portal" class="sxs-lookup" class="alert alert-info"]
+> [!div renderon="portal" class="sxs-lookup alert alert-info"]
 > #### Step 1: Configure your application
 > For the code sample for this quickstart to work, you need to add a reply URL as **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
