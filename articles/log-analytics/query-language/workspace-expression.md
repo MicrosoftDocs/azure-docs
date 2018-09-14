@@ -17,7 +17,7 @@ ms.author: bwren
 ms.component: na
 ---
 
-# workspace()
+# workspace() expression in Log Analytics query
 
 The `workspace` expression is used in a Log Analytics query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. This is useful to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
