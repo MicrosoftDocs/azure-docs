@@ -215,7 +215,7 @@
       - name: Angular JS
         href: 
       - name: JavaScript
-        href: 
+        href: quickstart-v2-javascript.md
     - name: Web apps
       items:
       - name: ASP .NET
