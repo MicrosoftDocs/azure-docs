@@ -32,7 +32,7 @@ The following steps are required when using audio input streams:
 
 - Make sure your code can provide the RAW audio data according to these specifications. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
-- Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` operation. The exact function signature is language-dependent, but the code will look similar to this code sample:
+- Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent, but the code will look similar to this code sample:
 
   ```
    public class ContosoAudioStream : PullAudioInputStreamCallback {
