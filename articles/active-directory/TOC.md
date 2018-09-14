@@ -20,6 +20,7 @@
 ## [Assign licenses to users](fundamentals/license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 ## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
+## [Access Azure Active Directory to create a new tenant](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # How to
