@@ -240,7 +240,7 @@
     - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
-    - name: Speech Service (preview)
+    - name: Speech Service
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
     - name: Text Analytics
