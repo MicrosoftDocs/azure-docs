@@ -63,7 +63,7 @@ DSVM name restrictions include:
 >    1. Go to the [Azure portal](https://portal.azure.com)
 >    1. Start creating a DSVM 
 >    1. Select "Want to create programmatically" to enable programmatic creation
->    1. Exist without actually creating the VM
+>    1. Exit without actually creating the VM
 >    1. Rerun the creation code
 
 
@@ -98,7 +98,7 @@ run_config = RunConfiguration(conda_dependencies=cd)
 run_config.target = dsvm_compute 
 run_config.auto_prepare_environment = True 
 # save the conda dependencies to the aml_config folder 
-run_config.save(path = project_folder, name = dsvm_name)
+run_config.save(path=project_folder, name=dsvm_name)
 ```
 
 You can now use the `run_config` object as the target for automatic training. 
@@ -152,11 +152,11 @@ automl_settings = {
     "verbosity": logging.INFO
 }
 
-automl_config = AutoMLConfig(task = 'classification',
-                             debug_log = 'automl_errors.log',
+automl_config = AutoMLConfig(task='classification',
+                             debug_log='automl_errors.log',
                              path=project_folder,
-                             run_configuration = run_config,
-                             data_script = project_folder + "./get_data.py",
+                             run_configuration=run_config,
+                             data_script=project_folder + "./get_data.py",
                              **automl_settings
                             )
 ```
