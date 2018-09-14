@@ -323,34 +323,8 @@
 
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
-## Access reviews
-### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md)
-### [Create an access review](active-directory-azure-ad-controls-create-access-review.md)
-### [How to perform an access review](active-directory-azure-ad-controls-perform-access-review.md)
-### [How to review your access](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Terms of use](active-directory-tou.md)
-
 ## Secure your identities
 
-### Azure AD Identity Protection
-#### [Overview](identity-protection/overview.md)
-#### [Enable](identity-protection/enable.md)
-#### [Detect vulnerabilities](identity-protection/vulnerabilities.md)
-#### [Risk events](active-directory-identity-protection-risk-events.md)
-#### [Notifications](identity-protection/notifications.md)
-#### [Sign-in experience](identity-protection/flows.md)
-#### [Simulate risk events](identity-protection/playbook.md)
-#### [Unblock users](identity-protection/howto-unblock-user.md)
-#### [Block access when a session risk is detected](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [FAQs](identity-protection/faqs.md)
-#### [Glossary](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
