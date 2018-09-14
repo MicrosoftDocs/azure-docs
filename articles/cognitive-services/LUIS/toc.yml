@@ -264,12 +264,16 @@
       href: luis-reference-prebuilt-email.md
     - name: keyPhrase entity
       href: luis-reference-prebuilt-keyphrase.md
+    - name: Location entity
+      href: luis-reference-prebuilt-location.md
     - name: Number entity
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
       href: luis-reference-prebuilt-ordinal.md
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
+    - name: Person entity
+      href: luis-reference-prebuilt-person.md
     - name: Phonenumber entity
       href: luis-reference-prebuilt-phonenumber.md
     - name: Temperature entity
