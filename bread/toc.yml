@@ -6,6 +6,12 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Fundamentals
+        tocHref: /azure/active-directory/fundamentals/
+        topicHref: /azure/active-directory/fundamentals/    
+      - name: Identity Protection
+        tocHref: /azure/active-directory/identity-protection/
+        topicHref: /azure/active-directory/identity-protection/
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
@@ -27,9 +33,9 @@
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
-      - name: Managed Service Identity
-        tocHref: /azure/active-directory/managed-service-identity/
-        topicHref: /azure/active-directory/managed-service-identity/
+      - name: Managed identities for Azure resources
+        tocHref: /azure/active-directory/managed-identities-azure-resources/
+        topicHref: /azure/active-directory/managed-identities-azure-resources/
       - name: User Help
         tocHref: /azure/active-directory/user-help/
         topicHref: /azure/active-directory/user-help/         
@@ -42,6 +48,12 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
+      - name: Access reviews
+        tocHref: /azure/active-directory/governance/
+        topicHref: /azure/active-directory/governance/
+      - name: Manage applications
+        tocHref: /azure/active-directory/manage-apps/
+        topicHref: /azure/active-directory/manage-apps/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/

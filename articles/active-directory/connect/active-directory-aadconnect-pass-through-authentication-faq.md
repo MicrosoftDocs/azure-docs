@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -111,6 +111,10 @@ For most customers, two or three Authentication Agents in total are sufficient f
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 
 No, this scenario is _not_ supported.
+
+## Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
+
+It is recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing it this way ensures that you don't get locked out of your tenant.
 
 ## How can I disable Pass-through Authentication?
 

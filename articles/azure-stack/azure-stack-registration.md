@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -22,6 +22,8 @@ ms.reviewer: brbartle
 # Register Azure Stack with Azure
 
 Registering Azure Stack with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration.
+
+The information in this article describes registering Azure Stack integrated systems with Azure. For information about registering the ASDK with Azure, see [Azure Stack registration](.\asdk\asdk-register.md) in the ASDK documentation.
 
 > [!IMPORTANT]  
 > Registration is required to support full Azure Stack functionality, including offering items in the marketplace. In addition, you will be in violation of Azure Stack licensing terms if you do not register when using the pay-as-you-use billing model. To learn more about Azure Stack licensing models, please see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
@@ -40,18 +42,20 @@ You will need the following in place before you register:
 
 Before registering Azure Stack with Azure, you must have:
 
-- The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
+- The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **All services**. Then, under the **GENERAL** category, select **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
 
   > [!Note]  
   > Germany cloud subscriptions are not currently supported.
 
 - The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported).
 
-- The user account needs to be an Admin in the Azure AD tenant to which Azure Stack is registered, for example, `yourazurestacktenant.onmicrosoft.com`.
+- The user account needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription.
 
 - Registered the Azure Stack resource provider (see the Register Azure Stack Resource Provider section below for details).
 
-  If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
+After registration, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
+
+If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
 ### PowerShell language mode
 
@@ -100,7 +104,7 @@ Connected environments can access the internet and Azure. For these environments
 
 1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlets with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
-2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
+2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -160,7 +164,7 @@ Connected environments can access the internet and Azure. For these environments
 
 1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell cmdlets with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
-2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
+2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -280,7 +284,7 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 Use these steps to verify that Azure Stack is successfully registered with Azure.
 
 1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;//adminportal.*&lt;region>.&lt;fqdn>*.
-2. Select **More Services** > **Marketplace Management** > **Add from Azure**.
+2. Select **All Services**, and then under the **ADMINISTRATION** category, select **Marketplace management** > **Add from Azure**.
 
 If you see a list of items available from Azure (such as WordPress), your activation was successful. However, in disconnected environments you will not see Azure marketplace items in the Azure Stack marketplace.
 
