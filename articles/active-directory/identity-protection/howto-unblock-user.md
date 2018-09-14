@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection - How to unblock users | Microsoft Docs
+title: How to unblock users with Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how unblock users that were blocked by an Azure Active Directory Identity Protection policy.
 services: active-directory
 keywords: azure active directory identity protection, unblock user
@@ -14,12 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 09/14/2018
 ms.author: markvi
-ms.reviewer: nigu
+ms.reviewer: raluthra
 
 ---
-# Azure Active Directory Identity Protection - How to unblock users
+# How To: Unblock users
+
 With Azure Active Directory Identity Protection, you can configure policies to block users if the configured conditions are satisfied. Typically, a blocked user contacts help desk to become unblocked. This article explains the steps you can perform to unblock a blocked user.
 
 ## Determine the reason for blocking
