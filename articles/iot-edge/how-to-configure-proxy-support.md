@@ -22,18 +22,20 @@ Configuring an IoT Edge device to work with a proxy server follows these basic s
 
 ## Configure the daemons
 
-The Docker and IoT Edge daemons running on your IoT Edge device need to be configured to use the proxy server when they pull container images from container registries. 
+The Docker and IoT Edge daemons running on your IoT Edge device need to be configured to use the proxy server. The Docker daemon makes web requests to pull container images from container registries. The IoT Edge daemon makes web requests to communicate with IoT Hub.
 
 ### Docker daemon
 
-Refer to the Docker documentation to configure the Docker daemon with environment variables. All the requests that come from IoT Edge are HTTPS, so the variable that you should set is **HTTPS_PROXY**. Choose the article that applies to your Docker version: 
+Refer to the Docker documentation to configure the Docker daemon with environment variables. Most container registries (including DockerHub and Azure Container Registries) support HTTPS requests, so the variable that you should set is **HTTPS_PROXY**. If you're pulling images from a registry that doesn't support transport layer security (TLS) then you may should set the **HTTP_PROXY**. 
+
+Choose the article that applies to your Docker version: 
 
 * [Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/#proxies)
 
 ### IoT Edge daemon
 
-The IoT Edge daemon is configured in a similar manner to the Docker daemon. Use the following steps to set an environment variable for the service, based on your operating system. 
+The IoT Edge daemon is configured in a similar manner to the Docker daemon. All the requests that IoT Edge sends to IoT Hub use HTTPS. Use the following steps to set an environment variable for the service, based on your operating system. 
 
 #### Linux
 
@@ -43,14 +45,14 @@ Open an editor in the terminal to configure the IoT Edge daemon.
 sudo systemctl edit iotedge
 ```
 
-Enter the following text, then save and exit. 
+Enter the following text, replacing **\<proxy URL>** with your proxy server address and port. Then, save and exit. 
 
 ```text
 [Service]
 Environment="https_proxy=<proxy URL>"
 ```
 
-Reload the IoT Edge daemon with the new configuration.
+Refresh the service manager to pick up the new configuration for iotedge.
 
 ```bash
 sudo systemctl daemon-reload
@@ -70,7 +72,18 @@ systemctl show --property=Environment iotedge
 
 #### Windows
 
-<!-- windows steps -->
+Open a PowerShell window as an administrator and run the following command to edit the registry with the new environment variable. Replace **\<proxy url>** with your proxy server address and port. 
+
+```powershell
+reg add HKLM\SYSTEM\CurrentControlSet\Services\iotedge /v Environment /t REG_MULTI_SZ /d https_proxy=<proxy URL>
+```
+
+Restart IoT Edge for the changes to take effect.
+
+```powershell
+Restart-Service iotedge
+```
+
 
 ## Configure the Edge agent
 
