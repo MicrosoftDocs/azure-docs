@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ---
 
 # Model management, deployment, and monitoring in Azure Machine Learning
 
 The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can use models you create with Azure Machine Learning, or from other sources. For example, you might deploy a model that you trained on your local computer.
 
-[ ![Azure Machine Learning CI/CD cycle](media/concept-model-management-and-deployment/model-ci-cd-mini.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[ ![Azure Machine Learning CI/CD cycle](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## Deployment pipeline
 
@@ -37,7 +37,7 @@ You can read more about the single deployment commands and using continuous inte
 
 The following diagram illustrates the complete deployment pipeline:
 
-[ ![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline-mini.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+[ ![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 ## Model registration
 
@@ -90,7 +90,7 @@ You can deploy registered images into the cloud or to edge devices. The deployme
 
 Deployments are also searchable. For example, you can search for all deployments of a specific model or image.
 
-[ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets-mini.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 ### Managed cloud deployments
 
