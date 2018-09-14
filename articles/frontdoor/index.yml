@@ -21,11 +21,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/common/i_cligeneric.svg
+        src: https://docs.microsoft.com/en-us/media/common/i_cligeneric.svg
       text: Azure PowerShell
       href: /azure/networking/networking-overview
     - image: 
-        src: /media/common/i_portal.svg
+        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
       text: Azure Portal
       href: /azure/networking/networking-overview
 - title: Step-by-Step Tutorials
@@ -36,7 +36,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/networking/networking-overview">Create a Front Door with App Service</a>
-    - html: <a href="/azure/networking/networking-overview>Configure application protection with Front Door</a>
+    - html: <a href="/azure/networking/networking-overview">Configure application protection with Front Door</a>
     - html: <a href="/azure/networking/networking-overview">Use a Front Door with Application Gateway</a>
 - title: Reference
   items:
