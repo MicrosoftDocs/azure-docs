@@ -270,6 +270,10 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
+    - name: Deciding between v1.0 and v2.0
+      href: azure-ad-endpoint-comparison.md
+    - name: Using v2.0
+      href: active-directory-v2-limitations.md
     - name: Protocols
       items:
       - name: OAuth and the OpenID Connect protocol
@@ -305,10 +309,6 @@
         href: 
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
-    - name: Using the Azure AD v2.0 endpoint
-      href: active-directory-v2-limitations.md
-    - name: Deciding which endpoint to use
-      href: azure-ad-endpoint-comparison.md
   - name: How-to guides
     items:
     - name: Convert a single-tenant app to a multi-tenant app

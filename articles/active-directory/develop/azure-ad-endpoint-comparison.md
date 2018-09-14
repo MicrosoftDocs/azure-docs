@@ -1,6 +1,6 @@
 ---
-title: What is different in the Azure AD v2.0 endpoint? | Microsoft Docs
-description: An comparison between the original Azure AD and the v2.0 endpoints.
+title: What is different in v2.0? | Azure
+description: Comparison between the Azure AD v1.0 and the Azure AD v2.0 endpoints.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -20,19 +20,18 @@ ms.reviewer: elisol, jmprieur, hirsin
 ms.custom: aaddev
 ---
 
-# What's different about the v2.0 endpoint?
+# What's different about v2.0?
 
 If you're familiar with Azure Active Directory (Azure AD) or have integrated apps with Azure AD in the past, there are some differences in the v2.0 endpoint that may not expect. This article calls out the differences for your understanding.
 
 > [!NOTE]
 > Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
->
 
 ## Microsoft accounts and Azure AD accounts
 
 The v2.0 endpoint allows developers to write apps that accept sign-in from both Microsoft Accounts and Azure AD accounts, using a single auth endpoint. This gives you the ability to write your app completely account-agnostic, which means the app can be ignorant of the type of account that the user signs in with. You can make your app aware of the type of account being used in a particular session, but you don't have to.
 
-For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the code can be written exactly the same for both Microsoft Accounts and Azure AD accounts. 
+For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the code can be written exactly the same for both Microsoft Accounts and Azure AD accounts.
 
 Integrating your app with Microsoft Accounts and Azure AD accounts is now one simple process. You can use a single set of endpoints, a single library, and a single app registration to gain access to both the consumer and enterprise worlds. To learn more about the v2.0 endpoint, check out [the overview](active-directory-appmodel-v2-overview.md).
 
@@ -46,7 +45,7 @@ If you've used Azure AD, you've probably registered several different apps for a
 
 ![Old Application Registration UI](./media/azure-ad-endpoint-comparison/old_app_registration.PNG)
 
-Similarly, if you had a website and a backend web api, you might have registered each as a separate app in Azure AD. Or if you had an iOS app and an Android app, you also might have registered two different apps. Registering each component of an application led to some unexpected behaviors for developers and their customers:
+Similarly, if you had a website and a backend web API, you might have registered each as a separate app in Azure AD. Or if you had an iOS app and an Android app, you also might have registered two different apps. Registering each component of an application led to some unexpected behaviors for developers and their customers:
 
 * Each component appeared as a separate app in the Azure AD tenant of each customer.
 * When a tenant administrator attempted to apply policy to, manage access to, or delete an app, they would have to do so for each component of the app.
@@ -61,7 +60,7 @@ Our aim is that this will lead to a more simplified app management and developme
 In Azure AD, an app can behave as a **resource**, or a recipient of tokens. A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens to that resource for a certain set of scopes. Consider the Azure AD Graph API as an example of a resource:
 
 * Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
-* Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc. 
+* Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, and so on.
 
 All of this holds true for the v2.0 endpoint. An app can still behave as resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions has changed. In the past, an OAuth 2.0 authorize request to Azure AD might have looked like:
 
@@ -136,4 +135,4 @@ The claims in tokens issued by the v2.0 endpoint will not be identical to tokens
 
 ## Limitations
 
-There are a few restrictions to be aware of when using the v2.0 point. To learn if any of these restrictions apply to your particular scenario, see the [v2.0 limitations doc](active-directory-v2-limitations.md).
+There are a few restrictions to be aware of when using v2.0. To learn if any of these restrictions apply to your particular scenario, see the [v2.0 limitations doc](active-directory-v2-limitations.md).
