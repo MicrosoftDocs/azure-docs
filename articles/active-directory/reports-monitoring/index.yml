@@ -44,7 +44,6 @@ sections:
 
 - title: Reference
   items:
-  - type: paragraph
   - type: list
     style: unordered
     items:
