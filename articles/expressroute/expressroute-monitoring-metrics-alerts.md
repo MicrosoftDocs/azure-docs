@@ -16,11 +16,13 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
 
 ## Circuit metrics
 
-![circuit metrics][1]
+![circuit metrics]
+(./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
 ## Metrics per peering : private/ public/ Microsoft peering in bits/second
 
-![metrics per peering][2]
+![metrics per peering]
+(./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) "metrics per peering"
 
 ### You can only select Inbound or Outbound Metrics
 
@@ -28,46 +30,47 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
 
 ## ExpressRoute gateway connections in bits/seconds
 
-![gateway connections][4]
+![gateway connections]
+(./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## Alerts for ExpressRoute gateway connections
 
 1. Navigate to Azure Monitor and click **Alerts**.
 
-  ![alerts][5]
+  ![alerts]
+  (./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Click **+Select Target** and select the ExpressRoute gateway connection resource.
 
-  ![target][6]
+  ![target]
+  ( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Define the alert details.
 
-  ![details][7]
+  ![details]
+  (./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+  
 4. Define the action group.
 
-  ![action group][7]
+  ![action group]
+  (./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
   Add action group.
 
-  ![action group 2][8]
+  ![action group 2]
+  (./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+  
+ ![what]
+(./media/expressroute-monitoring-metrics-alerts/alerthowto4.jpg)
 
-
-
+  ![another]
+(./media/expressroute-monitoring-metrics-alerts/alertshowtopeering5.jpg)
   
 
-  
+  ![another]
+(./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
 
-
-
-
-
-
-
-
-
-
-
-
-
+  ![another]
+(./media/expressroute-monitoring-metrics-alerts/metricsconfiguralertscomingsoon.jpg)
 
 
 
@@ -78,27 +81,3 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
   * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
   * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
   * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
-
-<!--Image References-->
-[1]: ./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg ""
-[2]: ./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg ""
-[4]: ./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ""
-[5]: ./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg ""
-[6]: ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg ""
-[7]: ./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg ""
-[8]: ./media/expressroute-monitoring-metrics-alerts/actiongroup.png ""
-[15]: ./media/expressroute-monitoring-metrics-alerts/alerthowto4.jpg ""
-[9]: ./media/expressroute-monitoring-metrics-alerts/alertshowtopeering5.jpg ""
-[10]: ./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg ""
-[11]: ./media/expressroute-monitoring-metrics-alerts/metricsconfiguralertscomingsoon.jpg ""
-
-
-
-
-
-
-
-
-
-
-
