@@ -17,7 +17,7 @@ This article shows you how to make a reverse address search, and upon a mouse cl
 
 There are two ways to make a reverse address search, one is by querying the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module and the other is by making a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API to query the address. We discuss both below.
 
-## Making a reverse search request via service module
+## Make a reverse search request via service module
 
 ### Understand the code
 
@@ -36,7 +36,7 @@ The last block of code adds an event listener for mouse clicks. Upon a mouse cli
 
 For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class.
 
-## Making a reverse search request via XMLHttpRequest
+## Make a reverse search request via XMLHttpRequest
 
 ### Understand the code
 
@@ -53,7 +53,8 @@ The last code block adds an event listener for mouse clicks. Upon a mouse click,
 
 ## Next steps
 
-Learn more about the classes and methods used in this article: 
+Learn more about the classes and methods used in this article:
+
 * [Reverse address search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
 * [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
     * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
@@ -63,5 +64,9 @@ Learn more about the classes and methods used in this article:
     * [close](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#close)
 
 For more code examples to add to your maps, see the following articles:
-* [Show directions from A to B](./map-route.md)
-* [Show traffic](./map-show-traffic.md)
+
+> [!div class="nextstepaction"]
+> [Show directions from A to B](./map-route.md)
+
+> [!div class="nextstepaction"]
+> [Show traffic](./map-show-traffic.md)

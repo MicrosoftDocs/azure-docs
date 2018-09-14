@@ -11,15 +11,15 @@ manager: timlt
 ms.custom: codepen
 ---
 
-# Show directions from A to B 
+# Show directions from A to B
 
 This article shows you how to make a route request and show the route on the map.
 
 There are two ways to do so, one way is by querying the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module and the other is by making an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both are discussed below.
 
-## Querying the route via service module
+## Query the route via service module
 
-## Understand the code
+### Understand the code
 
 <iframe height='500' scrolling='no' title='Show directions from A to B on a map (Service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Show directions from A to B on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -38,9 +38,9 @@ The sixth code block constructs a route query.
 
 The last block of code queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method to get a route between the start and destination point. The response is then parsed into GeoJSON format using the [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) method. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for more information.
 
-## Querying the route via XMLHttpRequest
+## Query the route via XMLHttpRequest
 
-## Understand the code
+### Understand the code
 
 <iframe height='500' scrolling='no' title='Show directions from A to B on a map' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Show directions from A to B on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -57,7 +57,7 @@ The last block of code parses the incoming response. For a successful response, 
 
 ## Next steps
 
-Learn more about the classes and methods used in this article: 
+Learn more about the classes and methods used in this article:
 
 * [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections)
 * [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes)
@@ -67,6 +67,10 @@ Learn more about the classes and methods used in this article:
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
 
-For more code examples to add to your maps, see the following articles: 
-* [Show traffic on the map](./map-show-traffic.md)
-* [Interacting with the map - mouse events](./map-events.md)
+For more code examples to add to your maps, see the following articles:
+
+> [!div class="nextstepaction"]
+> [Show traffic on the map](./map-show-traffic.md)
+
+> [!div class="nextstepaction"]
+> [Interacting with the map - mouse events](./map-events.md)

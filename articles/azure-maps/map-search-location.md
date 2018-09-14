@@ -30,8 +30,7 @@ The second block of code uses Fuzzy search [Azure Maps Fuzzy Search API](https:/
 
 The last block of code adjusts the camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
 
-
-##  Making a search request via XMLHttpRequest
+## Make a search request via XMLHttpRequest
 
 ### Understand the code
 
@@ -48,12 +47,20 @@ The last block of code parses the response and adjusts the adjusts the camera bo
 
 ## Next steps
 
-Learn more about the classes and methods used in this article: 
+Learn more about **Fuzzy Search**:
 
-* [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
-    
-For more code examples to add to your maps, see the following articles: 
-* [Get information from a coordinate](./map-get-information-from-coordinate.md)
-* [Show directions from A to B](./map-route.md)
+> [!div class="nextstepaction"]
+> [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+
+Learn more about the classes and methods used in this article:
+
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+See the following articles for full code examples:
+
+> [!div class="nextstepaction"]
+> [Get information from a coordinate](./map-get-information-from-coordinate.md)
+
+> [!div class="nextstepaction"]
+> [Show directions from A to B](./map-route.md)
