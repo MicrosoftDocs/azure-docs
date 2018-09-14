@@ -1,6 +1,6 @@
 ---
 title: How to sign up for Azure Active Directory as an organization | Microsoft Docs
-description: Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premises server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.
+description: Learn about how to sign up your organization to use Azure and Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -26,6 +26,8 @@ Sign up for Azure Active Directory (Azure AD) a new Microsoft Azure subscription
 After your cloud-based directory is created, you can create groups, users, and you can assign licenses based on which cloud service subscriptions are needed, such as Azure or Azure AD. For more information, see [Fundamentals Documentation](index.yml)
 
 - [Sign up as an organization](https://azure.microsoft.com/pricing/purchase-options/)
+
+- [Sign up for Azure Active Directory Premium editions](active-directory-get-started-premium.md)
 
 - [Learn more about Azure AD](active-directory-whatis.md)
 
