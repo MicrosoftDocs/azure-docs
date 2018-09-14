@@ -66,7 +66,8 @@ When you start a training run, the entire directory that contains your training 
 
 ## Local computer
 
-When training locally, you use the SDK to submit the training operation. You can train using a user-managed or system-managed environment.
+When training locally, you use the SDK to submit the training operation. You can train using a user-managed or system-managed environment. The `00.Getting Started/02.train-on-local/02.train-on-local.ipynb` notebook demonstrates the concepts in this example.  Get this notebook:
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ### User-managed environment
 
