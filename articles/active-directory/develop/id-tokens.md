@@ -21,11 +21,11 @@ ms.custom: aaddev
 ---
 # ID Tokens
 
-id_tokens are sent to the client application as part of an [OpenID Connect](LINK) flow.  They can be sent along side or instead of an access token, and are used by the client to authenticate the user.  
+id_tokens are sent to the client application as part of an [OpenID Connect](https://openid.net/connect/) flow.  They can be sent along side or instead of an access token, and are used by the client to authenticate the user.  
 
 ## Using the id_token
 
-ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it should not be used for authorization.  The claims it provides can be used for UX inside your application, keying a locally-hosted database, and providing access to the client application.  
+ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it should not be used for authorization.  The claims it provides can be used for UX inside your application, keying a database, and providing access to the client application.  
 
 ## Claims in an id_token
 
@@ -69,7 +69,7 @@ View this v1.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 |`tid` |  String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim.  |
 |`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. Only issued in v1.0 id_tokens. |
 |`uti` |  Opaque String | An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
-|`ver` |  String, either 1.0 or 2.0 | Indicates the version of the id_token. | 
+|`ver` |  String, either 1.0 or 2.0 | Indicates the version of the id_token. |
 
 ## Validating id_tokens
 

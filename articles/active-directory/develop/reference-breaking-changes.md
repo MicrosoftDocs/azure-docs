@@ -23,7 +23,7 @@ ms.custom: aaddev
 # What's new for authentication? 
 
 |
->Get notified about when to revisit this page for updates by adding this [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) to your ![RSS icon](./media/whats-new/feed-icon-16x16.png) feed reader.
+>Get notified about when to revisit this page for updates by adding this [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) to your RSS feed reader.
 
 The authentication system alters and adds features on an ongoing basis in order to improve security and improve standards compliance. To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -35,6 +35,7 @@ The authentication system alters and adds features on an ongoing basis in order 
 This page is updated regularly, so revisit often. Unless otherwise noted, these changes are only put in place for newly registered applications.  
 
 ---
+
 ## Upcoming changes
 
 ### Authorization codes can no longer be reused
@@ -68,3 +69,12 @@ Apps that use a client secret or certificate auth will not be subject to this re
 **Date**: May 1, 2018
 **Endpoints impacted**: Both v1.0 and v2.0
 **Protocols impacted**: Implicit flow and OBO flow
+
+After May 1, 2018, id_tokens cannot be used as the assertion in an OBO flow for new applications.  Access tokens should be used instead to secure APIs, even between a client and middle tier of the same application.  Apps registered before May 1, 2018 will continue to work and be able to exchange id_tokens for an access token - however, this is not considered a best practice.
+
+In order to work around this change, you can do the following:
+
+1. [Create a Web API](LINK) for your middle tier application, with one or more scopes.  This will allow finer grained control and security.
+1. In your app's manifest, the Azure Portal, or the [App Registration Portal](https://apps.dev.microsoft.com), ensure that the app is allowed to issue access tokens via the implicit flow. This is controlled via the `AllowImplicitFlow` key.
+1. When your client application requests an id_token via `response_type=id_token`, also request an access token (`response_type=token`) for the Web API created above.  Thus, the `scope` parameter should look similar to `api://GUID/SCOPE`).
+1. Pass this access token to the middle tier in place of the id_token.  
