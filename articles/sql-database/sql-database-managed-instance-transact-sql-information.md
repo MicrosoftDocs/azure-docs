@@ -332,13 +332,13 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 ### SQL Server Agent
 
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Replication jobs available in public preview for:
-  - Transaction-log reader.  
-  - Snapshot.
-  - Distributor.  
-  - Merge.  
 - Jobs - T-SQL job steps are currently supported
 - Other types of job steps are not currently supported (more step types will be added during public preview).
+  - Replication jobs not supported including:
+    - Transaction-log reader.  
+    - Snapshot.
+    - Distributor.  
+    - Merge.  
   - SSIS is not yet supported. 
   - Queue Reader is not supported.  
   - Command shell is not yet supported. 
