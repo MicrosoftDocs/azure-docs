@@ -9,6 +9,8 @@
   items:
   - name: Create DB - Portal
     href: quickstart-create-mariadb-server-database-using-azure-portal.md
+    - name: Create DB - Azure CLI
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
   - name: Connect & query
     items:
     - name: MySQL Workbench

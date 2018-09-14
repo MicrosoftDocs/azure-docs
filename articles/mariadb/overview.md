@@ -23,14 +23,14 @@ Azure Database for MariaDB is a relational database service in the Microsoft clo
 
 These capabilities require almost no administration and all are provided at no additional cost. They allow you to focus on rapid app development and accelerating your time to market rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver with the speed and efficiency your business demands, all without having to learn new skills.
 
-This article is an introduction to Azure Database for MariaDB core concepts and features related to performance, scalability, and manageability, with links to explore details. See the quickstart to get you started:
+This article is an introduction to Azure Database for MariaDB core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quickstarts to get you started:
 - [Create an Azure Database for MariaDB server using Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
-
-<!--
 - [Create an Azure Database for MariaDB server using Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
+<!--
 For a set of Azure CLI samples, see:
-- [Azure CLI samples for Azure Database for MariaDB](sample-scripts-azure-cli.md) -->
+- [Azure CLI samples for Azure Database for MariaDB](sample-scripts-azure-cli.md) 
+-->
 
 ## Adjust performance and scale within seconds
 In preview, the Azure Database for MariaDB service offers several service tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-pricing-tiers.md) for details.
