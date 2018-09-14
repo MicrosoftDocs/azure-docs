@@ -8,7 +8,7 @@ author: fmegen
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/24/2018
 ms.author: fmegen
 ---
 # About the audio input stream API
@@ -105,7 +105,7 @@ In general, the following steps are involved when using audio input streams:
     var recognizer = CreateSpeechRecognizerWithStream(contosoStream);
 
     // run stream through recognizer
-    var result = await recognizer.RecognizeAsync();
+    var result = await recognizer.RecognizeOnceAsync();
 
     var text = result.GetText();
 

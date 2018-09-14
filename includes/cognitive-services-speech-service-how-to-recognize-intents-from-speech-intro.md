@@ -2,7 +2,7 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
@@ -18,7 +18,7 @@ The Microsoft Cognitive Services [Speech SDK](~/articles/cognitive-services/spee
 
 1. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results (includes intents). If you don't tie up the events, your application receives only a final transcription result.
 
-1. Start intent recognition. For single-shot recognition, such as command or query recognition, use the `RecognizeAsync()` method. This method returns the first recognized utterance. For long-running recognition, use the `StartContinuousRecognitionAsync()` method. Tie up the events for asynchronous recognition results.
+1. Start intent recognition. For single-shot recognition, such as command or query recognition, use the `RecognizeOnceAsync()` method. This method returns the first recognized utterance. For long-running recognition, use the `StartContinuousRecognitionAsync()` method. Tie up the events for asynchronous recognition results.
 
 See the following code snippets for intent recognition scenarios that use the Speech SDK. Replace the values in the sample with your own LUIS subscription key (endpoint key), the [region of your subscription](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition), and the **AppId** of your intent model.
 

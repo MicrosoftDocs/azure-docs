@@ -2,7 +2,7 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
@@ -17,7 +17,7 @@ The SDK provides the full functionality of the service. The basic process for pe
 
 1. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results, as well as a synthesis event for the optional audio output. Otherwise, your application receives only a final transcription result.
 
-1. Start recognition. For single-shot translation use the `RecognizeAsync()` method, which returns the first recognized utterance. For long-running translations, use the `StartContinuousRecognitionAsync()` method and tie up the events for asynchronous recognition results.
+1. Start recognition. For single-shot translation use the `RecognizeOnceAsync()` method, which returns the first recognized utterance. For long-running translations, use the `StartContinuousRecognitionAsync()` method and tie up the events for asynchronous recognition results.
 
 See the following code snippets for speech translation scenarios that use the Speech SDK.
 
