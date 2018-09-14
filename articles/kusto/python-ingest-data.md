@@ -28,7 +28,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 
 # Install the data and ingest libraries
 
-Install *azure-kusto-data* and *azure-kusto-ingest*..
+Install *azure-kusto-data* and *azure-kusto-ingest*.
 
 ```python
 pip install azure-kusto-data
@@ -55,7 +55,7 @@ https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 For example, if your domain is *contoso.com*, the URL is: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Click this URL to see the results; the first line is as follows. 
 
 ```
-`"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"`
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
 The tenant ID in this case is `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Set the values for AAD_TENANT_ID, KUSTO_ENGINE_CLUSTER, KUSTO_INGEST_CLUSTER, and KUSTO_DATABASE before running this code.
