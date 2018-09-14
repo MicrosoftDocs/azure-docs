@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/14/2018
 ms.author: bwren
 
 ---
@@ -58,7 +58,8 @@ Extend the data you're collecting into the actual operation of the resources by 
 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
 
-
+### Custom sources
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../log-analytics/log-analytics-data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 
 
@@ -70,13 +71,14 @@ Monitoring data is only useful if it can increase your visibility into the opera
 
 ![App Insights](media/overview/001-app-insights.png)
 
-### Container Insights
-[Container Insights](../monitoring/monitoring-container-health.md) gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable container health, these metrics are automatically collected for you through a containerized version of the Operations Management Suite (OMS) Agent for Linux and stored in Log Analytics.
+### Azure Monitor for containers
+Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux and stored in Log Analytics.
 
 ![Container Health](../monitoring/media/monitoring-container-health/container-health-containers-view.png)
 
-### VM Insights
-Azure Monitor VM Insights monitors your Windows and Linux virtual machines (VM) at scale by analyzing their performance and health, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.
+### Azure Monitor for VMs
+Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  
+
 
 ![VM Insights](media/overview/vminsights.png)
 
