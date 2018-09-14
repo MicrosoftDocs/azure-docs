@@ -41,7 +41,7 @@ Alert rules are separated from alerts and the action that are taken when an aler
 
 ## What you can alert on
 
-You can alert on metrics and logs as described in [monitoring data sources](./monitoring/monitoring-data-sources.md). These include but are not limited to:
+You can alert on metrics and logs as described in [monitoring data sources](./monitoring-and-diagnotics/monitoring-data-sources.md). These include but are not limited to:
 - Metric values
 - Log search queries
 - Health of your resources 
