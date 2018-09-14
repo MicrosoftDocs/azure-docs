@@ -55,7 +55,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) as the global administr
     | **Name** | Hello Core API | Enter a **Name** that describes your web API to developers. |
     | **Include web app / web API** | Yes | Select **Yes** for a web API. |
     | **Allow implicit flow** | Yes | Select **Yes** since the API uses [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md). |
-    | **Reply URL** | `http://localhost:44332` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your API requests. In this tutorial, the sample web API runs locally (localhost) and listens on port 5000. |
+    | **Reply URL** | `http://localhost:5000` | Reply URLs are endpoints where Azure AD B2C returns any tokens that your API requests. In this tutorial, the sample web API runs locally (localhost) and listens on port 5000 (once configured to later on in this tutorial). |
     | **App ID URI** | HelloCoreAPI | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/developer-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
     | **Native client** | No | Since this is a web API and not a native client, select No. |
     
@@ -107,7 +107,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 5. Click **OK**.
 
-Your **My sample single page app** is registered to call the protected **Hello Core API**. A user [authenticates](../active-directory/develop/developer-glossary.md#authentication) with Azure AD B2C to use the WPF desktop application. The desktop application obtains an [authorization grant](../active-directory/develop/developer-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
+Your **My sample single page app** is registered to call the protected **Hello Core API**. A user [authenticates](../active-directory/develop/developer-glossary.md#authentication) with Azure AD B2C to use the single page app. The single page app obtains an [authorization grant](../active-directory/develop/developer-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
 ## Update code
 
@@ -154,7 +154,7 @@ To allow your single page app to call the ASP.NET Core web API, you need to enab
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. Open the **launchSettings.json** file under **Properties**, locate the *applicationURL* setting, and record the value for use in the next section.
+3. Open the **launchSettings.json** file under **Properties**, locate the **iisSettings** *applicationURL* setting, and set the port number to the one registered for the API Reply URL `http://localhost:5000`.
 
 ### Configure the single page app
 
@@ -170,7 +170,7 @@ To change the app settings:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 
