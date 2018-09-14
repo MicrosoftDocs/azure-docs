@@ -1,5 +1,5 @@
 ---
-title: Create a function app on Linux in an App Service plan 
+title: Create a function app on Linux in an Azure App Service plan 
 description: Learn how to create a function app that runs on Linux in an App Service plan using the Azure CLI.
 services: functions 
 keywords: 
@@ -13,7 +13,11 @@ ms.devlang: azure-cli
 manager: jeconnoc
 ---
 
+<<<<<<< HEAD
 # Create function app on Linux in an App Service plan (preview)
+=======
+# Create a function app on Linux in an Azure App Service plan (preview)
+>>>>>>> b3176a31cd4... Fixed title metadata
 
 Azure Functions lets you host your functions on Linux in a default Azure App Service container. This article walks you through how to use the Azure CLI to create a Linux-hosted function app in Azure that runs in an [App Service plan](functions-scale.md#app-service-plan). You can also [bring your own custom container](functions-create-function-linux-custom-image.md). Linux hosting is currently in preview.
 
