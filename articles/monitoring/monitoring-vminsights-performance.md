@@ -18,7 +18,7 @@ ms.author: magoedte
 ---
 
 # How to chart performance with Azure Monitor for VMs
-Azure Monitor for VMs include a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing — Processor, Memory, Disk, and Network.  The charts show resource utilization over a period of time so you can identify bottlenecks or anomalies that may or may not be isolated, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, VM insights is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance compliments the health monitoring feature of the solution and together, helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
+Azure Monitor for VMs includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, Azure Monitor for VMs is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance compliments the health monitoring feature and together, helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
 
 ## Multi-VM perspective from Azure Monitor
 From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access from Azure Monitor, perform the following. 
@@ -29,7 +29,7 @@ From Azure Monitor, the Performance feature provides a multi-virtual machine vie
 
 ![VM insights Performance Aggregate view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-On the **Aggregate** tab, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution from the **Workspace** selector at the top of the page.  You then select from the **Group** selector, a subscription, resource group, or specific machine, over a specified period of time.  By default, the charts shows the last 24 hours.  Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
+On the **Aggregate** tab, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution from the **Workspace** selector at the top of the page.  You then select from the **Group** selector, a subscription, resource group, or specific machine, over a specified period of time.  By default, the charts show the last 24 hours.  Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
 
 The four capacity utilization charts shown on the page are:
 
