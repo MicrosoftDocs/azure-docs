@@ -56,7 +56,9 @@ This new workspace is the top-level service resource and enables you to use all 
 
 Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
-To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. Using a single CLI command or in a few lines of Python code, your existing project files will continue to work in the latest version. For a complete example, try the [Portal/SDK quickstart](quickstart-get-started.md). 
+To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. Using a single CLI command or in a few lines of Python code, your existing project files will continue to work in the latest version. 
+
+For a complete example, try the [Portal/SDK quickstart](quickstart-get-started.md). 
 
 + For [CLI](reference-azure-machine-learning-cli.md), use:
   ```azurecli
