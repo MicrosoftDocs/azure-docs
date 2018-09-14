@@ -106,8 +106,8 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 
-Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between two spoke virtual network. Subnets in each of the spoke virtual networks must have UDR point to the Azure Firewall as a default gateway for this scenario to work properly.
+Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between two spoke virtual network. Subnets in each of the spoke virtual networks must have UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
 
 ### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network?
 
-Traffic between subnets in the same virtual network or in a peered virtual network is routed directly even if UDR points to the Azure Firewall as the default gateway. The recommended method for internal network segmentation is to use Network Security Groups. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
+Traffic between subnets in the same virtual network or in a directly peered virtual network is routed directly even if UDR points to the Azure Firewall as the default gateway. The recommended method for internal network segmentation is to use Network Security Groups. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
