@@ -59,7 +59,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with an SSH public key will not have access to the serial console. To create a local user with password, use the [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (also available in the portal by clicking "Reset password") and create a local user with a password.
 
-## Access Serial Console for Linux
+## Serial Console Linux distro availability
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
 
 Distro      | Serial Console access
@@ -70,7 +70,7 @@ Ubuntu      | Ubuntu images available on Azure have console access enabled by de
 CoreOS      | CoreOS images available on Azure have console access enabled by default.
 SUSE        | Newer SLES images available on Azure have console access enabled by default. If you are using older versions (10 or below) of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
 Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
-Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in `/etc/inittab` to run a terminal on `ttyS0`. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
+Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in `/etc/inittab` to run a terminal on `ttyS0`. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you are building a custom kernel, some kernel flags to consider enabling are `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The config file is often located under /boot/ for further exploration.
 
 ## Common scenarios for accessing serial console 
 Scenario          | Actions in serial console                
