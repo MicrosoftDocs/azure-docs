@@ -1,42 +1,67 @@
 ---
-title: 'Configure Azure Virtual WAN automation - for Virtual WAN partners | Microsoft Docs'
-description: This article helps software-defined connectivity solutions partners set up Azure Virtual WAN automation.
+title: 'Virtual WAN partners | Microsoft Docs'
+description: This article helps partners set up Azure Virtual WAN automation.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 09/13/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
 
-# Configure Virtual WAN automation - for Virtual WAN partners (Preview)
+# Virtual WAN partners (Preview)
 
-This article helps you understand how to set up the automation environment to connect and configure a branch device (a customer on-premises VPN device or SDWAN) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
+This article helps you understand how to set up the automation environment to connect and configure a branch device (a customer on-premises VPN device or SDWAN CPE) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2 or IPsec/IKEv1, this article is for you.
 
-Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires an SDWAN or VPN device located on-premises that has an externally-facing public IP address assigned to it.
+A branch device (a customer on-premises VPN device or SDWAN CPE) typically uses a controller/device dashboard to be provisioned. SD-WAN solution administrators can often use a management console to pre-provision a device before it gets plugged into the network. This VPN capable device gets its control plane logic from a controller. The VPN Device or SD-WAN controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires the on-premises device to have an externally facing public IP address assigned to it.
 
-##  <a name="access"></a>Access control
+## Before you begin automating
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information,see [Create service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+* Assess if your device supports IPsec IKEv1/IKEv2 (Point them to the hyperlink of default policies)
+* See REST APIs that you will use to automate connectivity to Azure Virtual WAN (link)
+* Test out the portal experience of Azure Virtual WAN (Link). 
+* Then assess which part of the connectivity steps you would like to automate. At a minimum, we recommend automating:
+
+  * Access Control
+  * Upload of Branch device information into Azure Virtual WAN
+  * Downloading azure configuration and setting up connectivity from branch device into Azure Virtual WAN
+
+* Understand the expected customer experience in conjunction with Azure Virtual WAN.
+
+  * Typically, a virtual WAN user will start the process by creating a Virtual WAN resource
+  * The user will set up a service principal-based resource group access for the on-premises system (your branch controller or VPN device provisioning software) to write branch info into Azure Virtual WAN
+  * The user may decide at this time to log into your UI and set up the service principal credentials. Once that is complete, your controller should be able to upload branch information with the automation you will provide. The manual equivalent of this on the Azure side is ‘Create Site’
+  * Once the Site (Branch device) information is available in Azure, the user will associate the site to a hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). The hub is the core of your network in a region. There can only be one hub per Azure region and the vpn endpoint (vpngateway) inside it is created during this process. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs. You may choose to automate virtual hub and vpngateway creation from your branch device controller dashboard.
+  * Once the virtual Hub is associated to the site, a configuration file is generated for the user to manually download. This is where your automation comes in and makes the user experience seamless. Instead of the user having to manually download and configure the branch device, you can set the automation and provide minimal click-through experience on your UI, thereby alleviating typical connectivity issues such as shared key mismatch, IPSec parameter mismatch, configuration file readability etc.
+  * At the end of this step in your solution, the user will have a seamless site-to-site connection between the branch device and virtual hub. You can also set up additional connections across other hubs. Each connection is an active-active tunnel. Your customer may choose to use a different ISP for each of the links for the tunnel.
+
+## Understanding automation details
+
+
+###  <a name="access"></a>Access control
+
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information, see [Create service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). While this functionality is outside of the Azure Virtual WAN offering, we list below the typical steps taken to set up access in Azure after which the relevant details are inputted into the device management dashboard
+
+* Create an Azure Active Directory application for your on-premises device controller.
+* Get application ID and authentication key
+* Get tenant ID
+* Assign application to role "Contributor"
 
 ##  <a name="site"></a>Upload branch information
 
-Design the user-experience to upload branch (on-premises site) information to Azure. [REST APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices, or select device customizations as appropriate.
+Design the user-experience to upload branch (on-premises site) information to Azure. [REST APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) for VPNSite can be used to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices or select device customizations as appropriate.
 
-##  <a name="hub"></a>Hub and services
-
-Once the branch device is uploaded to Azure, customer will typically make selections of hub region and/or services in the Azure portal, which invokes a set of operations to create the hub virtual network and the VPN end point inside the hub. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs.
 
 ## <a name="device"></a>Device configuration
 
-In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises SDWAN/VPN device. As a provider, you should automate this step. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file.
+In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises SDWAN/VPN device. As a provider, you should automate this step. The device controller can call 'GetVpnConfiguration' REST API to download the Azure configuration, which will typically look similar to the following file.
 
 **Configuration notes**
 
   * If Azure VNets are attached to the virtual hub, they will appear as ConnectedSubnets.
-  * VPN connectivity uses route-based configuration and IKEv2.
+  * VPN connectivity uses route-based configuration and IKEv2/IKEv1.
 
 ### Understanding the device configuration file
 
@@ -168,7 +193,7 @@ The device configuration file contains the settings to use when configuring your
    }
   ```
 
-## <a name="default"></a>Default policies
+## <a name="default"></a>Default policies for IPsec connectivity
 
 ### Initiator
 
@@ -246,9 +271,9 @@ Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain 
 * IPsec integrity algorithm
 * PFS Group
 
-## <a name="feedback"></a>Preview feedback
+## <a name="questions"></a>Additional Questions
 
-We would appreciate your feedback. Please send an email to <azurevirtualwan@microsoft.com> to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
+For any additional information, please send an email to <azurevirtualwan@microsoft.com>. Include your company name in “[ ]” in the subject line. 
 
 ## Next steps
 
