@@ -22,7 +22,7 @@ ms.custom:
 
 # Deploy the Azure Virtual Network container network interface plug-in
 
-Bring the rich set of Azure network capabilities to containers, by utilizing the same software defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking.md). You can deploy the plug-in to provide Azure Virtual Network capabilities to containers in Kubernetes clusters, or when using Docker on your computer. Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS) or the ACS-Engine to utilize the plug-in. For details, see [Using the plug-in](container-networking.md#using-the-plug-in).
+Bring the rich set of Azure network capabilities to containers, by utilizing the same software defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). You can deploy the plug-in to provide Azure Virtual Network capabilities to containers in Kubernetes clusters, or when using Docker on your computer. Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS) or the ACS-Engine to utilize the plug-in. For details, see [Using the plug-in](container-networking-overview.md#using-the-plug-in).
 
 ## Download and install the plug-in
 
@@ -41,7 +41,7 @@ Copy the [install script](https://github.com/Azure/azure-container-networking/bl
    scripts\\ install-cni-plugin.ps1 [version]
    ```
 
-The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation, but needs to be set up. For details about the file and how to configure it appropriately, see [CNI Network Configuration File](cni-network-configuration-file).
+The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation, but needs to be set up. For details about the file and how to configure it appropriately, see [CNI Network Configuration File](#cni-network-configuration-file).
 
 ## Deploy plug-in for a Kubernetes cluster
 
