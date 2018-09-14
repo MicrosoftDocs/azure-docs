@@ -58,4 +58,5 @@ The following steps show you how the consent experience works for both the appli
 
 ## Next steps
 
-* [How to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+* See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+* For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)

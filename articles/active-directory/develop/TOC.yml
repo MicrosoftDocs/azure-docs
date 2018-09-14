@@ -202,6 +202,8 @@
     items:
     - name: About v2.0
       href: 
+    - name: Sign in Microsoft identities
+      href: active-directory-appmodel-v2-overview.md
   - name: Quickstarts
     items:
     - name: Create a new tenant
