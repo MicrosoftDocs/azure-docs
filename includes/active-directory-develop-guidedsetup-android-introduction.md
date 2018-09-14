@@ -21,7 +21,7 @@ ms.custom: include file
 
 # Sign in users and call the Microsoft Graph from an Android app
 
-[!INCLUDE [active-directory-develop-applies-v2-msal](active-directory-develop-applies-v2-msal.md)]
+[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 In this tutorial, you'll learn how to build an Android application and integrate it into Microsoft's identity platform. Specifically, this app will Sign in a user, get an access token to call the Microsoft Graph API, and perform a simple request to the Microsoft Graph API.  
 
