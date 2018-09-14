@@ -1,5 +1,5 @@
 ---
-title: workspace() expression in Log Analytics query | Microsoft Docs
+title: workspace() expression in Azure Log Analytics query | Microsoft Docs
 description: The workspace expression is used in a Log Analytics query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription.
 services: log-analytics
 documentationcenter: ''

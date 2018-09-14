@@ -1,5 +1,5 @@
 ---
-title: app() expression in Log Analytics query | Microsoft Docs
+title: app() expression in Azure Log Analytics query | Microsoft Docs
 description: The app expression is used in a Log Analytics query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription.
 services: log-analytics
 documentationcenter: ''
