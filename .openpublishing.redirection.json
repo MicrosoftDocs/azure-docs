@@ -23623,6 +23623,61 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/governance/index.md",
+            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
+            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-complete-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/complete-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-create-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/create-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-how-to-review-your-access.md",
+            "redirect_url": "/azure/active-directory/governance/review-your-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-guest-access-with-access-reviews",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-programs-controls.md",
+            "redirect_url": "/azure/active-directory/governance/manage-programs-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-user-access-with-access-reviews",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-perform-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/perform-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-retrieve-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/retrieve-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-tou.md",
+            "redirect_url": "/azure/active-directory/governance/active-directory-tou",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -28074,6 +28129,11 @@
         {
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
             "redirect_url": "/azure/dev-spaces/index",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
             "redirect_document_id" : true
         }
     ]
