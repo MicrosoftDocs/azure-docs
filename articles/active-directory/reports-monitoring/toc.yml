@@ -1,10 +1,11 @@
-- name: Reports and Monitoring documentation
+- name: Reports and monitoring documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What are Azure AD reports?
     href: overview-reports.md
 
-- name: Get Started
+- name: Quickstarts
   expanded: true
   items:
   - name: Reports
@@ -13,8 +14,6 @@
       href: quickstart-download-sign-in-report.md
     - name: Download an audit report
       href: quickstart-download-audit-report.md
-    - name: Access Reporting API with certificates
-      href: tutorial-access-api-with-certificates.md
     - name: Configure named locations
       href: quickstart-configure-named-locations.md
     - name: Install Power BI content pack
@@ -24,6 +23,16 @@
     items:
     - name: Route logs to storage account
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
+
+- name: Tutorials
+  items:
+  - name: Reports
+    items:
+    - name: Access Reporting API with certificates
+      href: tutorial-access-api-with-certificates.md
+
+  - name: Monitoring
+    items:
     - name: Stream logs to event hub
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
     - name: Integrate activity logs with Splunk
@@ -70,6 +79,17 @@
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
 
+  - name: Troubleshoot
+    items:
+    - name: Missing audit data
+      href: troubleshoot-missing-audit-data.md
+    - name: Missing data in download
+      href: troubleshoot-missing-data-download.md
+    - name: Cannot access Graph APIs for reporting
+      href: troubleshoot-graph-api.md
+    - name: Errors in Power BI Content pack
+      href: troubleshoot-content-pack.md
+
 - name: Reference
   expanded: true
   items:
@@ -93,13 +113,3 @@
     - name: Sign-in log schema
       href: reference-azure-monitor-sign-ins-log-schema.md
 
-- name: Troubleshoot
-  items:
-  - name: Missing audit data
-    href: troubleshoot-missing-audit-data.md
-  - name: Missing data in download
-    href: troubleshoot-missing-data-download.md
-  - name: Cannot access Graph APIs for reporting
-    href: troubleshoot-graph-api.md
-  - name: Errors in Power BI Content pack
-    href: troubleshoot-content-pack.md

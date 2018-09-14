@@ -51,6 +51,10 @@
       - name: Manage applications
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
+      - name: Reports and monitoring
+        tocHref: /azure/active-directory/reports-monitoring/
+        topicHref: /azure/active-directory/reports-monitoring/
+        
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
