@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: carlrab
 
 ---
@@ -39,7 +39,7 @@ For single databases, the following tables show the resources available for a si
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data size (GB)|1024|1024|1536|3072|4096|4096|
 |Max log size (GB)|307|307|461|922|1229|1229|
-|TempDB size (MB)|32|64|128|256|384|384|
+|TempDB size (GB)|32|64|128|256|384|384|
 |Target IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Max concurrent workers (requests)|200|400|800|1600|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -61,7 +61,7 @@ For single databases, the following tables show the resources available for a si
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data size (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Max log size (GB)|307|307|461|614|1229|1229|1229|1229|
-|TempDB size (MB)|64|128|256|384|384|384|384|384|
+|TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -84,7 +84,7 @@ For single databases, the following tables show the resources available for a si
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|307|
-|TempDB size (MB)|32|64|128|256|384|384|
+|TempDB size (GB)|32|64|128|256|384|384|
 |Target IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|200|400|800|1600|3200|4800|
@@ -107,7 +107,7 @@ For single databases, the following tables show the resources available for a si
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Max log size (GB)|307|307|307|307|614|1229|1229|1229|
-|TempDB size (MB)|64|128|256|384|384|384|384|384|
+|TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -120,4 +120,5 @@ For single databases, the following tables show the resources available for a si
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
+- See [Overview Azure SQL Database resource limits](sql-database-resource-limits.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Known issues for validation as a service
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 These are the known issues for the Azure Stack validation as a service.
 

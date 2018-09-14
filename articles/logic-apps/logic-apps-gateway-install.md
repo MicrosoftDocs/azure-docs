@@ -1,23 +1,19 @@
 ---
-# required metadata
 title: Install on-premises data gateway - Azure Logic Apps | Microsoft Docs
-description: How to download and install the on-premises data gateway before you access data on premises from logic apps
+description: Before you can access data on premises from Azure Logic Apps, download and install the on-premises data gateway
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-
-# optional metadata
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
 ---
 
-# Install the on-premises data gateway for Azure Logic Apps
+# Install on-premises data gateway for Azure Logic Apps
 
-Before you can connect your logic apps to on-premises data sources, 
+Before you can connect to on-premises data sources from Azure Logic Apps, 
 download and install the on-premises data gateway on a local computer. 
 The gateway works as a bridge that provides quick data transfer and encryption 
 between data sources on premises (not in the cloud) and your logic apps. 
@@ -57,14 +53,15 @@ For information about how to use the gateway with other services, see these arti
 
 ## Prerequisites
 
-* A [work or school account](../active-directory/fundamentals/sign-up-organization.md) 
-that has an [Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). 
-During gateway installation, you sign in to this account so you can 
-associate the gateway installation with your Azure subscription. 
-Later, you also use same account when you create an Azure resource 
-for your gateway installation in the Azure portal. 
-If you don't have an Azure subscription yet, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+* A [work or school account](../active-directory/fundamentals/sign-up-organization.md) that has an 
+[Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  During gateway installation, you sign in to this account so you can 
+  associate the gateway installation with your Azure subscription. 
+  Later, you also use same account when you create an Azure resource 
+  for your gateway installation in the Azure portal. 
+  If you don't have an Azure subscription yet, 
+  <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * Here are requirements for your local computer:
 
@@ -89,9 +86,9 @@ If you don't have an Azure subscription yet,
     > as possible to your data source, or on the same computer, 
     > assuming that you have permissions.
 
-  * Install the gateway on a computer that *doesn't* turn off, go to sleep, 
-  or connect to the Internet. The gateway can't run under these conditions. 
-  Gateway performance might also suffer over a wireless network.
+  * Install the gateway on a computer that's connected to the internet, 
+  always turned on, and *doesn't* go to sleep. Otherwise, 
+  the gateway can't run. Also, performance might suffer over a wireless network.
 
   * During installation, you can only sign in with a 
   [work or school account](../active-directory/sign-up-organization.md) 

@@ -1,10 +1,10 @@
 ---
-title: Computer Vision Python quickstart analyze a remote image | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze a remote image using Computer Vision with Python in Cognitive Services.
+title: "Quickstart: Analyze a remote image - REST, Python - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you analyze a remote image using the Computer Vision API with Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
 ---
-# Quickstart: Analyze a remote image - REST, Python
+# Quickstart: Analyze a remote image using the REST API and Python in Computer Vision
 
 In this quickstart, you analyze a remote image using Computer Vision. To analyze a local image, see [Analyze a local image with Python](python-disk.md).
 
@@ -84,7 +84,7 @@ response.raise_for_status()
 # The 'analysis' object contains various fields that describe the image. The most
 # relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
-print(analysis)
+print(json.dumps(response.json()))
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
@@ -92,6 +92,7 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## Analyze Image response

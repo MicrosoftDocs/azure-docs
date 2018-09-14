@@ -4,11 +4,10 @@ description: Map styles supported by Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/28/2018
-ms.topic: concepts
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
 ---
 
 # Azure Maps supported map styles

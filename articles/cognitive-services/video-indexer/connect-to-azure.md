@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/09/2018
 ms.author: juliako
 
 ---
@@ -48,16 +48,18 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 ## Connect to Azure
 
-1. Sign in to [https://www.videoindexer.ai/](https://www.videoindexer.ai/) and click on the **Connect to Azure** button:
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+
+2. Click on the **Connect to Azure** button:
 
     ![connect to Azure](./media/create-account/connect-to-azure.png)
 
-2. When the subscriptions list appears, select the subscription you want to use. 
+3. When the subscriptions list appears, select the subscription you want to use. 
 
     ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
-4. Under **Azure Media Services account**, choose one of these options:
+4. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
+5. Under **Azure Media Services account**, choose one of these options:
 
     * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
 
@@ -76,18 +78,18 @@ This article shows how to create a Video Indexer account that's linked to an Azu
         |Video Indexer account region|The name of the Video Indexer account region. For better performance and lower costs, it is highly recommended to specify the name of the region where the Azure Media Services resource and Azure Storage account are located. |
         |Azure Active Directory (AAD) tenant|The name of the Azure AD tenant, for example "contoso.onmicrosoft.com". The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top right corner.|
         |Subscription ID|The Azure subscription under which this connection should be created. The subscription ID can be retrieved from the Azure portal. Click on **All services** in the left panel, and search for "subscriptions". Select, **Subscriptions** and choose the desired ID from the list of your subscriptions.|
-        |Azure resource group name|The name for the new resource group in which to create your connection.|
-        |Azure resource name|The name of the Azure Media Services resource.|
+        |Azure Media Services resource group name|The name for the resource group in which to the Media Services account exists.|
+        |Media service resource name|The name of the Azure Media Services resource.|
         |Application ID|The Azure AD application ID with permissions for the specified Media Services account. For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Application Key|For more information, see [Use service principal authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
-5. When you're done, choose **Connect**. This operation might take up to a few minutes. 
+6. When you're done, choose **Connect**. This operation might take up to a few minutes. 
 
     After you're connected to Azure, your new Video Indexer account appears in the account list:
 
     ![new account](./media/create-account/new-account.png)
 
-6. Browse to your new account: 
+7. Browse to your new account: 
 
     ![Video Indexer account](./media/create-account/vi-account.png)
 
