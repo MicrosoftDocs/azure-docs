@@ -39,7 +39,7 @@ The newer metric alerts have the following benefits over the classic metric aler
 -	**Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an interesting segment of the metric.
 -	**More control over metric conditions**: You can define richer alert rules. The newer alerts support monitoring the maximum, minimum, average, and total values of metrics.
 -	**Combined monitoring of multiple metrics**: You can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time-period.
--	**Better notification system**: All newer alerts use [action groups](../monitoring-and-diagnostics/monitoring-action-groups), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
+-	**Better notification system**: All newer alerts use [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
 -	**Metrics from Logs** (public preview): Log data going into Log Analytics can now be extracted and converted into Azure Monitor metrics and then alerted on just like other metrics. 
 See [Alerts (classic)](monitoring-overview-alerts-classic.md) for the terminology specific to classic alerts. 
 
@@ -55,7 +55,7 @@ For Diagnostic Log data available through Azure Monitor, route the data into Log
 
 The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
 
-![Alerts explained](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
+![Alerts explained](./media/monitoring-overview-alerts-classic/Alerts_Overview_Resource_v5.png)
 
 ## Taxonomy of alerts (classic)
 Azure uses the following terms to describe classic alerts and their functions:
