@@ -68,8 +68,6 @@ To set allocated memory or other JVM runtime options in both the Tomcat and Java
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `$JAVA_OPTS -Xms512m -Xmx1204m`.
 
-
-
 To configure the app setting from the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heapsize:
 
 ```xml
@@ -81,7 +79,14 @@ To configure the app setting from the Azure App Service Linux Maven plugin, add 
 </appSettings> 
 ```
 
-When tuning application heap settings, review your App Service plan details to find the optimal allocation of memory for each of your applications. taking into account number of application instances and deployment slots. 
+Developers running a single application with one deployment slot in their App Service plan can use the following options:
+
+- B1 and S1 instances: -Xms1024m -Xmx1024m
+- B2 and S2 instances: -Xms3072m -Xmx3072m
+- B3 and S3 instances: -Xms6144m -Xmx6144m
+
+
+When tuning application heap settings, review your App Service plan details and take into account multiple applications and deployment slot needs to find the optimal allocation of memory.
 
 ### Turn on web sockets
 
@@ -104,7 +109,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Dfile.encoding=UTF-8`.
 
-Using the Maven plugin, add name/value tags in the Azure plugin section: 
+Alternatively, you can configure the app setting using the App Service Maven plugin. Add the setting name and value tags in the plugin configuration: 
 
 ```xml
 <appSettings> 
@@ -131,7 +136,7 @@ If you need to enable multiple sign-in providers, follow the instructions in the
 
 Follow the instructions in the [Bind an existing custom SSL certificate](/azure/app-service/app-service-web-tutorial-custom-ssl) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
 
-## Tomcat configuration
+## Tomcat 
 
 ### Connecting to data sources
 
@@ -145,12 +150,12 @@ customize the CATALINA_OPTS environment variable read in by Tomcat at start up. 
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>$CATALINA_OPTS -Dmysqluser=username -Dmysqlpass=password -DmysqlURL=jdbc:mysql://mysqlhost:3066/dbName</value> 
+        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-Or an equivalent setting directly from the Azure portal
+Or an equivalent App Service setting from the Azure portal.
 
 Next, determine if the data source needs to be made available just to one application or to all of the applications running on the App Service plan.
 
@@ -158,7 +163,7 @@ For application-level data sources:
 
 1. Add a `context.xml` file if it does not exist to your web application and add it the `META-INF` directory of your WAR file when the project is built.
 
-2. In this file, add a `Context` path entry to link the data source to a JNDI address:
+2. In this file, add a `Context` path entry to link the data source to a JNDI address. The
 
 ```xml
 <Context>
@@ -218,6 +223,10 @@ For shared server-level resources:
 
 5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat` and use the updated configuration and classes.
 
+## Docker containers
+
+To use the Azure-supported Zulu JDK running in App Service in your containers, make sure your application's `Dockerfile` uses images from the [Java App Service Docker image repo](https://github.com/Azure-App-Service/java).
+
 ## Runtime availability and statement of support
 
 App Service for Linux supports two runtimes for managed hosting of Java web applications:
@@ -225,37 +234,32 @@ App Service for Linux supports two runtimes for managed hosting of Java web appl
 - The [Tomcat servlet container](http://tomcat.apache.org/) for running applications packaged as web archive (WAR) files. Supported versions are 8.5 and 9.0.
 - Java SE runtime environment for running applications packaged as Java archive (JAR) files. The only supported major version is Java 8.
 
-### Using Java Messaging Service
-
 ## Java runtime statement of support 
 
 ### JDK versions and maintenance
 
- Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) provided through [Azul Systems](https://www.azul.com/), built against the Oracle [OpenJDK](http://openjdk.java.net/). 
+Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) provided through [Azul Systems](https://www.azul.com/).
 
-Supported JDKs get minor version updates on a quarterly basis in January, April, July, and October.  Major version upgrades will be provided through new runtime options in Azure App Service for Linux. Customers update to these JDKs by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
+Major version updates will be provided through new runtime options in Azure App Service for Linux. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
-### Supported container images
-
-Deploy containerized Java applications to Azure using [App Service for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/). To use the Azure-supported Zulu JDK in your containers, make sure your application's `Dockerfile` contains:
-
-```Dockerfile
-FROM zulu-openjdk:8u181-8.31.0.1
-```
+Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year.
 
 ### Security updates
 
-Any major bug fixes or patches will be released as soon as they become available from Azul Systems. A "major" bugfix is defined by a high score on the [NIST Common Vulnerability Scoring System](https://nvd.nist.gov/cvss.cfm). 
+Patches and fixes for major security vulnerabilities will be released as soon as they become available from Azul Systems. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/cvss.cfm).
 
-### Local development support
+### Deprecation and retirement
 
-Developers can download the Azure-supported JDK for local development, but are only eligible for support if they are developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a qualified Azure support plan.
+If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
+### Local development
 
-### Runtime deprecation
+Developers can download the Production Edition of Azul Zulu Enterprise JDK for local development from [Azul's download site](https://www.azul.com/downloads/zulu/).
 
-If a supported Java runtime will be retired, Azure developers using the affected runtime will be given at least six months notice.
+### Development support
 
-### Getting runtime support
+Product support for the Azul Zulu Enterprise JDK is available through when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
 
-Developers can open an issue with the App Service Linux Java runtime through Azure Support if they have a qualified support plan.
+### Runtime support
+
+Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the App Service Linux Java runtime through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
