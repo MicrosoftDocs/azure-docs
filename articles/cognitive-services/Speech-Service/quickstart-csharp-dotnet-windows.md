@@ -19,6 +19,10 @@ ms.author: wolfma
 In this article, you learn how to create a C# console application for .NET Framework on Windows using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
+For a quick demonstration (without building the Visual Studio project yourself as shown below):
+
+Get the latest [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from Github.
+
 ## Prerequisites
 
 * A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
