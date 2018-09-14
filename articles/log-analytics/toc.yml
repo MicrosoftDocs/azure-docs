@@ -121,9 +121,7 @@
         href: https://docs.loganalytics.io
       - name: Get started
         items:
-        - name: Get started with Log Search portal
-          href: log-analytics-log-search-log-search-portal.md
-        - name: Get started with Log Analytics page
+        - name: Get started with Log Analytics
           href: query-language/get-started-analytics-portal.md
         - name: Get started with queries
           href: query-language/get-started-queries.md
