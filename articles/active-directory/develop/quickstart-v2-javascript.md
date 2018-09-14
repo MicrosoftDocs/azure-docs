@@ -193,4 +193,4 @@ For a more detailed step-by-step guide on how to build the application for this 
 > [msal.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 
 
-[!INCLUDE [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
