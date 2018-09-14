@@ -143,12 +143,6 @@ recognizer.AddIntent("off", model, "HomeAutomation.TurnOff");
 recognizer.AddIntent("on", model, "HomeAutomation.TurnOn");
 ```
 
-You may also add intents that aren't defined in the LUIS app. These non-LUIS intents need to be short, imperative phrases that don't contain any information that could differ from one request to the next. An example might be exiting the application. You add such intents using a two-parameter overload of `AddIntent()` that takes the desired `intentID` and the phrase to be recognized, both as strings. For example:
-
-```csharp
-recognizer.AddIntent("exit", "exit application");
-```
-
 ## Start recognition
 
 With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both single-shot and continuous recognition.
