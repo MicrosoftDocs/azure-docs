@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/14/2018
 ms.author: jeedes
 
 ---
@@ -188,13 +188,28 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	* In the automatic configuration all the necessary settings are configured on the **ServiceNow** side but the **X.509 Certificate** is not enabled by default. You have to map it manually to your Identity Provider in ServiceNow. Follow the below steps for the same:
 
-	* In the navigation pane on the left side, click **Identity Providers** under **Multi-Provider SSO**.
+	* In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Identity Providers**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
 
 	* Click on the automatically generated Identity Provider
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_08.png "Configure single sign-on")
+
+	*  On the **Identity Provider** section, perform the following steps:
+
+		![Configure single sign-on](./media/servicenow-tutorial/automatic_config.png "Configure single sign-on")
+
+		* In the **Name** textbox, type a name for your configuration (for example, **SAML 2.0**).
+
+		* Please remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
+
+		* Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Domain and URLs** section on Azure portal.
+
+			> [!NOTE]
+			> The ServiceNow instance homepage is a concatenation of your **ServieNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
+
+		* Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
 	* Scroll down to the **X.509 Certificate** section, select **Edit**.
 
@@ -209,38 +224,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* Click on **Test Connection** at the top right corner of the page.
 
 		![Activate plugin](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
-	
-	* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
+
+	* After clicking on the **Test Connection**, you will get the popup window where you need to enter credentials and the below page with results is shown. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
 
 		![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
   
 12. For configuring **ServiceNow** manually, follow the below steps:
 
 	* Sign on to your ServiceNow application as an administrator.
-
-	* In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **x509 Certificates**.
-
-		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_05.png "Configure single sign-on")
-
-	* On the **X.509 Certificates** dialog, click **New**.
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694974.png "Configure single sign-on")
-
-	* On the **X.509 Certificates** dialog, perform the following steps:
-
-		![Configure single sign-on](./media/servicenow-tutorial/ic7694975.png "Configure single sign-on")
-
-		* In the **Name** textbox, type a name for your configuration (for example: **TestSAML2.0**).
-
-		* Select **Active**.
-
-		* As **Format**, select **PEM**.
-
-		* As **Type**, select **Trust Store Cert**.
-
-		* Open your Base64 encoded certificate downloaded from Azure in notepad, copy the content of it into your clipboard, and then paste it to the **PEM Certificate** textbox.
-
-	* Click **Submit**.
 
 	* In the navigation pane on the left side, click **Identity Providers**.
 
@@ -254,13 +245,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694978.png "Configure single sign-on")
 
-	* On the **SAML2 Update1 Properties** dialog, perform the following steps:
+	* On the **Import Identity Provider Metadata** popup, perform the following steps:
 
 		![Configure single sign-on](./media/servicenow-tutorial/idp.png "Configure single sign-on")
-
-		* Select **Identity Providers**
-
-		* Select **URL** option in **Import Identity Provider Metadata** dialogue box.
 
 		* Enter the **App Federation Metadata Url** which you have copied from Azure portal.
 
@@ -272,7 +259,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		* In the **Name** textbox, type a name for your configuration (for example, **SAML 2.0**).
 
-		* Keep **Identity Provider's SingleLogoutRequest** textbox blank.
+		* Please remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
 
 		* Copy **ServiceNow Homepage** value, paste it in the **Sign-on URL** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
@@ -293,7 +280,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 		
 		* Click on **Test Connection** at the top right corner of the page.
 
-		* After clicking on the **Test Connection**, you will get the following page shown below. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
+		* After clicking on the **Test Connection**, you will get the popup window where you need to enter credentials and the below page with results is shown. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** tab.
 
 		  ![Configure single sign-on](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
 
