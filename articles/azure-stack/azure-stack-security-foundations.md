@@ -89,7 +89,7 @@ The assessments include the following standards:
 - [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards, including FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53, and others.
 - [FedRAMP High](https://blogs.msdn.microsoft.com/azuregov/2018/08/13/announcing-azure-stack-for-azure-government-customers-to-enable-it-modernization-and-tactical-edge-scenarios/) for government customers.
 
-The compliance documentation can be found on the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/TrustDocuments). The compliance guides are a protected resource and require you to sign-in with your Azure cloud service credentials.
+The compliance documentation can be found on the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/TrustDocuments). The compliance guides are a protected resource and require you to sign in with your Azure cloud service credentials.
 
 ## Next steps
 
