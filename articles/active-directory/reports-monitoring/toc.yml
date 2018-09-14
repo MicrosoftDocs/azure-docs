@@ -79,6 +79,17 @@
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
 
+  - name: Troubleshoot
+    items:
+    - name: Missing audit data
+      href: troubleshoot-missing-audit-data.md
+    - name: Missing data in download
+      href: troubleshoot-missing-data-download.md
+    - name: Cannot access Graph APIs for reporting
+      href: troubleshoot-graph-api.md
+    - name: Errors in Power BI Content pack
+      href: troubleshoot-content-pack.md
+
 - name: Reference
   expanded: true
   items:
@@ -102,13 +113,3 @@
     - name: Sign-in log schema
       href: reference-azure-monitor-sign-ins-log-schema.md
 
-- name: Troubleshoot
-  items:
-  - name: Missing audit data
-    href: troubleshoot-missing-audit-data.md
-  - name: Missing data in download
-    href: troubleshoot-missing-data-download.md
-  - name: Cannot access Graph APIs for reporting
-    href: troubleshoot-graph-api.md
-  - name: Errors in Power BI Content pack
-    href: troubleshoot-content-pack.md
