@@ -28,7 +28,9 @@ This article is a condensed version of the steps that are described in the [Inst
 
 ## Set up PowerShell for Azure Active Directory-based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as necessary for your environment configuration:
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. 
+-  
+- Make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as necessary for your environment configuration:
 
 ```powershell
 # Specify Azure Active Directory tenant name.

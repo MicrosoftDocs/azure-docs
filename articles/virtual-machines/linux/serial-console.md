@@ -59,7 +59,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with an SSH public key will not have access to the serial console. To create a local user with password, use the [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (also available in the portal by clicking "Reset password") and create a local user with a password.
 
-## Access Serial Console for Linux
+## Serial Console Linux distro availability
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
 
 Distro      | Serial Console access
@@ -70,7 +70,7 @@ Ubuntu      | Ubuntu images available on Azure have console access enabled by de
 CoreOS      | CoreOS images available on Azure have console access enabled by default.
 SUSE        | Newer SLES images available on Azure have console access enabled by default. If you are using older versions (10 or below) of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
 Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
-Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in `/etc/inittab` to run a terminal on `ttyS0`. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
+Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in `/etc/inittab` to run a terminal on `ttyS0`. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you are building a custom kernel, some kernel flags to consider enabling are `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The config file is often located under /boot/ for further exploration.
 
 ## Common scenarios for accessing serial console 
 Scenario          | Actions in serial console                
@@ -169,7 +169,8 @@ Issue                           |   Mitigation
 :---------------------------------|:--------------------------------------------|
 Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to properly connect to the serial port.
 A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
-Serial console text only takes up a portion of the screen size (often after using a text editor) | This is a known issue with unknown screen size over serial connections. We recommend instaling xterm or some other similar utility that gives you the 'resize' command. Running 'resize' will fix this.
+Serial console text only takes up a portion of the screen size (often after using a text editor) | Serial consoles do not support negotiating about window size ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), which means that there will be no SIGWINCH signal sent to update screen size and the VM will have no knowledge of your terminal's size. We recommend instaling xterm or some other similar utility that gives you the 'resize' command. Running 'resize' will fix this.
+Pasting very long strings does not work | Serial console limits the length of strings pasted into the terminal to 2048 characters. This is to prevent overwhelming the serial port bandwidth.
 
 
 ## Frequently asked questions 
