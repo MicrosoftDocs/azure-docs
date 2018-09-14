@@ -36,7 +36,7 @@ Before you can associate or add your subscription, you must perform the followin
 
 - Make sure you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Imagine subscription (MS-AZR-0144P).
     
-## Associate an existing subscription to your Azure AD directory
+## To associate an existing subscription to your Azure AD directory
 1. Sign in and select the subscription you want to use from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Select **Change directory**.

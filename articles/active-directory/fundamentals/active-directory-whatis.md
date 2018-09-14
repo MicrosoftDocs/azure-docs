@@ -29,7 +29,7 @@ Azure AD helps you to:
 
 -   Allow application access security by enforcing rules-based [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) policies for both on-premises and cloud apps.
 
--   Improve user productivity with [self-service password reset](../user-help/active-directory-passwords.md), and group and application access requests using the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md).
+-   Improve user productivity with [self-service password reset](../user-help/user-help-reset-password.md), and group and application access requests using the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md).
 
 -   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
 
