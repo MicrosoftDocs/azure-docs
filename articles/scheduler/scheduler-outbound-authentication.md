@@ -15,19 +15,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-
 ---
+
 # Scheduler Outbound Authentication
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, start using Azure Logic Apps instead, 
+> not Azure Scheduler. Learn how to 
+> [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
+
 Scheduler jobs may need to call out to services that require authentication. This way, a called service can determine if the Scheduler job can access its resources. Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.
 
-## Adding and Removing Authentication
+## Add or remove authentication
+
 Adding authentication to a Scheduler job is simple – add a JSON child element `authentication` to the `request` element when creating or updating a job. Secrets passed to the Scheduler service in a PUT, PATCH, or POST request – as part of the `authentication` object – are never returned in responses. In responses, secret information is set to null or may have a public token that represents the authenticated entity.
 
 To remove authentication, PUT or PATCH the job explicitly, setting the `authentication` object to null. You will not see any authentication properties back in response.
 
 Currently, the only supported authentication types are the `ClientCertificate` model (for using the SSL/TLS client certificates), the `Basic` model (for Basic authentication), and the `ActiveDirectoryOAuth` model (for Active Directory OAuth authentication.)
 
-## Request Body for ClientCertificate Authentication
+## Request body for client certificate authentication
+
 When adding authentication using the `ClientCertificate` model, specify the following additional elements in the request body.  
 
 | Element | Description |
@@ -37,7 +47,8 @@ When adding authentication using the `ClientCertificate` model, specify the foll
 | *pfx* |Required. Base64-encoded contents of the PFX file. |
 | *password* |Required. Password to access the PFX file. |
 
-## Response Body for ClientCertificate Authentication
+## Response body for client certificate authentication
+
 When a request is sent with authentication info, the response contains the following authentication-related elements.
 
 | Element | Description |
@@ -48,9 +59,10 @@ When a request is sent with authentication info, the response contains the follo
 | *certificateSubjectName* |The subject distinguished name of the certificate. |
 | *certificateExpiration* |The expiration date of the certificate. |
 
-## Sample REST Request for ClientCertificate Authentication
+## Sample REST request for client certificate authentication
+
 ```
-PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -84,7 +96,8 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Sample REST Response for ClientCertificate Authentication
+## Sample REST response for client certificate authentication
+
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -103,7 +116,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 {
-  "id": "/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+  "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
   "type": "Microsoft.Scheduler/jobCollections/jobs",
   "name": "southeastasiajc/httpjob",
   "properties": {
@@ -140,7 +153,8 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## Request Body for Basic Authentication
+## Request body for basic authentication
+
 When adding authentication using the `Basic` model, specify the following additional elements in the request body.
 
 | Element | Description |
@@ -150,7 +164,8 @@ When adding authentication using the `Basic` model, specify the following additi
 | *username* |Required. Username to authenticate. |
 | *password* |Required. Password to authenticate. |
 
-## Response Body for Basic Authentication
+## Response body for basic authentication
+
 When a request is sent with authentication info, the response contains the following authentication-related elements.
 
 | Element | Description |
@@ -159,9 +174,10 @@ When a request is sent with authentication info, the response contains the follo
 | *type* |Type of authentication. For Basic authentication, the value is `Basic`. |
 | *username* |The authenticated username. |
 
-## Sample REST Request for Basic Authentication
+## Sample REST request for basic authentication
+
 ```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -196,7 +212,8 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Sample REST Response for Basic Authentication
+## Sample REST response for basic authentication
+
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -215,7 +232,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 {  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "id":"/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
    "type":"Microsoft.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
    "properties":{  
@@ -250,7 +267,8 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## Request Body for ActiveDirectoryOAuth Authentication
+## Request body for Active Directory OAuth authentication
+
 When adding authentication using the `ActiveDirectoryOAuth` model, specify the following additional elements in the request body.
 
 | Element | Description |
@@ -262,10 +280,12 @@ When adding authentication using the `ActiveDirectoryOAuth` model, specify the f
 | *clientId* |Required. Provide the client identifier for the Azure AD application. |
 | *secret* |Required. Secret of the client that is requesting the token. |
 
-### Determining your Tenant Identifier
+### Determine your tenant identifier
+
 You can find the tenant identifier for the Azure AD tenant by running `Get-AzureAccount` in Azure PowerShell.
 
-## Response Body for ActiveDirectoryOAuth Authentication
+## Response body for Active Directory OAuth authentication
+
 When a request is sent with authentication info, the response contains the following authentication-related elements.
 
 | Element | Description |
@@ -276,9 +296,10 @@ When a request is sent with authentication info, the response contains the follo
 | *audience* |This is set to https://management.core.windows.net/. |
 | *clientId* |The client identifier for the Azure AD application. |
 
-## Sample REST Request for ActiveDirectoryOAuth Authentication
+## Sample REST request for Active Directory OAuth authentication
+
 ```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -315,7 +336,8 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Sample REST Response for ActiveDirectoryOAuth Authentication
+## Sample REST response for Active Directory OAuth authentication
+
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -334,7 +356,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:10:02 GMT
 
 {  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "id":"/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
    "type":"Microsoft.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
    "properties":{  
@@ -372,7 +394,8 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## See Also
+## See also
+
  [What is Scheduler?](scheduler-intro.md)
 
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)

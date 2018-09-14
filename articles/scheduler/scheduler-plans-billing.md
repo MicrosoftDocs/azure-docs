@@ -1,23 +1,25 @@
 ---
-title: Plans and Billing in Azure Scheduler
-description: Plans and Billing in Azure Scheduler
+title: Plans and billing - Azure Scheduler
+description: Learn about plans and billing for Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-
 ---
-# Plans and Billing in Azure Scheduler
+
+# Plans and billing for Azure Scheduler
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, start using Azure Logic Apps instead, 
+> not Azure Scheduler. Learn how to 
+> [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
+
 ## Job Collection Plans
 Job collections are the billable entity in Azure Scheduler. Job collections contain a number of jobs and come in three plans – Standard, P10 Premium, and P20 Premium – that are described below.
 

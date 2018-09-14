@@ -1,32 +1,38 @@
 ---
-title: Scheduler Limits and Defaults
-description: Scheduler Limits and Defaults
+title: Limits, quotas, and default values in Azure Scheduler
+description: Learn about the quotas, limits, default values, and throttle thresholds for Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-
 ---
-# Scheduler Limits and Defaults
-## Scheduler Quotas, Limits, Defaults, and Throttles
+
+# Quotas, limits, default values, and throttle thresholds in Azure Scheduler
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, start using Azure Logic Apps instead, 
+> not Azure Scheduler. Learn how to 
+> [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
+
+## Quotas, limits, defaults, and throttles
+
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## The x-ms-request-id Header
-Every request made against the Scheduler service returns a response header named**x-ms-request-id**. This header contains an opaque value that uniquely identifies the request.
+## x-ms-request-id header
+
+Every request made against the Scheduler service returns a response header named **x-ms-request-id**. 
+This header contains an opaque value that uniquely identifies the request.
 
 If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of x-ms-request-id, the approximate time that the request was made, the identifier of the subscription, job collection, and/or job, and the type of operation that the request attempted.
 
-## See Also
+## See also
+
  [What is Scheduler?](scheduler-intro.md)
 
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)

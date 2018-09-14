@@ -1,89 +1,125 @@
 ---
-title: Build complex schedules and advanced recurrence with Azure Scheduler
-description: Learn how to build complex schedules and advanced recurrence with Azure Scheduler.
+title: Build complex schedules and advanced recurrences for jobs - Azure Scheduler
+description: Learn how to create complex schedules and advanced recurrences for jobs in Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.suite: infrastructure-services
+ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-
 ---
+
 # Build complex schedules and advanced recurrence with Azure Scheduler
 
-The core of an Azure Scheduler job is the schedule. The schedule determines when and how Scheduler executes the job. 
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, start using Azure Logic Apps instead, 
+> not Azure Scheduler. Learn how to 
+> [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
-You can use Scheduler to set multiple one-time and recurring schedules for a job. One-time schedules fire once at a specified time. One-time schedules effectively are recurring schedules that execute only once. Recurring schedules fire on a predetermined frequency.
+Within an [Azure Scheduler](../scheduler/scheduler-intro.md) job, 
+the schedule is the core that determines when and how the 
+Scheduler service runs the job. You can set up multiple 
+one-time and recurring schedules for a job with Scheduler. 
+One-time schedules run only once at a specified time and 
+are basically recurring schedules that run only once. 
+Recurring schedules run on a specified frequency. 
+With this flexibility, you can use Scheduler for 
+various business scenarios, for example:
 
-With this flexibility, you can use Scheduler for a wide variety of business scenarios:
+* **Clean up data regularly**: Create a daily job 
+that deletes all tweets older than three months.
 
-* **Periodic data cleanup**. For example, every day, delete all tweets that are older than three months.
-* **Archiving**. For example, every month, push invoice history to a backup service.
-* **Requests for external data**. For example, every 15 minutes, pull a new ski weather report from NOAA.
-* **Image processing**. For example, every weekday, during off-peak hours, use cloud computing to compress images that were uploaded that day.
+* **Archive data**: Create a monthly job that pushes 
+invoice history to a backup service.
 
-In this article, we walk through example jobs that you can create by using Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON to [create a Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
+* **Request external data**: Create a job that runs 
+every 15 minutes and pulls a new weather report from NOAA.
+
+* **Process images**: Create a weekday job that runs 
+during off-peak hours and uses cloud computing for 
+compressing images uploaded during the day.
+
+This article describes example jobs you can create by using Scheduler and 
+include the JavaScript Object Notation (JSON) that describes each schedule. 
+To build Scheduler jobs, you can also use this JSON with the 
+[Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule). 
 
 ## Supported scenarios
-The examples in this article illustrate the breadth of scenarios that Scheduler supports. The examples broadly illustrate how to create schedules for many behavior patterns, including:
+
+These examples show the range of scenarios that Azure Scheduler supports 
+and how to create schedules for various behavior patterns, for example:
 
 * Run once at a specific date and time.
 * Run and recur a specific number of times.
 * Run immediately and recur.
-* Run and recur every *n* minutes, hours, days, weeks, or months, starting at a specific time.
-* Run and recur at a weekly or monthly frequency, but only on specific days of the week or on specific days of the month.
-* Run and recur multiple times in a period. For example, on the last Friday and last Monday of every month, or at 5:15 AM and at 5:15 PM every day.
+* Run and recur every *n* minutes, hours, days, 
+weeks, or months, starting at a specific time.
+* Run and recur weekly or monthly, but only on 
+specific days of the week or on specific days of the month.
+* Run and recur multiple times for a specific period. 
+For example, every month on the last Friday and Monday, 
+or daily at 5:15 AM and at 5:15 PM.
 
-## Date and date-time
-Date references in Scheduler jobs follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), and include only the date.
+This article later describes these scenarios in more detail.
 
-Date-time references in Scheduler jobs follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), and include both date and time. A date-time that doesn't specify a UTC offset is assumed to be UTC.  
+## Create schedule with JSON and REST API
 
-## Use JSON and the REST API to create a schedule
-To create a basic schedule by using the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143), first [register your subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx). The provider name for Scheduler is **Microsoft.Scheduler**. Then, [create a job collection](https://msdn.microsoft.com/library/mt629159.aspx). Finally, [create a job](https://msdn.microsoft.com/library/mt629145.aspx). 
+To create a basic schedule with the 
+[Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule), 
+follow these steps:
 
-When you create a job, you can specify scheduling and recurrence by using JSON, like in this excerpt:
+1. Register your Azure subscription with a resource provider 
+by using the [Register operation - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). 
+The provider name for the Azure Scheduler service is **Microsoft.Scheduler**. 
 
-    {
-        "startTime": "2012-08-04T00:00Z", // Optional
-         …
-        "recurrence":                     // Optional
-        {
-            "frequency": "week",     // Can be "year", "month", "day", "week", "hour", or "minute"
-            "interval": 1,                // How often to fire
-            "schedule":                   // Optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]                      
-            },
-            "count": 10,                  // Optional (default to recur infinitely)
-            "endTime": "2012-11-04",      // Optional (default to recur infinitely)
-        },
-        …
-    }
+1. Create a job collection by using the 
+[Create or Update operation for job collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) 
+in the Scheduler REST API. 
 
-## Job schema basics
-The following table provides a high-level overview of the major elements that you use to set recurrence and scheduling in a job:
+1. Create a job by using the [Create or Update operation for jobs](https://docs.microsoft.com/en-us/rest/api/scheduler/jobs/createorupdate). 
 
-| JSON name | Description |
-|:--- |:--- |
-| **startTime** |A date-time value. For basic schedules, **startTime** is the first occurrence. For complex schedules, the job starts no sooner than **startTime**. |
-| **recurrence** |Specifies recurrence rules for the job, and the recurrence at which the job runs. The recurrence object supports the elements **frequency**, **interval**, **endTime**, **count**, and **schedule**. If **recurrence** is defined, **frequency** is required. Other **recurrence** elements are optional. |
-| **frequency** |A string that represents the frequency unit at which the job recurs. Supported values are "minute", "hour", "day", "week", and "month". |
-| **interval** |A positive integer. **interval** denotes the interval for the **frequency** value that determines how often the job runs. For example, if **interval** is 3 and **frequency** is "week", the job recurs every three weeks.<br /><br />Scheduler supports a maximum **interval** of 18 for monthly frequency, 78 for weekly frequency, and 548 for daily frequency. For hour and minute frequency, the supported range is 1 <= **interval** <= 1000. |
-| **endTime** |A string that specifies the date-time beyond which the job doesn't run. You can set a value for **endTime** that's in the past. If **endTime** and **count** aren't specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
-| **count** |A positive integer (greater than zero) that specifies the number of times the job runs before it's completed.<br /><br />**count** represents the number of times the job runs before being determined completed. For example, for a job that's executed daily with a **count** of 5 and a start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.<br /><br />If no **endTime** or **count** is specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
-| **schedule** |A job with a specified frequency alters its recurrence based on a recurrence schedule. A **schedule** value contains modifications based on minutes, hours, week days, month days, and week number. |
+   When you create a job, you can specify the schedule 
+   and recurrence by using a JSON schema, for example:
+
+   ```json
+   {
+      "startTime": "2012-08-04T00:00Z", 
+      "recurrence": {
+         "frequency": "week",
+         "interval": 1,
+         "schedule": {
+            "weekDays": ["monday", "wednesday", "friday"],
+            "hours": [10, 22]                      
+         },
+         "count": 10,                  // Optional (default to recur infinitely)
+         "endTime": "2012-11-04",      // Optional (default to recur infinitely)
+      }
+   }
+   ``` 
+
+## Job schema elements
+
+This table provides a high-level overview for the major JSON elements 
+you can use when setting up recurrences and schedules for jobs:
+
+| JSON element | Required | Description |
+|--------------|----------|-------------|
+| **startTime** | No | Specifies a DateTime value. <p>For basic schedules, **startTime** is the first occurrence. <br>For complex schedules, the job starts no sooner than **startTime**. | 
+| **recurrence** | No | Specifies the recurrence rules for when the job runs. This **recurrence** object supports these elements: **frequency**, **interval**, **endTime**, **count**, and **schedule**. <p>If you use the **recurrence** element, you must also use the **frequency** element, while other **recurrence** elements are optional. |
+| **frequency** | Yes with **recurrence** | Specifies a string that represents the time unit for when the job recurs. Supports these values: "minute", "hour", "day", "week", "month", and "year" |
+| **interval** | No | Specifies a positive integer for the number of time units represented by **frequency** and determines how often the job runs. For example, if **interval** is 10 and **frequency** is "week", the job recurs every 10 weeks. <p>Here are the maximum intervals for each frequency: <p>- 18 for a monthly frequency <br>- 78 for weekly frequency <br>- 548 for daily frequency <br>- For hour and minute frequency, the supported range is 1 <= **interval** <= 1000. | 
+| **schedule** | No | A job with a specified frequency alters its recurrence based on a recurrence schedule. A **schedule** value contains modifications based on minutes, hours, week days, month days, and week number. |
+| **count** | No | A positive integer (greater than zero) that specifies the number of times the job runs before it's completed.<br /><br />**count** represents the number of times the job runs before being determined completed. For example, for a job that's executed daily with a **count** of 5 and a start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.<br /><br />If no **endTime** or **count** is specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
+| **endTime** | No | A string that specifies the date-time beyond which the job doesn't run. You can set a value for **endTime** that's in the past. If **endTime** and **count** aren't specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
+|||| 
 
 ## Job schema defaults, limits, and examples
+
 Later in the article, we discuss each of the following elements in detail:
 
 | JSON name | Value type | Required? | Default value | Valid values | Example |
@@ -95,8 +131,17 @@ Later in the article, we discuss each of the following elements in detail:
 | **endTime** |string |No |None |Date-time value that represents a time in the future |`"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **count** |number |No |None |>= 1 |`"count": 5` |
 | **schedule** |object |No |None |The schedule object |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+|||| 
+
+## Run based on date and time
+
+Date references in Scheduler jobs follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), and include only the date.
+
+Date-time references in Scheduler jobs follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), and include both date and time. 
+A date-time that doesn't specify a UTC offset is assumed to be UTC.  
 
 ## Deep dive: startTime
+
 The following table describes how **startTime** controls the way that a job runs:
 
 | startTime value | No recurrence | Recurrence, no schedule | Recurrence with schedule |
@@ -114,6 +159,7 @@ Note that the first execution would be the same whether **startTime** is 2015-04
 Finally, when a job has a schedule, if hours and minutes aren’t set in the schedule, the values default to the hours and minutes of the first execution, respectively.
 
 ## Deep dive: schedule
+
 You can use **schedule** to *limit* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs only on day 31, the job runs only in months that have a thirty-first day.
 
 You can also use **schedule** to *expand* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs on month days 1 and 2, the job runs on the first and second days of the month instead of only once a month.
@@ -131,6 +177,7 @@ The following table describes schedule elements in detail:
 | **monthDays** |Day of the month the job runs. Can be specified only with a monthly frequency. |An array of the following values:<br />- Any value <= -1 and >= -31<br />- Any value >= 1 and <= 31|
 
 ## Examples: Recurrence schedules
+
 The following examples show various recurrence schedules. The examples focus on the schedule object and its subelements.
 
 These schedules assume that **interval** is set to 1\. The examples also assume the correct **frequency** values for the values in **schedule**. For example, you can't use a **frequency** of "day" and have a **monthDays** modification in **schedule**. We describe these restrictions earlier in the article.

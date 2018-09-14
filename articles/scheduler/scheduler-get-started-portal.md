@@ -174,6 +174,7 @@ To learn how to set up access based on roles, see
 
 ## Next steps
 
-* Learn [how to build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
+* Learn about [concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
 * Learn about [high-availability and reliability for Scheduler](scheduler-high-availability-reliability.md)
-* Learn about [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+* Learn about [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)
