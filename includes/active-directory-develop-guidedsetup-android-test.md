@@ -30,13 +30,13 @@ ms.custom: include file
     ![Enter username and password](media/active-directory-develop-guidedsetup-android-test/usernameandpassword.png)
 
 ### Consent to your app
-The first time a new user signs in to your application, they will be prompted to consent to the permissions your app needs, as shown here: 
+The first time a user signs in to your application, they will be prompted to consent to the permissions your app needs, as shown here: 
 
 ![Provide your consent for application access](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
 
 ### Success!
-After you sign in & consent, the app will display response from the Microsoft Graph API. This specific call is to the **/me** endpoint and returns the [user profile](https://graph.microsoft.com/v1.0/me). For a list of other Microsoft Graph endpoints, see [Microsoft Graph API developer documentation](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
+After you sign in & consent, the app will display response from the Microsoft Graph API. This specific call is to the **/me** endpoint and returns the [user profile](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_get). For a list of other Microsoft Graph endpoints, see [Microsoft Graph API developer documentation](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->
 ### Scopes and delegated permissions
@@ -46,7 +46,7 @@ The Microsoft Graph API requires the *User.Read* scope to read a user's profile.
 To access the user’s calendars, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call. 
 
 >[!NOTE]
->Your users may be prompted for additional consents as you change your app registration.
+>Your users may be prompted for additional consent if you change your app registration.
 
 <!--end-collapse-->
 

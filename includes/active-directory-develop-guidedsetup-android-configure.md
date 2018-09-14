@@ -34,7 +34,7 @@ You can register your application in either of two ways, as described in the nex
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
 2. In the **Application Name** box, enter a name for your application. 
 
-3. Ensure that the **Guided Setup** check box is not selected, and then select **Create**.
+3. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
 
 4. Select **Add Platform**, select **Native Application**, and then select **Save**.
 
