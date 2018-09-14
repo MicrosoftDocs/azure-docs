@@ -84,6 +84,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`.
 
 ```python
+# load workspace configuration from the config.json file in the current folder.
 ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 ```
@@ -96,7 +97,7 @@ Create an experiment to track all the runs in your workspace.
 experiment_name = 'sklearn-mnist'
 
 from azureml.core import Experiment
-exp = Experiment(workspace_object = ws, name = experiment_name)
+exp = Experiment(workspace = ws, name = experiment_name)
 ```
 
 ### Create remote compute target
@@ -114,11 +115,15 @@ from azureml.core.compute_target import ComputeTargetException
 batchai_cluster_name = "traincluster"
 
 try:
+    # look for the existing cluster by name
     compute_target = ComputeTarget(workspace = ws, name = batchai_cluster_name)
-    print('found compute target. just use it.')
+    if compute_target is BatchAiCompute:
+        print('found compute target {}, just use it.'.format(batchai_cluster_name))
+    else:
+        print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
 except ComputeTargetException:
     print('creating a new compute target...')
-    compute_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+    compute_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", # small CPU-based VM
                                                                 #vm_priority = 'lowpriority', # optional
                                                                 autoscale_enabled = True,
                                                                 cluster_min_nodes = 0, 
@@ -129,7 +134,7 @@ except ComputeTargetException:
     
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it uses the scale settings for the cluster
-    compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
+    compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
     
     # Use the 'status' property to get a detailed status for the current cluster. 
     print(compute_target.status.serialize())
@@ -152,7 +157,7 @@ Download the MNIST dataset and save the files into a `data` directory locally.  
 
 ```python
 import os
-import urllib
+import urllib.request
 
 os.makedirs('./data', exist_ok = True)
 
@@ -179,6 +184,7 @@ y_train = load_data('./data/train-labels.gz', True).reshape(-1)
 X_test = load_data('./data/test-images.gz', False) / 255.0
 y_test = load_data('./data/test-labels.gz', True).reshape(-1)
 
+# now let's show some randomly chosen images from the traininng set.
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
@@ -212,7 +218,7 @@ ds.upload(src_dir = './data', target_path = 'mnist', overwrite = True, show_prog
 ```
 You now have everything you need to start training a model. 
 
-## Train a local model
+## Train a model locally
 
 Train a simple logistic regression model from scikit-learn locally.
 
@@ -255,8 +261,8 @@ Create a directory to deliver the necessary code from your computer to the remot
 
 ```python
 import os
-project_folder = './sklearn-mnist-proj'
-os.makedirs(project_folder, exist_ok = True)
+script_folder = './sklearn-mnist'
+os.makedirs(script_folder, exist_ok = True)
 ```
 
 ### Create a training script
@@ -264,7 +270,7 @@ os.makedirs(project_folder, exist_ok = True)
 To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you just created. This training adds a regularization rate to the training algorithm, so produces a slightly different model than the local version.
 
 ```python
-%%writefile $project_folder/train.py
+%%writefile $script_folder/train.py
 
 import argparse
 import os
@@ -332,7 +338,7 @@ Copy the utility library that loads the dataset into the project directory to be
 
 ```python
 import shutil
-shutil.copy('utils.py', project_folder)
+shutil.copy('utils.py', script_folder)
 ```
 
 
@@ -356,7 +362,7 @@ script_params = {
     '--regularization': 0.8
 }
 
-est = Estimator(source_directory = project_folder,
+est = Estimator(source_directory = script_folder,
                 script_params = script_params,
                 compute_target = compute_target,
                 entry_script = 'train.py',
@@ -369,8 +375,8 @@ est = Estimator(source_directory = project_folder,
 Run the experiment by submitting the estimator object.
 
 ```python
-run = exp.submit(config = est)
-print(run.get_details().status)
+run = exp.submit(config=est)
+run
 ```
 
 Since the call is asynchronous, it returns a **running** state as soon as the job is started.
@@ -444,6 +450,13 @@ print(model.name, model.id, model.version, sep = '\t')
 ## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+You can also just delete the Azure Managed Compute cluster. But even if you don't delete it, when the jobs are done, all cluster nodes will be shut down and you will not incur any additional compute charges since autoscale_enabled is set to True, and cluster_min_nodes is set to 0.
+
+```python
+# optionally, delete the Azure Managed Compute cluster
+compute_target.delete()
+```
 
 ## Next steps
 

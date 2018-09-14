@@ -96,7 +96,6 @@ project_folder = './automl-classifier'
 
 import os
 
-
 output = {}
 output['SDK version'] = azureml.core.VERSION
 output['Subscription ID'] = ws.subscription_id
