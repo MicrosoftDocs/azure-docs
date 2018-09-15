@@ -63,12 +63,11 @@ After editing the ``LocalForwarder.config`` file to add your instrumentation key
 
 6. To confirm that your desired settings are in place and that the local forwarder is listening for trace data as expected check the ``LocalForwarder.log`` file. You should see results similar to the image below at the bottom of the file:
 
-![Screenshot of LocalForwarder.log file](.\media\local-forwarder\003-log-file.png)
-
-
+    ![Screenshot of LocalForwarder.log file](.\media\local-forwarder\003-log-file.png)
 
 #### Console application
-For certain use cases, it might be beneficial to run Local Forwarder as a console application. The release comes with the following executable versions of the console host:
+
+For certain use cases, it might be beneficial to run local forwarder as a console application. The release comes with the following executable versions of the console host:
 * a framework-dependent .NET Core binary */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Running this binary requires a .NET Core runtime to be installed; refer to this download [page](https://www.microsoft.com/net/download/dotnet-core/2.1) for details.
 ```batchfile
 E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
@@ -91,12 +90,12 @@ user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwa
 user@machine:~/ConsoleHost/linux-x64/publish$ ./Microsoft.LocalForwarder.ConsoleHost
 ```
 
-Many Linux users will want to run Local Forwarder as a daemon. Linux systems come with a variety of solutions for service management, like Upstart, sysv, or systemd. Whatever your particular version is, you can use it to run Local Forwarder in a way that is most appropriate for your scenario.
+Many Linux users will want to run local forwarder as a daemon. Linux systems come with a variety of solutions for service management, like Upstart, sysv, or systemd. Whatever your particular version is, you can use it to run local forwarder in a way that is most appropriate for your scenario.
 
 As an example, let's create a daemon service using systemd. We'll use the framework-dependent version, but the same can be done for a self-contained one as well.
 
 * create the following service file named *localforwarder.service* and place it into */lib/systemd/system*.
-This sample assumes your user name is SAMPLE_USER and you've copied Local Forwarder framework-dependent binaries (from */ConsoleHost/publish*) to */home/SAMPLE_USER/LOCALFORWARDER_DIR*.
+This sample assumes your user name is SAMPLE_USER and you've copied local forwarder framework-dependent binaries (from */ConsoleHost/publish*) to */home/SAMPLE_USER/LOCALFORWARDER_DIR*.
 ```
 # localforwarder.service
 # Place this file into /lib/systemd/system/
@@ -120,12 +119,12 @@ ExecStart=/usr/bin/env dotnet /home/SAMPLE_USER/LOCALFORWARDER_DIR/Microsoft.Loc
 WantedBy=multi-user.target
 ```
 
-* Run the following command to instruct systemd to start Local Forwarder on every boot
+* Run the following command to instruct systemd to start local forwarder on every boot
 ```
 systemctl enable localforwarder
 ```
 
-* Run the following command to instruct systemd to start Local Forwarder immediately
+* Run the following command to instruct systemd to start local forwarder immediately
 ```
 systemctl start localforwarder
 ```
@@ -143,7 +142,7 @@ using Library;
 ...
 Host host = new Host();
 
-// see section below on configuring Local Forwarder
+// see section below on configuring local forwarder
 string configuration = ...;
     
 host.Run(config, TimeSpan.FromSeconds(5));
@@ -159,7 +158,7 @@ host.Stop();
 > Configuration may change from release to release, so pay attention to which version you're using.
 
 ## Monitoring local forwarder
-Traces are written out to the file system next to the executable that runs Local Forwarder (look for **.log* files). You can place a file with a name of *NLog.config* next to the executable to provide your own configuration in place of the default one. See [documentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) for the description of the format. If no configuration file is provided (which is the default), Local forwarder will use the default configuration, which can be found [here](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
+Traces are written out to the file system next to the executable that runs local forwarder (look for **.log* files). You can place a file with a name of *NLog.config* next to the executable to provide your own configuration in place of the default one. See [documentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) for the description of the format. If no configuration file is provided (which is the default), Local forwarder will use the default configuration, which can be found [here](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 
 ## Next steps
 
