@@ -35,6 +35,18 @@
     href: ingest-sample-data.md
   - name: Manage database permissions
     href: manage-database-permissions.md
+  - name: Scale a cluster
+    href: https://aka.ms/kustolangref
+  - name: Measure cluster health
+    href: https://aka.ms/kustolangref
+  - name: Troubleshooting
+    items:
+    - name: Creating a cluster
+      href: troubleshoot-create-cluster.md
+    - name: Connecting to a cluster
+      href: troubleshoot-connect-cluster.md
+    - name: Creating and deleting databases and tables
+      href: https://aka.ms/kustolangref 
 - name: Reference
   items:
   - name: Language reference

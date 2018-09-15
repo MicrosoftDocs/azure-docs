@@ -4,7 +4,8 @@ description: This article describes role-based access controls for databases and
 author: orspod
 ms.author: v-orspod
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
+services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
