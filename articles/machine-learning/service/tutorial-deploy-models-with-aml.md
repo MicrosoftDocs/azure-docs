@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 # Tutorial #2:  Deploy an image classification model in Azure Container Instance (ACI)
 
-This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered the best one in your workspace on the cloud.  
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
 Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
@@ -28,11 +28,11 @@ In this part of the tutorial, you use Azure Machine Learning service (Preview) t
 > * Deploy the model to ACI
 > * Test the deployed model
 
-ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
+ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using [Azure Kubernetes Service](how-to-deploy-to-aks.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `notebooks/tutorials/02.deploy-models.ipynb` notebook:
+For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/02.deploy-models.ipynb` notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
