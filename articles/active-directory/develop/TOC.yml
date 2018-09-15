@@ -189,6 +189,8 @@
       href: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
     - name: Service Principal API
       href: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity 
+    - name: Azure AD Graph API
+      href: active-directory-graph-api.md
     - name: Claims in Azure AD security tokens
       href: active-directory-optional-claims.md
     - name: Application manifest
