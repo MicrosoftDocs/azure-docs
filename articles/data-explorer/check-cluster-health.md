@@ -14,35 +14,26 @@ ms.date: 09/24/2018
 
 There are several factors that impact the health of an Azure Data Explorer cluster, including CPU, memory, and the disk subsystem. This article shows some basic steps you can take to gauge the health of a cluster.
 
-1.  
+1. Sign in to [https://kusto.azure.com](https://kusto.azure.com).
 
-1. Using Kusto Query Explorer connect to your Kusto cluster and run the
-    diagnostics command on the cluster as shown below. A return value of 1 (or
-    yes) for *IsHealthy* column suggests the cluster is healthy
+1. In the left pane, select your cluster, and run the following command.
 
-.show diagnostics*
+    ```Kusto
+    .show diagnostics
+    | project IsHealthy
+    ```
+    An output of 1 is healthy; an output of 0 is unhealthy.
 
->>  *\| project IsHealthy*
+1. Sign into the [Azure portal](https://portal.azure.com), and navigate to your cluster.
 
-|   | IsHealthy |
-|---|-----------|
-|   | 1         |
+1. Under **Monitoring**, select **Metrics**, then select **Keep Alive**, as shown in the following image. An output close to 1 means a healthy cluster.
 
->   Output:
+    ![Cluster Keep Alive metric](media/check-cluster-health/portal-metrics.png)
 
->   1 = Healthy
+1. Add other metrics like CPU and Memory Caching to gauge resource utilization for the cluster.
 
->   0 = Unhealthy
+1. If you need assistance diagnosing issues with the health of a cluster, please open a support request in the [Azure portal](https://portal.azure.com).
 
-2.  Navigate to your cluster in the [Azure portal](https://ms.portal.azure.com)
-    and under the **Monitoring** section select *Metrics* and select Keep Alive
-    as shown below. A value of 1 suggests healthy state
+## Next steps
 
-    *Further you can also add additional metrics like CPU, Memory Caching etc. to view individual resource utilization for the cluster*
-
->   Please see following reference clipping
-
-![](media/check-cluster-health/portal-metrics.png)
-
-
-3. In case you need further assistance with your cluster's health, please open a [support request ](<https://ms.portal.azure.com/#>) 
+[Troubleshoot: Failure to connect to a cluster in Azure Data Explorer](troubleshoot-connect-cluster.md)

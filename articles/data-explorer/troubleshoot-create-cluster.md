@@ -22,7 +22,7 @@ In the unlikely event that cluster creation fails in Azure Data Explorer, follow
 
     If the status isn't **Good** (green check mark), try creating the cluster after the status improves.
 
-1. If you still need assistance solving your issue, please open a support request in the [Azure portal](https://ms.portal.azure.com/#).
+1. If you still need assistance solving your issue, please open a support request in the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
