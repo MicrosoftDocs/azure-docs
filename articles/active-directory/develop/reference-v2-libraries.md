@@ -88,7 +88,7 @@ For more information about the Azure AD v2.0 endpoint, see the [Azure AD app mod
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Model-V2-Overview]: ../v2-overview.md
+[AAD-App-Model-V2-Overview]: v2-overview.md
 [ClientLib-NET-Lib]: http://www.nuget.org/packages/Microsoft.Identity.Client
 [ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
