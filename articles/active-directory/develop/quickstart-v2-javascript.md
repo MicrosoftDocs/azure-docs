@@ -126,7 +126,7 @@ var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID, nu
 
 > |Where  |  |
 > |---------|---------|
-> |`ClientId`     |Application Id from the application registered in the Azure Portal|
+> |`ClientId`     |Application Id from the application registered in the Azure portal|
 > |`authority`    |It is the authority URL. Passing *null* sets the default authority to `https://login.microsoftonline.com/common`. If your app is single-tenant (targeting accounts in one directory only), set this value to `https://login.microsoftonline.com/<tenant name or ID>`|
 > |`loginCallBack`| Callback method called after the authentication redirects back to app|
 > |`redirectUri`  |URL where users are redirected back after authentication with Azure AD|
