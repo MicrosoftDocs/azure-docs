@@ -23,7 +23,7 @@ Azure IoT Edge enables users to remotely deploy containerized cloud workloads to
 
 * An Azure Machine Learning Workspace, a local project directory and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
-* An [IoT Hub](../../azure/iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
+* An [IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
 
 * A trained model. For information on training a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
