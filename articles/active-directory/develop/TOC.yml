@@ -312,6 +312,7 @@
     - name: Permissions and consent
       displayName: Scopes
       href: v2-permissions-and-consent.md
+      items:
       - name: Consent framework
         href: consent-framework.md
       - name: Application consent experiences

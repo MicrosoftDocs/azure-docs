@@ -14315,11 +14315,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/active-directory-appmodel-v2-overview.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-appmodel-v2-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-authentication-libraries.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-authentication-libraries",
             "redirect_document_id": false
