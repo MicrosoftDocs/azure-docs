@@ -155,9 +155,7 @@ Now go back to the Azure portal to get your connection string information and co
     
 ## Use the X509 certificate
 
-1. Download the Baltimore CyberTrust Root certificate locally.
-
-   Download the certificate from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Save the file locally, using the file extension `.cer`.
+1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension `.cer`.
 
    The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`. 
 
