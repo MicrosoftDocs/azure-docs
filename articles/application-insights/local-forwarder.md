@@ -17,10 +17,10 @@ ms.author: mbullwin
 
 # Local forwarder
 
-Local forwarder is an agent that collects Application Insights or OpenCensus telemetry from a variety of SDKs and routes it to the Application Insights backend. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
+Local forwarder is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and routes it to the Application Insights backend. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
 
 ## Running Local forwarder
-Local forwarder is an [open source project on GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). There are a variety of ways to run Local forwarder on multiple platforms.
+Local forwarder is an [open source project on GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). There are a variety of ways to run local forwarder on multiple platforms.
 
 ### Windows
 #### Windows Service
@@ -30,7 +30,7 @@ The easiest way of running local forwarder under Windows is by installing it as 
 
     ![Screenshot of local forwarder release download page](.\media\local-forwarder\001-local-forwarder-windows-service-host-zip.png)
 
-2. In this example for ease of demonstration, we will just extract the .zip file to the path `C:\LF-WindowsServiceHost'.
+2. In this example for ease of demonstration, we will just extract the .zip file to the path `C:\LF-WindowsServiceHost`.
 
     To register the service and configure it to start at system boot run the following from the command line as Administrator:
 
@@ -40,23 +40,22 @@ The easiest way of running local forwarder under Windows is by installing it as 
     
     You should receive a response of:
     
-    ```
-    [SC] CreateService SUCCESS
-    ```
+    `[SC] CreateService SUCCESS`
     
     To examine your new service via the Services GUI type ``services.msc``
         
      ![Screenshot of local forwarder service](.\media\local-forwarder\002-services.png)
 
-3. Right-click the new local forwarder and select **Start**. Your service will now enter a running state.
+3. **Right-click** the new local forwarder and select **Start**. Your service will now enter a running state.
 
-4. By default the service is created without any recovery actions. You can right-click and select **Properties** > **Recovery** to configure automatic responses to a service failure.
+4. By default the service is created without any recovery actions. You can **right-click** and select **Properties** > **Recovery** to configure automatic responses to a service failure.
 
-    Or if you prefer to set automatic recovery options when failures occur programmatically you can use:
+    Or if you prefer to set automatic recovery options programmatically for when failures occur, you can use:
 
     ```
     sc failure "Local Forwarder" reset= 432000 actions= restart/1000/restart/1000/restart/1000
     ```
+
 5. In the same location as your ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` file, which in this example is ``C:\LF-WindowsServiceHost`` there is a file called ``LocalForwarder.config``. This is an xml based file that allows you to adjust the configuration of your localforwader and specify the instrumentation key of the Application Insights resource you want your distributed tracing data forwarded. 
 
 After editing the ``LocalForwarder.config`` file to add your instrumentation key, be sure to restart the **Local Forwarder Service** to allow your changes to take effect.
@@ -81,10 +80,13 @@ E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
 ### Linux
 As with Windows, the release comes with the following executable versions of the console host:
 * a framework-dependent .NET Core binary */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Running this binary requires a .NET Core runtime to be installed; refer to this download [page](https://www.microsoft.com/net/download/dotnet-core/2.1) for details.
+
 ```batchfile
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
+
 * a self-contained .NET Core set of binaries for linux-64. This one doesn't require .NET Core runtime to run. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
 user@machine:~/ConsoleHost/linux-x64/publish$ ./Microsoft.LocalForwarder.ConsoleHost
@@ -96,6 +98,7 @@ As an example, let's create a daemon service using systemd. We'll use the framew
 
 * create the following service file named *localforwarder.service* and place it into */lib/systemd/system*.
 This sample assumes your user name is SAMPLE_USER and you've copied local forwarder framework-dependent binaries (from */ConsoleHost/publish*) to */home/SAMPLE_USER/LOCALFORWARDER_DIR*.
+
 ```
 # localforwarder.service
 # Place this file into /lib/systemd/system/
@@ -120,11 +123,13 @@ WantedBy=multi-user.target
 ```
 
 * Run the following command to instruct systemd to start local forwarder on every boot
+
 ```
 systemctl enable localforwarder
 ```
 
 * Run the following command to instruct systemd to start local forwarder immediately
+
 ```
 systemctl start localforwarder
 ```
@@ -158,7 +163,9 @@ host.Stop();
 > Configuration may change from release to release, so pay attention to which version you're using.
 
 ## Monitoring local forwarder
-Traces are written out to the file system next to the executable that runs local forwarder (look for **.log* files). You can place a file with a name of *NLog.config* next to the executable to provide your own configuration in place of the default one. See [documentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) for the description of the format. If no configuration file is provided (which is the default), Local forwarder will use the default configuration, which can be found [here](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
+Traces are written out to the file system next to the executable that runs local forwarder (look for **.log* files). You can place a file with a name of *NLog.config* next to the executable to provide your own configuration in place of the default one. See [documentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) for the description of the format.
+
+If no configuration file is provided (which is the default), Local forwarder will use the default configuration, which can be found [here](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 
 ## Next steps
 
