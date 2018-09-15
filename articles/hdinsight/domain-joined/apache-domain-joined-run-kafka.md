@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 
 # Tutorial: Configure Kafka policies in HDInsight with Enterprise Security Package
 
-Learn how to configure Apache Ranger policies for Kafka. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend`.
+Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters, which are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
 
 In this tutorial, you learn how to:
 
@@ -64,7 +64,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
 
    The following wildcards can be included in the topic name:
 
-   * ’*’ indicates zero or more occurs of characters.
+   * ’*’ indicates zero or more occurrences of characters.
    * ’?‘ indicates single character.
 
    ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
@@ -125,7 +125,7 @@ To create two topics, **salesevents** and **marketingspend**:
    ```
 
    >[!NOTE] 
-   >Only the process owner of Kafka service, such as root, can write to Zookeeper znodes `/config/topics`. Ranger policies are not enforced when a non-privileged user creates a topic. This is because the `kafka-topics.sh` script communicates directly with Zookeeper to create the topic. Entries are added to the Zookeeper nodes, while the watchers on the broker side monitor and create topics accordingly. The authorization can't be done through the ranger plugin, and the command above is executed as sudo through the Kafka broker.
+   >Only the process owner of Kafka service, such as root, can write to Zookeeper znodes `/config/topics`. Ranger policies are not enforced when a non-privileged user creates a topic. This is because the `kafka-topics.sh` script communicates directly with Zookeeper to create the topic. Entries are added to the Zookeeper nodes, while the watchers on the broker side monitor and create topics accordingly. The authorization can't be done through the ranger plugin, and the command above is executed using `sudo` through the Kafka broker.
 
 
 ## Test the Ranger policies
