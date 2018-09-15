@@ -6,10 +6,7 @@
   expanded: true
   items:
   - name: Overview
-    expanded: true
-    items:
-    - name: About v1.0
-      href: azure-ad-developers-guide.md
+    href: azure-ad-developers-guide.md
   - name: Quickstarts
     items:
     - name: Create a new tenant
@@ -203,10 +200,7 @@
   expanded: true
   items:
   - name: Overview
-    expanded: true
-    items:
-    - name: About v2.0
-      href: v2-overview.md
+    href: v2-overview.md
   - name: Quickstarts
     items:
     - name: Create a new tenant
