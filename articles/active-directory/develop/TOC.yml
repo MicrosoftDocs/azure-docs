@@ -212,10 +212,8 @@
       href: quickstart-v2-register-an-app.md
     - name: Single page apps
       items:
-      - name: Angular JS
-        href: 
       - name: JavaScript
-        href: 
+        href: quickstart-v2-javascript.md
     - name: Web apps
       items:
       - name: ASP .NET
