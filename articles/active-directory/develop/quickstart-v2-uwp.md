@@ -107,7 +107,7 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 Msal has two methods used acquire tokens - `AcquireTokenAsync` and `AcquireTokenSilentAsync`:
 
-#### Getting a user token interactively
+#### Get a user token interactively
 
  Some situations require forcing users interact with Azure Active Directory v2 endpoint via an popup window to either validate their credentials or give consent - some examples include:
 
@@ -124,7 +124,7 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
 > |---------|---------|
 > |scopes | Contains the scopes being requested (i.e. `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs) |
 
-#### Getting a user token silently
+#### Get a user token silently
 
 You don't want to require user to validate their credentials every time they need to access a resource - most of the time you want token acquisitions and renewal without any user interaction - `AcquireTokenSilentAsync` is the method commonly used to obtain tokens used to access protected resources after the initial `AcquireTokenAsync`:
 
@@ -138,7 +138,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 > |scopes | Contains the scopes being requested (i.e. `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs) |
 > |accounts.FirstOrDefault() | The first user in the cache (MSAL support multiple users in a single app) |
 
-## What is next
+## Next steps
 
 Try out the Windows Desktop tutorial for a complete step-by-step guide on building applications and building new features, including a full explanation of this Quickstart:
 
