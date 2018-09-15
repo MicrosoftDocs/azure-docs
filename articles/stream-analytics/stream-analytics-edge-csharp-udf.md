@@ -31,7 +31,7 @@ Before you start, make sure you've completed the following prerequisites:
 * Take a look at the existing [Stream Analytics Edge development guide](stream-analytics-tools-for-visual-studio-edge-jobs.md).
 
 ## Create a container in your Azure Storage Account
-The container you create will be used to store the compiled C# package and deploy the package to your IoT Edge device. If you already have a storage account with existing containers, you may reuse them. If not, you'll need to [create a new container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). Use a dedicated container for each Stream Analytics job. Reusing the same container for multiple Stream Analytics Edge jobs is not supported.
+The container you create will be used to store the compiled C# package and deploy the package to your IoT Edge device. Use a dedicated container for each Stream Analytics job. Reusing the same container for multiple Stream Analytics Edge jobs is not supported. If you already have a storage account with existing containers, you may use them. If not, you'll need to [create a new container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## Create a Stream Analytics Edge project in Visual Studio
 
@@ -60,7 +60,6 @@ The container you create will be used to store the compiled C# package and deplo
     |Subscription  |  Choose your subscription.   |
     |Storage Account  |  Choose your storage account.   |
     |Container  |  Choose the container you created in your storage account.   |
-    |Assembly Package Destination  |  `udf.zip`   |
 
     ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-edge-job-config.png)
 
