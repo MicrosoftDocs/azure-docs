@@ -18204,12 +18204,12 @@
         },
         {
             "source_path": "articles/storage/common/storage-create-storage-account.md",
-            "redirect_url": "/azure/storage/blobs/storage-quickstart-create-account",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/common/storage-account-options.md",
-            "redirect_url": "/azure/storage/blobs/storage-account-overview",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
             "redirect_document_id": true
         },
         {

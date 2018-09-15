@@ -45,7 +45,7 @@ The following table describes the types of storage accounts and their capabiliti
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
 
-Microsoft recommends using a general-purpose v2 storage account for most scenarios. To learn how to upgrade your existing general-purpose v1 or Blob storage account to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). 
+Microsoft recommends using a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account with no downtime or application rewrites, and without the need to copy data. For more information on upgrading to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). 
 
 General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
 
@@ -133,6 +133,31 @@ You can grant access to the data in your storage account using any of the follow
 > Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. 
 >
 > Microsoft recommends using Azure AD authentication for your Azure Storage blob and queue applications when possible.
+
+## Copying data into a storage account
+
+If you need to migrate existing data from on-premises storage devices or third-party cloud storage providers, or from a general-purpose v1 account to a Blob storage account, you'll need to migrate your data manually. You can use the tools and APIs described in the following sections to migrate existing data:
+
+### AzCopy
+
+AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into a Blob storage account from an existing general-purpose storage account, or to upload data from on-premises storage devices. For more information, see [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### Data movement library
+
+The Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. You can use it to take advantage of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy. For more information, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+
+### REST API or client library
+
+You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+
+For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/). 
+
+> [!IMPORTANT]
+> Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### Azure Import/Export service
+
+Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. For more information, see [What is Azure Import/Export service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## Storage account billing
 
