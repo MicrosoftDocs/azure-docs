@@ -42,10 +42,6 @@ sections:
       text: Timer
       href: /azure/azure-functions/functions-create-scheduled-function
     - image: 
-        src: media/index/octokitty.svg
-      text: GitHub webhook
-      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-    - image: 
         src: media/index/cosmosdb.svg
       text: Azure Cosmos DB
       href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
