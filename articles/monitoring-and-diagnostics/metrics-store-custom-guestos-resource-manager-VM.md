@@ -52,15 +52,15 @@ https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-wi
 
 1. Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName**.  
 
-[!code-json[](code/metrics-custom-guestos-resource-manager-VM.json)]
+[!code-json[name](code/metrics-custom-guestos-resource-manager-VM/metrics-custom-guestos-resource-manager-VM.json)]
 
 Testing range
 
-[!code-json[](code/metrics-custom-guestos-resource-manager-VM.json?range=13-18&highlight=2,5)]
+[!code-json[](code/metrics-custom-guestos-resource-manager-VM/metrics-custom-guestos-resource-manager-VM.json?range=13-18&highlight=2,5)]
 
 Testing range and highlighting
 
-[!code-json[](code/metrics-custom-guestos-resource-manager-VM.json?range=13-18&?ame=snippet_Create&highlight=4,6-7,14-21)]
+[!code-json[](code/metrics-custom-guestos-resource-manager-VM/metrics-custom-guestos-resource-manager-VM.json?range=13-18&?ame=snippet_Create&highlight=4,6-7,14-21)]
 
 
 
