@@ -96,6 +96,14 @@
   - name: Customize device wake word (Devices SDK)
     href: speech-devices-sdk-create-kws.md
     displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+  - name: Migrate
+    items:
+    - name: From the Translator Speech API
+      href: how-to-migrate-from-translator-speech-api.md
+    - name: From Custom Speech Service
+      href: how-to-migrate-from-custom-speech-service.md
+    - name: From Bing Speech
+      href: how-to-migrate-from-bing-speech.md
 - name: Concepts
   items:
   - name: Speech-to-Text
