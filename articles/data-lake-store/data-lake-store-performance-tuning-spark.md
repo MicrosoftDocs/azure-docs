@@ -25,11 +25,11 @@ When tuning performance on Spark, you need to consider the number of apps that w
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 * **Running Spark cluster on Data Lake Storage Gen1**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Performance tuning guidelines on ADLS**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
 
 ## Parameters
 
-When running Spark jobs, here are the most important settings that can be tuned to increase performance on ADLS:
+When running Spark jobs, here are the most important settings that can be tuned to increase performance on Data Lake Storage Gen1:
 
 * **Num-executors** - The number of concurrent tasks that can be executed.
 
@@ -64,7 +64,7 @@ There are a few general ways to increase concurrency for I/O intensive jobs.
 Increasing the number of executor-cores will give you more parallelism so you can experiment with different executor-cores.  For jobs that have more complex operations, you should reduce the number of cores per executor.  If executor-cores is set higher than 4, then garbage collection may become inefficient and degrade performance.
 
 **Step 4: Determine amount of YARN memory in cluster** – This information is available in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
-Note: while you are in the window, you can also see the default YARN container size.  The YARN container size is the same as memory per executor paramter.
+Note while you are in the window, you can also see the default YARN container size.  The YARN container size is the same as memory per executor parameter.
 
 	Total YARN memory = nodes * YARN memory per node
 **Step 5: Calculate num-executors**

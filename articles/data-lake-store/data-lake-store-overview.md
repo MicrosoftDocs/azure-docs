@@ -28,7 +28,7 @@ Data Lake Storage Gen1 can be accessed from Hadoop (available with HDInsight clu
 
 ![Azure Data Lake](./media/data-lake-store-overview/data-lake-store-concept.png)
 
-Some of the key capabilities of the Azure Data Lake include the following.
+Some of the key capabilities of Data Lake Storage Gen1 include the following.
 
 ### Built for Hadoop
 Data Lake Storage Gen1 is an Apache Hadoop file system compatible with Hadoop Distributed File System (HDFS) and works with the Hadoop ecosystem.  Your existing HDInsight applications or services that use the WebHDFS API can easily integrate with Data Lake Storage Gen1. Data Lake Storage Gen1 also exposes a WebHDFS-compatible REST interface for applications
@@ -42,7 +42,7 @@ Data Lake Storage Gen1 provides unlimited storage and is suitable for storing a 
 Data Lake Storage Gen1 is built for running large scale analytic systems that require massive throughput to query and analyze large amounts of data. The data lake spreads parts of a file over a number of individual storage servers. This improves the read throughput when reading the file in parallel for performing data analytics.
 
 ### Enterprise-ready: Highly-available and secure
-Data Lake Storage Gen1 provides industry-standard availability and reliability. Your data assets are stored durably by making redundant copies to guard against any unexpected failures. Enterprises can use Azure Data Lake in their solutions as an important part of their existing data platform.
+Data Lake Storage Gen1 provides industry-standard availability and reliability. Your data assets are stored durably by making redundant copies to guard against any unexpected failures. Enterprises can use Data Lake Storage Gen1 in their solutions as an important part of their existing data platform.
 
 Data Lake Storage Gen1 also provides enterprise-grade security for the stored data. For more information, see [Securing data in Azure Data Lake Storage Gen1](#DataLakeStoreSecurity).
 
