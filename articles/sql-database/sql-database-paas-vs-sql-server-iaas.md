@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ---
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)
@@ -83,7 +83,7 @@ Whether you’re a startup that is strapped for cash, or a team in an establishe
 
 #### Billing and licensing basics
 
-Currently, **SQL Database** is sold as a service and is available in several service tiers with different prices for resources, all of which are billed hourly at a fixed rate based on the service tier and performance level you choose. With SQL Database Managed Instance, you can also bring your own license. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). You can dynamically adjust service tiers and performance levels to match your application’s varied throughput needs. For the latest information on the current supported service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can also create [elastic pools](sql-database-elastic-pool.md) to share resources among database instances to reduce costs and accommodate usage spikes.
+Currently, **SQL Database** is sold as a service and is available in several service tiers with different prices for resources, all of which are billed hourly at a fixed rate based on the service tier and compute size you choose. With SQL Database Managed Instance, you can also bring your own license. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). You can dynamically adjust service tiers and compute sizes to match your application’s varied throughput needs. For the latest information on the current supported service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can also create [elastic pools](sql-database-elastic-pool.md) to share resources among database instances to reduce costs and accommodate usage spikes.
 
 With **SQL Database**, the database software is automatically configured, patched, and upgraded by Microsoft, which reduces your administration costs. In addition, its [built-in backup](sql-database-automated-backups.md) capabilities help you achieve significant cost savings, especially when you have a large number of databases. 
 
