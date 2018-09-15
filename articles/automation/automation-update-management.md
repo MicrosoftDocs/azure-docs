@@ -215,6 +215,7 @@ To create a new update deployment, select **Schedule update deployment**. The **
 |Update classifications|Select all the update classifications that you need|
 |Updates to exclude|Enter the updates to exclude. For  Windows, enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
+| Pre-scripts + Post-scripts|Select the scripts to run before and after your deployment|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
 | Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
