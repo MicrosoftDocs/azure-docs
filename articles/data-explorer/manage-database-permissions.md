@@ -43,9 +43,9 @@ Azure Data Explorer has the following roles:
 
 1. Under **Add permissions**, select the role that you want to assign the principal to.
 
-1. Look up and select the principal, then select **Save**.
+1. Look up the principal, select it, then select **Save**.
 
-![Manage permissions in the Azure portal](media/manage-database-permissions/manage-permissions-portal.png)
+    ![Manage permissions in the Azure portal](media/manage-database-permissions/manage-permissions-portal.png)
 
 ## Manage permissions with management commands
 

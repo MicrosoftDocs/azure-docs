@@ -36,7 +36,6 @@ Ensure you have adequate permissions. To delete or rename a database, you must b
 
     ```Kusto
     .drop table <TableName>
-    requires table admin permissions
 
    .rename table <OldTableName> to <NewTableName>
     ```
