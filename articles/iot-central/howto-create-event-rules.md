@@ -12,6 +12,8 @@ manager: peterpr
 
 # Create an eEvent rule and set up notifications in your Azure IoT Central application
 
+*This topic applies to operators, builders, and administrators.*
+
 You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email or trigger Microsoft Flow. In just a few clicks, you can define the condition for which to monitor your device data and configure the corresponding action. This article explains how to create rules to monitor events sent by the device.
 
 Devices can use event measurement to send important or informational device events. An event rule triggers when the selected device event is reported by the device.

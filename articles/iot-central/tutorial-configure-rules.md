@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Configure rules and actions for your device in Azure IoT Central
 
-This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Microsoft Azure IoT Central application.
+*This topic applies to operators, builders, and administrators.*
 
 In this tutorial, you create a rule that sends an email when the temperature in a connected air conditioner device exceeds 90&deg; F.
 
