@@ -45,7 +45,7 @@
     href: monitoring-action-groups.md
   - name: Azure Diagnostics Extension
     href: azure-diagnostics.md
-  - name: Resource group insights
+  - name: Monitor resource groups
     href: resource-group-insights.md
   - name: Roles permissions and security
     href: monitoring-roles-permissions-security.md
