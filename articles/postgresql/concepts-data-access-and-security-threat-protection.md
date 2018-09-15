@@ -6,7 +6,7 @@ author: bolzmj
 manager: kfile
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/14/2018
 ms.author: mbolz
 
 ---

@@ -6,7 +6,7 @@ author: bolzmj
 manager: kfile
 ms.service: mysql
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/14/2018
 ms.author: mbolz
 
 ---
@@ -14,7 +14,7 @@ ms.author: mbolz
 
 Advanced Threat Protection for Azure Database for MySQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Threat Protection is part of the Advanced Threat Protection (ATP) offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
+Advanced Threat Protection is part of the Advanced Threat Protection (ATP) offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
 
 ## What is Advanced Threat Protection?
 

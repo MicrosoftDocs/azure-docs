@@ -1,12 +1,12 @@
 ---
-title: Threat Protection - Azure Database for MySQL | Microsoft Docs
+title: Advanced Threat Protection - Azure Database for MySQL | Microsoft Docs
 description: Threat Protection detects anomalous database activities indicating potential security threats to the database. 
 services: mysql
 author: bolzmj
 manager: kfile
 ms.service: mysql
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/14/2018
 ms.author: mbolz
 
 ---
@@ -14,15 +14,15 @@ ms.author: mbolz
 
 Advanced Threat Protection for Azure Database for MySQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Threat Protection is part of the Advanced Threat Protection (ATP) offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
+Advanced Threat Protection is part of the Advanced Data Security offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
 
 ## Set up threat detection for your database in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the configuration page of the Azure Database for MySQL server you want to protect. In the security settings, select **Threat Protection (Preview)**.
-3. On the **Threat Protection (Preview)** configuration page:
+2. Navigate to the configuration page of the Azure Database for MySQL server you want to protect. In the security settings, select **Advanced Threat Protection (Preview)**.
+3. On the **Advanced Threat Protection (Preview)** configuration page:
 
    - Enable Advanced Threat Protection on the server.
-   - In **Threat Protection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
+   - In **Advanced Threat Protection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
   
    ![Set up threat detection](./media/howto-database-threat-protection-using-portal/set-up-threat-protection.png)
 
