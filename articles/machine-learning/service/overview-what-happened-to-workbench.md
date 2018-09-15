@@ -88,8 +88,7 @@ In the latest release, the new Python SDK allows you to interact with the Azure 
 
 With this latest release, the Visual Studio (VS) Code Tools for AI extension has been expanded and improved to work with the above new features.
 
-
-[ ![Online portal](./media/overview-what-happened-to-workbench/vscode.png) ]
+[ ![Visual Studio Code Tools for AI](./media/overview-what-happened-to-workbench/vscode.png) ]
 (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## What about domain packages?
