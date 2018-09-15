@@ -73,20 +73,10 @@ For other datatypes and attributes, make a feature request or vote on the [userv
 Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 * Token  
-* Aggregate 
-
-  * MIN()  
-  * MAX()  
-  * SUM()  
-  * AVG()  
-
 * Blob conversion functions 
-
   * typeAsBlob(value)  
   * blobAsType(value)
-
 * UUID and timeuuid functions 
-
   * dateOf()  
   * now()  
   * minTimeuuid()  
@@ -108,9 +98,7 @@ Azure Cosmos DB Cassandra API does not have any limits on the size of data store
 
 ## Tools 
 
-Azure Cosmos DB Cassandra API is a managed service platform. It does not require any management overhead or utilities such as Garbage Collector, Java Virtual Machine(JVM), and nodetool to manage the cluster. It supports tools such as cqlsh that utilizes Binary CQLv4 compatibility.
-
-* cqlsh  
+Azure Cosmos DB Cassandra API is a managed service platform. It does not require any management overhead or utilities such as Garbage Collector, Java Virtual Machine(JVM), and nodetool to manage the cluster. It supports tools such as cqlsh that utilizes Binary CQLv4 compatibility. 
 
 * Azure portal's data explorer, metrics, log diagnostics, PowerShell, and cli are other supported mechanisms to manage the account.
 
@@ -124,19 +112,19 @@ CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of bo
 set SSL_VERSION=TLSv1_2 
 SSL_CERTIFICATE=<path to balitmore root ca cert>
 set CQLSH_PORT=10350 
-cqlsh.py <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 **Unix/Linux/Mac:**
 
 ```bash
 export SSL_VERSION=TLSv1_2 
 SSL_CERTIFICATE=<path to balitmore root ca cert>
-cqlsh.py <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 
 ## CQL commands
 
-Azure Cosmos DB supports the following database commands on all Cassandra API accounts.
+Azure Cosmos DB supports the following database commands on Cassandra API accounts.
 
 * CREATE KEYSPACE 
 
