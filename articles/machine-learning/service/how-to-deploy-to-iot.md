@@ -21,11 +21,11 @@ Azure IoT Edge enables users to remotely deploy containerized cloud workloads to
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An Azure Machine Learning Workspace, a local project directory and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment?branch=release-ignite-aml) document.
+* An Azure Machine Learning Workspace, a local project directory and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
-* An [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal) in your Azure subscription. 
+* An [IoT Hub](../../azure/iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
 
-* A trained model. For information on training a model, see the [Train an image classification model with Azure Machine Learning](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/tutorial-train-models-with-aml?branch=release-ignite-aml).
+* A trained model. For information on training a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 
 ## Prepare the IoT device
@@ -117,19 +117,14 @@ Create a Docker image to store all model files.
 
 Next, you need to find the container image you created with Azure Machine Learning and write down the container registry credentials:
 
-1. Log into [Azure Portal](https://portal.azure.com/signin/index).
+1. Sign in to [Azure Portal](https://portal.azure.com/signin/index).
 
 1. Navigate to the resource group where the container to be deployed is registered.
 
-   ADD SCREEN SHOT
 
 1. Once in the container registry, select **Access Keys**.
 
-   ADD SCREEN SHOT
-
 1. Enable the admin user.
-
-   ADD SCREEN SHOT
 
 1. Save the values for login server, username, and password. 
 

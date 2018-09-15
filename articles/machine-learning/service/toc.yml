@@ -90,6 +90,8 @@
          href: how-to-deploy-to-aks.md
        - name: Deploy to FPGAs
          href: how-to-deploy-fpga-web-service.md  
+       - name: Deploy to IoT Edge
+         href: how-to-deploy-to-iot.md  
   - name: Manage quotas
     href: how-to-manage-quotas.md
   - name: Export and delete data
