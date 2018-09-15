@@ -116,7 +116,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
     > ```
 
 > [!div renderon="docs"]
-> 5. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
+> <span>5.</span> Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
 
 
 ## More Information
