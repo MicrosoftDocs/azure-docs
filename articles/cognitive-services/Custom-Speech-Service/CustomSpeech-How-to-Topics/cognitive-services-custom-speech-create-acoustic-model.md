@@ -12,7 +12,7 @@ ms.author: panosper
 ---
 # Tutorial: Create a custom acoustic model
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 In this tutorial, you create a custom acoustic model for speech data that you expect your application to recognize. Creating a custom acoustic model is helpful if your application is designed for use in a particular environment, such as a noisy factory, or by a particular user population.
 

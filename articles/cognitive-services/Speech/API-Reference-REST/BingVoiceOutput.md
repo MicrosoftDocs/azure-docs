@@ -12,7 +12,7 @@ ms.author: priyar
 ---
 # Bing text to speech API
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="Introduction"></a>Introduction
 

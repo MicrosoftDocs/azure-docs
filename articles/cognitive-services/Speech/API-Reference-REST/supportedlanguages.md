@@ -12,7 +12,7 @@ ms.author: zhouwang
 ---
 # Supported languages
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## Interactive and dictation mode
 

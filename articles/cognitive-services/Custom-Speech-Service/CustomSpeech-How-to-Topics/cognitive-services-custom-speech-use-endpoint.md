@@ -13,7 +13,7 @@ ms.author: panosper
 
 # Use a custom speech-to-text endpoint
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 You can send requests to an Azure Custom Speech Service speech-to-text endpoint, in a similar way as you can to the default Cognitive Services speech endpoint. These endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality that's available via the client library or the REST API for the Speech API is also available for your custom endpoint.
 

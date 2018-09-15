@@ -12,7 +12,7 @@ ms.author: zhouwang
 ---
 # Get started with Speech Service
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 To use the Microsoft speech recognition service to convert audio to text, see the Speech Recognition [REST APIs](GetStartedREST.md) or the [client libraries](GetStartedClientLibraries.md).
 

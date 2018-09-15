@@ -12,7 +12,7 @@ ms.author: zhouwang
 ---
 # Authenticate to the Speech API
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Speech Service supports authentication by using:
 

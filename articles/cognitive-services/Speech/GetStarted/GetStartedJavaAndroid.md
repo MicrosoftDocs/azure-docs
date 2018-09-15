@@ -12,7 +12,7 @@ ms.author: zhouwang
 ---
 # Get started with speech recognition in Java on Android
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 With the Speech Recognition API, you can develop Android applications that use cloud-based Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it's sending audio to the service.
 
