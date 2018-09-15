@@ -146,11 +146,11 @@ userAgentApplication.loginRedirect(graphAPIScopes);
 > [!TIP]
 > Alternatively, you may want to use the `loginPopup` method to display a popup window to sign in the user.
 
-### Requesting tokens
+### Request tokens
 
 MSAL has three methods used to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup` and `acquireTokenSilent`:
 
-#### Getting a user token silently
+#### Get a user token silently
 
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
@@ -163,7 +163,7 @@ userAgentApplication.acquireTokenSilent(graphAPIScopes)
 > |---------|---------|
 > | `graphAPIScopes`   | Contains scopes being requested to be returned in the access token for API (Ex: `[ "user.read" ]` for Microsoft Graph or `[ "api://<Application ID>/access_as_user" ]` for custom Web APIs). |
 
-#### Getting a user token interactively
+#### Get a user token interactively
 
  There are situations where you need to force users to interact with Azure AD v2.0 endpoint. For example:
 * Users may need to reenter their credentials because their password has expired
