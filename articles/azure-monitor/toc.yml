@@ -206,7 +206,7 @@
         - name: Enable diagnostic settings with Resource Manager templates
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: Prepare for JSON Lines diagnostic logs format
-          href: ../monitoring-and-diagnostics//monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+          href: ../monitoring-and-diagnostics/monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshoot
         items:
         - name: Troubleshoot VM Extension
