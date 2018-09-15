@@ -177,7 +177,7 @@ The following procedure describes how to add a Terms of use language.
 
 ## Per-device Terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the Terms of use on each device.
+The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joing, the device ID is used to enforce the Terms of use on each device.
 
 Here is a list of the supported platforms and software.
 
@@ -191,17 +191,17 @@ Here is a list of the supported platforms and software.
 
 Per-device Terms of use has the following constraints:
 
-- A device can only be registered with one tenant.
-- A user must have permissions to register their device.
+- A device can only be joined to one tenant.
+- A user must have permissions to join their device.
 - The Intune enrollment app is not supported.
 
-If the user's device is not registered, they will receive a message that they need to register their device. Their experience will be dependent on the platform and software.
+If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
 
-### Register Windows 10 device
+### Join a Windows 10 device
 
-If a user is using Windows 10 and Edge, they will receive a message similar to the following to [register their device](/intune-user-help/enroll-your-w10-device-access-work-or-school).
+If a user is using Windows 10 and Edge, they will receive a message similar to the following to [join their device](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
 
-![Windows 10 Edge - Register device prompt](media/active-directory-tou/per-device-win10-edge.png)
+![Windows 10 Edge - Join device prompt](./media/active-directory-tou/per-device-win10-edge.png)
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
