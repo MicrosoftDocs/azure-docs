@@ -234,11 +234,10 @@ When an experiment has finished running, you can  browse to the recorded experim
 * Get the URL to the run directly ```print(run.get_portal_url())```
 * View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
 
-The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
+The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
+  ![Screenshot of run details in web portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
-Under the outputs tab, you can view and download the model.pkl that we uploaded in the code above. This example did not save anything to logs, but if it had, you could see these under the logs tab.
-
-You can also download the snapshot of the experiment you submitted.
+You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted to be able to share the experiment folder with others.
 
 ## Examples
 The following notebooks demonstrate concepts in this article:
