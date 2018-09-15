@@ -104,7 +104,6 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
-
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Data Science Virtual Machines (DSVM).
@@ -114,23 +113,38 @@ Your local machine may not have the compute or GPU resources required to train t
 
 The following steps use the SDK to configure a Data Science Virtual Machine (DSVM) as a training target:
 
-1. Create or attach a Virtual Machine. The following code snippet checks to see if you have a DSVM with the given name, if not a new one is created:
+1. Create or attach a Virtual Machine
+    
+    * To create a new DSVM, first check to see if you have a DSVM with the same name, if not create a new VM:
+    
+        ```python
+        from azureml.core.compute import DsvmCompute
+        from azureml.core.compute_target import ComputeTargetException
 
-    ```python
-    from azureml.core.compute import DsvmCompute
-    from azureml.core.compute_target import ComputeTargetException
+        compute_target_name = 'mydsvm'
 
-    compute_target_name = 'mydsvm'
+        try:
+            dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
+            print('found existing:', dsvm_compute.name)
+        except ComputeTargetException:
+            print('creating new.')
+            dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
+            dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
+            dsvm_compute.wait_for_completion(show_output = True)
+        ```
+    * To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name,login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
 
-    try:
-        dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
-        print('found existing:', dsvm_compute.name)
-    except ComputeTargetException:
-        print('creating new.')
-        dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-        dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
-        dsvm_compute.wait_for_completion(show_output = True)
-    ```
+        ```python
+        from azureml.core.compute import RemoteCompute
+
+        dsvm_compute = RemoteCompute.attach(ws,
+                                        name="attach-dsvm",
+                                        username='<username>',
+                                        address="<fqdn>",
+                                        ssh_port=22,
+                                        password="<password>")
+
+        dsvm_compute.wait_for_completion(show_output=True)
     
    It takes around 5 minutes to create the DSVM instance.
 
@@ -263,7 +277,7 @@ It can take from a few seconds to a few minutes to create an ACI compute target.
 
 ## <a id="hdinsight"></a>Attach an HDInsight cluster 
 
-HDInsight is a popular platform for big-data analytics. It provides Apache Spark, which can be used to train your model. 
+HDInsight is a popular platform for big-data analytics. It provides Apache Spark, which can be used to train your model.
 
 > [!IMPORTANT]
 > You must create the HDInsight cluster before using it to train your model. To create a Spark on HDInsight cluster, see the [Create a Spark Cluster in HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) document.
@@ -327,7 +341,7 @@ You can view what compute targets are associated with your workspace from the Az
 
 ### Create a compute target
 
-TFollow the above steps to view the list of compute targets, and then use the following steps to create a compute target:
+Follow the above steps to view the list of compute targets, and then use the following steps to create a compute target:
 
 1. Click the __+__ sign to add a compute target.
 
@@ -340,8 +354,9 @@ TFollow the above steps to view the list of compute targets, and then use the fo
 1. You can view the status create operation by selecting the compute target from the list.
 
     ![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
-
-7. Now you can submit a run against these targets as detailed above.
+    You will then see the details for that compute.
+    ![View details](./media/how-to-set-up-training-targets/vm_view.PNG)
+1. Now you can submit a run against these targets as detailed above.
 
 ### Reuse existing compute in your workspace
 
@@ -362,6 +377,17 @@ Follow the above steps to view the list of compute targets, then use the followi
 
 5. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
 6. Now you can submit a run against these targets.
+
+## Examples
+The following notebooks demonstrate concepts in this article:
+* `00.Getting Started/02.train-on-local/02.train-on-local.ipynb`
+* `00.Getting Started/04.train-on-remote-vm/04.train-on-remote-vm`
+* `00.Getting Started/05.train-in-spark/05.train-in-spark.ipynb`
+* `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+* `folder/notebook2.ipynb`
+
+Get these notebooks:
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 

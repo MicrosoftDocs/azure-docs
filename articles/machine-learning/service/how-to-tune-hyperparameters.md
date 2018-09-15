@@ -300,8 +300,12 @@ print('Best Run :\n  Id: {0}\n  Accuracy: {1:.6f} \n  Learning rate: {2:.6f} \n 
 print(helpers.get_run_history_url(best_run))
 ```
 
-## Sample notebook
-Refer to `00.Getting Started/08.hyperdrive-with-TensorFlow/08.hyperdrive-with-TensorFlow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. Get this notebook:
+## Sample notebooks
+Refer to 
+* `00.Getting Started/08.hyperdrive-with-TensorFlow/08.hyperdrive-with-TensorFlow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
+* `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb` for a tutorial on tuning hyperparameters with sklearn. 
+
+Get these notebooks:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
