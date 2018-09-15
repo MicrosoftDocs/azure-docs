@@ -13,13 +13,13 @@ ms.custom: codepen
 
 # Get information from a coordinate
 
-This article shows you how to make a reverse address search, and upon a mouse click show the address of the clicked location in a popup.
+This article shows how to make a reverse address search that shows the address of a clicked popup location.
 
 There are two ways to make a reverse address search. One way is to query the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module. The other way is to make a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API to find an address. Both ways are surveyed below.
 
 ## Make a reverse search request via service module
 
-The code below demonstrates how to query the the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module:
+The code below demonstrates how to query the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module:
 
 <iframe height='500' scrolling='no' title='Get information from a coordinate (Service Module)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Get information from a coordinate (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

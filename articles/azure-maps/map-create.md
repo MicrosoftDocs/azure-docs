@@ -17,7 +17,7 @@ This article shows you how to create a map.
 
 ## Understand the code
 
-There are two ways you can construct a map. You can set the camera of the map by specifying the center point and zoom level. You can set the camera bounds of the map by specifying the southwest bounding point and northeast bounding point.
+There are two ways you can construct a map. You can set the camera of the map by specifying the center point and zoom level. Set the camera bounds of the map by specifying the southwest bounding point and northeast bounding point.
 
 <a id="setCameraOptions"></a>
 
