@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create an eEvent rule and set up notifications in your Azure IoT Central application
+# Create an Event rule and set up notifications in your Azure IoT Central application
 
 *This article applies to operators, builders, and administrators.*
 
