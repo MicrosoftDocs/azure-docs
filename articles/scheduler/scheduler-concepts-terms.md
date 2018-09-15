@@ -271,7 +271,7 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
 | **frequency** | Yes, when **recurrence** is used | "Minute", "Hour", "Day", "Week", "Month", "Year" | The time unit between occurences | 
-| **interval** | No | 1 | The number of recurrences with a default of 1. | 
+| **interval** | No | 1 to 1000 inclusively | A positive integer that determines the number of time units between each occurence based on **frequency** | 
 | **schedule** | No | Varies | The details for more complex and advanced schedules. See **hours**, **minutes**, **weekDays**, **months**, and **monthDays** | 
 | **hours** | No | 1 to 24 | An array with the hour marks for when to run the job | 
 | **minutes** | No | 1 to 24 | An array with the minute marks for when to run the job | 
@@ -282,7 +282,7 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 | **endTime** | No | <*none*> | The date and time for when to stop the recurrence. The default is to recur infinitely. You can't use both **count** and **endTime**, but the rule that finishes first is honored. | 
 ||||
 
-For more information, see 
+For more information about these elements, see 
 [Build complex schedules and advanced recurrences](../scheduler/scheduler-advanced-complexity.md).
 
 <a name="retry-policy"></a>

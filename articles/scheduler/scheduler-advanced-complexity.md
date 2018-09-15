@@ -86,25 +86,16 @@ in the Scheduler REST API.
 This table provides a high-level overview for the major JSON elements 
 you can use when setting up recurrences and schedules for jobs. 
 
-| Element | Required | Description |
+| Element | Required | Description | 
 |---------|----------|-------------|
 | **startTime** | No | A DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job first starts in a basic schedule. <br>For complex schedules, the job starts no sooner than **startTime**. | 
 | **recurrence** | No | The recurrence rules for when the job runs. The **recurrence** object supports these elements: **frequency**, **interval**, **schedule**, **count**, and **endTime**. <p>If you use the **recurrence** element, you must also use the **frequency** element, while other **recurrence** elements are optional. |
 | **frequency** | Yes, when you use **recurrence** | The time unit between occurences and supports these values: "Minute", "Hour", "Day", "Week", "Month", and "Year" | 
-| **interval** | No | A positive integer that determines the number of times that the job runs. For example, if **interval** is 10 and **frequency** is "Week", the job recurs every 10 weeks. <p>Here are the maximum number of intervals for each frequency: <p>- 18 months <br>- 78 weeks <br>- 548 days <br>- For hours and minutes, the range is 1 <= <*interval*> <= 1000. | 
-| **schedule** | No | Changes to a recurrence based on the specified minute-marks, hour-marks, days of the week, and days of the month |
+| **interval** | No | A positive integer that determines the number of time units between occurences based on **frequency**. <p>For example, if **interval** is 10 and **frequency** is "Week", the job recurs every 10 weeks. <p>Here are the maximum number of intervals for each frequency: <p>- 18 months <br>- 78 weeks <br>- 548 days <br>- For hours and minutes, the range is 1 <= <*interval*> <= 1000. | 
+| **schedule** | No | Defines changes to the recurrence based on the specified minute-marks, hour-marks, days of the week, and days of the month |
 | **count** | No | A positive integer that specifies the number of times that the job runs before finishing. <p>For example, when a daily job has **count** set to 7, and the start date is Monday, the job finishes running on Sunday. If the start date has already passed, the first run is calculated from the creation time. <p>>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
 | **endTime** | No | A Date or DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job stops running. You can set a value for **endTime** that's in the past. <p>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
 |||| 
-
-*Dates and DateTime values*
-
-* Dates in Scheduler jobs include only the date and follow the 
-[ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601).
-
-* Date-times in Scheduler jobs include both date and time, 
-follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), 
-and is assumed to be UTC when no UTC offset is specified. 
 
 For example, this JSON schema describes a basic shedule and recurrence for a job: 
 
@@ -124,44 +115,70 @@ For example, this JSON schema describes a basic shedule and recurrence for a job
 },
 ``` 
 
+*Dates and DateTime values*
+
+* Dates in Scheduler jobs include only the date and follow the 
+[ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601).
+
+* Date-times in Scheduler jobs include both date and time, 
+follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), 
+and is assumed to be UTC when no UTC offset is specified. 
+
 For more information, see [Concepts, terminology, and entities](../scheduler/scheduler-concepts-terms.md).
 
-## Job schema defaults, limits, and examples
+<a name="schedule"></a>
 
-Later in the article, we discuss each of the following elements in detail:
+## Details: startTime
 
-| JSON name | Value type | Required | Default value | Valid values | Example |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** |string |No |None |ISO 8601 date-times |`"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** |object |No |None |The recurrence object |`"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **frequency** |string |Yes |None |"minute", "hour", "day", "week", "month" |`"frequency" : "hour"` |
-| **interval** |number |Yes |None |1 to 1000 |`"interval":10` |
-| **endTime** |string |No |None |Date-time value that represents a time in the future |`"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **count** |number |No |None |>= 1 |`"count": 5` |
-| **schedule** |object |No |None |The schedule object |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
-|||| 
+This table escribes how **startTime** controls how a job runs:
 
-## Deep dive: startTime
+| startTime | No recurrence | Recurrence, no schedule | Recurrence with schedule |
+|-----------|---------------|-------------------------|--------------------------|
+| **No start time** | Run once immediately. | Run once immediately. Run subsequent executions calculated from the last execution time. | Run once immediately. Run subsequent executions based on a recurrence schedule. | 
+| **Start time in the past** | Run once immediately. | Calculate the first future run time after start time, and run at that time. <p>Run subsequent executions calculated from the last execution time. <p>See the example after this table. | Start job *no sooner than* the specified start time. The first occurrence is based on the schedule calculated from the start time. <p>Run subsequent executions based on a recurrence schedule. | 
+| **Start time in the future or the current time** | Run once at the specified start time. | Run once at the specified start time. <p>Run subsequent executions calculated from the last execution time. | Start job *no sooner than* the specified start time. The first occurrence is based on the schedule, calculated from the start time. <p>Run subsequent executions based on a recurrence schedule. |
+||||| 
 
-The following table describes how **startTime** controls the way that a job runs:
+Here is an example that has these conditions: 
+a start time in the past with a recurrence, 
+but no schedule
 
-| startTime value | No recurrence | Recurrence, no schedule | Recurrence with schedule |
-|:--- |:--- |:--- |:--- |
-| **No start time** |Run once immediately. |Run once immediately. Run subsequent executions calculated from the last execution time. |Run once immediately.<br /><br />Run subsequent executions based on a recurrence schedule. |
-| **Start time in the past** |Run once immediately. |Calculate the first future execution time after start time, and run at that time.<br /><br />Run subsequent executions calculated from the last execution time. <br /><br />For more information, see the example that follows this table. |Job starts *no sooner than* the specified start time. The first occurrence is based on the schedule calculated from the start time.<br /><br />Run subsequent executions based on a recurrence schedule. |
-| **Start time in the future or the current time** |Run once at the specified start time. |Run once at the specified start time.<br /><br />Run subsequent executions calculated from the last execution time.|Job starts *no sooner than* the specified start time. The first occurrence is based on the schedule, calculated from the start time.<br /><br />Run subsequent executions based on a recurrence schedule. |
+* Current date and time is 2015-04-08 13:00.
+* **startTime** is "2015-04-07 14:00" and is in the past before the current time
+* **recurrence** is every two days, as defined by these properties: 
 
-Let's look at an example of what happens when **startTime** is in the past, with recurrence, but with no schedule.  Assume that the current time is 2015-04-08 13:00, **startTime** is 2015-04-07 14:00, and **recurrence** is every two days (defined with **frequency**: day and **interval**: 2.) Note that **startTime** is in the past, and occurs before the current time.
+  ```json
+  "frequency": "Day"
+  "interval": 2 
+  ```
 
-Under these conditions, the first execution will be on 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time. Any instances in the past are discarded. The engine uses the next instance that occurs in the future. In this case, **startTime** is 2015-04-07 at 2:00 PM, so the next instance is two days from that time, which is 2015-04-09 at 2:00 PM.
+1. Under these conditions, the first execution is on 2015-04-09 at 14:00. 
 
-Note that the first execution would be the same whether **startTime** is 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated by using the schedule. They will be on 2015-04-11 at 2:00 PM, then on 2015-04-13 at 2:00 PM, then on 2015-04-15 at 2:00 PM, and so on.
+   Scheduler calculates the execution occurrences based on the start time, 
+   discards any instances in the past, and uses the next instance in the future. 
+   In this case, **startTime** is on 2015-04-07 at 2:00 PM, so the next instance 
+   is two days from that time, which is 2015-04-09 at 2:00 PM.
 
-Finally, when a job has a schedule, if hours and minutes aren’t set in the schedule, the values default to the hours and minutes of the first execution, respectively.
+   The first execution is same whether **startTime** is 2015-04-05 14:00 
+   or 2015-04-01 14:00. After the first execution, subsequent executions 
+   are calculated by using the schedule. 
+   
+1. The executions happen in this order: 
+   
+   1. 2015-04-11 at 2:00 PM
+   1. 2015-04-13 at 2:00 PM 
+   1. 2015-04-15 at 2:00 PM
+   1. And so on...
 
-## Deep dive: schedule
+1. Finally, when a job has a schedule but no specified hours and minutes, 
+these values default to the hours and minutes in the first execution, respectively.
 
-You can use **schedule** to *limit* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs only on day 31, the job runs only in months that have a thirty-first day.
+<a name="schedule"></a>
+
+## Details: schedule
+
+You can use **schedule** to *limit* the number of job executions. 
+For example, if a job with a **frequency** of "month" has a schedule that runs only on day 31, the job runs only in months that have a thirty-first day.
 
 You can also use **schedule** to *expand* the number of job executions. For example, if a job with a **frequency** of "month" has a schedule that runs on month days 1 and 2, the job runs on the first and second days of the month instead of only once a month.
 
