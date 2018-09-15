@@ -33,6 +33,8 @@
     href: write-kusto-queries.md
   - name: Ingest sample data
     href: ingest-sample-data.md
+  - name: Manage database permissions
+    href: manage-database-permissions.md
 - name: Reference
   items:
   - name: Language reference
