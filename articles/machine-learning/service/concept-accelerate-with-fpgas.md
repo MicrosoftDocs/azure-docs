@@ -79,4 +79,4 @@ Checkout these videos and blogs:
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 
-+ [Microsoft unveils Project Brainwave for real-time AI](https://www.microsoft.com/en-us/research/project/project-brainwave/)
++ [Project Brainwave for real-time AI: project home page](https://www.microsoft.com/en-us/research/project/project-brainwave/)
