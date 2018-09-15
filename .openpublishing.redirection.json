@@ -15750,6 +15750,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-appmodel-v2-overview.md",
+            "redirect_url": "/azure/active-directory/develop/v2-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-limitations.md",
+            "redirect_url": "/azure/active-directory/develop/azure-ad-endpoint-comparison",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false

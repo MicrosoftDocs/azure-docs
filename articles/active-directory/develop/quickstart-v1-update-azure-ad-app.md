@@ -22,8 +22,6 @@ ms.reviewer: lenalepa, sureshja
 
 # Quickstart: Update an application in Azure Active Directory
 
-[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
-
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Azure Active Directory (Azure AD) may need to configure your applications to access other resources such as web APIs, make it available in other organizations, and more.
 
 In this quickstart, you'll learn the various ways you can configure or update your application to meet yours and other organizations' requirements or needs.

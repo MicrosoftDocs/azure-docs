@@ -1,5 +1,5 @@
 ---
-title: App types for the Azure Active Directory v2.0 endpoint | Microsoft Docs
+title: Application types for v2.0 | Azure
 description: The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ---
 
-# App types for the Azure Active Directory v2.0 endpoint
+# Application types for v2.0
 
 The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
 
