@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2018
+ms.date: 09/14/2018
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
