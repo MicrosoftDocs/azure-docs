@@ -109,7 +109,7 @@ the alternate action might log errors by using a Storage queue,
 Service Bus queue, or Service Bus topic action.
 
 To learn how to set up an alternate endpoint, see 
-[errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+[errorAction](scheduler-concepts-terms.md#error-action).
 
 ## See also
 

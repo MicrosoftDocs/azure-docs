@@ -219,13 +219,6 @@ These schedules assume that **interval** is set to 1\. The examples also assume 
 
 ## See also
 
-- [What is Scheduler?](scheduler-intro.md)
-- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
-- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
-- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
-- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
-- [Azure Scheduler high availability and reliability](scheduler-high-availability-reliability.md)
-- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
-
+* [What is Azure Scheduler?](scheduler-intro.md)
+* [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
