@@ -52,8 +52,8 @@ Run histories will remain accessible for a while. When you are ready to move to 
 
 Run histories are now called _experiments_ in the current release. You can collect your model's experiments and explore them using the SDK, CLI, or web portal.
 
-[ ![Online portal](./media/overview-what-happened-to-workbench/image001.jpg) ]
-(./media/overview-what-happened-to-workbench/image001.jpg#lightbox)
+[ ![Online portal](./media/overview-what-happened-to-workbench/image001.png) ]
+(./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 
 ## Can I still prep data?
@@ -87,6 +87,10 @@ In the latest release, the new Python SDK allows you to interact with the Azure 
 ## What about VS Code Tools for AI?
 
 With this latest release, the Visual Studio (VS) Code Tools for AI extension has been expanded and improved to work with the above new features.
+
+
+[ ![Online portal](./media/overview-what-happened-to-workbench/vscode.png) ]
+(./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## What about domain packages?
 
