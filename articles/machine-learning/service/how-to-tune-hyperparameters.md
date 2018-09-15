@@ -125,6 +125,13 @@ When tuning hyperparameters, you need to specify the primary metric that you wan
 * `primary_metric_name`: The name of the primary metric to optimize. The name of the primary metric needs to exactly match the name of the metric logged by the training script. See [Log metrics for hyperparameter tuning](#log-metrics-for-hyperparameter-tuning).
 * `primary_metric_goal`: It can be either `PrimaryMetricGoal.MAXIMIZE` or `PrimaryMetricGoal.MINIMIZE` and determines whether the primary metric will be maximized or minimized when evaluating the runs. 
 
+For example -
+```Python
+primary_metric_name="accuracy",
+primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
+```
+This will optimize the runs to maximize "accuracy".
+
 ### Log metrics for hyperparameter tuning
 In order to use Azure Machine Learning service for hyperparameter tuning, the training script for your model will need to report relevant metrics while the model executes. The user specifies the primary metric they want the service to use for evaluating run performance, and the training script will need to log this metric. See [Specify a primary metric to optimize](#specify-a-primary-metric-to-optimize).
 
@@ -213,10 +220,20 @@ You can control your resource budget for your hyperparameter tuning experiment b
 >If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning experiment is terminated when the first of these two thresholds is reached.
 
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
-* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel.
+* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel. 
+
+[!NOTE] 
+The number of concurrent runs is gated on the resources available in the specified compute target. Hence, you will need to ensure that the compute target has the available resources for the desired concurrency.
+
+You can allocate resources for hyperparameter tuning as shown in this example -
+```Python
+max_total_runs=20,
+max_concurrent_runs=4
+```
+This will configure the hyperparameter tuning experiment to use a maximum of 20 total runs, running 4 configurations at a time.
 
 ## Configure your hyperparameter tuning experiment
-You can configure your hyperparameter tuning experiment using the defined hyperpameter search space, early termination policy, primary metric and resource allocation from the sections above. Additionally, you will need to provide an `estimator` that will be called with the sampled hyperparameters (See [link](/how-to-train-ml-models.md) for more information on estimators).
+You can configure your hyperparameter tuning experiment using the defined hyperpameter search space, early termination policy, primary metric and resource allocation from the sections above. Additionally, you will need to provide an `estimator` that will be called with the sampled hyperparameters. The `estimator` describes the training script you run, the resources per job (single or multi-gpu), and the compute target to use. Since concurrency for your hyperparameter tuning experiment is gated on the resources available, you will need to ensure that your compute target specified in the `estimator` has sufficient resources for desired concurrency. (See [link](/how-to-train-ml-models.md) for more information on estimators).
 
 Here is an example of how you can configure your hyperparameter tuning experiment -
 
@@ -283,8 +300,10 @@ print('Best Run :\n  Id: {0}\n  Accuracy: {1:.6f} \n  Learning rate: {2:.6f} \n 
 print(helpers.get_run_history_url(best_run))
 ```
 
-## Sample Notebook
-Refer to [Sample Notebook]() for a tutorial on tuning hyperparameters for a Tensorflow model.
+## Sample notebook
+Refer to `00.Getting Started/08.hyperdrive-with-TensorFlow/08.hyperdrive-with-TensorFlow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. Get this notebook:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 * [Track an experiment](/how-to-track-experiments.md)
