@@ -36,10 +36,7 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 1. Enter a name and description that help you identify the job you are creating.
 
-1. Select the device set you want your job to be applied to. After selecting the device set, you'll see the right-hand side populate with the devices within the selected device set.
-
-> [!NOTE]
-> If you select a broken device set, no devices will display and you will see a message explaining that your device set is broken.
+1. Select the device set you want your job to be applied to. After selecting the device set, you'll see the right-hand side populate with the devices within the selected device set. If you select a broken device set, no devices will display and you will see a message explaining that your device set is broken.
 
 1. Next, choose the type of job that will be defined (a setting, property, or command). Click **+** next to the type of job selected and add your desired operations.
 
@@ -95,8 +92,6 @@ In order to view the status of each device in the job, click on the job name. He
 
 > [!NOTE]
 > If a device has been deleted, you won't be able to select the device and it will display as deleted with the device ID.
-
-    ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
 
 ## Next Steps
 
