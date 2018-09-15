@@ -66,7 +66,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     - **negotiate** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **messages** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. In the terminal, ensure that you are in the *src/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
+1. In the terminal, ensure that you are in the *chat/src/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
 
     ```bash
     func extensions install
