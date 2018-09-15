@@ -1,26 +1,26 @@
 ---
-title: Cluster Health
-description: This article describes steps to analyze if your cluster is healthy
+title: Check the health of an Azure Data Explorer cluster
+description: This article describes steps to determine if your Azure Data Explorer cluster is healthy.
 author: orspod
 ms.author: v-orspod
 ms.reviewer: mblythe
-ms.service: kusto
+ms.service: data-explorer
+services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Title: Is my Kusto cluster healthy? 
+# Check the health of an Azure Data Explorer cluster
 
+There are several factors that impact the health of an Azure Data Explorer cluster, including CPU, memory, and the disk subsystem. This article shows some basic steps you can take to gauge the health of a cluster.
 
-There are various factors that impact the health of a Kusto cluster like CPU,
-Memory and Disk subsystem. You can follow these basic steps to gauge the health
-of your Kusto cluster
+1.  
 
-1.  Using Kusto Query Explorer connect to your Kusto cluster and run the
+1. Using Kusto Query Explorer connect to your Kusto cluster and run the
     diagnostics command on the cluster as shown below. A return value of 1 (or
     yes) for *IsHealthy* column suggests the cluster is healthy
 
->>   *.show diagnostics*
+.show diagnostics*
 
 >>  *\| project IsHealthy*
 
