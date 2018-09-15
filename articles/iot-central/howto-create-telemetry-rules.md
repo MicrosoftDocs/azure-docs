@@ -31,9 +31,9 @@ To create a telemetry rule, the device template must have at least one telemetry
 
     ![No rules yet](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. On the **Rules** tab, click **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
 
-1. Click on the **Telemetry** tile to create a rule to monitor device telemetry.
+1. Click **Telemetry** to create a rule to monitor device telemetry.
 
     ![Rule Types](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -81,6 +81,8 @@ This section shows you how to set up actions to take when the rule is fired. Act
    ![Configure Action](media\howto-create-telemetry-rules\Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
+
+1. Choose **Done** to exit the **Edit Template** mode.
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 
