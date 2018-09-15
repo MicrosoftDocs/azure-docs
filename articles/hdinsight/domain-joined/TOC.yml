@@ -13,6 +13,8 @@
     maintainContext: true
   - name: Configure Hive policies
     href: apache-domain-joined-run-hive.md
+  - name: Configure Kafka policies
+    href: apache-domain-joined-run-kafka.md
     maintainContext: true
   - name: Use VSCode to link to domain joined cluster
     href: ../hdinsight-for-vscode.md
