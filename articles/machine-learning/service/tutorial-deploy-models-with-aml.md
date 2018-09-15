@@ -188,6 +188,8 @@ To build the correct environment for ACI, provide the following:
 * A configuration file to build the ACI
 * The model you trained before
 
+<a name="make-script"></a>
+
 ### Create scoring script
 
 Create the scoring script, called score.py, used by the web service call to show how to use the model.
@@ -221,6 +223,8 @@ def run(raw_data):
     y_hat = model.predict(data)
     return json.dumps(y_hat.tolist())
 ```
+
+<a name="make-myenv"></a>
 
 ### Create environment file
 
