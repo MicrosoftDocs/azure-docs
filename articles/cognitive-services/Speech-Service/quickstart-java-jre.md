@@ -8,7 +8,7 @@ author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: fmegen
 ---
 
@@ -106,7 +106,7 @@ Look for this sample in the `quickstart/java-jre` folder.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Recognize intents from speech by using the Speech SDK for Java](how-to-recognize-intents-from-speech-java.md)
 
 ## See also
 

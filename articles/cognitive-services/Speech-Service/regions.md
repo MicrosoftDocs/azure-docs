@@ -7,7 +7,7 @@ author: mahilleb-msft
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/24/2018
 ms.author: mahilleb
 ---
 
@@ -26,7 +26,7 @@ See [REST APIs](rest-apis.md) for details.
 ## Speech SDK
 
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
-(for example, as a parameter to [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) in the Speech SDK for C#).
+(for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
 ### Regions for speech recognition and translation
 

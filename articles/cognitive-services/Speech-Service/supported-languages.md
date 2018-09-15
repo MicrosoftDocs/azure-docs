@@ -31,7 +31,7 @@ The Microsoft speech recognition API supports the following languages.
  en-AU | English (Australian) | No | Yes | No
  es-ES | Spanish (Spain) | No | Yes | No
  nl-NL | Dutch (Netherlands) | No | Yes | No
- pt-PT | Portoguese (Portogal) | No | Yes | No
+ pt-PT | Portuguese (Portugal) | No | Yes | No
  tr-TR | Turkish (Turkey) | No | Yes | No
  pt-BR | Portuguese (Brazil) | No | Yes | No
  ru-RU | Russian (Russia) | No | Yes | No
