@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "articles/actve-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
+            "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true
         },
@@ -7224,6 +7224,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/multi-master-workaround.md",
+            "redirect_url": "/azure/cosmos-db/enable-multi-master",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/20-days-of-tips.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
             "redirect_document_id": false
@@ -7240,7 +7245,7 @@
         },
         {
             "source_path": "articles/cosmos-db/tutorial-develop-cassandra-java.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-cassandra-api-account-java",
+            "redirect_url": "/azure/cosmos-db/create-cassandra-api-account-java",
             "redirect_document_id": false
         },
         {
@@ -23628,6 +23633,61 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/governance/index.md",
+            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
+            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-complete-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/complete-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-create-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/create-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-how-to-review-your-access.md",
+            "redirect_url": "/azure/active-directory/governance/review-your-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-guest-access-with-access-reviews",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-programs-controls.md",
+            "redirect_url": "/azure/active-directory/governance/manage-programs-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-user-access-with-access-reviews",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-perform-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/perform-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-retrieve-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/retrieve-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-tou.md",
+            "redirect_url": "/azure/active-directory/governance/active-directory-tou",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -27098,6 +27158,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/fundamentals/get-started-azure-ad.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-whatis",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-troubleshooting-support-howto.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
             "redirect_document_id": false
@@ -27801,6 +27866,11 @@
             "redirect_url": "/azure/active-directory/identity-protection/overview",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
+            "redirect_document_id": true
+        },
 		{
             "source_path": "articles/active-directory/active-directory-conditional-access-conditions.md",
             "redirect_url": "/azure/active-directory/conditional-access/conditions",
@@ -27860,11 +27930,6 @@
             "source_path": "articles/security-center/security-center-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
-            "redirect_document_id": true
         },
         {
             "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
@@ -28077,11 +28142,6 @@
             "redirect_document_id" : true
         },
         {
-            "source_path": "articles/dev-spaces/azure-dev-spaces.md",
-            "redirect_url": "/azure/dev-spaces/index",
-            "redirect_document_id" : true
-        },
-        {
             "source_path": "articles/cosmos-db/create-sql-api-nodejs-preview.md",
             "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
             "redirect_document_id" : false
@@ -28100,6 +28160,16 @@
             "source_path": "articles/cosmos-db/sql-api-nodejs-samples-preview.md",
             "redirect_url": "/azure/cosmos-db/sql-api-nodejs-samples",
             "redirect_document_id" : false
-        }            
+        },   
+        {
+            "source_path": "articles/dev-spaces/azure-dev-spaces.md",
+            "redirect_url": "/azure/dev-spaces/index",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
+            "redirect_document_id" : true
+        }
     ]
 }

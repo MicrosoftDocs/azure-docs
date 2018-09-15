@@ -1,18 +1,15 @@
 ---
-title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB's Apache Cassandra API to create a profile application  with Python
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: sngun
-
 ---
 # Quickstart: Build a Cassandra app with Python and Azure Cosmos DB
 
@@ -24,7 +21,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
-In addition:
+In addition, you need:
 * [Python](https://www.python.org/downloads/) version v2.7.14
 * [Git](http://git-scm.com/)
 * [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver)
@@ -39,7 +36,7 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 Now let's clone a Cassandra API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
-1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+1. Open a command prompt. Create a new folder named `git-samples`. Then, close the command prompt.
 
     ```bash
     md "C:\git-samples"
@@ -61,7 +58,7 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the pyquickstart.py file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* User name and password is set using the connection string page in the Azure portal. You replace the path\to\cert with the path to your X509 certificate.
+* The username and password values were set using the connection string page in the Azure portal. The `path\to\cert` provides a path to an X509 certificate. 
 
    ```python
 	ssl_opts = {
@@ -126,9 +123,9 @@ This step is optional. If you're interested in learning how the database resourc
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database.
+Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](http://portal.azure.com/), select **Connection String**. 
 
     Use the ![Copy button](./media/create-cassandra-python/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
 
@@ -185,11 +182,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Verify the results as expected from the command line.
 
-    Press CTRL + C to stop exection of the program and close the console window. 
+    Press CTRL + C to stop execution of the program and close the console window. 
 
     ![View and verify the output](./media/create-cassandra-python/output.png)
     
-    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
+4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
     ![View the data in Data Explorer](./media/create-cassandra-python/data-explorer.png)
 
