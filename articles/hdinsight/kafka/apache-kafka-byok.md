@@ -22,13 +22,13 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 1. Create managed identities for Azure resources.
 
-   To authenticate to Key Vault, create a user-assigned managed identity using the [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-manage-ua-identity-portal), [Azure Powershell](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-manage-ua-identity-powershell), [Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm), or [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-manage-ua-identity-cli). While Azure Active directory is required for managed identities and BYOK to Kafka, Enterprise Security Package (ESP) isn't a requirement. Be sure to save the managed identity resource ID. You need to add it to the key vault access control list.
+   To authenticate to Key Vault, create a user-assigned managed identity using the [Azure Portal](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal), [Azure Powershell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm), or [Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli). While Azure Active directory is required for managed identities and BYOK to Kafka, Enterprise Security Package (ESP) isn't a requirement. Be sure to save the managed identity resource ID. You need to add it to the key vault access control list.
 
 2. Create or import Azure Key Vault.
 
    HDInsight only supports Azure Key Vault. If you have your own key vault, can import your keys into Azure Key Vault. Remember that the keys must have "Soft Delete" and "No Not Purge" enabled. 
 
-   To create a new key vault, follow the [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates).
+   To create a new key vault, follow the [Azure Key Vault](../../key-vault/key-vault-get-started.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md).
 
 3. Add managed identity to the key vault ACL.
 
@@ -56,7 +56,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 **How are keys rotated? How long is the old key valid?**
    
-   You can create a new version of the existing key or create a new key. Rotating keys can be done using the [RotateKey API]() and in the Azure portal on the HDInsight cluster resource. The old key is valid as long as it exists in the key vault and the cluster has access.
+   You can create a new version of the existing key or create a new key. Rotating keys can be done using the RotateKey API and in the Azure portal on the HDInsight cluster resource. The old key is valid as long as it exists in the key vault and the cluster has access.
 
    If the old key is inaccessible while rotating, the RotateKey API fails and a warning appears in the Azure portal. The cluster continues to function but in an unsupported state, even though it may keep functioning for some time. Once access to the old key is restored, the RotateKey API can be called again successfully.
 
@@ -70,7 +70,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 **How can I recover the cluster if the keys are deleted?**
 
-   Since only “Soft Delete” enabled keys are supported, if the keys are restored in the key vault, the cluster should regain access to the keys. To restore an Azure Key Vault key, see [Restore-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.8.1).
+   Since only “Soft Delete” enabled keys are supported, if the keys are restored in the key vault, the cluster should regain access to the keys. To restore an Azure Key Vault key, see [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
 
 **Can I have producer/consumer applications working with a BYOK cluster and a non-BYOK cluster simultaneously?**
 
@@ -84,11 +84,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
    Yes. The cluster needs access to the key in the key vault during scale up. The same key is used to encrypt all managed disks in the cluster.
 
-**Is this feature be available in all regions?**
-
-   Yes, in all regions where HDInsight and Azure Key Vault and managed identities for Azure resources are available
-
 ## Next Steps
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
-* To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-whatis)?
+* To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-get-started).
