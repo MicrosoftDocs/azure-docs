@@ -14,26 +14,32 @@ ms.date: 09/24/2018
 
 # Track experiments and training metrics in Azure Machine Learning
 
-With the Azure Machine Learning service, you can track your experiments and monitor metrics to create better models. You can add logging to your training script to be able to track your experiments in the Web Portal as well as with widgets in Jupyter Notebooks. In this article, you'll learn about the different ways to track your run in a local Jupyter Notebook. You can also check the progress of a running job in multiple ways through the Jupyter widget as well as a `wait_for_completion` method.
+With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article you will learn about the different ways to add logging to your training script, how to submit the the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run.
 
 ## What can be tracked
 
-The following log metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
 
-- Scalar values (float, integers, or strings)
-- Lists (float, integers, or strings)
-- Row or table (names lists of the above types)
-- Images
+|Type| Python function | Notes|
+|----|:----:|:----:|
+|Scalar Values | ```run.log(name, value, description='')```| Log a metric value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
+|Lists| ```run.log_list(name, value, description='')```|Log a list metric value to the run with the given name.|
+|Row| ```run.log_row(name, description=None, **kwargs)```|Using *log_row* creates a table metric with columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be be called once to log an aribitrary tuple, or multiple times in a loop to generate a complete table.|
+|Table| ``` run.log_table(name, value, description='')```| Log a table metric to the run with the given name. |
+|Images| ```run.log_image(name, path=None, plot=None)```|Log an image metric to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
+|Tag a run| ```run.tag(key, value=None)```|Tag the run with a string key and optional string value.|
+|Upload file or directory|``` run.upload_file(name, path_or_stream)```|Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory.|
 
-You can also:
+> [!NOTE]
+> Metrics for scalars, lists, rows, and tables, can be floats, integers, or strings.
 
-- Tag a run
-- Give the run a name
-- Upload a file or directory
+## Log metrics
 
-## Add experiment tracking
+If you want to track or monitor your experiment, you must add code to start logging when you submit the run. The following are ways to trigger the run submission:
+* __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
+* __ScriptRunConfig__ - Add logging functions to your training script and load the entire script folder with the run.  **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
-You can add tracking to your training experiment through Azure Machine Learning services. The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+Before adding logging and submitting an experiment, you must set up the workspace and experiment.
 
 1. Load the workspace. To learn more about setting the workspace configuration, follow the [Getting started](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started) quickstart.
 
@@ -55,8 +61,14 @@ You can add tracking to your training experiment through Azure Machine Learning 
   experiment_name = 'train-in-notebook'
   exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
+  
+### Option 1
 
-3. Start a training run in a local Jupyter Notebook. 
+**start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
+
+The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+
+1. Create a training script in a local Jupyter Notebook. 
 
   ``` python
   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
@@ -80,7 +92,7 @@ You can add tracking to your training experiment through Azure Machine Learning 
   joblib.dump(value = reg, filename = 'model.pkl');
   ```
 
-4. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record as well. The following code adds tags, logs, and uploads a model file to the experiment run.
+1. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record as well. The following code adds tags, logs, and uploads a model file to the experiment run.
 
   ```python 
   run = Run.start_logging(experiment = exp)
@@ -97,22 +109,13 @@ You can add tracking to your training experiment through Azure Machine Learning 
   run.complete()
 ```
 
-## View the experiment in the web portal
+The script ends with ```run.complete()```, which marks the run as completed.  This is typically used in interactive notebook scenarios.
 
-When an experiment has finished running, you can  browse to the recorded experiment run record. You can do this in two ways:
+### Option 2
 
-- Get the URL to the run directly ```print(run.get_portal_url())```
-- View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
+**ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
-The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
-
-Under the outputs tab, you can view and download the model.pkl that we uploaded in the code above. This example did not save anything to logs, but if it had, you could see these under the logs tab.
-
-You can also download the snapshot of the experiment you submitted.
-
-## Monitor progress using Jupyter widgets
-
-For longer running experiments, you can watch the progress of the run with a Jupyter Notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes. This example runs locally against a user-managed environment. We can now expand on the basic ridge model from above and do a simple parameter sweep to sweep over alpha values of a sklearn ridge model to capture metrics and trained models in runs under the experiment.
+This example expands on the basic ridge model from above and does a simple parameter sweep to sweep over alpha values of a sklearn ridge model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
 
 1. Create a training script. This uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
 
@@ -203,8 +206,13 @@ For longer running experiments, you can watch the progress of the run with a Jup
   src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
   run = exp.submit(src)
   ```
+  
+## View run details
 
-5. View the Jupyter widget while waiting for the run to complete.
+### Monitor run with Jupyter notebook widgets
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run with a Jupyter Notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+
+1. View the Jupyter widget while waiting for the run to complete.
 
   ```python
   
@@ -212,46 +220,31 @@ For longer running experiments, you can watch the progress of the run with a Jup
   RunDetails(run).show()
   ```
 
-## Get log results upon completion
+### Get log results upon completion
 
-Model training and monitoring happen in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. Use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
+Model training and monitoring happen in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
   
-## Query run metrics
+### Query run metrics
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the parameter sweep example above to determine the best model.
-
-1. Start off by determining what the best alpha value is in the list of metrics from above.
-
-  ```python
-  import numpy as np
-
-  best_alpha = metrics['alpha'][np.argmin(metrics['mse'])]
-
-  print('When alpha is {1:0.2f}, we have min MSE {0:0.2f}.'.format(
-      min(metrics['mse']), 
-      best_alpha
-  ))
-  ```
-
-2. Once you load all of the metrics, you can find the run with the lowest Mean Squared Error value.
-
-  ```python
-  best_run_id = min(child_run_metrics, key = lambda k: child_run_metrics[k]['mse'])
-  best_run = child_runs[best_run_id]
-  print('Best run is:', best_run_id)
-  print('Metrics:', child_run_metrics[best_run_id])
-  ```
-
-3. You can add tags to your runs to make them easier to catalog. In this case, we add a tag for the best run so that we can.
-
-  ```python
-  best_run.tag("Description","The best one")
-  best_run.get_tags()
-  ```
 
 ### Register the best model
 
 In the above example, we registered each individual model within the script. Now that we have the best model, we can register it as well with ```model = run.register_model(model_name='best_ridge_model', model_path<<best-model-path>>)```.
+
+
+## View the experiment in the web portal
+
+When an experiment has finished running, you can  browse to the recorded experiment run record. You can do this in two ways:
+
+- Get the URL to the run directly ```print(run.get_portal_url())```
+- View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
+
+The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
+
+Under the outputs tab, you can view and download the model.pkl that we uploaded in the code above. This example did not save anything to logs, but if it had, you could see these under the logs tab.
+
+You can also download the snapshot of the experiment you submitted.
 
 ## List file names
 
