@@ -142,6 +142,8 @@ In the **New update deployment** pane, specify the following information:
    You can also specify whether the deployment occurs once or on a recurring schedule. To set up a recurring schedule, under **Recurrence**, select **Recurring**.
 
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
+
+- **Pre-scripts + Post-scripts**: Select the scripts to run before and after your deployment|
 - **Maintenance window (minutes)**: Specify the period of time that you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
 
 - **Reboot control** - This setting determines how reboots are handled for the update deployment.

@@ -41,6 +41,8 @@
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
+      - name: Pre and post scripts
+        href: pre-post-scripts.md
       - name: Migrate OMS update deployments to Azure
         href: migrate-oms-update-deployments.md
       - name: Integrate SCCM with Update Management
