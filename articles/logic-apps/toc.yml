@@ -226,8 +226,10 @@
         href: ../connectors/connectors-create-api-rss.md
       - name: Salesforce
         href: ../connectors/connectors-create-api-salesforce.md
-      - name: SAP
+      - name: SAP (New)
         href: logic-apps-using-sap-connector.md
+      - name: SAP
+        href: logic-apps-using-sap-connector-old.md
       - name: Schedule
         href: ../connectors/connectors-native-recurrence.md
       - name: SendGrid
