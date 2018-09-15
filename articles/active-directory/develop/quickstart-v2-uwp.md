@@ -145,6 +145,6 @@ Try out the Windows Desktop tutorial for a complete step-by-step guide on buildi
 ### Learn the steps to create the application used in this Quickstart
 
 > [!div class="nextstepaction"]
-> [UWP - Call Graph API tutorial](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-uwp-v2)
+> [UWP - Call Graph API tutorial](tutorial-v2-windows-uwp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
