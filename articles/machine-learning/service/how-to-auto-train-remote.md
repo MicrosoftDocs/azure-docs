@@ -23,9 +23,9 @@ In this article, you learn how to perform automated model selection on the DSVM.
 
 ## How does remote differ from local?
 
-The tutorial "[Automatically train a classification model](tutorial-auto-train-models.md)" teaches you how to use a local target for automated modeling.  The workflow when training locally also applies to  remote targets as well. 
+The tutorial "[Automatically train a classification model](tutorial-auto-train-models.md)" teaches you how to use a local target for automated modeling.  The workflow when training locally also applies to  remote targets as well. To train remotely, you first create a remote target,  configure it, and submit your code there.
 
-This article explains the code needed to perform automated modeling on a remote DSVM instead.  The workspace object, `ws`, from the tutorial is used throughout the code here.
+This article shows the extra steps needed to perform automated modeling on a remote DSVM.  The workspace object, `ws`, from the tutorial is used throughout the code here.
 
 ```python
 ws = Workspace.from_config()
@@ -206,7 +206,7 @@ You will see output similar to this:
 
 ## Explore results
 
-You can use the same Jupyter widget as the one in [this tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
+You can use the same Jupyter widget as the one in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
 
 ```python
 from azureml.train.widgets import RunDetails
