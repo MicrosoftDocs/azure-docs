@@ -20,6 +20,6 @@ The Speech Software Development Kit (SDK) gives your applications access to the 
 
 ## Next steps
 
-* [Try the Speech service](get-started.md) for free.
-* Get your [Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/).
-* See how to [recognize speech in C#](quickstart-csharp-dotnet-windows.md).
+* [Try the Speech service for free](get-started.md)
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
