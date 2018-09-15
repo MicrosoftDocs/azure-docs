@@ -22,6 +22,8 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .BMP
 + .GIF
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
 
 ## Skill parameters
 

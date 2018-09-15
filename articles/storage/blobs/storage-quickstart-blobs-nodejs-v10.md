@@ -213,7 +213,9 @@ async function showContainerNames(serviceURL, aborter) {
     do {
         response = await serviceURL.listContainersSegment(aborter.withTimeout(ONE_MINUTE), marker);
         marker = response.marker;
-        response.containerItems.forEach(container => console.log(' - ' + container.name));
+        for(let container of response.containerItems) {
+            console.log(` - ${ container.name }`);
+        }
     } while (marker);
 }
 ```
@@ -304,7 +306,9 @@ async function showBlobNames(containerURL, aborter) {
     do {
         response = await containerURL.listBlobFlatSegment(aborter.withTimeout(ONE_MINUTE));
         marker = response.marker;
-        response.segment.blobItems.forEach(blob => console.log(' - ' + blob.name));
+        for(let blob of response.segment.blobItems) {
+            console.log(` - ${ blob.name }`);
+        }
     } while (marker);
 }
 ```
