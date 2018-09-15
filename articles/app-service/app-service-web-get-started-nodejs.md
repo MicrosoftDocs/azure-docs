@@ -43,6 +43,9 @@ Download the sample Node.js project from [https://github.com/Azure-Samples/nodej
 
 In a terminal window, navigate to the root directory of the sample Node.js project (the one that contains _index.js_).
 
+> [!NOTE]
+> You don't need to use our sample app, you can use your own Node code if you want. Be aware, however, that the PORT for your app will be set at runtime by Azure, and is available as `process.env.PORT`. If you're using express, be sure that you have a check on startup (`app.listen`) for `process.env.PORT || 3000`. If you don't do this and your port doesn't match what is set at runtime by Azure, you will see a `Service Unavailable` message. 
+
 ## Run the app locally
 
 Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `npm start` script to launch the built in Node.js HTTP server.
