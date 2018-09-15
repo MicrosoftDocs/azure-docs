@@ -41,7 +41,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 ## Configure and run the Azure Function app
 
-1. Start Visual Studio and open the solution in the *src\csharp* folder of the cloned repository.
+1. Start Visual Studio and open the solution in the *chat\src\csharp* folder of the cloned repository.
 
 1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
