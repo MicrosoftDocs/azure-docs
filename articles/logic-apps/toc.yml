@@ -264,6 +264,8 @@
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
+    - name: Migrate to latest schema
+      href: ../connectors/connectors-schema-migration.md  
   - name: Deploy
     items:
       - name: Define and deploy logic apps

@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: bryanla
 
@@ -171,7 +171,7 @@ Azure Key Vault supports the following operations on key objects:
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
 
-For more information, see [Key operations in the the Key Vault REST API reference](/rest/api/keyvault).  
+For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
 Once a key has been created in Azure Key Vault, the following cryptographic operations may be performed using the key:  
 
@@ -281,7 +281,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 -   *delete*: Delete the secret  
 -   *all*: All permissions  
 
-For more information on working with secrets, see [Secret operations in the the Key Vault REST API reference](/rest/api/keyvault).  
+For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Secret tags  
 You can specify additional application-specific metadata in the form of tags. Azure Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
@@ -441,7 +441,7 @@ If a certificate's policy is set to auto-renewal, then a notification is sent on
 -   *deleteissuers*: allows delete of Key Vault certificate issuers  
 -   *all*: grants all permissions  
 
-For more information, see the [Certificate operations in the the Key Vault REST API reference](/rest/api/keyvault). 
+For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). 
 
 ## See Also
 

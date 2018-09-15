@@ -3,7 +3,7 @@ title: Upgrade to the latest generation of Azure SQL Data Warehouse | Microsoft 
 description: Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
@@ -18,6 +18,8 @@ Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and stor
 ## Why upgrade?
 You can now seamlessly upgrade to the SQL Data Warehouse Compute Optimized Gen2 tier in the Azure portal. If you have a Compute Optimized Gen1 tier data warehouse, upgrading is recommended. By upgrading, you can use the latest generation of Azure hardware and enhanced storage architecture. You can take advantage of faster performance, higher scalability, and unlimited columnar storage. 
 
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
+
 ## Applies to
 This upgrade applies to Compute Optimized Gen1 tier data warehouses.
 
@@ -27,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
 > [!NOTE]
-> If your existing Compute Optimized Gen1 tier data warehouse is not in a region where the Compute Optimized Gen2 tier is available, you can [geo-restore](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) through PowerShell to a supported region.
+> If your existing Compute Optimized Gen1 tier data warehouse is not in a region where the Compute Optimized Gen2 tier is available, you can [geo-restore](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) through PowerShell to a supported region.
 > 
 >
 

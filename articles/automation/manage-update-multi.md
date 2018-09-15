@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -44,7 +44,7 @@ Update Management is supported on the following operating systems:
 
 Linux agents must have access to an update repository.
 
-This solution doesn't support an Operations Management Suite (OMS) Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
+This solution doesn't support an Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
 
 ## Enable Update Management for Azure virtual machines
 
@@ -148,9 +148,9 @@ In the **New update deployment** pane, specify the following information:
 
    |Option|Description|
    |---|---|
-   |Reboot if required| **(Default)** If required, a reboot is intitated if the maintenance window allows.|
+   |Reboot if required| **(Default)** If required, a reboot is initiated if the maintenance window allows.|
    |Always reboot|A reboot is initiated regardless of whether one is required. |
-   |Never reboot|Regardless of if a reboot is reuired, reboots are surpressed.|
+   |Never reboot|Regardless of if a reboot is required, reboots are suppressed.|
    |Only reboot - will not install updates|This option ignores installing updates, and only initiates a reboot.|
 
 When you're finished configuring the schedule, select the **Create** button to return to the status dashboard. The **Scheduled** table shows the deployment schedule that you created.

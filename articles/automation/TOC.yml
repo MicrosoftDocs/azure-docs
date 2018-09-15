@@ -135,6 +135,8 @@
           href: automation-dsc-onboarding.md
         - name: Compiling DSC configurations
           href: automation-dsc-compile.md
+        - name: Composing DSC Configurations using Composite Resources
+          href: compose-configurationwithcompositeresources.md
         - name: Continuous deployment using Chocolatey
           href: automation-dsc-cd-chocolatey.md
         - name: Forward State Configuration reporting data to Log Analytics
@@ -169,7 +171,7 @@
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
-        - name: Source control integration with VSTS
+        - name: Source control integration with Azure DevOps
           href: automation-scenario-source-control-integration-with-VSTS.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md

@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Deploy the local agent and test virtual machines
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Learn how to use the validation as a service (VaaS) local agent to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
 
