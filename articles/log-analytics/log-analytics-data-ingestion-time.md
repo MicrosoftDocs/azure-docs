@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: bwren
 
 ---
@@ -22,8 +22,6 @@ Azure Log Analytics is a high scale data service in Azure Monitor that serves th
 ## Typical latency
 Latency refers to the time that data is created on the monitored system and the time that it comes available for analysis in Log Analytics. The typical latency to ingest data into Log Analytics is between 2 and 5 minutes. The specific latency for any particular data will vary depending on a variety of factors explained below.
 
-## SLA for Log Analytics
-The [Log Analytics Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) is a legal binding agreement that defines when Microsoft refunds customers when the service doesn’t meet its goals. This isn't based on the typical performance of the system but its worst case, which accounts for potential catastrophic situations.
 
 ## Factors affecting latency
 The total ingestion time for a particular set of data can be broken down into the following high-level areas. 
