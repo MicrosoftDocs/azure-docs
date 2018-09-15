@@ -51,8 +51,8 @@ Your browser requires access to the following addresses to access the Log Analyt
 | docs.loganalytics.io   | Dynamic | 80,443 |
 
 
-### Starting Log Analytics from a resource
-If you launch Log Analytics from a resource in the Azure portal, then the scope of your query will be limited to records from that resource. For example, you could click **Logs** from the menu of a particular virtual machine, which would open Log Analytics for only records related to that virtual machine. If you want to write a query that includes other records, then you would need to open it from the Log Analytics or Azure Monitor menu.
+### Starting Log Analytics from a resource page
+If you launch Log Analytics from a resource page in the Azure portal, then the scope of your query will be limited to records from that resource. For example, you could click **Logs** from the menu of a particular virtual machine, which would open Log Analytics for only records related to that virtual machine. If you want to write a query that includes other records, then you would need to open it from the Log Analytics or Azure Monitor menu.
 
 
 ## Log search (Classic)
