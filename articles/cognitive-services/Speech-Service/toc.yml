@@ -37,6 +37,9 @@
     - name: 'Using JavaScript (Browser)'
       href: quickstart-js-browser.md
       displayName: recognize speech, speech recognition, speech to text, stt
+    - name: 'Using Objective-C (iOS)'
+      href: quickstart-objectivec-ios.md
+      displayName: recognize speech, speech recognition, speech to text, stt, xcode
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
