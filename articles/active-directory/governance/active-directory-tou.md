@@ -72,7 +72,7 @@ Once you have finalized your Terms of use document, use the following procedure 
 
 1. For **Require users to consent on every device**, select On or Off. If this setting is set to On, end users will be required to agree to the Terms of use on every device they are accessing from. For more information, see [Per-device Terms of use](#per-device-terms-of-use).
 
-1. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](conditional-access/best-practices.md).
+1. Under **Conditional Access**, you can **Enforce** the uploaded Terms of use by selecting a template from the drop-down list or a custom conditional access policy.  Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](../conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Conditional access policy controls (including Terms of use) do not support enforcement on service accounts.  We recommend excluding all service accounts from the conditional access policy.
@@ -271,4 +271,4 @@ A: You can [review previously accepted Terms of use](#how-users-can-review-their
 
 ## Next steps
 
-- [Best practices for conditional access in Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Best practices for conditional access in Azure Active Directory](../conditional-access/best-practices.md)
