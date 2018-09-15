@@ -82,7 +82,7 @@ Windows agents must be configured to communicate with a WSUS server or they must
 
 #### Linux
 
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]Test this.
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 For Linux, the machine must have access to an update repository. The update repository can be private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. A Log Analytics agent for Linux that's configured to report to multiple Log Analytics workspaces isn't supported with this solution.
 
