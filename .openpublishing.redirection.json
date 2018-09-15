@@ -14690,11 +14690,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-v2-compare.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-v2-compare",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-v2-devquickstarts-android.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-v2-devquickstarts-android",
             "redirect_document_id": false
@@ -14757,11 +14752,6 @@
         {
             "source_path": "articles/active-directory/active-directory-v2-libraries.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-v2-libraries",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-v2-limitations.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-v2-limitations",
             "redirect_document_id": false
         },
         {
