@@ -102,7 +102,6 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 1. Press the **Reset** button on your device.
 
 
-
 ## View the telemetry
 
 When the DevKit device restarts, the screen on the device shows:
@@ -110,6 +109,9 @@ When the DevKit device restarts, the screen on the device shows:
 * The number of telemetry messages sent.
 * The number of failures.
 * The number of desired properties received and the number of reported properties sent.
+
+> [!NOTE]
+> If the device appears to be looping during connect check if the device is *Blocked* in IoT Central, and *Unblock* the device so it can connect to the app.
 
 Shake the device increment the number of reported properties sent. The device sends a random number as the **Die number** device property.
 
