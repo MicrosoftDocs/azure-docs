@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 08/18/2016
 ---
 
-# Build complex schedules and advanced recurrence with Azure Scheduler
+# Build complex schedules and advanced recurrence for jobs in Azure Scheduler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -22,14 +22,12 @@ ms.date: 08/18/2016
 > [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
 Within an [Azure Scheduler](../scheduler/scheduler-intro.md) job, 
-the schedule is the core that determines when and how the 
-Scheduler service runs the job. You can set up multiple 
-one-time and recurring schedules for a job with Scheduler. 
-One-time schedules run only once at a specified time and 
-are basically recurring schedules that run only once. 
-Recurring schedules run on a specified frequency. 
-With this flexibility, you can use Scheduler for 
-various business scenarios, for example:
+the schedule is the core that determines when and how the Scheduler 
+service runs the job. You can set up multiple one-time and recurring 
+schedules for a job with Scheduler. One-time schedules run only once 
+at a specified time and are basically recurring schedules that run only once. 
+Recurring schedules run on a specified frequency. With this flexibility, 
+you can use Scheduler for various business scenarios, for example:
 
 * **Clean up data regularly**: Create a daily job 
 that deletes all tweets older than three months.
@@ -45,9 +43,8 @@ during off-peak hours and uses cloud computing for
 compressing images uploaded during the day.
 
 This article describes example jobs you can create by using Scheduler and 
-include the JavaScript Object Notation (JSON) that describes each schedule. 
-To build Scheduler jobs, you can also use this JSON with the 
-[Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule). 
+and the [Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule), 
+and includes the JavaScript Object Notation (JSON) definition for each schedule. 
 
 ## Supported scenarios
 
@@ -67,7 +64,7 @@ or daily at 5:15 AM and at 5:15 PM.
 
 This article later describes these scenarios in more detail.
 
-## Create schedule with JSON and REST API
+## Create schedule with REST API
 
 To create a basic schedule with the 
 [Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule), 
@@ -81,48 +78,59 @@ The provider name for the Azure Scheduler service is **Microsoft.Scheduler**.
 [Create or Update operation for job collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) 
 in the Scheduler REST API. 
 
-1. Create a job by using the [Create or Update operation for jobs](https://docs.microsoft.com/en-us/rest/api/scheduler/jobs/createorupdate). 
-
-   When you create a job, you can specify the schedule 
-   and recurrence by using a JSON schema, for example:
-
-   ```json
-   {
-      "startTime": "2012-08-04T00:00Z", 
-      "recurrence": {
-         "frequency": "week",
-         "interval": 1,
-         "schedule": {
-            "weekDays": ["monday", "wednesday", "friday"],
-            "hours": [10, 22]                      
-         },
-         "count": 10,                  // Optional (default to recur infinitely)
-         "endTime": "2012-11-04",      // Optional (default to recur infinitely)
-      }
-   }
-   ``` 
+1. Create a job by using the 
+[Create or Update operation for jobs](https://docs.microsoft.com/en-us/rest/api/scheduler/jobs/createorupdate). 
 
 ## Job schema elements
 
 This table provides a high-level overview for the major JSON elements 
-you can use when setting up recurrences and schedules for jobs:
+you can use when setting up recurrences and schedules for jobs. 
 
-| JSON element | Required | Description |
-|--------------|----------|-------------|
-| **startTime** | No | Specifies a DateTime value. <p>For basic schedules, **startTime** is the first occurrence. <br>For complex schedules, the job starts no sooner than **startTime**. | 
-| **recurrence** | No | Specifies the recurrence rules for when the job runs. This **recurrence** object supports these elements: **frequency**, **interval**, **endTime**, **count**, and **schedule**. <p>If you use the **recurrence** element, you must also use the **frequency** element, while other **recurrence** elements are optional. |
-| **frequency** | Yes with **recurrence** | Specifies a string that represents the time unit for when the job recurs. Supports these values: "minute", "hour", "day", "week", "month", and "year" |
-| **interval** | No | Specifies a positive integer for the number of time units represented by **frequency** and determines how often the job runs. For example, if **interval** is 10 and **frequency** is "week", the job recurs every 10 weeks. <p>Here are the maximum intervals for each frequency: <p>- 18 for a monthly frequency <br>- 78 for weekly frequency <br>- 548 for daily frequency <br>- For hour and minute frequency, the supported range is 1 <= **interval** <= 1000. | 
-| **schedule** | No | A job with a specified frequency alters its recurrence based on a recurrence schedule. A **schedule** value contains modifications based on minutes, hours, weekdays, month days, and week number. |
-| **count** | No | A positive integer (greater than zero) that specifies the number of times the job runs before it's completed.<br /><br />**count** represents the number of times the job runs before being determined completed. For example, for a job that's executed daily with a **count** of 5 and a start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.<br /><br />If no **endTime** or **count** is specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
-| **endTime** | No | A string that specifies the date-time beyond which the job doesn't run. You can set a value for **endTime** that's in the past. If **endTime** and **count** aren't specified, the job runs infinitely. You can't include both **endTime** and **count** in the same job. |
+| Element | Required | Description |
+|---------|----------|-------------|
+| **startTime** | No | A DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job first starts in a basic schedule. <br>For complex schedules, the job starts no sooner than **startTime**. | 
+| **recurrence** | No | The recurrence rules for when the job runs. The **recurrence** object supports these elements: **frequency**, **interval**, **schedule**, **count**, and **endTime**. <p>If you use the **recurrence** element, you must also use the **frequency** element, while other **recurrence** elements are optional. |
+| **frequency** | Yes, when you use **recurrence** | The time unit between occurences and supports these values: "Minute", "Hour", "Day", "Week", "Month", and "Year" | 
+| **interval** | No | A positive integer that determines the number of times that the job runs. For example, if **interval** is 10 and **frequency** is "Week", the job recurs every 10 weeks. <p>Here are the maximum number of intervals for each frequency: <p>- 18 months <br>- 78 weeks <br>- 548 days <br>- For hours and minutes, the range is 1 <= <*interval*> <= 1000. | 
+| **schedule** | No | Changes to a recurrence based on the specified minute-marks, hour-marks, days of the week, and days of the month |
+| **count** | No | A positive integer that specifies the number of times that the job runs before finishing. <p>For example, when a daily job has **count** set to 7, and the start date is Monday, the job finishes running on Sunday. If the start date has already passed, the first run is calculated from the creation time. <p>>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
+| **endTime** | No | A Date or DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job stops running. You can set a value for **endTime** that's in the past. <p>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
 |||| 
+
+*Dates and DateTime values*
+
+* Dates in Scheduler jobs include only the date and follow the 
+[ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601).
+
+* Date-times in Scheduler jobs include both date and time, 
+follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), 
+and is assumed to be UTC when no UTC offset is specified. 
+
+For example, this JSON schema describes a basic shedule and recurrence for a job: 
+
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z", 
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]                      
+      },
+      "count": 10,       
+      "endTime": "2012-11-04"
+   },
+},
+``` 
+
+For more information, see [Concepts, terminology, and entities](../scheduler/scheduler-concepts-terms.md).
 
 ## Job schema defaults, limits, and examples
 
 Later in the article, we discuss each of the following elements in detail:
 
-| JSON name | Value type | Required? | Default value | Valid values | Example |
+| JSON name | Value type | Required | Default value | Valid values | Example |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** |string |No |None |ISO 8601 date-times |`"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** |object |No |None |The recurrence object |`"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
@@ -132,13 +140,6 @@ Later in the article, we discuss each of the following elements in detail:
 | **count** |number |No |None |>= 1 |`"count": 5` |
 | **schedule** |object |No |None |The schedule object |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 |||| 
-
-## Run based on date and time
-
-Date references in Scheduler jobs follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), and include only the date.
-
-Date-time references in Scheduler jobs follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), and include both date and time. 
-A date-time that doesn't specify a UTC offset is assumed to be UTC.  
 
 ## Deep dive: startTime
 
