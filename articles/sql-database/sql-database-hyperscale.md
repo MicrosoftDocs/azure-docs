@@ -49,7 +49,7 @@ Unlike traditional database engines that have centralized all of the data manage
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
-![architecture](./media/sql-database-hyperscale/architecture.png)
+![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
 A Hyperscale database contains the following different types of nodes:
  
