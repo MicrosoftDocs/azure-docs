@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `notebooks/tutorials/03.auto-train-models.ipynb` notebook:
+For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/03.auto-train-models.ipynb` notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -95,7 +95,6 @@ experiment_name = 'automl-classifier'
 project_folder = './automl-classifier'
 
 import os
-
 
 output = {}
 output['SDK version'] = azureml.core.VERSION
@@ -258,7 +257,7 @@ s = rundata.style.background_gradient(cmap = cm)
 s
 ```
 
-This table shows the results.  In the notebook you will see varying shades of green to highlight high/low values.
+This table shows the results.  When you run this code in the notebook you will see varying shades of green to highlight high/low values. Here the table is shown without the colors:
 
 
 <!-- hello world -->

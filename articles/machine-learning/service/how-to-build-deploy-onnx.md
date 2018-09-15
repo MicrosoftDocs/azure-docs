@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 
 # ONNX and Azure Machine Learning: Create and deploy interoperable AI models
 
-The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a community of partners, including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
+The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a [community of partners](http://onnx.ai/supported-tools), including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
 
 + Use the framework of their choice to create and train models
 + Deploy models cross-platform with minimal integration work
@@ -34,13 +34,13 @@ There is also an ecosystem of tools for visualizing and accelerating ONNX models
 ## Create ONNX models in Azure
 
 You can create ONNX models in several ways:
-+ Train a model in Azure Machine Learning service and convert or export it to ONNX (see example in this article)
++ Train a model in Azure Machine Learning service and convert or export it to ONNX (see example at the bottom of this article)
 
 + Get a pre-trained ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models)
 
 + Generate a customized ONNX model from [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
 
-Once you have an ONNX model, you can deploy it to Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/).
+Once you have an ONNX model, you can deploy it with Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/).
 
 ## Export/convert your models to ONNX
 
@@ -100,7 +100,7 @@ For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
 
 Here is an example for deploying an ONNX model:
 
-1. Initialize your Azure Machine Learning Workspace. (Learn how to create a workspace in [this quickstart](quickstart-get-started.md).)
+1. Initialize your Azure Machine Learning Workspace. If you don't have one yet, learn how to create a workspace in [this quickstart](quickstart-get-started.md).
 
    ```python
    from azureml.core import Workspace
@@ -189,8 +189,7 @@ Here is an example for deploying an ONNX model:
 
 ## Examples
  
-learn more with this [sample notebook]()
-The following notebook demonstrate pipelines with Azure Machine Learning: http://aka.ms/aml-onnx-training-notebook
+The following notebook demonstrate how pipelines work with Azure Machine Learning: http://aka.ms/aml-onnx-training-notebook.
  
 Get this notebook:
  

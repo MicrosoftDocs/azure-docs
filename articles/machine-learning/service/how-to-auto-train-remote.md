@@ -63,7 +63,7 @@ DSVM name restrictions include:
 >    1. Go to the [Azure portal](https://portal.azure.com)
 >    1. Start creating a DSVM 
 >    1. Select "Want to create programmatically" to enable programmatic creation
->    1. Exist without actually creating the VM
+>    1. Exit without actually creating the VM
 >    1. Rerun the creation code
 
 
@@ -98,7 +98,7 @@ run_config = RunConfiguration(conda_dependencies=cd)
 run_config.target = dsvm_compute 
 run_config.auto_prepare_environment = True 
 # save the conda dependencies to the aml_config folder 
-run_config.save(path = project_folder, name = dsvm_name)
+run_config.save(path=project_folder, name=dsvm_name)
 ```
 
 You can now use the `run_config` object as the target for automatic training. 
@@ -152,11 +152,11 @@ automl_settings = {
     "verbosity": logging.INFO
 }
 
-automl_config = AutoMLConfig(task = 'classification',
-                             debug_log = 'automl_errors.log',
+automl_config = AutoMLConfig(task='classification',
+                             debug_log='automl_errors.log',
                              path=project_folder,
-                             run_configuration = run_config,
-                             data_script = project_folder + "./get_data.py",
+                             run_configuration=run_config,
+                             data_script=project_folder + "./get_data.py",
                              **automl_settings
                             )
 ```
@@ -217,41 +217,11 @@ Here is a static image of the widget.  In the notebook, you can click on any lin
 ![widget table](./media/how-to-auto-train-remote/table.png)
 ![widget plot](./media/how-to-auto-train-remote/plot.png)
 
-
-Find logs on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs
-
 The widget displays a URL you can use to see and explore the individual run details.
  
+### View logs
 
-## View status of DSVM
-You can iterate through all runs in your experiment and view the DSVM status and run history.
-
-```python
-import azureml.core
-import pandas as pd
-from azureml.core.workspace import Workspace
-from azureml.core.history import History
-from azureml.core.run import Run
-project_name = 'automl-remote' # Ensure this matches your project name
-
-proj = History(ws, project_name)
-summary_df = pd.DataFrame(index = ['Type', 'Status', 'Primary Metric', 'Iterations', 'Compute', 'Name'])
-import re
-pattern = re.compile('^AutoML_[^_]*$')
-all_runs = list(proj.get_runs())
-for run in all_runs:
-    if(pattern.match(run.id)):
-        properties = run.get_properties()
-        amlsettings = eval(properties['RawAMLSettingsString'])
-        summary_df[run.id] = [amlsettings['task_type'], run.get_details().status, properties['primary_metric'], properties['num_iterations'], properties['target'], amlsettings['name']]
-    
-from IPython.display import HTML
-projname_html = HTML("<h3>{}</h3>".format(proj.name))
-
-from IPython.display import display
-display(projname_html)
-display(summary_df.T)
-```
+Find logs on the DSVM under /tmp/azureml_run/{iterationid}/azureml-logs.
 
 ## Example
 

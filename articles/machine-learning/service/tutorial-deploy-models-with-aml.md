@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 # Tutorial #2:  Deploy an image classification model in Azure Container Instance (ACI)
 
-This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered the best one in your workspace on the cloud.  
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
 Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
@@ -28,11 +28,11 @@ In this part of the tutorial, you use Azure Machine Learning service (Preview) t
 > * Deploy the model to ACI
 > * Test the deployed model
 
-ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using AKS.
+ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using [Azure Kubernetes Service](how-to-deploy-to-aks.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `notebooks/tutorials/02.deploy-models.ipynb` notebook:
+For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/02.deploy-models.ipynb` notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -65,7 +65,7 @@ Start by setting up a testing environment.
 Import the Python packages needed for this tutorial.
 
 ```python
-%matplotlib inline
+%%matplotlib inline
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -138,6 +138,7 @@ conf_mx = confusion_matrix(y_test, y_hat)
 print(conf_mx)
 print('Overall accuracy:', np.average(y_hat == y_test))
 ```
+
 The output shows the confusion matrix:
 
     [[ 960    0    1    2    1    5    6    3    1    1]
@@ -187,6 +188,8 @@ To build the correct environment for ACI, provide the following:
 * A configuration file to build the ACI
 * The model you trained before
 
+<a name="make-script"></a>
+
 ### Create scoring script
 
 Create the scoring script, called score.py, used by the web service call to show how to use the model.
@@ -221,6 +224,8 @@ def run(raw_data):
     return json.dumps(y_hat.tolist())
 ```
 
+<a name="make-myenv"></a>
+
 ### Create environment file
 
 Next, create an environment file, called myenv.yml, that specifies all of the script's package dependencies. This file is used to ensure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`.
@@ -247,7 +252,7 @@ from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
                                                memory_gb = 1, 
-                                               tags = {"data": "MNIST",  "method" : "sklearn"},
+                                               tags = {"data": "MNIST",  "method" : "sklearn"}, 
                                                description = 'Predict MNIST with sklearn')
 ```
 

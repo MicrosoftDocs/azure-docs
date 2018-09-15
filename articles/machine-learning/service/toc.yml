@@ -9,7 +9,7 @@
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
     href: how-to-migrate.md             
-  - name: Choose an ML product
+  - name: Compare machine learning products
     href: overview-more-machine-learning.md    
 - name: Quickstarts
   items:
@@ -46,7 +46,7 @@
   - name: Set up training environments	
     href: how-to-set-up-training-targets.md
   - name: Prepare data for modeling
-    href: concept-data-preparation.md   
+    href: how-to-data-prep.md   
     items:
     - name: Load data
       href: how-to-load-data.md
@@ -59,7 +59,7 @@
     - name: Use automated modeling	
       items:
       - name: Configure auto training
-        href: how-to-automl.md 
+        href: how-to-configure-auto-train.md 
       - name: Use remote compute targets
         href: how-to-auto-train-remote.md
     - name: Access data

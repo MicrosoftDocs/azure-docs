@@ -14,7 +14,7 @@ ms.date: 9/24/2018
 
 # What is FPGA and Project Brainwave?
 
-This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning provides real-time artificial intelligence (AI) with FPGA.
+This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning provides real-time artificial intelligence (AI) when you deploy your model to an Azure FPGA.
 
 FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways post-manufacturing. FPGAs provide a combination of programmability and performance compared to other chips.
 
@@ -31,7 +31,7 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 
 ## Project Brainwave on Azure
 
-Project Brainwave is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale**.
+[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale** and is available on Azure.
 
 FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means collecting a large amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
 
@@ -60,7 +60,7 @@ The following scenarios use FPGA on Project Brainwave architecture:
 
 ## How to deploy to FPGAs?
 
-Here is the workflow for creating an image recognition service in Azure using a supported DNNs as a featurizer:
+Here is the workflow for creating an image recognition service in Azure using supported DNNs as a featurizer for deployment on Azure FPGAs:
 
 1. Use the Azure Machine Learning SDK for Python to create a service definition, which is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command will automatically compress the definition and graphs into a ZIP file and upload the ZIP to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
 
@@ -79,4 +79,4 @@ Checkout these videos and blogs:
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 
-+ [Microsoft unveils Project Brainwave for real-time AI](https://www.microsoft.com/research/blog/microsoft-unveils-project-brainwave/)
++ [Project Brainwave for real-time AI: project home page](https://www.microsoft.com/research/project/project-brainwave/)

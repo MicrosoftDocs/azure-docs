@@ -1,5 +1,5 @@
 ---
-title: Migrate to Azure Machine Learning, general availability
+title: Migrate to Azure Machine Learning service
 description: Learn how to upgrade or migrate to the late version of Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -14,6 +14,7 @@ ms.date: 09/24/2018
 
 **If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
 
+## What can I migrate?
 Most artifacts created in the first preview of Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't disappear. To migrate, register the artifacts again with the updated Azure Machine Learning offering. 
 
 The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning service. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
@@ -24,6 +25,7 @@ The following table and article explain what you can do with your existing asset
 |Model dependencies & schemas (as local files)|Yes|None. Works as before.|
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
+|Data prep files|No|[Prepare any size data set](#dataprep) for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks.|
 |Compute targets|No|Register them in new workspace.|
 |Registered models|No|Re-register the model under a new workspace.|
 |Registered manifests|No|None. Manifests no longer exists as a concept in the new workspace.|
@@ -36,7 +38,7 @@ The following table and article explain what you can do with your existing asset
 Learn more about [what changed in this release](overview-what-happened-to-workbench.md)?
 
 >[!Warning]
->This article is not for Azure Machine Learning Studio users. It is for customers who have installed the Workbench (preview) application and/or have experimentation and model management preview accounts.
+>This article is not for Azure Machine Learning Studio users. It is for Azure Machine Learning service customers who have installed the Workbench (preview) application and/or have experimentation and model management preview accounts.
 
 <a name="resources"></a>
 
@@ -54,22 +56,12 @@ This new workspace is the top-level service resource and enables you to use all 
 
 Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
-To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. Using a single CLI command or in a few lines of Python code, your existing project files will continue to work in the latest version. For a complete example, try the [Portal/SDK quickstart](quickstart-get-started.md). 
+To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.
 
-+ For [CLI](reference-azure-machine-learning-cli.md), use:
-  ```azurecli
-  az ml project attach -w <my_workspace_name> -p <proj_dir_path> --history <run_history_name>
-  ```
-
-+ For the new <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, use:
-  ```python
-  from azureml.core import Workspace, Project
-    
-  ws = Workspace.from_config()
-  proj = Project.attach(workspace_object=ws, run_history='<run_history_name>', directory='<proj_dir_path>')
-  ```
-
-Replace the information in \<\>  brackets with the name of your workspace, file path to your local project directory, and the name for run history.   
+For example:
+```python
+run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+```
 
 <a name="services"></a>
 
@@ -107,8 +99,10 @@ az ml history info
 az ml history download
 ```
 
+<a name="dataprep"></a>
+
 ## Data preparation files
-Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](concept-data-preparation.md). 
+Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](how-to-data-prep.md). 
 
 ## Next steps
 

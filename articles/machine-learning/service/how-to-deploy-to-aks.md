@@ -118,7 +118,7 @@ print(aks_target.provisioning_errors)
 If you have existing AKS cluster in your Azure subscription, you can use it to deploy your image. The following code snippet demonstrates how to attach a cluster to your workspace. 
 
 > [!IMPORTANT]
-> AKS versions 1.8.7 and later are supported.
+> Only AKS version 1.8.7 is supported.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
