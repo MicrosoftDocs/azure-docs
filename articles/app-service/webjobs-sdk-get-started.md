@@ -98,7 +98,7 @@ The `JobHost` object is the runtime container for functions: it listens for trig
 
 ## Enable console logging
 
-There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
+There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
 
 In this section, you set up console logging that uses the new framework.
 

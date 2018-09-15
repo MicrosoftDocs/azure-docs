@@ -111,7 +111,7 @@ This section provides you with steps for testing the user risk and the sign-in r
 
 ### User risk security policy
 
-For more information, see [User risk security policy](overview.md#user-risk-security-policy).
+For more information, see [How to configure the user risk policy](howto-user-risk-policy.md).
 
 ![User risk](./media/playbook/02.png "Playbook")
 
@@ -136,7 +136,7 @@ For more information, see [User risk security policy](overview.md#user-risk-secu
 
 ### Sign-in risk security policy
 
-For more information, see [User risk security policy](overview.md#user-risk-security-policy).
+For more information, see [How to configure the sign-in risk policy](howto-sign-in-risk-policy.md).
 
 ![Sign-in risk](./media/playbook/01.png "Playbook")
 
