@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: "include"
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: "include file"
+---
+
 # Back up Azure unmanaged VM disks with incremental snapshots
 ## Overview
 Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we describe a scenario in which you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks.

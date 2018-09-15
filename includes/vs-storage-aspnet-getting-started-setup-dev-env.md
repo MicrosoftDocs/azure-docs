@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: "include file"
+---
+
 ## Set up the development environment
 
 This section walks through setting up the development environment. This includes creating an ASP.NET MVC app, adding a connected services connection, adding a controller, and specifying the required namespace directives.

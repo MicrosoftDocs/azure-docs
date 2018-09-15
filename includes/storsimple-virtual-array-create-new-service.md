@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: "include"
+ms.date: 09/15/2018
+ms.author: alkohli
+ms.custom: "include file"
+---
+
 #### To create a new service
 
 1.  Using your Microsoft account credentials, sign in to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, sign in at: <https://portal.azure.us/>

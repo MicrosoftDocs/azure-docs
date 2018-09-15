@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: "include file"
+---
+
 ## Set up your development environment
 Next, set up your development environment in Visual Studio so you're ready to try the code examples in this guide.
 
