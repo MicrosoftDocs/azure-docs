@@ -16,13 +16,13 @@
   - name: Configure Kafka policies
     href: apache-domain-joined-run-kafka.md
     maintainContext: true
-  - name: Use VSCode to link to domain joined cluster
+  - name: Use VSCode to link to ESP cluster
     href: ../hdinsight-for-vscode.md
     maintainContext: true
-  - name: Use IntelliJ to link to domain joined cluster
+  - name: Use IntelliJ to link to ESP cluster
     href: ../spark/apache-spark-intellij-tool-plugin.md
     maintainContext: true
-  - name: Use Eclipse to link to domain joined cluster
+  - name: Use Eclipse to link to ESP cluster
     href: ../spark/apache-spark-eclipse-tool-plugin.md
     maintainContext: true
   - name: Use Oozie in ESP clusters
