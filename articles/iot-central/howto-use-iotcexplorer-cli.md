@@ -12,13 +12,15 @@ manager: peterpr
 
 # Monitor device connectivity using the IoT Central Explorer CLI
 
+*This topic applies to builders and administrators.*
+
 Use the IoT Central Explorer CLI to see messages your devices are sending to IoT Central and observe changes in the IoT Hub twin. You can use this open-source tool to gain deeper insight into the state of device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
-## [Go to Github to get `iotc-explorer`](https://aka.ms/iotciotcexplorercligithub)
+## [Visit the `iotc-explorer` repo in Github](https://aka.ms/iotciotcexplorercligithub)
 
 ## Prerequisites
 + Node.js version 8.x or higher - https://nodejs.org
-+ You will need Administrator access in IoT Central to generate an access token
++ You will need to get an administrator of your app to generate an access token for you to use in iotc-explorer
 
 ## Installing `iotc-explorer`
 
@@ -39,11 +41,14 @@ Below are some commands and common options that you can run when using
 ### Login
 
 Before you get going, you need to have an administrator of your IoT Central application to get an access token for you to use. The administrator takes the following steps:
-- Go to **Administration/Access Tokens**. 
-- Click **Generate**, and enter a Token name.  
-- Click **Next**, and **copy the Token value**.
+1. Go to **Administration/Access Tokens**. 
+1. Click **Generate**.
+![Access token page screenshot](media/howto-use-iotcexplorer-cli/accesstokenspage.png)
 
-> NOTE: The token value will only be shown once, so it must be copied before closing the dialog. After closing the dialog, it will never be shown again.
+1. Enter a Token name, click **Next**, and **copy the Token value**.
+    > NOTE: The token value will only be shown once, so it must be copied before closing the dialog. After closing the dialog, it will never be shown again.
+
+    ![Copy access token dialog screenshot](media/howto-use-iotcexplorer-cli/copyaccesstoken.png)
 
 You can then use that token to log in to the CLI by running:
 
@@ -69,6 +74,8 @@ To watch all devices in your application, run the following command:
 ```
 iotc-explorer monitor-messages
 ```
+Output:
+![monitor-messages command output](media/howto-use-iotcexplorer-cli/monitormessages.PNG)
 
 To watch a specific device, just add the Device ID to the end of the command:
 
@@ -91,6 +98,9 @@ Central device. To do so, run the following command:
 ```
 iotc-explorer get-twin <your-device-id>
 ```
+
+Output:
+![get-twin command output](media/howto-use-iotcexplorer-cli/getdevicetwin.PNG)
 
 As with `monitor-messages`, you can get a more machine-friendly output by
 passing the `--raw` option:
