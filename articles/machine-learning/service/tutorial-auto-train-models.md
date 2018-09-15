@@ -257,7 +257,7 @@ s = rundata.style.background_gradient(cmap = cm)
 s
 ```
 
-This table shows the results.  In the notebook you will see varying shades of green to highlight high/low values.
+This table shows the results.  When you run this code in the notebook you will see varying shades of green to highlight high/low values. Here the table is shown without the colors:
 
 
 <!-- hello world -->
