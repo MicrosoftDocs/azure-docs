@@ -89,12 +89,16 @@
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: Insights
     items:
-    - name: Application monitoring
+    - name: Application Insights
       items:
       - name: Overview
         href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
       - name: DevOps
         href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+    - name: Containers
+      href: https://aka.ms/AzureMonitorContainers
+    - name: Virtual Machines
+      href: https://aka.ms/AzureMonitorVirtualMachines
     - name: Monitoring solutions
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analyze data
