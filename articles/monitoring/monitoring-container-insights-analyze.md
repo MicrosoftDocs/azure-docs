@@ -1,19 +1,19 @@
 ---
 title: Monitor AKS container performance with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can view and analyze the performance and log data with Azure Monitor for containers.
-services: log-analytics
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: 
 
 ms.assetid: 
-ms.service: log-analytics
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: magoedte
 ---
 
@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Multi-cluster view from Azure Monitor 
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section select **Containers (preview)**.  
 
-![Azure Monitor multi-cluster dashbaord example](./media/monitoring-container-insights-analyze/azure-monitor-multicluster-view-01.png)
+![Azure Monitor multi-cluster dashbaord example](./media/monitoring-container-insights-analyze/azmon-containers-multiview.png)
 
 On the **Monitored clusters** tab, you are able to learn the following:
 
@@ -50,7 +50,7 @@ Health state calculates overall cluster status as *worst of*” the three states
 
 The following table provides a breakdown of the calculation controlling the health states for a monitored cluster on the multi-cluster view.
 
-| |Status |Pod availability |  
+| |Status |Availability |  
 |-------|-------|-----------------|  
 |**User Pod**| | |  
 | |Healthy |100% |  
@@ -71,14 +71,14 @@ The following table provides a breakdown of the calculation controlling the heal
 From the list of clusters, you can drill-down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill-down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
 ## View performance directly from an AKS cluster
-Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Health (preview)** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
+Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights (preview)** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
 
 - Cluster
 - Nodes 
 - Controllers  
 - Containers
 
-The default page opened when you click on **Health (preview)** is **Cluster**, and it includes four line performance charts displaying key performance metrics of your cluster. 
+The default page opened when you click on **Insights (preview)** is **Cluster**, and it includes four line performance charts displaying key performance metrics of your cluster. 
 
 ![Example performance charts on the Cluster tab](./media/monitoring-container-insights-analyze/containers-cluster-perfview.png)
 

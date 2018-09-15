@@ -1,28 +1,28 @@
 ---
-title: How to Troubleshoot Azure Monitor Container Insights | Microsoft Docs
-description: This article describes how you can troubleshoot and resolve issues with Azure Monitor Container Insights solution.
-services: log-analytics
+title: How to Troubleshoot Azure Monitor for containers | Microsoft Docs
+description: This article describes how you can troubleshoot and resolve issues with Azure Monitor for containers.
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: 
 
 ms.assetid: 
-ms.service: log-analytics
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 09/14/2018
 ms.author: magoedte
 ---
 
-# Troubleshooting Azure Monitor Container Insights
+# Troubleshooting Azure Monitor for containers
 
-When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Container Insights, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
+When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
 
-## Solution is enabled but not reporting any information
-If Container Insights is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analytics log query, you diagnose the problem by following these steps: 
+## Azure Monitor for containers is enabled but not reporting any information
+If Azure Monitor for containers is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analytics log query, you diagnose the problem by following these steps: 
 
 1. Check the status of the agent by running the command: 
 
@@ -35,7 +35,7 @@ If Container Insights is successfully enabled and configured, but you cannot vie
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Check the solution deployment status with agent version *06072018* or later using the command:
+2. Check the deployment status with agent version *06072018* or later using the command:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
@@ -89,4 +89,4 @@ If Container Insights is successfully enabled and configured, but you cannot vie
     ```
 
 ## Next steps
-With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Container Insights, see [View Azure Kubernetes Service health](monitoring-container-insights-analyze.md).
+With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Azure Monitor for containers, see [View Azure Kubernetes Service health](monitoring-container-insights-analyze.md).
