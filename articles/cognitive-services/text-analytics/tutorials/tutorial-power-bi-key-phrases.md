@@ -32,11 +32,11 @@ In this tutorial, you'll learn how to:
 - Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
 - A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
 - A Cognitive Services API account with the Text Analytics API. If you don't have one, you can [sign up](../../cognitive-services-apis-create-account.md)
- and use the free tier for 5,000 transactions/month (see [pricing details](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
+ and use the free tier for 5,000 transactions/month (see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
 - The [Text Analytics access key](../how-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 - Customer comments. You can use [our example data](https://aka.ms/cogsvc/ta) or your own data. This tutorial assumes you're using our example data.
 
-## Loading customer data
+## Load customer data
 <a name="LoadingData"></a>
 
 To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#Prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
@@ -58,7 +58,7 @@ To see the loaded data, click the **Data View** button on the left edge of the P
 
 ![[The initial view of the imported data]](../media/tutorials/power-bi/initial-data-view.png)
 
-## Preparing the data
+## Prepare the data
 <a name="PreparingData"></a>
 
 You may need to transform your data in Power BI Desktop before it's ready to be processed by the Key Phrases API of the Text Analytics service.
@@ -83,7 +83,7 @@ In the Merge Columns dialog, choose `Tab` as the separator, then click **OK.**
 
 You might also consider filtering out blank messages using the Remove Empty filter, or removing unprintable characters using the Clean transformation. If your data contains a column like the `spamscore` column in the sample file, you can skip "spam" comments using a Number Filter.
 
-## Understanding the API
+## Understand the API
 <a name="UnderstandingAPI"></a>
 
 The [Key Phrases API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will include only a single document each. The Key Phrases API requires the following fields for each document being processed.
@@ -94,7 +94,7 @@ The [Key Phrases API](//westus.dev.cognitive.microsoft.com/docs/services/TextAna
 | `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#PreparingData), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,000 characters.|
 | `language` | The code for the natural language the document is written in. All the messages in the sample data are in English, so you can hard-code the value `en` for this field.|
 
-## Creating a custom function
+## Create a custom function
 <a name="CreateCustomFunction"></a>
 
 Now you're ready to create the custom function that will integrate Power BI and Text Analytics. The function receives the text to be processed as a parameter. It converts data to and from the required JSON format and makes the HTTP request to the Key Phrases API. The function then parses the response from the API and returns a string that contains a comma-separated list of the extracted key phrases.
@@ -111,7 +111,7 @@ A new query, initially named `Query1`, appears in the Queries list. Double-click
 Now, in the **Home** ribbon, in the **Query** group, click **Advanced Editor** to open the Advanced Editor window. Delete the code that's already in that window and paste in the following code. 
 
 > [!NOTE]
-> The examples below assume the Text Analytics API endpoint begins with `https://westus.api.cognitive.microsoft.com`. Text Analytics allows you to create a subscription in 13 different regions. If you signed up for the service in a different region, please make sure to use the endpoint for the region you selected. You can find this endpoint by signing in to the [Azure portal](https://azure.microsoft.com/en-us/features/azure-portal/), selecting your Text Analytics subscription, and selecting the Overview page.
+> The examples below assume the Text Analytics API endpoint begins with `https://westus.api.cognitive.microsoft.com`. Text Analytics allows you to create a subscription in 13 different regions. If you signed up for the service in a different region, please make sure to use the endpoint for the region you selected. You can find this endpoint by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), selecting your Text Analytics subscription, and selecting the Overview page.
 
 ```fsharp
 // Returns key phrases from the text in a comma-separated list
@@ -128,9 +128,9 @@ Now, in the **Home** ribbon, in the **Query** group, click **Advanced Editor** t
 in  keyphrases
 ```
 
-Replace `YOUR_API_KEY_HERE` with your Text Analytics access key. You can also find this key by signing in to the [Azure portal](https://azure.microsoft.com/en-us/features/azure-portal/), selecting your Text Analytics subscription, and selecting the Overview page. Be sure to leave the quotation marks before and after the key. Then click **Done.**
+Replace `YOUR_API_KEY_HERE` with your Text Analytics access key. You can also find this key by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), selecting your Text Analytics subscription, and selecting the Overview page. Be sure to leave the quotation marks before and after the key. Then click **Done.**
 
-## Using the custom function
+## Use the custom function
 <a name="UseCustomFunction"></a>
 
 Now you can use the custom function to extract the key phrases from each of the customer comments and store them in a new column in the table. 
@@ -173,7 +173,7 @@ Click **Continue** and choose `Public` for each of the data sources in the dialo
 
 ![[setting data source privacy]](../media/tutorials/power-bi/privacy-dialog.png)
 
-## Creating the word cloud
+## Create the word cloud
 <a name="WordCloud"></a>
 
 Once you have dealt with any banners that appear, click **Close & Apply** in the Home ribbon to close the Query Editor.
