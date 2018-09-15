@@ -1,5 +1,6 @@
 ---
-title: Using C#, integrate LUIS with a bot using the Bot Builder SDK- Azure Cognitive Services| Microsoft Docs
+title: LUIS bot with C# - Web app Bot - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution.
 services: cognitive-services
 author: diberry
@@ -7,13 +8,13 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# Web App Bot using the LUIS template for C#
+# LUIS bot in C#
 
-Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. 
+Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. The bot is built with the Bot Framework 3.x and the Azure Web app bot.
 
 ## Prerequisite
 
