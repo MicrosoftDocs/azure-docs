@@ -133,6 +133,8 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Write C# UDF for Edge
       href: stream-analytics-edge-csharp-udf-methods.md
+    - name: Test live data locally
+      href: stream-analytics-live-data-local-testing.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting steps
