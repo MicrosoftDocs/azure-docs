@@ -1,7 +1,7 @@
 ---
 title: About the Cognitive Services Speech SDK
 description: An overview of the SDKs available for the Speech service.
-titleSuffix: "Microsoft Cognitive Services"
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 
@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 # About the Cognitive Services Speech SDK
 
-The Cognitive Services Speech Software Development Kit (SDK) provides your applications native access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**.
+The Cognitive Services Speech Software Development Kit (SDK) gives your applications native access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -24,21 +24,18 @@ The Cognitive Services Speech Software Development Kit (SDK) provides your appli
 
 ### Windows
 
-For Windows we support the following languages:
+For Windows, we support the following languages:
 
 * C# (UWP and .NET), C++:
-  You can reference and use the latest version of our Speech SDK NuGet package.
-  The package includes 32-bit and 64-bit client libraries as well as managed (.NET) libraries.
-  The SDK can be installed in Visual Studio using NuGet; simply search for `Microsoft.CognitiveServices.Speech`.
+  You can reference and use the latest version of our Speech SDK NuGet package. The package includes 32-bit and 64-bit client libraries and managed (.NET) libraries. The SDK can be installed in Visual Studio by using NuGet. Search for **Microsoft.CognitiveServices.Speech**.
 
 * Java:
-  You can reference and use the latest version of our Speech SDK Maven package, which supports Windows x64 only.
-  In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository, and reference `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` as a dependency. 
+  You can reference and use the latest version of our Speech SDK Maven package, which supports only Windows x64. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` as a dependency. 
 
 ### Linux
 
 > [!NOTE]
-> Currently, we only support Ubuntu 16.04 on a PC (x86 or x64 for C++ development, x64 for .NET Core and Java).
+> Currently, we support  only Ubuntu 16.04 on a PC (x86 or x64 for C++ development and x64 for .NET Core and Java).
 
 Make sure you have the required compiler and libraries installed by running the following shell commands:
 
@@ -48,18 +45,16 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
 * C#:
-  You can reference and use the latest version of our Speech SDK NuGet package.
-  To reference the SDK, add the following package reference into your project:
+  You can reference and use the latest version of our Speech SDK NuGet package. To reference the SDK, add the following package reference to your project:
 
   ```xml
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="0.6.0" />
   ```
 
 * Java:
-  You can reference and use the latest version of our Speech SDK Maven package.
-  In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository, and reference `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` as a dependency. 
+  You can reference and use the latest version of our Speech SDK Maven package. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` as a dependency. 
 
-* C++: download the SDK as a [.tar package](https://aka.ms/csspeech/linuxbinary) and unpack the files in into a directory of your choice. The following table shows the SDK folder structure.
+* C++: Download the SDK as a [.tar package](https://aka.ms/csspeech/linuxbinary) and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
 
   |Path|Description|
   |-|-|
@@ -69,21 +64,21 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   |`lib/x64`|Native x64 library for linking with your application|
   |`lib/x86`|Native x86 library for linking with your application|
 
-  To create an application, copy or move the required binaries (and libraries) into your development environment, and include them as required into your build process.
+  To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
 
 ### Android
 
-The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
-It is hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
-To consume the package from your Android Studio project make the following changes:
+The Java SDK for Android is packaged as an [AAR (Android library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and the required Android permissions for using it. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/`, with the package name `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
 
-* In the project-level `build.gradle` file, add the following into the `repository` section:
+To consume the package from your Android Studio project, make the following changes:
+
+* In the project-level build.gradle file, add the following to the `repository` section:
 
   ```text
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
-* In the module-level `build.gradle` file, add the following into the `dependencies` section:
+* In the module-level build.gradle file, add the following to the `dependencies` section:
 
   ```text
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.6.0'
@@ -95,5 +90,5 @@ The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* Get your [Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/).
+* See how to [recognize speech in C#](quickstart-csharp-dotnet-windows.md).
