@@ -15,14 +15,16 @@ ms.custom: codepen
 
 This article shows you how to make a route request and show the route on the map.
 
-There are two ways to do so. The first way is by to query the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module. The second way is to make an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both ways are discussed below.
+There are two ways to do so. The first way is by to query the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module. The second way is to make a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both ways are discussed below.
 
 ## Query the route via service module
+
+The code below shows how to query the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module:
 
 <iframe height='500' scrolling='no' title='Show directions from A to B on a map (Service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Show directions from A to B on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
 ### Understand the code
 
@@ -40,16 +42,18 @@ The last block of code queries the Azure Maps routing service through the [getRo
 
 ## Query the route via XMLHttpRequest
 
-### Understand the code
+The code below shows how to use the API make a route request:
 
 <iframe height='500' scrolling='no' title='Show directions from A to B on a map' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Show directions from A to B on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+### Understand the code
 
-The second block of code creates and adds pins on the map to represent the start and end point of the route. You can see [add a pin on the map](map-add-pin.md) for instructions.
+In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
-The third block of code uses [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) function of the map class to set the bounding box of the map based on the start and end point of the route.
+The second block of code creates and adds pins on the map to represent the start and end point of the route. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+
+The third block of code uses [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) function of the Map class to set the bounding box of the map based on the start and end point of the route.
 
 The fourth block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 

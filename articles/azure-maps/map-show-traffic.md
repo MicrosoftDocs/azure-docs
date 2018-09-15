@@ -20,7 +20,7 @@ This article shows you how to show traffic and incidents information on the map.
 <iframe height='456' scrolling='no' title='Show traffic on a map' src='//codepen.io/azuremaps/embed/WMLRPw/?height=456&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object. You can see [create a map](map-create.md) for instructions.
+In the code above, the first block of code constructs a Map object. You can see [create a map](map-create.md) for instructions.
 
 The second block of code uses [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) function of the map class to render the traffic flows and incidents on the map.
 
@@ -36,7 +36,7 @@ See the following articles for full code samples:
 > [!div class="nextstepaction"]
 > [Code sample page](http://aka.ms/AzureMapsSamples)
 
-Enrich user experiences:
+Enhance your user experiences:
 
 > [!div class="nextstepaction"]
 > [Map interaction with mouse events](./map-events.md)

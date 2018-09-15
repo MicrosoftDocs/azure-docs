@@ -13,33 +13,37 @@ ms.custom: codepen
 
 # Show search results on the map
 
-This article shows you how to search for location of interest and show the search results on the map. 
+This article shows you how to search for location of interest and show the search results on the map.
 
-There are two ways to search for a location of interest, one way is by using a service module to make a search request and the other is by making a search request through a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). We discuss both below.
+There are two ways to search for a location of interest. One way is to use a service module to make a search request. The other way is to make a search request through a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). Both ways are discussed below.
 
-## Making a search request via service module
+## Make a search request via service module
 
-### Understand the code
+The code below demonstrates how to use a service module to make a search request:
 
 <iframe height='500' scrolling='no' title='Show search results on a map (Service Module)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Show search results on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object and instantiates a client service. You can see [create a map](./map-create.md) for instructions.
+### Understand the code
 
-The second block of code uses Fuzzy search [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for point of interest. Fuzzy search API can handle any combination of fuzzy inputs. The response from the fuzzy search service is then parsed into GeoJSON format using the [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) method. The pins are then added to the map to show the points of interest on the map.
+In the code above, the first block of code constructs a map object and initializes the client service. You can see [create a map](./map-create.md) for instructions.
+
+The second block of code uses the [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for point of interest. Fuzzy search API can handle any combination of fuzzy inputs. The response from the fuzzy search service is then parsed into GeoJSON format using the [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) method. The pins are then added to the map to show the points of interest on the map.
 
 The last block of code adjusts the camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
 
 ## Make a search request via XMLHttpRequest
 
-### Understand the code
+The other way is to make a search [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy):
 
 <iframe height='500' scrolling='no' title='Show search results on a map' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show search results on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+### Understand the code
 
-The second code block adds search results layer to the map. The search results layer will display the search results as pins on the map.
+In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+
+The second code block adds search results layer to the map. The search results layer will display the search results as pins on the map. Pins are added using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
 
 The third block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for the point of interest. Fuzzy search API can handle any combination of fuzzy inputs.
 

@@ -15,39 +15,43 @@ ms.custom: codepen
 
 This article shows you how to make a reverse address search, and upon a mouse click show the address of the clicked location in a popup.
 
-There are two ways to make a reverse address search, one is by querying the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module and the other is by making a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API to query the address. We discuss both below.
+There are two ways to make a reverse address search. One way is to query the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module. The other way is to make a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API to find an address. Both ways are surveyed below.
 
 ## Make a reverse search request via service module
 
-### Understand the code
+The code below demonstrates how to query the the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module:
 
 <iframe height='500' scrolling='no' title='Get information from a coordinate (Service Module)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Get information from a coordinate (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+### Understand the code
+
+In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
 The line in the second block of code instantiates a service client.
 
 The third block of code updates the style of mouse cursor to a pointer.
 
-The fourth code block creates a popup. You can see [add a popup on the map](./map-add-popup.md) for instructions.
+The fourth code block creates a popup using [open](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). You can see [add a popup on the map](./map-add-popup.md) for instructions.
 
-The last block of code adds an event listener for mouse clicks. Upon a mouse click, it creates a search query with the co-ordinates of the clicked point. Then it uses the map's [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) endpoint to query the address for the co-ordinates.
+The last block of code [adds an event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) for mouse clicks. Upon a mouse click, it creates a search query with the co-ordinates of the clicked point. Then it uses the map's [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) endpoint to query the address for the co-ordinates.
 
 For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class.
 
 ## Make a reverse search request via XMLHttpRequest
 
-### Understand the code
+The code below shows how to use the API to find an address:
 
 <iframe height='500' scrolling='no' title='Get information from a coordinate' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>Get information from a coordinate</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+### Understand the code
+
+In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
 The second block of code updates the style of mouse cursor to a pointer.
 
-The third block of code creates a popup. You can see [add a popup on the map](./map-add-popup.md) for instructions.
+The third block of code creates a popup using [open](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). You can see [add a popup on the map](./map-add-popup.md) for instructions.
 
 The last code block adds an event listener for mouse clicks. Upon a mouse click, it sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse). For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class
 
