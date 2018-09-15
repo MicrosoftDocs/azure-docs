@@ -32,6 +32,8 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 1. Click **+ New** in order to start creating a new job.
 
+    ![Create new job](./media/howto-run-a-job/createnewjob.png)
+
 1. Enter a name and description that help you identify the job you are creating.
 
 1. Select the device set you want your job to be applied to. After selecting the device set, you'll see the right-hand side populate with the devices within the selected device set.
@@ -41,9 +43,15 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 1. Next, choose the type of job that will be defined (a setting, property, or command). Click **+** next to the type of job selected and add your desired operations.
 
+    ![Configure job](./media/howto-run-a-job/configurejob.png)
+
 1. On the right-hand side, pick and choose the devices you’d like to run the job on. By clicking the top check box, all devices are selected in the entire device set. By clicking the check box near Name, all devices on the current page are selected.
 
 1. Once your desired devices have been selected, choose **Run**. The job will now appear on your main **Jobs** page. On this view, you are able to see your currently running job and the history of any previously run jobs.
+
+    ![Run job](./media/howto-run-a-job/runjob.png)
+
+    ![View job](./media/howto-run-a-job/viewjob.png)
 
 > [!NOTE]
 > You will be able to view the history of your previously run jobs for up to 30 days.
@@ -88,7 +96,9 @@ In order to view the status of each device in the job, click on the job name. He
 > [!NOTE]
 > If a device has been deleted, you won't be able to select the device and it will display as deleted with the device ID.
 
-## Next steps
+    ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
+
+## Next Steps
 
 Now that you have learned how to create jobs in your Azure IoT Central application, here are some next steps:
 
