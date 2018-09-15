@@ -63,7 +63,7 @@ This command copies Database1 to a new database named Database2 on the same serv
 
     -- Execute on the master database.
     -- Start copying.
-    CREATE DATABASE Database1_copy AS COPY OF Database1;
+    CREATE DATABASE Database2 AS COPY OF Database1;
 
 ### Copy a SQL database to a different server
 
@@ -73,7 +73,7 @@ This command copies Database1 on server1 to a new database named Database2 on se
 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
-    CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 
 ### Monitor the progress of the copying operation
