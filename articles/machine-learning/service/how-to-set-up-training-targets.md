@@ -66,8 +66,7 @@ When you start a training run, the entire directory that contains your training 
 
 ## Local computer
 
-When training locally, you use the SDK to submit the training operation. You can train using a user-managed or system-managed environment. The `00.Getting Started/02.train-on-local/02.train-on-local.ipynb` notebook demonstrates the concepts in this example.  Get this notebook:
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+When training locally, you use the SDK to submit the training operation. You can train using a user-managed or system-managed environment.
 
 ### User-managed environment
 
@@ -118,9 +117,9 @@ run_config_system_managed.prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-You can submit the run the same way as in the user-managed example. 
+You can submit the run the same way as in the user-managed example.
 
-```python 
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
@@ -137,7 +136,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
 1. Create or attach a Virtual Machine
     
-    * Check to see if you have a DSVM with the same name, if not create a new VM:
+    * To create a new DSVM, first check to see if you have a DSVM with the same name, if not create a new VM:
     
         ```python
         from azureml.core.compute import DsvmCompute
@@ -154,6 +153,19 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
             dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
             dsvm_compute.wait_for_completion(show_output = True)
         ```
+    * To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name,login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
+
+        ```python
+        from azureml.core.compute import RemoteCompute
+
+        dsvm_compute = RemoteCompute.attach(ws,
+                                        name="attach-dsvm",
+                                        username='<username>',
+                                        address="<fqdn>",
+                                        ssh_port=22,
+                                        password="<password>")
+
+        dsvm_compute.wait_for_completion(show_output=True)
 
 2. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
@@ -292,9 +304,9 @@ script_run_config = ScriptRunConfig(source_directory = script_folder,
 run = experiment.submit(script_run_config)
 ```
 
-## Attach an HDInsight cluster 
+## Attach an HDInsight cluster
 
-HDInsight is a popular platform for big-data analytics. It provides Apache Spark, which can be used to train your model. 
+HDInsight is a popular platform for big-data analytics. It provides Apache Spark, which can be used to train your model.
 
 > [!IMPORTANT]
 > You must create the HDInsight cluster before using it to train your model. To create a Spark on HDInsight cluster, see the [Create a Spark Cluster in HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) document.
@@ -331,14 +343,14 @@ run_config.auto_prepare_environment = True
 
 ## View and set up compute using the Azure portal
 
-You can view what compute is associated with your workspace from the web portal. To get to the list of compute:
+You can view what compute is associated with your workspace from the Azure portal. To get to the list of compute:
 1. Visit the web portal and navigate to your workspace.
 2. Click on the __Compute__ link under the __Applications__ section.
 ![View compute tab](./media/how-to-set-up-training-targets/compute_tab.png)
 
 ### Create a compute target
 
-The web portal makes it easy to create Batch AI and Virtual Machines. To create compute from the portal, follow the above steps to view the list of compute and then do the following.
+The portal makes it easy to create Batch AI and Virtual Machines. To create compute from the portal, follow the above steps to view the list of compute and then do the following.
 
 1. Click the __+__ sign to add a compute target.
 ![Add compute ](./media/how-to-set-up-training-targets/add_compute.png)
@@ -354,7 +366,7 @@ You will then see the details for that compute.
 
 ### Reuse existing compute in your workspace
 
-The web portal makes it easy to attach existing compute to your workspace.
+The  portal makes it easy to attach existing compute to your workspace.
 
 1. Click the **+** sign to add a compute target.
 2. Enter a name for the compute target.
@@ -371,6 +383,16 @@ The web portal makes it easy to attach existing compute to your workspace.
 
 5. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
 6. Now you can submit a run against these targets.
+
+## Examples
+The following notebooks demonstrate concepts in this article:
+* `00.Getting Started/02.train-on-local/02.train-on-local.ipynb`
+* `00.Getting Started/04.train-on-remote-vm/04.train-on-remote-vm`
+* `00.Getting Started/05.train-in-spark/05.train-in-spark.ipynb`
+* `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+* `folder/notebook2.ipynb`  
+Get these notebooks:
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
