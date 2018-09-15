@@ -3,7 +3,7 @@ title: Azure Stack 1808 Update | Microsoft Docs
 description: Learn about what's new in the 1808 update for Azure Stack integrated systems, including the known issues and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: justini
 
 ---
@@ -72,6 +72,8 @@ This update includes the following improvements for Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
 
 - <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
+
+- <!-- TBD | IS, ASDK --> *+ Create a resource* replaces *+ New* in the Azure Stack admin and user portals.  You can now use *+ Create a resource* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.  
 
 - <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.  
 

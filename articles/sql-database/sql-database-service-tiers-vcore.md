@@ -6,7 +6,7 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
 
@@ -21,7 +21,7 @@ vCore model also allows you to use [Azure Hybrid Use Benefit for SQL Server](../
 
 ## Service tier characteristics
 
-The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
+The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
 
 The following table helps you understand the differences between these two tiers:
 
@@ -48,7 +48,7 @@ See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked ques
 
 Consider the following:
 - The allocated storage is used by data files (MDF) and log files (LDF) files.
-- Each single database performance level supports a maximum database size, with a default max size of 32 GB.
+- Each single database compute size supports a maximum database size, with a default max size of 32 GB.
 - When you configure the required single database size (size of MDF), 30% of additional storage is automatically added to support LDF
 - Storage size in Managed Instance must be specified in multiples of 32 GB.
 - You can select any singleton database size between 10 GB and the supported maximum
@@ -108,13 +108,13 @@ Migration of failover groups with multiple databases requires individual migrati
 
 ### Creation of a geo-replication secondary
 
-You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is advised that the secondary is created with the same performance level as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is advised that the pool has the `maxVCore` setting that matches the primary database performance level. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is advised that the pools have the same `maxVCore` settings
+You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is advised that the secondary is created with the same compute size as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is advised that the pool has the `maxVCore` setting that matches the primary database compute size. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is advised that the pools have the same `maxVCore` settings
 
 ### Using database copy to convert a DTU-based database to a vCore-based database.
 
-You can copy any database with a DTU-based performance level to a database with a vCore-based performance level without restrictions or special sequencing as long as the target performance level supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
+You can copy any database with a DTU-based compute size to a database with a vCore-based compute size without restrictions or special sequencing as long as the target compute size supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
 
 ## Next steps
 
-- For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- For details on specific performance levels and storage size choices available for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
+- For details on specific compute sizes and storage size choices available for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

@@ -1,13 +1,14 @@
 ---
-title: Create your first Language Understanding (LUIS) app in 10 minutes - Cognitive Services LUIS | Microsoft Docs
-description:  In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
+title: 10 minutes to your first LUIS app 
+titleSuffix: Azure Cognitive Services
+description:  Create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -50,11 +51,7 @@ When the domain is successfully added, the prebuilt domain box displays a **Remo
 
 ## Intents and entities
 
-Select **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. 
-
-[![](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of Intents list with Intent names in table highlighted")](media/luis-quickstart-new-app/home-automation-intents.png)
-
-Each intent has sample utterances.
+Select **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. Each intent has sample utterances.
 
 > [!NOTE]
 > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 
@@ -63,11 +60,9 @@ Select the **HomeAutomation.TurnOff** intent. You can see that the intent contai
 
 [![](media/luis-quickstart-new-app/home-automation-turnon.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
-## Train your app
+## Train the LUIS app
 
-Select **Train** in the top navigation.
-
-[![](media/luis-quickstart-new-app/trained.png "Screenshot of HomeAutomation.TurnOff intent with green success notification")](media/luis-quickstart-new-app/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Test your app
 Once you've trained your app, you can test it. Select **Test** in the top navigation. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
@@ -85,29 +80,23 @@ In this example, "Turn off the lights" is correctly identified as the top scorin
 
 Select **Test** again to collapse the test pane. 
 
-## Publish your app
-Select **Publish** from the top navigation. 
+<a name="publish-your-app"></a>
 
-[![](media/luis-quickstart-new-app/publish.png "Screenshot of app with publish button highlighted")](media/luis-quickstart-new-app/publish.png)
+## Publish the app to get the endpoint URL
 
-Select the Production slot and the **Publish** button.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-The green notification bar at the top indicates the app successfully published.
+## Query the endpoint with a different utterance
 
-[![](media/luis-quickstart-new-app/published.png "Screenshot of app with publish success")](media/luis-quickstart-new-app/published.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-After you've successfully published, you can use the endpoint URL displayed in the **Publish app** page.
+2. Go to the end of the URL in the address and enter `turn off the living room light`, and then press Enter. The browser displays the JSON response of your HTTP endpoint.
 
-[![](media/luis-quickstart-new-app/endpoint.png "Screenshot of publish page with endpoint url highlighted")](media/luis-quickstart-new-app/endpoint.png)
-
-## Use your app
-You can test your published endpoint in a browser using the generated URL. Open this URL in your browser, set the URL parameter "&q" to your test query. For example, add `turn off the living room light` to the end of your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.
-
-
-[![](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
-
+    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 

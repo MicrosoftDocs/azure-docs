@@ -116,6 +116,9 @@ The ASA jobs deliver the telemetry from the connected devices to Time Series Ins
 
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) stores the telemetry from the devices connected to the solution accelerator. It also enables visualizing and querying device telemetry in the solution web UI.
 
+> [!NOTE]
+> Time Series Insights is not currently available in the Azure China cloud. New Remote Monitoring solution accelerator deployments in the Azure China cloud use Cosmos DB for all storage.
+
 ### Configuration microservice
 
 The [configuration microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) provides a RESTful endpoint for CRUD operations on device groups, solution settings, and user-settings in the solution accelerator. It works with the storage adapter microservice to persist the configuration data.
