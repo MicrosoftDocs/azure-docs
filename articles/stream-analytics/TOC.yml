@@ -131,7 +131,7 @@
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Write C# UDF for Edge
+    - name: Write .NET UDF for Edge
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
