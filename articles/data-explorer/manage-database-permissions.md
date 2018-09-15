@@ -62,4 +62,4 @@ Azure Data Explorer has the following roles:
 
 ## Next steps
 
-[Write Kusto queries](write-kusto-quueries.md)
+[Write Kusto queries](write-kusto-queries.md)
