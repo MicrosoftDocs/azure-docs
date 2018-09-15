@@ -1,6 +1,6 @@
 ---
-title:  Azure Application Insights local forwarder  | Microsoft docs
-description: TBD
+title:  Azure Application Insights Open Census local forwarder  | Microsoft docs
+description: Forward Open Census distributed traces from langauges like Python and Go to Azure Application Insights 
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -15,29 +15,57 @@ ms.reviewer: nimolnar
 ms.author: mbullwin
 ---
 
-# Local Forwarder
+# Local forwarder
 
-## Background
-Local Forwarder is an agent that collects Application Insights or OpenCensus telemetry from a variety of SDKs and routes it to the Application Insights backend. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
+Local forwarder is an agent that collects Application Insights or OpenCensus telemetry from a variety of SDKs and routes it to the Application Insights backend. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
 
-## Running Local Forwarder
-Local Forwarder is an [open source project on GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). There is a variety of ways to run Local Forwarder across multiple platforms.
+## Running Local forwarder
+Local forwarder is an [open source project on GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). There are a variety of ways to run Local forwarder across multiple platforms.
 
 ### Windows
 #### Windows Service
-The most natural way of running Local Forwarder under Windows is by installing it as a Windows Service. The release comes with a Windows Service executable (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) which can be easily registered with the OS by running a script similar to the following:
+The easiest way of running local forwarder under Windows is by installing it as a Windows Service. The release comes with a Windows Service executable (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) which can be easily registered with the OS.
 
-Register a service and configure it to start at system boot.
-```
-sc create "Local Forwarder" binpath="WindowsServiceHost\Microsoft.LocalForwarder.WindowsServiceHost.exe" start=auto
-```
+1. Download the LF.WindowsServiceHost.zip file from the [local forwarder release page](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) on GitHub.
 
-Configure the service to restart automatically if it fails for any reason.
-```
-sc failure "Local Forwarder" reset= 432000 actions= restart/1000/restart/1000/restart/1000
-```
+    ![Screenshot of Localforwarder release download page](.\media\local-forwarder\001-local-forwarder-windows-service-host-zip.png)
 
-Once the service is registered, use Windows tools to manage it.
+2. In the this example for ease of demonstration we will just extract the .zip file to the path `C:\LF-WindowsServiceHost'.
+
+    To register the service and configure it to start at system boot run the following from the command line as Administrator:
+
+    ```
+    sc create "Local Forwarder" binpath="C:\LF-WindowsServiceHost\Microsoft.LocalForwarder.WindowsServiceHost.exe" start=auto
+    ```
+    
+    You should receive a response of:
+    
+    ```
+    [SC] CreateService SUCCESS
+    ```
+    
+    To examine your new service via the Services GUI type ``services.msc``
+        
+     ![Screenshot of Localforwarder release download page](.\media\local-forwarder\002-services.png)
+
+3. Right-click the new local forwarder and select **Start**. Your service will now enter a running state.
+
+4. By default the service is created without any recovery actions. You can right-click and select **Properties** > **Recovery** to configure your desired responses to a service failure.
+
+    Or if you prefer to set automatic recovery options when failures occur programmatically you can use:
+
+    ```
+    sc failure "Local Forwarder" reset= 432000 actions= restart/1000/restart/1000/restart/1000
+    ```
+5. In the same location as your ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` file which in the case of this example is ``C:\LF-WindowsServiceHost`` there is a file called ``LocalForwarder.config``. This is an xml based file which allows you to adjust the configuration of your localforwader and specify the instrumentation key of the Application Insights resource you want your distributed tracing data forwarded. 
+
+After editing the ``LocalForwarder.config`` file to add your instrumentation key, be sure to restart the **Local Forwarder Service** to allow your changes to take effect.
+
+6. To confirm that your desired settings are in place and that the local forwarder is listening for trace data as expected check the ``LocalForwarder.log`` file. You should see results similar to the image below at the bottom of the file:
+
+![Screenshot of LocalForwarder.log file](.\media\local-forwarder\003-log-file.png)
+
+
 
 #### Console application
 For certain use cases it might be beneficial to run Local Forwarder as a console application. The release comes with the following executable versions of the console host:
@@ -109,8 +137,6 @@ You may be able to run Local Forwarder under macOS, but that is not officially s
 
 ### Self-hosting
 Local Forwarder is also distributed as a .NET Standard NuGet package, allowing you to host it inside your own .NET application.
-
-//!!! TODO include details for downloading NuGet
 
 ```C#
 using Library;
