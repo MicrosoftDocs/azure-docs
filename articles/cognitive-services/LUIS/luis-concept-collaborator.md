@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Collaborating
@@ -24,6 +24,11 @@ See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active
 
 ## LUIS app owner
 The account that creates an app is the owner. Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75% of the monthly limit. 
+
+## Authorization roles
+LUIS doesn't support different roles for owners and collaborators with one exception. The owner is the only account that can delete the app.
+
+If you are interested in controlling access to the model, consider slicing the model into smaller LUIS apps, where each smaller app has a more limited set of collaborators. Use [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) to allow a parent LUIS app to manage the coordination between parent and child apps.
 
 ## Transfer ownership
 LUIS doesn't provide transfer of ownership, however any collaborator can export the app, and then create an app by importing it. Be aware the new app has a different App ID. The new app needs to be trained, published, and the new endpoint used.

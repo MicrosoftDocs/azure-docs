@@ -6,6 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Fundamentals
+        tocHref: /azure/active-directory/fundamentals/
+        topicHref: /azure/active-directory/fundamentals/    
       - name: Identity Protection
         tocHref: /azure/active-directory/identity-protection/
         topicHref: /azure/active-directory/identity-protection/
