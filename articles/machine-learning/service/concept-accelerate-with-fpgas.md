@@ -31,7 +31,7 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 
 ## Project Brainwave on Azure
 
-Project Brainwave is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale**.
+[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale** and is available on Azure.
 
 FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means collecting a large amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
 
@@ -79,4 +79,4 @@ Checkout these videos and blogs:
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 
-+ [Microsoft unveils Project Brainwave for real-time AI](https://www.microsoft.com/research/blog/microsoft-unveils-project-brainwave/)
++ [Project Brainwave for real-time AI: project home page](https://www.microsoft.com/research/project/project-brainwave/)
