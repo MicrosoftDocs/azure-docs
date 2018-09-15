@@ -108,8 +108,9 @@ then you can get a better deal by having all job collections in a Premium plan.
 
 * If you have one Standard job collection and one Premium job collection, 
 you're billed one standard billing unit *and* one premium billing unit. 
-The Scheduler service bills based on the number of active job collections 
-that are either standard or premium.
+
+  The Scheduler service bills based on the number of active job 
+  collections that are either standard or premium.
 
 ## See also
 

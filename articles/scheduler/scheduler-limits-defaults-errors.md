@@ -26,10 +26,18 @@ ms.date: 08/18/2016
 
 ## x-ms-request-id header
 
-Every request made against the Scheduler service returns a response header named **x-ms-request-id**. 
-This header contains an opaque value that uniquely identifies the request.
+Every request made against the Scheduler service 
+returns a response header named **x-ms-request-id**. 
+This header contains an opaque value that uniquely 
+identifies the request. So, if a request consistently fails, 
+and you confirmed the request is properly formatted, 
+you can report the error to Microsoft by providing the 
+**x-ms-request-id** response header value and including these details: 
 
-If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of x-ms-request-id, the approximate time that the request was made, the identifier of the subscription, job collection, and/or job, and the type of operation that the request attempted.
+* The **x-ms-request-id** value
+* The approximate time when the request was made 
+* The identifiers for the Azure subscription, job collection, and job 
+* The type of operation that the request attempted
 
 ## See also
 

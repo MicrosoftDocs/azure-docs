@@ -1,23 +1,17 @@
 ---
-title: Scheduler Outbound Authentication
-description: Scheduler Outbound Authentication
+title: Outbound authentication - Azure Scheduler 
+description: Learn how to set up or remove outbound authentication for Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: deli
 ---
 
-# Scheduler Outbound Authentication
+# Outbound authentication for Azure Scheduler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -26,42 +20,64 @@ ms.author: deli
 > not Azure Scheduler. Learn how to 
 > [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
-Scheduler jobs may need to call out to services that require authentication. This way, a called service can determine if the Scheduler job can access its resources. Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.
+Azure Scheduler jobs might have to call services that require authentication, 
+such as other Azure services, Salesforce.com, Facebook, and secure custom websites. 
+The called service can determine whether the Scheduler job can access the requested resources. 
+
+Scheduler supports these authentication models: 
+
+* *Client certificate* authentication when using SSL/TLS client certificates
+* *Basic* authentication
+* *Active Directory OAuth* authentication
 
 ## Add or remove authentication
 
-Adding authentication to a Scheduler job is simple – add a JSON child element `authentication` to the `request` element when creating or updating a job. Secrets passed to the Scheduler service in a PUT, PATCH, or POST request – as part of the `authentication` object – are never returned in responses. In responses, secret information is set to null or may have a public token that represents the authenticated entity.
+* To add authentication to a Scheduler job, when you create or update the job, 
+add the `authentication` JavaScript Object Notation (JSON) child element 
+to the `request` element. 
 
-To remove authentication, PUT or PATCH the job explicitly, setting the `authentication` object to null. You will not see any authentication properties back in response.
+  Responses never return secrets that are passed to the Scheduler service 
+  through a PUT, PATCH, or POST request in the `authentication` object. 
+  Responses set secret information to null or might use a public token 
+  that represents the authenticated entity. 
 
-Currently, the only supported authentication types are the `ClientCertificate` model (for using the SSL/TLS client certificates), the `Basic` model (for Basic authentication), and the `ActiveDirectoryOAuth` model (for Active Directory OAuth authentication.)
+* To remove authentication from a Scheduler job, 
+explicitly run a PUT or PATCH request on the job, 
+and set the `authentication` object to null. 
+The response won't contain any authentication properties.
 
-## Request body for client certificate authentication
+## Client certificate
 
-When adding authentication using the `ClientCertificate` model, specify the following additional elements in the request body.  
+### Request body - Client certificate
 
-| Element | Description |
-|:--- |:--- |
-| *authentication (parent element)* |Authentication object for using an SSL client certificate. |
-| *type* |Required. Type of authentication.For SSL client certificates, the value must be `ClientCertificate`. |
-| *pfx* |Required. Base64-encoded contents of the PFX file. |
-| *password* |Required. Password to access the PFX file. |
+When adding authentication using the `ClientCertificate` model, 
+specify these additional elements in the request body.  
 
-## Response body for client certificate authentication
+| Element | Required | Description |
+|---------|----------|-------------|
+| **authentication** (parent element) | The authentication object for using an SSL client certificate |
+| **type** | Yes | The authentication type. For SSL client certificates, the value is `ClientCertificate`. |
+| **pfx** | Yes | The base64-encoded contents of the PFX file |
+| **password** | Yes | The password for accessing the PFX file |
+||| 
 
-When a request is sent with authentication info, the response contains the following authentication-related elements.
+### Response body - Client certificate 
 
-| Element | Description |
-|:--- |:--- |
-| *authentication (parent element)* |Authentication object for using an SSL client certificate. |
-| *type* |Type of authentication. For SSL client certificates, the value is `ClientCertificate`. |
-| *certificateThumbprint* |The thumbprint of the certificate. |
-| *certificateSubjectName* |The subject distinguished name of the certificate. |
-| *certificateExpiration* |The expiration date of the certificate. |
+When a request is sent with authentication information, 
+the response contains these authentication elements.
 
-## Sample REST request for client certificate authentication
+| Element | Description | 
+|---------|-------------| 
+| **authentication** (parent element) | The authentication object for using an SSL client certificate |
+| **type** | The authentication type. For SSL client certificates, the value is `ClientCertificate`. |
+| **certificateThumbprint** |The certificate's thumbprint |
+| **certificateSubjectName** |The certificate subject distinguished name |
+| **certificateExpiration** | The certificate's expiration date |
+||| 
 
-```
+### Sample REST request - Client certificate
+
+```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
@@ -91,16 +107,15 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## Sample REST response for client certificate authentication
+### Sample REST response - Client certificate
 
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
+```json
+HTTP/1.1 200 OKCache-Control: no-cache
 Pragma: no-cache
 Content-Length: 858
 Content-Type: application/json; charset=utf-8
@@ -153,30 +168,36 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## Request body for basic authentication
+## Basic
 
-When adding authentication using the `Basic` model, specify the following additional elements in the request body.
+### Request body - Basic
 
-| Element | Description |
-|:--- |:--- |
-| *authentication (parent element)* |Authentication object for using Basic authentication. |
-| *type* |Required. Type of authentication. For Basic authentication, the value must be `Basic`. |
-| *username* |Required. Username to authenticate. |
-| *password* |Required. Password to authenticate. |
+When adding authentication using the `Basic` model, 
+specify these additional elements in the request body.
 
-## Response body for basic authentication
+| Element | Required | Description |
+|---------|----------|-------------|
+| **authentication** (parent element) | The authentication object for using Basic authentication | 
+| **type** | Yes | The authentication type. For Basic authentication, the value is `Basic`. | 
+| **username** | Yes | The username to authenticate | 
+| **password** | Yes | The password to authenticate |
+|||| 
 
-When a request is sent with authentication info, the response contains the following authentication-related elements.
+## Response body - Basic
 
-| Element | Description |
-|:--- |:--- |
-| *authentication (parent element)* |Authentication object for using Basic authentication. |
-| *type* |Type of authentication. For Basic authentication, the value is `Basic`. |
-| *username* |The authenticated username. |
+When a request is sent with authentication information, 
+the response contains these authentication elements.
 
-## Sample REST request for basic authentication
+| Element | Description | 
+|---------|-------------|
+| **authentication** (parent element) | The authentication object for using Basic authentication |
+| **type** | The authentication type. For basic authentication, the value is `Basic`. |
+| **username** | The authenticated username |
+||| 
 
-```
+### Sample REST request - Basic
+
+```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
@@ -207,14 +228,14 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## Sample REST response for basic authentication
+### Sample REST response - Basic
 
-```
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -249,14 +270,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
                "type":"Basic"
             }
          },
-         "type":"http"
+         "type":"Http"
       },
       "recurrence":{  
-         "frequency":"minute",
+         "frequency":"Minute",
          "endTime":"2016-04-10T08:00:00Z",
          "interval":1
       },
-      "state":"enabled",
+      "state":"Enabled",
       "status":{  
          "nextExecutionTime":"2016-03-16T19:06:00Z",
          "executionCount":0,
@@ -267,38 +288,40 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## Request body for Active Directory OAuth authentication
+## Active Directory OAuth
 
-When adding authentication using the `ActiveDirectoryOAuth` model, specify the following additional elements in the request body.
+### Request body - Active Directory OAuth 
+
+When adding authentication using the `ActiveDirectoryOAuth` model, 
+specify these additional elements in the request body.
+
+| Element | Required | Description |
+|---------|----------|-------------|
+| **authentication** (parent element) | Yes | The authentication object for using ActiveDirectoryOAuth authentication |
+| **type** | Yes | The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. |
+| **tenant** | Yes | The tenant identifier for the Azure AD tenant. To find the tenant identifier for the Azure AD tenant, run `Get-AzureAccount` in Azure PowerShell. |
+| **audience** | Yes | This value is set to `https://management.core.windows.net/`. | 
+| **clientId** | Yes | The client identifier for the Azure AD application | 
+| **secret** | Yes | The secret for the client that is requesting the token | 
+|||| 
+
+### Response body - Active Directory OAuth
+
+When a request is sent with authentication information, 
+the response contains these authentication elements.
 
 | Element | Description |
-|:--- |:--- |
-| *authentication (parent element)* |Authentication object for using ActiveDirectoryOAuth authentication. |
-| *type* |Required. Type of authentication. For ActiveDirectoryOAuth authentication, the value must be `ActiveDirectoryOAuth`. |
-| *tenant* |Required. The tenant identifier for the Azure AD tenant. |
-| *audience* |Required. This is set to https://management.core.windows.net/. |
-| *clientId* |Required. Provide the client identifier for the Azure AD application. |
-| *secret* |Required. Secret of the client that is requesting the token. |
+|---------|-------------|
+| **authentication** (parent element) | The authentication object for using ActiveDirectoryOAuth authentication |
+| **type** | The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. | 
+| **tenant** | The tenant identifier for the Azure AD tenant |
+| **audience** | This value is set to `https://management.core.windows.net/`. |
+| **clientId** | The client identifier for the Azure AD application |
+||| 
 
-### Determine your tenant identifier
+### Sample REST request - Active Directory OAuth
 
-You can find the tenant identifier for the Azure AD tenant by running `Get-AzureAccount` in Azure PowerShell.
-
-## Response body for Active Directory OAuth authentication
-
-When a request is sent with authentication info, the response contains the following authentication-related elements.
-
-| Element | Description |
-|:--- |:--- |
-| *authentication (parent element)* |Authentication object for using ActiveDirectoryOAuth authentication. |
-| *type* |Type of authentication. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. |
-| *tenant* |The tenant identifier for the Azure AD tenant. |
-| *audience* |This is set to https://management.core.windows.net/. |
-| *clientId* |The client identifier for the Azure AD application. |
-
-## Sample REST request for Active Directory OAuth authentication
-
-```
+```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
@@ -324,21 +347,21 @@ Content-Type: application/json; charset=utf-8
           "type":"ActiveDirectoryOAuth"
         }
       },
-      "type": "http"
+      "type": "Http"
     },
     "recurrence": {
-      "frequency": "minute",
+      "frequency": "Minute",
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "Enabled"
   }
 }
 ```
 
-## Sample REST response for Active Directory OAuth authentication
+### Sample REST response - Active Directory OAuth
 
-```
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -355,40 +378,40 @@ x-ms-routing-request-id: WESTUS:20160316T191003Z:5183bbf4-9fa1-44bb-98c6-6872e3f
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:10:02 GMT
 
-{  
-   "id":"/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
-   "type":"Microsoft.Scheduler/jobCollections/jobs",
-   "name":"southeastasiajc/httpjob",
-   "properties":{  
-      "startTime":"2015-05-14T14:10:00Z",
-      "action":{  
-         "request":{  
-            "uri":"https://mywebserviceendpoint.com",
-            "method":"GET",
-            "headers":{  
-               "x-ms-version":"2013-03-01"
+{
+   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "type": "Microsoft.Scheduler/jobCollections/jobs",
+   "name": "southeastasiajc/httpjob",
+   "properties": {
+      "startTime": "2015-05-14T14:10:00Z",
+      "action": {  
+         "request": {
+            "uri": "https://mywebserviceendpoint.com",
+            "method": "GET",
+            "headers": {  
+               "x-ms-version": "2013-03-01"
             },
-            "authentication":{  
-               "tenant":"microsoft.onmicrosoft.com",
-               "audience":"https://management.core.windows.net/",
-               "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
-               "type":"ActiveDirectoryOAuth"
+            "authentication": {  
+               "tenant": "microsoft.onmicrosoft.com",
+               "audience": "https://management.core.windows.net/",
+               "clientId": "dc23e764-9be6-4a33-9b9a-c46e36f0c137",
+               "type": "ActiveDirectoryOAuth"
             }
          },
-         "type":"http"
+         "type": "Http"
       },
-      "recurrence":{  
-         "frequency":"minute",
-         "endTime":"2016-04-10T08:00:00Z",
-         "interval":1
+      "recurrence": {  
+         "frequency": "minute",
+         "endTime": "2016-04-10T08:00:00Z",
+         "interval": 1
       },
-      "state":"enabled",
-      "status":{  
-         "lastExecutionTime":"2016-03-16T19:10:00.3762123Z",
-         "nextExecutionTime":"2016-03-16T19:11:00Z",
-         "executionCount":5,
-         "failureCount":5,
-         "faultedCount":1
+      "state": "Enabled",
+      "status": {  
+         "lastExecutionTime": "2016-03-16T19:10:00.3762123Z",
+         "nextExecutionTime": "2016-03-16T19:11:00Z",
+         "executionCount": 5,
+         "failureCount": 5,
+         "faultedCount": 1
       }
    }
 }
