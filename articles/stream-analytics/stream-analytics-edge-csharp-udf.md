@@ -31,9 +31,9 @@ Before you start, make sure you've completed the following prerequisites:
 * Take a look at the existing [Stream Analytics Edge development guide](stream-analytics-tools-for-visual-studio-edge-jobs.md).
 
 ## Create a container in your Azure Storage Account
-The container you create will be used to store the compiled C# package and deploy the package to your IoT Edge device. If you already have a storage account with existing containers, you may reuse them. If not, you'll need to [create a new container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal).
+The container you create will be used to store the compiled C# package and deploy the package to your IoT Edge device. If you already have a storage account with existing containers, you may reuse them. If not, you'll need to [create a new container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). Use a dedicated container for each Stream Analytics job. Reusing the same container for multiple Stream Analytics Edge jobs is not supported.
 
-## Create an Edge project in Visual Studio
+## Create a Stream Analytics Edge project in Visual Studio
 
 1. Start Visual Studio.
 
@@ -136,7 +136,7 @@ You can debug your C# UDF locally the same way you debug standard C# code.
     ![View Azure Stream Analytics user-defined function for Edge job in Visual Studio debugging results](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## Publish your job to Azure
-Once you've tested your query locally, select **Submit to Azure** in the script editor to publish the job to Azure. Be sure to set the **Location** to **West Centeral US**.
+Once you've tested your query locally, select **Submit to Azure** in the script editor to publish the job to Azure.
 
 ![Submit your Stream Analytics Edge job to Azure from Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
