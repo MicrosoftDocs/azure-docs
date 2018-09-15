@@ -79,13 +79,9 @@ In this example, **UDFTest** is a C# class library project and **ASAEdgeUDFDemo*
 
 ## Existing packages
 
-You can author .NET Standard UDFs in any IDE of your choice and invoke them from your Azure Stream Analytics query. First compile your code and package all the DLLs and resources to the directory structure `/UserCustomCode/CLR` in `UserCustomCode.zip`. Then upload `UserCustomCode.zip` to the root of the container in your Azure storage account.
+You can author .NET Standard UDFs in any IDE of your choice and invoke them from your Azure Stream Analytics query. First compile your code and package all the Dynamic Link Libraries (DLLs). The format of the package has the path `/UserCustomCode/CLR/*`. DLLs and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. Then, upload `UserCustomCode.zip` to the root of the container in your Azure storage account.
 
 Once assembly zip packages have been uploaded to your Azure storage account, you can use the functions in Azure Stream Analytics queries. All you need to do is include the storage information in the Stream Analytics Edge job configuration. You can't test the function locally with this option because Visual Studio tools will not download your package. The package path is parsed directly to the service. 
-
-### Package format
-
-The format of the package has the path `/UserCustomCode/CLR/*`. User Dynamic Link Libraries (DLLs) and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. 
 
 ## Supported types and mapping
 
