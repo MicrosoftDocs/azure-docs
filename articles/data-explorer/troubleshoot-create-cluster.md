@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 In the unlikely event that cluster creation fails in Azure Data Explorer, follow these steps.
 
-1. Verify that you are a member of either the *Contributor* or *Owner* roles for the Azure subscription in which you're trying to create the cluster. If necessary, work with your subscription administrator so they can add you to the appropriate role.
+1. Ensure you have adequate permissions. To create a cluster, you must be a member of the *Contributor* or *Owner* role for the Azure subscription. If necessary, work with your subscription administrator so they can add you to the appropriate role.
 
 1. Ensure that there are no validation errors related to the cluster name you entered under **Create cluster** in the Azure portal.
 
@@ -26,4 +26,4 @@ In the unlikely event that cluster creation fails in Azure Data Explorer, follow
 
 ## Next steps
 
-[Measure cluster health](measure-cluster-health.md).
+[Check cluster health](check-cluster-health.md)

@@ -36,17 +36,17 @@
   - name: Manage database permissions
     href: manage-database-permissions.md
   - name: Scale a cluster
-    href: https://aka.ms/kustolangref
-  - name: Measure cluster health
-    href: https://aka.ms/kustolangref
+  - name: Delete data from a cluster
+  - name: Check cluster health
+    href: check-cluster-health.md
   - name: Troubleshooting
     items:
     - name: Creating a cluster
       href: troubleshoot-create-cluster.md
     - name: Connecting to a cluster
       href: troubleshoot-connect-cluster.md
-    - name: Creating and deleting databases and tables
-      href: https://aka.ms/kustolangref 
+    - name: Working with databases and tables
+      href: troubleshoot-database-table.md
 - name: Reference
   items:
   - name: Language reference
