@@ -49,7 +49,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > ### Option 2: Register and manually configure your application and code sample
 > #### Step 1: Register your application
 > 
-> 1. To register an application, go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) and select **New registration**.
+> 1. To register an application, go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade) and select **New registration**.
 > 1. Enter a name for your application and click **Register**.
 > 1. Select the **Authentication** page, then add `msal{AppId}://auth` (where *{AppId}* is the application ID from the application you just registered), select **Public client (mobile & desktop)** under **Type**, and then select **Save**.
 >
