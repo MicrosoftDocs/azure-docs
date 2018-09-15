@@ -65,6 +65,8 @@ Before you proceed, note the Log Analytics workspace that your Automation accoun
 
 1. Install the Log Analytics agent for Linux by running the following command. Replace \<WorkspaceID\> and \<WorkspaceKey\> with the appropriate values from your workspace.
 
+  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
    ```
