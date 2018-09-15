@@ -354,8 +354,9 @@ Follow the above steps to view the list of compute targets, and then use the fol
 1. You can view the status create operation by selecting the compute target from the list.
 
     ![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
-
-7. Now you can submit a run against these targets as detailed above.
+    You will then see the details for that compute.
+    ![View details](./media/how-to-set-up-training-targets/vm_view.PNG)
+1. Now you can submit a run against these targets as detailed above.
 
 ### Reuse existing compute in your workspace
 
