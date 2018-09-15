@@ -15,7 +15,7 @@ ms.custom: codepen
 
 This article shows you how to make a route request and show the route on the map.
 
-There are two ways to do so. The first way is by to query the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module. The second way is to make a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both ways are discussed below.
+There are two ways to do so. The first way is to query the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) through a service module. The second way is to make a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API. Both ways are discussed below.
 
 ## Query the route via service module
 
