@@ -59,18 +59,16 @@
   items:
   - name: Azure management
     href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
-  - name: Data sources
-    items:
-    - name: Overview
+  - name: Monitoring data
+    items: 
+    - name: Metrics and logs
+      href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
+    - name: Data sources
       href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log
       href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
     - name: Diagnostic logs
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json 
-  - name: Monitoring data
-    items: 
-    - name: Metrics and logs
-      href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
     - name: Log data ingestion time
       href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json      
     - name: Data security
@@ -93,8 +91,6 @@
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analyze data
     items: 
-    - name: Metrics explorer
-      href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Log Analytics
       href: ../log-analytics/log-analytics-queries.md?toc=/azure/azure-monitor/toc.json
     - name: Log query portals
@@ -159,13 +155,21 @@
     - name: Manage workspaces
       items:
       - name: Create a workspace
-        href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
+        items:
+        - name: Use Azure portal
+          href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json 
+        - name: Use Azure CLI
+          href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
+        - name: Use Azure PowerShell
+          href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
       - name: Delete a workspace
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Design for service providers
         href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
     - name: Install and configure agents
       items:
+      - name: Agent comparison
+        href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
       - name: Windows agents
         href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
       - name: VM Extension for Windows
@@ -488,9 +492,11 @@
     - name: Monitor virtual machines
       items:
       - name: Agent Health
-        href: ../operations-management-suite/oms-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
+        href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: VMWare Analytics
         href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
+      - name: Wire Data
+        href: ../log-analytics/log-analytics-wire-data.md?toc=/azure/azure-monitor/toc.json
       - name: Service Map
         items:
         - name: Use
@@ -514,7 +520,7 @@
       - name: DNS
         href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
       - name: Office 365
-        href: ../operations-management-suite/oms-solution-office-365.md?toc=/azure/azure-monitor/toc.json
+        href: ../monitoring/monitoring-solution-office-365.md?toc=/azure/azure-monitor/toc.json
       - name: Assess Operations Manager
         href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
       - name: Surface Hub
@@ -668,6 +674,8 @@
           href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: Implement a Logic App action
           href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
+      - name: Alerts from Operations Manager
+        href: ../log-analytics/log-analytics-solution-alert-management.md?toc=/azure/azure-monitor/toc.json
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale
@@ -793,8 +801,8 @@
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
-  - name: Query language reference
-    href: https://docs.loganalytics.io/docs/Language-Reference
+  - name: Telemetry correlation
+    href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure PowerShell
@@ -838,8 +846,16 @@
     href: https://azure.microsoft.com/pricing/details/log-analytics/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=log-analytics
+  - name: News
+    items:
+    - name: Application Insights service updates
+      href: https://azure.microsoft.com/updates/?product=application-insights
+    - name: Log Analytics service updates
+      href: https://azure.microsoft.com/updates/?product=log-analytics
+    - name: SDK release notes
+      href: ../application-insights/app-insights-release-notes.md
+    - name: Release notes for Developer Analytics Tools
+      href: ../application-insights/app-insights-release-notes-vsix.md
   - name: Windows Analytics
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Regional availability

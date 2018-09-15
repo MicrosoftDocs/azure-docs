@@ -46,7 +46,7 @@ You can also export Log Analytics data to [Power BI](https://docs.microsoft.com/
 Core monitoring provides fundamental, required monitoring across Azure resources. These services require minimal configuration and collect core telemetry that the premium monitoring services use.    
 
 ### Azure Monitor
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) enables core monitoring for Azure services by allowing the collection of [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). For example, the activity log tells you when new resources are created or modified.
+[Azure Monitor](../azure-monitor/overview.md) enables core monitoring for Azure services by allowing the collection of [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). For example, the activity log tells you when new resources are created or modified.
 
 Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minute down to 1 minute), so you should use it for time critical alerts and notifications.
 
