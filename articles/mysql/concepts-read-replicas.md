@@ -16,7 +16,7 @@ The Read replica feature allows you to replicate data from an Azure Database for
 
 Replicas created in the Azure Database for MySQL service are new servers that can be managed in the same way as normal/standalone MySQL servers. These servers are charged at the same rate as a standalone server.
 
-To learn more about MySQL replication features, please see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+To learn more about MySQL replication features and issues, please see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 ## When to use read replicas
 
@@ -52,7 +52,11 @@ Replica servers are created using the same server configurations as the master, 
 - Backup redundancy option
 - MySQL engine version
 
-After a replica has been created, you can change the pricing tier (except to and from Basic), compute generation, vCores, storage, and backup retention independently from the master server. It is recommended that if a master's server configuration is updated, the replicas' configuration should also be updated to equal or greater values. This ensures that the replica is able to keep up with changes made to the master.
+After a replica has been created, you can change the pricing tier (except to and from Basic), compute generation, vCores, storage, and backup retention independently from the master server.
+
+### Master server configuration
+
+If a master's server configuration (ex. vCores or storage) is updated, the replicas' configuration should also be updated to equal or greater values. Without this, the replica server may not be able to keep up with changes made to the master and may crash as a result. 
 
 ### Deleting the master server
 
@@ -66,10 +70,13 @@ Users on the master server are replicated to the read replicas. You can only con
 
 - Global transaction identifiers (GTID) are not supported.
 - Creating a replica of a replica is not supported.
+- In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
+- Tuning the [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parameter on a master server after creating a replica server may cause the replica to become out of sync. The replica server is not aware of the different tablespaces.
 
 ## Next steps
 
 - Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
+- Learn more about the MySQL replication features and issues from the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 <!--
 - Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
