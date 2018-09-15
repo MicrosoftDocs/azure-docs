@@ -234,10 +234,10 @@
         href: 
     - name: Mobile and desktop apps
       items:
-      - name: iOS
-        href: 
       - name: Android
-        href: 
+        href: quickstart-v2-android.md
+      - name: iOS
+        href: quickstart-v2-ios.md
       - name: Windows Desktop .NET
         href: 
       - name: Universal Windows Platform
