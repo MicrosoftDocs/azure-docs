@@ -28,10 +28,10 @@ The following metrics can be added to a run while training an experiment. To vie
 |Table| ``` run.log_table(name, value, description='')```| Log a table metric to the run with the given name. |
 |Images| ```run.log_image(name, path=None, plot=None)```|Log an image metric to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
 |Tag a run| ```run.tag(key, value=None)```|Tag the run with a string key and optional string value.|
-|Upload file or directory|``` run.upload_file(name, path_or_stream)```|Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory.|
+|Upload file or directory|``` run.upload_file(name, path_or_stream)```|Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called ```run.get_file_names()``|
 
 > [!NOTE]
-> Metrics for scalars, lists, rows, and tables, can be floats, integers, or strings.
+> Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
 
 ## Log metrics
 
@@ -171,8 +171,6 @@ This example expands on the basic ridge model from above and does a simple param
   
   ```
 
-   The script uses the Ridge model example and adds several logs, uploads the model file, and also registers each model. In this case we uploaded the models to the logs folder due to the missing ```outputs/``` preface to the name in the line ```run.upload_file```
-  
 2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
 
   ```python
@@ -195,7 +193,7 @@ This example expands on the basic ridge model from above and does a simple param
   run_config_user_managed.environment.python.user_managed_dependencies = True
 
   # You can choose a specific Python environment by pointing to a Python path 
-  #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
+  #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
   ```
 
 4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for training, including the ```mylib.py``` file.
@@ -215,7 +213,6 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 1. View the Jupyter widget while waiting for the run to complete.
 
   ```python
-  
   from azureml.train.widgets import RunDetails
   RunDetails(run).show()
   ```
@@ -226,12 +223,7 @@ Model training and monitoring happen in the background so that you can run other
   
 ### Query run metrics
 
-You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the parameter sweep example above to determine the best model.
-
-### Register the best model
-
-In the above example, we registered each individual model within the script. Now that we have the best model, we can register it as well with ```model = run.register_model(model_name='best_ridge_model', model_path<<best-model-path>>)```.
-
+You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
 ## View the experiment in the web portal
 
@@ -248,7 +240,17 @@ You can also download the snapshot of the experiment you submitted.
 
 ## List file names
 
-You can list all of the files that are associated with this run record by called ```run.get_file_names()```.
+
+
+## Examples
+The following notebooks demonstrate concepts in this article:
+* `00.Getting Started/02.train-on-local/02.train-on-local.ipynb`
+* `00.Getting Started/04.train-on-remote-vm/04.train-on-remote-vm`
+* `00.Getting Started/05.train-in-spark/05.train-in-spark.ipynb`
+* `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+
+Get these notebooks:
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
