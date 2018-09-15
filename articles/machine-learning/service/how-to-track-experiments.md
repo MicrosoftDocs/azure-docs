@@ -22,13 +22,13 @@ The following metrics can be added to a run while training an experiment. To vie
 
 |Type| Python function | Notes|
 |----|:----:|:----:|
-|Scalar Values | ```run.log(name, value, description='')```| Log a metric value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
-|Lists| ```run.log_list(name, value, description='')```|Log a list metric value to the run with the given name.|
-|Row| ```run.log_row(name, description=None, **kwargs)```|Using *log_row* creates a table metric with columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be be called once to log an aribitrary tuple, or multiple times in a loop to generate a complete table.|
-|Table| ``` run.log_table(name, value, description='')```| Log a table metric to the run with the given name. |
-|Images| ```run.log_image(name, path=None, plot=None)```|Log an image metric to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
-|Tag a run| ```run.tag(key, value=None)```|Tag the run with a string key and optional string value.|
-|Upload file or directory|``` run.upload_file(name, path_or_stream)```|Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called ```run.get_file_names()``|
+|Scalar Values | `run.log(name, value, description='')`| Log a metric value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
+|Lists| `run.log_list(name, value, description='')`|Log a list metric value to the run with the given name.|
+|Row| `run.log_row(name, description=None, **kwargs)`|Using *log_row* creates a table metric with columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be be called once to log an aribitrary tuple, or multiple times in a loop to generate a complete table.|
+|Table| `run.log_table(name, value, description='')`| Log a table metric to the run with the given name. |
+|Images| `run.log_image(name, path=None, plot=None)`|Log an image metric to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
+|Tag a run| `run.tag(key, value=None)`|Tag the run with a string key and optional string value.|
+|Upload file or directory|`run.upload_file(name, path_or_stream)`|Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
 
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
@@ -94,7 +94,7 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 
 1. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record as well. The following code adds tags, logs, and uploads a model file to the experiment run.
 
-  ```python 
+  ```python
   run = Run.start_logging(experiment = exp)
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
@@ -107,7 +107,7 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
   run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
   run.complete()
-```
+  ```
 
 The script ends with ```run.complete()```, which marks the run as completed.  This is typically used in interactive notebook scenarios.
 
@@ -218,7 +218,8 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
   ```
 
   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/widgets.PNG)
-  ### Get log results upon completion
+
+### Get log results upon completion
 
 Model training and monitoring happen in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
   
@@ -230,8 +231,8 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
 
 When an experiment has finished running, you can  browse to the recorded experiment run record. You can do this in two ways:
 
-- Get the URL to the run directly ```print(run.get_portal_url())```
-- View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
+* Get the URL to the run directly ```print(run.get_portal_url())```
+* View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
 
 The link for the run brings you directly to the run details page in the web portal in Azure. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
@@ -239,16 +240,10 @@ Under the outputs tab, you can view and download the model.pkl that we uploaded 
 
 You can also download the snapshot of the experiment you submitted.
 
-## List file names
-
-
-
 ## Examples
 The following notebooks demonstrate concepts in this article:
+* `00.Getting Started/01.train-within-notebook/01.train-within-notebook.ipynb`
 * `00.Getting Started/02.train-on-local/02.train-on-local.ipynb`
-* `00.Getting Started/04.train-on-remote-vm/04.train-on-remote-vm`
-* `00.Getting Started/05.train-in-spark/05.train-in-spark.ipynb`
-* `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 
 Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
