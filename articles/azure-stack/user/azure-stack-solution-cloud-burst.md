@@ -304,11 +304,11 @@ Creating a release definition is the final step in the application build process
 
 5.  On the **Pipeline** tab, select the **1 Phase**, **1 Task** link to **View environment tasks**.
 
-6.  On the **Tasks** tab, enter Azure as the **Environment name** and select the AzureCloud Traders-Web EP from the **Azure subscription** drop-down list.
+6.  On the **Tasks** tab, enter Azure as the **Environment name** and select the AzureCloud Traders-Web EP from the **Azure subscription** list.
 
 7.  Enter the **Azure app service name**, which is `northwindtraders` in the next screen capture.
 
-8.  For the Agent phase, select **Hosted VS2017** from the **Agent queue** drop-down list.
+8.  For the Agent phase, select **Hosted VS2017** from the **Agent queue** list.
 
 9.  In **Deploy Azure App Service**, select the valid **Package or folder** for the environment.
 
@@ -316,7 +316,7 @@ Creating a release definition is the final step in the application build process
 
 11. Save all changes and go back to **Pipeline**.
 
-12. On the **Pipeline** tab, select **Add artifact**, and choose the **NorthwindCloud Traders-Vessel** from the **Source (Build Definition) ** drop-down list.
+12. On the **Pipeline** tab, select **Add artifact**, and choose the **NorthwindCloud Traders-Vessel** from the **Source (Build Definition) ** list.
 
 13. On **Select a Template**, add another environment. Pick **Azure App Service Deployment** and then select **Apply**.
 
@@ -324,11 +324,11 @@ Creating a release definition is the final step in the application build process
 
 15. On the **Tasks** tab, find and select Azure Stack.
 
-16. From the **Azure subscription** drop-down list, select **AzureStack Traders-Vessel EP** for the Azure Stack endpoint.
+16. From the **Azure subscription** list, select **AzureStack Traders-Vessel EP** for the Azure Stack endpoint.
 
 17. Enter the Azure Stack web app name as the **App service name**.
 
-18. Under **Agent selection**, pick **AzureStack -b Douglas Fir** from the **Agent queue** drop-down list.
+18. Under **Agent selection**, pick **AzureStack -b Douglas Fir** from the **Agent queue** list.
 
 19. For **Deploy Azure App Service**, select the valid **Package or folder** for the environment. On **Select File Or Folder**, select **OK** for the folder **Location**.
 
@@ -345,7 +345,7 @@ Creating a release definition is the final step in the application build process
 
 ## Create a release
 
-1.  On the **Pipeline** tab, open the **Release** drop-down list and choose **Create release**.
+1.  On the **Pipeline** tab, open the **Release** list and choose **Create release**.
 
 2.  Enter a description for the release, check to see that the correct artifacts are selected, and then choose **Create**. After a few moments, a banner appears indicating that the new release was created, and the release name is displayed as a link. Choose the link to see the release summary page.
 
