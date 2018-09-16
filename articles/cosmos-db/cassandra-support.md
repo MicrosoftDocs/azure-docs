@@ -66,8 +66,6 @@ Azure Cosmos DB Cassandra API supports the following CQL data types:
 * udts  
 * map  
 
-For other datatypes and attributes, make a feature request or vote on the [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-
 ## CQL functions
 
 Azure Cosmos DB Cassandra API supports the following CQL functions:
@@ -89,8 +87,6 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
   * toTimestamp(date)  
   * toUnixTimestamp(date)  
 
-
-For other functions, make a feature request or vote on the [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 
 ## Cassandra Query Language limits
 
