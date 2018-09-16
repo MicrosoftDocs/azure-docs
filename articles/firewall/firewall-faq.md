@@ -6,7 +6,7 @@ author: vhorne
 
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 7/19/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ---
 
