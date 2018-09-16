@@ -1,20 +1,18 @@
 ---
-title: 'Quickstart: Submit a workflow using FASTQ file inputs | Microsoft Docs'
+title: 'Quickstart: Submit a workflow using FASTQ file inputs - Microsoft Genomics'
 titleSuffix: Azure
 description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
 
 ---
 
-# Submit a workflow using FASTQ file inputs
+# Submit a workflow using FASTQ file inputs in Microsoft Genomics
 
 This quickstart demonstrates how to submit a workflow to the Microsoft Genomics service if your input files are a single pair of FASTQ files. This topic assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this quickstart. 
 
