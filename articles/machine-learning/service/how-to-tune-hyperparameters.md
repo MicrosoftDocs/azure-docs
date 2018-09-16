@@ -222,8 +222,8 @@ You can control your resource budget for your hyperparameter tuning experiment b
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
 * `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel. 
 
-[!NOTE] 
-The number of concurrent runs is gated on the resources available in the specified compute target. Hence, you will need to ensure that the compute target has the available resources for the desired concurrency.
+>[!NOTE] 
+>The number of concurrent runs is gated on the resources available in the specified compute target. Hence, you will need to ensure that the compute target has the available resources for the desired concurrency.
 
 You can allocate resources for hyperparameter tuning as shown in this example -
 ```Python

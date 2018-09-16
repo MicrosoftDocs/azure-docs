@@ -384,7 +384,6 @@ The following notebooks demonstrate concepts in this article:
 * `00.Getting Started/04.train-on-remote-vm/04.train-on-remote-vm`
 * `00.Getting Started/05.train-in-spark/05.train-in-spark.ipynb`
 * `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
-* `folder/notebook2.ipynb`
 
 Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
