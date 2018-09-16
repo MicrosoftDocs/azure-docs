@@ -13,13 +13,13 @@ manager: carmonm
 
 # Collect distributed traces from Python (Preview)
 
-Application Insights now supports distributed tracing of Python applications through integration with [OpenCensus](https://opencensus.io) and our new [local forwarder](https://TODO). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your data across to Application Insights.
+Application Insights now supports distributed tracing of Python applications through integration with [OpenCensus](https://opencensus.io) and our new [local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your data across to Application Insights.
 
 ## Prerequisites
 
 - You need an Azure Subscription.
 - Python should be installed, this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustment.
-- Follow the instructions to install the [local forwarder as a Windows service](https://TODO)
+- Follow the instructions to install the [local forwarder as a Windows service](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -52,7 +52,7 @@ First you have to create an Application Insights resource which will generate an
 
    ![Screenshot of instrumentation key](./media/open-census-python/0003-instrumentation-key.png)
 
-2. Edit your `LocalForwarder.config` file and add your instrumentation key. If you followed the instructions in the [pre-requisite](http://TODO) the file is located at `C:\LF-WindowsServiceHost`
+2. Edit your `LocalForwarder.config` file and add your instrumentation key. If you followed the instructions in the [pre-requisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service) the file is located at `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -153,7 +153,7 @@ First you have to create an Application Insights resource which will generate an
 
 6. Now when you run the Python script from above you should still be prompted to event values, but now only the value is being printed in the shell.
 
-7. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](http://TODO) it will be located in `C:\LF-WindowsServiceHost`.
+7. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service) it will be located in `C:\LF-WindowsServiceHost`.
 
     In the image below of the log file you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented in value equal to the number of values we entered:
     
