@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 09/15/2018
 ms.author: rolyon
 ---
 
@@ -107,6 +107,39 @@ Follow these steps to remove a specific user from a directory role.
     ![Remove a role](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     The role assignment is removed.
+
+## Authorization error when assigning roles
+
+If you recently enabled PIM for a subscription and you get an authorization error when you try to make a user eligible for a directory role, it might be because the MS-PIM service principle does not yet have the appropriate permissions. The MS-PIM service principle must have the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role to assign roles to others. Instead of waiting until MS-PIM is assigned the User Access Administrator role, you can assign it manually.
+
+Follow these steps to assign the User Access Administrator role to the MS-PIM service principal for a subscription.
+
+1. Sign into the Azure portal as a Global Administrator.
+
+1. Choose **All services** and then **Subscriptions**.
+
+1. Choose your subscription.
+
+1. Choose **Access control (IAM)** to see the current list of role assignments at the subscription scope.
+
+   ![Access control (IAM) blade for a subscription](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Check whether the **MS-PIM** service principal is assigned the **User Access Administrator** role.
+
+1. If not, choose **Add** to open the **Add permissions** pane.
+
+1. In the **Role** drop-down list, select the **User Access Administrator** role.
+
+1. In the **Select** list, find and select the **MS-PIM** service principal.
+
+   ![Add permissions for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Choose **Save** to assign the role.
+
+   After a few moments, the MS-PIM service principal is assigned the User Access Administrator role at the subscription scope.
+
+   ![User Access Administrator role for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## Next steps
 
