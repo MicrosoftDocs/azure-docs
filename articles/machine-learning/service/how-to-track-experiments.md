@@ -227,12 +227,12 @@ Model training and monitoring happen in the background so that you can run other
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
-## View the experiment in the web portal
+## View the experiment in the Azure portal
 
-When an experiment has finished running, you can  browse to the recorded experiment run record. You can do this in two ways:
+When an experiment has finished running, you can browse to the recorded experiment run record. You can do this in two ways:
 
 * Get the URL to the run directly ```print(run.get_portal_url())```
-* View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Web Portal, and a link to documentation.
+* View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Azure Portal, and a link to documentation.
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
   ![Screenshot of run details in web portal](./media/how-to-track-experiments/run-details-page-web.PNG)
