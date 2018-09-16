@@ -26,10 +26,13 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 
 ## Supported storage accounts
 
-Azure Import/Export service supports the following [Azure storage accounts](storage-account-options.md).
+Azure Import/Export service supports the following types of storage accounts:
+
+- General Purpose v2 storage accounts
 - General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments)
 - Blob Storage accounts
-- General Purpose v2 storage accounts
+
+For more information about storage accounts, see [Azure storage accounts overview](storage-account-overview.md).
 
 Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 
