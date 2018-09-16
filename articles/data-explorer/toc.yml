@@ -29,10 +29,22 @@
     href: ingest-data-overview.md
 - name: How-to guides
   items:
-  - name: Write Kusto queries
+  - name: Write queries
     href: write-kusto-queries.md
   - name: Ingest sample data
     href: ingest-sample-data.md
+  - name: Manage database permissions
+    href: manage-database-permissions.md
+  - name: Check cluster health
+    href: check-cluster-health.md
+  - name: Troubleshooting
+    items:
+    - name: Creating a cluster
+      href: troubleshoot-create-cluster.md
+    - name: Connecting to a cluster
+      href: troubleshoot-connect-cluster.md
+    - name: Working with databases and tables
+      href: troubleshoot-database-table.md
 - name: Reference
   items:
   - name: Language reference
