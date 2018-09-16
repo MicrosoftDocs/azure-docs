@@ -1,5 +1,5 @@
 ---
-title: Multi-master conflict resolution in Azure Cosmos DB | Microsoft Docs
+title: Multi-master conflict resolution in Azure Cosmos DB 
 description: This article describes the conflict categories and conflict resolution modes such as Last-Writer-Wins (LWW), Custom – User-Defined Procedure, Custom – Asynchronous in Azure Comsos DB multi-master.
 services: cosmos-db
 author: markjbrown
@@ -32,11 +32,10 @@ There are three conflict resolution modes offered by Azure Cosmos DB. Conflict r
 
 ### Last-Writer-Wins (LWW)
 
-Last-Writer-Wins is default conflict resolution mode. In this mode, conflicts are resolved based on the value assigned to a user-defined integer property in the document. If this property does not exist within the document, then the conflict is resolved by using the timestamp(_ts) of the document. 
+Last-Writer-Wins is the default conflict resolution mode. In this mode, conflicts are resolved based on an integer value passed in a property on the document. If this property does not exist within the document, then the conflict is resolved by using the timestamp(_ts) value of the document.
 
-Below is a snippet that describes how to configure Last Writer Wins conflict resolution policy for a collection by using the path to a user-defined integer property. This user-defined integer property is also referred as conflict resolution path. In this example `/userDefinedId` is the conflict resolution path, and the document with the largest `userDefinedId` value will always win the conflict. 
+The following code snippet is an example of how to configure Last-Writer-Wins conflict resolution policy when using the .Net SDK. The "ConflictResolutionPath" defines the path to the property which is used to resolve the conflict. In this example, `/userDefinedId` is the conflict resolution path, and the document with the largest `userDefinedId` value will always win the conflict. To register a Last-Writer-Wins resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
 
-To register a Last Writer Wins resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
 
 ```csharp
 DocumentCollection lwwCollection = await myClient.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("myDatabase"), new DocumentCollection 
@@ -50,9 +49,9 @@ DocumentCollection lwwCollection = await myClient.CreateDocumentCollectionIfNotE
 });
 ```
 
-Last Writer Wins resolution mode is applied to different data conflict categories as follows:
+ Last-Writer-Wins resolution mode is applied to different data conflict categories as follows:
 
-* **Insert and update conflict:** If two or more documents collide on insert or replace operations, the document that contains the largest value for the conflict resolution path becomes the winner (that is, userDefinedId). If multiple documents have same integer value for the conflict resolution path, the selected winner is non-deterministic. However, all regions will converge to a single winner.
+* **Insert and update conflicts:** If two or more documents collide on insert or replace operations, the document that contains the largest value for the conflict resolution path becomes the winner (that is, userDefinedId). If multiple documents have same integer value for the conflict resolution path, the selected winner is non-deterministic. However, all regions will converge to a single winner.
 
 * **Delete conflict:** If there are delete conflicts involved, the delete always wins over other replace conflicts irrespective of the value of the conflict resolution path.
 
@@ -60,7 +59,7 @@ Last Writer Wins resolution mode is applied to different data conflict categorie
 
 In this mode, the user controls conflict resolution by registering a User Defined Procedure (UDP) to the collection. This UDP has a specific signature. If you select this option but fail to register a UDP, or if the UDP throws an exception at runtime, conflicts are written to the conflicts feed where they can be resolved individually. 
 
-To register a custom – user-defined procedure resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
+To register a custom – user-defined procedure conflict resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
 
 ```csharp
 DocumentCollection udpCollection = await myClient.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("myDatabase"), new DocumentCollection
@@ -96,9 +95,9 @@ Function myUdpStoredProcedure (incomingDocument, existingDocument, isDeleteConfl
 
 The procedure has four parameters:
 
-* **incomingDocument:** specifies the conflicting version of the document. The conflict can be insert, replace, or delete conflict. For a delete conflict, this will be a delete image (tombstone) with no content.
+* **incomingDocument:** specifies the conflicting version of the document. The conflict can be an insert, replace, or a delete conflict. For a delete conflict, this will be a delete image (tombstone) with no content.
 
-* **existingDocument:** specifies the committed version of the document, that has the same rid as the incomingDocument. This parameter is set to null for an insert and delete conflict.
+* **existingDocument:** specifies the committed version of the document, that has the same "rid" value as the incomingDocument. This parameter is set to null for an insert and delete conflict.
 
 * **isDeleteConflict:** Boolean flag indicating if the incoming document is conflicting with a previously deleted document. When this parameter is set to true, existingDocument will also be null.
 
@@ -110,7 +109,7 @@ The user-defined procedure has full access to the Cosmos DB partition key and ca
 
 In this mode, Azure Cosmos DB excludes all conflicts (insert, replace, and delete) from being committed and registers them in the read-only conflicts feed for deferred resolution by the user’s application. The application can perform conflict resolution asynchronously and use any logic or refer to any external source, application, or service to resolve the conflict.
 
-To register a custom – asynchronous resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
+To register a custom – asynchronous conflict resolution mode, provision the collection with the ConflictResolutionPolicy as shown below.
 
 ```csharp
 DocumentCollection manualCollection = await myClient.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("myDatabase"), new DocumentCollection 
@@ -134,10 +133,10 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
          case OperationKind.Create: 
          //Process Insert Conflicts. 
          … 
-         case OperationKind.Replace 
+         case OperationKind.Replace: 
          //Process Replace Conflicts 
          … 
-         case OperationKind.Delete 
+         case OperationKind.Delete: 
          //Process Delete Conflicts 
          … 
       }
@@ -153,4 +152,4 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 
 In this article, you learned about conflict categories and conflict resolution modes for Azure Cosmos DB. Next, take a look at the following resources:
 
-* [Multi-master support in MongoDB API](mongodb-multi-master-support.md)
+* [Use MongoDB clients with Multi-master](mongodb-multi-master-support.md)
