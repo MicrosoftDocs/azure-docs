@@ -1,40 +1,39 @@
 ---
-title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly setup a Node.js Web App for monitoring with Application Insights
+title: OpenCensus Python tracing with Azure Application Insights | Microsoft Docs
+description: Provides instructions to wire up OpenCensus Python tracing with the local forwarder and Application Insights
 services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 09/15/2018
 ms.service: application-insights
-ms.custom: mvc
-ms.topic: quickstart
+ms.topic: conceptual
 manager: carmonm
 ---
 
 # Collect distributed traces from Python (Preview)
 
-Open Census + local forwarder + Python
+Application Insights now supports distributed tracing of Python applications through integration with [OpenCensus](https://opencensus.io) and our new [local forwarder](https://TODO). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your data across to Application Insights.
 
 ## Prerequisites
 
 - You need an Azure Subscription.
-- Python should be installed this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustment.
+- Python should be installed, this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustment.
 - Follow the instructions to install the [local forwarder as a Windows service](https://TODO)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create Application Insights resource
 
-First you have to create an Application Insights resource which will generate an instrumentation key(ikey). The ikey is then used to configure the local forwarder to send distributed traces from your open census instrumented application, to Application Insights.   
+First you have to create an Application Insights resource which will generate an instrumentation key(ikey). The ikey is then used to configure the local forwarder to send distributed traces from your OpenCensus instrumented application, to Application Insights.   
 
 1. Select **Create a resource** > **Developer Tools** > **Application Insights**.
 
-   ![Adding Application Insights Resource](./media/open-census-python/001-create-resource.png)
+   ![Adding Application Insights Resource](./media/open-census-python/0001-create-resource.png)
 
    A configuration box appears; use the following table to fill out the input fields.
 
@@ -51,7 +50,7 @@ First you have to create an Application Insights resource which will generate an
 
 1. Select **Overview** > **Essentials** > Copy your application's **Instrumentation Key**.
 
-   ![New App Insights resource form](./media/open-census-python/003-instrumentation-key.png)
+   ![Screenshot of instrumentation key](./media/open-census-python/0003-instrumentation-key.png)
 
 2. Edit your `LocalForwarder.config` file and add your instrumentation key. If you followed the instructions in the [pre-requisite](http://TODO) the file is located at `C:\LF-WindowsServiceHost`
 
@@ -72,7 +71,7 @@ First you have to create an Application Insights resource which will generate an
 
 3. Restart the application **Local Forwarder** service.
 
-## Open Census Python package
+## OpenCensus Python package
 
 1. Install the Open Census package for Python with pip or pipenv from the command line:
 
@@ -82,9 +81,9 @@ First you have to create an Application Insights resource which will generate an
     ```
 
     > [!NOTE]
-    > `python -m pip install opencensus` assumes that you have a PATH environment variable set for your Python installation. If you have not configured this, you would need to give the full directory path to where your Python executable is located which would result in something like: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus`.
+    > `python -m pip install opencensus` assumes that you have a PATH environment variable set for your Python installation. If you have not configured this, you would need to give the full directory path to where your Python executable is located which would result in a command like: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus`.
 
-2. First let's generate some trace data locally. In Python IDLE or your editor of choice enter the following code:
+2. First let's generate some trace data locally. In Python IDLE, or your editor of choice, enter the following code:
 
     ```python
     from opencensus.trace.tracer import Tracer
@@ -104,7 +103,7 @@ First you have to create an Application Insights resource which will generate an
     
     ```
 
-3. Running the program will just repeatedly prompt you to enter a value, and with each entry the value will be printed to the shell, and a corresponding piece of **SpanData** will be generated by the Open Census Python Module.
+3. Running the code will repeatedly prompt you to enter a value. With each entry, the value will be printed to the shell, and a corresponding piece of **SpanData** will be generated by the OpenCensus Python Module. The OpenCensus project defines a [_trace as a tree of spans_](https://opencensus.io/core-concepts/tracing/)
     
     ```python
     Enter a value: 4
@@ -156,25 +155,48 @@ First you have to create an Application Insights resource which will generate an
 
 7. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](http://TODO) it will be located in `C:\LF-WindowsServiceHost`.
 
-    In the image below of the log file you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
+    In the image below of the log file you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented in value equal to the number of values we entered:
     
-    ![New App Insights resource form](./media/open-census-python/004-batches-received.png)
+    ![New App Insights resource form](./media/open-census-python/0004-batches-received.png)
 
 ## Start monitoring in the Azure portal
 
 1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application. Select **Live Metric Stream**.
 
-   ![Application Insights Overview Menu](./media/open-census-python/005-overview-live-metrics-stream.png)
+   ![Screenshot of overview pane with live metric stream selected in red box](./media/open-census-python/0005-overview-live-metrics-stream.png)
 
-2. If you run the second Python script again and start entering values you will see live trace data as it arrives in Application Insights from the local forwarder service.
+2. If you run the second Python script again and start entering values, you will see live trace data as it arrives in Application Insights from the local forwarder service.
 
-   ![Application Insights Overview Menu](./media/open-census-python/006-stream.png)
+   ![Screenshot of live metric stream with performance data displayed](./media/open-census-python/0006-stream.png)
 
+3. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
 
-2. Click **App map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
+    ![Screenshot of basic application map](./media/open-census-python/0007-application-map.png)
+
+    Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
 
    ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
 
+4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
 
+    ![Screenshot of performance pane](./media/open-census-python/0008-performance.png)
+
+5. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show up a single event. A more complex application would allow you to explore the full call stack for a given event.
+
+     ![Screenshot of end-to-end transaction interface](./media/open-census-python/0009-end-to-end-transaction.png)
+
+## OpenCensus trace for Python
+
+We only covered the basics of wiring up OpenCensus for Python with the local forwarder and Application Insights. The official usage guidance covers more advanced topics like:
+
+* [Samplers](https://opencensus.io/api/python/trace/usage.html#samplers)
+* [Flask Integration](https://opencensus.io/api/python/trace/usage.html#flask)
+* [Django Integration](https://opencensus.io/api/python/trace/usage.html#django)
+* [MySQL Integration](https://opencensus.io/api/python/trace/usage.html#service-integration)
+* [PostgreSQL](https://opencensus.io/api/python/trace/usage.html#postgresql)
+  
 ## Next steps
 
+* [OpenCensus Python usage guide](https://opencensus.io/api/python/trace/usage.html)
+* [Application map](./app-insights-app-map.md)
+* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
