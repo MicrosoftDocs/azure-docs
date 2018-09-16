@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 # Local forwarder
 
-Local forwarder is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and routes it to the Application Insights backend. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
+Local forwarder is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and routes it to Application Insights. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
 
 ## Running Local forwarder
 Local forwarder is an [open source project on GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). There are a variety of ways to run local forwarder on multiple platforms.
@@ -25,6 +25,10 @@ Local forwarder is an [open source project on GitHub](https://github.com/Microso
 ### Windows
 #### Windows Service
 The easiest way of running local forwarder under Windows is by installing it as a Windows Service. The release comes with a Windows Service executable (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) which can be easily registered with the operating system.
+
+> [!NOTE]
+> The local forwarder service requires a minimum of .NET Framework 4.7. If you do not have .NET Framework 4.7 the service will install, but it won't start. To access the lastest version of the .NET Framework **[visit the .NET Framework download page](
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
 
 1. Download the LF.WindowsServiceHost.zip file from the [local forwarder release page](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) on GitHub.
 
