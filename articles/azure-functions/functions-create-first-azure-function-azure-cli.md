@@ -1,5 +1,5 @@
 ---
-title: Create your first function from the command line | Microsoft Docs 
+title: Create your first function using the Azure CLI
 description: Learn how to create your first Azure Function for serverless execution using the Azure CLI and Azure Functions Core Tools.
 services: functions 
 keywords: 
