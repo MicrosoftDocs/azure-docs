@@ -70,7 +70,7 @@ To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, co
 
 3. Determine the latency from your machine to the Azure Cosmos DB service. If you are within an Azure Data center, the latency should be a low single digit millisecond number. If you are outside the Azure Datacenter, then you can use psping or azurespeed.com to get the approximate latency from your location.
 
-4. Fine tune the values for parameters `NUMPROCESS`, `INGESTRATE`, `MAXBATCHSIZE`, and `MINBATCHSIZE` to optimize the best performance for your environment.
+4. Fine-tune the values for parameters `NUMPROCESS`, `INGESTRATE`, `MAXBATCHSIZE`, and `MINBATCHSIZE` to optimize the best performance for your environment.
 
 5. Run the final migration command. Running this command assumes you have started cqlsh using the connection string information.
 
@@ -80,7 +80,7 @@ To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, co
 
 ## Migrate data by using Spark
 
-For data residing in an existing cluster in Azure virtual machines, importing data using Spark is also a viable alternative. This requires Spark to be set up as intermediary for one time or regular ingestion. 
+For data residing in an existing cluster in Azure virtual machines, importing data using Spark is a viable option. To do so, set up Spark as an intermediary for one time or regular ingestion. 
 
 ## Next steps
 
