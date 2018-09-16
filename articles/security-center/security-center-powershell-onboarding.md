@@ -30,7 +30,7 @@ In this example, we will enable Security Center on a subscription with ID: d07c0
 
 1.	Set the [`ASC standard` level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
 2.	Set the Log Analytics workspace to which the Microsoft Monitoring Agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
-3.	Activate Security Center’s automatic agent provisioning which [deploys to Microsoft Monitoring Agent](security-center-enable-data-collection#auto-provision-mma.md).
+3.	Activate Security Center’s automatic agent provisioning which [deploys to Microsoft Monitoring Agent](security-center-enable-data-collection#auto-provision-mma).
 4.	Set the organization’s [CISO as the security contact for ASC alerts and notable events](security-center-provide-security-contact-details.md).
 5.	Assign Security Center’s [default security policies](security-center-azure-policy.md).
 
