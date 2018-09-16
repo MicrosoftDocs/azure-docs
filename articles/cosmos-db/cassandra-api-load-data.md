@@ -7,7 +7,7 @@ author: kanshiG
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
  
