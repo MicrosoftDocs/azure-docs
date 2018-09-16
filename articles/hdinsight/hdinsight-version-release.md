@@ -19,6 +19,10 @@ Azure HDInsight (HDI) 4.0 is a cloud distribution of the Hadoop components from 
 
 HiveServer now uses a remote Metastore database, which is configured in `hive-site.xml`.
 
+Hive View is no longer available in HDI 4.0. You can now visualize Apache Hive data using Superset.
+
+Learn more about Visualizing Apache Hive data with [Superset](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/integrating-hive/content/hive_visualizing_hive_data_using_superset.html).
+
 Learn more about [Apache Hive 3](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/hive-overview/content/hive_whats_new_in_this_release_hive.html).
 
 ### Hive transactional tables data
@@ -57,7 +61,9 @@ Learn more about [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/H
 
 ## Limitations
 
-* HDI 4.0 does not support OMS metrics on secure clusters.
+* HDI 4.0 does not support [Azure Management](../monitoring/index.md) metrics on secure clusters.
+
+* HDI 4.0 does not support MapReduce. Use Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 
 ## Next steps
 
