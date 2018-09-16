@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 
 # Quickstart: Get started with Azure Machine Learning service
 
-In this quickstart, you'll use the Azure portal to create a Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying ML models with Azure Machine Learning service (Preview). 
+In this quickstart, you'll use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying ML models with Azure Machine Learning service (Preview). 
 
 In this tutorial, you will:
 
 * Create a workspace in your Azure subscription
-* Try it out with a Python script that logs values across multiple iterations
+* Try it out with Python in an Azure Notebook and log values across multiple iterations
 * View the logged values in your workspace
 
 For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
@@ -55,9 +55,12 @@ Click on the `Open Azure Notebooks` button to try your first experiment.
 
  ![Launch Azure Notebook](./media/quickstart-get-started/explore_ws.png)
 
-A new tab opens and a `Clone Library` prompt appears.  Click on `Clone`
+After you sign in, a new tab opens and a `Clone Library` prompt appears.  Click on `Clone`
+
 
 ### Run the notebook
+
+Along with two notebooks, you will see a  `config.json` file.  This config file contains information about the workspace you just created.  
 
 Click on `01.run-experiment.ipynb` to open the notebook.
 
@@ -66,6 +69,11 @@ You can run the cells one at a time by using `Shift`+`Enter`.  Or use the menu `
 You may be prompted to log in.  Copy the code in the message, then click on the link and paste the code into the new window.  Be sure not to copy a space before or after the code.
 
  ![login](./media/quickstart-get-started/login.png)
+
+The second cell reads from `config.json` to connect to your workspace.
+```
+ws = Workspace.from_config()
+```
 
 The third cell of code starts an experiment with the name of "my-first-experiment".  You will use this name to look up information about the run back in your workspace.
 
@@ -111,9 +119,9 @@ You can also keep the resource group, but delete a single workspace by displayin
 
 ## Next steps
 
-You have now created the necessary resources to start experimenting and deploying models. You also created a project, ran a script locally, and explored the run history of that script in your workspace in the cloud.
+You have now created the necessary resources to start experimenting and deploying models. You also ran some code in a notebook, and explored the run history from that code in your workspace in the cloud.
 
-For an in-depth workflow experience, follow the Azure Machine Learning tutorial on building, training, and deploying a model.
+For an in-depth workflow experience, follow the Azure Machine Learning tutorials to train and deploy a model.  
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build, train, and deploy](tutorial-train-models-with-aml.md)
+> [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
