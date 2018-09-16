@@ -87,15 +87,15 @@
           href: security-center-update-os-version.md
         - name: Vulnerability assessment not installed
           href: security-center-vulnerability-assessment-recommendations.md
-       - name: App recommendations
-         href: security-center-add-web-application-firewall.md
-         items:
-         - name: Add a web application firewall
-           href: security-center-add-web-application-firewall.md
-         - name: Finalize application protection
-           href: security-center-add-web-application-firewall.md#finalize-application-protection      
-       - name: Container recommendations
-         href: security-center-container-recommendations.md   
+      - name: App recommendations
+        href: security-center-add-web-application-firewall.md
+        items:
+        - name: Add a web application firewall
+          href: security-center-add-web-application-firewall.md
+        - name: Finalize application protection
+          href: security-center-add-web-application-firewall.md#finalize-application-protection      
+      - name: Container recommendations
+        href: security-center-container-recommendations.md   
     - name: Network security
       href: security-center-network-recommendations.md
       items:
