@@ -166,6 +166,10 @@
         href: app-insights-proactive-arm-config.md 
     - name: Create a resource
       href: app-insights-create-new-resource.md
+    - name: Distributed tracing
+      items: 
+        - name: Python
+          href: open-census-python.md
   - name: Analyze
     items:
     - name: Application Insights portal
