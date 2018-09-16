@@ -159,13 +159,13 @@ Now go back to the Azure portal to get your connection string information and co
 
    The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
-2. Open pyquickstart.py and change the 'path\to\cert' to point to your new certificate.
+2. Open `pyquickstart.py` and change the `path\to\cert` to point to your new certificate.
 
-3. Save pyquickstart.py.
+3. Save `pyquickstart.py`.
 
 ## Run the Python app
 
-1. Use the cd command in the git terminal to change into the azure-cosmos-db-cassandra-python-getting-started folder. 
+1. Use the cd command in the git terminal to change into the `azure-cosmos-db-cassandra-python-getting-started` folder. 
 
 2. Run the following commands to install the required modules:
 
