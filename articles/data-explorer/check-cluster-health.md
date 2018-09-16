@@ -33,7 +33,3 @@ There are several factors that impact the health of an Azure Data Explorer clust
 1. Add other metrics like CPU and Memory Caching to gauge resource utilization for the cluster.
 
 1. If you need assistance diagnosing issues with the health of a cluster, please open a support request in the [Azure portal](https://portal.azure.com).
-
-## Next steps
-
-[Troubleshoot: Failure to connect to a cluster in Azure Data Explorer](troubleshoot-connect-cluster.md)

@@ -29,14 +29,12 @@
     href: ingest-data-overview.md
 - name: How-to guides
   items:
-  - name: Write Kusto queries
+  - name: Write queries
     href: write-kusto-queries.md
   - name: Ingest sample data
     href: ingest-sample-data.md
   - name: Manage database permissions
     href: manage-database-permissions.md
-  - name: Scale a cluster
-  - name: Delete data from a cluster
   - name: Check cluster health
     href: check-cluster-health.md
   - name: Troubleshooting
