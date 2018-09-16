@@ -97,7 +97,7 @@ Create an experiment to track all the runs in your workspace.
 experiment_name = 'sklearn-mnist'
 
 from azureml.core import Experiment
-exp = Experiment(workspace = ws, name = experiment_name)
+exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
 ### Create remote compute target
@@ -116,25 +116,25 @@ batchai_cluster_name = "traincluster"
 
 try:
     # look for the existing cluster by name
-    compute_target = ComputeTarget(workspace = ws, name = batchai_cluster_name)
+    compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
     if compute_target is BatchAiCompute:
         print('found compute target {}, just use it.'.format(batchai_cluster_name))
     else:
         print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
 except ComputeTargetException:
     print('creating a new compute target...')
-    compute_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", # small CPU-based VM
-                                                                #vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = True,
-                                                                cluster_min_nodes = 0, 
-                                                                cluster_max_nodes = 4)
+    compute_config = BatchAiCompute.provisioning_configuration(vm_size="STANDARD_D2_V2", # small CPU-based VM
+                                                                #vm_priority='lowpriority', # optional
+                                                                autoscale_enabled=True,
+                                                                cluster_min_nodes=0, 
+                                                                cluster_max_nodes=4)
 
     # create the cluster
     compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it uses the scale settings for the cluster
-    compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
     # Use the 'status' property to get a detailed status for the current cluster. 
     print(compute_target.status.serialize())
@@ -161,10 +161,10 @@ import urllib.request
 
 os.makedirs('./data', exist_ok = True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/train-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/train-labels.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/test-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/test-labels.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
 
 ### Display some sample images
@@ -193,8 +193,8 @@ for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     plt.subplot(1, sample_size, count)
     plt.axhline('')
     plt.axvline('')
-    plt.text(x = 10, y = -10, s = y_train[i], fontsize = 18)
-    plt.imshow(X_train[i].reshape(28, 28), cmap = plt.cm.Greys)
+    plt.text(x=10, y=-10, s=y_train[i], fontsize=18)
+    plt.imshow(X_train[i].reshape(28, 28), cmap=plt.cm.Greys)
 plt.show()
 ```
 
@@ -214,7 +214,7 @@ The MNIST files are uploaded into a directory named `mnist` at the root of the d
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir = './data', target_path = 'mnist', overwrite = True, show_progress = True)
+ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
 ```
 You now have everything you need to start training a model. 
 
@@ -262,7 +262,7 @@ Create a directory to deliver the necessary code from your computer to the remot
 ```python
 import os
 script_folder = './sklearn-mnist'
-os.makedirs(script_folder, exist_ok = True)
+os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### Create a training script
@@ -284,8 +284,8 @@ from utils import load_data
 
 # let user feed in 2 parameters, the location of the data files (from datastore), and the regularization rate of the logistic regression model
 parser = argparse.ArgumentParser()
-parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data folder mounting point')
-parser.add_argument('--regularization', type = float, dest = 'reg', default = 0.01, help = 'regularization rate')
+parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
+parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
 args = parser.parse_args()
 
 data_folder = os.path.join(args.data_folder, 'mnist')
@@ -302,25 +302,23 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 # get hold of the current run
 run = Run.get_submitted_run()
 
-# train a logistic regression model with specified regularization rate
 print('Train a logistic regression model with regularizaion rate of', args.reg)
-clf = LogisticRegression(C = 1.0/args.reg, random_state = 42)
+clf = LogisticRegression(C=1.0/args.reg, random_state=42)
 clf.fit(X_train, y_train)
 
 print('Predict the test set')
-# predict on the test set
 y_hat = clf.predict(X_test)
 
 # calculate accuracy on the prediction
 acc = np.average(y_hat == y_test)
 print('Accuracy is', acc)
 
-# log regularization rate and accuracy 
 run.log('regularization rate', np.float(args.reg))
 run.log('accuracy', np.float(acc))
 
-os.makedirs('outputs', exist_ok = True)
-joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')
+os.makedirs('outputs', exist_ok=True)
+# note file saved in the outputs folder is automatically uploaded into experiment record
+joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 ```
 
 Notice how the script gets data and saves models:
@@ -363,11 +361,11 @@ script_params = {
     '--regularization': 0.8
 }
 
-est = Estimator(source_directory = script_folder,
-                script_params = script_params,
-                compute_target = compute_target,
-                entry_script = 'train.py',
-                conda_packages = ['scikit-learn'])
+est = Estimator(source_directory=script_folder,
+                script_params=script_params,
+                compute_target=compute_target,
+                entry_script='train.py',
+                conda_packages=['scikit-learn'])
 ```
 
 
@@ -421,7 +419,7 @@ Model training and monitoring happen in the background. Wait until the model has
 
 
 ```python
-run.wait_for_completion(show_output = False) # specify True for a verbose log
+run.wait_for_completion(show_output=False) # specify True for a verbose log
 ```
 
 ### Display run results
@@ -439,12 +437,19 @@ In the deployment tutorial you will explore this model in more detail.
 
 ## Register model
 
-The last step in the training script wrote the file `outputs/sklearn_mnist_model.pkl`.  Since all content in the `outputs` directory is automatically uploaded to your workspace, the model file is now also available in your workspace. 
+The last step in the training script wrote the file `outputs/sklearn_mnist_model.pkl` in a directory named `outputs` in the VM of the cluster where the job is executed. `outputs` is a special directory in that all content in this  directory is automatically uploaded to your workspace.  This content appears in the run record in the experiment under your workspace. Hence, the model file is now also available in your workspace.
+
+You can see files associated with that run.
+
+```python
+print(run.get_file_names())
+```
+
 Register the model in the workspace so that you (or other collaborators) can later query, examine, and deploy this model.
 
 ```python
 # register model 
-model = run.register_model(model_name = 'sklearn_mnist', model_path = 'outputs/sklearn_mnist_model.pkl')
+model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep = '\t')
 ```
 
