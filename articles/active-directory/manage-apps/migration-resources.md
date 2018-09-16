@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 09/16/2018
 ms.author: barbkess
 ms.reviewer: baselden
 
@@ -25,6 +25,6 @@ Resources to help you migrate application access and authentication to Azure Act
 | [Deployment plan: Migrating from AD FS to pass-through authentication](https://aka.ms/ADFSTOPTADPDownload)|Azure AD pass-through authentication helps users sign in to both on-premises and cloud-based applications by using the same password. This feature provides your users with a better experience since they have one less password to remember. It also reduces IT helpdesk costs because users are less likely to forget how to sign in when they only need to remember one password. When people sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory.|
 | [Deployment plan: Enabling Single Sign-on to a SaaS app with Azure AD](https://aka.ms/SSODPDownload) | Single sign-on (SSO) helps you access all the apps and resources you need to do business, while signing in only once, using a single user account. For example, after a user has signed in, the user can move from Microsoft Office, to SalesForce, to Box without authenticating (for example, typing a password) a second time. 
 | [Deployment plan: Extending apps to Azure AD with Application Proxy](https://aka.ms/AppProxyDPDownload)| Providing access from employee laptops and other devices to on-premises applications has traditionally involved virtual private networks (VPNs) or demilitarized zones (DMZs). Not only are these solutions complex and hard to make secure, but they are costly to set up and manage. Azure AD Application Proxy makes it easier to access on-premises applications. |
-| [Deployment plans](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-deployment-plans) | Find more deployment plans for deploying features such as multi-Factor authentication, conditional access, user provisioning, seamless SSO, self-service password reset, and more! |
+| [Deployment plans](../fundamentals/active-directory-deployment-plans.md) | Find more deployment plans for deploying features such as multi-Factor authentication, conditional access, user provisioning, seamless SSO, self-service password reset, and more! |
 
-Please send feedback to our team at [aadappfeedback@microsoft.com](mailto:aadappfeedback@microsoft.com). We would love to know what other resources would be helpful to your migration processes! 
+
