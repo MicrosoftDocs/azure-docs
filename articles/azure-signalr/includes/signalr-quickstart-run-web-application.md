@@ -12,10 +12,10 @@ ms.custom: include file
 
 ## Run the web application
 
-1. There is a sample single page web application hosted in GitHub for your convenience. Open your browser to [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/).
+1. There is a sample single page web application hosted in GitHub for your convenience. Open your browser to [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat/).
 
     > [!NOTE]
-    > The source of the HTML file is located at [/docs/demo/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/index.html).
+    > The source of the HTML file is located at [/docs/demo/chat/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat/index.html).
 
 1. When prompted for the function app base URL, enter *http://localhost:7071*.
 

@@ -38,9 +38,9 @@ Install the [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-fun
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
 
-[!INCLUDE [](includes/signalr-quickstart-create-instance.md)]
+[!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[!INCLUDE [](includes/signalr-quickstart-clone-application.md)]
+[!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
 
 ## Configure and run the Azure Function app
@@ -55,18 +55,18 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
     ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. In your code editor, open the *src/javascript* folder in the cloned repository.
+1. In your code editor, open the *chat/src/javascript* folder in the cloned repository.
 
 1. Rename *local.settings.sample.json* to *local.settings.json*.
 
 1. In **local.settings.json**, paste the connection string into the value of the **AzureSignalRConnectionString** setting. Save the file.
 
-1. JavaScript functions are organized into folders. In each folder is two files: *function.json* defines the bindings that are used in the function, and *index.js* is the body of the function. There are two HTTP triggered functions in this function app:
+1. JavaScript functions are organized into folders. In each folder are two files: *function.json* defines the bindings that are used in the function, and *index.js* is the body of the function. There are two HTTP triggered functions in this function app:
 
     - **negotiate** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **messages** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. In the terminal, ensure that you are in the *src/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
+1. In the terminal, ensure that you are in the *chat/src/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
 
     ```bash
     func extensions install
@@ -81,7 +81,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
 
-[!INCLUDE [](includes/signalr-quickstart-run-web-application.md)]
+[!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
 
-[!INCLUDE [](includes/signalr-quickstart-cleanup.md)]
+[!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
