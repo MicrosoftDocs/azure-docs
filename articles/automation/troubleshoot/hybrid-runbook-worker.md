@@ -16,6 +16,8 @@ This article provides information on troubleshooting issues with Hybrid Runbook 
 
 ## General
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+
 The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it is the Log Analytics agent for Linux.
 
 ###<a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
