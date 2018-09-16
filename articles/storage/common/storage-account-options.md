@@ -2,11 +2,11 @@
 title: Azure Storage account options | Microsoft Docs
 description: Understanding options for using Azure Storage.
 services: storage
-author: xyh1
+author: tamram
 ms.service: storage
 ms.topic: get-started-article
 ms.date: 07/14/2018
-ms.author: hux
+ms.author: tamram
 ms.component: common
 ---
 # Azure Storage account options
