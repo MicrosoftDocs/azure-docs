@@ -91,6 +91,13 @@ context.bindings.myOutput = {
 
 Note that you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
+### context.bindingData property
+
+```
+context.bindingData
+```
+Returns a named object that contains trigger metadata and function invocation data (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). For an example of trigger metadata, see this [event hubs example](functions-bindings-event-hubs.md#trigger---javascript-example).
+
 ### context.done method
 ```
 context.done([err],[propertyBag])
