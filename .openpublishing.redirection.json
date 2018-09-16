@@ -28097,6 +28097,11 @@
             "redirect_document_id" : false
         },
         {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
             "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md",
             "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : true
@@ -28114,6 +28119,36 @@
         {
             "source_path": "articles/monitoring-and-diagnostics/monitoring-get-started.md",
             "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-azure.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-analytics-tour.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-analytics-using.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-queries",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-how-to-customize-monitoring.md",
+            "redirect_url": "/azure/monitoring/monitoring-data-collection",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-metrics.md",
+            "redirect_url": "/azure/monitoring/monitoring-data-collection",
             "redirect_document_id" : false
         }
     ]

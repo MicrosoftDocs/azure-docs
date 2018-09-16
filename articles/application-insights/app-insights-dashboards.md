@@ -59,7 +59,7 @@ The chart is automatically refreshed with a frequency that depends on the chart'
 * Time range above 24 hours: (Time range)/60.
 
 ### Pin any query in Analytics
-You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
+You can also [pin Analytics](../log-analytics/query-language/get-started-analytics-portal.md) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
 
 Results are automatically recalculated every hour. Click the Refresh icon on the chart to recalculate immediately. (Browser refresh doesn't recalculate.)
 
