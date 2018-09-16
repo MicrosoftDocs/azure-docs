@@ -13,7 +13,7 @@ manager: carmonm
 
 # Collect distributed traces from Python (Preview)
 
-Application Insights now supports distributed tracing of Python applications through integration with [OpenCensus](https://opencensus.io) and our new [local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your data across to Application Insights.
+Application Insights now supports distributed tracing of Python applications through integration with [OpenCensus](https://opencensus.io) and our new [local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder). This article will walk you step-by-step through the process of setting up OpenCensus for Python and getting your trace data to Application Insights.
 
 ## Prerequisites
 
@@ -145,7 +145,7 @@ First you have to create an Application Insights resource which will generate an
         main()
     ```
 
-5. If you save and try running the above module you may receive a `ModuleNotFoundError` for `grpc`. If this occurs run the following to install the [grpcio package](https://pypi.org/project/grpcio/) with:
+5. If you save and try running the above module, you may receive a `ModuleNotFoundError` for `grpc`. If this occurs run the following to install the [grpcio package](https://pypi.org/project/grpcio/) with:
 
     ```
     python -m pip install grpcio
@@ -153,15 +153,15 @@ First you have to create an Application Insights resource which will generate an
 
 6. Now when you run the Python script from above you should still be prompted to event values, but now only the value is being printed in the shell.
 
-7. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service) it will be located in `C:\LF-WindowsServiceHost`.
+7. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), it will be located in `C:\LF-WindowsServiceHost`.
 
-    In the image below of the log file you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented in value equal to the number of values we entered:
+    In the image below of the log file, you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented in value equal to the number of values we entered:
     
     ![New App Insights resource form](./media/open-census-python/0004-batches-received.png)
 
 ## Start monitoring in the Azure portal
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application. Select **Live Metric Stream**.
+1. You can now reopen the Application Insights **Overview** page in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
 
    ![Screenshot of overview pane with live metric stream selected in red box](./media/open-census-python/0005-overview-live-metrics-stream.png)
 
