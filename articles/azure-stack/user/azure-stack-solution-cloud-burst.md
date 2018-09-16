@@ -368,3 +368,6 @@ Creating a release definition is the final step in the application build process
 **Integration of Azure and Azure Stack provides a scalable cross-cloud solution**
 
 A flexible and robust multi-cloud service provides data security, back up and redundancy, consistent and rapid availability, scalable storage and distribution, and geo-compliant routing. This manually triggered process ensures reliable and efficient load switching between Hosted Web apps, ensuring immediate availability of crucial data. 
+
+## Next steps
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).
