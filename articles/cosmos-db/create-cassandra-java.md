@@ -153,7 +153,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Use the ![Copy button](./media/create-cassandra-java/copy.png) button on the right side of the screen to copy the CONTACT POINT value.
 
-3. Open the `config.properties` file from C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources folder. 
+3. Open the `config.properties` file from `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources` folder. 
 
 3. Paste the CONTACT POINT value from the portal over `<Cassandra endpoint host>` on line 2.
 
