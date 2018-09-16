@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
 
 ---
@@ -30,7 +30,7 @@ This article provides guidance on how to install a Microsoft Monitoring Agent an
 > - Data collection for Virtual machine scale set is not currently supported.
 
 
-## Enable automatic provisioning of Microsoft Monitoring Agent     
+## Enable automatic provisioning of Microsoft Monitoring Agent <a name="auto-provision-mma"></a>     
 To collect the data from the machines you should have the Microsoft Monitoring Agent installed.  Installation of the agent can be automatically (recommended) or you may choose to install the agent manually.  
 
 >[!NOTE]

@@ -66,30 +66,33 @@
     - name: Compute & apps security
       href: security-center-virtual-machine-protection.md
       items:
-      - name: Virtual machine recommendations
+      - name: VM and computer recommendations
         href: security-center-virtual-machine-recommendations.md
-      - name: Apply disk encryption
-        href: security-center-apply-disk-encryption.md
-      - name: Apply system updates
-        href: security-center-apply-system-updates.md
-      - name: Enable encryption for storage account
-        href: security-center-enable-encryption-for-storage-account.md
-      - name: Enable VM Agent
-        href: security-center-enable-vm-agent.md
-      - name: Install Endpoint Protection
-        href: security-center-install-endpoint-protection.md
-      - name: Reboot after system updates
-        href: security-center-apply-system-updates.md#reboot-after-system-updates
-      - name: Remediate security configurations
-        href: security-center-remediate-os-vulnerabilities.md
-      - name: Update OS version
-        href: security-center-update-os-version.md
-      - name: Vulnerability assessment not installed
-        href: security-center-vulnerability-assessment-recommendations.md
-      - name: Add a web application firewall
-        href: security-center-add-web-application-firewall.md
-      - name: Finalize application protection
-        href: security-center-add-web-application-firewall.md#finalize-application-protection      
+         - name: Apply disk encryption
+            href: security-center-apply-disk-encryption.md
+         - name: Apply system updates
+            href: security-center-apply-system-updates.md
+         - name: Enable encryption for storage account
+            href: security-center-enable-encryption-for-storage-account.md
+         - name: Enable VM Agent
+            href: security-center-enable-vm-agent.md
+         - name: Install Endpoint Protection
+            href: security-center-install-endpoint-protection.md
+         - name: Reboot after system updates
+            href: security-center-apply-system-updates.md#reboot-after-system-updates
+         - name: Remediate security configurations
+            href: security-center-remediate-os-vulnerabilities.md
+         - name: Update OS version
+            href: security-center-update-os-version.md
+         - name: Vulnerability assessment not installed
+            href: security-center-vulnerability-assessment-recommendations.md
+       - name: App recommendations
+         - name: Add a web application firewall
+            href: security-center-add-web-application-firewall.md
+         - name: Finalize application protection
+            href: security-center-add-web-application-firewall.md#finalize-application-protection      
+      - name: Container recommendations
+         href: security-center-container-recommendations.md   
     - name: Network security
       href: security-center-network-recommendations.md
       items:
@@ -101,7 +104,6 @@
         href: security-center-restrict-access-through-internet-facing-endpoints.md
       - name: Route traffic through NGFW only
         href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-  
     - name: Data & storage security
       href: security-center-sql-service-recommendations.md
       items:
