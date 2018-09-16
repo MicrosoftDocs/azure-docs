@@ -74,7 +74,7 @@ repository.deleteTable();
 ## Run the Java app
 1. Open a command prompt or terminal window. Paste the following code block. 
 
-   This code changes directory (cd) to the folder path where you have created the preceding project. It runs the `mvn clean install` command to generate the cosmosdb-cassandra-examples.jar file within the target folder. Finally, it runs the Java application.
+   This code changes directory (cd) to the folder path where you created the project. Then, it runs the `mvn clean install` command to generate the `cosmosdb-cassandra-examples.jar` file within the target folder. Finally, it runs the Java application.
 
    ```bash
    cd "cassandra-demo"
