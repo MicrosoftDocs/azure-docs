@@ -64,6 +64,8 @@ or daily at 5:15 AM and at 5:15 PM.
 
 This article later describes these scenarios in more detail.
 
+<a name="create-scedule"></a>
+
 ## Create schedule with REST API
 
 To create a basic schedule with the 
@@ -88,12 +90,12 @@ you can use when setting up recurrences and schedules for jobs.
 
 | Element | Required | Description | 
 |---------|----------|-------------|
-| **startTime** | No | A DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job first starts in a basic schedule. <br>For complex schedules, the job starts no sooner than **startTime**. | 
+| **startTime** | No | A DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job first starts in a basic schedule. <p>For complex schedules, the job starts no sooner than **startTime**. | 
 | **recurrence** | No | The recurrence rules for when the job runs. The **recurrence** object supports these elements: **frequency**, **interval**, **schedule**, **count**, and **endTime**. <p>If you use the **recurrence** element, you must also use the **frequency** element, while other **recurrence** elements are optional. |
 | **frequency** | Yes, when you use **recurrence** | The time unit between occurences and supports these values: "Minute", "Hour", "Day", "Week", "Month", and "Year" | 
 | **interval** | No | A positive integer that determines the number of time units between occurences based on **frequency**. <p>For example, if **interval** is 10 and **frequency** is "Week", the job recurs every 10 weeks. <p>Here are the maximum number of intervals for each frequency: <p>- 18 months <br>- 78 weeks <br>- 548 days <br>- For hours and minutes, the range is 1 <= <*interval*> <= 1000. | 
-| **schedule** | No | Defines changes to the recurrence based on the specified minute-marks, hour-marks, days of the week, and days of the month |
-| **count** | No | A positive integer that specifies the number of times that the job runs before finishing. <p>For example, when a daily job has **count** set to 7, and the start date is Monday, the job finishes running on Sunday. If the start date has already passed, the first run is calculated from the creation time. <p>>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
+| **schedule** | No | Defines changes to the recurrence based on the specified minute-marks, hour-marks, days of the week, and days of the month | 
+| **count** | No | A positive integer that specifies the number of times that the job runs before finishing. <p>For example, when a daily job has **count** set to 7, and the start date is Monday, the job finishes running on Sunday. If the start date has already passed, the first run is calculated from the creation time. <p>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. | 
 | **endTime** | No | A Date or DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job stops running. You can set a value for **endTime** that's in the past. <p>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
 |||| 
 
@@ -126,11 +128,11 @@ and is assumed to be UTC when no UTC offset is specified.
 
 For more information, see [Concepts, terminology, and entities](../scheduler/scheduler-concepts-terms.md).
 
-<a name="schedule"></a>
+<a name="start-time"></a>
 
 ## Details: startTime
 
-This table escribes how **startTime** controls how a job runs:
+This table describes how **startTime** controls the way a job runs:
 
 | startTime | No recurrence | Recurrence, no schedule | Recurrence with schedule |
 |-----------|---------------|-------------------------|--------------------------|
@@ -139,9 +141,8 @@ This table escribes how **startTime** controls how a job runs:
 | **Start time in the future or the current time** | Run once at the specified start time. | Run once at the specified start time. <p>Run subsequent executions calculated from the last execution time. | Start job *no sooner than* the specified start time. The first occurrence is based on the schedule, calculated from the start time. <p>Run subsequent executions based on a recurrence schedule. |
 ||||| 
 
-Here is an example that has these conditions: 
-a start time in the past with a recurrence, 
-but no schedule
+This example that has these conditions: a start time 
+in the past with a recurrence, but no schedule
 
 * Current date and time is 2015-04-08 13:00.
 * **startTime** is "2015-04-07 14:00" and is in the past before the current time
@@ -159,11 +160,12 @@ but no schedule
    In this case, **startTime** is on 2015-04-07 at 2:00 PM, so the next instance 
    is two days from that time, which is 2015-04-09 at 2:00 PM.
 
-   The first execution is same whether **startTime** is 2015-04-05 14:00 
-   or 2015-04-01 14:00. After the first execution, subsequent executions 
-   are calculated by using the schedule. 
+   The first execution is the same whether **startTime** 
+   is 2015-04-05 14:00 or 2015-04-01 14:00. After the 
+   first execution, subsequent executions are calculated 
+   based on the schedule. 
    
-1. The executions happen in this order: 
+1. The executions then follow in this order: 
    
    1. 2015-04-11 at 2:00 PM
    1. 2015-04-13 at 2:00 PM 

@@ -183,7 +183,7 @@ specify these additional elements in the request body.
 | **password** | Yes | The password to authenticate |
 |||| 
 
-## Response body - Basic
+### Response body - Basic
 
 When a request is sent with authentication information, 
 the response contains these authentication elements.
