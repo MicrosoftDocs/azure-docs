@@ -70,30 +70,30 @@
         href: security-center-virtual-machine-recommendations.md
         items:
         - name: Apply disk encryption
-            href: security-center-apply-disk-encryption.md
-         - name: Apply system updates
-            href: security-center-apply-system-updates.md
-         - name: Enable encryption for storage account
-            href: security-center-enable-encryption-for-storage-account.md
-         - name: Enable VM Agent
-            href: security-center-enable-vm-agent.md
-         - name: Install Endpoint Protection
-            href: security-center-install-endpoint-protection.md
-         - name: Reboot after system updates
-            href: security-center-apply-system-updates.md#reboot-after-system-updates
-         - name: Remediate security configurations
-            href: security-center-remediate-os-vulnerabilities.md
-         - name: Update OS version
-            href: security-center-update-os-version.md
-         - name: Vulnerability assessment not installed
-            href: security-center-vulnerability-assessment-recommendations.md
+          href: security-center-apply-disk-encryption.md
+        - name: Apply system updates
+          href: security-center-apply-system-updates.md
+        - name: Enable encryption for storage account
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: Enable VM Agent
+          href: security-center-enable-vm-agent.md
+        - name: Install Endpoint Protection
+          href: security-center-install-endpoint-protection.md
+        - name: Reboot after system updates
+          href: security-center-apply-system-updates.md#reboot-after-system-updates
+        - name: Remediate security configurations
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Update OS version
+          href: security-center-update-os-version.md
+        - name: Vulnerability assessment not installed
+          href: security-center-vulnerability-assessment-recommendations.md
        - name: App recommendations
          - name: Add a web application firewall
-            href: security-center-add-web-application-firewall.md
+           href: security-center-add-web-application-firewall.md
          - name: Finalize application protection
-            href: security-center-add-web-application-firewall.md#finalize-application-protection      
+          href: security-center-add-web-application-firewall.md#finalize-application-protection      
       - name: Container recommendations
-         href: security-center-container-recommendations.md   
+        href: security-center-container-recommendations.md   
     - name: Network security
       href: security-center-network-recommendations.md
       items:
