@@ -65,8 +65,8 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 5. In the same location as your ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` file, which in this example is ``C:\LF-WindowsServiceHost`` there is a file called ``LocalForwarder.config``. This is an xml based file that allows you to adjust the configuration of your localforwader and specify the instrumentation key of the Application Insights resource you want your distributed tracing data forwarded. 
 
-After editing the ``LocalForwarder.config`` file to add your instrumentation key, be sure to restart the **Local Forwarder Service** to allow your changes to take effect.
-
+    After editing the ``LocalForwarder.config`` file to add your instrumentation key, be sure to restart the **Local Forwarder Service** to allow your changes to take effect.
+    
 6. To confirm that your desired settings are in place and that the local forwarder is listening for trace data as expected check the ``LocalForwarder.log`` file. You should see results similar to the image below at the bottom of the file:
 
     ![Screenshot of LocalForwarder.log file](.\media\local-forwarder\003-log-file.png)
