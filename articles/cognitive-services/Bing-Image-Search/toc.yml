@@ -1,16 +1,16 @@
-- name: Bing Image Search Documentation
+- name: Bing Image Search API Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
     - name: What is Bing Image Search?
       href: overview.md
 - name: Quickstarts
   items:
   - name: "Send search queries using the REST API"
-    expanded: true
     items:
     - name: "Using C#"
-      href: "quickstarts/csharp.md"
+      href: quickstarts/csharp.md
     - name: "Using Java"
       href: quickstarts/java.md
     - name: "Using Node.js"
