@@ -29,9 +29,8 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 |App Service Environment (ASE)|Allows outbound access to ASE platform traffic. This tag doesn’t cover customer-specific Storage and SQL endpoints created by ASE. These should be enabled via [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or added manually.|
 |Azure Backup|Allows outbound access to the Azure Backup services.
 
->[!NOTE]
-
-When you specify a **FQDN Tag** in an application rule, you don't need to specify any value for the **Target FQDN**. However, you must specify the **Protocol: Port** as **http,https***. This is a known issue.
+> [!NOTE]
+> When you specify a **FQDN Tag** in an application rule, you don't need to specify any value for the **Target FQDN**. However, you must specify the **Protocol: Port** as **http,https***. This is a known issue.
 
 ## Next steps
 
