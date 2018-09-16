@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: alerts
+ms.component: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows Virtual Machine
 
@@ -19,11 +19,11 @@ If you are new to Resource Manager templates,  learn about [template deployments
 
 ## Pre-requisites: 
 
-You will need to be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.d) on your Azure subscription 
+- You will need to be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.d) on your Azure subscription 
 
-Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
 
-You will need to have [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1)  installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
+- You will need to have [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1)  installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
 
 
 ## Setup Azure Monitor as a data sink 
@@ -32,16 +32,22 @@ The Azure Diagnostics extension uses a feature called “data sinks” to route 
 The following steps show how to use a Resource Manager template and PowerShell to deploy a VM using the new “Azure Monitor” data sink. 
 
 
-## Author Resource Manager Template 
-For this example, you can use a publicly available sample template.  
-
+## Author Resource Manager template 
+For this example, you can use a publicly available sample template. The starting templates are at
 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 
 
-**Azuredeploy.json** is a pre-configured ARM template for deployment of a Virtual Machine. 
+- **Azuredeploy.json** is a pre-configured ARM template for deployment of a Virtual Machine. 
 
-**Azuredeploy.parameters.json** is a parameters file that stores information like what username and password you would like to set for your VM. During deployment the Resource Manager template uses the parameters set in this file. 
+- **Azuredeploy.parameters.json** is a parameters file that stores information like what username and password you would like to set for your VM. During deployment the Resource Manager template uses the parameters set in this file. 
+
+Alertnatively, the sample files with the modification listed in this are available at the following links. You will still have to skim the steps to fill in some variables.  
+
+- [Modified **Azuredeploy.json**](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/monitoring-and-diagnostics/code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json)
+
+- [Modified **Azuredeploy.parameters.json**](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/monitoring-and-diagnostics/code/metrics-custom-guestos-resource-manager-VM/azuredeploy.parameters.json) 
 
 
+### Steps to modify original template
 1. Save both files locally. 
 
 1. Open the *azuredeploy.parameters.json* file 
@@ -52,111 +58,195 @@ https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-wi
 
 1. Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName**.  
 
-[!code-json[name](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json)]
+    [!code-json[storageaccount](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=46-51&highlight=48)]
 
-Testing range
+    ```json
+    // Find these lines 
+    "variables": { 
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]", 
+    
+    // Add this line below.  
+        "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
+    ```
+Add this new resource to the template at the top of the “resources” section.  It is the Managed Service Identity (MSI) extension that ensures that Azure Monitor accepts the metrics being emitted.  
 
-[!code-json[](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=13-18&highlight=2,5)]
+    [!code-json[storageaccount](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=56-77&highlight=59-75-)]
 
-Testing range and highlighting
+    ```json
+     { 
+        "type": "Microsoft.Compute/virtualMachines/extensions", 
+        "name": "WADExtensionSetup", 
+        "apiVersion": "2015-05-01-preview", 
+        "location": "[resourceGroup().location]", 
+        "dependsOn": [ 
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" ], 
+        "properties": { 
+            "publisher": "Microsoft.ManagedIdentity", 
+            "type": "ManagedIdentityExtensionForWindows", 
+            "typeHandlerVersion": "1.0", 
+            "autoUpgradeMinorVersion": true, 
+            "settings": { 
+                "port": 50342 
+            } 
+        } 
+     }, 
+    ```
 
-[!code-json[](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=13-18&?ame=snippet_Create&highlight=4,6-7,14-21)]
-
-
-
-
-STOPPED HERE
-=============
-https://review.docs.microsoft.com/en-us/help/contribute/code-in-docs?branch=master
-
-
-
-
-This article shows you how to use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure activity log alerts. By using templates, you can easily set up many alerts that activate based on specific activity log event conditions as part of your automated deployment process.
-
-The basic steps are:
-
-1. Create a template as a JSON file that describes how to create the activity log alert.
-
-2. Deploy the template by using [any deployment method](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
-
-## Resource Manager template for an activity log alert
-To create an activity log alert by using a Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert.
-
+Add the following configuration to the VM resource to ensure Azure assigns the MSI extension a system identity. This step ensures the VM can emit guest metrics about itself to Azure Monitor 
 ```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "activityLogAlertName": {
-      "type": "string",
-      "metadata": {
-        "description": "Unique name (within the Resource Group) for the Activity log alert."
-      }
-    },
-    "activityLogAlertEnabled": {
-      "type": "bool",
-      "defaultValue": true,
-      "metadata": {
-        "description": "Indicates whether or not the alert is enabled."
-      }
-    },
-    "actionGroupResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource Id for the Action group."
-      }
-    }
-  },
-  "resources": [   
-    {
-      "type": "Microsoft.Insights/activityLogAlerts",
-      "apiVersion": "2017-04-01",
-      "name": "[parameters('activityLogAlertName')]",      
-      "location": "Global",
-      "properties": {
-        "enabled": "[parameters('activityLogAlertEnabled')]",
-        "scopes": [
-            "[subscription().id]"
-        ],        
-        "condition": {
-          "allOf": [
-            {
-              "field": "category",
-              "equals": "Administrative"
-            },
-            {
-              "field": "operationName",
-              "equals": "Microsoft.Resources/deployments/write"
-            },
-            {
-              "field": "resourceType",
-              "equals": "Microsoft.Resources/deployments"
-            }
-          ]
-        },
-        "actions": {
-          "actionGroups":
-          [
-            {
-              "actionGroupId": "[parameters('actionGroupResourceId')]"
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
+{ 
+      "apiVersion": "2017-03-30", 
+      "type": "Microsoft.Compute/virtualMachines", 
+      "name": "[variables('vmName')]", 
+      "location": "[resourceGroup().location]", 
+      "identity": {  
+"type": "systemAssigned" 
+       }, 
 ```
 
-Visit our [Azure Quickstart gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) for some examples of activity log alert templates.
+Add the following configuration to enable the diagnostics extension on a Windows Virtual Machine.  For a simple Resource Manager based Virtual Machine add the extension configuration to the resources array for the Virtual Machine. The highlighted sections enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed 
 
-> [!NOTE]
+```json
+"diagnosticsProfile": { 
+  "bootDiagnostics": { 
+   "enabled": true, 
+   "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]" 
+   } 
+ } 
+}, 
+//Start of section to add 
+"resources": [        
+ { 
+          "type": "extensions", 
+          "name": "Microsoft.Insights.VMDiagnosticsSettings", 
+          "apiVersion": "2015-05-01-preview", 
+          "location": "[resourceGroup().location]", 
+          "dependsOn": [ 
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" 
+          ], 
+          "properties": { 
+            "publisher": "Microsoft.Azure.Diagnostics", 
+            "type": "IaaSDiagnostics", 
+            "typeHandlerVersion": "1.4", 
+            "autoUpgradeMinorVersion": true, 
+            "settings": { 
+              "WadCfg": { 
+                "DiagnosticMonitorConfiguration": { 
+  "overallQuotaInMB": 4096, 
+  "DiagnosticInfrastructureLogs": { 
+                    "scheduledTransferLogLevelFilter": "Error" 
+      }, 
+                  "Directories": { 
+                    "scheduledTransferPeriod": "PT1M", 
+    "IISLogs": { 
+                      "containerName": "wad-iis-logfiles" 
+                    }, 
+                    "FailedRequestLogs": { 
+                      "containerName": "wad-failedrequestlogs" 
+                    } 
+                  }, 
+                  "PerformanceCounters": { 
+                    "scheduledTransferPeriod": "PT1M", 
+                    "sinks": "AzMonSink", 
+                    "PerformanceCounterConfiguration": [ 
+                      { 
+                        "counterSpecifier": "\\Memory\\Available Bytes", 
+                        "sampleRate": "PT15S" 
+                      }, 
+                      { 
+                        "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
+                        "sampleRate": "PT15S" 
+                      }, 
+                      { 
+                        "counterSpecifier": "\\Memory\\Committed Bytes", 
+                        "sampleRate": "PT15S" 
+                      } 
+                    ] 
+                  }, 
+                  "WindowsEventLog": { 
+                    "scheduledTransferPeriod": "PT1M", 
+                    "DataSource": [ 
+                      { 
+                        "name": "Application!*" 
+                      } 
+                    ] 
+                  }, 
+                  "Logs": { 
+                    "scheduledTransferPeriod": "PT1M", 
+                    "scheduledTransferLogLevelFilter": "Error" 
+                  } 
+                }, 
+                "SinksConfig": { 
+                  "Sink": [ 
+                    { 
+                      "name" : "AzMonSink", 
+                      "AzureMonitor" : {} 
+                    } 
+                  ] 
+                } 
+              }, 
+              "StorageAccount": "[variables('storageAccountName')]" 
+            }, 
+            "protectedSettings": { 
+              "storageAccountName": "[variables('storageAccountName')]", 
+              "storageAccountKey": "[listKeys(variables('accountid'),'2015-06-15').key1]", 
+              "storageAccountEndPoint": "https://core.windows.net/" 
+            } 
+          } 
+        } 
+      ] 
+//End of section to add 
+```
 
-> You can also create activity log alert rules using the enhanced user experience in Monitor > [Alerts (Preview)](monitoring-overview-unified-alerts.md). For more information on how to create these, see [this article](monitoring-activity-log-alerts-new-experience.md).
+Save and close both files 
+
+Note: You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you do not have these settings in your template, change them and redeploy the template. 
+
+ 
+
+## Deploy the ARM template 
+
+To deploy the ARM template we will leverage Azure PowerShell.  
+
+1. Launch PowerShell 
+1. Login to Azure using `Login-AzureRmAccount`
+1. Get your list of subscriptions using `Get-AzureRmSubscription`
+1. Set the subscription you will be creating/updating the virtual machine in 
+   ```PowerShell
+   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   ```
+1. Create a new resource group for the VM being deployed, run the below command 
+   ```PowerShell
+    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>" 
+   ```
+
+   Note: Remember to use an Azure region that is enabled for custom metrics. 
+ 
+1. Execute the following commands to deploy the VM with the  
+
+   ```PowerShell
+   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your ARM template>" -TemplateParameterFile "File path of your parameters file>" 
+   ```
+   Note: If you wish to update an existing VM, simply add ‘-Mode Incremental’ to the end of the above command 
+ 
+1. Once your deployment succeeds you should be able to find the VM in the Azure Portal, and it should be emitting metrics to Azure Monitor. 
+
+    Note: You may run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file and update the default value of the vmSkuSize parameter (we recommend “Standard_DS1_v2”). 
+
+
+## Chart your metrics 
+
+1. Log-in to the Azure Portal 
+1. In the left-hand menu click **Monitor** 
+1. On the Monitor page click **Metrics (preview)**. 
+1. Change the aggregation period to **Last 30 minutes**.  
+1. In the resource drop-down select the VM just created. If you didn't change the name in the template, it should be *SimpleWinVM2*.  
+1. In the namespaces drop-down select **azure.vm.windows.guest** 
+1. In the metrics drop down, select **Memory\%Committed Bytes in Use**.  
+
+You should see something like the screen shot below.  
+
 
 ## Next steps
 - Learn more about [alerts](monitoring-overview-alerts.md).
-- Learn how to add [action groups by using a Resource Manager template](monitoring-create-action-group-with-resource-manager-template.md).
-- Learn how to [create an activity log alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
-- Learn how to [create an activity log alert to monitor all failed autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+

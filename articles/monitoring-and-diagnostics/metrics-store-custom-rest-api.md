@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: alerts
+ms.component: metrics
 ---
 # Send custom metrics for an Azure resource to the Azure Monitor metric store using a REST API
 
