@@ -45,7 +45,9 @@ In this tutorial, you will build a sample environment to:
 
 -   Azure subscription. If needed, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before beginning.
 
--   Azure Stack installation. Use the Azure Stack Integrated System or deploy Azure Stack Development Kit:: <https://github.com/mattmcspirit/azurestack/blob/master/deployment/>ConfigASDK.ps1 (Installation usually takes a few hours to complete.) 
+- An Azure Stack Integrated System or deployment of Azure Stack Development Kit.
+    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+    - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) This installation may require a few hours to complete.
 
 -   Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
 
