@@ -206,7 +206,7 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ### Upload data to the cloud
 
-Now make the data accessible remotely by uploading that data from your local machine into the cloud so it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload/download data, and interact with it from your remote compute targets. (If your data is already stored in Azure, you would not need this step.)
+Now make the data accessible remotely by uploading that data from your local machine into the cloud so it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload/download data, and interact with it from your remote compute targets. 
 
 The MNIST files are uploaded into a directory named `mnist` at the root of the datastore.
 
@@ -333,7 +333,7 @@ Notice how the script gets data and saves models:
 `joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')`<br/>
 Anything written in this directory is automatically uploaded into your workspace. You'll access your model from this directory later in the tutorial.
 
-Copy the utility library that loads the dataset into the project directory to be accessed by the training script.
+The file `utils.py` is referenced from the training script to load the dataset correctly.  Copy this script into the script folder so that it can be accessed along with the training script on the remote resource.
 
 
 ```python
@@ -350,9 +350,10 @@ An estimator object is used to submit the run.  Create your estimator by running
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution. 
 * The compute target.  In this case you will use the Batch AI cluster you created
 * The training script name, train.py
-* The `data-folder` parameter used by the training script to access the data
-* Any Python packages needed for training
-In this tutorial, this target is the Batch AI cluster. All files in the project directory are uploaded into the cluster nodes for execution. 
+* Parameters required from the training script 
+* Python packages needed for training
+
+In this tutorial, this target is the Batch AI cluster. All files in the project directory are uploaded into the cluster nodes for execution. The data_folder is set to use the datastore (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -434,7 +435,7 @@ The output shows the remote model has an accuracy slightly higher than the local
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
-In the next tutorial you will explore this model in more detail.
+In the deployment tutorial you will explore this model in more detail.
 
 ## Register model
 
