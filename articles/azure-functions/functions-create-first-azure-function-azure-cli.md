@@ -137,9 +137,8 @@ When the Functions host starts, it write something like the following output, wh
                 %%
                 %
 
-Azure Functions Core Tools (2.0.1-beta.35)
-Function Runtime Version: 2.0.11960.0
-Hosting environment: Production
+...
+
 Content root path: C:\functions\MyFunctionProj
 Now listening on: http://0.0.0.0:7071
 Application started. Press Ctrl+C to shut down.
