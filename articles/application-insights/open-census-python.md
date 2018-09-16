@@ -19,7 +19,7 @@ Open Census + local forwarder + Python
 ## Prerequisites
 
 - You need an Azure Subscription.
-- Python should be installed this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor changes.
+- Python should be installed this article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor adjustment.
 - Follow the instructions to install the [local forwarder as a Windows service](https://TODO)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -152,71 +152,29 @@ First you have to create an Application Insights resource which will generate an
     python -m pip install grpcio
     ```
 
-6. Now when you run the Python script from above you should still be prompted to event values, but no only the value is being printed in the shell.
+6. Now when you run the Python script from above you should still be prompted to event values, but now only the value is being printed in the shell.
 
-7. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](http://TODO) it will be located in `C:\LF-WindowsServiceHost`. 
+7. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](http://TODO) it will be located in `C:\LF-WindowsServiceHost`.
 
-
-
-1. N<a href="https://github.com/lmolkova/oc-ai-demo/blob/master/python/opencensus-0.1.6-py2.py3-none-any.whl?raw=true" download>Download link</a>
-
-> [!NOTE]
-> It takes 3-5 minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most metrics are only captured when there are active requests or operations occurring.
+    In the image below of the log file you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
+    
+    ![New App Insights resource form](./media/open-census-python/004-batches-received.png)
 
 ## Start monitoring in the Azure portal
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application.
+1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application. Select **Live Metric Stream**.
 
-   ![Application Insights Overview Menu](./media/app-insights-nodejs-quick-start/overview-001.png)
+   ![Application Insights Overview Menu](./media/open-census-python/005-overview-live-metrics-stream.png)
+
+2. If you run the second Python script again and start entering values you will see live trace data as it arrives in Application Insights from the local forwarder service.
+
+   ![Application Insights Overview Menu](./media/open-census-python/006-stream.png)
+
 
 2. Click **App map** for a visual layout of the dependency relationships between your application components. Each component shows KPIs such as load, performance, failures, and alerts.
 
    ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
 
-3. Click on the **App Analytics** icon ![Application Map icon](./media/app-insights-nodejs-quick-start/006.png).  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
-
-   ![Analytics graph of user requests over a period of time](./media/app-insights-nodejs-quick-start/007-Black.png)
-
-4. Return to the **Overview** page and examine the KPI graphs.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur. 
-
-   ![Health Overview timeline graphs](./media/app-insights-nodejs-quick-start/overview-perf.png)
-
-   To enable the **Page View Load Time** chart to populate with **client-side telemetry** data, add this script to each page that you want to track:
-
-   ```HTML
-   <!-- 
-   To collect user behavior analytics tools about your application, 
-   insert the following script into each page you want to track.
-   Place this code immediately before the closing </head> tag,
-   and before any other scripts. Your first data will appear 
-   automatically in just a few seconds.
-   -->
-   <script type="text/javascript">
-     var appInsights=window.appInsights||function(config){
-       function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-       }({
-           instrumentationKey:"<insert instrumentation key>"
-       });
-       
-       window.appInsights=appInsights;
-       appInsights.trackPageView();
-   </script>
-   ```
-
-5. Click on **Browser** from under the **Investigate** header. Here you find metrics related to the performance of your app's pages. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics.
-
-   ![Server metrics graph](./media/app-insights-nodejs-quick-start/009-Black.png)
-
-To learn more about monitoring Node.js, check out the [additional App Insights Node.js documentation](app-insights-nodejs.md).
-
-## Clean up resources
-
-If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
-2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Find and diagnose performance problems](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
