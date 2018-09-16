@@ -3,7 +3,6 @@ title: Test live data locally using Azure Stream Analytics tools for Visual Stud
 description: Learn how to test your Azure Stream Analytics job locally using live streaming data.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
@@ -48,7 +47,7 @@ The following local testing options are supported:
 
    ![Azure Stream Analytics Visual Studio local testing with live data open results folder](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
 
-5. If you want to output the results to your cloud output sinks, choose **Output to CLoud** from the second dropdown box. Power BI and Azure Data Lake Storage are not supported output sinks.
+5. If you want to output the results to your cloud output sinks, choose **Output to Cloud** from the second dropdown box. Power BI and Azure Data Lake Storage are not supported output sinks.
 
    ![Azure Stream Analytics Visual Studio local testing with live data output to cloud](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
  
