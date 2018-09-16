@@ -1,5 +1,5 @@
 ---
-title: Copy data from Amazon Marketplace Web Service using Azure Data Factory | Microsoft Docs
+title: Copy data from Amazon Marketplace Web Service using Azure Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
