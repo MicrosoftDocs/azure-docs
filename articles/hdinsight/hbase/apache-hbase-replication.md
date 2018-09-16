@@ -129,7 +129,7 @@ To install Bind, use the following procedure:
 	sudo apt-get install bind9 -y
     ```
 
-3. To configure Bind to forward name resolution requests to your on-prem DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+3. Configure Bind to forward name resolution requests to your on-prem DNS server. To do so, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
     ```
     acl goodclients {
