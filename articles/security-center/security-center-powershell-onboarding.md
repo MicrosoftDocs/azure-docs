@@ -28,11 +28,15 @@ This article provides a sample PowerShell script that can be modified and used i
 
 In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by implementing the Standard tier of Security Center, which provides advanced threat protection and detection capabilities:
 
-1.	Set the [`ASC standard` level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
-2.	Set the Log Analytics workspace to which the Microsoft Monitoring Agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
-3.	Activate Security Center’s automatic agent provisioning which [deploys to Microsoft Monitoring Agent](security-center-enable-data-collection#auto-provision-mma).
-4.	Set the organization’s [CISO as the security contact for ASC alerts and notable events](security-center-provide-security-contact-details.md).
-5.	Assign Security Center’s [default security policies](security-center-azure-policy.md).
+1. Set the [`ASC standard` level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
+ 
+3. Set the Log Analytics workspace to which the Microsoft Monitoring Agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
+
+4. Activate Security Center’s automatic agent provisioning which [deploys to Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+
+5. Set the organization’s [CISO as the security contact for ASC alerts and notable events](security-center-provide-security-contact-details.md).
+
+6. Assign Security Center’s [default security policies](security-center-azure-policy.md).
 
 ## Prerequisites
 
