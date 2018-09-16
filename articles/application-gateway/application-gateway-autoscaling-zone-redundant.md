@@ -26,7 +26,7 @@ Application Gateway and Web Application Firewall (WAF) are now available in a ne
 - **Faster deployment and update time** The autoscaling SKU provides faster deployment and update time as compared to the generally available SKU.
 - **Static VIP**: The application gateway VIP now supports the static VIP type exclusively. This ensures that the VIP associated with application gateway does not change even after a restart.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
@@ -47,6 +47,6 @@ During preview, there is no charge. You will be billed for resources other than 
 |||
 
 ## Next steps
-- Learn more about [Application Gateway](overview.md)
-- Learn more about [Azure Firewall](../firewall/overview.md) 
+- Learn more about [Application Gateway](overview.md).
+- Learn more about [Azure Firewall](../firewall/overview.md). 
 
