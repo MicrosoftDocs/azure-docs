@@ -9,7 +9,7 @@ ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: dech
 
 ---
