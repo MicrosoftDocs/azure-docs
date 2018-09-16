@@ -83,7 +83,7 @@ Each property of a saved search is described in the following table.
 | query | Query to run. |
 
 > [!NOTE]
-> You may need to use escape characters in the query if it includes characters that could be interpreted as JSON.  For example, if your query was **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, it should be written in the solution file as **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> You may need to use escape characters in the query if it includes characters that could be interpreted as JSON.  For example, if your query was **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, it should be written in the solution file as **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## Alerts
 [Azure Log alerts](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) are created by Azure Alert rules that run specified log queries at regular intervals.  If the results of the query match specified criteria, an alert record is created and one or more actions are run using [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md).  
