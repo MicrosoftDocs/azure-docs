@@ -43,7 +43,13 @@ The following table describes the types of storage accounts and their capabiliti
 
 ### General-purpose v2 accounts
 
-General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
+General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 storage accounts support these Azure Storage services:
+
+- Blobs (all types)
+- Files
+- Disks
+- Queues
+- Tables
 
 Microsoft recommends using a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account with no downtime or application rewrites, and without the need to copy data. For more information on upgrading to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). 
 
@@ -51,7 +57,15 @@ General-purpose v2 storage accounts offer multiple access tiers for storing data
 
 ### General-purpose v1 accounts
 
-General-purpose v1 accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. While general-purpose v2 accounts are recommended in most cases, general-purpose v1 accounts are best suited to these scenarios: 
+General-purpose v1 accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. General-purpose v1 storage accounts support these Azure Storage services:
+
+- Blobs (all types)
+- Files
+- Disks
+- Queues
+- Tables
+
+While general-purpose v2 accounts are recommended in most cases, general-purpose v1 accounts are best suited to these scenarios: 
 
 * Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
 
@@ -61,7 +75,7 @@ General-purpose v1 accounts provide access to all Azure Storage services, but ma
 
 ### Blob storage accounts
 
-A Blob storage account is a specialized storage account for storing unstructured object data. Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support storing block blobs and append blobs, but not page blobs.
+A Blob storage account is a specialized storage account for storing unstructured object data as block blobs. Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support storing block blobs and append blobs, but not page blobs.
 
 Blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for blob data](#access-tiers-for-blob-data).
 
@@ -74,10 +88,10 @@ When naming your storage account, keep these rules in mind:
 
 ## Performance tiers
 
-General-purpose storage accounts have two performance tiers:
+General-purpose storage accounts may be configured for either of the following performance tiers:
 
 * A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
-* A premium storage performance tier for storing Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
+* A premium storage performance tier for storing Azure virtual machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
 
 ## Access tiers for block blob data
 

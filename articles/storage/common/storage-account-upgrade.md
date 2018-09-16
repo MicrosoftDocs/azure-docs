@@ -47,7 +47,9 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## Specify an access tier for blob data
 
-When you upgrade to a general-purpose v2 storage account, you can specify an access tier for your blob data. Access tiers enable you to choose the most cost-effective storage based on your usage patterns. For more information on access tiers, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only for block blobs in Blob storage. When you upgrade to a general-purpose v2 storage account, you can specify an access tier for your blob data. 
+
+Access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a hot, cool, or archive tier. For more information on access tiers, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 By default, a new storage account is created in the hot access tier, and a general-purpose v1 storage account is upgraded to the hot access tier. If you are exploring which access tier to use for your data post-upgrade, consider your scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
 
@@ -56,7 +58,7 @@ By default, a new storage account is created in the hot access tier, and a gener
 
 In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a general-purpose v2 storage account and compare that against your current costs.
 
-General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only for Blob storage. Blobs can be stored in a hot, cool, or archive tier, depending on your anticipated access patterns. Assigning the right access tier for blob data in your general-purpose v2 account can help reduce costs.
+### Estimate costs for your current usage patterns
 
 To estimate the cost of storing and accessing blob data in a general-purpose v2 storage account in a particular tier, evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
 
