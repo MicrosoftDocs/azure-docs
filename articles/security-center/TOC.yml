@@ -68,7 +68,8 @@
       items:
       - name: VM and computer recommendations
         href: security-center-virtual-machine-recommendations.md
-         - name: Apply disk encryption
+        items:
+        - name: Apply disk encryption
             href: security-center-apply-disk-encryption.md
          - name: Apply system updates
             href: security-center-apply-system-updates.md
