@@ -54,7 +54,7 @@ sections:
     - type: paragraph
       text: 'Follow these quickstarts to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.'
     - type: paragraph
-      text: <b>Single page apps</b>
+      text: <b>Single-page apps</b>
     - type: table
       style: dataMatrix
       columns:
@@ -181,13 +181,67 @@ sections:
   - title: Step-by-step tutorials
     items:
     - type: paragraph
-      text: 'Use the Microsoft identity platform (Azure AD v2.0 endpoint and platorm) and follow in-depth, scenario-based procedures for the top auth developer tasks.'
-    - type: list
-      style: unordered
-      items:
-      - html: Obtain access tokens and use them in calls to the Microsoft Graph API and other APIs using&#58; <a href="tutorial-v2-ios.md">iOS</a> | <a href="tutorial-v2-android.md">Android</a> | <a href="tutorial-v2-windows-desktop.md">Windows Desktop .NET</a> | <a href="tutorial-v2-windows-uwp.md">Universal Windows Platform</a>
-      - html: Implement sign-in with Microsoft with a traditional web browser-based app using OpenID Connect using <a href="tutorial-v2-asp-webapp.md">an ASP .NET MVC solution</a>
-      - html: Sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API or other APIs using a <a href="tutorial-v2-javascript-spa.md">JavaScript single page app</a>
+      text: 'Use the Microsoft identity platform and follow in-depth, scenario-based procedures for the top auth developer tasks such as obtaining access tokens, implementing sign-in with Microsoft, and more.'
+    - type: paragraph
+      text: <b>Single-page apps</b>
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: ./media/index/logo_js.svg
+          title: JavaScript
+      rows:
+        - title: v1.0
+          values:
+          - href: 
+        - title: v2.0
+          values:
+          - href: tutorial-v2-javascript-spa.md
+    - type: paragraph
+      text: <b>Web apps</b>
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: ./media/index/logo_NET.svg
+          title: ASP .NET
+      rows:
+        - title: v1.0
+          values:
+          - href: 
+        - title: v2.0
+          values:
+          - href: tutorial-v2-asp-webapp.md
+    - type: paragraph
+      text: <b>Mobile & desktop apps</b>
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: ./media/index/logo_ios.svg
+          title: iOS
+        - image:
+            src: ./media/index/logo_android.svg
+          title: Android
+        - image:
+            src: ./media/index/logo_Windows.svg
+          title: Windows Desktop .NET
+        - image:
+            src: ./media/index/logo_Windows.svg
+          title: Universal Windows Platform
+      rows:
+        - title: v1.0
+          values:
+          - href: 
+          - href: 
+          - href: 
+          - href:
+        - title: v2.0
+          values:
+          - href: tutorial-v2-ios.md
+          - href: tutorial-v2-android.md
+          - href: tutorial-v2-windows-desktop.md
+          - href: tutorial-v2-windows-uwp.md
 
   - title: Samples
     items:
@@ -198,45 +252,3 @@ sections:
       items:
       - html: <a href="/azure/active-directory/develop/sample-v1-code">v1.0 code samples by scenario</a>
       - html: <a href="/azure/active-directory/develop/sample-v2-code">v2.0 code samples by scenario</a>
-
-  - title: Reference
-    items:
-    - type: paragraph
-      text: 'Find APIs, developer glossary, and other reference documentation.'
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-      - href: /azure/active-directory/develop/reference-app-manifest
-        title: Application manifest
-        image:
-          src: ./media/index/i_form.svg
-      - href: /azure/active-directory/develop/active-directory-authentication-libraries
-        title: Azure AD Authentication Library (ADAL)
-        image:
-          src: ./media/index/i_library.svg
-      - href: /azure/active-directory/develop/reference-v2-libraries
-        title: Microsoft Authentication Library (MSAL)
-        image:
-          src: ./media/index/i_library.svg
-      - href: 
-        title: Application object API
-        image:
-          src: ./media/index/i_api-reference.svg
-      - href: 
-        title: Service Principal API
-        image:
-          src: ./media/index/i_api-reference.svg
-      - href: 
-        title: Claims in Azure AD security tokens
-        image:
-          src: ./media/index/i_code-edit.svg
-      - href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
-        title: Azure AD APIs in Microsoft Graph
-        image:
-          src: ./media/index/i_queries.svg
-      - href: /azure/active-directory/develop/reference-aadsts-error-codes
-        title: Authentication and authorization error codes
-        image:
-          src: ./media/index/i_debug.svg

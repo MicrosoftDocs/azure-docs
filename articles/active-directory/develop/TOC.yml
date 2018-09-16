@@ -1,27 +1,25 @@
 - name: Microsoft identity platform (Azure Active Directory for developers)
   href: index.yml
 - name: About Microsoft identity platform
-  href: 
+  href: about-microsoft-identity-platform.md
 - name: v1.0
   expanded: true
   items:
   - name: Overview
-    items:
-    - name: About v1.0
-      href: azure-ad-developers-guide.md
-    - name: Authentication
-      href: authentication-scenarios.md
+    href: azure-ad-developers-guide.md
   - name: Quickstarts
     items:
     - name: Create a new tenant
       href: quickstart-create-new-tenant.md
-    - name: Register an app
-      href: quickstart-v1-add-azure-ad-app.md
-    - name: Update an app
-      href: quickstart-v1-update-azure-ad-app.md
-    - name: Remove an app
-      href: quickstart-v1-remove-azure-ad-app.md
-    - name: Single page apps
+    - name: Configure an application
+      items:
+      - name: Register an app
+        href: quickstart-v1-add-azure-ad-app.md
+      - name: Update an app
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Remove an app
+        href: quickstart-v1-remove-azure-ad-app.md
+    - name: Single-page apps
       items:
       - name: AngularJS
         href: quickstart-v1-angularjs-spa.md
@@ -59,6 +57,19 @@
     href: sample-v1-code.md
   - name: Concepts
     items:
+    - name: Application types
+      href: app-types.md
+      items:
+      - name: Single-page application
+        href: single-page-application.md
+      - name: Web app
+        href: web-app.md
+      - name: Web API
+        href: web-api.md
+      - name: Mobile & desktop app
+        href: native-app.md
+      - name: Daemon or server application
+        href: service-to-service.md
     - name: Protocols
       items:
       - name: OAuth and the OpenID Connect protocol
@@ -81,62 +92,48 @@
         items:
         - name: Federation metadata
           href: azure-ad-federation-metadata.md
-    - name: Core concepts
+      - name: Signing key rollover
+        href: active-directory-signing-key-rollover.md
+    - name: Authentication
+      href: authentication-scenarios.md
       items:
-      - name: Application types
-        href: app-types.md
-        items:
-        - name: Single-page application
-          href: single-page-application.md
-        - name: Web app
-          href: web-app.md
-        - name: Web API
-          href: web-api.md
-        - name: Mobile & desktop app
-          href: native-app.md
-        - name: Daemon or server application
-          href: service-to-service.md
-      - name: Application objects and service principals
-        href: app-objects-and-service-principals.md
-      - name: Single tenant and multi-tenant apps
-        href: single-and-multi-tenant-apps.md
       - name: ID tokens
         href: 
       - name: Access tokens
         href: 
+      - name: Certificate credentials
+        href: active-directory-certificate-credentials.md
+    - name: Application configuration
+      href: app-objects-and-service-principals.md
+      items:
+      - name: How and why apps are added to Azure AD
+        href: active-directory-how-applications-are-added.md
+      - name: Single tenant and multi-tenant apps
+        href: single-and-multi-tenant-apps.md
+    - name: Permissions and consent
+      displayName: Scopes
+      href: v1-permissions-and-consent.md
+      items:
       - name: Consent framework
         href: consent-framework.md
       - name: Application consent experiences
         href: ../application-consent-experience.md
-      - name: Permissions and consent
-        displayName: Scopes
-        href: v1-permissions-and-consent.md
-      - name: Conditional access
-        href: conditional-access-dev-guide.md
-      - name: National clouds
-        href: 
-      - name: Signing key rollover
-        href: active-directory-signing-key-rollover.md
-      - name: Certificate credentials
-        href: active-directory-certificate-credentials.md
-      - name: Service limits
-        href: ../users-groups-roles/directory-service-limits-restrictions.md
+    - name: Conditional access
+      href: conditional-access-dev-guide.md
   - name: How-to guides
     items:
-    - name: Convert a single-tenant app to a multi-tenant app
-      href: howto-convert-app-to-be-multi-tenant.md
-    - name: Customize app experiences
+    - name: Application configuration
       items:
-    - name: Branding guidelines
-      href: howto-add-branding-in-azure-ad-apps.md
-    - name: Terms of Service and Privacy Statement
-      href: howto-add-terms-of-service-privacy-statement.md
-    - name: Manage access to your app
-      items:
-    - name: Restrict your app to a set of users
-      href: howto-restrict-your-app-to-a-set-of-users.md
-    - name: App roles
-      href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Convert a single-tenant app to a multi-tenant app
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Restrict your app to a set of users
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: Add app roles in your application
+        href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Branding guidelines
+        href: howto-add-branding-in-azure-ad-apps.md
+      - name: Terms of Service and Privacy Statement
+        href: howto-add-terms-of-service-privacy-statement.md
     - name: Configure single sign-on
       displayName: SSO
       items:
@@ -178,19 +175,19 @@
         href: howto-app-gallery-listing.md
       - name: Publish to the Office 365 Seller Dashboard
         href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store   
+    - name: AD FS for developers
+      href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
   - name: References
     items:
-    - name: Application manifest
-      href: reference-app-manifest.md
     - name: Azure AD Authentication Libraries
       displayName: ADAL
       href: active-directory-authentication-libraries.md
-    - name: Application object API
-      href: 
-    - name: Service Principal API
-      href:  
+    - name: Azure AD Graph API
+      href: active-directory-graph-api.md
     - name: Claims in Azure AD security tokens
-      href: 
+      href: active-directory-optional-claims.md
+    - name: Application manifest
+      href: reference-app-manifest.md
     - name: Authentication and authorization error codes
       href: reference-aadsts-error-codes.md
     - name: Breaking changes
@@ -199,18 +196,20 @@
   expanded: true
   items:
   - name: Overview
-    items:
-    - name: About v2.0
-      href: 
-    - name: Sign in Microsoft identities
-      href: active-directory-appmodel-v2-overview.md
+    href: v2-overview.md
   - name: Quickstarts
     items:
     - name: Create a new tenant
       href: quickstart-create-new-tenant.md
-    - name: Register an app
-      href: quickstart-v2-register-an-app.md
-    - name: Single page apps
+    - name: Configure an application
+      items:
+      - name: Register an app
+        href: quickstart-v2-register-an-app.md
+      - name: Update an app
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Remove an app
+        href: quickstart-v1-remove-azure-ad-app.md
+    - name: Single-page apps
       items:
       - name: JavaScript
         href: quickstart-v2-javascript.md
@@ -246,7 +245,7 @@
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
     items:
-    - name: Single page apps
+    - name: Single-page apps
       items:
       - name: JavaScript
         href: tutorial-v2-javascript-spa.md
@@ -270,8 +269,8 @@
     items:
     - name: Deciding between v1.0 and v2.0
       href: azure-ad-endpoint-comparison.md
-    - name: Using v2.0
-      href: active-directory-v2-limitations.md
+    - name: Application types
+      href: v2-app-types.md
     - name: Protocols
       items:
       - name: OAuth and the OpenID Connect protocol
@@ -284,57 +283,48 @@
           href: v2-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 client credentails grant
           href: v2-oauth2-client-creds-grant-flow.md
-    - name: Core concepts
+    - name: Authentication
+      href: authentication-scenarios.md
       items:
-      - name: v2.0 app types
-        href: v2-app-types.md
-      - name: Application objects and service principals
-        href: app-objects-and-service-principals.md
-      - name: Single tenant and multi-tenant apps
-        href: single-and-multi-tenant-apps.md
       - name: ID tokens
         href: 
       - name: Access tokens
         href: 
+      - name: Certificate credentials
+        href: active-directory-certificate-credentials.md
+    - name: Application configuration
+      href: app-objects-and-service-principals.md
+      items:
+      - name: Single tenant and multi-tenant apps
+        href: single-and-multi-tenant-apps.md
+    - name: Permissions and consent
+      displayName: Scopes
+      href: v2-permissions-and-consent.md
+      items:
       - name: Consent framework
         href: consent-framework.md
       - name: Application consent experiences
         href: ../application-consent-experience.md
-      - name: Permissions and consent
-        displayName: Scopes
-        href: v2-permissions-and-consent.md
-      - name: National clouds
-        href: 
-      - name: Certificate credentials
-        href: active-directory-certificate-credentials.md
   - name: How-to guides
     items:
-    - name: Convert a single-tenant app to a multi-tenant app
-      href: howto-convert-app-to-be-multi-tenant.md
-    - name: Customize app experiences
+    - name: Application configuration
       items:
+      - name: Convert a single-tenant app to a multi-tenant app
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Restrict your app to a set of users
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: Add app roles in your application
+        href: howto-add-app-roles-in-azure-ad-apps.md
       - name: Branding guidelines
         href: howto-add-branding-in-azure-ad-apps.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
-    - name: Manage access to your app
-      items:
-      - name: User and admin consent
-        href: 
-      - name: Restrict your app to a set of users
-        href: howto-restrict-your-app-to-a-set-of-users.md
-      - name: App roles
-        href: howto-add-app-roles-in-azure-ad-apps.md
     - name: Configure claims
       items:
       - name: Configure role claims
         href: ../active-directory-enterprise-app-role-management.md
       - name: Customize claims
         href: active-directory-saml-claims-customization.md
-    - name: Migrate from the Azure Access Control Service
-      href: active-directory-acs-migration.md
-    - name: Use the Azure AD Graph API
-      href: active-directory-graph-api-quickstart.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
@@ -349,31 +339,15 @@
         href: vs-active-directory-webapi-what-happened.md
       - name: Error during authentication detection
         href: vs-active-directory-error.md
-    - name: Bring an app to market
-      items:
-      - name: Publish to App Source
-        href: howto-get-appsource-certified.md
-      - name: Publish to Azure AD App Gallery
-        href: howto-app-gallery-listing.md
-      - name: Publish to the Office 365 Seller Dashboard
-        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store  
   - name: References
     items:
-    - name: Application manifest
-      href: reference-app-manifest.md
     - name: Microsoft Authentication Library
       displayName: MSAL
       href: reference-v2-libraries.md
-    - name: Application object API
-      href: 
-    - name: Service Principal API
-      href:  
-    - name: Claims in Azure AD security tokens
-      href: 
     - name: Azure AD APIs in Microsoft Graph
       href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
-    - name: AD FS scenarios for developers
-      href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
+    - name: Application manifest
+      href: reference-app-manifest.md
     - name: Authentication and authorization error codes
       href: reference-aadsts-error-codes.md
     - name: Breaking changes

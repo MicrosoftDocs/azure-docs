@@ -1,28 +1,35 @@
 ---
-title: Sign in Microsoft identities in a single application | Azure
-description: An introduction to building applications with both Microsoft Account and Azure Active Directory sign-in.
+title: About v2.0 | Azure
+description: Learn about the v2.0 endpoint and platform.
 services: active-directory
-documentationcenter: ''
+documentationcenter: dev-center-name
 author: CelesteDG
 manager: mtillman
 editor: ''
 
-ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
 ms.component: develop
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: identity
 ms.date: 09/24/2018
 ms.author: celested
-ms.reviewer: hirsin, jmprieur
+ms.reviewer: saeeda
 ms.custom: aaddev
+#Customer intent: As an application developer, I want to understand about the v2.0 endpoint and platform so I can decide if this platform meets my application development needs and requirements.
 ---
 
-# Sign in Microsoft identities in a single application
+# About v2.0
 
-In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory (Azure AD) had to integrate with two separate systems. The v2.0 endpoint and platform provides an authentication API version that simplifies this process. v2.0 enables sign-in from both types of accounts by using a single integration. Applications that use the v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://graph.microsoft.io) by using either type of account.
+The v2.0 endpoint and platform has been in preview and continually enhanced. Today, the JavaScript single-page application (SPA) scenarios are feature complete and we invite you to use MSAL.js to build browser-based applications and give us feedback so we can update the status from preview to general availability (GA).
+
+> [!NOTE]
+> MSAL Android, iOS, and .NET still have features under development. You can use them to build applications and send us feedback.
+
+The Azure portal developer experience has been significantly updated to now include all your applications built with ADAL or MSAL, and to improve usability.
+
+In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory (Azure AD) had to integrate with two separate systems. The v2.0 endpoint and platform provides an authentication API version that simplifies this process. It enables sign-in from both types of accounts by using a single integration. Applications that use the v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://graph.microsoft.io) by using either type of account.
 
 ## Getting started
 
