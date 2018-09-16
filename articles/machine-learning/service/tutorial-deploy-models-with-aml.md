@@ -65,7 +65,7 @@ Start by setting up a testing environment.
 Import the Python packages needed for this tutorial.
 
 ```python
-%%matplotlib inline
+%matplotlib inline
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -157,13 +157,14 @@ The output shows the confusion matrix:
 Use `matplotlib` to display the confusion matrix as a graph. In this graph, the X axis represents the actual values, and the Y axis represents the predicted values. The color in each grid represents the error rate. The lighter the color, the higher the error rate is. For example, many 5's are mis-classified as 3's. Hence you see a bright grid at (5,3).
 
 ```python
-row_sums = conf_mx.sum(axis = 1, keepdims = True)
+# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
 
-fig = plt.figure(figsize = (8,5))
+fig = plt.figure(figsize=(8,5))
 ax = fig.add_subplot(111)
-cax = ax.matshow(norm_conf_mx, cmap = plt.cm.bone)
+cax = ax.matshow(norm_conf_mx, cmap=plt.cm.bone)
 ticks = np.arange(0, 10, 1)
 ax.set_xticks(ticks)
 ax.set_yticks(ticks)
@@ -208,12 +209,11 @@ import pickle
 from sklearn.externals import joblib
 from sklearn.linear_model import LogisticRegression
 
-#from azureml.assets.persistence.persistence import get_model_path
 from azureml.core.model import Model
 
 def init():
     global model
-    # retreive the local path to the model using the model name
+    # retreive the path to the model file using the model name
     model_path = Model.get_model_path('sklearn_mnist')
     model = joblib.load(model_path)
 
@@ -231,16 +231,13 @@ def run(raw_data):
 Next, create an environment file, called myenv.yml, that specifies all of the script's package dependencies. This file is used to ensure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`.
 
 ```python
-%%writefile myenv.yml
-name: myenv
-channels:
-  - defaults
-dependencies:
-  - scikit-learn
-  - pip:
-    # Required packages for AzureML execution, history, and data preparation.
-    - --extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
-    - azureml-core
+from azureml.core.conda_dependencies import CondaDependencies 
+
+myenv = CondaDependencies()
+myenv.add_conda_package("scikit-learn")
+
+with open("myenv.yml","w") as f:
+    f.write(myenv.serialize_to_string())
 ```
 
 ### Create configuration file
@@ -250,10 +247,10 @@ Create a deployment configuration file and specify the number of CPUs and gigaby
 ```python
 from azureml.core.webservice import AciWebservice
 
-aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
-                                               memory_gb = 1, 
-                                               tags = {"data": "MNIST",  "method" : "sklearn"}, 
-                                               description = 'Predict MNIST with sklearn')
+aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, 
+                                               memory_gb=1, 
+                                               tags={"data": "MNIST",  "method" : "sklearn"}, 
+                                               description='Predict MNIST with sklearn')
 ```
 
 ### Deploy in ACI
@@ -277,17 +274,17 @@ from azureml.core.webservice import Webservice
 from azureml.core.image import ContainerImage
 
 # configure the image
-image_config = ContainerImage.image_configuration(execution_script = "score.py", 
-                                                  runtime = "python", 
-                                                  conda_file = "myenv.yml")
+image_config = ContainerImage.image_configuration(execution_script="score.py", 
+                                                  runtime="python", 
+                                                  conda_file="myenv.yml")
 
-service = Webservice.deploy_from_model(workspace = ws,
-                                       name = 'sklearn-mnist-model',
-                                       deployment_config = aciconfig,
-                                       models = [model],
-                                       image_config = image_config)
+service = Webservice.deploy_from_model(workspace=ws,
+                                       name='sklearn-mnist-svc',
+                                       deployment_config=aciconfig,
+                                       models=[model],
+                                       image_config=image_config)
 
-service.wait_for_deployment(show_output = True)
+service.wait_for_deployment(show_output=True)
 ```
 
 Get the scoring web service's HTTP endpoint, which accepts REST client calls. This endpoint can be shared with anyone who wants to test the web service or integrate it into an application. 
@@ -321,7 +318,7 @@ test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
 test_samples = bytes(test_samples, encoding = 'utf8')
 
 # predict using the deployed model
-result = json.loads(service.run(input_data = test_samples))
+result = json.loads(service.run(input_data=test_samples))
 
 # compare actual value vs. the predicted values:
 i = 0
@@ -336,8 +333,8 @@ for s in sample_indices:
     font_color = 'red' if y_test[s] != result[i] else 'black'
     clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
-    plt.text(x = 10, y = -10, s = result[i], fontsize = 18, color = font_color)
-    plt.imshow(X_test[s].reshape(28, 28), cmap = clr_map)
+    plt.text(x=10, y =-10, s=result[i], fontsize=18, color=font_color)
+    plt.imshow(X_test[s].reshape(28, 28), cmap=clr_map)
     
     i = i + 1
 plt.show()
