@@ -141,17 +141,26 @@ This table describes how **startTime** controls the way a job runs:
 | **Start time in the future or the current time** | Run once at the specified start time. | Run once at the specified start time. <p>Run subsequent executions calculated from the last execution time. | Start job *no sooner than* the specified start time. The first occurrence is based on the schedule, calculated from the start time. <p>Run subsequent executions based on a recurrence schedule. |
 ||||| 
 
-This example that has these conditions: a start time 
-in the past with a recurrence, but no schedule
+Suppose you this example with these conditions: 
+a start time in the past with a recurrence, 
+but no schedule.
 
-* Current date and time is 2015-04-08 13:00.
-* **startTime** is "2015-04-07 14:00" and is in the past before the current time
-* **recurrence** is every two days, as defined by these properties: 
+```json
+"properties": {
+   "startTime": "2015-04-07T14:00Z", 
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 2
+   }
+}
+```
 
-  ```json
-  "frequency": "Day"
-  "interval": 2 
-  ```
+* The current date and time is "2015-04-08 13:00".
+
+* The start date and time is "2015-04-07 14:00", 
+which is before the current date and time.
+
+* The recurrence is every two days.
 
 1. Under these conditions, the first execution is on 2015-04-09 at 14:00. 
 
