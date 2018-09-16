@@ -26,7 +26,7 @@ The latest release of Azure Machine Learning includes:
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md#workspace).  You can create workspaces quickly in the [Azure portal](quickstart-get-started.md).  A workspace can be used by multiple users to store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
-While there are new improved CLI and SDK clients in the current release, the desktop Workbench application itself is deprecated. Now, you can monitor your experiments in the [workspace dashboard in the Azure web portal](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
+While there are new improved CLI and SDK clients in the current release, the desktop Workbench application itself is deprecated. Now, you can monitor your experiments in the [workspace dashboard in the Azure web portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
 ## How do I migrate?
 
