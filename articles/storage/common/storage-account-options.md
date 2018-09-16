@@ -2,38 +2,35 @@
 title: Azure Storage account options | Microsoft Docs
 description: Understanding options for using Azure Storage.
 services: storage
-author: xyh1
-manager: jwillis
-
+author: tamram
 ms.service: storage
-ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
-ms.author: hux  
-
+ms.date: 07/14/2018
+ms.author: tamram
+ms.component: common
 ---
 # Azure Storage account options
 
 ## Overview
 Azure Storage provides three distinct account options, with different pricing and features supported. Consider these differences before you create a storage account to determine the option that is best for your applications. The three different storage account options are:
 
-* **General-purpose v2 (GPv2)** accounts 
-* **General-purpose v1 (GPv1)** accounts
-* **Blob storage** accounts
+* [**General-purpose v2 (GPv2)** accounts](#general-purpose-v2-accounts)
+* [**General-purpose v1 (GPv1)** accounts](#general-purpose-v1-accounts)
+* [**Blob storage** accounts](#blob-storage-accounts)
 
 Each type of account is described in greater detail in the following section:
 
 ## Storage account options
 
-### General-purpose v2
+### General-purpose v2 accounts
 
-General-purpose v2 (GPv2) accounts are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
+General-purpose v2 (GPv2) accounts are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs, services, and features supported by General-purpose v1 (GPv1) and Blob storage accounts. They also retain the same durability, availability, scalability, and performance provided by all storage account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
 
 You can upgrade your GPv1 or Blob storage account to a GPv2 account using Azure portal, PowerShell, or Azure CLI. 
 
-For block blobs in a GPv2 storage account, you can choose between hot and cool storage tiers at the account level, or hot, cool, and archive tiers at the blob level based on access patterns. Store frequently, infrequently, and rarely accessed data in the hot, cool, and archive storage tiers respectively to optimize costs. 
+For block blobs in a GPv2 storage account, you can choose between hot or cool storage access tiers at the account level and between hot, cool, or archive access tiers at the blob level based on usage patterns. Store frequently, infrequently, and rarely accessed data in the hot, cool, and archive storage tiers respectively to optimize storage and transaction costs. 
 
-GPv2 storage accounts expose the **Access Tier** attribute at the account level, which specifies the default storage account tier as **Hot** or **Cool**. The default storage account tier is applied to any blob that does not have an explicit tier set at the blob level. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The **archive tier** can only be applied at the blob level.
+GPv2 storage accounts expose the **Access Tier** attribute at the account level, which specifies the default storage account tier as **Hot** or **Cool**. The default storage account tier is applied to any blob that does not have an explicit tier set at the blob level. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The **Archive** tier can only be applied at the blob level.
 
 > [!NOTE]
 > Changing the storage tier may result in additional charges. For more information, see the [Pricing and billing](#pricing-and-billing) section.
@@ -42,7 +39,10 @@ GPv2 storage accounts expose the **Access Tier** attribute at the account level,
 
 ### Upgrade a storage account to GPv2
 
-Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using Azure portal, PowerShell, or Azure CLI. This change cannot be reversed, and no other changes are permitted.
+Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using Azure portal, PowerShell, or Azure CLI. This change cannot be reversed, and no other account type changes are permitted. For more information on evaluating your existing storage account, see the [Evaluating and migrating to GPv2 storage accounts](#evaluating-and-migrating-to-gpv2-storage-accounts) section.
+* [Upgrade to GPv2 with Azure portal](#upgrade-with-azure-portal)
+* [Upgrade to GPv2 with PowerShell](#upgrade-with-powershell)
+* [Upgrade to GPv2 with Azure CLI](#upgrade-with-azure-cli)
 
 #### Upgrade with Azure portal
 To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure portal, first sign into the [Azure portal](https://portal.azure.com) and select your storage account. Select **Settings** > **Configuration**. There you will see the **Upgrade** button along with a note regarding the upgrade process.
@@ -63,7 +63,7 @@ To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure CLI, fir
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### General-purpose v1
+### General-purpose v1 accounts
 
 General-purpose v1 (GPv1) accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. For example, cool storage and archive storage are not supported in GPv1. Pricing is lower for GPv1 transactions, so workloads with high churn or high read rates may benefit from this account type.
 
@@ -192,14 +192,19 @@ The purpose of this section is to help users to make a smooth transition to usin
 * You have an existing GPv1 storage account and want to evaluate a change to a GPv2 storage account with the right storage tier.
 * You have decided to use a GPv2 storage account or already have one and want to evaluate whether you should use the hot or cool storage tier.
 
-In both cases, the first priority is to estimate the cost of storing and accessing your data stored in a GPv2 storage account and compare that against your current costs.
+In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a GPv2 storage account and compare that against your current costs.
 
 ## Evaluating GPv2 storage account tiers
 
 In order to estimate the cost of storing and accessing data stored in a GPv2 storage account, you need to evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
 
-* Your storage consumption - How much data is being stored and how does this change on a monthly basis?
-* Your storage access pattern - How much data is being read from and written to the account (including new data)? How many transactions are used for data access, and what kinds of transactions are they?
+* Your data storage consumption (GB)
+    - How much data is being stored in the storage account?
+    - How does the data volume change on a monthly basis; does new data constantly replace old data?
+* Your storage access pattern (operations and data transfer)
+    - How much data is being read from (egress) and written to (ingress) the storage account? 
+    - How many operations occur on the data in the storage account?
+    - What kinds of operations (Read vs. Write) are transacted on the data?
 
 ## Monitoring existing storage accounts
 
@@ -240,7 +245,7 @@ The sum of *'TotalBillableRequests'*, across all entries for an API in the trans
 In order to estimate transaction costs for Blob storage accounts, you need to break down the transactions into three groups since they are priced differently.
 
 * Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
-* Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
+* Read transactions such as *'GetBlob'*.
 * All other transactions.
 
 In order to estimate transaction costs for GPv1 storage accounts, you need to aggregate all transactions irrespective of the operation/API.
@@ -333,7 +338,7 @@ No. Blob storage accounts support only block and append blobs, and not page blob
 
 **Can I tier page blobs in GPv2 storage accounts?**
 
-No. Page blobs will infer the storage tier of your account but it has no effect on pricing or availability. You will not be able to change the access tier of a page blob to hot, cool, or archive. The Set Blob Tier operation is allowed on a page blob in a premium storage account but it only determines the allowed size, IOPS, and bandwidth of the premium page blob. For more information, see [Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier).
+No. Page blobs will infer the storage tier of your account but it has no effect on pricing or availability. You will not be able to change the access tier of a page blob to hot, cool, or archive. The Set Blob Tier operation is allowed on a page blob in a premium storage account but it only determines the allowed size, IOPS, and bandwidth of the premium page blob. For more information, see [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier).
 
 **Do I need to change my existing applications to use GPv2 storage accounts?**
 

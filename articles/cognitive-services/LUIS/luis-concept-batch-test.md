@@ -1,14 +1,15 @@
 ---
-title: Batch test your LUIS app - Azure | Microsoft Docs
+title: Batch test your LUIS app - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Use batch testing to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: v-geberr
+ms.date: 09/10/2018
+ms.author: diberry
 ---
 
 # Batch testing in LUIS
@@ -38,9 +39,90 @@ Entities include simple, hierarchical parents, and composite. All entities of th
 ## Batch file format
 The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learned entities](luis-concept-entity-types.md#types-of-entities) you expect to be detected. 
 
-An example batch file follows:
+The  following is an example of a batch file with proper syntax:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## Batch syntax template
+
+Use the following template to start your batch file:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+The batch file uses the **startPos** and **endPos** properties to note the beginning and end of an entity. The values are zero-based and should not begin or end on a space. 
+
+This is different from the query logs, which use startIndex and endIndex properties. 
 
 
 ## Common errors importing a batch

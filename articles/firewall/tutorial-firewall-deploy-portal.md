@@ -54,7 +54,7 @@ For this tutorial, you create a single VNet with three subnets:
 
 ![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets in the same region with one or more subnets.
+This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets in the same region with one or more subnets.
 
 
 
@@ -84,6 +84,9 @@ First, create a resource group to contain the resources needed to deploy the fir
     The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
 11. For **Address range**, type **10.0.1.0/24**.
 12. Use the other default settings, and then click **Create**.
+
+> [!NOTE]
+> The minimum size of the AzureFirewallSubnet subnet is /25.
 
 ### Create additional subnets
 
@@ -117,7 +120,7 @@ Now create the jump and workload virtual machines, and place them in the appropr
 
 **Size**
 
-1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B2ms** (16 GB RAM, 32 GB storage).
+1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B2ms** (8 GB RAM, 16 GB storage).
 2. Click **Select**.
 
 **Settings**
@@ -159,7 +162,7 @@ Use the information in the following table to configure the **Settings** for the
    |Resource group     |**Use existing**: Test-FW-RG |
    |Location     |Select the same location that you used previously|
    |Choose a virtual network     |**Use existing**: Test-FW-VN|
-   |Public IP address     |Create new|
+   |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
 
 2. Click **Review + create**.
 3. Review the summary, and then click **Create** to create the firewall.
@@ -168,7 +171,6 @@ Use the information in the following table to configure the **Settings** for the
 4. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
 6. Note the private IP address. You'll use it later when you create the default route.
 
-[//]: # (Remember to note the private IP for the firewall.)
 
 ## Create a default route
 
@@ -219,7 +221,7 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 >- Managed disks status storage access.
 >- Windows Diagnostics
 >
-> You can override this build-in infrastructure rule collection by creating a *deny all* application rule collection which is processed last. It will always be process before the infrastructure rule collection. Anything not in the infrastrucute rule collection is denied by default.
+> You can override this build-in infrastructure rule collection by creating a *deny all* application rule collection which is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
 
 ## Configure network rules
 
@@ -229,9 +231,9 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 4. For **Action**, select **Allow**.
 
 6. Under **Rules**, for **Name**, type **AllowDNS**.
-8. For **Protocol**, select **TCP**.
+8. For **Protocol**, select **UDP**.
 9. For **Source Addresses**, type **10.0.2.0/24**.
-10. For Destination address, type **209.244.0.3, 209.244.0.4**
+10. For Destination address, type **209.244.0.3,209.244.0.4**
 11. For **Destination Ports**, type **53**.
 12. Click **Add**.
 
@@ -269,7 +271,7 @@ So now you have verified that the firewall rules are working:
 
 ## Clean up resources
 
-When no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
+You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
 
 
 ## Next steps

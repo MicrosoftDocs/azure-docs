@@ -3,7 +3,7 @@ title: Threat detection - Azure SQL Data Warehouse | Microsoft Docs
 description: Configure threat detection and explore suspicious events in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement

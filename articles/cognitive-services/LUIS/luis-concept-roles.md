@@ -1,15 +1,16 @@
 ---
-title: Understanding how roles are used in pattern-based entities - Azure| Microsoft Docs
-description: Learn how a role is used in an pattern-based entity to give a name to a contextual entity subtype.
+title: Understanding how roles are used in pattern-based entities
+titleSuffix: Azure Cognitive Services
+description: Roles are named, contextual subtypes of an entity used only in patterns. For example, in the utterance buy a ticket from New York to London, both New York and London are cities but each has a different meaning in the sentence. New York is the origin city and London is the destination city.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: v-geberr;
+ms.date: 09/10/2018
+ms.author: diberry
 ---
 # Entity roles in Patterns are contextual subtypes
 Roles are named, contextual subtypes of an entity used only in [patterns](luis-concept-patterns.md).
@@ -26,9 +27,10 @@ Roles give a name to those differences:
 ## How are roles used in patterns?
 In a pattern's template utterance, roles are used within the utterance: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Pattern with entity roles|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## Role syntax in patterns
 The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 

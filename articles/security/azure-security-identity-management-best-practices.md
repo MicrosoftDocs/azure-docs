@@ -74,7 +74,7 @@ You can learn more about Azure AD SSO by reading the article [AD FS management a
 
 ## Deploy password management
 
-In scenarios where you have multiple tenants or you want to enable users to [reset their own password](../active-directory/active-directory-passwords-update-your-own-password.md), it is important that you use appropriate security policies to prevent abuse. In Azure, you can leverage the self-service password reset capability and customize the security options to meet your business requirements.
+In scenarios where you have multiple tenants or you want to enable users to [reset their own password](../active-directory/user-help/active-directory-passwords-update-your-own-password.md), it is important that you use appropriate security policies to prevent abuse. In Azure, you can leverage the self-service password reset capability and customize the security options to meet your business requirements.
 
 It is important to obtain feedback from these users and learn from their experiences as they try to perform these steps. Based on these experiences, elaborate a plan to mitigate potential issues that may occur during the deployment for a larger group. It is also recommended that you use the [Password Reset Registration Activity report](../active-directory/active-directory-passwords-get-insights.md) to monitor the users that are registering.
 
@@ -129,7 +129,7 @@ Make sure to register any application that outsources authentication to Azure AD
 
 Organizations that do not enforce identity control to access apps and do not guide their developers on how to securely integrate apps with their identity management system may be more susceptible to credential theft type of attack, such as [weak authentication and session management described in Open Web Application Security Project (OWASP) Top 10](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
 
-You can learn more about authentication scenarios for SaaS apps by reading [Authentication Scenarios for Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+You can learn more about authentication scenarios for SaaS apps by reading [Authentication Scenarios for Azure AD](../active-directory/develop/authentication-scenarios.md).
 
 ## Actively monitor for suspicious activities
 

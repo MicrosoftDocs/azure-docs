@@ -83,6 +83,7 @@
 
 ## Manage Federation Services
 ### [Manage and customize](active-directory-aadconnect-federation-management.md)
+### [Manage AD FS trust with Azure AD using Azure AD Connect](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Federate multiple instances of Azure AD with single instance of AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 

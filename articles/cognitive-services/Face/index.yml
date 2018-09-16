@@ -45,15 +45,15 @@ sections:
         src: media/index/logo_go.svg
       text: Go
       href: QuickStarts/Go
-#- title: Step-by-Step Tutorials
-#  items:
-#  - type: paragraph
-#    text: 'Learn how to develop applications using the Face service:'
-#  - type: list
-#    style: unordered
-#    items:
-#    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">C&#35; Tutorial</a></li>
-#    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Java for Android Tutorial</a></li>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Face service:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Detect and frame faces in an image on Windows</a></li>
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Detect and frame faces in an image on Android</a></li>
 #    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial">Python Tutorial</a></li>
 - title: Reference
   items:

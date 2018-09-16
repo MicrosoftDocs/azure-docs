@@ -1,11 +1,11 @@
-﻿---
+---
 title: Plan the scale of your Azure Time Series Insights environment | Microsoft Docs
 description: This article describes how to follow best practices when planning an Azure Time Series Insights environment, including storage capacity, data retention, ingress capacity, monitoring, and business disaster recovery (BCDR). 
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -96,11 +96,11 @@ As an Azure service, Time Series Insights provides high availability (HA) using 
 
 Time Series Insights does not have built-in business disaster recovery (BCDR).  However, customers that require BCDR can still implement a recovery strategy. Create a second Time Series Insights environment in a backup Azure region and send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.  
 
-1.  Create environment in second region.  More on creating a Time Series Insights environment [here](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
-2.  Create a second dedicated consumer group for your event source and connect that event source to the new environment.  Be sure to designate the second, dedicated consumer group.  You can learn more about this by following either [IoT Hub documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or [Event hub documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+1.  Create environment in second region.  More on creating a Time Series Insights environment [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+2.  Create a second dedicated consumer group for your event source and connect that event source to the new environment.  Be sure to designate the second, dedicated consumer group.  You can learn more about this by following either [IoT Hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or [Event hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  If your primary region were to go down during a disaster incident, switch over operations to the backup Time Series Insights environment.  
 
-To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
+To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
 
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)

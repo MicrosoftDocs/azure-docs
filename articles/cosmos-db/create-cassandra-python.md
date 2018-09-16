@@ -113,7 +113,7 @@ This step is optional. If you're interested in learning how the database resourc
     session.execute(batch)
     ```
 
-* Query to get get all key values.
+* Query to get all key values.
 
     ```Python
     rows = session.execute('SELECT * FROM uprofile.user')

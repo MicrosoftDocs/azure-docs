@@ -4,10 +4,11 @@ description: This topic demonstrates how to view and edit Video Indexer insights
 services: cognitive services
 documentationcenter: ''
 author: juliako
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 09/15/2018
 ms.author: juliako
 
 ---
@@ -15,7 +16,7 @@ ms.author: juliako
 
 This topic shows you how to view and edit the Video Indexer insights of a video.
 
-1. Sign in to your [Video Indexer](https://api-portal.videoindexer.ai/) account.
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 2. Find a video from which you want to create your Video Indexer insights. For more information, see [Find exact moments within videos](video-indexer-search.md).
 3. Press **Play**.
 

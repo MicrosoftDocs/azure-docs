@@ -1,7 +1,7 @@
 ---
 title: Render coverage in Azure Maps | Microsoft Docs
 description: Learn about Render coverage in Azure Maps
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/07/2018
 ms.topic: conceptual

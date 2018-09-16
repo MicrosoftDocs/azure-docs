@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -32,14 +32,14 @@ The topics addressed include:
 These are the key security aspects of this feature:
 - It's built on a secure multi-tenanted architecture that provides isolation of sign-in requests between tenants.
 - On-premises passwords are never stored in the cloud in any form.
-- On-premises Authentication Agents that listen for, and respond to, password validation requests only make outbound connections from within your network. There is no requirement to install these Authentication Agents in a perimeter network (DMZ).
+- On-premises Authentication Agents that listen for, and respond to, password validation requests only make outbound connections from within your network. There is no requirement to install these Authentication Agents in a perimeter network (DMZ). As best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Only standard ports (80 and 443) are used for outbound communication from the Authentication Agents to Azure AD. You don't need to open inbound ports on your firewall. 
   - Port 443 is used for all authenticated outbound communication.
   - Port 80 is used only for downloading the Certificate Revocation Lists (CRLs) to ensure that none of the certificates used by this feature have been revoked.
   - For the complete list of the network requirements, see [Azure Active Directory Pass-through Authentication: Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Passwords that users provide during sign-in are encrypted in the cloud before the on-premises Authentication Agents accept them for validation against Active Directory.
 - The HTTPS channel between Azure AD and the on-premises Authentication Agent is secured by using mutual authentication.
-- The feature seamlessly integrates with Azure AD cloud-protection capabilities, such as conditional access policies (including Azure Multi-Factor Authentication), identity protection, and Smart Lockout.
+- Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), [blocking legacy authentication](../conditional-access/conditions.md) and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
 
 ## Components involved
 
@@ -151,7 +151,7 @@ To ensure that Pass-through Authentication remains operationally secure, Azure A
 
 To renew an Authentication Agent's trust with Azure AD:
 
-1. The Authentication Agent periodically pings Azure AD every few hours to check if it's time to renew its certificate. 
+1. The Authentication Agent periodically pings Azure AD every few hours to check if it's time to renew its certificate. The certificate is renewed 30 days prior to its expiration.
     - This check is done over a mutually authenticated HTTPS channel and uses the same certificate that was issued during registration.
 2. If the service indicates that it's time to renew, the Authentication Agent generates a new key pair: a public key and a private key.
     - These keys are generated through standard RSA 2048-bit encryption.
@@ -204,6 +204,7 @@ To auto-update an Authentication Agent:
 ## Next steps
 - [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
+- [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
 - [How it works](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Learn the basics of how Azure AD Pass-through Authentication works.
 - [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions.

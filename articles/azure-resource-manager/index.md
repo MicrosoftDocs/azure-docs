@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 06/12/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
 ---
 # Azure Resource Manager Documentation
@@ -119,7 +119,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
                         <p><a href="/cli/azure/resource">Azure CLI</a></p>
                     </div>
                 </div>

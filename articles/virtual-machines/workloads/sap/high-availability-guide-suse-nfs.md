@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/16/2018
 ms.author: sedusch
 
 ---
@@ -38,8 +38,8 @@ ms.author: sedusch
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
-[suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
+[sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
+[sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -70,11 +70,9 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
-  The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
-* [Highly Available NFS Storage with DRBD and Pacemaker][suse-drbd-guide]
-  The guide contains all required information to set up a highly available NFS server. Use this guide as a baseline.
-
+* [SUSE Linux Enterprise High Availability Extension 12 SP3 best practices guides][sles-hae-guides]
+  * Highly Available NFS Storage with DRBD and Pacemaker
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]
 
 ## Overview
 
@@ -100,26 +98,26 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
 
 ## Set up a highly available NFS server
 
-You can either use a Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
+You can either use an Azure Template from GitHub to deploy all required Azure resources, including the virtual machines, availability set, and load balancer or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
-You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [SAP file server template][template-file-server] in the Azure portal   
 1. Enter the following parameters
    1. Resource Prefix  
       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
-   2. SAP System Count
+   2. SAP System Count  
       Enter the number of SAP systems that will use this file server. This will deploy the required amount of frontend configurations, load balancing rules, probe ports, disks etc.
    3. Os Type  
       Select one of the Linux distributions. For this example, select SLES 12
    4. Admin Username and Admin Password  
       A new user is created that can be used to log on to the machine.
    5. Subnet ID  
-      The ID of the subnet to which the virtual machines should be connected to. Leave empty if you want to create a new virtual network or select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+      If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ### Deploy Linux manually via Azure portal
 
@@ -129,11 +127,11 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
 1. Create a Virtual Network
 1. Create an Availability Set  
    Set max update domain
-1. Create Virtual Machine 1   
+1. Create Virtual Machine 1
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 BYOS image
    SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
-1. Create Virtual Machine 2   
+1. Create Virtual Machine 2
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 BYOS image  
    SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
@@ -144,7 +142,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Open the load balancer, select frontend IP pool, and click Add
          1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
          1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
-         1. Click OK         
+         1. Click OK
       1. IP address 10.0.0.5 for NW2
          * Repeat the steps above for NW2
    1. Create the backend pools
@@ -173,7 +171,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Keep protocol **TCP**, enter port **2049**
          1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
-         1. Click OK    
+         1. Click OK
       1. 2049 UDP for NW1
          * Repeat the steps above for port 2049 and UDP for NW1
       1. 2049 TCP for NW2
@@ -189,48 +187,40 @@ Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azu
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 
-1. **[A]** Setup host name resolution   
+1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
 
-   <pre><code>
-   sudo vi /etc/hosts
+   <pre><code>sudo vi /etc/hosts
    </code></pre>
    
-   Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment   
+   Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
    
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+   <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    <b>10.0.0.5 nw2-nfs</b>
    </code></pre>
 
 1. **[A]** Enable NFS server
 
-   Create the root export entry, start up the NFS server and enable autostart
+   Create the root NFS export entry
 
-   <pre><code>
-   sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
+   <pre><code>sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
    
    sudo mkdir /srv/nfs/
-
-   sudo systemctl enable nfsserver
-   sudo service nfsserver restart
    </code></pre>
 
 1. **[A]** Install drbd components
 
-   <pre><code>
-   sudo zypper install drbd drbd-kmp-default drbd-utils
+   <pre><code>sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
 1. **[A]** Create a partition for the drbd devices
 
    List all available data disks
 
-   <pre><code>
-   sudo ls /dev/disk/azure/scsi1/
+   <pre><code>sudo ls /dev/disk/azure/scsi1/
    </code></pre>
 
    Example output
@@ -241,8 +231,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Create partitions for every data disk
 
-   <pre><code>
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+   <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun1'
    </code></pre>
 
@@ -250,8 +239,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    List all available partitions
 
-   <pre><code>
-   ls /dev/disk/azure/scsi1/lun*-part*
+   <pre><code>ls /dev/disk/azure/scsi1/lun*-part*
    </code></pre>
 
    Example output
@@ -262,8 +250,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Create LVM volumes for every partition
 
-   <pre><code>
-   sudo pvcreate /dev/disk/azure/scsi1/lun0-part1  
+   <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0-part1  
    sudo vgcreate vg-<b>NW1</b>-NFS /dev/disk/azure/scsi1/lun0-part1
    sudo lvcreate -l 100%FREE -n <b>NW1</b> vg-<b>NW1</b>-NFS
 
@@ -274,27 +261,23 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure drbd
 
-   <pre><code>
-   sudo vi /etc/drbd.conf
+   <pre><code>sudo vi /etc/drbd.conf
    </code></pre>
 
    Make sure that the drbd.conf file contains the following two lines
 
-   <pre><code>
-   include "drbd.d/global_common.conf";
+   <pre><code>include "drbd.d/global_common.conf";
    include "drbd.d/*.res";
    </code></pre>
 
    Change the global drbd configuration
 
-   <pre><code>
-   sudo vi /etc/drbd.d/global_common.conf
+   <pre><code>sudo vi /etc/drbd.d/global_common.conf
    </code></pre>
 
    Add the following entries to the handler and net section.
 
-   <pre><code>
-   global {
+   <pre><code>global {
         usage-count no;
    }
    common {
@@ -310,26 +293,35 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         options {
         }
         disk {
-             resync-rate 50M;
+             md-flushes yes;
+             disk-flushes yes;
+             c-plan-ahead 1;
+             c-min-rate 100M;
+             c-fill-target 20M;
+             c-max-rate 4G;
         }
         net {
              after-sb-0pri discard-younger-primary;
              after-sb-1pri discard-secondary;
              after-sb-2pri call-pri-lost-after-sb;
+             protocol     C;
+             tcp-cork yes;
+             max-buffers 20000;
+             max-epoch-size 20000;
+             sndbuf-size 0;
+             rcvbuf-size 0;
         }
    }
    </code></pre>
 
 1. **[A]** Create the NFS drbd devices
 
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
+   <pre><code>sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
    </code></pre>
 
    Insert the configuration for the new drbd device and exit
 
-   <pre><code>
-   resource <b>NW1</b>-nfs {
+   <pre><code>resource <b>NW1</b>-nfs {
         protocol     C;
         disk {
              on-io-error       detach;
@@ -349,14 +341,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    }
    </code></pre>
 
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
+   <pre><code>sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
    </code></pre>
 
    Insert the configuration for the new drbd device and exit
 
-   <pre><code>
-   resource <b>NW2</b>-nfs {
+   <pre><code>resource <b>NW2</b>-nfs {
         protocol     C;
         disk {
              on-io-error       detach;
@@ -378,8 +368,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Create the drbd device and start it
 
-   <pre><code>
-   sudo drbdadm create-md <b>NW1</b>-nfs
+   <pre><code>sudo drbdadm create-md <b>NW1</b>-nfs
    sudo drbdadm create-md <b>NW2</b>-nfs
    sudo drbdadm up <b>NW1</b>-nfs
    sudo drbdadm up <b>NW2</b>-nfs
@@ -387,29 +376,25 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Skip initial synchronization
 
-   <pre><code>
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NW1</b>-nfs
+   <pre><code>sudo drbdadm new-current-uuid --clear-bitmap <b>NW1</b>-nfs
    sudo drbdadm new-current-uuid --clear-bitmap <b>NW2</b>-nfs
    </code></pre>
 
 1. **[1]** Set the primary node
 
-   <pre><code>
-   sudo drbdadm primary --force <b>NW1</b>-nfs
+   <pre><code>sudo drbdadm primary --force <b>NW1</b>-nfs
    sudo drbdadm primary --force <b>NW2</b>-nfs
    </code></pre>
 
 1. **[1]** Wait until the new drbd devices are synchronized
 
-   <pre><code>
-   sudo drbdsetup wait-sync-resource NW1-nfs
+   <pre><code>sudo drbdsetup wait-sync-resource NW1-nfs
    sudo drbdsetup wait-sync-resource NW2-nfs
    </code></pre>
 
 1. **[1]** Create file systems on the drbd devices
 
-   <pre><code>
-   sudo mkfs.xfs /dev/drbd0
+   <pre><code>sudo mkfs.xfs /dev/drbd0
    sudo mkdir /srv/nfs/NW1
    sudo chattr +i /srv/nfs/NW1
    sudo mount -t xfs /dev/drbd0 /srv/nfs/NW1
@@ -438,7 +423,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Setup drbd split-brain detection
 
-   When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be very rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
+   When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
 
    Read [the official drbd documentation](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) on how to set up a split brain notification.
 
@@ -448,7 +433,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Add the NFS drbd devices for SAP system NW1 to the cluster configuration
 
-   <pre><code>
+   <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
+
    # Enable maintenance mode
    sudo crm configure property maintenance-mode=true
    
@@ -469,45 +455,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      fstype=xfs \
      op monitor interval="10s"
    
+   sudo crm configure primitive nfsserver systemd:nfs-server \
+     op monitor interval="30s"
+   sudo crm configure clone cl-nfsserver nfsserver
+
    sudo crm configure primitive exportfs_<b>NW1</b> \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/<b>NW1</b>" \
-     options="rw,no_root_squash" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_sidsys \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/sidsys" \
-     options="rw,no_root_squash" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_sapmntsid \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/sapmntsid" \
-     options="rw,no_root_squash" clientspec="*" fsid=3 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_trans \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/trans" \
-     options="rw,no_root_squash" clientspec="*" fsid=4 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_ASCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/ASCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=5 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_ASCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/ASCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=6 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_SCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/SCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=7 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_SCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/SCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=8 wait_for_leasetime_on_stop=true op monitor interval="30s"
+     options="rw,no_root_squash,crossmnt" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
    sudo crm configure primitive vip_<b>NW1</b>_nfs \
      IPaddr2 \
@@ -518,10 +473,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61000</b>" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_nfs \
-     fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> exportfs_<b>NW1</b>_sidsys \
-     exportfs_<b>NW1</b>_sapmntsid exportfs_<b>NW1</b>_trans exportfs_<b>NW1</b>_ASCS \
-     exportfs_<b>NW1</b>_ASCSERS exportfs_<b>NW1</b>_SCS exportfs_<b>NW1</b>_SCSERS \
-     nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
+     fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
    
    sudo crm configure order o-<b>NW1</b>_drbd_before_nfs inf: \
      ms-drbd_<b>NW1</b>_nfs:promote g-<b>NW1</b>_nfs:start
@@ -532,9 +484,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Add the NFS drbd devices for SAP system NW2 to the cluster configuration
 
-   <pre><code>
-   # Enable maintenance mode
-   sudo crm configure property maintenance-mode=true   
+   <pre><code># Enable maintenance mode
+   sudo crm configure property maintenance-mode=true
    
    sudo crm configure primitive drbd_<b>NW2</b>_nfs \
      ocf:linbit:drbd \
@@ -556,42 +507,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive exportfs_<b>NW2</b> \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/<b>NW2</b>" \
-     options="rw,no_root_squash" clientspec="*" fsid=9 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_sidsys \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/sidsys" \
-     options="rw,no_root_squash" clientspec="*" fsid=10 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_sapmntsid \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/sapmntsid" \
-     options="rw,no_root_squash" clientspec="*" fsid=11 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_trans \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/trans" \
-     options="rw,no_root_squash" clientspec="*" fsid=12 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_ASCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/ASCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=13 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_ASCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/ASCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=14 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_SCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/SCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=15 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_SCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/SCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=16 wait_for_leasetime_on_stop=true op monitor interval="30s"
+     options="rw,no_root_squash" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
    sudo crm configure primitive vip_<b>NW2</b>_nfs \
      IPaddr2 \
@@ -602,10 +518,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61001</b>" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW2</b>_nfs \
-     fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> exportfs_<b>NW2</b>_sidsys \
-     exportfs_<b>NW2</b>_sapmntsid exportfs_<b>NW2</b>_trans exportfs_<b>NW2</b>_ASCS \
-     exportfs_<b>NW2</b>_ASCSERS exportfs_<b>NW2</b>_SCS exportfs_<b>NW2</b>_SCSERS \
-     nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
+     fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
    
    sudo crm configure order o-<b>NW2</b>_drbd_before_nfs inf: \
      ms-drbd_<b>NW2</b>_nfs:promote g-<b>NW2</b>_nfs:start
@@ -616,11 +529,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Disable maintenance mode
    
-   <pre><code>
-   sudo crm configure property maintenance-mode=false
+   <pre><code>sudo crm configure property maintenance-mode=false
    </code></pre>
 
 ## Next steps
+
 * [Install the SAP ASCS and database](high-availability-guide-suse.md)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]

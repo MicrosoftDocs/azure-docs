@@ -4,20 +4,18 @@ description: This topic explains how to migrate from the Azure Video Indexer API
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2018
+ms.date: 09/15/2018
 ms.author: juliako
 ---
 
 # Migrate from the Video Indexer API v1 to v2
 
 > [!Note]
-> The Video Indexer V1 APIs are now deprecated, and will be removed on August 1st, 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
->
-> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
+> The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 This article describes changes that were introduced in v2.  
 
@@ -63,7 +61,7 @@ Video Indexer now has a simplified data model to deliver much clearer insights. 
 
 ### Swagger
 
-The Video Indexer API definitions were updated accordingly and are available to download through the [API portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+The Video Indexer API definitions were updated accordingly and are available to download through [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
 
 
 ### V1 vs V2 examples
@@ -118,7 +116,7 @@ https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID
 2. Get insights:
 
   ```
-  https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
+  https://api.videoindexer.ai/[LOCATION]/Accounts[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
   ```
 
 #### Getting video processing state in V1:

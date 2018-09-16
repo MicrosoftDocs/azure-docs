@@ -3,7 +3,7 @@ title: Using API version profiles with PowerShell in Azure Stack | Microsoft Doc
 description: Learn about using API version profiles with PowerShell in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
 
 ---
@@ -24,6 +24,8 @@ ms.reviewer: sijuman
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific dated profile version such as  **2017-03-09-profile**, and Azure supports the **latest** API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
+
+ 
 
 ## Install the PowerShell module required to use API version profiles
 

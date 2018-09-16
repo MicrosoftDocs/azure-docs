@@ -42,4 +42,4 @@ While in the Azure portal, browse to the resource group containing the Azure Kub
 ![Delete AKS cluster portal](media/container-service-delete-cluster/delete-aks-portal.png)
 
 <!-- LINKS - internal -->
-[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az_aks_delete
+[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az-aks-delete

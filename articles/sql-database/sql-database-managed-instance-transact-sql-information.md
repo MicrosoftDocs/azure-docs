@@ -7,7 +7,7 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: conceptual 
-ms.date: 06/22/2018 
+ms.date: 0813/2018 
 ms.author: jovanpop 
 manager: craigg 
 --- 
@@ -261,7 +261,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication 
  
-Replication is not yet supported. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### RESTORE statement 
  
@@ -329,23 +329,24 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### SQL Server Agent 
- 
+### SQL Server Agent
+
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs - only T-SQL job steps are currently supported (more steps will be added during public preview).
- - SSIS is not yet supported. 
- - Replication is not yet supported  
-  - Transaction-Log reader is not yet supported.  
-  - Snapshot is not yet supported.  
-  - Distributor is not yet supported.  
-  - Merge is not supported.  
+- Jobs - T-SQL job steps are currently supported
+- Other types of job steps are not currently supported (more step types will be added during public preview).
+  - Replication jobs not supported including:
+    - Transaction-log reader.  
+    - Snapshot.
+    - Distributor.  
+    - Merge.  
+  - SSIS is not yet supported. 
   - Queue Reader is not supported.  
- - Command shell is not yet supported. 
+  - Command shell is not yet supported. 
   - Managed Instance cannot access external resources (for example, network shares via robocopy).  
- - PowerShell is not yet supported.
- - Analysis Services are not supported.  
+  - PowerShell is not yet supported.
+  - Analysis Services are not supported.  
 - Notifications are partially supported.
- - Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
  - Pager is not supported.  
  - NetSend is not supported. 
  - Alerts are not yet not supported.
@@ -365,11 +366,11 @@ For information about SQL Server Agent, see [SQL Server Agent](https://docs.micr
 The following are not supported: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 For information about creating and altering tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Behavior changes 
  
 The following variables, functions, and views return different results:  
@@ -419,4 +420,4 @@ There can be only one database mail profile and it must be called `AzureManagedI
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).

@@ -1,20 +1,21 @@
 ---
 title: Demand Forecast in Energy Technical Guide | Microsoft Docs
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: yijichen
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 
 ms.assetid: 7f1a866b-79b7-4b97-ae3e-bc6bebe8c756
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
-ms.author: inqiu;yijichen;ilanr9
+ms.author: yijichen
 
 ---
 # Technical guide to the Cortana Intelligence Solution Template for demand forecast in energy

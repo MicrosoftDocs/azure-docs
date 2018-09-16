@@ -4,7 +4,7 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -175,20 +175,7 @@ such as *Southeast Asia* during the initiative assignment, because it is not par
 
 ## Maximum count of Policy objects
 
-There is a maximum count for each object type for Azure Policy. An entry of _Scope_ means either
-the subscription or the management group.
-
-| Where | What | Maximum count |
-|---|---|---|
-| Scope | Policy Definitions | 250 |
-| Scope | Initiative Definitions | 100 |
-| Tenant | Initiative Definitions | 1000 |
-| Scope | Policy Assignment | 100 |
-| Policy Definition | Parameters | 20 |
-| Initiative Definition | Policies | 100 |
-| Initiative Definition | Parameters | 100 |
-| Policy Assignment | Exclusions (notScopes) | 100 |
-| Policy Rule | Nested Conditionals | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## Recommendations for managing policies
 
@@ -211,9 +198,7 @@ definition later for *policyDefB* with goals similar to that of *policyDefA*, yo
 *initiativeDefC* and track them better that way.
 - Keep in mind that once you have created an initiative assignment from an initiative definition,
 any new policy definitions added to the initiative definition automatically roll under the
-initiative assignment(s) under that initiative definition. However, if there’s a new parameter
-introduced to the new policy definition, you need to update the initiative definition and
-assignments by editing the initiative definition or assignment.
+initiative assignment(s) under that initiative definition.
 - Once an initiative assignment is triggered, all policies within the initiative will be triggered
 as well. However, if you needed to execute a policy individually, it is better to not include it in
 an initiative.
@@ -223,7 +208,7 @@ an initiative.
 The following overview of Azure Policy is from Build 2018. For slides or video download, please
 visit [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.
 
-> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
 ## Next steps
 

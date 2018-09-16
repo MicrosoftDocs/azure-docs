@@ -1,7 +1,7 @@
 ---
 title: Face API Java for Android tutorial | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this tutorial, you create a simple Android app that uses the Cognitive Services Face service to detect and frame human faces in an image.
+description: In this tutorial, you create a simple Android app that uses the Cognitive Services Face service to detect and frame faces in an image.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -16,7 +16,7 @@ ms.author: nolachar
 
 # Tutorial: Create an Android app to detect and frame faces in an image
 
-In this tutorial, you create a simple Android application that uses the Face service Java class library to detect human faces in an image. The application shows a selected image with each detected face framed by a rectangle.
+In this tutorial, you create a simple Android application that uses the Face service Java class library to detect human faces in an image. The application shows a selected image with each detected face framed by a rectangle. The complete sample code is available on GitHub at [Detect and frame faces in an image on Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample).
 
 ![Android screenshot of a photo with faces framed by a red rectangle](../Images/android_getstarted2.1.PNG)
 

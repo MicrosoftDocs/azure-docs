@@ -125,6 +125,12 @@ After the preceding steps, the user can access the original resource, which is a
 The **Diagnose status** value in the list view updates to **Pending Sync**.
 The sync error will be resolved after the next sync. Connect Health will no longer show the resolved sync error in the list view.
 
+## Failures and error messages
+**User with conflicting attribute is soft deleted in the Azure Active Directory. Ensure the user is hard deleted before retry.**  
+The user with conflicting attribute in Azure AD should be cleaned before you can apply fix. Check out [how to delete the user permanently in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) before retrying the fix. The user will also be automatically deleted permanently after 30 days in soft deleted state. 
+
+**Updating source anchor to cloud-based user in your tenant is not supported.**  
+Cloud-based user in Azure AD should not have source anchor. Updating source anchor is not supported in this case. Manual fix is required from on premises. 
 
 ## FAQ
 **Q.** What happens if execution of the **Apply Fix** fails?  

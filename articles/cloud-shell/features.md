@@ -1,5 +1,5 @@
 ---
-title: Bash in Azure Cloud Shell features | Microsoft Docs
+title: Azure Cloud Shell features | Microsoft Docs
 description: Overview of features of Bash in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 07/13/2018
 ms.author: juluk
 ---
 
-# Features & tools for Bash in Azure Cloud Shell
+# Features & tools for Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
@@ -72,7 +72,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0-preview.4](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

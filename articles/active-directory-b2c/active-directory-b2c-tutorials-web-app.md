@@ -33,9 +33,9 @@ In this tutorial, you learn how to:
 
 ## Register web app
 
-Applications need to be [registered](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in your tenant before they can receive [access tokens](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) for the app in your tenant. 
+Applications need to be [registered](../active-directory/develop/developer-glossary.md#application-registration) in your tenant before they can receive [access tokens](../active-directory/develop/developer-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/developer-glossary.md#application-id-client-id) for the app in your tenant. 
 
-Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -65,7 +65,7 @@ Make note of the **Application ID**. The ID uniquely identifies the app and is n
 
 ### Create a client password
 
-Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) and require a client ID or application ID and a client secret, client password, or application key.
+Azure AD B2C uses OAuth2 authorization for [client applications](../active-directory/develop/developer-glossary.md#client-application). Web apps are [confidential clients](../active-directory/develop/developer-glossary.md#web-client) and require a client ID or application ID and a client secret, client password, or application key.
 
 1. Select the Keys page for the registered web app and click **Generate key**.
 
@@ -94,7 +94,7 @@ To sign up users to access then sign in to the web app, create a **sign-up or si
     | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiUpIn** in the sample code. | 
     | **Identity provider** | Email signup | The identity provider used to uniquely identify the user. |
     | **Sign up attributes** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
-    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Click **Create** to create your policy. 
 
@@ -111,7 +111,7 @@ To allow users to reset their user profile information on their own, create a **
     | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiPe** in the sample code. | 
     | **Identity provider** | Local Account SignIn | The identity provider used to uniquely identify the user. |
     | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
-    | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
+    | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful profile edit. |
 
 2. Click **Create** to create your policy. 
 
@@ -127,7 +127,7 @@ To enable password reset on your application, you need to create a **password re
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SSPR | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SSPR** in the sample code. | 
     | **Identity provider** | Reset password using email address | This is the identity provider used to uniquely identify the user. |
-    | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful password reset. |
+    | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful password reset. |
 
 2. Click **Create** to create your policy. 
 

@@ -4,7 +4,7 @@ description: The Azure Storage client library for Xamarin enables developers to 
 services: storage
 documentationcenter: xamarin
 author: michaelhauss
-manager: jeconnoc
+
 
 ms.service: storage
 ms.topic: article

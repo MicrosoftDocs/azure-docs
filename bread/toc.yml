@@ -6,6 +6,21 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Fundamentals
+        tocHref: /azure/active-directory/fundamentals/
+        topicHref: /azure/active-directory/fundamentals/    
+      - name: Identity Protection
+        tocHref: /azure/active-directory/identity-protection/
+        topicHref: /azure/active-directory/identity-protection/
+      - name: Devices
+        tocHref: /azure/active-directory/devices/
+        topicHref: /azure/active-directory/devices/
+      - name: Conditional Access
+        tocHref: /azure/active-directory/conditional-access/
+        topicHref: /azure/active-directory/conditional-access/
+      - name: Authentication
+        tocHref: /azure/active-directory/authentication/
+        topicHref: /azure/active-directory/authentication/
       - name: Connect
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
@@ -18,15 +33,27 @@
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
-      - name: Managed Service Identity
-        tocHref: /azure/active-directory/managed-service-identity/
-        topicHref: /azure/active-directory/managed-service-identity/
+      - name: Managed identities for Azure resources
+        tocHref: /azure/active-directory/managed-identities-azure-resources/
+        topicHref: /azure/active-directory/managed-identities-azure-resources/
+      - name: User Help
+        tocHref: /azure/active-directory/user-help/
+        topicHref: /azure/active-directory/user-help/         
       - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/
       - name: Domain Services
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
+      - name: Users, groups, and roles
+        tocHref: /azure/active-directory/users-groups-roles/
+        topicHref: /azure/active-directory/users-groups-roles/
+      - name: Access reviews
+        tocHref: /azure/active-directory/governance/
+        topicHref: /azure/active-directory/governance/
+      - name: Manage applications
+        tocHref: /azure/active-directory/manage-apps/
+        topicHref: /azure/active-directory/manage-apps/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -89,6 +116,9 @@
   - name: Azure China 21Vianet
     tocHref: /azure/china/
     topicHref: /azure/china/
+  - name: Azure NetApp Files
+    tocHref: /azure/azure-netapp-files/
+    topicHref: /azure/azure-netapp-files/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
@@ -240,6 +270,9 @@
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
+    - name: Project Acoustics
+      tocHref: /azure/cognitive-services/acoustics/
+      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/

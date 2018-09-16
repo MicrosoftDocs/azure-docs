@@ -1,15 +1,16 @@
 ---
-title: Update Knowledge Base, Java Quickstart - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: Java Update knowledge base - QnA Maker"
+titleSuffix: Azure Cognitive Services
 description: How to update a knowledge base in Java for QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
+ms.date: 09/12/2018
+ms.author: diberry
 ---
 
 # Update a knowledge base in Java
@@ -174,9 +175,9 @@ public class UpdateKB {
     }
 
     /**
-     * Formats and indents JSON for display.
-     * @param url The string request
-     * @return Response A Response object with the header and body of the response
+     * Sends a GET HTTP request.
+     * @param url The string URL request
+     * @return A Response object with the header and body of the response
      */
     public static Response Get (URL url) throws Exception {
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -284,8 +285,8 @@ public class UpdateKB {
     }
 
     /**
-     * Sends an HTTP GET request.
-     * @return The Request object that represents the HTTP response.
+     * Compiles the details of the request.
+     * @return The Request object with request details.
      */
     public static Request GetRequest () {
         Request req = new Request ();

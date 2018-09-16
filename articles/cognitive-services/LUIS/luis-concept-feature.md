@@ -1,14 +1,15 @@
 ---
-title: Understand features in LUIS apps in Azure | Microsoft Docs
-description: Learn about features, which help improve a LUIS app's performance. Features include phrase lists and patterns for recognizing regular expressions.
+title: Features in LUIS apps in Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services
+description: Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
-ms.author: v-geberr
+ms.date: 09/10/2018
+ms.author: diberry
 ---
 # Phrase list features in LUIS
 

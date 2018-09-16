@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
 
 ---
@@ -19,13 +19,14 @@ This article explains different compute environments that you can use to process
 
 The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
 
-| Compute environment                      | activities                               |
-| ---------------------------------------- | ---------------------------------------- |
+| Compute environment                                          | activities                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service) | [Custom](transform-data-using-dotnet-custom-activity.md) |
+| [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
+| [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
 >  
 
@@ -424,8 +425,8 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 | type                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
 | accountName          | Azure Data Lake Analytics Account Name.  | Yes                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | No                                       |
-| subscriptionId       | Azure subscription id                    | No (If not specified, subscription of the data factory is used). |
-| resourceGroupName    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
+| subscriptionId       | Azure subscription id                    | No                                       |
+| resourceGroupName    | Azure resource group name                | No                                       |
 | servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
 | servicePrincipalKey  | Specify the application's key.           | Yes                                      |
 | tenant               | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes                                      |
@@ -500,15 +501,6 @@ You create an Azure SQL Data Warehouse linked service and use it with the [Store
 
 ## SQL Server linked service
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
-
-## Azure Data Factory - naming rules
-The following table provides naming rules for Data Factory artifacts.
-
-| Name                             | Name Uniqueness                          | Validation Checks                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Unique across Microsoft Azure. Names are case-insensitive, that is, `MyDF` and `mydf` refer to the same data factory. | <ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul> |
-| Linked services/tables/pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter, number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
-| Resource Group                   | Unique across Microsoft Azure. Names are case-insensitive. | <ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”</li></ul> |
 
 ## Next steps
 For a list of the transformation activities supported by Azure Data Factory, see [Transform data](transform-data.md).

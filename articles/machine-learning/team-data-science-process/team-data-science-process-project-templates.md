@@ -5,7 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
+services: machine-learning
 ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -53,9 +53,13 @@ You can pull it in to whatever tool you prefer to use.
 
 Use these templates at your own risk. The [usual disclaimers](https://www.gnu.org/licenses/gpl-3.0.en.html) apply.
 
+## Repository template
+
+Use this [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. This repository gives you a standardized directory structure and document templates you can use for your own TDSP project.
+
 ## Next steps
 
 [Agile development of data science projects](agile-development.md) This document describes to execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 
-Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 

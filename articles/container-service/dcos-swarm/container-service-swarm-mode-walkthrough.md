@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom:
 ---
@@ -24,12 +24,12 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *ukwest* location.
+The following example creates a resource group named *myResourceGroup* in the *westus2* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location westus2
 ```
 
 Output:
@@ -37,7 +37,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "ukwest",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -49,15 +49,15 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az_acs_create) command. 
+Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az-acs-create) command. For information on region availaiblity of Docker CE, see [ACS regions for Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az_acs_create) command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
@@ -149,7 +149,7 @@ Browse to the FQDN of the Swarm agent pool to test out the Azure Vote applicatio
 ![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## Delete cluster
-When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, and all related resources.
+When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -165,7 +165,7 @@ In this quick start, pre-created container images have been used to create a Doc
 
 In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
 
-To learn about integrating Docker swarm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
+To learn about integrating Docker swarm with Azure DevOps, continue to the CI/CD with Docker Swarm and Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [CI/CD with Docker Swarm and VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD with Docker Swarm and Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

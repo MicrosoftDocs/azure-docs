@@ -27,9 +27,9 @@
       href: apache-spark-use-bi-tools.md
     - name: Run a streaming job
       href: apache-spark-eventhub-streaming.md
-    - name: Ceate a machine learning application
+    - name: Create a machine learning app
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: Create a spark application using IntelliJ
+    - name: Create a spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
 - name: How to
   items:
@@ -61,7 +61,7 @@
     - name: Use HDInsight tools
       items:
         - name: Tools for Visual Studio
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: Tools for VSCode
           href: ../hdinsight-for-vscode.md
@@ -209,6 +209,8 @@
       items:
       - name: Manage cluster resources
         href: apache-spark-resource-manager.md
+      - name: Manage spark applications using extended History Server
+        href: apache-azure-spark-history-server.md
       - name: Configure Spark settings
         href: apache-spark-settings.md
       - name: Optimize Spark jobs
@@ -317,6 +319,8 @@
       items:
       - name: Debug Spark jobs
         href: apache-spark-job-debugging.md
+      - name: Debug Spark Jobs through Job Graph
+        href: apache-azure-spark-history-server.md
       - name: Use IntelliJ to debug Spark job
         href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
       - name: Troubleshoot a slow or failing HDInsight cluster

@@ -47,7 +47,7 @@ Each node type is a distinct scale set and can be scaled up or down independentl
 
 A Service Fabric cluster can consist of more than one node type. In that event, the cluster consists of one primary node type and one or more non-primary node types.
 
-A single node type cannot simply exceed 100 nodes per virtual machine scale set. You may need to add virtual machine scale sets to achieve the targeted scale, and auto-scaling cannot automagically add virtual machine scale sets. Adding virtual machine scale sets in-place to a live cluster is a challenging task, and commonly this results in users provisioning new clusters with the appropriate node types provisioned at creation time. 
+A single node type cannot reliably scale beyond 100 nodes per virtual machine scale set for SF applications; achieving greater than 100 nodes reliably, will require you to add additional virtual machine scale sets.
 
 ### Primary node type
 
@@ -58,7 +58,7 @@ The Service Fabric system services (for example, the Cluster Manager service or 
 * The **minimum size of VMs** for the primary node type is determined by the **durability tier** you choose. The default durability tier is Bronze. See [The durability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) for more details.  
 * The **minimum number of VMs** for the primary node type is determined by the **reliability tier** you choose. The default reliability tier is Silver. See [The reliability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) for more details.  
 
-From the Azure Resource Manager template, the primary node type is configured with the `isPrimary` attribute under the [node type definition](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+From the Azure Resource Manager template, the primary node type is configured with the `isPrimary` attribute under the [node type definition](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### Non-primary node type
 
@@ -78,7 +78,8 @@ The durability tier is used to indicate to the system the privileges that your V
 
 > [!WARNING]
 > Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
->
+
+> Regardless of any durability level, [Deallocation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) operation on VM Scale Set will destroy the cluster
 
 **Advantages of using Silver or Gold durability levels**
  
@@ -106,10 +107,6 @@ Use Silver or Gold durability for all node types that host stateful services you
 - Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a virtual machine scale set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
 	- **For non-primary node types:** It is recommended that you create new virtual machine scale set, modify the service placement constraint to include the new virtual machine scale set/node type and then reduce the old virtual machine scale set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
 	- **For the primary node type:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the virtual machine scale set Model definition to reflect the new SKU. If your cluster has only one node type, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
-
-    > [!WARNING]
-    > Changing the VM SKU Size for virtual machine scale sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
-    > 
 	
 - Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled.
 - Each VM scale set with durability level Silver or Gold must map to its own node type in the Service Fabric cluster. Mapping multiple VM scale sets to a single node type will prevent coordination between the Service Fabric cluster and the Azure infrastructure from working properly.
@@ -150,7 +147,7 @@ Here is the recommendation on choosing the reliability tier.
 
 Here is the guidance for planning the primary node type capacity:
 
-- **Number of VM instances to run any production workload in Azure:** You must specify a minimum Primary Node type size of 5. 
+- **Number of VM instances to run any production workload in Azure:** You must specify a minimum Primary Node type size of 5 and a Reliability Tier of Silver.  
 - **Number of VM instances to run test workloads in Azure** You can specify a minimum primary node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your Resource Manager template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. One and three node clusters are not supported for running production workloads. 
 - **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
 
@@ -161,12 +158,12 @@ For production workloads:
 - It's recommended to dedicate your clusters primary NodeType to system services, and use placement constraints to deploy your application to secondary NodeTypes.
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
+- The 14 GB local SSD is a minimum requirement. Our recommendation is a minimum of 50 GB. For your workloads, especially when running Windows containers, larger disks are required. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - Standard A1 SKU is not supported for production workloads for performance reasons.
 
 > [!WARNING]
-> Currently, changing the Primary node VM SKU size on a running cluster is not supported. So choose the primary node type VM SKU carefully, taking into account your capacity future needs. At this time, the only supported way to move your primary node type to a new VM SKU (smaller or larger) is to create a new cluster with the right capacity, deploy your applications to it and then restoring the application state (if applicable) from the [latest service backups](service-fabric-reliable-services-backup-restore.md) you have taken from the old cluster. You do not need to restore any system service state, they are recreated when you deploy applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore.
-> 
+> Changing the primary node VM SKU size on a running cluster, is a scaling operation, and documented in [Virtual Machine Scale Set scale out](virtual-machine-scale-set-scale-node-type-scale-out.md) documentation.
 
 ## Non-primary node type - capacity guidance for stateful workloads
 

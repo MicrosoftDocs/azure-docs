@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
 
 # What is Azure Data Box Disk? (Preview)
 
-The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premises data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you 1 to 5 solid-state disks (SSDs). These 4 TB or 8 TB encrypted disks are sent to your datacenter through a regional carrier. 
+The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premises data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you 1 to 5 solid-state disks (SSDs). These 8 TB encrypted disks are sent to your datacenter through a regional carrier. 
 
 You can quickly configure, connect, and unlock the disks via the Data Box service in Azure portal. Copy your data to disks and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud using a fast, private network upload link.
 
 
 > [!IMPORTANT]
 > - Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
-> - You need to sign up for this service. To sign up, go to the [Preview portal](http://aka.ms/azuredatabox).
+> - You need to sign up for this service. To sign up, go to the [Preview portal](http://aka.ms/azuredataboxfromdiskdocs).
 > - During preview, Data Box Disk can be shipped to customers in US and European Union. For more information, go to [Region availability](#region-availability).
 
 ## Use cases
@@ -88,7 +88,7 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 | Dimensions                                              | Disk - 2.5" SSD |            
 | Cables                                                  | 1 USB 3.1 cable per disk|
 | Storage capacity per order                              | 40 TB (usable ~ 35 TB)|
-| Disk storage capacity                                   | 4 TB (usable ~ 3.5 TB) <br> 8 TB (usable ~ 7 TB)|
+| Disk storage capacity                                   | 8 TB (usable ~ 7 TB)|
 | Data interface                                          | USB   |
 | Security                                                | Pre-encrypted using BitLocker and secure update <br> Passkey protected disks <br> Data encrypted at all times  |
 | Data transfer rate                                      | up to 430 MBps depending on the file size      |
@@ -102,12 +102,14 @@ During the preview, Data Box Disk can transfer data to the following Azure regio
 
 |Azure region  |Azure region  |
 |---------|---------|
-|West Central US     |North Central US         |        
-|West US2     | East US          |     
-|West US     | East US2           |      
-|South Central US   | West Europe       |         
-|Central US     | North Europe |
-
+|West Central US     |Canada Central       |        
+|West US2     |Canada East         |     
+|West US     | West Europe        |      
+|South Central US   |North Europe     |         
+|Central US     |Australia East|
+|North Central US  |Australia Southeast   |
+|East US      |Australia Central |
+|East US2     |Australia Central 2|
 
 
 ## Pricing

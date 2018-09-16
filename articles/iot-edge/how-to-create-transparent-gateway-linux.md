@@ -17,8 +17,8 @@ This article provides detailed instructions for using an IoT Edge device as a tr
 >[!NOTE]
 >Currently:
 > * If the gateway is disconnected from IoT Hub, downstream devices cannot authenticate with the gateway.
-> * IoT Edge devices cannot connect to IoT Edge gateways.
-> * Downstream devices can not use file upload.
+> * Edge-enabled devices can't connect to IoT Edge gateways. 
+> * Downstream devices can't use file upload.
 
 The hard part about creating a transparent gateway is securely connecting the gateway to downstream devices. Azure IoT Edge allows you to use PKI infrastructure to set up secure TLS connections between these devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway.  To maintain reasonable security, the downstream device should confirm the identity of the Edge device because you only want your devices connecting to your gateways and not a potentially malicious gateway.
 
@@ -75,9 +75,9 @@ The following steps walk you through the process of creating the certificates an
    >[!NOTE]
    > **DO NOT** use a name that is the same as the gateway's DNS host name. Doing so will cause client certification against these certificates to fail.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    The outputs of the script execution are the following certificates and key:
    * `$WRKDIR/certs/new-edge-device.*`
@@ -96,18 +96,24 @@ Create a certificate chain from the owner CA certificate, intermediate certifica
    * Device CA certificate -  `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * Device CA private key - `$WRKDIR/private/new-edge-device.key.pem`
    * Owner CA - `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. Open the IoT Edge configuration file. It is a protected file so you may have to use elevated privileges to access it.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.	Set the `certificate` properties in the Security Daemon config yaml file to the path where you placed the certificate and key files.
+3.	Set the `certificate` properties in the Iot Edge Daemon config yaml file to the path where you placed the certificate and key files.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## Deploy EdgeHub to the gateway
-One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. This section has you create a seemingly empty deployment; however Edge Hub is automatcially added to all deployments even if there are no other modules present. Edge Hub is the only module you need on an Edge Device to have it act as a transparent gateway so creating an empty deployment is enough. 
+One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. This section has you create a seemingly empty deployment; however Edge Hub is automatically added to all deployments even if there are no other modules present. Edge Hub is the only module you need on an Edge Device to have it act as a transparent gateway so creating an empty deployment is enough. 
 1. In the Azure portal, navigate to your IoT hub.
 2. Go to **IoT Edge** and select your IoT Edge device that you want to use as a gateway.
 3. Select **Set Modules**.
@@ -193,7 +199,7 @@ Refer to the [module composition article][lnk-module-composition] for more detai
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 [lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
 [lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
+[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
 [lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
 [lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
 [lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens

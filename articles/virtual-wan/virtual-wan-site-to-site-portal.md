@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -15,7 +15,7 @@ Customer intent: As someone with a networking background, I want to connect my l
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv2) VPN connection. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md)
 
 > [!NOTE]
-> If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms.virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
+> If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
@@ -86,7 +86,7 @@ $vnet   = New-AzureRmVirtualNetwork `
 ## <a name="wan"></a>3. Create a virtual WAN
 
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-2. Click **+Create a resource**. In the *Search the marketplace* field, type 'virtual wan'. Locate **Virtual WAN (preview)** from the returned list, and click to open the **Virtual WAN (preview)** page.
+2. At this time, you can find Virtual WAN by navigating to **All services** and searching for Virtual WAN. Or, you can search for Virtual WAN in the search box at the top of the Azure portal. Click **Virtual WAN** to open the page.
 3. Click **Create** to open the **Create WAN** page. If the page is not available, you have not yet been approved for this Preview.
 
   ![Create WAN](./media/virtual-wan-site-to-site-portal/createwan.png)
@@ -125,7 +125,7 @@ Create as many sites as you need that correspond to your physical locations. For
 1. On the page for your virtual WAN, click **Sites**.
 2. Under **Unassociated sites**, you see a list of sites that haven't yet been connected to a hub.
 3. Select the sites that you want to associate.
-4. From the dropdown, select the region that your hub will associated with. You should associate your hub to the region where the VNets that you want to connect to reside.
+4. From the dropdown, select the region that your hub will be associated with. You should associate your hub to the region where the VNets that you want to connect to reside.
 5. Click **Confirm**. If you do not yet have a hub in this region, a virtual hub VNet will be automatically created. In this case, the **Create regional hubs** page appears.
 6. On the **Create regional hubs** page, input the address range for your hub VNet. This is the VNet that will contain your hub services. The range you enter here must be a private IP address range and cannot overlap any of your on-premises address spaces, or your VNet address spaces. A subsequent VPN end point will be created in the hub VNet. (Automatic hub and gateway creation is only available in the portal.)
 7. Click **Create**.

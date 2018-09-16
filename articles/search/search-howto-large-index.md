@@ -11,7 +11,7 @@ ms.date: 05/01/2018
 ms.author: heidist
 
 ---
-# How to scale-out indexing in Azure Seearch
+# How to scale-out indexing in Azure Search
 
 As data volumes grow or processing needs change, you might find that simple [rebuilds and reindexing jobs](search-howto-reindex.md) are not enough. 
 

@@ -1,14 +1,15 @@
 ---
-title: Understand the prediction score returned by LUIS - Azure | Microsoft Docs
+title: Understand the prediction score returned by LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn what the prediction score means in LUIS
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr
+ms.date: 09/10/2018
+ms.author: diberry
 ---
 
 # Prediction score
@@ -32,6 +33,8 @@ Every utterance prediction returns a top-scoring intent. This is a numerical com
 
 If you are concerned about proximity of top scores, you should return the score for all intents. You can either add utterances to the two intents that indicate their differences with word choice and arrangement or you can have the LUIS-calling application, such as a chatbot, make programmatic choices about how to handle the two top intents. 
 
+Two intents, that are too closely scored, may invert due to nondeterministic training. The top score could become the second top and the second top score could become the first top score. In order to prevent this, add example utterances to each of the top two intents for that utterance with word choice and context that differentiates the two intents. The two intents should have about the same number of example utterances. A rule of thumb for separation to prevent inversion due to training, is a 15% difference in scores.
+
 ## Return prediction score for all intents
 A test or endpoint result can include all intents. This configuration is set on the [endpoint](https://aka.ms/v1-endpoint-api-docs) with the `verbose=true` query string name/value pair. 
 
@@ -52,6 +55,9 @@ Prediction scores can use exponent notation, *appearing* above the 0-1 range, su
 When you train the same model in a different app, and the scores are not this same, this is because there is an element of randomness in the training. Secondly, any overlap of an utterance to more than one intent means the top intent for the same utterance can change based on training.
 
 If your chatbot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
+
+## Punctuation
+Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not are two separate utterances and may get two different predictions. Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns}(luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
 
 ## Next steps
 

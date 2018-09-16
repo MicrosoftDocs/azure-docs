@@ -1,23 +1,19 @@
-﻿---
-title: Azure Quickstart - Create a storage account | Microsoft Docs
-description: Quickly learn to create a new storage account using the Azure portal, Azure PowerShell, or the Azure CLI.
+---
+title: "Quickstart: Create a storage account - Azure Storage"
+description: In this quickstart, you learn to create a storage account using the Azure portal, Azure PowerShell, or the Azure CLI. An Azure storage account provides a unique namespace in Microsoft Azure to store and access the data objects that you create in Azure Storage.
 services: storage
 author: tamram
-manager: twooley
-
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Create a storage account
 
-An Azure storage account provides a unique namespace in the cloud to store and access your data objects in Azure Storage. A storage account contains any blobs, files, queues, tables, and disks that you create under that account. 
-
-To get started with Azure Storage, you first need to create a new storage account. You can create an Azure storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). This quickstart shows how to use each of these options to create your new storage account. 
-
+In this quickstart, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).  
 
 ## Prerequisites
 

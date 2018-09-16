@@ -1,29 +1,35 @@
-- name: Ansible in Azure
+- name: Ansible on Azure documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: About Ansible in Azure
+  - name: About Ansible on Azure
     href: ./ansible-overview.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Install and configure Ansible
+    - name: Install Ansible on a Linux VM
       href: /azure/virtual-machines/linux/ansible-install-configure
       maintainContext: true
     - name: Create a Linux VM
       href: /azure/virtual-machines/linux/ansible-create-vm
       maintainContext: true
+    - name: Manage a Linux VM
+      href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+      maintainContext: true
 - name: Tutorials 
   items:
-  - name: Create a complete Linux VM
-    href: /azure/virtual-machines/linux/ansible-create-complete-vm
-    maintainContext: true
   - name: Run a playbook in Cloud Shell
     href: ./ansible-run-playbook-in-cloudshell.md
     maintainContext: true
   - name: Manage dynamic inventories
     href: ./ansible-manage-azure-dynamic-inventories.md
     maintainContext: true
+  - name: Create and configure VMSS
+    href: ./ansible-create-configure-vmss.md
+  - name: Deploy app to VMSS
+    href: ./ansible-deploy-app-vmss.md
+  - name: Create and configure AKS clusters
+    href: ./ansible-create-configure-aks.md
 - name: Reference
   items:
   - name: Playbook roles

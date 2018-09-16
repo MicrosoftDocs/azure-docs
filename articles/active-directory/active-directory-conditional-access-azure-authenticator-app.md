@@ -86,7 +86,7 @@ After you have installed the Azure Authenticator app, you can also create a work
 ### Sending log files to report issues
 1. Follow the guidance on Microsoft Support to report an incident with the Azure Authenticator app, obtain an incident number, and send log files against the assigned incident number as follows:
 2. From the pop up menu, click **Logging**.
-3. If you have an open incident with Microsoft Support, make note of the incident number (you'll need it for a later step). If you have not already created a support incident and would like assistance, follow the guidance at [Microsoft Support](https://support.microsoft.com/en-us/contactus) to open a new incident.
+3. If you have an open incident with Microsoft Support, make note of the incident number (you'll need it for a later step). If you have not already created a support incident and would like assistance, follow the guidance at [Microsoft Support](https://support.microsoft.com/contactus) to open a new incident.
 4. On the logging screen, click **Send Now**.
 5. Select the email provider you want to use.
 6. If you already have an open incident Microsoft Support, contact the Support Engineer assigned to your issue to find out how to send the log data and have it associated with your incident. The Support Engineer will provide you with information for the email address and subject line. If you do not already have a support incident, please follow the guidance at Microsoft Support to open a new incident.

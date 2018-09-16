@@ -3,21 +3,21 @@ title: Adaptive application controls in Azure Security Center | Microsoft Docs
 description: This document helps you to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
+ms.date: 07/31/2018
+ms.author: rkarlin
 
 ---
-# Adaptive application controls in Azure Security Center (Preview)
+# Adaptive application controls in Azure Security Center
 Learn how to configure application control in Azure Security Center using this walkthrough.
 
 ## What are adaptive application controls in Security Center?
@@ -31,7 +31,7 @@ Adaptive application controls help control which applications can run on your VM
 - Enable IT to control the access to sensitive data through app usage.
 
 ## How to enable adaptive application controls?
-Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups. This feature is only available for Windows machines (all versions, classic, or Azure Resource Manager). The following steps can be used to configure application whitelisting in Security Center:
+Adaptive application controls help you define a set of applications that are allowed to run on configured groups. This feature is only available for Windows machines (all versions, classic, or Azure Resource Manager). The following steps can be used to configure application whitelisting in Security Center:
 
 1. Open the **Security Center** dashboard.
 2. In the left pane, select **Adaptive application controls** located under **Advanced cloud defense**.
@@ -83,12 +83,11 @@ The **Groups of VMs** section contains three tabs:
 
 5. Once you finish your selections, select **Create**.
 
-By default, Security Center always enables application control in *Audit* mode. After validating that the whitelist has not had any adverse effects on your workload, you can change to *Enforce* mode.
-
-Security Center relies on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. New customers of Security Center standard tier should expect a behavior in which at first their groups of VMs appear under the *no recommendation* tab.
 
 > [!NOTE]
-> As a security best practice, Security Center will always try to create a publisher rule for the applications that should be whitelisted, and only if an application doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
+> - Security Center relies on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. New customers of Security Center standard tier should expect a behavior in which at first their groups of VMs appear under the *no recommendation* tab.
+> - Adaptive Application Controls from Security Center doesn’t support VMs for which an AppLocker policy is already enabled by either a GPO or a local security policy.
+> -  As a security best practice, Security Center will always try to create a publisher rule for the applications that should be whitelisted, and only if an application doesn’t have a publisher information (aka not signed), a path rule will be created for the full path of the specific EXE.
 >   
 
 ### Editing and monitoring a group configured with application control

@@ -1,9 +1,8 @@
 ---
-title: How to create a language model with the Speech Service - Microsoft Cognitive Services | Microsoft Docs
+title: How to create a language model with the Speech Service - Microsoft Cognitive Services
 description: Learn how to create a language model with the Speech Service in Microsoft Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
@@ -89,7 +88,7 @@ Once your language data is ready, click “Language Models” from the “Menu�
 
 The appropriate locale must be selected before taking any action. The current locale is indicated in the table title on all data, model, and deployment pages. To change the locale, click the “Change Locale” button located under the table’s title which will take you to a locale confirmation page. Click “OK” to return to the table.
 
-On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The Search and Dictation model is appropriate for speech directed at an application, such as commands, search queries, or dictation. Teh Conversational model is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. A new model called "Universal" is also publicly availabe. Universal aims to tackle all scenario and eventually replace the Search and Dictation and the Conversational models.
+On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The Search and Dictation model is appropriate for speech directed at an application, such as commands, search queries, or dictation. The Conversational model is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. A new model called "Universal" is also publicly availabe. Universal aims to tackle all scenario and eventually replace the Search and Dictation and the Conversational models.
 
 5.	In the example below
 After you have specified the base language model, select the language data set you wish to use for the customization using the “Language Data” drop-down menu
@@ -111,5 +110,5 @@ If you would like to change the "Name" or "Description" of the model at some poi
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [How to recognize speech in C#](quickstart-csharp-windows.md)
+- [How to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
 - [Git Sample Data](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

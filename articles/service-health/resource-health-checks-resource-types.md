@@ -38,7 +38,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.CDN/profile
 |Executed Checks|
 |---|
-|<ul> <li>Has any of the endpoints been stopped, removed, or misconfigured?</li><li>Is the supplemental portal accessible for CDN configuration operations?</li><li>Are there ongoing delivery issues with the CDN endpoints?</li><li>Can users change the configuration of their CDN resources?</li><li>Are configuration changes propagating at the expected rate?</li><li>Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?</li> </ul>|
+|<ul> <li>Is the supplemental portal accessible for CDN configuration operations?</li><li>Are there ongoing delivery issues with the CDN endpoints?</li><li>Can users change the configuration of their CDN resources?</li><li>Are configuration changes propagating at the expected rate?</li><li>Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?</li> </ul>|
 
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|

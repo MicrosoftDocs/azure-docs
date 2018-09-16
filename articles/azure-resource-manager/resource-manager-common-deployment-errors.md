@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
 
 ---
@@ -35,7 +35,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | Conflict | You are requesting an operation that is not permitted in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
 | DeploymentFailed | The DeploymentFailed error is a general error that does not provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
-| DeploymentQuotaExceeded | If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. You can delete entries from the history with [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) for Azure CLI, or [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Deleting an entry from the deployment history does not affect the deploy resources. | |
+| DeploymentQuotaExceeded | If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. You can delete entries from the history with [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) for Azure CLI, or [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Deleting an entry from the deployment history does not affect the deploy resources. | |
 | DnsRecordInUse | The DNS record name must be unique. Either provide a different name, or modify the existing record. | |
 | ImageNotFound | Check VM image settings. |  |
 | InUseSubnetCannotBeDeleted | You may encounter this error when attempting to update a resource, but the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -66,7 +66,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you are trying to perform during deployment. Find the policy that blocks the action. If possible, modify your deployment to meet the limitations from the policy. | [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Provide a resource name that does not include a reserved name. | [Reserved resource names](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |
-| ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Your deployment references a resource that cannot be resolved. Verify that your use of the **reference** function includes the parameters required for your scenario. | [Resolve references](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | The deployment is attempting to create resources that exceed the quota for the subscription, resource group, or region. If possible, revise your infrastructure to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Select SKU (such as VM size) that is available for the location you have selected. | [Resolve SKU](resource-manager-sku-not-available-errors.md) |
@@ -100,7 +100,21 @@ Select the message for more details. In the following image, you see an **Invali
 
 ### Deployment errors
 
-When the operation passes validation, but fails during deployment, you see the error in the notifications. Select the notification.
+When the operation passes validation, but fails during deployment, you get a deployment error.
+
+To see deployment error codes and messages with PowerShell, use:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+To see deployment error codes and messages with Azure CLI, use:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+In the portal, select the notification.
 
 ![notification error](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -114,59 +128,91 @@ You see the error message and error codes. Notice there are two error codes. The
 
 ## Enable debug logging
 
-Sometimes you need more information about the request and response to learn what went wrong. By using PowerShell or Azure CLI, you can request that additional information is logged during a deployment.
+Sometimes you need more information about the request and response to learn what went wrong. During deployment, you can request that additional information is logged during a deployment. 
 
-- PowerShell
+### PowerShell
 
-   In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
+In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   Examine the request content with the following cmdlet:
+Examine the request content with the following cmdlet:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   Or, the response content with:
+Or, the response content with:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   This information can help you determine whether a value in the template is being incorrectly set.
+This information can help you determine whether a value in the template is being incorrectly set.
 
-- Azure CLI
+### Azure CLI
 
-   Examine the deployment operations with the following command:
+Currently, Azure CLI doesn't support turning on debug logging, but you can retrieve debug logging.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+Examine the deployment operations with the following command:
 
-- Nested template
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   To log debug information for a nested template, use the **debugSetting** element.
+Examine the request content with the following command:
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+Examine the response content with the following command:
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### Nested template
+
+To log debug information for a nested template, use the **debugSetting** element.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## Create a troubleshooting template
 

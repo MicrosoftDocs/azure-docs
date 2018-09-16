@@ -2,18 +2,12 @@
 title: Manage Azure file shares using Azure CLI
 description: Learn how to use Azure CLI to manage Azure Files.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
-
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Manage Azure file shares using Azure CLI

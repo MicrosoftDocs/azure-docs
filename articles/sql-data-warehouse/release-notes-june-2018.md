@@ -3,11 +3,11 @@ title: Azure SQL Data Warehouse Release Notes June 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 06/25/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
 ---
@@ -18,7 +18,7 @@ Azure SQL Data Warehouse receives improvements continually. This article describ
 ## User Defined Restore Points
 SQL Data Warehouse automatically takes snapshots of your data warehouse every 8 hours guaranteeing an eight-hour recovery point objective (RPO). While this automated snapshots ease the management burden of running your data warehouse, there is a need to take snapshots at critical times based on your business need. For example, taking a snapshot right before a significant data load or the deployment of new scripts into the data warehouse to enable a restore point right before the operation. 
 
-SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) cmdlet.
+SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
 New-AzureRmSqlDatabaseRestorePoint
@@ -45,7 +45,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## OBJECT_SCHEMA_NAME
-The [OBJECT_SCHEMA_NAME()]() function returns the database schema name for schema-scoped objects. This function has become common in ETL tools when do object schema validation. 
+The [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) function returns the database schema name for schema-scoped objects. This function has become common in ETL tools when do object schema validation. 
 
 ```sql
 SELECT
@@ -102,3 +102,25 @@ start_time                | end_time                | command
 ------------------------------------------------------------------------------------------------------------------------------
 2018-06-06 19:06:26.173    2018-06-06 19:06:26.173    CREATE STATISTICS _WA_Sys_00000001_63D998CC ON dbo.LineItem(l_orderkey);
 ```
+
+## Next steps
+Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
+
+* [Customer success stories]
+* [Blogs]
+* [Feature requests]
+* [Videos]
+* [Customer Advisory Team blogs]
+* [Stack Overflow forum]
+* [Twitter]
+
+
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

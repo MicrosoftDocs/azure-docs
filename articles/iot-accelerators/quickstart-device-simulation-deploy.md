@@ -1,5 +1,5 @@
 ---
-title: Deploy and run a device simulation solution on Azure | Microsoft Docs
+title: Try and run a device simulation solution on Azure | Microsoft Docs
 description: In this quickstart, you deploy the Device Simulation Azure IoT solution accelerator. You sign use the solution dashboard to create a simulation.
 author: dominicbetts
 manager: timlt
@@ -17,8 +17,6 @@ ms.author: dobett
 
 This quickstart shows you how to deploy the Azure IoT Device Simulation solution accelerator to use to test your IoT solution. After you've deployed the solution accelerator, you use the **Simulation** page to create and run a simulation.
 
-## Prerequisites
-
 To complete this quickstart, you need an active Azure subscription.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -33,7 +31,7 @@ Click **Try Now** on the **Device Simulation** tile.
 
 ![Choose Device Simulation](./media/quickstart-device-simulation-deploy/devicesimulation.png)
 
-On the **Create Device Simulation solution** page, enter a unique **Solution name**. Make a note of your solution name, it's the name of the Azure resource group that that contains all the solution's resources.
+On the **Create Device Simulation solution** page, enter a unique **Solution name**. Make a note of your solution name, it's the name of the Azure resource group that contains all the solution's resources.
 
 Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. You must be a [global administrator or user](iot-accelerators-permissions.md) in the subscription.
 
@@ -85,7 +83,7 @@ You can only run one simulation at a time from a provisioned instance of the sol
 
 If you plan to explore further, leave the Device Simulation solution accelerator deployed.
 
-If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
+If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page, by selecting it, and then clicking **Delete Solution**:
 
 ![Delete solution](media/quickstart-device-simulation-deploy/deletesolution.png)
 
@@ -93,7 +91,7 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 
 In this quickstart, you've deployed the Device Simulation solution accelerator and run an IoT device simulation.
 
-To learn how to use an existing IoT Hub in a simulation, see the How-to guide:
+To learn how to use an existing IoT Hub in a simulation, see the following How-to guide:
 
 > [!div class="nextstepaction"]
 > [Use an existing IoT hub with the Device Simulation solution accelerator](iot-accelerators-device-simulation-choose-hub.md)

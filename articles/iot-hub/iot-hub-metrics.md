@@ -95,7 +95,7 @@ To further explore the capabilities of IoT Hub, see:
 [1]: media/iot-hub-metrics/enable-metrics-1.png
 [2]: media/iot-hub-metrics/enable-metrics-2.png
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-operations-monitoring]: iot-hub-operations-monitoring.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md

@@ -1,10 +1,9 @@
 ---
-title: Speech service supported languages - Microsoft Cognitive Services | Microsoft Docs
+title: Speech service supported languages - Microsoft Cognitive Services
 description: A list of the languages supported by the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -25,17 +24,26 @@ The Microsoft speech recognition API supports the following languages.
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
  It-IT | Italian (Italy) | No | Yes | No 
  de-DE | German (Germany) | No | Yes | Yes
- ja-JP | Japanese (Japan) | No | Yes | No
- en-US | English (United States) | Yes | Yes | Yes
- pt-BR | Portuguese (Brazil) | No | Yes | No
- es-ES | Spanish (Spain) | No | Yes | No
- ru-RU | Russian (Russia) | No | Yes | No
  fr-FR | French (France) | No | Yes | No
+ en-US | English (United States) | Yes | Yes | Yes
+ en-GB | English (British) | No | Yes | No
+ en-CA | English (Canadian) | No | Yes | No
+ en-AU | English (Australian) | No | Yes | No
+ es-ES | Spanish (Spain) | No | Yes | No
+ nl-NL | Dutch (Netherlands) | No | Yes | No
+ pt-PT | Portoguese (Portogal) | No | Yes | No
+ tr-TR | Turkish (Turkey) | No | Yes | No
+ pt-BR | Portuguese (Brazil) | No | Yes | No
+ ru-RU | Russian (Russia) | No | Yes | No
  zh-CN | Chinese (Mandarin, simplified) | No | Yes | No
+ zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
+ zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
+ ja-JP | Japanese (Japan) | No | Yes | No
+ ko-KR | Korean (Korea) | No | Yes | No
 
 ## Text to Speech
 
-The **Text to Speech** API offers the following voices, each of which supports a specific language and dialect, identified by locale.
+The speech synthesis API offers the following voices, each of which supports a specific language and dialect, identified by locale.
 
 Locale | Language | Gender | Service name mapping
 -------|----------|---------|--------------------
@@ -47,11 +55,11 @@ cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jak
 da-DK | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
-de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda) "
+de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo) "
+| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)"
 el-GR | Greek | Male | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)"
-en-AU | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine) "
+en-AU | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)"
 en-CA | English (Canada) | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)"
@@ -124,13 +132,16 @@ zh-TW | Chinese (Taiwan)|Female | "Microsoft Server Speech Text to Speech Voice 
 
 ### Customization
 
-Custom **Text to Speech** voice fonts support US English (en-US) and Chinese (zh-CN).
+Voice customization is available for US English (en-US), mainland Chinese (zh-CN) and Italian (it-IT).
+
+> [!NOTE]
+> Italian voice training starts with a dataset of 2,000+ utterances. Chinese-English bilingual models are also supported with an initial dataset of 2,000+ utterances.
 
 ## Speech Translation
 
 The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech Language table below. The available target languages depend on whether the translation target is speech or text.
 
-You can obtain the list of languages either programmatically or using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
+You can obtain the list of languages programmatically using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
 
 ### Speech languages
 
@@ -218,4 +229,4 @@ You can obtain the list of languages either programmatically or using the REST A
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

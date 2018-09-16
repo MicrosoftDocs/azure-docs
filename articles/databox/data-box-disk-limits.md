@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: 
 
 ---
-# Azure Data Box Disk limits? (Preview)
+# Azure Data Box Disk limits (Preview)
 
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Disk solution. 
@@ -29,7 +29,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Di
 
 ## Data Box service limits
 
- - Data Box service is available only in US and EU in all the Azure regions for Azure public cloud.
+ - Data Box service is available only in US, EU, Canada, and Australia in all the Azure regions for Azure public cloud.
  - A single storage account is supported with Data Box Disk.
 
 ## Data Box Disk performance
@@ -60,7 +60,7 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Azure storage account size limits
 
-Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Size of data copied into Azure storage account                      | Default Limit          |
 |---------------------------------------------------------------------|------------------------|

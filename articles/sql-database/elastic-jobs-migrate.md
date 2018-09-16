@@ -25,18 +25,25 @@ The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlet
 
 If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-Install the latest preview AzureRM.Sql Powershell module to get the Elastic Job cmdlets.
+Install the **AzureRM.Sql** 4.8.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-# You may need to restart the powershell session
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
+# Restart your powershell session with administrative access
+
 # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
+Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+
+# Import the AzureRM.Sql 4.8.1 module
+Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+
+# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+Get-Module AzureRM.Sql
 ```
 
 ### Create a new Elastic Job agent

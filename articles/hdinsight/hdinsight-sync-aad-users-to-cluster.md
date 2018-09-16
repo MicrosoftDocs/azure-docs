@@ -1,21 +1,14 @@
 ---
-title: Synchronize Azure Active Directory users to a cluster - Azure HDInsight | Microsoft Docs
+title: Synchronize Azure Active Directory users to a cluster - Azure HDInsight 
 description: Synchronize authenticated users from Azure Active Directory to a cluster.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: ashishthaps
 ms.author: ashishth
-
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 08/19/2018
 ---
 # Synchronize Azure Active Directory users to an HDInsight cluster
 
@@ -76,10 +69,10 @@ The following method uses POST with the Ambari REST API. For more information, s
     }
     ```
 
-4. To see the synchronization status, execute a new `curl` command, using the `href` value returned from the previous command:
+4. To see the synchronization status, execute a new `curl` command:
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
     
     The response should look like this:

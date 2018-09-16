@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2018
+ms.date: 08/05/2018
 ms.author: rkarlin
 
 ---
@@ -47,6 +47,8 @@ To see the details of each recommendation, select the **Recommendations tile** u
 
 ![Filter recommendations][2]
 
+You can filter recommendations. To filter the recommendations, select **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
+
 The recommendations are shown in a table format where each line represents one particular recommendation. The columns of this table are:
 
 * **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
@@ -72,7 +74,7 @@ Use the table below as a reference to help you understand the available recommen
 | [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all Azure virtual machines (VMs) and non-Azure computers. |
 | [Remediate security configurations](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended security configuration rules, for example, do not allow passwords to be saved. |
 | [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to your Windows and Linux VMs and computers. |
-| [Apply a Just-In-Time network access control](security-center-just-in-time.md) | Recommends that you apply just in time VM access. The just in time feature is in preview and available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. |
+| [Apply a Just-In-Time network access control](security-center-just-in-time.md) | Recommends that you apply just in time VM access. The just in time feature is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. |
 | [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
 | [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommends that you deploy a web application firewall (WAF) for web endpoints. A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443). </br>Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).</br>You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. |
 | [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection) |To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation completes the necessary setup changes. |
@@ -91,6 +93,7 @@ Use the table below as a reference to help you understand the available recommen
 | [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
 | [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
 | [Enable encryption for Azure Storage Account](security-center-enable-encryption-for-storage-account.md) | Recommends that you enable Azure Storage Service Encryption for data at rest. Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypts before retrieval. SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs. To learn more, see [Storage Service Encryption for data at rest](../storage/common/storage-service-encryption.md).</br>SSE is only supported on Resource Manager storage accounts. |
+| [Enable adaptive applications controls](security-center-adaptive-application.md) | Recommends that you apply adaptive application controls on your Windows VMs. This feature is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. |
 | App Service should only be accessible over HTTPS | Recommends that you limit access of App Service over HTTPS only. |
 | Web Sockets should be disabled for Web Application| Recommends that you carefully review the use of Web Sockets within web applications.  The Web Sockets protocol is vulnerable to different types of security threats. |
 | Use custom domains for your Web Application | Recommends that you use custom domains to protect a web application from common attacks such as phishing and other DNS-related attacks. |
@@ -119,13 +122,6 @@ Use the table below as a reference to help you understand the available recommen
 | Remove external accounts with owner permissions from your subscription | Recommends that you remove external accounts with owner permissions from your subscription in order to prevent unmonitored access. |
 | Remove deprecated accounts from subscription | Recommends that you remove deprecated accounts from your subscriptions. |
 | Remove deprecated accounts with owner permissions from subscription | Recommends that you remove deprecated accounts with owner permissions from your subscriptions. |
-You can filter and dismiss recommendations.
-
-1. Select **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
-
-2. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. One way is to right click an item, and then select **Dismiss**. The other is to hover over an item, click the three dots that appear to the right, and then select **Dismiss**. You can view dismissed recommendations by clicking **Filter**, and then selecting **Dismissed**.
-
-    ![Dismiss recommendation][3]
 
 ### Apply recommendations
 After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
@@ -145,4 +141,3 @@ In this document, you were introduced to security recommendations in Security Ce
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

@@ -46,6 +46,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: REST
-      html: <p><a href="/rest/api/iot-dps">REST API</a></p>
-
+    - title: REST API
+      html: <p><a href="/rest/api/iot-dps">REST</a></p>
+    - title: Azure IoT SDKs
+      html: <p><a href="https://github.com/Azure/azure-iot-sdk-c">C</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-python">Python</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-node">Node</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-java">Java</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C#</a></p>

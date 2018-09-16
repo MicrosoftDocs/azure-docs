@@ -43,7 +43,7 @@ sections:
     rows:
     - title: Computer Vision - Analyze an image
       values:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
+      - href: /azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
@@ -55,13 +55,13 @@ sections:
       - href: 
       - href:
       - href: /azure/cognitive-services/speech-service/get-started 
-    - title: LUIS - Use prebuilt home automation 
+    - title: LUIS - Query prediction endpoint 
       values:
+      - href: /azure/cognitive-services/luis/luis-get-started-cs-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-java-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-node-get-intent
+      - href: /azure/cognitive-services/luis/luis-get-started-python-get-intent
       - href: 
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/luis/luis-get-started-create-app
     - title: Text Analytics- Detect language, analyze sentiment
       values:
       - href: /azure/cognitive-services/Text-Analytics/quickstarts/csharp
@@ -91,6 +91,7 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Detect and frame faces in an image</a>
     - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search webpage </a>
     - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Use Language Understanding (LUIS) in a bot </a> 
     - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Improve intent accuracy for home automation commands </a>
@@ -109,7 +110,7 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="../media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>      
     - title: Speech
       html: <p><a class="barLink" href="/azure/cognitive-services/speech-service"><img src="../media/index/API_Speech_Service.svg" alt="" />Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/speech/home"><img src="../media/index/API_Bing_Speech.svg" alt="" />Speech API</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/speech/home"><img src="../media/index/API_Bing_Speech.svg" alt="" />Bing Speech API</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="../media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="../media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/translator-speech/"><img src="../media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a></p>  
@@ -123,7 +124,6 @@ sections:
     - title: Knowledge
       html: <p><a class="barLink" href="/azure/cognitive-services/custom-decision-service/"><img src="../media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/qnamaker/index"><img src="../media/index/API_QnAMaker.svg" alt="" /><span>QnA Maker</span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="../media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
     - title: Search
       html: <p><a class="barLink" href="/azure/cognitive-services/bing-news-search/"><img src="../media/index/API_Bing_News_Search.svg" alt="" />Bing News Search</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="../media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a></p>
@@ -145,3 +145,4 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview"><img src="../media/index/API_Answer_Search.svg" alt="" /><span>Project Answer Search</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview"><img src="../media/index/API_Anomaly_Finder.svg" alt="" /><span>Project Anomaly Finder</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview"><img src="../media/index/API_Conversation_Learner.svg" alt="" /><span>Project Conversation Learner</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/acoustics/what-is-acoustics"><img src="../media/index/API_Custom_Speech.svg" alt="" /><span>Project Acoustics</a></p>

@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ""
 ---
@@ -16,16 +16,16 @@ ms.component: ""
 Here are just a few ways you might use the streaming capability for Diagnostic Logs:
 
 * **Stream logs to 3rd party logging and telemetry systems** – You can stream all of your diagnostic logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
-* **View service health by streaming “hot path” data to PowerBI** – Using Event Hubs, Stream Analytics, and PowerBI, you can easily transform your diagnostics data in to near real-time insights on your Azure services. [This documentation article gives a great overview of how to set up Event Hubs, process data with Stream Analytics, and use PowerBI as an output](../stream-analytics/stream-analytics-power-bi-dashboard.md). Here are a few tips for getting set up with diagnostic logs:
+* **View service health by streaming “hot path” data to Power BI** – Using Event Hubs, Stream Analytics, and Power BI, you can easily transform your diagnostics data in to near real-time insights on your Azure services. [This documentation article gives a great overview of how to set up Event Hubs, process data with Stream Analytics, and use Power BI as an output](../stream-analytics/stream-analytics-power-bi-dashboard.md). Here are a few tips for getting set up with diagnostic logs:
 
   * An event hub for a category of diagnostic logs is created automatically when you check the option in the portal or enable it through PowerShell, so you want to select the event hub in the namespace with the name that starts with **insights-**.
-  * The following SQL code is a sample Stream Analytics query that you can use to parse all the log data in to a PowerBI table:
+  * The following SQL code is a sample Stream Analytics query that you can use to parse all the log data in to a Power BI table:
 
     ```sql
     SELECT
     records.ArrayValue.[Properties you want to track]
     INTO
-    [OutputSourceName – the PowerBI source]
+    [OutputSourceName – the Power BI source]
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
@@ -35,12 +35,12 @@ Here are just a few ways you might use the streaming capability for Diagnostic L
 
 ## Enable streaming of diagnostic logs
 
-You can enable streaming of diagnostic logs programmatically, via the portal, or using the [Azure Monitor REST APIs](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Either way, you create a diagnostic setting in which you specify an Event Hubs namespace and the log categories and metrics you want to send in to the namespace. An event hub is created in the namespace for each log category you enable. A diagnostic **log category** is a type of log that a resource may collect.
+You can enable streaming of diagnostic logs programmatically, via the portal, or using the [Azure Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Either way, you create a diagnostic setting in which you specify an Event Hubs namespace and the log categories and metrics you want to send in to the namespace. An event hub is created in the namespace for each log category you enable. A diagnostic **log category** is a type of log that a resource may collect.
 
 > [!WARNING]
 > Enabling and streaming diagnostic logs from Compute resources (for example, VMs or Service Fabric) [requires a different set of steps](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 
-The Event Hubs namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+The Event Hubs namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are part of the same AAD tenant.
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -87,7 +87,7 @@ The Event Hub Authorization Rule ID is a string with this format: `{Event Hub na
 
 ### Via Azure CLI 2.0
 
-To enable streaming via the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), you can use the [az monitor diagnostic-settings create](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+To enable streaming via the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), you can use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -189,5 +189,6 @@ You can also stream diagnostic logs from Compute resources using the Windows Azu
 
 ## Next steps
 
+* [Stream Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
 * [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
