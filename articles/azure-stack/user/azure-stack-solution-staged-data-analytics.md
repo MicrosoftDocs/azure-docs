@@ -258,3 +258,6 @@ Use the steps and settings outlined above to create another storage account and 
 ## Securely stored and accessed compliant data
 
 Global enterprise data is securely stored, processed, distributed, and accessed via Azure and Azure Stack Staged Data Analytics and custom endpoint directives. Remote office employee and machinery activities, facility data, and business metrics are continually compiled, stored, tested for compliance, and distributed according to company policy and regional regulation.
+
+## Next steps
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).
