@@ -51,10 +51,10 @@ Azure Data Explorer provides SDKs that can be used for query and data ingestion.
 
 Kusto offers client SDK that can be used to ingest and query data with :
 
-* [.Net framework SDK](TODO: create a page for "external" .NET SDK root)
 * [Python SDK](https://kusto.azurewebsites.net/docs/api/python/kusto-python-client-library.html)
+
 * [Java SDK](https://kusto.azurewebsites.net/docs/api/java/kusto-java-client-library.html)
-* [Kusto sink for Logstash](TODO: paste link to Logstash sink on GitHub)
+
 * [REST API](https://kusto.azurewebsites.net/docs/api/kusto-ingest-client-rest.html)
 
 **Programmatic ingestion techniques**:
@@ -74,7 +74,7 @@ Kusto offers client SDK that can be used to ingest and query data with :
 **Latency of different methods**:
 
 | Method | Latency |
-| --* | --* |
+| --- | --- |
 | **Inline ingestion** | Immediate |
 | **Ingest from query** | Query time + processing time |
 | **Ingest from storage** | Download time + processing time |
