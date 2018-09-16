@@ -150,8 +150,6 @@ If [sampling](app-insights-sampling.md) is in operation, the itemCount property 
 Below is just an excerpt of examples from a larger set of tutorials our developers put together. The full file with additional examples is in our [.NET GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/Test/Microsoft.ApplicationInsights.Test/Shared/Metrics/MetricsExamples.cs
 ).
 
-#### 
-
 *C#*
 
 ```csharp
@@ -317,163 +315,6 @@ To send a single metric value:
      telemetry.trackMetric({name: "queueLength", value: 42.0});
  ```
 
-#### Aggregating metrics
-
-It is recommended to aggregate metrics before sending them from your app, to reduce bandwidth, cost and to improve performance.
-Here is an example of aggregating code:
-
-*C#*
-
-```csharp
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.DataContracts;
-
-namespace MetricAggregationExample
-{
-    /// <summary>
-    /// Aggregates metric values for a single time period.
-    /// </summary>
-    internal class MetricAggregator
-    {
-        private SpinLock _trackLock = new SpinLock();
-
-        public DateTimeOffset StartTimestamp    { get; }
-        public int Count                        { get; private set; }
-        public double Sum                       { get; private set; }
-        public double SumOfSquares              { get; private set; }
-        public double Min                       { get; private set; }
-        public double Max                       { get; private set; }
-        public double Average                   { get { return (Count == 0) ? 0 : (Sum / Count); } }
-        public double Variance                  { get { return (Count == 0) ? 0 : (SumOfSquares / Count)
-                                                                                  - (Average * Average); } }
-        public double StandardDeviation         { get { return Math.Sqrt(Variance); } }
-
-        public MetricAggregator(DateTimeOffset startTimestamp)
-        {
-            this.StartTimestamp = startTimestamp;
-        }
-
-        public void TrackValue(double value)
-        {
-            bool lockAcquired = false;
-
-            try
-            {
-                _trackLock.Enter(ref lockAcquired);
-
-                if ((Count == 0) || (value < Min))  { Min = value; }
-                if ((Count == 0) || (value > Max))  { Max = value; }
-                Count++;
-                Sum += value;
-                SumOfSquares += value * value;
-            }
-            finally
-            {
-                if (lockAcquired)
-                {
-                    _trackLock.Exit();
-                }
-            }
-        }
-    }   // internal class MetricAggregator
-
-    /// <summary>
-    /// Accepts metric values and sends the aggregated values at 1-minute intervals.
-    /// </summary>
-    public sealed class Metric : IDisposable
-    {
-        private static readonly TimeSpan AggregationPeriod = TimeSpan.FromSeconds(60);
-
-        private bool _isDisposed = false;
-        private MetricAggregator _aggregator = null;
-        private readonly TelemetryClient _telemetryClient;
-
-        public string Name { get; }
-
-        public Metric(string name, TelemetryClient telemetryClient)
-        {
-            this.Name = name ?? "null";
-            this._aggregator = new MetricAggregator(DateTimeOffset.UtcNow);
-            this._telemetryClient = telemetryClient ?? throw new ArgumentNullException(nameof(telemetryClient));
-
-            Task.Run(this.AggregatorLoopAsync);
-        }
-
-        public void TrackValue(double value)
-        {
-            MetricAggregator currAggregator = _aggregator;
-            if (currAggregator != null)
-            {
-                currAggregator.TrackValue(value);
-            }
-        }
-
-        private async Task AggregatorLoopAsync()
-        {
-            while (_isDisposed == false)
-            {
-                try
-                {
-                    // Wait for end end of the aggregation period:
-                    await Task.Delay(AggregationPeriod).ConfigureAwait(continueOnCapturedContext: false);
-
-                    // Atomically snap the current aggregation:
-                    MetricAggregator nextAggregator = new MetricAggregator(DateTimeOffset.UtcNow);
-                    MetricAggregator prevAggregator = Interlocked.Exchange(ref _aggregator, nextAggregator);
-
-                    // Only send anything is at least one value was measured:
-                    if (prevAggregator != null && prevAggregator.Count > 0)
-                    {
-                        // Compute the actual aggregation period length:
-                        TimeSpan aggPeriod = nextAggregator.StartTimestamp - prevAggregator.StartTimestamp;
-                        if (aggPeriod.TotalMilliseconds < 1)
-                        {
-                            aggPeriod = TimeSpan.FromMilliseconds(1);
-                        }
-
-                        // Construct the metric telemetry item and send:
-                        var aggregatedMetricTelemetry = new MetricTelemetry(
-                                Name,
-                                prevAggregator.Count,
-                                prevAggregator.Sum,
-                                prevAggregator.Min,
-                                prevAggregator.Max,
-                                prevAggregator.StandardDeviation);
-                        aggregatedMetricTelemetry.Properties["AggregationPeriod"] = aggPeriod.ToString("c");
-
-                        _telemetryClient.Track(aggregatedMetricTelemetry);
-                    }
-                }
-                catch(Exception ex)
-                {
-                    // log ex as appropriate for your application
-                }
-            }
-        }
-
-        void IDisposable.Dispose()
-        {
-            _isDisposed = true;
-            _aggregator = null;
-        }
-    }   // public sealed class Metric
-}
-```
-
-### Custom metrics in Metrics Explorer
-
-To see the results, open Metrics Explorer and add a new chart. Edit the chart to show your metric.
-
-> [!NOTE]
-> Your custom metric might take several minutes to appear in the list of available metrics.
->
-
-![Add a new chart or select a chart, and under Custom, select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
-
 ### Custom metrics in Analytics
 
 The telemetry is available in the `customMetrics` table in [Application Insights Analytics](app-insights-analytics.md). Each row represents a call to `trackMetric(..)` in your app.
@@ -482,8 +323,6 @@ The telemetry is available in the `customMetrics` table in [Application Insights
 
 ## Page views
 In a device or webpage app, page view telemetry is sent by default when each screen or page is loaded. But you can change that to track page views at additional or different times. For example, in an app that displays tabs or blades, you might want to track a page whenever the user opens a new blade.
-
-![Usage lens on Overview blade](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
 
 User and session data is sent as properties along with page views, so the user and session charts come alive when there is page view telemetry.
 
