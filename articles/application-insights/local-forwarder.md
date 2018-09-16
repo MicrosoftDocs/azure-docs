@@ -1,6 +1,6 @@
 ---
-title:  Azure Application Insights Open Census local forwarder  | Microsoft docs
-description: Forward Open Census distributed traces from langauges like Python and Go to Azure Application Insights 
+title:  Azure Application Insights OpenCensus distributed tracing local forwarder  | Microsoft docs
+description: Forward OpenCensus distributed traces and spans from languages like Python and Go to Azure Application Insights 
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -19,7 +19,7 @@ ms.author: mbullwin
 
 Local forwarder is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and routes it to Application Insights. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
 
-## Running Local forwarder
+## Running local forwarder
 
 Local forwarder is an [open source project on GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). There are a variety of ways to run local forwarder on multiple platforms.
 
